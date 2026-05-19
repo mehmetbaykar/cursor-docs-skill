@@ -1,0 +1,47 @@
+name: Update Cursor Docs
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh Cursor docs from live pages
+        run: python scripts/update_cursor_docs.py
+
+      - name: Commit refreshed references
+        run: |
+          git add -A skills/cursor-docs/references
+          if git diff --cached --quiet; then
+            echo "Cursor docs references are already current."
+            exit 0
+          fi
+
+          changed=$(git diff --name-status --cached | awk '$1 == "M" {print $2}' | paste -sd ", " -)
+          added=$(git diff --name-status --cached | awk '$1 == "A" {print $2}' | paste -sd ", " -)
+          removed=$(git diff --name-status --cached | awk '$1 == "D" {print $2}' | paste -sd ", " -)
+
+          msg="chore: update cursor docs references - $(date +'%Y-%m-%d')"
+          [ -n "$changed" ] && msg="$msg | Updated: $changed"
+          [ -n "$added" ] && msg="$msg | Added: $added"
+          [ -n "$removed" ] && msg="$msg | Removed: $removed"
+
+          git \
+            -c user.name="github-actions[bot]" \
+            -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "$msg"
+          git push
