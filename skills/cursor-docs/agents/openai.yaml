@@ -1,0 +1,5 @@
+interface:
+  display_name: "Cursor Docs"
+  short_description: "Answers Cursor docs questions from a local generated mirror."
+policy:
+  allow_implicit_invocation: true

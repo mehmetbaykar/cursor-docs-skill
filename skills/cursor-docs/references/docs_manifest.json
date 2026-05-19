@@ -1,0 +1,74 @@
+{
+  "description": "Cursor documentation mirror manifest. Files live beside this manifest in references/.",
+  "fetch_metadata": {
+    "failed_pages": [],
+    "fetch_tool_version": "1.0",
+    "fixture_mode": false,
+    "pages_failed": 0,
+    "pages_fetched_successfully": 6,
+    "pages_skipped": 0,
+    "raw_fallback_pages": 0,
+    "total_pages_discovered": 6
+  },
+  "files": {
+    "hooks.md": {
+      "hash": "ce004a762f0ea8e14057f0dabb94f8ec3ffb9a9016471d8594e638fcf636269d",
+      "last_updated": "2026-05-19T11:35:18+00:00",
+      "original_url": "https://cursor.com/docs/hooks",
+      "path": "/docs/hooks",
+      "source_url": "https://cursor.com/docs/hooks.md",
+      "title": "Hooks"
+    },
+    "mcp.md": {
+      "hash": "2939bcd388962b0ecf5de9236a4f287d3f360c76ef7ee90e7b06b9ba09d7f2b5",
+      "last_updated": "2026-05-19T11:36:51+00:00",
+      "original_url": "https://cursor.com/docs/mcp",
+      "path": "/docs/mcp",
+      "source_url": "https://cursor.com/docs/mcp.md",
+      "title": "Model Context Protocol (MCP)"
+    },
+    "plugins.md": {
+      "hash": "67c4ac4cc5f50f02d0bd81212f42ee25f47a0d2cc2826f5c80577fcc18fde109",
+      "last_updated": "2026-05-18T19:24:13+00:00",
+      "original_url": "https://cursor.com/docs/plugins",
+      "path": "/docs/plugins",
+      "source_url": "https://cursor.com/docs/plugins.md",
+      "title": "Plugins"
+    },
+    "rules.md": {
+      "hash": "8a80c18f4f7f04c0e69e8f29d8382dfbe7c1886ee5268a598c23f887140a1dbb",
+      "last_updated": "2026-05-19T11:35:58+00:00",
+      "original_url": "https://cursor.com/docs/rules",
+      "path": "/docs/rules",
+      "source_url": "https://cursor.com/docs/rules.md",
+      "title": "Rules"
+    },
+    "skills.md": {
+      "hash": "92b30d75141294c37e64de081a242b751d49de20f2a7284b3adce04297225329",
+      "last_updated": "2026-05-18T19:24:13+00:00",
+      "original_url": "https://cursor.com/docs/skills",
+      "path": "/docs/skills",
+      "source_url": "https://cursor.com/docs/skills.md",
+      "title": "Agent Skills"
+    },
+    "subagents.md": {
+      "hash": "b77093df5632b23a6380f0c6a8233eb5ea3ac54d10d9249546ae11666fecec09",
+      "last_updated": "2026-05-18T19:24:13+00:00",
+      "original_url": "https://cursor.com/docs/subagents",
+      "path": "/docs/subagents",
+      "source_url": "https://cursor.com/docs/subagents.md",
+      "title": "Subagents"
+    }
+  },
+  "include": [
+    "https://cursor.com/docs/skills",
+    "https://cursor.com/docs/rules",
+    "https://cursor.com/docs/hooks",
+    "https://cursor.com/docs/mcp",
+    "https://cursor.com/docs/subagents",
+    "https://cursor.com/docs/plugins"
+  ],
+  "last_updated": "2026-05-19T11:36:51+00:00",
+  "skipped": [],
+  "source": "https://cursor.com/docs/"
+}
