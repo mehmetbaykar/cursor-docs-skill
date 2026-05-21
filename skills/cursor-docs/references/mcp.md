@@ -262,7 +262,7 @@ Agent asks for approval before using MCP tools by default. Click the arrow next 
 
 #### Auto-run
 
-Enable auto-run for Agent to use MCP tools without asking. Works like terminal commands. Read more about Auto-run settings [here](https://cursor.com/docs/agent/overview.md#auto-run).
+Enable auto-run for Agent to use MCP tools without asking. Works like terminal commands. Read more about auto-run modes [here](https://cursor.com/docs/agent/tools/terminal.md#auto-run-mode).
 
 To pre-configure which MCP tools can auto-run without using the settings UI, add them to [`~/.cursor/permissions.json`](https://cursor.com/docs/reference/permissions.md).
 
