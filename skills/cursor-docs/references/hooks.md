@@ -49,7 +49,56 @@ Hooks fall into three categories based on what triggers them:
 
 These separate hook surfaces let you apply different policies to autonomous Tab operations, user-directed Agent operations, and workspace startup.
 
-Cloud agents also run repo hooks. On Enterprise plans, they also run team hooks and enterprise-managed hooks.
+## Cloud agent support
+
+Cloud agents run command-based hooks from your repository. If you have hooks defined in `.cursor/hooks.json` at the root of your project, cloud agents pick them up and run them during their work.
+
+On Enterprise plans, cloud agents also run team hooks and enterprise-managed hooks configured through the [web dashboard](https://cursor.com/dashboard/team-content?section=hooks).
+
+### Supported hooks
+
+The following hooks run in cloud agents:
+
+| Hook | Supported |
+| ---------------------- | --------- |
+| `beforeShellExecution` | Yes |
+| `afterShellExecution` | Yes |
+| `beforeReadFile` | Yes |
+| `afterFileEdit` | Yes |
+| `preToolUse` | Yes |
+| `postToolUse` | Yes |
+| `postToolUseFailure` | Yes |
+| `subagentStart` | Yes |
+| `subagentStop` | Yes |
+| `preCompact` | Yes |
+
+### Hooks not available in cloud agents
+
+Some hooks don't apply to cloud agents due to differences in the execution environment:
+
+| Hook | Reason |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sessionStart` / `sessionEnd` | Cloud agent VMs are provisioned after a task is submitted. There is no VM running when the session starts on [cursor.com/agents](https://cursor.com/agents), so these hooks have no equivalent trigger point. |
+| `beforeSubmitPrompt` | The prompt is submitted from the web before the VM exists, so this hook can't run in the cloud environment. |
+| `beforeTabFileRead` / `afterTabFileEdit` | Tab completions are an IDE feature and don't run in cloud agents. |
+| `workspaceOpen` | This is an IDE lifecycle hook and doesn't apply to cloud agents. |
+| `beforeMCPExecution` / `afterMCPExecution` | Not yet wired for cloud agents. |
+| `afterAgentResponse` / `afterAgentThought` | Not yet wired for cloud agents. |
+| `stop` | Not yet wired for cloud agents. |
+
+### Configuration sources
+
+Cloud agents load hooks from these sources:
+
+- **Project hooks** (`.cursor/hooks.json` in your repo): Loaded and run during cloud agent work.
+- **Team hooks** (Enterprise): Distributed from the dashboard and run in cloud agents.
+- **Enterprise hooks** (Enterprise): System-wide managed hooks run in cloud agents.
+
+User-level hooks (`~/.cursor/hooks.json`) are not available in cloud agents. Cloud agent VMs don't have access to your local home directory configuration.
+
+### Execution type limits
+
+Cloud agents run **command-based hooks** only. Prompt-based hooks require authentication wiring between the hook and the agent loop, which isn't available in the cloud execution environment.
 
 ## Quickstart
 
