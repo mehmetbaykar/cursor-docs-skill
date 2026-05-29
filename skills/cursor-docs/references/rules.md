@@ -35,7 +35,7 @@ When applied, rule contents are included at the start of the model context. This
 
 ## Project rules
 
-Project rules live in `.cursor/rules` as markdown files and are version-controlled. They are scoped using path patterns, invoked manually, or included based on relevance.
+Project rules live in `.cursor/rules` as `.mdc` files and are version-controlled. They are scoped using path patterns, invoked manually, or included based on relevance.
 
 Use project rules to:
 
@@ -45,14 +45,14 @@ Use project rules to:
 
 ### Rule file structure
 
-Each rule is a markdown file that you can name anything you want. Cursor supports `.md` and `.mdc` extensions. Use `.mdc` files with frontmatter to specify `description` and `globs` for more control over when rules are applied.
+Each rule is an `.mdc` file that you can name anything you want. Project rules must use the `.mdc` extension. A plain `.md` file in `.cursor/rules` is ignored by the rules system because it has no frontmatter to specify `description`, `globs`, and `alwaysApply`. If you prefer plain markdown, use [AGENTS.md](rules.md#agentsmd) instead.
 
 ```bash
 .cursor/rules/
-  react-patterns.mdc       # Rule with frontmatter (description, globs)
-  api-guidelines.md        # Simple markdown rule
+  react-patterns.mdc       # Recognized as a project rule
+  api-guidelines.md        # Ignored (wrong extension)
   frontend/                # Organize rules in folders
-    components.md
+    components.mdc
 
 ```
 
