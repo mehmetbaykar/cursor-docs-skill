@@ -20,8 +20,8 @@
       "title": "Hooks"
     },
     "mcp.md": {
-      "hash": "05f3af6ee054e6fba667b7273397ab0479501141d8a86ef27908f81d1bbf77d0",
-      "last_updated": "2026-05-21T03:57:27+00:00",
+      "hash": "f53a2574682112922ebd3cac880a811691657432518032461b871816259fa358",
+      "last_updated": "2026-05-29T20:28:45+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp.md",
@@ -36,8 +36,8 @@
       "title": "Plugins"
     },
     "rules.md": {
-      "hash": "8a80c18f4f7f04c0e69e8f29d8382dfbe7c1886ee5268a598c23f887140a1dbb",
-      "last_updated": "2026-05-19T11:35:58+00:00",
+      "hash": "2225bb8aa81707ab46c8aba45119628fd3752a585d8f188091c6c531f13d1e4a",
+      "last_updated": "2026-05-29T20:28:45+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
       "source_url": "https://cursor.com/docs/rules.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-05-26T20:11:23+00:00",
+  "last_updated": "2026-05-29T20:28:45+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }

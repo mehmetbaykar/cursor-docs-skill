@@ -252,19 +252,19 @@ Cursor supports OAuth for servers that require it.
 
 ## Using MCP in chat
 
-Agent automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md#plan). Ask for a specific tool by name or describe what you need. Enable or disable tools from settings.
+Cursor automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md#plan). Ask for a specific tool by name or describe what you need. Enable or disable tools from settings.
 
 ### Tool approval
 
-Agent asks for approval before using MCP tools by default. Click the arrow next to the tool name to see arguments.
+Cursor asks for approval before using MCP tools by default. Click the arrow next to the tool name to see arguments.
 
 ![Tool confirmation prompt](/docs-static/images/context/mcp/tool-confirm.png)
 
-#### Auto-run
+#### Run Mode
 
-Enable auto-run for Agent to use MCP tools without asking. Works like terminal commands. Read more about auto-run modes [here](https://cursor.com/docs/agent/tools/terminal.md#auto-run-mode).
+Let Cursor use MCP tools without asking. MCP [follows the same modes as terminal commands](https://cursor.com/docs/agent/tools/terminal.md#editor-configuration). In **Auto-review** mode (Cursor 3.6 and above, the default), allowlisted MCP tools run immediately and everything else is routed through the safety classifier described in the [Run Mode reference](https://cursor.com/docs/agent/tools/terminal.md#run-mode).
 
-To pre-configure which MCP tools can auto-run without using the settings UI, add them to [`~/.cursor/permissions.json`](https://cursor.com/docs/reference/permissions.md).
+To pre-configure which MCP tools can run without approval, add them to [`permissions.json`](https://cursor.com/docs/reference/permissions.md). You can also steer the **Auto-review** classifier per server or tool with [`autoRun` instructions](https://cursor.com/docs/reference/permissions.md#autorun-configuration) in the same file.
 
 ### Tool response
 
