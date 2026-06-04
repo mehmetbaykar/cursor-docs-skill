@@ -55,14 +55,23 @@ Distribution groups can be controlled with [SCIM](https://cursor.com/docs/accoun
 Use this flow to import a GitHub repository as a team marketplace:
 
 1. Go to **Dashboard -> Settings -> Plugins**.
-2. In **Team Marketplaces**, click **Import**.
-3. Paste the GitHub repository URL and continue.
-4. Review the parsed plugins. Optionally set Team Access groups, then continue.
-5. Set the marketplace name and description, then save.
+2. In **Team Marketplaces**, click **Add Marketplace**.
+3. Follow the instructions to create a marketplace from scratch, or use "Import from Repo" if importing from GitHub.
+4. Add and review plugins using "Add to Marketplace".
+5. Set Team Access groups, optionally enable Auto Refresh, then save.
 
 Example repository to try:
 
 - [fieldsphere/cursor-team-marketplace-template](https://github.com/fieldsphere/cursor-team-marketplace-template)
+
+## Keep plugins up to date
+
+When importing from GitHub, plugins are indexed when you first import the repository. You can refresh plugins in two ways:
+
+- **Automatically**: Turn on **Enable Auto Refresh** to update plugins automatically whenever changes are pushed to the branch the marketplace tracks. This requires the [Cursor GitHub App](https://cursor.com/docs/integrations/github.md) installed on the repository. Cursor re-indexes a marketplace at most once every 10 minutes, batching rapid pushes to the latest commit.
+- **Manually**: Click "Refresh" to manually update.
+
+Auto Refresh updates plugins that are already part of the marketplace. Adding a brand-new plugin from the repository isn't automatic — re-import the repository URL to pick up newly added plugins.
 
 ## Where developers find team marketplaces
 
