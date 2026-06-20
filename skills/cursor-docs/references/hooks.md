@@ -404,6 +404,8 @@ type StopHookInput = {
   conversation_id: string;
   generation_id: string;
   model: string;
+  model_id?: string;
+  model_params?: Array<{ id: string; value: string }>;
   status: 'completed' | 'aborted' | 'error';
   loop_count: number;
 };
@@ -451,6 +453,8 @@ async function sendTelemetry(payload: StopHookInput, entry: MetricsEntry) {
       conversationId: payload.conversation_id,
       generationId: payload.generation_id,
       model: payload.model,
+      modelId: payload.model_id,
+      modelParams: payload.model_params,
       status: payload.status,
       errorCount: entry.errorCount,
       loopCount: payload.loop_count,
@@ -823,6 +827,8 @@ All hooks receive a base set of fields in addition to their hook-specific fields
   "conversation_id": "string",
   "generation_id": "string",
   "model": "string",
+  "model_id": "string",
+  "model_params": [{ "id": "string", "value": "string" }],
   "hook_event_name": "string",
   "cursor_version": "string",
   "workspace_roots": ["<path>"],
@@ -833,10 +839,12 @@ All hooks receive a base set of fields in addition to their hook-specific fields
 ```
 
 | Field | Type | Description |
-| ----------------- | -------------- | --------------------------------------------------------------------------------------------------------- |
+| ----------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
 | `conversation_id` | string | Stable ID of the conversation across many turns |
 | `generation_id` | string | The current generation that changes with every user message |
-| `model` | string | The model configured for the composer that triggered the hook |
+| `model` | string | Legacy model slug configured for the composer that triggered the hook |
+| `model_id` | string (optional) | Structured ID for the selected model, when available |
+| `model_params` | array (optional) | Selected model parameters, such as thinking, context, or effort. Each item has an `id` and `value`. |
 | `hook_event_name` | string | Which hook is being run |
 | `cursor_version` | string | Cursor application version (e.g. "1.7.2") |
 | `workspace_roots` | string\[] | The list of root folders in the workspace (normally just one, but multiroot workspaces can have multiple) |
@@ -858,7 +866,13 @@ Called before any tool execution. This is a generic hook that fires for all tool
   "tool_input": { "command": "npm install", "working_directory": "/project" },
   "tool_use_id": "abc123",
   "cwd": "/project",
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-opus-4-7-thinking-max",
+  "model_id": "claude-opus-4-7",
+  "model_params": [
+    { "id": "thinking", "value": "true" },
+    { "id": "context", "value": "1m" },
+    { "id": "effort", "value": "max" }
+  ],
   "agent_message": "Installing dependencies..."
 }
 
@@ -892,7 +906,13 @@ Called after successful tool execution. Useful for auditing, analytics, and inje
   "tool_use_id": "abc123",
   "cwd": "/project",
   "duration": 5432,
-  "model": "claude-sonnet-4-20250514"
+  "model": "claude-opus-4-7-thinking-max",
+  "model_id": "claude-opus-4-7",
+  "model_params": [
+    { "id": "thinking", "value": "true" },
+    { "id": "context", "value": "1m" },
+    { "id": "effort", "value": "max" }
+  ]
 }
 
 // Output
