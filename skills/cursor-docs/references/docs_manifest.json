@@ -12,8 +12,8 @@
   },
   "files": {
     "hooks.md": {
-      "hash": "63e15a29bf49ed5aa510d63e161a6024e06a6c569808b8e44373ba4f3353ccc5",
-      "last_updated": "2026-05-26T20:11:23+00:00",
+      "hash": "905eb68a6939dba4d63c18334b35b815a84054110f75c98700b43749b60b7003",
+      "last_updated": "2026-06-20T19:39:55+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-06-18T04:11:36+00:00",
+  "last_updated": "2026-06-20T19:39:55+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }
