@@ -141,7 +141,7 @@ Add an `auth` object to remote server entries that use `url`:
 Cursor uses a **fixed OAuth redirect URL** for all MCP servers:
 
 ```text
-cursor://anysphere.cursor-mcp/oauth/callback
+https://www.cursor.com/agents/mcp/oauth/callback
 
 ```
 

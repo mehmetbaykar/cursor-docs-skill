@@ -20,8 +20,8 @@
       "title": "Hooks"
     },
     "mcp.md": {
-      "hash": "f53a2574682112922ebd3cac880a811691657432518032461b871816259fa358",
-      "last_updated": "2026-05-29T20:28:45+00:00",
+      "hash": "f711545481bc974d59c340c82a5a68b5c61958e7495d53125415fa4353864880",
+      "last_updated": "2026-06-22T12:08:17+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-06-20T19:39:55+00:00",
+  "last_updated": "2026-06-22T12:08:17+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }
