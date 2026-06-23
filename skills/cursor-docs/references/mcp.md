@@ -250,6 +250,33 @@ MCP servers use environment variables for authentication. Pass API keys and toke
 
 Cursor supports OAuth for servers that require it.
 
+## Enterprise admin controls
+
+Team and Enterprise admins can control which MCP servers users may run from the Cursor dashboard. Open **Dashboard > Settings > MCP** to configure the team's MCP policy.
+
+### MCP Allowlist
+
+Use the MCP Allowlist to define approved servers:
+
+- **Command entries** approve local `stdio` MCP servers by command pattern.
+- **URL entries** approve remote HTTP/SSE MCP servers by URL entry pattern.
+- **Tool allowlists** restrict which tools from an approved server can run automatically. Leave a tool allowlist empty to allow all tools from that server.
+
+### Network controls
+
+Remote MCP URLs are restricted to the configured URL entry pattern.
+
+Local command-based MCP servers use their per-server network mode:
+
+- **Allow all**: allow outbound network access.
+- **Allowlist**: allow only listed destinations.
+- **Deny all**: block outbound network access.
+- **No sandbox**: run without command or network sandboxing.
+
+### User MCP extensions
+
+Admins can allow users to configure their own MCP servers outside admin-defined command or URL patterns. For user MCPs that do not match an admin-defined pattern, the User MCP Network Denylist can block matching network destinations.
+
 ## Using MCP in chat
 
 Cursor automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md#plan). Ask for a specific tool by name or describe what you need. Enable or disable tools from settings.
