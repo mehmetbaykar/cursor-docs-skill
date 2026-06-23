@@ -8,7 +8,7 @@ path: /docs/mcp
 
 ## What is MCP?
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) enables Cursor to connect to external tools and data sources.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) enables Cursor to connect to external tools and data sources. Install and manage MCP servers from the [Customize](https://cursor.com/docs/customize-cursor.md) page or configure them in `mcp.json`.
 
 ### Why use MCP?
 
@@ -53,7 +53,7 @@ MCP Apps follow progressive enhancement. If a host cannot render app UI, the sam
 
 ### One-click installation
 
-Browse the [Cursor Marketplace](/marketplace) for official plugins with one-click install. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). Click "Add to Cursor" on a marketplace entry to install it and authenticate with OAuth.
+Browse the [Cursor Marketplace](/marketplace) for official plugins with one-click install from **Customize**, or configure custom servers with `mcp.json`. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). Click "Add to Cursor" on a marketplace entry to install it and authenticate with OAuth.
 
 ### Using `mcp.json`
 
@@ -279,7 +279,7 @@ Admins can allow users to configure their own MCP servers outside admin-defined 
 
 ## Using MCP in chat
 
-Cursor automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md#plan). Ask for a specific tool by name or describe what you need. Enable or disable tools from settings.
+Cursor automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md#plan). Ask for a specific tool by name or describe what you need. Enable or disable MCP servers from **Customize** in the sidebar.
 
 ### Tool approval
 
@@ -360,9 +360,9 @@ The logs show server initialization, tool calls, and error messages.
 
 Yes! Toggle servers on/off without removing them:
 
-1. Open Settings (Cmd+Shift+J)
-2. Go to Features → Model Context Protocol
-3. Click the toggle next to any server to enable/disable
+1. Open **Customize** in the sidebar
+2. Find the MCP server you want to change
+3. Use the toggle to enable or disable it
 
 Disabled servers won't load or appear in chat. This is useful for troubleshooting or reducing tool clutter.
 
@@ -381,7 +381,7 @@ Cursor isolates server failures to prevent one server from affecting others.
 
 For npm-based servers:
 
-1. Remove the server from settings
+1. Remove the server from **Customize**
 2. Clear npm cache: `npm cache clean --force`
 3. Re-add the server to get the latest version
 

@@ -6,7 +6,7 @@ path: /docs/hooks
 
 # Hooks
 
-Hooks let you observe, control, and extend the agent loop using custom scripts. Hooks are spawned processes that communicate over stdio using JSON in both directions. They run before or after defined stages of the agent loop and can observe, block, or modify behavior.
+Hooks let you observe, control, and extend the agent loop using custom scripts. Define hooks in `hooks.json` files at the project or user level, or install them through plugins from **Customize**. Hooks are spawned processes that communicate over stdio using JSON in both directions. They run before or after defined stages of the agent loop and can observe, block, or modify behavior.
 
 With hooks, you can:
 
@@ -1482,7 +1482,7 @@ Session-scoped environment variables from `sessionStart` hooks are passed to all
 
 **How to confirm hooks are active**
 
-There is a Hooks tab in Cursor Settings to debug configured and executed hooks, as well as a Hooks output channel to see errors.
+There is a Hooks tab in **Customize** and a Hooks output channel to debug configured and executed hooks and see errors.
 
 **If hooks are not working**
 

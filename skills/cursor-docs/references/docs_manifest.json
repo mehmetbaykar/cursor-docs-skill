@@ -12,48 +12,48 @@
   },
   "files": {
     "hooks.md": {
-      "hash": "905eb68a6939dba4d63c18334b35b815a84054110f75c98700b43749b60b7003",
-      "last_updated": "2026-06-20T19:39:55+00:00",
+      "hash": "2bdbadd11385cb88a31afcf1c76735125f587827f77bd6a94a2e4cf7525e7279",
+      "last_updated": "2026-06-23T20:08:28+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks.md",
       "title": "Hooks"
     },
     "mcp.md": {
-      "hash": "2de3036006160ee56e9738b40b7d170f3707b7ea5b283851e5e2ac07202a7104",
-      "last_updated": "2026-06-23T17:18:35+00:00",
+      "hash": "6ab175f77b34fb4f04b218ccde3da7f8f341498e42b1f0d4585d4ecfc57da297",
+      "last_updated": "2026-06-23T20:08:28+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp.md",
       "title": "Model Context Protocol (MCP)"
     },
     "plugins.md": {
-      "hash": "c2c004874c313779c41b293b6fafec5c35fd4fbb5eb74c68492f2f2c39c75168",
-      "last_updated": "2026-06-04T22:22:21+00:00",
+      "hash": "a8603c4744e4430a8ca77f825e3a3aca064c213f426650356c77a64d6a4f5700",
+      "last_updated": "2026-06-23T20:08:28+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins.md",
       "title": "Plugins"
     },
     "rules.md": {
-      "hash": "2225bb8aa81707ab46c8aba45119628fd3752a585d8f188091c6c531f13d1e4a",
-      "last_updated": "2026-05-29T20:28:45+00:00",
+      "hash": "31a7dc8ce21ec522141adc63af52dd626ebcc496945c601afaa6620a1d8e4135",
+      "last_updated": "2026-06-23T20:08:28+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
       "source_url": "https://cursor.com/docs/rules.md",
       "title": "Rules"
     },
     "skills.md": {
-      "hash": "92b30d75141294c37e64de081a242b751d49de20f2a7284b3adce04297225329",
-      "last_updated": "2026-05-18T19:24:13+00:00",
+      "hash": "8100eae9dd9111a7e75ebccf1eebff555d0c408559cfe65303b069cfdb35da23",
+      "last_updated": "2026-06-23T20:08:28+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills.md",
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "6b87ec3becb18cd7a44f967715d66401078a118169859e1cd6022f271264eaca",
-      "last_updated": "2026-06-18T04:11:36+00:00",
+      "hash": "27e1dbb033e815e267ec44e5e7f0918082e2f9d5b5478654a9fd7fadae9ac7fa",
+      "last_updated": "2026-06-23T20:08:28+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-06-23T17:18:35+00:00",
+  "last_updated": "2026-06-23T20:08:28+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }
