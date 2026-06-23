@@ -232,18 +232,14 @@ Keep your main `SKILL.md` focused and move detailed reference material to separa
 
 ## Viewing skills
 
-To view discovered skills:
-
-1. Open **Cursor Settings** (Cmd+Shift+J on Mac, Ctrl+Shift+J on Windows/Linux)
-2. Navigate to **Rules**
-3. Skills appear in the **Agent Decides** section
+To view discovered skills, open **Customize** in the sidebar and go to **Skills**. Skills installed from plugins or your project appear alongside rules in the **Agent Decides** section.
 
 ## Installing skills from GitHub
 
 You can import skills from GitHub repositories:
 
-1. Open **Cursor Settings → Rules**
-2. In the **Project Rules** section, click **Add Rule**
+1. Open **Customize** in the sidebar
+2. Go to **Rules** and click **Add Rule**
 3. Select **Remote Rule (Github)**
 4. Enter the GitHub repository URL
 

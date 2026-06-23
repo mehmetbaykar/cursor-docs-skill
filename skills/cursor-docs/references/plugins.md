@@ -6,7 +6,7 @@ path: /docs/plugins
 
 # Plugins
 
-Plugins package rules, skills, agents, commands, MCP servers, and hooks into distributable bundles. Browse official plugins in the [Cursor Marketplace](/marketplace). For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). You can also [build your own](plugins.md#creating-plugins) to share with other developers.
+Plugins package rules, skills, agents, commands, MCP servers, and hooks into distributable bundles. Install and manage them from the [Customize](https://cursor.com/docs/customize-cursor.md) page or browse official plugins in the [Cursor Marketplace](/marketplace). For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). You can also [build your own](plugins.md#creating-plugins) to share with other developers.
 
 ## What plugins contain
 
@@ -21,9 +21,18 @@ A plugin can bundle any combination of these components:
 | **MCP Servers** | Model Context Protocol integrations |
 | **Hooks** | Automation scripts triggered by events |
 
+## Plugin canvases
+
+Plugins now ship with prebuilt **canvases**: shared setup templates your team can open and reuse.
+
+- **Hex Canvas** — Build data visualizations. At Cursor, we use the Hex Canvas to explore and share analytics.
+- **Atlassian Canvas** — See a realtime view of your issues, projects, and documents from Jira and Confluence.
+
+Open a canvas from an installed plugin in Customize to get a guided starting point instead of configuring everything from scratch.
+
 ## The marketplace
 
-The [Cursor Marketplace](/marketplace) is where you discover and install official plugins. Plugins are distributed as Git repositories and submitted through the Cursor team. Every plugin is [manually reviewed](https://cursor.com/help/security-and-privacy/marketplace-security.md) before it's listed. Browse official plugins at [cursor.com/marketplace](https://cursor.com/marketplace) or search by keyword in the marketplace panel. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory).
+The [Cursor Marketplace](/marketplace) is where you discover and install official plugins. Plugins are distributed as Git repositories and submitted through the Cursor team. Every plugin is [manually reviewed](https://cursor.com/help/security-and-privacy/marketplace-security.md) before it's listed. Browse official plugins at [cursor.com/marketplace](https://cursor.com/marketplace) or search by keyword in **Customize**. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory).
 
 ## Team marketplaces
 
@@ -75,9 +84,9 @@ Auto Refresh updates plugins that are already part of the marketplace. Adding a 
 
 ## Where developers find team marketplaces
 
-Developers can find team marketplaces in the marketplace panel in Cursor.
+Developers can find team marketplaces in Customize.
 
-- Open the marketplace panel in Cursor.
+- Open **Customize** in the sidebar
 - Look for plugins from your team marketplace.
 - Install optional plugins directly from that panel.
 - Required plugins are installed automatically when admins save the required setting for your distribution group.
@@ -99,19 +108,21 @@ See [MCP install links](https://cursor.com/docs/mcp/install-links.md) for detail
 
 ## Managing installed plugins
 
+Open **Customize** in the sidebar to manage plugins, MCP servers, rules, and skills from one page. Filter by user, workspace, or team scope to see what is installed.
+
 ### MCP servers
 
-Toggle MCP servers on or off from Cursor Settings:
+Toggle MCP servers on or off from Customize:
 
-1. Open Settings (Cmd+Shift+J)
-2. Go to **Features** > **Model Context Protocol**
-3. Click the toggle next to any server
+1. Open **Customize** in the sidebar
+2. Find the MCP server you want to change
+3. Use the toggle to enable or disable it
 
 Disabled servers won't load or appear in chat.
 
 ### Rules and skills
 
-Manage rules and skills from the Rules section of Cursor Settings. Toggle individual rules between **Always**, **Agent Decides**, and **Manual** modes. Skills appear in the **Agent Decides** section and can be invoked manually with `/skill-name` in chat.
+Manage rules and skills from Customize. Toggle individual rules between **Always**, **Agent Decides**, and **Manual** modes. Skills appear in the **Agent Decides** section and can be invoked manually with `/skill-name` in chat.
 
 ## Using the workspaceOpen hook
 
