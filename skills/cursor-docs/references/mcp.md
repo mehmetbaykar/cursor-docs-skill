@@ -26,7 +26,7 @@ Cursor supports three transport methods:
 
 | Transport | Execution environment | Deployment | Users | Input | Auth |
 | :-------------------- | :-------------------- | :--------------- | :------------- | :---------------------- | :----- |
-| **`stdio`** | Local | Cursor manages | Single user | Shell command | Manual |
+| **`stdio`** | Local | Cursor manages | Single user | shell command | Manual |
 | **`SSE`** | Local/Remote | Deploy as server | Multiple users | URL to an SSE endpoint | OAuth |
 | **`Streamable HTTP`** | Local/Remote | Deploy as server | Multiple users | URL to an HTTP endpoint | OAuth |
 
@@ -262,9 +262,7 @@ Cursor asks for approval before using MCP tools by default. Click the arrow next
 
 #### Run Mode
 
-Let Cursor use MCP tools without asking. MCP [follows the same modes as terminal commands](https://cursor.com/docs/agent/tools/terminal.md#editor-configuration). In **Auto-review** mode (Cursor 3.6 and above, the default), allowlisted MCP tools run immediately and everything else is routed through the safety classifier described in the [Run Mode reference](https://cursor.com/docs/agent/tools/terminal.md#run-mode).
-
-To pre-configure which MCP tools can run without approval, add them to [`permissions.json`](https://cursor.com/docs/reference/permissions.md). You can also steer the **Auto-review** classifier per server or tool with [`autoRun` instructions](https://cursor.com/docs/reference/permissions.md#autorun-configuration) in the same file.
+MCP [follows the same Run Modes as terminal commands](https://cursor.com/docs/agent/security/run-modes.md#run-mode). For example, in **Auto-review** mode, allowlisted MCP tools run immediately and everything else is routed through the classifier.
 
 ### Tool response
 
