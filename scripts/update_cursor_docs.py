@@ -834,6 +834,19 @@ def load_existing_manifest(references_dir: Path = REFERENCES_DIR) -> dict[str, o
         return {}
 
 
+def load_stale_reference(
+    filename: str,
+    previous_files: dict[str, object],
+    references_dir: Path = REFERENCES_DIR,
+) -> tuple[str, dict[str, str]] | None:
+    previous_metadata = previous_files.get(filename)
+    reference_path = references_dir / filename
+    if not isinstance(previous_metadata, dict) or not reference_path.exists():
+        return None
+
+    return reference_path.read_text(encoding="utf-8"), dict(previous_metadata)
+
+
 def preserve_last_updated(
     filename: str,
     metadata: dict[str, str],
@@ -925,17 +938,31 @@ def generate_references(
                 html_text, source_url = read_mhtml(fixtures_dir / page.fixture)
                 content, metadata = build_reference(html_text, source_url, page)
         except urllib.error.HTTPError as error:
-            if (
-                error.code == 404
-                and fixtures_dir is None
-                and isinstance(previous_files.get(filename), dict)
-                and (REFERENCES_DIR / filename).exists()
-            ):
+            stale_reference = load_stale_reference(filename, previous_files)
+            if error.code in {404} or error.code >= 500:
+                if fixtures_dir is None and stale_reference is not None:
+                    content, metadata = stale_reference
+                    logger.warning(
+                        "Stale (%s after retries): %s; keeping previous content",
+                        error.code,
+                        page.slug,
+                    )
+                    contents[filename] = content
+                    files[filename] = metadata
+                    unchanged += 1
+                    continue
+            logger.error("Failed: %s (%s)", page.slug, error)
+            failed.append((page.slug, error))
+            continue
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as error:
+            stale_reference = load_stale_reference(filename, previous_files)
+            if fixtures_dir is None and stale_reference is not None:
+                content, metadata = stale_reference
                 logger.warning(
-                    "Stale (404 after retries): %s; keeping previous content", page.slug
+                    "Stale (transient fetch error): %s; keeping previous content (%s)",
+                    page.slug,
+                    error,
                 )
-                content = (REFERENCES_DIR / filename).read_text(encoding="utf-8")
-                metadata = dict(previous_files[filename])
                 contents[filename] = content
                 files[filename] = metadata
                 unchanged += 1
