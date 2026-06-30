@@ -138,14 +138,18 @@ Add an `auth` object to remote server entries that use `url`:
 
 #### Static redirect URL
 
-Cursor uses a **fixed OAuth redirect URL** for all MCP servers:
+Cursor uses fixed OAuth redirect URLs for MCP servers. Register the callback for each surface your users authenticate from:
 
 ```text
 https://www.cursor.com/agents/mcp/oauth/callback
+cursor://anysphere.cursor-mcp/oauth/callback
 
 ```
 
-When configuring the MCP provider's OAuth app, register this URL as an allowed redirect URI. The server is identified via the OAuth `state` parameter, so one redirect URL works for all MCP servers.
+- **Web and Cursor Agents**: `https://www.cursor.com/agents/mcp/oauth/callback`
+- **Desktop app**: `cursor://anysphere.cursor-mcp/oauth/callback`
+
+When configuring the MCP provider's OAuth app, register both URLs as allowed redirect URIs if users authenticate from both web and desktop. The server is identified via the OAuth `state` parameter, so these redirect URLs work for all MCP servers.
 
 #### Combining with config interpolation
 

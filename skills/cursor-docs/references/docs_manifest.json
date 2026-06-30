@@ -20,8 +20,8 @@
       "title": "Hooks"
     },
     "mcp.md": {
-      "hash": "6ab175f77b34fb4f04b218ccde3da7f8f341498e42b1f0d4585d4ecfc57da297",
-      "last_updated": "2026-06-23T20:08:28+00:00",
+      "hash": "2985462c3916baec0ac01c96ff39d289a022075b143ee188ef91e9845ce8e8a6",
+      "last_updated": "2026-06-30T17:07:07+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp.md",
@@ -44,8 +44,8 @@
       "title": "Rules"
     },
     "skills.md": {
-      "hash": "8100eae9dd9111a7e75ebccf1eebff555d0c408559cfe65303b069cfdb35da23",
-      "last_updated": "2026-06-23T20:08:28+00:00",
+      "hash": "0f8a6a8051039e43776bbf48106a3aca5647a18de4f35eff1bf0a5b22064c939",
+      "last_updated": "2026-06-30T17:07:07+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-06-23T20:08:28+00:00",
+  "last_updated": "2026-06-30T17:07:07+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }
