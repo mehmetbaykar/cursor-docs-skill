@@ -55,6 +55,8 @@ MCP Apps follow progressive enhancement. If a host cannot render app UI, the sam
 
 Browse the [Cursor Marketplace](/marketplace) for official plugins with one-click install from **Customize**, or configure custom servers with `mcp.json`. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). Click "Add to Cursor" on a marketplace entry to install it and authenticate with OAuth.
 
+Team admins can also distribute MCP servers through a [team marketplace](plugins.md#team-marketplaces). Team-distributed servers appear in Customize alongside personal and workspace MCP servers.
+
 ### Using `mcp.json`
 
 Configure custom MCP servers with a JSON file:
@@ -256,9 +258,19 @@ Cursor supports OAuth for servers that require it.
 
 ## Enterprise admin controls
 
-Team and Enterprise admins can control which MCP servers users may run from the Cursor dashboard. Open **Dashboard > Settings > MCP** to configure the team's MCP policy.
+Team and Enterprise admins manage MCP distribution and MCP policy separately.
+
+### Team MCP distribution
+
+Configure shared Team MCP servers under **Dashboard > Integrations & MCP**. These servers are available to Cloud Agents.
+
+To make an existing standalone Team MCP server available in the Agent Window, IDE, and CLI, select **Add to Team Marketplace** under **Team MCP Servers**. Cursor links the server to the Default team marketplace without interrupting Cloud Agent access. Teammates can then install and configure it from Customize.
+
+Linking an MCP server to a marketplace does not install or enable it for everyone. Configure **Marketplace Access** and plugin installation modes under **Dashboard > Plugins**. See [Migrate existing Team MCPs](plugins.md#migrate-existing-team-mcps) for the full flow.
 
 ### MCP Allowlist
+
+Open **Dashboard > Settings > MCP** to configure which servers and tools the team may run. Allowlisting approves an MCP configuration. It does not distribute or install the server.
 
 Use the MCP Allowlist to define approved servers:
 
