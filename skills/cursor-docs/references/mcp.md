@@ -258,7 +258,7 @@ Cursor supports OAuth for servers that require it.
 
 ## Enterprise admin controls
 
-Team and Enterprise admins manage MCP distribution and MCP policy separately.
+MCP distribution and MCP policy are configured separately. Team admins can distribute shared MCP servers. Enterprise admins can configure MCP policy.
 
 ### Team MCP distribution
 
@@ -270,7 +270,7 @@ Linking an MCP server to a marketplace does not install or enable it for everyon
 
 ### MCP Allowlist
 
-Open **Dashboard > Settings > MCP** to configure which servers and tools the team may run. Allowlisting approves an MCP configuration. It does not distribute or install the server.
+Enterprise admins can control which MCP servers users may run from the Cursor dashboard. Open [Team Settings > MCP Configuration](https://cursor.com/dashboard/team-settings#mcp-configuration) to configure which servers and tools the team may run. Allowlisting approves an MCP configuration. It does not distribute or install the server.
 
 Use the MCP Allowlist to define approved servers:
 
