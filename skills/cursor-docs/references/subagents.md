@@ -146,6 +146,31 @@ The `model` field controls which model a subagent uses. There are two options:
 
 Choose `inherit` when the subagent needs the same reasoning power as the parent. Use a specific model ID when you need a particular model's capabilities regardless of what the parent uses.
 
+#### Model parameters
+
+Append square brackets to a model ID to set per-model options like speed, reasoning effort, and context window. Write options as `id=value` pairs, and separate multiple options with commas.
+
+| Example | Behavior |
+| :------------------------------------------ | :--------------------------------------------------------------------------------------- |
+| `composer-2.5[]` | Pins the base model. Empty brackets select the standard variant instead of the fast one. |
+| `composer-2.5[fast=false]` | Selects the standard (non-fast) variant explicitly. |
+| `claude-opus-4-8[effort=high]` | Sets reasoning effort to `high`. |
+| `claude-opus-4-8[context=300k]` | Sets the context window to 300k tokens. |
+| `claude-opus-4-8[effort=high,context=300k]` | Combines options. |
+
+Available options depend on the model, and use the same `id=value` pairs as the SDK's [model parameters](https://cursor.com/docs/sdk/typescript.md#model-parameters).
+
+```markdown
+---
+name: planner
+description: Plans complex changes before implementation.
+model: claude-opus-4-8[effort=high]
+---
+
+Break the task into a clear, ordered implementation plan.
+
+```
+
 #### When the configured model won't be used
 
 Cursor honors the `model` field in your subagent frontmatter unless one of these conditions applies:
