@@ -12,8 +12,8 @@
   },
   "files": {
     "hooks.md": {
-      "hash": "2bdbadd11385cb88a31afcf1c76735125f587827f77bd6a94a2e4cf7525e7279",
-      "last_updated": "2026-06-23T20:08:28+00:00",
+      "hash": "a18d0978a0b6b8bf94ba2752526640a7f9cb55d6e14755529765f0bf1c791222",
+      "last_updated": "2026-07-09T19:48:49+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks.md",
@@ -52,8 +52,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "1ef0cfc584e75f2ac60a8a815e4cd6db612f3f73386a216569a4e4d7b7614d2d",
-      "last_updated": "2026-07-07T19:57:45+00:00",
+      "hash": "704a8b9480ecac09b0ea8a5ab27538cf1fad5afe6634a3a88ce5c702430e1650",
+      "last_updated": "2026-07-09T19:48:49+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-07-07T19:57:45+00:00",
+  "last_updated": "2026-07-09T19:48:49+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }

@@ -140,9 +140,9 @@ Report findings by severity:
 The `model` field controls which model a subagent uses. There are two options:
 
 | Value | Behavior |
-| :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inherit` | Uses the same model as the parent agent. This is the default. |
-| A specific model ID | Uses the exact model you specify, such as `composer-2` or `gpt-5.5`. See the [models reference](https://cursor.com/docs/models-and-pricing.md) for available IDs. |
+| A specific model ID | Uses the exact model you specify, such as `composer-2` or `gpt-5.6-sol`. See the [models reference](https://cursor.com/docs/models-and-pricing.md) for available IDs. |
 
 Choose `inherit` when the subagent needs the same reasoning power as the parent. Use a specific model ID when you need a particular model's capabilities regardless of what the parent uses.
 
@@ -207,7 +207,7 @@ Search the codebase and return relevant file paths and code snippets.
 ---
 name: reasoning-agent
 description: Handles complex architectural decisions.
-model: gpt-5.5
+model: gpt-5.6-sol
 ---
 
 Analyze the architecture and recommend changes with detailed reasoning.
