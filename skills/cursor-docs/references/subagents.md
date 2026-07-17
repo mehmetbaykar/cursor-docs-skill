@@ -176,10 +176,10 @@ Break the task into a clear, ordered implementation plan.
 Cursor honors the `model` field in your subagent frontmatter unless one of these conditions applies:
 
 - **Team admin restrictions** — Your organization's admin has blocked the specified model.
-- **Max Mode required** — The model requires [Max Mode](https://cursor.com/help/ai-features/max-mode.md) and you don't have it enabled.
+- **Legacy Max Mode setting** — On a legacy request-based plan, the model requires [Max Mode](https://cursor.com/help/ai-features/max-mode.md) and you don't have it enabled.
 - **Plan limitations** — The model isn't available on your current plan.
 
-In these cases, Cursor falls back to a compatible model. If you're seeing unexpected model behavior, check your plan settings and Max Mode status.
+In these cases, Cursor falls back to a compatible model. If you're seeing unexpected model behavior, check your plan and model settings.
 
 ```markdown
 ---
@@ -468,7 +468,7 @@ Check the subagent's description and prompt. Ensure the instructions are specifi
 
 ### Why is my subagent using a different model?
 
-Cursor overrides the configured model in three cases: the model is blocked by your team admin, the model requires [Max Mode](https://cursor.com/help/ai-features/max-mode.md) and you don't have it enabled, or the model isn't available on your plan. On legacy request-based plans without Max Mode, subagents run using Composer regardless of any `model` configuration. If your team admin has blocked Composer, subagents will only be able to run in Max Mode for request-based plans. Usage-based plans and Max Mode will default to the parent model. See [model configuration](subagents.md#model-configuration) for details.
+Cursor overrides the configured model when your team admin blocks it, your plan doesn't include it, or a legacy request-based plan requires [Max Mode](https://cursor.com/help/ai-features/max-mode.md) and you don't have it enabled. On legacy request-based plans without Max Mode, subagents run using Composer regardless of any `model` configuration. If your team admin has blocked Composer, subagents can run only when Max Mode is enabled. On usage-based plans and legacy request-based plans with Max Mode, subagents default to the parent model. See [model configuration](subagents.md#model-configuration) for details.
 
 ---
 
