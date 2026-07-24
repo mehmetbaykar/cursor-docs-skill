@@ -52,8 +52,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "c791550585a33df1b2d6c3dec2827eefb53064968c28940f2ad69418f18f3470",
-      "last_updated": "2026-07-17T19:12:41+00:00",
+      "hash": "2060239d59feabc159d0e9d8d91de3a4f4c3f35743c18925b54f34541a908417",
+      "last_updated": "2026-07-24T19:26:31+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-07-17T19:12:41+00:00",
+  "last_updated": "2026-07-24T19:26:31+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }
