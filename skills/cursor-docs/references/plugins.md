@@ -108,7 +108,9 @@ When importing from GitHub, plugins are indexed when you first import the reposi
 - **Automatically**: Turn on **Enable Auto Refresh** to update plugins automatically whenever changes are pushed to the branch the marketplace tracks. This requires the [Cursor GitHub App](https://cursor.com/docs/integrations/github.md) installed on the repository. Cursor re-indexes a marketplace at most once every 10 minutes, batching rapid pushes to the latest commit.
 - **Manually**: Click "Refresh" to manually update.
 
-Auto Refresh updates plugins that are already part of the marketplace. Adding a brand-new plugin from the repository isn't automatic — re-import the repository URL to pick up newly added plugins.
+For marketplaces created with "Import from Repo", Auto Refresh re-reads the full manifest on each push, so new plugins added to the repository are picked up automatically.
+
+For marketplaces where plugins were added individually, Auto Refresh only updates existing plugins. Re-import the repository URL to pick up newly added plugins.
 
 ## Where developers find team marketplaces
 

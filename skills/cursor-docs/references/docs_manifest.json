@@ -28,8 +28,8 @@
       "title": "Model Context Protocol (MCP)"
     },
     "plugins.md": {
-      "hash": "358c73823d12182ee90e3aa609f590be25a74f7676dc68ee28d22fa825c259a8",
-      "last_updated": "2026-07-01T09:51:33+00:00",
+      "hash": "8c2e2c814f96b99d174bd4d70dea673085a5e6a2073896dfe63cea92bc2f5ddc",
+      "last_updated": "2026-08-03T12:25:47+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins.md",
@@ -68,7 +68,7 @@
     "https://cursor.com/docs/subagents",
     "https://cursor.com/docs/plugins"
   ],
-  "last_updated": "2026-07-24T19:26:31+00:00",
+  "last_updated": "2026-08-03T12:25:47+00:00",
   "skipped": [],
   "source": "https://cursor.com/docs/"
 }
