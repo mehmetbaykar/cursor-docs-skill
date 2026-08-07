@@ -2,73 +2,1393 @@
   "description": "Cursor documentation mirror manifest. Files live beside this manifest in references/.",
   "fetch_metadata": {
     "failed_pages": [],
-    "fetch_tool_version": "1.0",
-    "fixture_mode": false,
+    "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 6,
-    "pages_skipped": 0,
-    "raw_fallback_pages": 0,
-    "total_pages_discovered": 6
+    "pages_fetched_successfully": 150,
+    "pages_skipped": 1,
+    "pages_stale": 0,
+    "stale_pages": [],
+    "total_pages_discovered": 151
   },
   "files": {
+    "account__organizations__organization-admin-api.md": {
+      "hash": "1830362dd9c382deab9efb9e639b4c7b74abee2fb731213b41c552c4300b6f62",
+      "last_updated": "2026-08-07T17:11:40+00:00",
+      "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
+      "path": "/docs/account/organizations/organization-admin-api",
+      "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
+      "status": "live",
+      "title": "Organization API"
+    },
+    "account__pricing__request-based-legacy.md": {
+      "hash": "f278d586218a6dbc536d5b137bdc7bf08aeeb33cf8bd6b68e28c6544be8c2c73",
+      "last_updated": "2026-08-07T17:11:41+00:00",
+      "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
+      "path": "/docs/account/pricing/request-based-legacy",
+      "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
+      "status": "live",
+      "title": "Request-Based Pricing (Legacy)"
+    },
+    "account__regions.md": {
+      "hash": "c35fe310e634fca6da8cd7cc467680cb61b8950dd911eba9024d821d6f6d5173",
+      "last_updated": "2026-08-07T17:11:41+00:00",
+      "original_url": "https://cursor.com/docs/account/regions",
+      "path": "/docs/account/regions",
+      "source_url": "https://cursor.com/docs/account/regions",
+      "status": "live",
+      "title": "Regions"
+    },
+    "account__teams__admin-api.md": {
+      "hash": "5a6ab2f6044c0f41e67e94e7d141ce14c5eee79ec778905995b975ca5cbfe5a1",
+      "last_updated": "2026-08-07T17:11:41+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/admin-api",
+      "path": "/docs/account/teams/admin-api",
+      "source_url": "https://cursor.com/docs/account/teams/admin-api",
+      "status": "live",
+      "title": "Admin API"
+    },
+    "account__teams__ai-code-tracking-api.md": {
+      "hash": "13eb006846ae59368203dbd993528c858e446a663ab922d40da1e23c23b25bbc",
+      "last_updated": "2026-08-07T17:11:42+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/ai-code-tracking-api",
+      "path": "/docs/account/teams/ai-code-tracking-api",
+      "source_url": "https://cursor.com/docs/account/teams/ai-code-tracking-api",
+      "status": "live",
+      "title": "AI Code Tracking API"
+    },
+    "account__teams__analytics-api.md": {
+      "hash": "eca90141536932f6774f2f639cf3bf57458e9f54a433a149f4c716b8a697744f",
+      "last_updated": "2026-08-07T17:11:42+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/analytics-api",
+      "path": "/docs/account/teams/analytics-api",
+      "source_url": "https://cursor.com/docs/account/teams/analytics-api",
+      "status": "live",
+      "title": "Analytics API"
+    },
+    "account__teams__analytics.md": {
+      "hash": "182aa917dbb51e9b98f8a3d1af2d1f6afc5ec0ed19cab00d8e63425467defee7",
+      "last_updated": "2026-08-07T17:11:42+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/analytics",
+      "path": "/docs/account/teams/analytics",
+      "source_url": "https://cursor.com/docs/account/teams/analytics",
+      "status": "live",
+      "title": "Usage Analytics"
+    },
+    "account__teams__dashboard.md": {
+      "hash": "50770a1bf092ba5e7e13f75fdbf8c951d9247bd72a60b0411e32fe25015d67e8",
+      "last_updated": "2026-08-07T17:11:43+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/dashboard",
+      "path": "/docs/account/teams/dashboard",
+      "source_url": "https://cursor.com/docs/account/teams/dashboard",
+      "status": "live",
+      "title": "Dashboard"
+    },
+    "account__teams__members.md": {
+      "hash": "edfa9434dee8d821bbcc8ebc95e06412fcc0bcadcac58e8b76dc2830c54d0256",
+      "last_updated": "2026-08-07T17:11:43+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/members",
+      "path": "/docs/account/teams/members",
+      "source_url": "https://cursor.com/docs/account/teams/members",
+      "status": "live",
+      "title": "Members, Roles, and Seat Types"
+    },
+    "account__teams__pricing.md": {
+      "hash": "4062e0ae649e104faa09b7f736955b5d05a3a3b22f8fa5ad768c44b537a60a1b",
+      "last_updated": "2026-08-07T17:11:43+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/pricing",
+      "path": "/docs/account/teams/pricing",
+      "source_url": "https://cursor.com/docs/account/teams/pricing",
+      "status": "live",
+      "title": "Team Pricing"
+    },
+    "account__teams__scim.md": {
+      "hash": "68ba41b3be94c38e306d48fa8c342a7164903203f43799686da99acaf8fd683a",
+      "last_updated": "2026-08-07T17:11:44+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/scim",
+      "path": "/docs/account/teams/scim",
+      "source_url": "https://cursor.com/docs/account/teams/scim",
+      "status": "live",
+      "title": "SCIM"
+    },
+    "account__teams__setup.md": {
+      "hash": "114cd4fe29a9f607d00bf741da880a479badefc5291337781a819389284c7c25",
+      "last_updated": "2026-08-07T17:11:44+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/setup",
+      "path": "/docs/account/teams/setup",
+      "source_url": "https://cursor.com/docs/account/teams/setup",
+      "status": "live",
+      "title": "Get Started"
+    },
+    "account__teams__sso.md": {
+      "hash": "f60b70dbdb09cab7bf01c6c6a72359fdde8be6d8a8b14c4dfb761945a6f19bb8",
+      "last_updated": "2026-08-07T17:11:44+00:00",
+      "original_url": "https://cursor.com/docs/account/teams/sso",
+      "path": "/docs/account/teams/sso",
+      "source_url": "https://cursor.com/docs/account/teams/sso",
+      "status": "live",
+      "title": "SSO"
+    },
+    "account__update-access.md": {
+      "hash": "86fdafef291c95a9d6dd95e9336595e5404b6092215b04401bfecb285d82c9ec",
+      "last_updated": "2026-08-07T17:11:44+00:00",
+      "original_url": "https://cursor.com/docs/account/update-access",
+      "path": "/docs/account/update-access",
+      "source_url": "https://cursor.com/docs/account/update-access",
+      "status": "live",
+      "title": "Update Access"
+    },
+    "agent__agent-review.md": {
+      "hash": "574cbd3202a8f441efeee259e597ac1dd368061914a9705f99300b01e88dfb13",
+      "last_updated": "2026-08-07T17:11:45+00:00",
+      "original_url": "https://cursor.com/docs/agent/agent-review",
+      "path": "/docs/agent/agent-review",
+      "source_url": "https://cursor.com/docs/agent/agent-review",
+      "status": "live",
+      "title": "Agent Review"
+    },
+    "agent__agents-window.md": {
+      "hash": "513c5f0d80807d296584999b28d775cbf936b15e6bd0be404ab3bd4e020037d8",
+      "last_updated": "2026-08-07T17:11:45+00:00",
+      "original_url": "https://cursor.com/docs/agent/agents-window",
+      "path": "/docs/agent/agents-window",
+      "source_url": "https://cursor.com/docs/agent/agents-window",
+      "status": "live",
+      "title": "Agents Window"
+    },
+    "agent__debug-mode.md": {
+      "hash": "4f3946c25f80b7a72bd0aaa4f8aa8b39066906f8f98eb51a3e2112d1cd6fb5fa",
+      "last_updated": "2026-08-07T17:11:45+00:00",
+      "original_url": "https://cursor.com/docs/agent/debug-mode",
+      "path": "/docs/agent/debug-mode",
+      "source_url": "https://cursor.com/docs/agent/debug-mode",
+      "status": "live",
+      "title": "Debug Mode"
+    },
+    "agent__design-mode.md": {
+      "hash": "8b90e98c875f9dcfebcf7dbbce13e73edbcaabbcc68d3eea9b02e0986caed953",
+      "last_updated": "2026-08-07T17:11:46+00:00",
+      "original_url": "https://cursor.com/docs/agent/design-mode",
+      "path": "/docs/agent/design-mode",
+      "source_url": "https://cursor.com/docs/agent/design-mode",
+      "status": "live",
+      "title": "Design Mode"
+    },
+    "agent__overview.md": {
+      "hash": "be502df901ec9cd10829f177b047122b4b4645bc9d70591d8ba512a5f6b4407e",
+      "last_updated": "2026-08-07T17:11:46+00:00",
+      "original_url": "https://cursor.com/docs/agent/overview",
+      "path": "/docs/agent/overview",
+      "source_url": "https://cursor.com/docs/agent/overview",
+      "status": "live",
+      "title": "Cursor Agent"
+    },
+    "agent__plan-mode.md": {
+      "hash": "862da34f589dba29f073899c3f65f539b2576f201f38a15eed3deba9f116c64f",
+      "last_updated": "2026-08-07T17:11:46+00:00",
+      "original_url": "https://cursor.com/docs/agent/plan-mode",
+      "path": "/docs/agent/plan-mode",
+      "source_url": "https://cursor.com/docs/agent/plan-mode",
+      "status": "live",
+      "title": "Plan Mode"
+    },
+    "agent__prompting.md": {
+      "hash": "7e90e7d7b23c51315055e51d1917f7ff51b3ecd52a6e0dee5c5d11d246e89fac",
+      "last_updated": "2026-08-07T17:11:47+00:00",
+      "original_url": "https://cursor.com/docs/agent/prompting",
+      "path": "/docs/agent/prompting",
+      "source_url": "https://cursor.com/docs/agent/prompting",
+      "status": "live",
+      "title": "Prompting agents"
+    },
+    "agent__security.md": {
+      "hash": "ff4168f63c0efff508f98c7362b6d72e0b98d3f9edca16b81c3ab69674b066db",
+      "last_updated": "2026-08-07T17:11:47+00:00",
+      "original_url": "https://cursor.com/docs/agent/security",
+      "path": "/docs/agent/security",
+      "source_url": "https://cursor.com/docs/agent/security",
+      "status": "live",
+      "title": "Agent Security"
+    },
+    "agent__security__run-modes.md": {
+      "hash": "8487f8b0a40d7d3cdfab3047a814999cef53e2bac9d4ff02f48cc8abd78d3a14",
+      "last_updated": "2026-08-07T17:11:48+00:00",
+      "original_url": "https://cursor.com/docs/agent/security/run-modes",
+      "path": "/docs/agent/security/run-modes",
+      "source_url": "https://cursor.com/docs/agent/security/run-modes",
+      "status": "live",
+      "title": "Run Modes"
+    },
+    "agent__tools__browser.md": {
+      "hash": "ce2a7fcbdb4af3dee0d0eca8b0bb3855124612b371552f94dc72fc95a94d54bb",
+      "last_updated": "2026-08-07T17:11:48+00:00",
+      "original_url": "https://cursor.com/docs/agent/tools/browser",
+      "path": "/docs/agent/tools/browser",
+      "source_url": "https://cursor.com/docs/agent/tools/browser",
+      "status": "live",
+      "title": "Browser"
+    },
+    "agent__tools__canvas.md": {
+      "hash": "d42aa206830393fc67340a2158d877b5aabc00a15a06559941de3919e6f9fc32",
+      "last_updated": "2026-08-07T17:11:48+00:00",
+      "original_url": "https://cursor.com/docs/agent/tools/canvas",
+      "path": "/docs/agent/tools/canvas",
+      "source_url": "https://cursor.com/docs/agent/tools/canvas",
+      "status": "live",
+      "title": "Canvases"
+    },
+    "agent__tools__search.md": {
+      "hash": "3aff4bd9ee86b081d91e5d64aa93f8017039d3708a855ab685a1d44133298049",
+      "last_updated": "2026-08-07T17:11:48+00:00",
+      "original_url": "https://cursor.com/docs/agent/tools/search",
+      "path": "/docs/agent/tools/search",
+      "source_url": "https://cursor.com/docs/agent/tools/search",
+      "status": "live",
+      "title": "Search"
+    },
+    "agent__tools__terminal.md": {
+      "hash": "2f6ccbe5c15d1cc36faec73b2dc6881587e7131389aacc02baf06a363d7cae5f",
+      "last_updated": "2026-08-07T17:11:49+00:00",
+      "original_url": "https://cursor.com/docs/agent/tools/terminal",
+      "path": "/docs/agent/tools/terminal",
+      "source_url": "https://cursor.com/docs/agent/tools/terminal",
+      "status": "live",
+      "title": "Terminal"
+    },
+    "api.md": {
+      "hash": "075bb5123ff9dfca6f9a3cb4890eda67ec220f36cf46a5839c5c1f0a3ff194e9",
+      "last_updated": "2026-08-07T17:11:49+00:00",
+      "original_url": "https://cursor.com/docs/api",
+      "path": "/docs/api",
+      "source_url": "https://cursor.com/docs/api",
+      "status": "live",
+      "title": "Cursor APIs Overview"
+    },
+    "approval-agents.md": {
+      "hash": "7dec547775fa8951c1e1a9b418fad6dc65db01925966470755b54da64c296000",
+      "last_updated": "2026-08-07T17:11:49+00:00",
+      "original_url": "https://cursor.com/docs/approval-agents",
+      "path": "/docs/approval-agents",
+      "source_url": "https://cursor.com/docs/approval-agents",
+      "status": "live",
+      "title": "PR Routing & Approval"
+    },
+    "bugbot.md": {
+      "hash": "21433af444d7a1fb310c6308df7e1db054790572f342112e1f856f12a11f54f1",
+      "last_updated": "2026-08-07T17:11:50+00:00",
+      "original_url": "https://cursor.com/docs/bugbot",
+      "path": "/docs/bugbot",
+      "source_url": "https://cursor.com/docs/bugbot",
+      "status": "live",
+      "title": "Bugbot"
+    },
+    "cli__acp.md": {
+      "hash": "633c84a71ac3a648127e1099618024b6db4a4060e3ce43d8eeb278a65cf7797d",
+      "last_updated": "2026-08-07T17:11:50+00:00",
+      "original_url": "https://cursor.com/docs/cli/acp",
+      "path": "/docs/cli/acp",
+      "source_url": "https://cursor.com/docs/cli/acp",
+      "status": "live",
+      "title": "ACP"
+    },
+    "cli__changelog.md": {
+      "hash": "180fd3f2071e0deff6cfddbd9f59a72fd7a883142a8f379633fff09d0a00592c",
+      "last_updated": "2026-08-07T17:11:50+00:00",
+      "original_url": "https://cursor.com/docs/cli/changelog",
+      "path": "/docs/cli/changelog",
+      "source_url": "https://cursor.com/docs/cli/changelog",
+      "status": "live",
+      "title": "CLI Changelog"
+    },
+    "cli__github-actions.md": {
+      "hash": "c1cc502705ec4b08d3daa53ed900d328b1aefa0a1f23087fb644e7eaebb242a6",
+      "last_updated": "2026-08-07T17:11:51+00:00",
+      "original_url": "https://cursor.com/docs/cli/github-actions",
+      "path": "/docs/cli/github-actions",
+      "source_url": "https://cursor.com/docs/cli/github-actions",
+      "status": "live",
+      "title": "GitHub Actions"
+    },
+    "cli__headless.md": {
+      "hash": "1a35981462b8e084bd28c2362337ac4f3361b76d16dbd710677ecf7645ca03b0",
+      "last_updated": "2026-08-07T17:11:51+00:00",
+      "original_url": "https://cursor.com/docs/cli/headless",
+      "path": "/docs/cli/headless",
+      "source_url": "https://cursor.com/docs/cli/headless",
+      "status": "live",
+      "title": "Using Headless CLI"
+    },
+    "cli__installation.md": {
+      "hash": "652354ef7767ce72eb67df8c4fa2d612dd339cd1023f5ce424a5390b96a4a72d",
+      "last_updated": "2026-08-07T17:11:51+00:00",
+      "original_url": "https://cursor.com/docs/cli/installation",
+      "path": "/docs/cli/installation",
+      "source_url": "https://cursor.com/docs/cli/installation",
+      "status": "live",
+      "title": "Installation"
+    },
+    "cli__mcp.md": {
+      "hash": "6ee4dd1f8a6fa2caf6f32eb3b31d21da5c200c659920a3288e3a6744e99f5bf3",
+      "last_updated": "2026-08-07T17:11:52+00:00",
+      "original_url": "https://cursor.com/docs/cli/mcp",
+      "path": "/docs/cli/mcp",
+      "source_url": "https://cursor.com/docs/cli/mcp",
+      "status": "live",
+      "title": "MCP"
+    },
+    "cli__overview.md": {
+      "hash": "ff9c23ca5deed21313a2a42a80ca887238000e8ce91879c3d731e0b19200df7d",
+      "last_updated": "2026-08-07T17:11:52+00:00",
+      "original_url": "https://cursor.com/docs/cli/overview",
+      "path": "/docs/cli/overview",
+      "source_url": "https://cursor.com/docs/cli/overview",
+      "status": "live",
+      "title": "Cursor CLI"
+    },
+    "cli__reference__authentication.md": {
+      "hash": "7a33f8495e9c7944e70e8c2f7a141c098835e38b11f9b6f3374b60e5ba27f777",
+      "last_updated": "2026-08-07T17:11:52+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/authentication",
+      "path": "/docs/cli/reference/authentication",
+      "source_url": "https://cursor.com/docs/cli/reference/authentication",
+      "status": "live",
+      "title": "Authentication"
+    },
+    "cli__reference__configuration.md": {
+      "hash": "16906128a8aea4607ce6430308f7640299edddb961705769c889d82c2e495897",
+      "last_updated": "2026-08-07T17:11:53+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/configuration",
+      "path": "/docs/cli/reference/configuration",
+      "source_url": "https://cursor.com/docs/cli/reference/configuration",
+      "status": "live",
+      "title": "Configuration"
+    },
+    "cli__reference__output-format.md": {
+      "hash": "6e66ff150e57c94ae835373d23d99ea81c359f47a189d1bf496817007fb38ecc",
+      "last_updated": "2026-08-07T17:11:53+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/output-format",
+      "path": "/docs/cli/reference/output-format",
+      "source_url": "https://cursor.com/docs/cli/reference/output-format",
+      "status": "live",
+      "title": "Output format"
+    },
+    "cli__reference__parameters.md": {
+      "hash": "789bd1b1183ad013855d771f1495b44ecfa2e483bcd0de0d3116af7305cbb90c",
+      "last_updated": "2026-08-07T17:11:53+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/parameters",
+      "path": "/docs/cli/reference/parameters",
+      "source_url": "https://cursor.com/docs/cli/reference/parameters",
+      "status": "live",
+      "title": "Parameters"
+    },
+    "cli__reference__permissions.md": {
+      "hash": "be16901b176334ff0d834eeae5117465cd79892823f18848b01eef36d461e879",
+      "last_updated": "2026-08-07T17:11:53+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/permissions",
+      "path": "/docs/cli/reference/permissions",
+      "source_url": "https://cursor.com/docs/cli/reference/permissions",
+      "status": "live",
+      "title": "Permissions"
+    },
+    "cli__reference__slash-commands.md": {
+      "hash": "9fa1597a83b9f805204f27f4806f96296ad9df78804c6930c280abcd6fd676ae",
+      "last_updated": "2026-08-07T17:11:54+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/slash-commands",
+      "path": "/docs/cli/reference/slash-commands",
+      "source_url": "https://cursor.com/docs/cli/reference/slash-commands",
+      "status": "live",
+      "title": "Slash commands"
+    },
+    "cli__reference__terminal-setup.md": {
+      "hash": "d38de3495e1d42dd13c3265e77affe58c1a8906b8dbd8110d61e22e4d86856fa",
+      "last_updated": "2026-08-07T17:11:54+00:00",
+      "original_url": "https://cursor.com/docs/cli/reference/terminal-setup",
+      "path": "/docs/cli/reference/terminal-setup",
+      "source_url": "https://cursor.com/docs/cli/reference/terminal-setup",
+      "status": "live",
+      "title": "Terminal setup"
+    },
+    "cli__shell-mode.md": {
+      "hash": "5e0850a85470e75b97eb29266da16ae8cd4881918f15d5ad2dbfd739cbec43c8",
+      "last_updated": "2026-08-07T17:11:54+00:00",
+      "original_url": "https://cursor.com/docs/cli/shell-mode",
+      "path": "/docs/cli/shell-mode",
+      "source_url": "https://cursor.com/docs/cli/shell-mode",
+      "status": "live",
+      "title": "Shell Mode"
+    },
+    "cli__using.md": {
+      "hash": "ba9dcfbba0a6713aa9ca76e99c94f5e356fb33995d356547ce4e963317817083",
+      "last_updated": "2026-08-07T17:11:55+00:00",
+      "original_url": "https://cursor.com/docs/cli/using",
+      "path": "/docs/cli/using",
+      "source_url": "https://cursor.com/docs/cli/using",
+      "status": "live",
+      "title": "Using Agent in CLI"
+    },
+    "cloud-agent.md": {
+      "hash": "9f91734bff750a48c4375e07ee203c84a82f7b9490461189ab3abf124e8ce9e9",
+      "last_updated": "2026-08-07T17:11:55+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent",
+      "path": "/docs/cloud-agent",
+      "source_url": "https://cursor.com/docs/cloud-agent",
+      "status": "live",
+      "title": "Cloud Agents"
+    },
+    "cloud-agent__api__endpoints.md": {
+      "hash": "220f093200fa7af27c72f6fda62b862b62fb97087b4d1cb6fd2e7d471f7ba665",
+      "last_updated": "2026-08-07T17:11:55+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
+      "path": "/docs/cloud-agent/api/endpoints",
+      "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
+      "status": "live",
+      "title": "Cloud Agents API"
+    },
+    "cloud-agent__api__webhooks.md": {
+      "hash": "4074c012911f74b71980e95c8d59ce950fc5b0a0774a57bfd6f66d675e63b327",
+      "last_updated": "2026-08-07T17:11:56+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/api/webhooks",
+      "path": "/docs/cloud-agent/api/webhooks",
+      "source_url": "https://cursor.com/docs/cloud-agent/api/webhooks",
+      "status": "live",
+      "title": "Webhooks"
+    },
+    "cloud-agent__automations.md": {
+      "hash": "e501648d3c96045b17c3ce377fb710c8d1af23e198fc6c5f4fca4be5cdc77ad1",
+      "last_updated": "2026-08-07T17:11:56+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/automations",
+      "path": "/docs/cloud-agent/automations",
+      "source_url": "https://cursor.com/docs/cloud-agent/automations",
+      "status": "live",
+      "title": "Automations"
+    },
+    "cloud-agent__best-practices.md": {
+      "hash": "ebeb0a6a5eaf14eff3f303de135ecb6ce0bc6f3f7a21cc2d4d7310148b315070",
+      "last_updated": "2026-08-07T17:11:56+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/best-practices",
+      "path": "/docs/cloud-agent/best-practices",
+      "source_url": "https://cursor.com/docs/cloud-agent/best-practices",
+      "status": "live",
+      "title": "Best Practices"
+    },
+    "cloud-agent__builds.md": {
+      "hash": "22537a3035f9b717746ec6f9b4c6794184e9c045f621376805bf54e43a3ed84f",
+      "last_updated": "2026-08-07T17:11:57+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/builds",
+      "path": "/docs/cloud-agent/builds",
+      "source_url": "https://cursor.com/docs/cloud-agent/builds",
+      "status": "live",
+      "title": "Cloud Agent Builds"
+    },
+    "cloud-agent__capabilities.md": {
+      "hash": "74d0652e104fa13472d64db3e5ac2e7ea3b7dbd39d8d7e3351695ee7375adf77",
+      "last_updated": "2026-08-07T17:11:57+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
+      "path": "/docs/cloud-agent/capabilities",
+      "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
+      "status": "live",
+      "title": "Capabilities"
+    },
+    "cloud-agent__mobile.md": {
+      "hash": "22dc2ac9d2aa645f32a4d0e4368adc7bf80acc007f41f8c27016605e2b68b028",
+      "last_updated": "2026-08-07T17:11:57+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/mobile",
+      "path": "/docs/cloud-agent/mobile",
+      "source_url": "https://cursor.com/docs/cloud-agent/mobile",
+      "status": "live",
+      "title": "Cursor for iOS"
+    },
+    "cloud-agent__private-connectivity.md": {
+      "hash": "e9967ce2a64735eabbb7728ada66f07bce1d91ce179ad14674d1003b76f80eed",
+      "last_updated": "2026-08-07T17:11:58+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
+      "path": "/docs/cloud-agent/private-connectivity",
+      "source_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
+      "status": "live",
+      "title": "Private Connectivity"
+    },
+    "cloud-agent__security-network.md": {
+      "hash": "c9b969bb73c7240ebeaea6e5bdb8e13d315e2c688415ba604ce8448370bc84ba",
+      "last_updated": "2026-08-07T17:11:58+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/security-network",
+      "path": "/docs/cloud-agent/security-network",
+      "source_url": "https://cursor.com/docs/cloud-agent/security-network",
+      "status": "live",
+      "title": "Secrets & Network"
+    },
+    "cloud-agent__security.md": {
+      "hash": "6d5d8bf7734fce3ee43fabf6258336ec22e10d510322454500e4919fb762ca84",
+      "last_updated": "2026-08-07T17:11:58+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/security",
+      "path": "/docs/cloud-agent/security",
+      "source_url": "https://cursor.com/docs/cloud-agent/security",
+      "status": "live",
+      "title": "Security overview"
+    },
+    "cloud-agent__self-hosted.md": {
+      "hash": "2b72c3508e32250e3dab32b0e6b602f7d53d9d48e84be3896e0b7fef25d2f70e",
+      "last_updated": "2026-08-07T17:11:58+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
+      "path": "/docs/cloud-agent/self-hosted",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
+      "status": "live",
+      "title": "Governed Cloud Agents for private code and internal services"
+    },
+    "cloud-agent__settings.md": {
+      "hash": "0ac8e746b327b771e808fdc168e8a61b809863ab62094b2a9e950a07a0423a54",
+      "last_updated": "2026-08-07T17:11:59+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/settings",
+      "path": "/docs/cloud-agent/settings",
+      "source_url": "https://cursor.com/docs/cloud-agent/settings",
+      "status": "live",
+      "title": "Cloud Agents settings"
+    },
+    "cloud-agent__setup.md": {
+      "hash": "2540724708b909355a088d0eff20332889a1e6103d357ee2bcbaef4acf406a3b",
+      "last_updated": "2026-08-07T17:11:59+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/setup",
+      "path": "/docs/cloud-agent/setup",
+      "source_url": "https://cursor.com/docs/cloud-agent/setup",
+      "status": "live",
+      "title": "Cloud Environment Setup"
+    },
+    "configuration__migrations__vscode.md": {
+      "hash": "359613617a5f7fe82282a532a265e2ef9d84515559d1311a2c15e7b735d08886",
+      "last_updated": "2026-08-07T17:11:59+00:00",
+      "original_url": "https://cursor.com/docs/configuration/migrations/vscode",
+      "path": "/docs/configuration/migrations/vscode",
+      "source_url": "https://cursor.com/docs/configuration/migrations/vscode",
+      "status": "live",
+      "title": "VS Code Migration"
+    },
+    "configuration__worktrees.md": {
+      "hash": "d59b530e9196cdb3fe6d3c032e369ff66df0a4602e3b81395a052bf6b2c15bb8",
+      "last_updated": "2026-08-07T17:12:00+00:00",
+      "original_url": "https://cursor.com/docs/configuration/worktrees",
+      "path": "/docs/configuration/worktrees",
+      "source_url": "https://cursor.com/docs/configuration/worktrees",
+      "status": "live",
+      "title": "Worktrees"
+    },
+    "cursor-review__cli__authentication.md": {
+      "hash": "05e4ddfb21c6791621a18958dcf15fb55e3f0d2bfb88c99ee7046b2ca829cc79",
+      "last_updated": "2026-08-07T17:12:00+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/cli/authentication",
+      "path": "/docs/cursor-review/cli/authentication",
+      "source_url": "https://cursor.com/docs/cursor-review/cli/authentication",
+      "status": "live",
+      "title": "gt CLI"
+    },
+    "cursor-review__cli__parameters.md": {
+      "hash": "cd19214ba9d88c7782ecf9aa42a923184b6ff31637dedac0a30bf5f1e8dd5877",
+      "last_updated": "2026-08-07T17:12:00+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/cli/parameters",
+      "path": "/docs/cursor-review/cli/parameters",
+      "source_url": "https://cursor.com/docs/cursor-review/cli/parameters",
+      "status": "live",
+      "title": "Parameters"
+    },
+    "cursor-review__cli__stacking.md": {
+      "hash": "c53519abf6a269de4f76b62671c75bd9c664f56ed6dd2809e75e0d87eb5c3ddc",
+      "last_updated": "2026-08-07T17:12:01+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/cli/stacking",
+      "path": "/docs/cursor-review/cli/stacking",
+      "source_url": "https://cursor.com/docs/cursor-review/cli/stacking",
+      "status": "live",
+      "title": "Stacking"
+    },
+    "cursor-review__merge-queue.md": {
+      "hash": "462a0cab363373314881871a60df2ded0a9e4a240cd2351ffd49f58feffbce10",
+      "last_updated": "2026-08-07T17:12:01+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/merge-queue",
+      "path": "/docs/cursor-review/merge-queue",
+      "source_url": "https://cursor.com/docs/cursor-review/merge-queue",
+      "status": "live",
+      "title": "Merge Queue"
+    },
+    "cursor-review__overview.md": {
+      "hash": "6bb0c15a5572754de5cea6afede0beb67a64379dafa66bc109e839118ca43a31",
+      "last_updated": "2026-08-07T17:12:01+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/overview",
+      "path": "/docs/cursor-review/overview",
+      "source_url": "https://cursor.com/docs/cursor-review/overview",
+      "status": "live",
+      "title": "Cursor Review"
+    },
+    "cursor-review__pr-inbox.md": {
+      "hash": "5ea43a87c7d801538bc857aea80c34ca988212141bd3d3ff26ac2f69d6536c10",
+      "last_updated": "2026-08-07T17:12:01+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/pr-inbox",
+      "path": "/docs/cursor-review/pr-inbox",
+      "source_url": "https://cursor.com/docs/cursor-review/pr-inbox",
+      "status": "live",
+      "title": "Pull Request Inbox"
+    },
+    "cursor-review__pr-page.md": {
+      "hash": "f6a9f60b6adb3434926c4bcada5159019b5b5138fa9b0371262fb9e68fabe071",
+      "last_updated": "2026-08-07T17:12:02+00:00",
+      "original_url": "https://cursor.com/docs/cursor-review/pr-page",
+      "path": "/docs/cursor-review/pr-page",
+      "source_url": "https://cursor.com/docs/cursor-review/pr-page",
+      "status": "live",
+      "title": "Pull Request Page"
+    },
+    "cursor-router.md": {
+      "hash": "08114989fe0a774638f399a3123dfe96c2c3b1e697384464d87a084848d02d84",
+      "last_updated": "2026-08-07T17:12:02+00:00",
+      "original_url": "https://cursor.com/docs/cursor-router",
+      "path": "/docs/cursor-router",
+      "source_url": "https://cursor.com/docs/cursor-router",
+      "status": "live",
+      "title": "Cursor Router"
+    },
+    "customize-cursor.md": {
+      "hash": "5485668bf585c6534a1de2d71ab6949d8bd6b5254c428c7d1db0f421b9ef1a38",
+      "last_updated": "2026-08-07T17:12:03+00:00",
+      "original_url": "https://cursor.com/docs/customize-cursor",
+      "path": "/docs/customize-cursor",
+      "source_url": "https://cursor.com/docs/customize-cursor",
+      "status": "live",
+      "title": "Customize Cursor"
+    },
+    "customizing__aws-bedrock.md": {
+      "hash": "ebe02101130eeaf01929b64bb33c664c279b350d045ef64004918bd8be6f8ab3",
+      "last_updated": "2026-08-07T17:12:03+00:00",
+      "original_url": "https://cursor.com/docs/customizing/aws-bedrock",
+      "path": "/docs/customizing/aws-bedrock",
+      "source_url": "https://cursor.com/docs/customizing/aws-bedrock",
+      "status": "live",
+      "title": "AWS Bedrock"
+    },
+    "evals.md": {
+      "hash": "509b587cd5b2a90253ccbba64c71ae5ec682ee441f620e522e44d0e84fe45b9f",
+      "last_updated": "2026-08-07T17:12:03+00:00",
+      "original_url": "https://cursor.com/docs/evals",
+      "path": "/docs/evals",
+      "source_url": "https://cursor.com/docs/evals",
+      "status": "live",
+      "title": "Run Cursor in your evals"
+    },
+    "extension-api.md": {
+      "hash": "17e6546af7012dd118f2e8bf37b145062ba07bd553218bfc7294be32b4798c4d",
+      "last_updated": "2026-08-07T17:12:04+00:00",
+      "original_url": "https://cursor.com/docs/extension-api",
+      "path": "/docs/extension-api",
+      "source_url": "https://cursor.com/docs/extension-api",
+      "status": "live",
+      "title": "Extension API reference"
+    },
+    "get-started__quickstart.md": {
+      "hash": "8e896eee346b25963d358cb0cfeeaaaddc3f071e74a5025852b61de92698dc81",
+      "last_updated": "2026-08-07T17:12:04+00:00",
+      "original_url": "https://cursor.com/docs/get-started/quickstart",
+      "path": "/docs/get-started/quickstart",
+      "source_url": "https://cursor.com/docs/get-started/quickstart",
+      "status": "live",
+      "title": "Quickstart"
+    },
     "hooks.md": {
-      "hash": "a18d0978a0b6b8bf94ba2752526640a7f9cb55d6e14755529765f0bf1c791222",
-      "last_updated": "2026-07-09T19:48:49+00:00",
+      "hash": "bea4544e21c43d46661e45023e216ba24758d54fafaa620318092c0fabeede40",
+      "last_updated": "2026-08-07T17:12:04+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
-      "source_url": "https://cursor.com/docs/hooks.md",
+      "source_url": "https://cursor.com/docs/hooks",
+      "status": "live",
       "title": "Hooks"
     },
+    "integrations__azure-devops.md": {
+      "hash": "af36b348272de5cda2a1a3cc9f6c21be19c1b5153e646fc15de8baee1ed73aae",
+      "last_updated": "2026-08-07T17:12:05+00:00",
+      "original_url": "https://cursor.com/docs/integrations/azure-devops",
+      "path": "/docs/integrations/azure-devops",
+      "source_url": "https://cursor.com/docs/integrations/azure-devops",
+      "status": "live",
+      "title": "Azure DevOps"
+    },
+    "integrations__bitbucket.md": {
+      "hash": "37809e7dd5c7a1cf99346274d268b1117986b34cdf8e08f20753ca5e85958e71",
+      "last_updated": "2026-08-07T17:12:05+00:00",
+      "original_url": "https://cursor.com/docs/integrations/bitbucket",
+      "path": "/docs/integrations/bitbucket",
+      "source_url": "https://cursor.com/docs/integrations/bitbucket",
+      "status": "live",
+      "title": "Bitbucket"
+    },
+    "integrations__cursor-blame.md": {
+      "hash": "8438c57888d52574b6527f18c8639890330c5b09f27498168e167b4a17c92f70",
+      "last_updated": "2026-08-07T17:12:05+00:00",
+      "original_url": "https://cursor.com/docs/integrations/cursor-blame",
+      "path": "/docs/integrations/cursor-blame",
+      "source_url": "https://cursor.com/docs/integrations/cursor-blame",
+      "status": "live",
+      "title": "Cursor Blame"
+    },
+    "integrations__github.md": {
+      "hash": "195293f04515638f77e6eed3d234c6b1c1e1ee118cce529be19296de7ff2de5a",
+      "last_updated": "2026-08-07T17:12:06+00:00",
+      "original_url": "https://cursor.com/docs/integrations/github",
+      "path": "/docs/integrations/github",
+      "source_url": "https://cursor.com/docs/integrations/github",
+      "status": "live",
+      "title": "GitHub"
+    },
+    "integrations__gitlab.md": {
+      "hash": "bc711e6befa8fbdf1348767caadfdecdaf712325b7e5f8b2bb88691206855269",
+      "last_updated": "2026-08-07T17:12:06+00:00",
+      "original_url": "https://cursor.com/docs/integrations/gitlab",
+      "path": "/docs/integrations/gitlab",
+      "source_url": "https://cursor.com/docs/integrations/gitlab",
+      "status": "live",
+      "title": "GitLab"
+    },
+    "integrations__jetbrains.md": {
+      "hash": "59644a87e49340568b30e6c9d2aa2ab763ddb76d53ba0ce0eb61e54bda96c464",
+      "last_updated": "2026-08-07T17:12:06+00:00",
+      "original_url": "https://cursor.com/docs/integrations/jetbrains",
+      "path": "/docs/integrations/jetbrains",
+      "source_url": "https://cursor.com/docs/integrations/jetbrains",
+      "status": "live",
+      "title": "JetBrains"
+    },
+    "integrations__jira.md": {
+      "hash": "9d3e707b466442f91634e8696ffa4279a93049c640785fa018ef31e65b10ca1c",
+      "last_updated": "2026-08-07T17:12:07+00:00",
+      "original_url": "https://cursor.com/docs/integrations/jira",
+      "path": "/docs/integrations/jira",
+      "source_url": "https://cursor.com/docs/integrations/jira",
+      "status": "live",
+      "title": "Jira"
+    },
+    "integrations__linear.md": {
+      "hash": "3bdc6ca9a1a1380d201a55316fe844d9b99a867c131212654dc2ef5d765ae0a6",
+      "last_updated": "2026-08-07T17:12:07+00:00",
+      "original_url": "https://cursor.com/docs/integrations/linear",
+      "path": "/docs/integrations/linear",
+      "source_url": "https://cursor.com/docs/integrations/linear",
+      "status": "live",
+      "title": "Linear"
+    },
+    "integrations__microsoft-teams.md": {
+      "hash": "3c898bccc6a5f6fe30ada5c1d0dcf13bf9c078d8b1e24484f07facba699283dc",
+      "last_updated": "2026-08-07T17:12:07+00:00",
+      "original_url": "https://cursor.com/docs/integrations/microsoft-teams",
+      "path": "/docs/integrations/microsoft-teams",
+      "source_url": "https://cursor.com/docs/integrations/microsoft-teams",
+      "status": "live",
+      "title": "Microsoft Teams"
+    },
+    "integrations__notion.md": {
+      "hash": "71ca1ac3935fc23aeb0ab481e645eeca305100903e849c2692d5599639d0d355",
+      "last_updated": "2026-08-07T17:12:07+00:00",
+      "original_url": "https://cursor.com/docs/integrations/notion",
+      "path": "/docs/integrations/notion",
+      "source_url": "https://cursor.com/docs/integrations/notion",
+      "status": "live",
+      "title": "Notion"
+    },
+    "integrations__slack.md": {
+      "hash": "711945b3b7d94b710df88b06f6a9551f07ddd2472a76e23a5d5ee42c1dbde39b",
+      "last_updated": "2026-08-07T17:12:08+00:00",
+      "original_url": "https://cursor.com/docs/integrations/slack",
+      "path": "/docs/integrations/slack",
+      "source_url": "https://cursor.com/docs/integrations/slack",
+      "status": "live",
+      "title": "Slack"
+    },
+    "integrations__xcode.md": {
+      "hash": "f7b0ebe2d2576c6f5104286adff42f7bb061dbee71dbb3d26f99974ba417adee",
+      "last_updated": "2026-08-07T17:12:08+00:00",
+      "original_url": "https://cursor.com/docs/integrations/xcode",
+      "path": "/docs/integrations/xcode",
+      "source_url": "https://cursor.com/docs/integrations/xcode",
+      "status": "live",
+      "title": "Xcode"
+    },
     "mcp.md": {
-      "hash": "bded418d39408b8e3f1cee1a8db174073ce4a06f62bb63936f5693e646b312bd",
-      "last_updated": "2026-07-13T17:12:59+00:00",
+      "hash": "689d93df2317d500be1e36eff1f30aa8d8957c424048ce8c8d007f182ca47dae",
+      "last_updated": "2026-08-07T17:12:08+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
-      "source_url": "https://cursor.com/docs/mcp.md",
+      "source_url": "https://cursor.com/docs/mcp",
+      "status": "live",
       "title": "Model Context Protocol (MCP)"
     },
+    "mcp__install-links.md": {
+      "hash": "6bcb8f93d7fff878b7d82857c5cae9ec02c2d48ea493eadf478320324b5775af",
+      "last_updated": "2026-08-07T17:12:09+00:00",
+      "original_url": "https://cursor.com/docs/mcp/install-links",
+      "path": "/docs/mcp/install-links",
+      "source_url": "https://cursor.com/docs/mcp/install-links",
+      "status": "live",
+      "title": "MCP Install Links"
+    },
+    "models-and-pricing.md": {
+      "hash": "c222e695a1ba87e988ec282405f41e3d84572c2b296247b591412fc95249af70",
+      "last_updated": "2026-08-07T17:12:09+00:00",
+      "original_url": "https://cursor.com/docs/models-and-pricing",
+      "path": "/docs/models-and-pricing",
+      "source_url": "https://cursor.com/docs/models-and-pricing",
+      "status": "live",
+      "title": "Models & Pricing"
+    },
+    "models__claude-4-5-haiku.md": {
+      "hash": "a36add72db35249c75085ac516e5e3dc4ad04c92c55eec92c8a883047101d434",
+      "last_updated": "2026-08-07T17:12:09+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-4-5-haiku",
+      "path": "/docs/models/claude-4-5-haiku",
+      "source_url": "https://cursor.com/docs/models/claude-4-5-haiku",
+      "status": "live",
+      "title": "Models Claude 4 5 Haiku"
+    },
+    "models__claude-4-5-sonnet.md": {
+      "hash": "0a0767c0ee69cc5e50f0a57ecb4572851962578cc3a15c635de8420763036339",
+      "last_updated": "2026-08-07T17:12:10+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
+      "path": "/docs/models/claude-4-5-sonnet",
+      "source_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
+      "status": "live",
+      "title": "Models Claude 4 5 Sonnet"
+    },
+    "models__claude-4-6-sonnet.md": {
+      "hash": "8dafecdeb64908fb871061e296ae8a978804dc2ce23a1afd5d138ca15c991917",
+      "last_updated": "2026-08-07T17:12:10+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
+      "path": "/docs/models/claude-4-6-sonnet",
+      "source_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
+      "status": "live",
+      "title": "Models Claude 4 6 Sonnet"
+    },
+    "models__claude-4-sonnet-1m.md": {
+      "hash": "b44588fc29777469668c2b8960a70214b1bfc582c067b7f8387297bfebf3d13a",
+      "last_updated": "2026-08-07T17:12:11+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
+      "path": "/docs/models/claude-4-sonnet-1m",
+      "source_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
+      "status": "live",
+      "title": "Models Claude 4 Sonnet 1m"
+    },
+    "models__claude-4-sonnet.md": {
+      "hash": "263caa24aea0755b6ce23a839567fb60ff45c203eff359e5d7ac3e43fdd8b7f7",
+      "last_updated": "2026-08-07T17:12:10+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-4-sonnet",
+      "path": "/docs/models/claude-4-sonnet",
+      "source_url": "https://cursor.com/docs/models/claude-4-sonnet",
+      "status": "live",
+      "title": "Models Claude 4 Sonnet"
+    },
+    "models__claude-fable-5.md": {
+      "hash": "1fba12221c2a1741a1ef2acda0799ceda750fedb967e5483b771f83738fec02b",
+      "last_updated": "2026-08-07T17:12:11+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-fable-5",
+      "path": "/docs/models/claude-fable-5",
+      "source_url": "https://cursor.com/docs/models/claude-fable-5",
+      "status": "live",
+      "title": "Models Claude Fable 5"
+    },
+    "models__claude-opus-4-5.md": {
+      "hash": "5f77b452e3514e2a811f957be728cd7acb7ce0c7ae313d185c40962480a65957",
+      "last_updated": "2026-08-07T17:12:11+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-4-5",
+      "path": "/docs/models/claude-opus-4-5",
+      "source_url": "https://cursor.com/docs/models/claude-opus-4-5",
+      "status": "live",
+      "title": "Models Claude Opus 4 5"
+    },
+    "models__claude-opus-4-6.md": {
+      "hash": "2a90766111d69db081d03d11d869e6e6adb9d42dc2a49da43b4dab20f9fe6739",
+      "last_updated": "2026-08-07T17:12:12+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-4-6",
+      "path": "/docs/models/claude-opus-4-6",
+      "source_url": "https://cursor.com/docs/models/claude-opus-4-6",
+      "status": "live",
+      "title": "Models Claude Opus 4 6"
+    },
+    "models__claude-opus-4-7-fast.md": {
+      "hash": "a23763141be335a162def8613239da0b7609423e8c81abac8cd90b495a1113a9",
+      "last_updated": "2026-08-07T17:12:12+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-4-7-fast",
+      "path": "/docs/models/claude-opus-4-7-fast",
+      "source_url": "https://cursor.com/docs/models/claude-opus-4-7-fast",
+      "status": "live",
+      "title": "Models Claude Opus 4 7 Fast"
+    },
+    "models__claude-opus-4-7.md": {
+      "hash": "e9f2e573a2021534de640ecbf19139b468b3fae0507f1f3ac3e22c8923b09529",
+      "last_updated": "2026-08-07T17:12:12+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-4-7",
+      "path": "/docs/models/claude-opus-4-7",
+      "source_url": "https://cursor.com/docs/models/claude-opus-4-7",
+      "status": "live",
+      "title": "Models Claude Opus 4 7"
+    },
+    "models__claude-opus-4-8.md": {
+      "hash": "44fbda85aa31de7cbfbf151b6d083683abd200aac95ed529fdfa9a6e09c132b2",
+      "last_updated": "2026-08-07T17:12:12+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-4-8",
+      "path": "/docs/models/claude-opus-4-8",
+      "source_url": "https://cursor.com/docs/models/claude-opus-4-8",
+      "status": "live",
+      "title": "Models Claude Opus 4 8"
+    },
+    "models__claude-opus-5.md": {
+      "hash": "252eca72e462a60a33b9933c6c67885a11a1e1d84fe34853fee54ca62f962a28",
+      "last_updated": "2026-08-07T17:12:13+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-5",
+      "path": "/docs/models/claude-opus-5",
+      "source_url": "https://cursor.com/docs/models/claude-opus-5",
+      "status": "live",
+      "title": "Models Claude Opus 5"
+    },
+    "models__claude-sonnet-5.md": {
+      "hash": "518bdf09e22ca73c00f56ef8ec7c3bf68ae87fcd1a150528b3342ea919fba74b",
+      "last_updated": "2026-08-07T17:12:13+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-sonnet-5",
+      "path": "/docs/models/claude-sonnet-5",
+      "source_url": "https://cursor.com/docs/models/claude-sonnet-5",
+      "status": "live",
+      "title": "Models Claude Sonnet 5"
+    },
+    "models__cursor-composer-1.md": {
+      "hash": "1869e50eecc72da5e44e3a74f316041c02abaa4924be83a8ddd6ffa8dc8fe0bc",
+      "last_updated": "2026-08-07T17:12:13+00:00",
+      "original_url": "https://cursor.com/docs/models/cursor-composer-1",
+      "path": "/docs/models/cursor-composer-1",
+      "source_url": "https://cursor.com/docs/models/cursor-composer-1",
+      "status": "live",
+      "title": "Models Cursor Composer 1"
+    },
+    "models__cursor-composer-2-5.md": {
+      "hash": "c818dbd2981b3cfe66ad3661685c87af8cb1394808f8837e76d28b1987f5c288",
+      "last_updated": "2026-08-07T17:12:14+00:00",
+      "original_url": "https://cursor.com/docs/models/cursor-composer-2-5",
+      "path": "/docs/models/cursor-composer-2-5",
+      "source_url": "https://cursor.com/docs/models/cursor-composer-2-5",
+      "status": "live",
+      "title": "Models Cursor Composer 2 5"
+    },
+    "models__gemini-2-5-flash.md": {
+      "hash": "89e4cd2706a6c970cbdd38da1f3dd0581762bda5d589b0adca1e8cb064fdd2a5",
+      "last_updated": "2026-08-07T17:12:14+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-2-5-flash",
+      "path": "/docs/models/gemini-2-5-flash",
+      "source_url": "https://cursor.com/docs/models/gemini-2-5-flash",
+      "status": "live",
+      "title": "Models Gemini 2 5 Flash"
+    },
+    "models__gemini-3-1-pro.md": {
+      "hash": "583191b407b34209dc18f9a869216b08811f1015ff4fd278d7b4403b8d5cae89",
+      "last_updated": "2026-08-07T17:12:14+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-1-pro",
+      "path": "/docs/models/gemini-3-1-pro",
+      "source_url": "https://cursor.com/docs/models/gemini-3-1-pro",
+      "status": "live",
+      "title": "Models Gemini 3 1 Pro"
+    },
+    "models__gemini-3-5-flash.md": {
+      "hash": "d2d44a6aeb3ac64961f2a37ebbf0f11e2141f9d7c2fd0642993f8cf51abe4f8d",
+      "last_updated": "2026-08-07T17:12:15+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-5-flash",
+      "path": "/docs/models/gemini-3-5-flash",
+      "source_url": "https://cursor.com/docs/models/gemini-3-5-flash",
+      "status": "live",
+      "title": "Models Gemini 3 5 Flash"
+    },
+    "models__gemini-3-6-flash.md": {
+      "hash": "133f67ace1f1b91dcb3415a8d8cd4b15fdf698b89c8c9ccf13a22a373b1da8bb",
+      "last_updated": "2026-08-07T17:12:15+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-6-flash",
+      "path": "/docs/models/gemini-3-6-flash",
+      "source_url": "https://cursor.com/docs/models/gemini-3-6-flash",
+      "status": "live",
+      "title": "Models Gemini 3 6 Flash"
+    },
+    "models__gemini-3-flash.md": {
+      "hash": "b897c58da80b9941a3759e0d7546f21c3a7a15f4dbb9c7a0f0bacd66e683e1ed",
+      "last_updated": "2026-08-07T17:12:15+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-flash",
+      "path": "/docs/models/gemini-3-flash",
+      "source_url": "https://cursor.com/docs/models/gemini-3-flash",
+      "status": "live",
+      "title": "Models Gemini 3 Flash"
+    },
+    "models__gemini-3-pro-image-preview.md": {
+      "hash": "c6f2dc9a78bb648fb4286423bad37efd433c84dce747a41837f90f21cd43b490",
+      "last_updated": "2026-08-07T17:12:16+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-pro-image-preview",
+      "path": "/docs/models/gemini-3-pro-image-preview",
+      "source_url": "https://cursor.com/docs/models/gemini-3-pro-image-preview",
+      "status": "live",
+      "title": "Models Gemini 3 Pro Image Preview"
+    },
+    "models__gemini-3-pro.md": {
+      "hash": "d2a7bfaed0e188f416a90c9afad1da6637399f5e05fe8be031614b0dde0258f3",
+      "last_updated": "2026-08-07T17:12:15+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-pro",
+      "path": "/docs/models/gemini-3-pro",
+      "source_url": "https://cursor.com/docs/models/gemini-3-pro",
+      "status": "live",
+      "title": "Models Gemini 3 Pro"
+    },
+    "models__glm-5-2.md": {
+      "hash": "80d935629b3c8b581753893c11997e742dd607554b3c626e1ede7a11b22509c7",
+      "last_updated": "2026-08-07T17:12:16+00:00",
+      "original_url": "https://cursor.com/docs/models/glm-5-2",
+      "path": "/docs/models/glm-5-2",
+      "source_url": "https://cursor.com/docs/models/glm-5-2",
+      "status": "live",
+      "title": "Models Glm 5 2"
+    },
+    "models__gpt-5-1-codex-max.md": {
+      "hash": "790d5e5248e82e93d6243aa2e8ee19bf55a0b5d88f26006fe6acb8ded321326c",
+      "last_updated": "2026-08-07T17:12:17+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-1-codex-max",
+      "path": "/docs/models/gpt-5-1-codex-max",
+      "source_url": "https://cursor.com/docs/models/gpt-5-1-codex-max",
+      "status": "live",
+      "title": "Models Gpt 5 1 Codex Max"
+    },
+    "models__gpt-5-1-codex-mini.md": {
+      "hash": "c48b0e1a968b80bf63d0ef00086c6cd6ab26ddd0ba839d16fbaf55434004752a",
+      "last_updated": "2026-08-07T17:12:17+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-1-codex-mini",
+      "path": "/docs/models/gpt-5-1-codex-mini",
+      "source_url": "https://cursor.com/docs/models/gpt-5-1-codex-mini",
+      "status": "live",
+      "title": "Models Gpt 5 1 Codex Mini"
+    },
+    "models__gpt-5-1-codex.md": {
+      "hash": "288692eeb8ea6bfebfe91fc70668d66099fbb9ff3adaa2f59d748cb709cf37c9",
+      "last_updated": "2026-08-07T17:12:17+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-1-codex",
+      "path": "/docs/models/gpt-5-1-codex",
+      "source_url": "https://cursor.com/docs/models/gpt-5-1-codex",
+      "status": "live",
+      "title": "Models Gpt 5 1 Codex"
+    },
+    "models__gpt-5-2-codex.md": {
+      "hash": "ebaa5fc883aaf5d8eaa58d7ead64cba63dc1a9368b646a7a17b89b58886598cf",
+      "last_updated": "2026-08-07T17:12:18+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-2-codex",
+      "path": "/docs/models/gpt-5-2-codex",
+      "source_url": "https://cursor.com/docs/models/gpt-5-2-codex",
+      "status": "live",
+      "title": "Models Gpt 5 2 Codex"
+    },
+    "models__gpt-5-2.md": {
+      "hash": "392e45318bf75c898e3f2403c516c0b37d441e08044b755446ab4f01f20fb8cb",
+      "last_updated": "2026-08-07T17:12:18+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-2",
+      "path": "/docs/models/gpt-5-2",
+      "source_url": "https://cursor.com/docs/models/gpt-5-2",
+      "status": "live",
+      "title": "Models Gpt 5 2"
+    },
+    "models__gpt-5-3-codex.md": {
+      "hash": "0a9843f3871e476e089723767359111d1c40b9b1bc1866efb194ea07cf96dbd6",
+      "last_updated": "2026-08-07T17:12:18+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-3-codex",
+      "path": "/docs/models/gpt-5-3-codex",
+      "source_url": "https://cursor.com/docs/models/gpt-5-3-codex",
+      "status": "live",
+      "title": "Models Gpt 5 3 Codex"
+    },
+    "models__gpt-5-4-mini.md": {
+      "hash": "424abcfd05334288ccae8f8c4ec6e8e6368667fbc836ed9f261302ae0148650b",
+      "last_updated": "2026-08-07T17:12:19+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-4-mini",
+      "path": "/docs/models/gpt-5-4-mini",
+      "source_url": "https://cursor.com/docs/models/gpt-5-4-mini",
+      "status": "live",
+      "title": "Models Gpt 5 4 Mini"
+    },
+    "models__gpt-5-4-nano.md": {
+      "hash": "d2d3503e61545944a069084174afcfe8028ff94feb4241a06f95c5e1bd4ca87e",
+      "last_updated": "2026-08-07T17:12:19+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-4-nano",
+      "path": "/docs/models/gpt-5-4-nano",
+      "source_url": "https://cursor.com/docs/models/gpt-5-4-nano",
+      "status": "live",
+      "title": "Models Gpt 5 4 Nano"
+    },
+    "models__gpt-5-4.md": {
+      "hash": "ce006623d4acfee1069fc2131c8539462bfdbc7b029294ca1b7c4821013117ab",
+      "last_updated": "2026-08-07T17:12:19+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-4",
+      "path": "/docs/models/gpt-5-4",
+      "source_url": "https://cursor.com/docs/models/gpt-5-4",
+      "status": "live",
+      "title": "Models Gpt 5 4"
+    },
+    "models__gpt-5-5.md": {
+      "hash": "2aa5c991683fa61bc9ba89df0cf2fecf41b771b7b435dda9a5a7963788ccb2fa",
+      "last_updated": "2026-08-07T17:12:19+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-5",
+      "path": "/docs/models/gpt-5-5",
+      "source_url": "https://cursor.com/docs/models/gpt-5-5",
+      "status": "live",
+      "title": "Models Gpt 5 5"
+    },
+    "models__gpt-5-6-luna.md": {
+      "hash": "e0e740bf2bcb3830cf6279e6b6635c97d76e52dcaa305540967d88af6a617f62",
+      "last_updated": "2026-08-07T17:12:20+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-6-luna",
+      "path": "/docs/models/gpt-5-6-luna",
+      "source_url": "https://cursor.com/docs/models/gpt-5-6-luna",
+      "status": "live",
+      "title": "Models Gpt 5 6 Luna"
+    },
+    "models__gpt-5-6-sol.md": {
+      "hash": "ee9e2ab2ae860ce09c57b12c0f80d4a6e5ac65f18af65cb6c0ee5724bb0b08cc",
+      "last_updated": "2026-08-07T17:12:20+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-6-sol",
+      "path": "/docs/models/gpt-5-6-sol",
+      "source_url": "https://cursor.com/docs/models/gpt-5-6-sol",
+      "status": "live",
+      "title": "Models Gpt 5 6 Sol"
+    },
+    "models__gpt-5-6-terra.md": {
+      "hash": "6d75f0b8f32e29541e145cc76172470494dfa8a1eb0099c2cf6e02abbc9f6aa5",
+      "last_updated": "2026-08-07T17:12:20+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-6-terra",
+      "path": "/docs/models/gpt-5-6-terra",
+      "source_url": "https://cursor.com/docs/models/gpt-5-6-terra",
+      "status": "live",
+      "title": "Models Gpt 5 6 Terra"
+    },
+    "models__gpt-5-codex.md": {
+      "hash": "07e549f838019d91de10e6d2f45a23320a4beed05f9693c4804a0565d53cb0d7",
+      "last_updated": "2026-08-07T17:12:21+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-codex",
+      "path": "/docs/models/gpt-5-codex",
+      "source_url": "https://cursor.com/docs/models/gpt-5-codex",
+      "status": "live",
+      "title": "Models Gpt 5 Codex"
+    },
+    "models__gpt-5-fast.md": {
+      "hash": "1a4543ca3b492a61f635e43752935dba1143f8f001c0b01eb87db3b21dc2bea1",
+      "last_updated": "2026-08-07T17:12:21+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-fast",
+      "path": "/docs/models/gpt-5-fast",
+      "source_url": "https://cursor.com/docs/models/gpt-5-fast",
+      "status": "live",
+      "title": "Models Gpt 5 Fast"
+    },
+    "models__gpt-5-mini.md": {
+      "hash": "82049759a59933cc9f1200825fec19cd4165bcb847275998997cd4bbd72c1a02",
+      "last_updated": "2026-08-07T17:12:21+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5-mini",
+      "path": "/docs/models/gpt-5-mini",
+      "source_url": "https://cursor.com/docs/models/gpt-5-mini",
+      "status": "live",
+      "title": "Models Gpt 5 Mini"
+    },
+    "models__gpt-5.md": {
+      "hash": "639854c368866a17c49d01384c68752df01d8bce8a21e402a25dba2308b673fc",
+      "last_updated": "2026-08-07T17:12:16+00:00",
+      "original_url": "https://cursor.com/docs/models/gpt-5",
+      "path": "/docs/models/gpt-5",
+      "source_url": "https://cursor.com/docs/models/gpt-5",
+      "status": "live",
+      "title": "Models Gpt 5"
+    },
+    "models__grok-4-5.md": {
+      "hash": "32e9cb0c7fadd2214643314a2bef7c26e92c447ae37c24040d13b238debcd06b",
+      "last_updated": "2026-08-07T17:12:22+00:00",
+      "original_url": "https://cursor.com/docs/models/grok-4-5",
+      "path": "/docs/models/grok-4-5",
+      "source_url": "https://cursor.com/docs/models/grok-4-5",
+      "status": "live",
+      "title": "Models Grok 4 5"
+    },
+    "models__kimi-k2-7-code.md": {
+      "hash": "6d6584b65246cb9b5a26ff4052689d91d33f1b864b8924774ab3facbc0e462a0",
+      "last_updated": "2026-08-07T17:12:22+00:00",
+      "original_url": "https://cursor.com/docs/models/kimi-k2-7-code",
+      "path": "/docs/models/kimi-k2-7-code",
+      "source_url": "https://cursor.com/docs/models/kimi-k2-7-code",
+      "status": "live",
+      "title": "Models Kimi K2 7 Code"
+    },
+    "models__kimi-k3.md": {
+      "hash": "a4d28909ecff01223ce67aa70a2c8a8480d65f01e1ac2fd2a6be5a4ea8de252b",
+      "last_updated": "2026-08-07T17:12:22+00:00",
+      "original_url": "https://cursor.com/docs/models/kimi-k3",
+      "path": "/docs/models/kimi-k3",
+      "source_url": "https://cursor.com/docs/models/kimi-k3",
+      "status": "live",
+      "title": "Models Kimi K3"
+    },
     "plugins.md": {
-      "hash": "fad8f5d896201985e61bec310a99311d934548e83a8cd0bebf7eea6dfd9e9014",
-      "last_updated": "2026-08-07T04:55:34+00:00",
+      "hash": "3220f5a8903337ad858509dadd74c14e747e5994774908988cd4a2f07a7332cf",
+      "last_updated": "2026-08-07T17:12:22+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
-      "source_url": "https://cursor.com/docs/plugins.md",
+      "source_url": "https://cursor.com/docs/plugins",
+      "status": "live",
       "title": "Plugins"
     },
+    "reference__deeplinks.md": {
+      "hash": "e6bad2bef91fe7bb1d90cecaaa9c794d0b68dc63cd667902f9ac5fad0f754d30",
+      "last_updated": "2026-08-07T17:12:23+00:00",
+      "original_url": "https://cursor.com/docs/reference/deeplinks",
+      "path": "/docs/reference/deeplinks",
+      "source_url": "https://cursor.com/docs/reference/deeplinks",
+      "status": "live",
+      "title": "Deeplinks"
+    },
+    "reference__ignore-file.md": {
+      "hash": "0c5e7fc7898b05e1d97e090c7f55b1f511380d384b9b6507c3c0b2bd4ddea2ae",
+      "last_updated": "2026-08-07T17:12:23+00:00",
+      "original_url": "https://cursor.com/docs/reference/ignore-file",
+      "path": "/docs/reference/ignore-file",
+      "source_url": "https://cursor.com/docs/reference/ignore-file",
+      "status": "live",
+      "title": "Ignore file"
+    },
+    "reference__keyboard-shortcuts.md": {
+      "hash": "7512dfcb8f5ee3c70debf947fbd6d19b6b1ef09b2c9e0ff0cd52cc4d0bbf7e0c",
+      "last_updated": "2026-08-07T17:12:23+00:00",
+      "original_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
+      "path": "/docs/reference/keyboard-shortcuts",
+      "source_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
+      "status": "live",
+      "title": "Keyboard Shortcuts"
+    },
+    "reference__permissions.md": {
+      "hash": "925491d97f402d901c2b78a9a6bce87d89968340b4f207991067e0c66e43a8ad",
+      "last_updated": "2026-08-07T17:12:24+00:00",
+      "original_url": "https://cursor.com/docs/reference/permissions",
+      "path": "/docs/reference/permissions",
+      "source_url": "https://cursor.com/docs/reference/permissions",
+      "status": "live",
+      "title": "permissions.json reference"
+    },
+    "reference__plugins.md": {
+      "hash": "4a3f9313343c25d41a0581960a92e9d73ad205786b05649a8f53cadc83b8ed73",
+      "last_updated": "2026-08-07T17:12:24+00:00",
+      "original_url": "https://cursor.com/docs/reference/plugins",
+      "path": "/docs/reference/plugins",
+      "source_url": "https://cursor.com/docs/reference/plugins",
+      "status": "live",
+      "title": "Plugins reference"
+    },
+    "reference__sandbox.md": {
+      "hash": "010d37d7c5d569ffe7e0a905be7b678ea30ca10761ab3e1973ce0924344673cd",
+      "last_updated": "2026-08-07T17:12:24+00:00",
+      "original_url": "https://cursor.com/docs/reference/sandbox",
+      "path": "/docs/reference/sandbox",
+      "source_url": "https://cursor.com/docs/reference/sandbox",
+      "status": "live",
+      "title": "sandbox.json reference"
+    },
+    "reference__third-party-hooks.md": {
+      "hash": "b2c0b94541cb022a30408e2bca76192f1c10b7e0446cbbb8cf24896498a05b5f",
+      "last_updated": "2026-08-07T17:12:25+00:00",
+      "original_url": "https://cursor.com/docs/reference/third-party-hooks",
+      "path": "/docs/reference/third-party-hooks",
+      "source_url": "https://cursor.com/docs/reference/third-party-hooks",
+      "status": "live",
+      "title": "Third Party Hooks"
+    },
     "rules.md": {
-      "hash": "31a7dc8ce21ec522141adc63af52dd626ebcc496945c601afaa6620a1d8e4135",
-      "last_updated": "2026-06-23T20:08:28+00:00",
+      "hash": "91244477944564a7927d21c636ae83299124400334996dfc1910c66f8fa802c5",
+      "last_updated": "2026-08-07T17:12:25+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
-      "source_url": "https://cursor.com/docs/rules.md",
+      "source_url": "https://cursor.com/docs/rules",
+      "status": "live",
       "title": "Rules"
     },
+    "sdk__bridge.md": {
+      "hash": "aea8170dc9748086a5ece6634e882f64e36519ded3bd6866391e4e3c60c72d4d",
+      "last_updated": "2026-08-07T17:12:25+00:00",
+      "original_url": "https://cursor.com/docs/sdk/bridge",
+      "path": "/docs/sdk/bridge",
+      "source_url": "https://cursor.com/docs/sdk/bridge",
+      "status": "live",
+      "title": "Cursor SDK Bridge"
+    },
+    "sdk__changelog.md": {
+      "hash": "c229d8b7fbb85671cfdd548be0bb1ab170a3abac784da5f997eded036b6e6348",
+      "last_updated": "2026-08-07T17:12:25+00:00",
+      "original_url": "https://cursor.com/docs/sdk/changelog",
+      "path": "/docs/sdk/changelog",
+      "source_url": "https://cursor.com/docs/sdk/changelog",
+      "status": "live",
+      "title": "SDK Changelog"
+    },
+    "sdk__python.md": {
+      "hash": "cf0242a7810cbcf89888d06f02261f451fdd1bc4d1a2ce3b2e5efaff7577937f",
+      "last_updated": "2026-08-07T17:12:26+00:00",
+      "original_url": "https://cursor.com/docs/sdk/python",
+      "path": "/docs/sdk/python",
+      "source_url": "https://cursor.com/docs/sdk/python",
+      "status": "live",
+      "title": "Cursor Python SDK"
+    },
+    "sdk__typescript.md": {
+      "hash": "b556b8e08b4774179cf1d6db4b822f463522fcf3b28e4a4ac0c63370161eac20",
+      "last_updated": "2026-08-07T17:12:26+00:00",
+      "original_url": "https://cursor.com/docs/sdk/typescript",
+      "path": "/docs/sdk/typescript",
+      "source_url": "https://cursor.com/docs/sdk/typescript",
+      "status": "live",
+      "title": "Cursor TypeScript SDK"
+    },
+    "security-agents.md": {
+      "hash": "2663f19f7f1daf25c1997cbd30ef3a23ed45917bbefe3cc266145b5c2815abc0",
+      "last_updated": "2026-08-07T17:12:26+00:00",
+      "original_url": "https://cursor.com/docs/security-agents",
+      "path": "/docs/security-agents",
+      "source_url": "https://cursor.com/docs/security-agents",
+      "status": "live",
+      "title": "Security Agents"
+    },
     "skills.md": {
-      "hash": "0f8a6a8051039e43776bbf48106a3aca5647a18de4f35eff1bf0a5b22064c939",
-      "last_updated": "2026-06-30T17:07:07+00:00",
+      "hash": "5fd5f6eadeb26d1611b03b878c7e87a895ac289524153527cbb60c756c496d4d",
+      "last_updated": "2026-08-07T17:12:27+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
-      "source_url": "https://cursor.com/docs/skills.md",
+      "source_url": "https://cursor.com/docs/skills",
+      "status": "live",
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "2060239d59feabc159d0e9d8d91de3a4f4c3f35743c18925b54f34541a908417",
-      "last_updated": "2026-07-24T19:26:31+00:00",
+      "hash": "09b2452f2de8ec4be6b39fcd8e9ab00b921a63a242504ef3c8ef1d2a8e6d8e55",
+      "last_updated": "2026-08-07T17:12:27+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
-      "source_url": "https://cursor.com/docs/subagents.md",
+      "source_url": "https://cursor.com/docs/subagents",
+      "status": "live",
       "title": "Subagents"
     }
   },
-  "include": [
-    "https://cursor.com/docs/skills",
-    "https://cursor.com/docs/rules",
-    "https://cursor.com/docs/hooks",
-    "https://cursor.com/docs/mcp",
-    "https://cursor.com/docs/subagents",
-    "https://cursor.com/docs/plugins"
+  "filters": {
+    "exclude_cross_domain": true,
+    "exclude_exact_paths": [
+      "/docs/enterprise"
+    ],
+    "exclude_prefixes": [
+      "/docs/enterprise/",
+      "/docs/account/enterprise/"
+    ],
+    "include": [
+      "/docs/*"
+    ]
+  },
+  "last_updated": "2026-08-07T17:12:27+00:00",
+  "skipped": [
+    {
+      "path": "/docs",
+      "reason": "Non-markdown response (text/html)",
+      "url": "https://cursor.com/docs"
+    }
   ],
-  "last_updated": "2026-08-07T04:55:34+00:00",
-  "skipped": [],
-  "source": "https://cursor.com/docs/"
+  "source": {
+    "base_url": "https://cursor.com",
+    "llms_txt_url": "https://cursor.com/llms.txt",
+    "sitemap_urls": [
+      "https://cursor.com/docs/sitemap.xml",
+      "https://cursor.com/sitemap.xml"
+    ]
+  }
 }
