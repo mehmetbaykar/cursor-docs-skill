@@ -1,5 +1,5 @@
 ---
-title: Rules
+title: "Rules"
 source: https://cursor.com/docs/rules
 path: /docs/rules
 ---
@@ -45,7 +45,7 @@ Use project rules to:
 
 ### Rule file structure
 
-Each rule is an `.mdc` file that you can name anything you want. Project rules must use the `.mdc` extension. A plain `.md` file in `.cursor/rules` is ignored by the rules system because it has no frontmatter to specify `description`, `globs`, and `alwaysApply`. If you prefer plain markdown, use [AGENTS.md](rules.md#agentsmd) instead.
+Each rule is an `.mdc` file that you can name anything you want. Project rules must use the `.mdc` extension. A plain `.md` file in `.cursor/rules` is ignored by the rules system because it has no frontmatter to specify `description`, `globs`, and `alwaysApply`. If you prefer plain markdown, use [AGENTS.md](https://cursor.com/docs/rules.md#agentsmd) instead.
 
 ```bash
 .cursor/rules/
@@ -53,28 +53,27 @@ Each rule is an `.mdc` file that you can name anything you want. Project rules m
   api-guidelines.md        # Ignored (wrong extension)
   frontend/                # Organize rules in folders
     components.mdc
-
 ```
 
 ### Rule anatomy
 
 Each rule is a markdown file with frontmatter metadata and content. Control how rules are applied from the type dropdown which changes properties `description`, `globs`, `alwaysApply`.
 
-| Rule Type | Description |
+| Rule Type                 | Description                                           |
 | :------------------------ | :---------------------------------------------------- |
-| `Always Apply` | Apply to every chat session |
-| `Apply Intelligently` | When Agent decides it's relevant based on description |
-| `Apply to Specific Files` | When file matches a specified pattern |
-| `Apply Manually` | When @-mentioned in chat (e.g., `@my-rule`) |
+| `Always Apply`            | Apply to every chat session                           |
+| `Apply Intelligently`     | When Agent decides it's relevant based on description |
+| `Apply to Specific Files` | When file matches a specified pattern                 |
+| `Apply Manually`          | When @-mentioned in chat (e.g., `@my-rule`)           |
 
 Under the hood, the three frontmatter fields interact to determine when a rule is included:
 
-| `alwaysApply` | `description` | `globs` | Behavior |
+| `alwaysApply` | `description` | `globs`  | Behavior                                                         |
 | :------------ | :------------ | :------- | :--------------------------------------------------------------- |
-| `true` | — | — | Always included. Globs and description are ignored. |
-| `false` | — | provided | Auto-attached when a matching file is in context. |
-| `false` | provided | omitted | Agent reads the description and pulls the rule in when relevant. |
-| `false` | omitted | omitted | Included only when you `@`-mention the rule in chat. |
+| `true`        | —             | —        | Always included. Globs and description are ignored.              |
+| `false`       | —             | provided | Auto-attached when a matching file is in context.                |
+| `false`       | provided      | omitted  | Agent reads the description and pulls the rule in when relevant. |
+| `false`       | omitted       | omitted  | Included only when you `@`-mention the rule in chat.             |
 
 ```md title="Always applied"
 ---
@@ -85,7 +84,6 @@ alwaysApply: true
 - When you are unsure about implementation details, read the relevant
   source files before proposing changes
 - Never modify generated files in the `dist/` or `build/` directories
-
 ```
 
 ```md title="Auto-attached by file pattern"
@@ -100,7 +98,6 @@ alwaysApply: false
   directory when a file grows beyond that
 - Prefer composition over prop drilling. Pass children or render props
   instead of threading data through multiple layers
-
 ```
 
 ```md title="Agent-selected based on description"
@@ -116,7 +113,6 @@ alwaysApply: false
   never throw raw strings
 - Add a `@service-template.ts` reference file when creating a new
   service for the standard boilerplate
-
 ```
 
 ```md title="Manual — only via @-mention"
@@ -131,23 +127,22 @@ alwaysApply: false
 - Reference the template for the expected file structure
 
 @migration-template.sql
-
 ```
 
 ### Glob pattern examples
 
 Use `globs` to scope a rule to specific files or directories. Separate multiple patterns with commas.
 
-| Pattern | Matches |
+| Pattern                       | Matches                                                |
 | :---------------------------- | :----------------------------------------------------- |
-| `*` | Any single file name segment |
-| `**` | Any number of directories (recursive) |
-| `*.ts` | All `.ts` files in the root |
-| `**/*.ts` | All `.ts` files in any directory |
-| `src/**` | All files anywhere under `src/` |
-| `src/**/*.tsx` | All `.tsx` files anywhere under `src/` |
+| `*`                           | Any single file name segment                           |
+| `**`                          | Any number of directories (recursive)                  |
+| `*.ts`                        | All `.ts` files in the root                            |
+| `**/*.ts`                     | All `.ts` files in any directory                       |
+| `src/**`                      | All files anywhere under `src/`                        |
+| `src/**/*.tsx`                | All `.tsx` files anywhere under `src/`                 |
 | `docs/**/*.md, docs/**/*.mdx` | `.md` and `.mdx` files under `docs/` (comma-separated) |
-| `tailwind.config.*` | `tailwind.config` with any extension |
+| `tailwind.config.*`           | `tailwind.config` with any extension                   |
 
 ### Creating a rule
 
@@ -189,7 +184,6 @@ alwaysApply: false
 ---
 
 ...rest of the rule content
-
 ```
 
 If alwaysApply is true, the rule will be applied to every chat session. Otherwise, the description of the rule will be presented to the Cursor Agent to decide if it should be applied.
@@ -277,7 +271,6 @@ For beta features, add toggle in `@settingsBetaTab.tsx`, otherwise add in `@sett
     );
   }}
 />
-
 ```
 
 To use in the app, import reactiveStorageService and use the property:
@@ -286,7 +279,6 @@ To use in the app, import reactiveStorageService and use the property:
 const flagIsEnabled =
   vsContext.reactiveStorageService.applicationUserPersistentStorage
     .myNewProperty;
-
 ```
 
 Examples are available from providers and frameworks. Community-contributed rules are found across crowdsourced collections and repositories online.
@@ -301,11 +293,11 @@ Team Rules work alongside other rule types and take precedence to ensure organiz
 
 Team administrators can create and manage rules directly from the Cursor dashboard:
 
-![Empty team rules dashboard where team administrators can add new rules](/docs-static/images/context/rules/team-rules-empty.png)
+![Empty team rules dashboard where team administrators can add new rules](https://cursor.com/docs-static/images/context/rules/team-rules-empty.png)
 
 Once team rules are created, they automatically apply to all team members and are visible in the dashboard:
 
-![Team rules dashboard showing a single team rule that will be enforced for all team members](/docs-static/images/context/rules/team-rules-1.png)
+![Team rules dashboard showing a single team rule that will be enforced for all team members](https://cursor.com/docs-static/images/context/rules/team-rules-1.png)
 
 ### Activation and enforcement
 
@@ -360,7 +352,6 @@ Cursor supports AGENTS.md in the project root and subdirectories.
 
 - Follow the repository pattern
 - Keep business logic in service layers
-
 ```
 
 ### Improvements
@@ -380,7 +371,6 @@ project/
       AGENTS.md          # Component-specific instructions
   backend/
     AGENTS.md            # Backend-specific instructions
-
 ```
 
 Instructions from nested `AGENTS.md` files are combined with parent directories, with more specific instructions taking precedence.
@@ -391,7 +381,6 @@ User Rules are global preferences defined in **Customize → Rules** that apply 
 
 ```md
 Please reply in a concise style. Avoid unnecessary repetition or filler language.
-
 ```
 
 ## FAQ
@@ -416,9 +405,3 @@ No. Rules do not impact Cursor Tab or other AI features.
 
 No. User Rules are not applied to Inline Edit (Cmd/Ctrl+K). They are only
 used by Agent (Chat).
-
----
-
-## Sitemap
-
-[Overview of all docs pages](/llms.txt)

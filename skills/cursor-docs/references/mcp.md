@@ -1,5 +1,5 @@
 ---
-title: Model Context Protocol (MCP)
+title: "Model Context Protocol (MCP)"
 source: https://cursor.com/docs/mcp
 path: /docs/mcp
 ---
@@ -16,7 +16,7 @@ MCP connects Cursor to external systems and data. Instead of explaining your pro
 
 Write MCP servers in any language that can print to `stdout` or serve an HTTP endpoint - Python, JavaScript, Go, etc.
 
-Browse official plugins in the [Cursor Marketplace](/marketplace). For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory).
+Browse official plugins in the [Cursor Marketplace](https://cursor.com/marketplace). For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory).
 
 ### How it works
 
@@ -24,24 +24,24 @@ MCP servers expose capabilities through the protocol, connecting Cursor to exter
 
 Cursor supports three transport methods:
 
-| Transport | Execution environment | Deployment | Users | Input | Auth |
+| Transport             | Execution environment | Deployment       | Users          | Input                   | Auth   |
 | :-------------------- | :-------------------- | :--------------- | :------------- | :---------------------- | :----- |
-| **`stdio`** | Local | Cursor manages | Single user | shell command | Manual |
-| **`SSE`** | Local/Remote | Deploy as server | Multiple users | URL to an SSE endpoint | OAuth |
-| **`Streamable HTTP`** | Local/Remote | Deploy as server | Multiple users | URL to an HTTP endpoint | OAuth |
+| **`stdio`**           | Local                 | Cursor manages   | Single user    | shell command           | Manual |
+| **`SSE`**             | Local/Remote          | Deploy as server | Multiple users | URL to an SSE endpoint  | OAuth  |
+| **`Streamable HTTP`** | Local/Remote          | Deploy as server | Multiple users | URL to an HTTP endpoint | OAuth  |
 
 ### Protocol and extension support
 
 Cursor supports these MCP protocol capabilities and extensions:
 
-| Feature | Support | Description |
+| Feature              | Support   | Description                                                     |
 | :------------------- | :-------- | :-------------------------------------------------------------- |
-| **Tools** | Supported | Functions for the AI model to execute |
-| **Prompts** | Supported | Templated messages and workflows for users |
-| **Resources** | Supported | Structured data sources that can be read and referenced |
-| **Roots** | Supported | Server-initiated inquiries into URI or filesystem boundaries |
-| **Elicitation** | Supported | Server-initiated requests for additional information from users |
-| **Apps (extension)** | Supported | Interactive UI views returned by MCP tools |
+| **Tools**            | Supported | Functions for the AI model to execute                           |
+| **Prompts**          | Supported | Templated messages and workflows for users                      |
+| **Resources**        | Supported | Structured data sources that can be read and referenced         |
+| **Roots**            | Supported | Server-initiated inquiries into URI or filesystem boundaries    |
+| **Elicitation**      | Supported | Server-initiated requests for additional information from users |
+| **Apps (extension)** | Supported | Interactive UI views returned by MCP tools                      |
 
 ### MCP apps
 
@@ -53,9 +53,9 @@ MCP Apps follow progressive enhancement. If a host cannot render app UI, the sam
 
 ### One-click installation
 
-Browse the [Cursor Marketplace](/marketplace) for official plugins with one-click install from **Customize**, or configure custom servers with `mcp.json`. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). Click "Add to Cursor" on a marketplace entry to install it and authenticate with OAuth.
+Browse the [Cursor Marketplace](https://cursor.com/marketplace) for official plugins with one-click install from **Customize**, or configure custom servers with `mcp.json`. For community plugins and MCP servers, browse [cursor.directory](https://cursor.directory). Click "Add to Cursor" on a marketplace entry to install it and authenticate with OAuth.
 
-Team admins can also distribute MCP servers through a [team marketplace](plugins.md#team-marketplaces). Team-distributed servers appear in Customize alongside personal and workspace MCP servers.
+Team admins can also distribute MCP servers through a [team marketplace](https://cursor.com/docs/plugins.md#team-marketplaces). Team-distributed servers appear in Customize alongside personal and workspace MCP servers.
 
 ### Using `mcp.json`
 
@@ -73,7 +73,6 @@ Configure custom MCP servers with a JSON file:
     }
   }
 }
-
 ```
 
 ```json title="CLI Server - Python"
@@ -88,7 +87,6 @@ Configure custom MCP servers with a JSON file:
     }
   }
 }
-
 ```
 
 ```json title="Remote Server"
@@ -103,7 +101,6 @@ Configure custom MCP servers with a JSON file:
     }
   }
 }
-
 ```
 
 ### Static OAuth for remote servers
@@ -129,14 +126,13 @@ Add an `auth` object to remote server entries that use `url`:
     }
   }
 }
-
 ```
 
-| Field | Required | Description |
+| Field              | Required | Description                                                                                                                   |
 | :----------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| **CLIENT\_ID** | Yes | OAuth 2.0 Client ID from the MCP provider |
-| **CLIENT\_SECRET** | No | OAuth 2.0 Client Secret (if the provider uses confidential clients) |
-| **scopes** | No | OAuth scopes to request. If omitted, Cursor will use `/.well-known/oauth-authorization-server` to discover `scopes_supported` |
+| **CLIENT\_ID**     | Yes      | OAuth 2.0 Client ID from the MCP provider                                                                                     |
+| **CLIENT\_SECRET** | No       | OAuth 2.0 Client Secret (if the provider uses confidential clients)                                                           |
+| **scopes**         | No       | OAuth scopes to request. If omitted, Cursor will use `/.well-known/oauth-authorization-server` to discover `scopes_supported` |
 
 #### Static redirect URL
 
@@ -145,7 +141,6 @@ Cursor uses fixed OAuth redirect URLs for MCP servers. Register the callback for
 ```text
 https://www.cursor.com/agents/mcp/oauth/callback
 http://localhost:8787/callback
-
 ```
 
 - **Web and Cursor Agents**: `https://www.cursor.com/agents/mcp/oauth/callback`
@@ -169,7 +164,6 @@ When configuring the MCP provider's OAuth app, register both URLs as allowed red
     }
   }
 }
-
 ```
 
 Use environment variables for Client ID and Client Secret instead of hardcoding them.
@@ -178,15 +172,15 @@ Use environment variables for Client ID and Client Secret instead of hardcoding 
 
 For STDIO servers (local command-line servers), configure these fields in your `mcp.json`:
 
-| Field | Required | Description | Examples |
+| Field       | Required | Description                                                                                             | Examples                                  |
 | :---------- | :------- | :------------------------------------------------------------------------------------------------------ | :---------------------------------------- |
-| **type** | Yes | Server connection type | `"stdio"` |
-| **command** | Yes | Command to start the server executable. Must be available on your system path or contain its full path. | `"npx"`, `"node"`, `"python"`, `"docker"` |
-| **args** | No | Array of arguments passed to the command | `["server.py", "--port", "3000"]` |
-| **env** | No | Environment variables for the server | `{"API_KEY": "${env:api-key}"}` |
-| **envFile** | No | Path to an environment file to load more variables | `".env"`, `"${workspaceFolder}/.env"` |
+| **type**    | Yes      | Server connection type                                                                                  | `"stdio"`                                 |
+| **command** | Yes      | Command to start the server executable. Must be available on your system path or contain its full path. | `"npx"`, `"node"`, `"python"`, `"docker"` |
+| **args**    | No       | Array of arguments passed to the command                                                                | `["server.py", "--port", "3000"]`         |
+| **env**     | No       | Environment variables for the server                                                                    | `{"API_KEY": "${env:api-key}"}`           |
+| **envFile** | No       | Path to an environment file to load more variables                                                      | `".env"`, `"${workspaceFolder}/.env"`     |
 
-The `envFile` option is only available for STDIO servers. Remote servers (HTTP/SSE) do not support `envFile`. For remote servers, use [config interpolation](mcp.md#config-interpolation) with environment variables set in your shell profile or system environment instead.
+The `envFile` option is only available for STDIO servers. Remote servers (HTTP/SSE) do not support `envFile`. For remote servers, use [config interpolation](https://cursor.com/docs/mcp.md#config-interpolation) with environment variables set in your shell profile or system environment instead.
 
 ### Using the Extension API
 
@@ -233,7 +227,6 @@ Examples
     }
   }
 }
-
 ```
 
 ```json
@@ -247,7 +240,6 @@ Examples
     }
   }
 }
-
 ```
 
 ### Authentication
@@ -266,7 +258,7 @@ Configure shared Team MCP servers under **Dashboard > Integrations & MCP**. Thes
 
 To make an existing standalone Team MCP server available in the Agent Window, IDE, and CLI, select **Add to Team Marketplace** under **Team MCP Servers**. Cursor links the server to the Default team marketplace without interrupting Cloud Agent access. Teammates can then install and configure it from Customize.
 
-Linking an MCP server to a marketplace does not install or enable it for everyone. Configure **Marketplace Access** and plugin installation modes under **Dashboard > Plugins**. See [Migrate existing Team MCPs](plugins.md#migrate-existing-team-mcps) for the full flow.
+Linking an MCP server to a marketplace does not install or enable it for everyone. Configure **Marketplace Access** and plugin installation modes under **Dashboard > Plugins**. See [Migrate existing Team MCPs](https://cursor.com/docs/plugins.md#migrate-existing-team-mcps) for the full flow.
 
 ### MCP Allowlist
 
@@ -301,7 +293,7 @@ Cursor automatically uses MCP tools listed under `Available Tools` when relevant
 
 Cursor asks for approval before using MCP tools by default. Click the arrow next to the tool name to see arguments.
 
-![Tool confirmation prompt](/docs-static/images/context/mcp/tool-confirm.png)
+![Tool confirmation prompt](https://cursor.com/docs-static/images/context/mcp/tool-confirm.png)
 
 #### Run Mode
 
@@ -311,7 +303,7 @@ MCP [follows the same Run Modes as terminal commands](https://cursor.com/docs/ag
 
 Cursor shows the response in chat with expandable views of arguments and responses:
 
-![MCP tool call result](/docs-static/images/context/mcp/tool-call.png)
+![MCP tool call result](https://cursor.com/docs-static/images/context/mcp/tool-call.png)
 
 ### Images as context
 
@@ -332,7 +324,6 @@ server.tool("generate_image", async (params) => {
     ],
   };
 });
-
 ```
 
 See this [example server](https://github.com/msfeldstein/mcp-test-servers/blob/main/src/image-server.js) for implementation details. Cursor attaches returned images to the chat. If the model supports images, it analyzes them.
@@ -412,9 +403,3 @@ Yes, but follow security best practices:
 - Limit API key permissions to minimum required
 - Review server code before connecting to sensitive systems
 - Consider running servers in isolated environments
-
----
-
-## Sitemap
-
-[Overview of all docs pages](/llms.txt)
