@@ -1,5 +1,5 @@
 ---
-title: Agent Skills
+title: "Agent Skills"
 source: https://cursor.com/docs/skills
 path: /docs/skills
 ---
@@ -38,27 +38,27 @@ Skills can also be manually invoked by typing `/` in Agent chat and searching fo
 
 Cursor includes a small set of built in skills to improve your general workflows. These skills are managed by Cursor and appear alongside the skills you add yourself.
 
-| Skill | What it does |
+| Skill                     | What it does                                                                                         |
 | ------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `/automate` | Creates Cursor Automations triggered by schedules, Slack messages, GitHub events, and other sources. |
-| `/babysit` | Monitors a pull request and addresses feedback, conflicts, failing checks, and follow-up work. |
-| `/canvas` | Creates interactive React artifacts that render alongside the conversation. |
-| `/create-hook` | Creates Cursor hooks and updates `hooks.json` for agent lifecycle events. |
-| `/create-rule` | Creates Cursor rules with the appropriate scope and instructions. |
-| `/create-skill` | Creates Agent Skills, including their structure and `SKILL.md` files. |
-| `/create-subagent` | Creates custom subagents with focused roles and delegation instructions. |
-| `/cursor-blame` | Investigates AI-authored changes and the prompts that produced them. |
-| `/loop` | Runs a prompt or skill repeatedly at a specified interval. |
-| `/migrate-to-skills` | Converts eligible dynamic rules and slash commands into Agent Skills. |
-| `/review` | Selects and runs the appropriate code-review agent. |
-| `/review-bugbot` | Reviews code for likely bugs and regressions with Bugbot. |
-| `/review-security` | Reviews code for security vulnerabilities with Security Review. |
-| `/sdk` | Helps you build applications and integrations with the Cursor SDK. |
-| `/shell` | Runs the provided text as a literal shell command. |
-| `/split-to-prs` | Splits large changes into smaller pull requests. |
-| `/statusline` | Configures the Cursor CLI status line. |
-| `/update-cli-config` | Updates Cursor CLI settings in `~/.cursor/cli-config.json`. |
-| `/update-cursor-settings` | Finds and updates the appropriate Cursor or VS Code setting. |
+| `/automate`               | Creates Cursor Automations triggered by schedules, Slack messages, GitHub events, and other sources. |
+| `/babysit`                | Monitors a pull request and addresses feedback, conflicts, failing checks, and follow-up work.       |
+| `/canvas`                 | Creates interactive React artifacts that render alongside the conversation.                          |
+| `/create-hook`            | Creates Cursor hooks and updates `hooks.json` for agent lifecycle events.                            |
+| `/create-rule`            | Creates Cursor rules with the appropriate scope and instructions.                                    |
+| `/create-skill`           | Creates Agent Skills, including their structure and `SKILL.md` files.                                |
+| `/create-subagent`        | Creates custom subagents with focused roles and delegation instructions.                             |
+| `/cursor-blame`           | Investigates AI-authored changes and the prompts that produced them.                                 |
+| `/loop`                   | Runs a prompt or skill repeatedly at a specified interval.                                           |
+| `/migrate-to-skills`      | Converts eligible dynamic rules and slash commands into Agent Skills.                                |
+| `/review`                 | Selects and runs the appropriate code-review agent.                                                  |
+| `/review-bugbot`          | Reviews code for likely bugs and regressions with Bugbot.                                            |
+| `/review-security`        | Reviews code for security vulnerabilities with Security Review.                                      |
+| `/sdk`                    | Helps you build applications and integrations with the Cursor SDK.                                   |
+| `/shell`                  | Runs the provided text as a literal shell command.                                                   |
+| `/split-to-prs`           | Splits large changes into smaller pull requests.                                                     |
+| `/statusline`             | Configures the Cursor CLI status line.                                                               |
+| `/update-cli-config`      | Updates Cursor CLI settings in `~/.cursor/cli-config.json`.                                          |
+| `/update-cursor-settings` | Finds and updates the appropriate Cursor or VS Code setting.                                         |
 
 You can run any built-in skill by typing `/` in Agent chat and selecting its name. Agent may also use some built-in skills automatically when your request clearly matches their purpose.
 
@@ -66,10 +66,10 @@ You can run any built-in skill by typing `/` in Agent chat and selecting its nam
 
 Skills are automatically loaded from these locations:
 
-| Location | Scope |
+| Location            | Scope               |
 | ------------------- | ------------------- |
-| `.agents/skills/` | Project-level |
-| `.cursor/skills/` | Project-level |
+| `.agents/skills/`   | Project-level       |
+| `.cursor/skills/`   | Project-level       |
 | `~/.agents/skills/` | User-level (global) |
 | `~/.cursor/skills/` | User-level (global) |
 
@@ -82,7 +82,6 @@ Each skill should be a folder containing a `SKILL.md` file:
 └── skills/
     └── my-skill/
         └── SKILL.md
-
 ```
 
 Skills can also include optional directories for scripts, references, and assets:
@@ -99,7 +98,6 @@ Skills can also include optional directories for scripts, references, and assets
         │   └── REFERENCE.md
         └── assets/
             └── config-template.json
-
 ```
 
 ### Nested skill directories
@@ -120,7 +118,6 @@ Skill directories can be organized into subdirectories. This is useful for group
     └── workflow/
         └── tdd/
             └── SKILL.md
-
 ```
 
 The category folder is purely organizational. The skill's identity comes from the folder containing `SKILL.md` (here `land-it`, `tdd`, etc.), not the parent category.
@@ -135,10 +132,9 @@ my-monorepo/
     └── web/
         └── .cursor/skills/  # app-specific skills
             └── deploy-web/SKILL.md
-
 ```
 
-Skills in nested project directories are automatically scoped to files inside that directory. In the example above, `deploy-web` is only surfaced when the agent works with files under `apps/web/`, while skills in the repo-wide `.cursor/skills/` are available everywhere. This is similar to the [`paths` frontmatter field](skills.md#scoping-a-skill-to-specific-files) — you don't need to set `paths` on a nested skill to scope it to its directory.
+Skills in nested project directories are automatically scoped to files inside that directory. In the example above, `deploy-web` is only surfaced when the agent works with files under `apps/web/`, while skills in the repo-wide `.cursor/skills/` are available everywhere. This is similar to the [`paths` frontmatter field](https://cursor.com/docs/skills.md#scoping-a-skill-to-specific-files) — you don't need to set `paths` on a nested skill to scope it to its directory.
 
 ## SKILL.md file format
 
@@ -165,18 +161,17 @@ Detailed instructions for the agent.
 - Domain-specific conventions
 - Best practices and patterns
 - Use the ask questions tool if you need to clarify requirements with the user
-
 ```
 
 ### Frontmatter fields
 
-| Field | Required | Description |
+| Field                      | Required | Description                                                                                                                                                                        |
 | -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name` | Yes | Skill identifier. Lowercase letters, numbers, and hyphens only. Must match the parent folder name. |
-| `description` | Yes | Describes what the skill does and when to use it. Used by the agent to determine relevance. |
-| `paths` | No | Glob patterns that scope the skill to matching files. Accepts a comma-separated string or a list. When set, the skill is only surfaced when the agent works with files that match. |
-| `disable-model-invocation` | No | When `true`, the skill is only included when explicitly invoked via `/skill-name`. The agent will not automatically apply it based on context. |
-| `metadata` | No | Arbitrary key-value mapping for additional metadata. |
+| `name`                     | Yes      | Skill identifier. Lowercase letters, numbers, and hyphens only. Must match the parent folder name.                                                                                 |
+| `description`              | Yes      | Describes what the skill does and when to use it. Used by the agent to determine relevance.                                                                                        |
+| `paths`                    | No       | Glob patterns that scope the skill to matching files. Accepts a comma-separated string or a list. When set, the skill is only surfaced when the agent works with files that match. |
+| `disable-model-invocation` | No       | When `true`, the skill is only included when explicitly invoked via `/skill-name`. The agent will not automatically apply it based on context.                                     |
+| `metadata`                 | No       | Arbitrary key-value mapping for additional metadata.                                                                                                                               |
 
 ## Scoping a skill to specific files
 
@@ -194,7 +189,6 @@ paths:
 # React component patterns
 
 ...
-
 ```
 
 You can also pass a single comma-separated string:
@@ -205,7 +199,6 @@ name: python-style
 description: Style rules for Python files.
 paths: "**/*.py, scripts/**/*.py"
 ---
-
 ```
 
 Patterns follow standard glob syntax. Leave `paths` unset for a skill that should be available regardless of which files are open.
@@ -239,7 +232,6 @@ Where `<environment>` is either `staging` or `production`.
 ## Pre-deployment Validation
 
 Before deploying, run the validation script: `python scripts/validate.py`
-
 ```
 
 The agent reads these instructions and executes the referenced scripts when the skill is invoked. Scripts can be written in any language—Bash, Python, JavaScript, or any other executable format supported by the agent implementation.
@@ -250,11 +242,11 @@ Scripts should be self-contained, include helpful error messages, and handle edg
 
 Skills support these optional directories:
 
-| Directory | Purpose |
+| Directory     | Purpose                                                |
 | ------------- | ------------------------------------------------------ |
-| `scripts/` | Executable code that agents can run |
-| `references/` | Additional documentation loaded on demand |
-| `assets/` | Static resources like templates, images, or data files |
+| `scripts/`    | Executable code that agents can run                    |
+| `references/` | Additional documentation loaded on demand              |
+| `assets/`     | Static resources like templates, images, or data files |
 
 Keep your main `SKILL.md` focused and move detailed reference material to separate files. This keeps context usage efficient since agents load resources progressively—only when needed.
 
@@ -291,9 +283,3 @@ Rules with `alwaysApply: true` or specific `globs` patterns are not migrated, as
 ## Learn more
 
 Agent Skills is an open standard. Learn more at [agentskills.io](https://agentskills.io).
-
----
-
-## Sitemap
-
-[Overview of all docs pages](/llms.txt)
