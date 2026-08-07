@@ -210,8 +210,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "8487f8b0a40d7d3cdfab3047a814999cef53e2bac9d4ff02f48cc8abd78d3a14",
-      "last_updated": "2026-08-07T17:11:48+00:00",
+      "hash": "96f794627df4544f5000c402be00aa2edac3db1732517edeb96efa491d3c108e",
+      "last_updated": "2026-08-07T21:51:44+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -1375,7 +1375,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-07T17:12:27+00:00",
+  "last_updated": "2026-08-07T21:52:23+00:00",
   "skipped": [
     {
       "path": "/docs",
