@@ -169,7 +169,7 @@ In order to fully run and test code like a human developer, Cloud agents often n
 
 The easiest way to manage secrets is through [cursor.com](https://cursor.com/dashboard/cloud-agents). These are exposed to the cloud agent as environment variables.
 
-For more about the different types of secrets, see our [Secrets documentation](https://cursor.com/docs/cloud-agent/security-network.md#secret-protection).
+For more about the different types of secrets, see our [Secrets documentation](https://cursor.com/docs/cloud-agent/security-network.md#secret-protection). To grant cloud-role access without long-lived keys, see [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md).
 
 ### Environment-scoped secrets
 
@@ -240,6 +240,8 @@ The AWS CLI and AWS SDKs that use the default credential chain pick up this prof
 
 Cursor assumes the role with STS credentials that expire after 1 hour.
 When the agent wakes, Cursor refreshes credentials that are missing, invalid, or within 15 minutes of expiration.
+
+To federate with AWS STS `AssumeRoleWithWebIdentity`, or with GCP, Azure, or another OIDC verifier, mint [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md) from the agent VM instead of storing long-lived cloud keys.
 
 ## Configuration in code with environment.json
 

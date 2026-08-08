@@ -44,6 +44,10 @@ RUN --mount=type=secret,id=MY_TOKEN,env=MY_TOKEN,required=true \
     ./scripts/install-private-deps.sh
 ```
 
+## OIDC identity tokens
+
+For cloud roles and internal APIs, prefer short-lived [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md) over long-lived keys in Secrets. A Cloud Agent VM can mint a Cursor-signed JWT from a local socket and present it to AWS, GCP, Azure, Vault, or any OIDC verifier.
+
 ## Signed commits
 
 Cloud Agents sign every commit with a HSM-backed Ed25519 key. On GitHub and GitLab, these commits display a "Verified" badge so your team can confirm the commit came from Cursor.

@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 150,
+    "pages_fetched_successfully": 151,
     "pages_skipped": 1,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 151
+    "total_pages_discovered": 152
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -426,8 +426,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "9f91734bff750a48c4375e07ee203c84a82f7b9490461189ab3abf124e8ce9e9",
-      "last_updated": "2026-08-07T17:11:55+00:00",
+      "hash": "cc2f8039a307244318431307c8b3dfa1d15ffc65bb6a8ec8952499212c667231",
+      "last_updated": "2026-08-08T02:14:39+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -462,8 +462,8 @@
       "title": "Automations"
     },
     "cloud-agent__best-practices.md": {
-      "hash": "ebeb0a6a5eaf14eff3f303de135ecb6ce0bc6f3f7a21cc2d4d7310148b315070",
-      "last_updated": "2026-08-07T17:11:56+00:00",
+      "hash": "60f76b7c434549b97306af7130bdc845f7a256b5de98489f922ec318911bd406",
+      "last_updated": "2026-08-08T02:14:40+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/best-practices",
       "path": "/docs/cloud-agent/best-practices",
       "source_url": "https://cursor.com/docs/cloud-agent/best-practices",
@@ -480,13 +480,22 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "74d0652e104fa13472d64db3e5ac2e7ea3b7dbd39d8d7e3351695ee7375adf77",
-      "last_updated": "2026-08-07T17:11:57+00:00",
+      "hash": "2694319c0f38e510cbf312375347d5904eab08750d3f5f48f6311fb747ec1446",
+      "last_updated": "2026-08-08T02:14:40+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "status": "live",
       "title": "Capabilities"
+    },
+    "cloud-agent__identity.md": {
+      "hash": "7fc31228b2c4cbc3e9b313aaa3fe9c4fdf74672704ff826b73dc6f0065ec9345",
+      "last_updated": "2026-08-08T02:14:41+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/identity",
+      "path": "/docs/cloud-agent/identity",
+      "source_url": "https://cursor.com/docs/cloud-agent/identity",
+      "status": "live",
+      "title": "OIDC tokens"
     },
     "cloud-agent__mobile.md": {
       "hash": "22dc2ac9d2aa645f32a4d0e4368adc7bf80acc007f41f8c27016605e2b68b028",
@@ -507,8 +516,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__security-network.md": {
-      "hash": "c9b969bb73c7240ebeaea6e5bdb8e13d315e2c688415ba604ce8448370bc84ba",
-      "last_updated": "2026-08-07T17:11:58+00:00",
+      "hash": "7aa67b12f71740469b1766f725e9f6a22429843a7956b9af07129fe8df04fa82",
+      "last_updated": "2026-08-08T02:14:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
@@ -516,8 +525,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "6d5d8bf7734fce3ee43fabf6258336ec22e10d510322454500e4919fb762ca84",
-      "last_updated": "2026-08-07T17:11:58+00:00",
+      "hash": "c704890bc3d8d29d4ca52158f2e2c7f1577a9ef7ccb90976ee67606450024b7b",
+      "last_updated": "2026-08-08T02:14:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "source_url": "https://cursor.com/docs/cloud-agent/security",
@@ -543,8 +552,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "2540724708b909355a088d0eff20332889a1e6103d357ee2bcbaef4acf406a3b",
-      "last_updated": "2026-08-07T17:11:59+00:00",
+      "hash": "1b707f6d81c9952aba3440f2cdf88cc3848b9ff0dfdf92a4d0b07401f8f82719",
+      "last_updated": "2026-08-08T02:14:43+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -1375,7 +1384,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-07T21:52:23+00:00",
+  "last_updated": "2026-08-08T02:15:11+00:00",
   "skipped": [
     {
       "path": "/docs",
