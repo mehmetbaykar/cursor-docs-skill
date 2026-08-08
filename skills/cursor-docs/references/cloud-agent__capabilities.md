@@ -136,3 +136,7 @@ To disable this feature on a specific Cloud Agent PR, you can comment `@cursor a
 If you want cloud agents to fix CI failures in your own PRs, you can simply ask them by tagging Cursor in a comment as normal. For example, `@cursor please fix the CI failures`, or `@cursor fix the CI lint check failure`.
 
 Automatically fixing CI failures is currently only available on Teams; support for non-Teams accounts is coming soon. In the meantime, if you want similar behavior, you can ask the cloud agent explicitly to monitor and fix CI failures on the PR.
+
+## OIDC identity tokens
+
+Cursor-managed Cloud Agent VMs can mint short-lived OIDC JWTs from a local socket. Use them to assume cloud roles or call internal APIs without storing long-lived keys. See [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md).
