@@ -273,8 +273,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "21433af444d7a1fb310c6308df7e1db054790572f342112e1f856f12a11f54f1",
-      "last_updated": "2026-08-07T17:11:50+00:00",
+      "hash": "6b79261f0ee53f116b2ac74fd8d73e4eca3ab1f41f41e2740fe4ad1a66273c3d",
+      "last_updated": "2026-08-10T21:53:36+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -705,8 +705,8 @@
       "title": "Hooks"
     },
     "integrations__azure-devops.md": {
-      "hash": "af36b348272de5cda2a1a3cc9f6c21be19c1b5153e646fc15de8baee1ed73aae",
-      "last_updated": "2026-08-07T17:12:05+00:00",
+      "hash": "b1129e42ec443e1c0603026d128030b7396cfc6d4b4ae9fd11cfa86c3f9d07fe",
+      "last_updated": "2026-08-10T21:53:51+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
       "source_url": "https://cursor.com/docs/integrations/azure-devops",
@@ -1384,7 +1384,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-10T16:08:11+00:00",
+  "last_updated": "2026-08-10T21:54:15+00:00",
   "skipped": [
     {
       "path": "/docs",
