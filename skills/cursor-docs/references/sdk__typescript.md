@@ -169,6 +169,25 @@ These values are encrypted at rest, injected into the cloud agent's shell, and d
 
 For values that should only exist during a single run, pass them on `agent.send()` instead. See [Per-run environment variables](https://cursor.com/docs/sdk/typescript.md#per-run-environment-variables).
 
+### Agent metadata
+
+Attach your own string tags to a cloud agent with `cloud.metadata`. The tags are
+persisted with the agent and returned on `SDKAgentInfo.metadata` from
+`Agent.get()` and `Agent.list()`.
+
+```typescript
+const agent = await Agent.create({
+  apiKey: process.env.CURSOR_API_KEY!,
+  cloud: {
+    repos: [{ url: "https://github.com/your-org/your-repo" }],
+    metadata: {
+      end_user_id: "user-123",
+      ticket_id: "ENG-456",
+    },
+  },
+});
+```
+
 ### Model parameters
 
 Use `model.params` to pass per-model options such as reasoning effort. Parameter ids and values vary by model. Use [`Cursor.models.list()`](https://cursor.com/docs/sdk/typescript.md#cursormodelslist) to discover supported parameters and preset variants for your account.
@@ -329,6 +348,7 @@ interface SDKAgent {
 
   listArtifacts(): Promise<SDKArtifact[]>;
   downloadArtifact(path: string): Promise<Buffer>;
+  getUsage(options?: GetUsageOptions): Promise<AgentUsage>;
 }
 ```
 
@@ -342,6 +362,7 @@ interface SDKAgent {
 | `[Symbol.asyncDispose]` | Async disposal. Pair with `await using` for automatic cleanup.                                                                                                               |
 | `listArtifacts`         | List files produced by the agent (cloud only; local returns empty).                                                                                                          |
 | `downloadArtifact`      | Download a file by path (cloud only; local throws).                                                                                                                          |
+| `getUsage`              | Fetch billed token usage and dollar cost for the agent.                                                                                                                      |
 
 ### Agent.prompt()
 
@@ -1099,6 +1120,13 @@ interface GetAgentMessagesOptions {
   cwd?: string;
   store?: LocalAgentStore;
 }
+
+interface AgentMessage {
+  type: "user" | "assistant";
+  uuid: string;
+  agent_id: string;
+  message: unknown;
+}
 ```
 
 Returns the stored user and assistant messages for a local agent.
@@ -1132,7 +1160,7 @@ interface RunUsage {
 
 interface UsageCost {
   rawCostCents: number;   // undiscounted model token cost; 0 for request-priced usage
-  chargedCents: number;   // amount charged, discounts and the Cursor Token Rate included
+  chargedCents: number;   // amount charged, discounts and the Cursor Token Fee included
 }
 ```
 
@@ -1194,6 +1222,7 @@ type SDKAgentInfo = {
       runtime: "cloud";
       env?: { type: "cloud" | "pool" | "machine"; name?: string };
       repos?: string[];
+      metadata?: Record<string, string>;
     }
 );
 ```
@@ -1212,19 +1241,27 @@ import { Cursor } from "@cursor/sdk";
 await Cursor.auth.login();
 
 const status = await Cursor.auth.status();
-// { status: "logged-in", ... } | { status: "logged-out" }
+// { status: "logged-in", backendUrl, email?, apiKeyExpiresAtMs? }
+// | { status: "logged-out" }
 
 await Cursor.auth.logout();
 ```
 
 | Option        | Description                                                                                                                                                                              |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `backendUrl`  | API base URL. Defaults to `CURSOR_BACKEND_URL`, then production.                                                                                                                         |
+| `websiteUrl`  | Browser login base URL. Defaults to `CURSOR_WEBSITE_URL`, then production.                                                                                                               |
 | `openBrowser` | `true` (default) opens the system browser when that is likely to work; `false` never opens one; a function is a custom opener. Skipped in SSH sessions or when `NO_OPEN_BROWSER` is set. |
 | `onLoginUrl`  | Called with the login URL before waiting, so the host can display it. When omitted and no browser opened, the URL is written to stderr.                                                  |
 | `signal`      | `AbortSignal` that cancels the wait; `login` then throws an `AuthenticationError`.                                                                                                       |
 | `store`       | Where to persist the credentials. Defaults to `~/.cursor/sdk/auth.json`; pass `null` to only receive the key in the result.                                                              |
 | `apiKeyName`  | Display name of the minted key in the dashboard's API-keys list.                                                                                                                         |
 | `apiKeyTtlMs` | Lifetime of the minted key in milliseconds. Defaults to 90 days.                                                                                                                         |
+
+`Cursor.auth.login()` returns
+`{ apiKey, email?, apiKeyExpiresAtMs }`. Use `FileCredentialStore` or
+`InMemoryCredentialStore` to provide a custom `store` to `login()`, `status()`,
+or `logout()`.
 
 Credential resolution order everywhere in the SDK: explicit `apiKey`, then `CURSOR_API_KEY`, then the stored login. The stored login does not read credentials from a local Cursor app installation; it only holds keys minted by `Cursor.auth.login()`.
 
@@ -1917,13 +1954,13 @@ The substores mirror the default SQLite tables: `agents` holds one row per agent
 | `apiKey`          | `string`                          | `CURSOR_API_KEY` env                                                | User API key or service account key. Team Admin keys are not yet supported.                                                                                                                          |
 | `name`            | `string`                          | Auto-generated                                                      | Human-readable agent name returned as `name` in `Agent.list()` / `Agent.get()`.                                                                                                                      |
 | `local`           | `LocalAgentOptions`               |                                                                     | Local agent config. See [`LocalAgentOptions`](https://cursor.com/docs/sdk/typescript.md#localagentoptions).                                                                                          |
-| `cloud`           | `CloudOptions`                    |                                                                     | Cloud agent config.                                                                                                                                                                                  |
+| `cloud`           | `CloudAgentOptions`               |                                                                     | Cloud agent config.                                                                                                                                                                                  |
 | `mcpServers`      | `Record<string, McpServerConfig>` |                                                                     | Inline MCP server definitions.                                                                                                                                                                       |
 | `agents`          | `Record<string, AgentDefinition>` |                                                                     | Subagent definitions.                                                                                                                                                                                |
 | `tools`           | `ToolName[]`                      | Default toolset                                                     | [Restrict the toolset](https://cursor.com/docs/sdk/typescript.md#restricting-the-toolset): only the listed built-in tools are offered to the model. `[]` means no built-in tools. Local agents only. |
 | `disallowedTools` | `ToolName[]`                      |                                                                     | [Remove tools](https://cursor.com/docs/sdk/typescript.md#restricting-the-toolset) from the toolset; everything else stays available. Deny wins when combined with `tools`. Local agents only.        |
 | `agentId`         | `string`                          | Auto-generated                                                      | Durable agent ID. Pass to keep a stable ID across invocations.                                                                                                                                       |
-| `idempotencyKey`  | `string`                          | Auto-generated for cloud                                            | Optional client-generated idempotency key. Cloud only.                                                                                                                                               |
+| `idempotencyKey`  | `string`                          | Auto-generated for cloud                                            | Optional client-generated idempotency key.                                                                                                                                                           |
 | `mode`            | `"agent" \| "plan"`               | `"agent"`                                                           | Initial conversation mode for the agent's first run. See [Conversation mode](https://cursor.com/docs/sdk/typescript.md#conversation-mode).                                                           |
 
 ### LocalAgentOptions
@@ -1941,7 +1978,7 @@ Config for local agents, passed as `local` on `Agent.create()`. Also exported as
 | `store`              | `LocalAgentStore`               | SDK default store    | [Local agent store](https://cursor.com/docs/sdk/typescript.md#local-agent-stores) backing persistence.                                                   |
 | `enableAgentRetries` | `boolean`                       | `true`               | Enable transport and stall auto-retry for local agent runs. Set `false` to surface transport errors on the first failure.                                |
 
-### CloudOptions
+### CloudAgentOptions
 
 | Property                | Type                                                                                                        | Default                                                | Description                                                                                                                                                                                                                                                                                                                                          |
 | :---------------------- | :---------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1951,6 +1988,8 @@ Config for local agents, passed as `local` on `Agent.create()`. Also exported as
 | `autoCreatePR`          | `boolean`                                                                                                   | `false`                                                | Open a PR when the run finishes.                                                                                                                                                                                                                                                                                                                     |
 | `openAsCursorGithubApp` | `boolean`                                                                                                   | `true` for service-account keys, `false` for user keys | Open PRs as the Cursor GitHub App instead of the API key's owner. The resolved value is echoed on create, get, and list.                                                                                                                                                                                                                             |
 | `skipReviewerRequest`   | `boolean`                                                                                                   | `false`                                                | Skip requesting the calling user as a reviewer on the PR.                                                                                                                                                                                                                                                                                            |
+| `envVars`               | `Record<string, string>`                                                                                    |                                                        | Session-scoped environment variables for cloud agents.                                                                                                                                                                                                                                                                                               |
+| `metadata`              | `Record<string, string>`                                                                                    |                                                        | Caller-owned string tags persisted on the cloud agent. See [Agent metadata](https://cursor.com/docs/sdk/typescript.md#agent-metadata).                                                                                                                                                                                                               |
 
 ### AgentDefinition
 

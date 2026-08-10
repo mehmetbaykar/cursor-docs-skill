@@ -120,6 +120,10 @@ asyncio.run(main())
 
 There is no global async default client. Instantiate `AsyncClient` explicitly, or use `AsyncClient.launch_bridge(...)` as an async context manager, so each event loop owns its own client. Do not mix sync and async clients in the same code path.
 
+Direct `AsyncAgent` class methods require `client=`. Use
+`await client.agents.create(...)` or
+`await AsyncAgent.create(..., client=client)`.
+
 | Sync                      | Async                               |
 | :------------------------ | :---------------------------------- |
 | `CursorClient` / `Client` | `AsyncClient` / `AsyncCursorClient` |
@@ -160,6 +164,8 @@ view them in Cursor Web or a Cursor agent window, click **Filter > Source > SDK*
 For cloud agents, pass `env_vars` when a run needs short-lived credentials or other values that should live only with that agent.
 
 ```python
+import os
+
 agent = Agent.create(
     model="composer-2.5",
     cloud=CloudAgentOptions(
@@ -387,6 +393,7 @@ class Agent:
     ) -> list[AgentMessage]: ...
     def list_artifacts(self) -> list[SDKArtifact]: ...
     def download_artifact(self, path: str) -> bytes: ...
+    def get_usage(self, *, run_id: str | None = None) -> AgentUsage: ...
 
     def archive(self, options: Mapping[str, Any] | None = None) -> None: ...
     def unarchive(self, options: Mapping[str, Any] | None = None) -> None: ...
@@ -403,6 +410,7 @@ class Agent:
 | `list_messages`                    | List message history for the agent.                                                   |
 | `list_artifacts`                   | List files produced by the agent (cloud only; local returns empty).                   |
 | `download_artifact`                | Download a file by path (cloud only; local raises).                                   |
+| `get_usage`                        | Fetch billed token usage and dollar cost for the agent.                               |
 | `archive` / `unarchive` / `delete` | Manage cloud agent lifecycle.                                                         |
 
 Use a context manager for automatic cleanup:
@@ -511,7 +519,7 @@ async with await AsyncClient.launch_bridge(
 
 ### Configuring timeouts and retries
 
-Both clients expose `with_options(...)`, which returns a shallow copy that shares connection settings and overrides defaults:
+Both clients expose `with_options(...)`, which returns a shallow copy that shares connection settings and overrides defaults. Use `timeout` for all requests, or set `unary_timeout` and `stream_timeout` separately. `max_retries` controls client retries:
 
 ```python
 short = client.with_options(timeout=5.0, max_retries=2)
@@ -1075,6 +1083,23 @@ run = await client.agents.get_run(runs.items[0].id)
 
 Use `agent.list_messages()` on an agent handle to read message history. `Agent.messages.list(agent_id)` is a typed-attribute convenience for the same call when you only have an ID.
 
+Use `Agent.get_run(run_id)` or `client.agents.get_run(run_id)` to fetch a run
+without an agent handle. Cancel it with
+`Agent.cancel_run(run_id, agent_id=...)` or
+`client.agents.cancel_run(run_id, agent_id=...)`. The async client methods are
+awaitable and use the same arguments.
+
+`AgentMessage` is distinct from a streamed `SDKMessage`:
+
+```python
+@dataclass(frozen=True)
+class AgentMessage:
+    type: str
+    uuid: str
+    agent_id: str
+    message: Any = None
+```
+
 List endpoints return `ListResult[T]`. Use `.items` and `.next_cursor` directly, iterate the current page with `for item in page`, or iterate all pages with `.auto_paging_iter()`. Async list endpoints return `AsyncListResult[T]`; `async for item in page` walks the current page, and `async for item in page.auto_paging_iter()` walks every page in the result set.
 
 ### SDKAgentInfo
@@ -1189,6 +1214,10 @@ me = await AsyncCursor.me(client=client)
 models = await AsyncCursor.models.list(client=client)
 repositories = await AsyncCursor.repositories.list(client=client)
 ```
+
+`Cursor.me()` returns an `SDKUser` with `api_key_name`, `created_at`, and
+optional `user_id`, `user_email`, `user_first_name`, and `user_last_name`
+fields.
 
 Use `Cursor.models.list()` to discover valid model IDs and per-model parameters before calling `Agent.create()` or `agent.send()`. Parameters are model-specific. Common examples are reasoning effort and Cursor Router's `optimize_for` on `auto-smart`.
 
@@ -1700,6 +1729,7 @@ class CursorAgentError(Exception):
     details: list[Mapping[str, Any]]
     is_retryable: bool
     cause: BaseException | None
+    proto_error_code: str | None
     request_id: str | None
     headers: Mapping[str, str]
     retry_after: str | None
