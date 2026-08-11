@@ -1326,8 +1326,8 @@
       "title": "SDK Changelog"
     },
     "sdk__python.md": {
-      "hash": "7b190e4becde40efa50558add30a9a86416137d1e9afe612c2f5c350f4e0079c",
-      "last_updated": "2026-08-10T16:08:09+00:00",
+      "hash": "8e43227f1fb983d70ff78d6b4f52e916466fcad6ea0ffd988c8b004a13b96702",
+      "last_updated": "2026-08-11T16:09:22+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -1335,8 +1335,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "f604d644125668aac0088b38f5bf13515a49af959a2b0df3f0e7af296f775714",
-      "last_updated": "2026-08-10T16:08:10+00:00",
+      "hash": "bf4637e02e81d77ac082bc43d4ab99c592ee01ce3db21372ec19e05c363e2fa6",
+      "last_updated": "2026-08-11T16:09:23+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1384,7 +1384,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-10T21:54:15+00:00",
+  "last_updated": "2026-08-11T16:09:24+00:00",
   "skipped": [
     {
       "path": "/docs",

@@ -159,6 +159,20 @@ cloud_agent = Agent.create(
 Cloud agents started by the SDK are filtered out of the default agent list. To
 view them in Cursor Web or a Cursor agent window, click **Filter > Source > SDK**.
 
+### No-repo cloud agents
+
+Cloud agents can run on an empty VM with no repository. Pass `cloud` with an empty `repos` list, or omit `repos` entirely. Omitting `cloud` selects the local runtime instead.
+
+```python
+from cursor_sdk import Agent, CloudAgentOptions
+
+with Agent.create(cloud=CloudAgentOptions(repos=[])) as agent:
+    run = agent.send("Research the top 3 Python testing frameworks and summarize.")
+    print(run.wait().result)
+```
+
+No-repo agents must be enabled for your account or team. Repository-scoped API keys can't create them; use an unrestricted service account key or a user API key instead.
+
 ### Session environment variables
 
 For cloud agents, pass `env_vars` when a run needs short-lived credentials or other values that should live only with that agent.
@@ -1560,16 +1574,16 @@ The Python SDK accepts helper dataclasses and raw dictionaries. Dataclasses use 
 
 ### CloudAgentOptions
 
-| Property                    | Type                                             | Default                                                | Description                                                                                                                                                                |
-| :-------------------------- | :----------------------------------------------- | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `env`                       | `CloudEnvironment \| Mapping[str, Any]`          | `None`                                                 | Execution environment. When omitted, the server uses Cursor-hosted cloud VMs. `pool` and `machine` target self-hosted workers you run.                                     |
-| `repos`                     | `Sequence[CloudRepository \| Mapping[str, Any]]` | `None`                                                 | Repositories to clone into the VM. Omit both `repos` and `env` for a no-repo agent with an empty workspace. Pass `pr_url` on a repo to attach the agent to an existing PR. |
-| `work_on_current_branch`    | `bool`                                           | `None`                                                 | Push commits to the existing branch instead of a new one. The server treats an omitted value as `False`.                                                                   |
-| `auto_create_pr`            | `bool`                                           | `None`                                                 | Open a PR when the run finishes. The server treats an omitted value as `False`.                                                                                            |
-| `open_as_cursor_github_app` | `bool`                                           | `True` for service-account keys, `False` for user keys | Open PRs as the Cursor GitHub App instead of the API key's owner. The resolved value is echoed on create, get, and list.                                                   |
-| `skip_reviewer_request`     | `bool`                                           | `None`                                                 | Skip requesting the calling user as a reviewer on the PR. The server treats an omitted value as `False`.                                                                   |
-| `env_vars`                  | `Mapping[str, str]`                              | `None`                                                 | Session-scoped environment variables for cloud agents.                                                                                                                     |
-| `metadata`                  | `Mapping[str, str]`                              | `None`                                                 | Caller-owned string tags persisted on the cloud agent. See [Agent metadata](https://cursor.com/docs/sdk/python.md#agent-metadata).                                         |
+| Property                    | Type                                             | Default                                                | Description                                                                                                                                                                                                                    |
+| :-------------------------- | :----------------------------------------------- | :----------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `env`                       | `CloudEnvironment \| Mapping[str, Any]`          | `None`                                                 | Execution environment. When omitted, the server uses Cursor-hosted cloud VMs. `pool` and `machine` target self-hosted workers you run.                                                                                         |
+| `repos`                     | `Sequence[CloudRepository \| Mapping[str, Any]]` | `None`                                                 | Repositories to clone into the VM. Omit or pass `[]` for a [no-repo agent](https://cursor.com/docs/sdk/python.md#no-repo-cloud-agents) with an empty workspace. Pass `pr_url` on a repo to attach the agent to an existing PR. |
+| `work_on_current_branch`    | `bool`                                           | `None`                                                 | Push commits to the existing branch instead of a new one. The server treats an omitted value as `False`.                                                                                                                       |
+| `auto_create_pr`            | `bool`                                           | `None`                                                 | Open a PR when the run finishes. The server treats an omitted value as `False`.                                                                                                                                                |
+| `open_as_cursor_github_app` | `bool`                                           | `True` for service-account keys, `False` for user keys | Open PRs as the Cursor GitHub App instead of the API key's owner. The resolved value is echoed on create, get, and list.                                                                                                       |
+| `skip_reviewer_request`     | `bool`                                           | `None`                                                 | Skip requesting the calling user as a reviewer on the PR. The server treats an omitted value as `False`.                                                                                                                       |
+| `env_vars`                  | `Mapping[str, str]`                              | `None`                                                 | Session-scoped environment variables for cloud agents.                                                                                                                                                                         |
+| `metadata`                  | `Mapping[str, str]`                              | `None`                                                 | Caller-owned string tags persisted on the cloud agent. See [Agent metadata](https://cursor.com/docs/sdk/python.md#agent-metadata).                                                                                             |
 
 ### AgentDefinition
 
