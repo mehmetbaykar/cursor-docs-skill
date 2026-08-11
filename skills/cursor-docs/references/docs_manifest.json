@@ -1335,8 +1335,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "bf4637e02e81d77ac082bc43d4ab99c592ee01ce3db21372ec19e05c363e2fa6",
-      "last_updated": "2026-08-11T16:09:23+00:00",
+      "hash": "e0e56810d32a7ac0da11aa2d483ab35f0666bece4da333aad58471417df11cd6",
+      "last_updated": "2026-08-11T19:16:44+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1384,7 +1384,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-11T16:09:24+00:00",
+  "last_updated": "2026-08-11T19:16:45+00:00",
   "skipped": [
     {
       "path": "/docs",
