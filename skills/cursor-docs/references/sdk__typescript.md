@@ -87,6 +87,41 @@ Importing `@cursor/sdk` does not eagerly load the local agent stack. The local e
 
 `@cursor/sdk` publishes self-contained `.d.ts` files, so types resolve without pulling in unpublished workspace packages. After upgrading, re-run your typecheck. Stream types such as `TurnEndedUpdate` resolve to real types instead of `any`.
 
+### Single-file bundles and compiled executables
+
+`@cursor/sdk/bundled` is a self-contained, single-file build of the SDK with the same public API as `@cursor/sdk`. Use it when your app ships as one file: a standalone binary from `bun build --compile`, or a single-file bundle from esbuild.
+
+The default build loads parts of itself lazily at runtime. Single-file bundlers can't follow those loads, so a compiled app fails on the first `Agent.create()` with an error like `Cannot find module './986.js'`. The bundled entries put everything in one file, so your bundler embeds the whole SDK up front.
+
+| Entry                        | Contents                                                |
+| :--------------------------- | :------------------------------------------------------ |
+| `@cursor/sdk/bundled`        | Everything `@cursor/sdk` exports.                       |
+| `@cursor/sdk/bundled/sqlite` | `SqliteLocalAgentStore`, matching `@cursor/sdk/sqlite`. |
+
+```typescript
+import { Agent } from "@cursor/sdk/bundled";
+
+const agent = await Agent.create({
+  apiKey: process.env.CURSOR_API_KEY!,
+  model: { id: "composer-2.5" },
+  local: { cwd: process.cwd() },
+});
+```
+
+Compile with Bun as usual:
+
+```bash
+bun build --compile main.ts --outfile my-agent
+```
+
+A few things to know:
+
+- **The bundled entries run on Bun**, including executables from `bun build --compile`. They load on Node too, but the SQLite store is unavailable there, so the default [local agent store](https://cursor.com/docs/sdk/typescript.md#local-agent-stores) falls back to JSONL. Keep importing `@cursor/sdk` in Node apps that don't ship as one file.
+- **`zod`, `@bufbuild/protobuf`, and the `@connectrpc/*` packages resolve from your own install.** They come with `@cursor/sdk`, and your bundler embeds one shared copy, so Zod schemas you pass to [custom tools](https://cursor.com/docs/sdk/typescript.md#custom-tools) keep working.
+- **Native binaries can't live inside a JavaScript bundle.** Sandboxing and the built-in ripgrep ship in the per-platform `@cursor/sdk-<os>-<arch>` packages. Place `node_modules/@cursor/sdk-<os>-<arch>/` next to your compiled executable and the SDK finds it there. Without it, search falls back to `rg` on `PATH`, and enabling [`sandboxOptions`](https://cursor.com/docs/sdk/typescript.md#sandbox-options) throws a `ConfigurationError`.
+
+Types resolve for the bundled entries the same way they do for `@cursor/sdk`. No TypeScript config changes needed.
+
 ## Quick start
 
 The fastest way in: a local agent against your current working tree, streaming events as they come in. Cloud setup is in [Creating agents](https://cursor.com/docs/sdk/typescript.md#creating-agents) below.
