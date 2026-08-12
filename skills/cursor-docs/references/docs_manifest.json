@@ -831,8 +831,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "b68eff309a640405ab714d631e45c08c469c860910e29259e3b590bbf4598fc7",
-      "last_updated": "2026-08-12T16:07:06+00:00",
+      "hash": "44919bd64a367ca5738a8dd781480fcd630bebf7f81f66ef19d760b4de8af147",
+      "last_updated": "2026-08-12T19:16:02+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1393,7 +1393,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-12T16:07:22+00:00",
+  "last_updated": "2026-08-12T19:16:23+00:00",
   "skipped": [
     {
       "path": "/docs",
