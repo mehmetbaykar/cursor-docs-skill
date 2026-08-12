@@ -12,24 +12,22 @@ Cursor supports frontier models from OpenAI, Anthropic, Google, SpaceXAI, and mo
 
 There are two separate usage pools, each resetting with your monthly billing cycle:
 
-- **Cursor Models**: Significantly more included usage for Cursor Grok 4.5 and Composer 2.5.
+- **Cursor Models**: Significantly more included usage for Cursor Grok 4.6, Grok 4.5, and Composer 2.5.
 - **Other Models**: The pool for third-party models, charged at the model's API price. Pro, Pro Plus, and Ultra include at least $20 of third-party model usage each month (more on higher tiers) with the option to pay for additional usage as needed. The Start plan does not include this pool.
 
 Both pools are visible in your editor settings and on your [usage dashboard](https://cursor.com/dashboard/usage).
 
 ## Cursor Models
 
-The Cursor Models pool includes Cursor Grok 4.5 and Composer 2.5.
+The Cursor Models pool includes Cursor Grok 4.6, Grok 4.5, and Composer 2.5.
 
 On Teams and Enterprise plans, [Cursor Router](https://cursor.com/docs/cursor-router.md) picks the model for each Auto request based on your optimization mode.
 
-### Grok 4.5 pricing
+### Grok 4.6 pricing
 
-Grok 4.5 is jointly trained by Cursor and SpaceXAI for long-running coding and knowledge work.
+Grok 4.6 is jointly trained by Cursor and SpaceXAI for complex coding and knowledge work.
 
-### Composer pricing
-
-Composer 2.5 is Cursor's own model, trained to be highly capable for agentic coding.
+A 50% launch discount applies for one week starting August 12, 2026.
 
 ## Other Models
 
@@ -101,7 +99,7 @@ Since different models have different API costs, your model selection affects ho
 
 Start is available to developers in India. It costs ₹649 per month, tax inclusive, billed monthly in INR with UPI, credit card, or debit card. Every other individual plan displays its price before tax.
 
-Start includes generous usage of the Cursor Models pool, so you can run Grok 4.5 and Composer 2.5 for daily building. On Start, both models run in non-fast mode, and Grok 4.5 uses a fixed medium effort level. You cannot change effort levels or enable Fast mode on Start. Upgrade to Pro or higher to choose effort levels and Fast mode.
+Start includes generous usage of the Cursor Models pool, so you can run Grok 4.6, Grok 4.5, and Composer 2.5 for daily building. On Start, all three models run in non-fast mode, and both Grok models use a fixed medium effort level. You cannot change effort levels or enable Fast mode on Start. Upgrade to Pro or higher to choose effort levels and Fast mode.
 
 Start also includes [Cloud Agents](https://cursor.com/docs/cloud-agent.md), [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md), and plugins, MCP servers, hooks, and skills.
 
@@ -137,7 +135,7 @@ Learn more about [Teams pricing](https://cursor.com/docs/account/teams/pricing.m
 
 On Teams and Enterprise plans, third-party model requests include a Cursor Token Rate of $0.25 per million tokens. This rate applies on top of model API pricing for included usage, on-demand usage, and BYOK usage.
 
-The Cursor Token Rate applies when you select a third-party model directly, and when Auto Balance or Auto Intelligence routes to a third-party model. Auto Cost and all first-party Cursor models, including Grok 4.5 and Composer 2.5, are exempt from the Cursor Token Rate.
+The Cursor Token Rate applies when you select a third-party model directly, and when Auto Balance or Auto Intelligence routes to a third-party model. Auto Cost and all first-party Cursor models, including Grok 4.6, Grok 4.5, and Composer 2.5, are exempt from the Cursor Token Rate.
 
 ## Auto modes
 
