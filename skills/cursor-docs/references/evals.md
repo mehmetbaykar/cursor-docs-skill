@@ -6,7 +6,7 @@ path: /docs/evals
 
 # Run Cursor in your evals
 
-Use the [Cursor SDK](https://cursor.com/docs/sdk/typescript.md) to run Cursor's agent loop inside your own eval harness. The same agent that powers the Cursor IDE, CLI, and web app is scriptable from TypeScript, so you can score Grok 4.5 (and other models we support) on your benchmarks.
+Use the [Cursor SDK](https://cursor.com/docs/sdk/typescript.md) to run Cursor's agent loop inside your own eval harness. The same agent that powers the Cursor IDE, CLI, and web app is scriptable from TypeScript, so you can score Grok 4.6 (and other models we support) on your benchmarks.
 
 Benchmark authors like [Artificial Analysis](https://x.com/ArtificialAnlys/status/2057277363789197561) and [SWE-rebench](https://swe-rebench.com/) already use it to score Cursor on their leaderboards.
 
@@ -15,7 +15,7 @@ Benchmark authors like [Artificial Analysis](https://x.com/ArtificialAnlys/statu
 Eval harnesses need a stable, programmatic interface to an agent: pass a task, get a transcript and final state, score the result. The SDK gives you that without shelling out to the CLI:
 
 - **Real agent loop.** Tool calls, file edits, terminal commands, and reasoning run through the same code path as the product.
-- **Grok-first, multi-model.** Grok 4.5 is the default to evaluate, but any model in Cursor's catalog works through the same API.
+- **Grok-first, multi-model.** Grok 4.6 is the default to evaluate, but any model in Cursor's catalog works through the same API.
 - **Local or sandboxed cloud runtime.** Run against a working tree on disk for fast iteration, or use Cursor's hosted VMs for isolated, parallel runs.
 - **Structured streams and results.** Typed `SDKMessage` events, per-step deltas, and a final `RunResult` with model, duration, and git info.
 
@@ -44,9 +44,9 @@ export CURSOR_API_KEY="your-key"
 | **Local** | Runs the agent against a working tree on disk.                | Reproducible repo-based tasks where you control the checkout.                           |
 | **Cloud** | Runs in an isolated Cursor-hosted VM with the repo cloned in. | Parallel runs, untrusted code execution, or harnesses that don't have the repo locally. |
 
-## Evaluating Grok 4.5
+## Evaluating Grok 4.6
 
-A single-task eval against Grok 4.5 on a local working tree:
+A single-task eval against Grok 4.6 on a local working tree:
 
 ```typescript
 import { Agent } from "@cursor/sdk";
@@ -55,7 +55,7 @@ const result = await Agent.prompt(
   "Implement the failing tests in tests/string_utils.test.ts. Do not modify the tests.",
   {
     apiKey: process.env.CURSOR_API_KEY!,
-    model: { id: "grok-4.5" },
+    model: { id: "grok-4.6" },
     local: { cwd: "/path/to/task/checkout" },
   },
 );
@@ -78,7 +78,7 @@ import { Agent, type SDKMessage } from "@cursor/sdk";
 
 await using agent = await Agent.create({
   apiKey: process.env.CURSOR_API_KEY!,
-  model: { id: "grok-4.5" },
+  model: { id: "grok-4.6" },
   local: { cwd: taskCwd },
 });
 
@@ -109,7 +109,7 @@ saveTranscript(transcript, final);
 The same harness code evaluates any model in Cursor's catalog. Swap the `id`:
 
 ```typescript
-const models = ["grok-4.5", "composer-2.5", "gpt-5.6-sol", "claude-opus-5", "gemini-3.1-pro"];
+const models = ["grok-4.6", "composer-2.5", "gpt-5.6-sol", "claude-opus-5", "gemini-3.1-pro"];
 
 for (const id of models) {
   const result = await Agent.prompt(taskPrompt, {
@@ -134,7 +134,7 @@ import { Agent } from "@cursor/sdk";
 async function runTask(task: EvalTask) {
   await using agent = await Agent.create({
     apiKey: process.env.CURSOR_API_KEY!,
-    model: { id: "grok-4.5" },
+    model: { id: "grok-4.6" },
     cloud: {
       repos: [{ url: task.repoUrl, startingRef: task.baseRef }],
     },
@@ -178,5 +178,5 @@ Default API rate limits are tuned for development workloads, not full eval sweep
 ## Next steps
 
 - Browse the full [Cursor SDK reference](https://cursor.com/docs/sdk/typescript.md) for every option, event type, and error class.
-- Read about [Grok 4.5](https://cursor.com/docs/models/grok-4-5.md) and the rest of Cursor's [models](https://cursor.com/docs/models-and-pricing.md).
+- Read about [Grok 4.6](https://cursor.com/docs/models/grok-4-6.md) and the rest of Cursor's [models](https://cursor.com/docs/models-and-pricing.md).
 - Explore [Cloud agents](https://cursor.com/docs/cloud-agent.md) for sandboxed, parallel runs.

@@ -4,16 +4,16 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 151,
+    "pages_fetched_successfully": 152,
     "pages_skipped": 1,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 152
+    "total_pages_discovered": 153
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "1830362dd9c382deab9efb9e639b4c7b74abee2fb731213b41c552c4300b6f62",
-      "last_updated": "2026-08-07T17:11:40+00:00",
+      "hash": "fce19e3876e6803e81b7378388b4f56ae3a15123fa8ead363979facd75a54911",
+      "last_updated": "2026-08-12T16:06:42+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "f278d586218a6dbc536d5b137bdc7bf08aeeb33cf8bd6b68e28c6544be8c2c73",
-      "last_updated": "2026-08-07T17:11:41+00:00",
+      "hash": "3252f8a45115e4abccf8ef0ca1698dbd74025197f273b141116f9d1a9f237f3b",
+      "last_updated": "2026-08-12T16:06:42+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "5a6ab2f6044c0f41e67e94e7d141ce14c5eee79ec778905995b975ca5cbfe5a1",
-      "last_updated": "2026-08-07T17:11:41+00:00",
+      "hash": "457db52a5cd2d3d51c05d27408c1ab6c1e9173e53f100c486f433e1bd4820fac",
+      "last_updated": "2026-08-12T16:06:43+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "4062e0ae649e104faa09b7f736955b5d05a3a3b22f8fa5ad768c44b537a60a1b",
-      "last_updated": "2026-08-07T17:11:43+00:00",
+      "hash": "f853b26a1e059b46b745cc86fef56b71e45eecf3b10798dc32d02587e94e3021",
+      "last_updated": "2026-08-12T16:06:44+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -291,8 +291,8 @@
       "title": "ACP"
     },
     "cli__changelog.md": {
-      "hash": "180fd3f2071e0deff6cfddbd9f59a72fd7a883142a8f379633fff09d0a00592c",
-      "last_updated": "2026-08-07T17:11:50+00:00",
+      "hash": "dea2dc8993541581c84de5366da76bd2875aed08f3866b8009b06b04b131d2da",
+      "last_updated": "2026-08-12T16:06:50+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
       "source_url": "https://cursor.com/docs/cli/changelog",
@@ -669,8 +669,8 @@
       "title": "AWS Bedrock"
     },
     "evals.md": {
-      "hash": "509b587cd5b2a90253ccbba64c71ae5ec682ee441f620e522e44d0e84fe45b9f",
-      "last_updated": "2026-08-07T17:12:03+00:00",
+      "hash": "74eef700925de4e2865ce509e2c664baa4fbcbde4cf3898aa6a433412fbc5791",
+      "last_updated": "2026-08-12T16:07:01+00:00",
       "original_url": "https://cursor.com/docs/evals",
       "path": "/docs/evals",
       "source_url": "https://cursor.com/docs/evals",
@@ -831,8 +831,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "c222e695a1ba87e988ec282405f41e3d84572c2b296247b591412fc95249af70",
-      "last_updated": "2026-08-07T17:12:09+00:00",
+      "hash": "b68eff309a640405ab714d631e45c08c469c860910e29259e3b590bbf4598fc7",
+      "last_updated": "2026-08-12T16:07:06+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -966,8 +966,8 @@
       "title": "Models Cursor Composer 1"
     },
     "models__cursor-composer-2-5.md": {
-      "hash": "c818dbd2981b3cfe66ad3661685c87af8cb1394808f8837e76d28b1987f5c288",
-      "last_updated": "2026-08-07T17:12:14+00:00",
+      "hash": "3736b630ea6076a16d334066935bb3aba753b583805cbf984b4a5bb940aa51e5",
+      "last_updated": "2026-08-12T16:07:10+00:00",
       "original_url": "https://cursor.com/docs/models/cursor-composer-2-5",
       "path": "/docs/models/cursor-composer-2-5",
       "source_url": "https://cursor.com/docs/models/cursor-composer-2-5",
@@ -1200,13 +1200,22 @@
       "title": "Models Gpt 5"
     },
     "models__grok-4-5.md": {
-      "hash": "32e9cb0c7fadd2214643314a2bef7c26e92c447ae37c24040d13b238debcd06b",
-      "last_updated": "2026-08-07T17:12:22+00:00",
+      "hash": "d6d6ee9ad8250292b73716e0fa1d0a910b715ea382629837eeba5faf7fbeefa5",
+      "last_updated": "2026-08-12T16:07:17+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-5",
       "path": "/docs/models/grok-4-5",
       "source_url": "https://cursor.com/docs/models/grok-4-5",
       "status": "live",
       "title": "Models Grok 4 5"
+    },
+    "models__grok-4-6.md": {
+      "hash": "9ff8e60ac8e8f758132bba4b98343bcfd47857fc66fcc83202727559bf48d837",
+      "last_updated": "2026-08-12T16:07:17+00:00",
+      "original_url": "https://cursor.com/docs/models/grok-4-6",
+      "path": "/docs/models/grok-4-6",
+      "source_url": "https://cursor.com/docs/models/grok-4-6",
+      "status": "live",
+      "title": "Models Grok 4 6"
     },
     "models__kimi-k2-7-code.md": {
       "hash": "6d6584b65246cb9b5a26ff4052689d91d33f1b864b8924774ab3facbc0e462a0",
@@ -1384,7 +1393,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-11T19:16:45+00:00",
+  "last_updated": "2026-08-12T16:07:22+00:00",
   "skipped": [
     {
       "path": "/docs",
