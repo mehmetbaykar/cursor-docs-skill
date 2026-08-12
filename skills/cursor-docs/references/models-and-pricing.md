@@ -23,11 +23,16 @@ The Cursor Models pool includes Cursor Grok 4.6, Grok 4.5, and Composer 2.5.
 
 On Teams and Enterprise plans, [Cursor Router](https://cursor.com/docs/cursor-router.md) picks the model for each Auto request based on your optimization mode.
 
-### Grok 4.6 pricing
+| Model                                                       | Provider | Input | Cache write | Cache read | Output | Notes                                                                                             |
+| ----------------------------------------------------------- | -------- | ----- | ----------- | ---------- | ------ | ------------------------------------------------------------------------------------------------- |
+| Grok 4.6                                                    | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI; 50% launch discount for one week starting August 12, 2026 |
+| Grok 4.6 (Fast)                                             | Cursor   | $4    | -           | $1         | $12    | Jointly trained by Cursor and SpaceXAI; 50% launch discount for one week starting August 12, 2026 |
+| Grok 4.5                                                    | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI                                                            |
+| Grok 4.5 (Fast)                                             | Cursor   | $4    | -           | $1         | $12    | Jointly trained by Cursor and SpaceXAI                                                            |
+| [Composer 2.5](https://cursor.com/blog/composer-2-5)        | Cursor   | $0.5  | -           | $0.2       | $2.5   | -                                                                                                 |
+| [Composer 2.5 (Fast)](https://cursor.com/blog/composer-2-5) | Cursor   | $3    | -           | $0.5       | $15    | -                                                                                                 |
 
-Grok 4.6 is jointly trained by Cursor and SpaceXAI for complex coding and knowledge work.
-
-A 50% launch discount applies for one week starting August 12, 2026.
+A 50% launch discount for Grok 4.6 applies for one week starting August 12, 2026.
 
 ## Other Models
 

@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 152,
+    "pages_fetched_successfully": 153,
     "pages_skipped": 1,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 153
+    "total_pages_discovered": 154
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -426,8 +426,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "cc2f8039a307244318431307c8b3dfa1d15ffc65bb6a8ec8952499212c667231",
-      "last_updated": "2026-08-08T02:14:39+00:00",
+      "hash": "f5115703c4f23a4346b436a96a0e79e05fea3ded12c01415e8359f4fa1d00b12",
+      "last_updated": "2026-08-12T21:57:18+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -480,8 +480,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "2694319c0f38e510cbf312375347d5904eab08750d3f5f48f6311fb747ec1446",
-      "last_updated": "2026-08-08T02:14:40+00:00",
+      "hash": "65659d289d0218928fa34cc755f1416690bc1e63294842767957695ad00a2e9b",
+      "last_updated": "2026-08-12T21:57:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -489,13 +489,22 @@
       "title": "Capabilities"
     },
     "cloud-agent__identity.md": {
-      "hash": "7fc31228b2c4cbc3e9b313aaa3fe9c4fdf74672704ff826b73dc6f0065ec9345",
-      "last_updated": "2026-08-08T02:14:41+00:00",
+      "hash": "535ca52b86ffe3960bcdaef048e8e5b61cacab630aa116a109f3f820e2744028",
+      "last_updated": "2026-08-12T21:57:20+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
       "status": "live",
       "title": "OIDC tokens"
+    },
+    "cloud-agent__metadata.md": {
+      "hash": "9a996fccfdcabce5f9b66ea7b99c426e139373a3701331ea625a45364d0b5b8c",
+      "last_updated": "2026-08-12T21:57:20+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/metadata",
+      "path": "/docs/cloud-agent/metadata",
+      "source_url": "https://cursor.com/docs/cloud-agent/metadata",
+      "status": "live",
+      "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
       "hash": "22dc2ac9d2aa645f32a4d0e4368adc7bf80acc007f41f8c27016605e2b68b028",
@@ -516,8 +525,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__security-network.md": {
-      "hash": "7aa67b12f71740469b1766f725e9f6a22429843a7956b9af07129fe8df04fa82",
-      "last_updated": "2026-08-08T02:14:42+00:00",
+      "hash": "6cf87f258060c69557da921e2551819e32c37a71885a0f9c0ed0416cdeda9c94",
+      "last_updated": "2026-08-12T21:57:21+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
@@ -552,8 +561,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "1b707f6d81c9952aba3440f2cdf88cc3848b9ff0dfdf92a4d0b07401f8f82719",
-      "last_updated": "2026-08-08T02:14:43+00:00",
+      "hash": "74988de60e916f0caf65da848e953ebdf4a28e891e7c91c82d46d1e3884b1a5b",
+      "last_updated": "2026-08-12T21:57:22+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -831,8 +840,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "44919bd64a367ca5738a8dd781480fcd630bebf7f81f66ef19d760b4de8af147",
-      "last_updated": "2026-08-12T19:16:02+00:00",
+      "hash": "fb182b7ae9fb89a2499facc00067a9b73a3c79996b8a63603a8a43d0ee3ee195",
+      "last_updated": "2026-08-12T21:57:30+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1335,8 +1344,8 @@
       "title": "SDK Changelog"
     },
     "sdk__python.md": {
-      "hash": "8e43227f1fb983d70ff78d6b4f52e916466fcad6ea0ffd988c8b004a13b96702",
-      "last_updated": "2026-08-11T16:09:22+00:00",
+      "hash": "b5b83a9e72167d7d3f2449061f3da355a8565b265ac519c2975208b33c3ce35f",
+      "last_updated": "2026-08-12T21:57:45+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -1344,8 +1353,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "e0e56810d32a7ac0da11aa2d483ab35f0666bece4da333aad58471417df11cd6",
-      "last_updated": "2026-08-11T19:16:44+00:00",
+      "hash": "653919809a51461e92dacbbc28b8fc694490714e1fcc1fa15a96b82801d6d571",
+      "last_updated": "2026-08-12T21:57:46+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1393,7 +1402,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-12T19:16:23+00:00",
+  "last_updated": "2026-08-12T21:57:47+00:00",
   "skipped": [
     {
       "path": "/docs",

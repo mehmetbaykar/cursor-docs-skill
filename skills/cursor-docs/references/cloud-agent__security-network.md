@@ -46,7 +46,7 @@ RUN --mount=type=secret,id=MY_TOKEN,env=MY_TOKEN,required=true \
 
 ## OIDC identity tokens
 
-For cloud roles and internal APIs, prefer short-lived [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md) over long-lived keys in Secrets. A Cloud Agent VM can mint a Cursor-signed JWT from a local socket and present it to AWS, GCP, Azure, Vault, or any OIDC verifier.
+For cloud roles and internal APIs, prefer short-lived [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md) over long-lived keys in Secrets. A Cloud Agent can mint a Cursor-signed JWT from a local socket and present it to AWS, GCP, Azure, Vault, or any OIDC verifier.
 
 ## Signed commits
 

@@ -120,6 +120,8 @@ Cursor runs the install script (`install` in `environment.json`) when it creates
 
 Use `install` for work Cursor can prepare ahead of time. Examples include installing dependencies, generating code, compiling artifacts, and warming disk caches.
 
+Install scripts can read [agent metadata](https://cursor.com/docs/cloud-agent/metadata.md) and mint [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md) from the same local socket the agent uses.
+
 ### Install script idempotency
 
 The install script must be idempotent. It runs for every Build and may run on

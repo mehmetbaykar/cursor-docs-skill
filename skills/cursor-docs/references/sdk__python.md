@@ -197,7 +197,7 @@ For values that should only exist during a single run, pass them on `agent.send(
 
 ### Agent metadata
 
-Attach your own identifiers to a cloud agent when you create it. Metadata can link an agent to a user, tenant, workflow, or ticket in your system, and is read back on `SDKAgentInfo.metadata` from `client.agents.get()` and `client.agents.list()`.
+Attach your own identifiers to a cloud agent when you create it. Metadata can link an agent to a user, tenant, workflow, or ticket in your system, and is read back on `SDKAgentInfo.metadata` from `client.agents.get()` and `client.agents.list()`. These tags are not the in-VM [agent metadata](https://cursor.com/docs/cloud-agent/metadata.md) API, which exposes the current run's id, owner, turn, and workspace from inside the VM.
 
 ```python
 from cursor_sdk import Agent, CloudAgentOptions, CloudRepository

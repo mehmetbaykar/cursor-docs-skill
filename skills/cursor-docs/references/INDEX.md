@@ -60,6 +60,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `cloud-agent__builds` - [Cloud Agent Builds](https://cursor.com/docs/cloud-agent/builds)
 - `cloud-agent__capabilities` - [Capabilities](https://cursor.com/docs/cloud-agent/capabilities)
 - `cloud-agent__identity` - [OIDC tokens](https://cursor.com/docs/cloud-agent/identity)
+- `cloud-agent__metadata` - [Agent metadata](https://cursor.com/docs/cloud-agent/metadata)
 - `cloud-agent__mobile` - [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile)
 - `cloud-agent__private-connectivity` - [Private Connectivity](https://cursor.com/docs/cloud-agent/private-connectivity)
 - `cloud-agent__security-network` - [Secrets & Network](https://cursor.com/docs/cloud-agent/security-network)

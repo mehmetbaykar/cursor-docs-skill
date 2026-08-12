@@ -226,7 +226,9 @@ For values that should only exist during a single run, pass them on `agent.send(
 
 Attach your own string tags to a cloud agent with `cloud.metadata`. The tags are
 persisted with the agent and returned on `SDKAgentInfo.metadata` from
-`Agent.get()` and `Agent.list()`.
+`Agent.get()` and `Agent.list()`. These tags are not the in-VM
+[agent metadata](https://cursor.com/docs/cloud-agent/metadata.md) API, which exposes the current
+run's id, owner, turn, and workspace from inside the VM.
 
 ```typescript
 const agent = await Agent.create({
