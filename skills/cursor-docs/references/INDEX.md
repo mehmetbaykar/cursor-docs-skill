@@ -118,6 +118,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `models__gemini-3-1-pro` - [Models Gemini 3 1 Pro](https://cursor.com/docs/models/gemini-3-1-pro)
 - `models__gemini-3-5-flash` - [Models Gemini 3 5 Flash](https://cursor.com/docs/models/gemini-3-5-flash)
 - `models__gemini-3-6-flash` - [Models Gemini 3 6 Flash](https://cursor.com/docs/models/gemini-3-6-flash)
+- `models__gemini-3-7-flash` - [Models Gemini 3 7 Flash](https://cursor.com/docs/models/gemini-3-7-flash)
 - `models__gemini-3-flash` - [Models Gemini 3 Flash](https://cursor.com/docs/models/gemini-3-flash)
 - `models__gemini-3-pro-image-preview` - [Models Gemini 3 Pro Image Preview](https://cursor.com/docs/models/gemini-3-pro-image-preview)
 - `models__gemini-3-pro` - [Models Gemini 3 Pro](https://cursor.com/docs/models/gemini-3-pro)
