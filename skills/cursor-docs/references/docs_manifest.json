@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "3252f8a45115e4abccf8ef0ca1698dbd74025197f273b141116f9d1a9f237f3b",
-      "last_updated": "2026-08-12T16:06:42+00:00",
+      "hash": "f6a73eb7d888d0cd5b5fbb8f6efe906ec473f1f30817a09aadc92576e9887da2",
+      "last_updated": "2026-08-13T16:06:19+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "f853b26a1e059b46b745cc86fef56b71e45eecf3b10798dc32d02587e94e3021",
-      "last_updated": "2026-08-12T16:06:44+00:00",
+      "hash": "03156fd4d4881431f76dca02837c187e41e5f9a0da708e06bf68a2d77c62813b",
+      "last_updated": "2026-08-13T16:06:21+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -840,8 +840,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "fb182b7ae9fb89a2499facc00067a9b73a3c79996b8a63603a8a43d0ee3ee195",
-      "last_updated": "2026-08-12T21:57:30+00:00",
+      "hash": "31085e4d95b579a2e6dd33d11ee104abcd4dbfbdeffa734b35e72d0147bbb279",
+      "last_updated": "2026-08-13T16:06:45+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -858,8 +858,8 @@
       "title": "Models Claude 4 5 Haiku"
     },
     "models__claude-4-5-sonnet.md": {
-      "hash": "0a0767c0ee69cc5e50f0a57ecb4572851962578cc3a15c635de8420763036339",
-      "last_updated": "2026-08-07T17:12:10+00:00",
+      "hash": "df55357bbac21a8f8e1b3f50bf0e3b4ec227d6f37ab35668da5299f8d85d0650",
+      "last_updated": "2026-08-13T16:06:45+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
       "path": "/docs/models/claude-4-5-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
@@ -867,8 +867,8 @@
       "title": "Models Claude 4 5 Sonnet"
     },
     "models__claude-4-6-sonnet.md": {
-      "hash": "8dafecdeb64908fb871061e296ae8a978804dc2ce23a1afd5d138ca15c991917",
-      "last_updated": "2026-08-07T17:12:10+00:00",
+      "hash": "8eda7abc197e2b7cf8718700a5806d36fd77de91b7467174bdaaab5a16f18cb6",
+      "last_updated": "2026-08-13T16:06:45+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
       "path": "/docs/models/claude-4-6-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
@@ -885,8 +885,8 @@
       "title": "Models Claude 4 Sonnet 1m"
     },
     "models__claude-4-sonnet.md": {
-      "hash": "263caa24aea0755b6ce23a839567fb60ff45c203eff359e5d7ac3e43fdd8b7f7",
-      "last_updated": "2026-08-07T17:12:10+00:00",
+      "hash": "227934eae970f810eb57d5cf3e6bb2081f17d78c6d40525cbb7fac4caa616dfe",
+      "last_updated": "2026-08-13T16:06:46+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet",
       "path": "/docs/models/claude-4-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet",
@@ -957,8 +957,8 @@
       "title": "Models Claude Opus 5"
     },
     "models__claude-sonnet-5.md": {
-      "hash": "518bdf09e22ca73c00f56ef8ec7c3bf68ae87fcd1a150528b3342ea919fba74b",
-      "last_updated": "2026-08-07T17:12:13+00:00",
+      "hash": "d68137cebd7c142c794f588057f4967184c256dfca1b685f60a114c74203bfa4",
+      "last_updated": "2026-08-13T16:06:48+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5",
       "path": "/docs/models/claude-sonnet-5",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5",
@@ -1402,7 +1402,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-12T21:57:47+00:00",
+  "last_updated": "2026-08-13T16:07:01+00:00",
   "skipped": [
     {
       "path": "/docs",
