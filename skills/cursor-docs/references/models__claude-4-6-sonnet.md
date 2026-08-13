@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-4-6-sonnet
 path: /docs/models/claude-4-6-sonnet
 ---
 
-We recommend using [Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5.md). It's the latest Sonnet with stronger capabilities at the same price.
+We recommend using [Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5.md). It's the latest Sonnet with stronger capabilities at a lower price.
 
 Sonnet 4.6 is Anthropic's medium-tier intelligence model. It costs the same as Sonnet 4.5 and supports thinking mode with context windows up to 1M tokens. It's a solid pick for teams standardized on Claude who want reasoning without Opus pricing.
 

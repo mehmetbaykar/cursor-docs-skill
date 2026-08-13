@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-4-sonnet
 path: /docs/models/claude-4-sonnet
 ---
 
-We recommend using [Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5.md). It's the latest Sonnet with stronger capabilities at the same price.
+We recommend using [Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5.md). It's the latest Sonnet with stronger capabilities at a lower price.
 
 ## Tools
 
