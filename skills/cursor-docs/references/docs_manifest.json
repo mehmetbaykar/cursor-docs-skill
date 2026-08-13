@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 153,
+    "pages_fetched_successfully": 154,
     "pages_skipped": 1,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 154
+    "total_pages_discovered": 155
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "f6a73eb7d888d0cd5b5fbb8f6efe906ec473f1f30817a09aadc92576e9887da2",
-      "last_updated": "2026-08-13T16:06:19+00:00",
+      "hash": "984fb7f93e6622108be404ba702cf268fa664002ba1aa822e0f22c662921969c",
+      "last_updated": "2026-08-13T19:15:41+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "03156fd4d4881431f76dca02837c187e41e5f9a0da708e06bf68a2d77c62813b",
-      "last_updated": "2026-08-13T16:06:21+00:00",
+      "hash": "c4598f6ce06762dfb0203164ff4be23b57b23934043bdad555709a568abbd02e",
+      "last_updated": "2026-08-13T19:15:44+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -471,8 +471,8 @@
       "title": "Best Practices"
     },
     "cloud-agent__builds.md": {
-      "hash": "22537a3035f9b717746ec6f9b4c6794184e9c045f621376805bf54e43a3ed84f",
-      "last_updated": "2026-08-07T17:11:57+00:00",
+      "hash": "f039756726236e71ae99e112352f82c68ad1df52e74bca1b25677fc5fa641228",
+      "last_updated": "2026-08-13T19:15:58+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
@@ -840,8 +840,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "31085e4d95b579a2e6dd33d11ee104abcd4dbfbdeffa734b35e72d0147bbb279",
-      "last_updated": "2026-08-13T16:06:45+00:00",
+      "hash": "5e0eeccf051378d5e394cc25719c93857f5bf6a8346d48d3fbddd92a2c1529d2",
+      "last_updated": "2026-08-13T19:16:10+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -984,8 +984,8 @@
       "title": "Models Cursor Composer 2 5"
     },
     "models__gemini-2-5-flash.md": {
-      "hash": "89e4cd2706a6c970cbdd38da1f3dd0581762bda5d589b0adca1e8cb064fdd2a5",
-      "last_updated": "2026-08-07T17:12:14+00:00",
+      "hash": "e076a4bd0d9da664525131a7482cbfda4536d6e64f25e4716d827a488473963e",
+      "last_updated": "2026-08-13T19:16:15+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-2-5-flash",
       "path": "/docs/models/gemini-2-5-flash",
       "source_url": "https://cursor.com/docs/models/gemini-2-5-flash",
@@ -1002,8 +1002,8 @@
       "title": "Models Gemini 3 1 Pro"
     },
     "models__gemini-3-5-flash.md": {
-      "hash": "d2d44a6aeb3ac64961f2a37ebbf0f11e2141f9d7c2fd0642993f8cf51abe4f8d",
-      "last_updated": "2026-08-07T17:12:15+00:00",
+      "hash": "3e767495f7afb627db7d2d273d1fb766f71b0c21c6987d782cb8d8b21b7918e6",
+      "last_updated": "2026-08-13T19:16:16+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-5-flash",
       "path": "/docs/models/gemini-3-5-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-5-flash",
@@ -1011,13 +1011,22 @@
       "title": "Models Gemini 3 5 Flash"
     },
     "models__gemini-3-6-flash.md": {
-      "hash": "133f67ace1f1b91dcb3415a8d8cd4b15fdf698b89c8c9ccf13a22a373b1da8bb",
-      "last_updated": "2026-08-07T17:12:15+00:00",
+      "hash": "ed628945aea33d9cf09834a9f2351e6d2ee1ef5ed0bfd596009a06cdb6fb272a",
+      "last_updated": "2026-08-13T19:16:16+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-6-flash",
       "path": "/docs/models/gemini-3-6-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-6-flash",
       "status": "live",
       "title": "Models Gemini 3 6 Flash"
+    },
+    "models__gemini-3-7-flash.md": {
+      "hash": "6beb77de07e3a72d4cc07d359bb17204cde2e953f3e365497b63528f3218be94",
+      "last_updated": "2026-08-13T19:16:17+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-7-flash",
+      "path": "/docs/models/gemini-3-7-flash",
+      "source_url": "https://cursor.com/docs/models/gemini-3-7-flash",
+      "status": "live",
+      "title": "Models Gemini 3 7 Flash"
     },
     "models__gemini-3-flash.md": {
       "hash": "b897c58da80b9941a3759e0d7546f21c3a7a15f4dbb9c7a0f0bacd66e683e1ed",
@@ -1402,7 +1411,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-13T16:07:01+00:00",
+  "last_updated": "2026-08-13T19:16:30+00:00",
   "skipped": [
     {
       "path": "/docs",
