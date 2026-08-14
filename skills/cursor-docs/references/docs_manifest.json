@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "fce19e3876e6803e81b7378388b4f56ae3a15123fa8ead363979facd75a54911",
-      "last_updated": "2026-08-12T16:06:42+00:00",
+      "hash": "92e6fad320d4f7c9d5b16babf3d0c1718dfcf948b053496af0fe450342165518",
+      "last_updated": "2026-08-14T21:35:13+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "457db52a5cd2d3d51c05d27408c1ab6c1e9173e53f100c486f433e1bd4820fac",
-      "last_updated": "2026-08-12T16:06:43+00:00",
+      "hash": "74daba6c0becca37b7fceaf5b326bf925da3ea9e2177cf46dc7db36cd5b9b255",
+      "last_updated": "2026-08-14T21:35:14+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -1411,7 +1411,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-14T02:39:10+00:00",
+  "last_updated": "2026-08-14T21:35:59+00:00",
   "skipped": [
     {
       "path": "/docs",
