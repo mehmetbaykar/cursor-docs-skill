@@ -62,7 +62,8 @@ Setup instructions for Okta, Azure AD, Google Workspace, and more.
 
 ## Additional Settings
 
-- Manage SSO enforcement through admin dashboard
+Once domain verification and the SSO provider connection are active, users on that domain are required to sign in with SSO. There is no separate enforcement toggle.
+
 - New users auto-enroll when signing in through SSO
 - Handle user management through your identity provider
 
@@ -80,7 +81,7 @@ If issues occur:
 
 - Verify domain is verified in Cursor
 - Ensure SAML attributes are properly mapped
-- Check SSO is enabled in admin dashboard
+- Confirm the SSO connection is active and the domain is verified.
 - Match first and last names between identity provider and Cursor
 - Check provider-specific guides above
 - Visit the [SSO help center](https://cursor.com/help/security-and-privacy/sso.md) if issues persist

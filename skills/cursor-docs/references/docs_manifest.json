@@ -120,8 +120,8 @@
       "title": "Get Started"
     },
     "account__teams__sso.md": {
-      "hash": "f60b70dbdb09cab7bf01c6c6a72359fdde8be6d8a8b14c4dfb761945a6f19bb8",
-      "last_updated": "2026-08-07T17:11:44+00:00",
+      "hash": "15431a3a7406993d4d764b2707e8cead3dd7842534ed705efb23d7c5c6a79b1f",
+      "last_updated": "2026-08-14T02:38:33+00:00",
       "original_url": "https://cursor.com/docs/account/teams/sso",
       "path": "/docs/account/teams/sso",
       "source_url": "https://cursor.com/docs/account/teams/sso",
@@ -426,8 +426,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "f5115703c4f23a4346b436a96a0e79e05fea3ded12c01415e8359f4fa1d00b12",
-      "last_updated": "2026-08-12T21:57:18+00:00",
+      "hash": "b235afdf830c7ee0044e02cac213274aa279a8d1fe20acfc5408a8f6e84c120c",
+      "last_updated": "2026-08-14T02:38:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -552,8 +552,8 @@
       "title": "Governed Cloud Agents for private code and internal services"
     },
     "cloud-agent__settings.md": {
-      "hash": "0ac8e746b327b771e808fdc168e8a61b809863ab62094b2a9e950a07a0423a54",
-      "last_updated": "2026-08-07T17:11:59+00:00",
+      "hash": "9af37fda9692fc8032319e28c3dd6a5baceec7427abf8d9edf2f6c964982330c",
+      "last_updated": "2026-08-14T02:38:46+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "source_url": "https://cursor.com/docs/cloud-agent/settings",
@@ -741,8 +741,8 @@
       "title": "Cursor Blame"
     },
     "integrations__github.md": {
-      "hash": "195293f04515638f77e6eed3d234c6b1c1e1ee118cce529be19296de7ff2de5a",
-      "last_updated": "2026-08-07T17:12:06+00:00",
+      "hash": "2f433dac8b781e8061be195056bc358427f5a45faf06ca7c74794e1888420780",
+      "last_updated": "2026-08-14T02:38:51+00:00",
       "original_url": "https://cursor.com/docs/integrations/github",
       "path": "/docs/integrations/github",
       "source_url": "https://cursor.com/docs/integrations/github",
@@ -804,8 +804,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "711945b3b7d94b710df88b06f6a9551f07ddd2472a76e23a5d5ee42c1dbde39b",
-      "last_updated": "2026-08-07T17:12:08+00:00",
+      "hash": "fac4c333afa308297f07a2ec68d4a8baf62267d486e669d9ba4402f3b8ea9407",
+      "last_updated": "2026-08-14T02:38:53+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1411,7 +1411,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-13T19:16:30+00:00",
+  "last_updated": "2026-08-14T02:39:10+00:00",
   "skipped": [
     {
       "path": "/docs",
