@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 154,
-    "pages_skipped": 1,
+    "pages_fetched_successfully": 166,
+    "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 155
+    "total_pages_discovered": 169
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "220f093200fa7af27c72f6fda62b862b62fb97087b4d1cb6fd2e7d471f7ba665",
-      "last_updated": "2026-08-07T17:11:55+00:00",
+      "hash": "80115870945b91b443de0090a73a268f307ae6d1d07f1b3a355107752f844964",
+      "last_updated": "2026-08-17T18:53:33+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1253,6 +1253,114 @@
       "status": "live",
       "title": "Models Kimi K3"
     },
+    "origin.md": {
+      "hash": "2ca8f8d4ca557ebdd725f88ff7d1ffee4f663c6e888aef4cdb2b05b093683a21",
+      "last_updated": "2026-08-17T18:53:57+00:00",
+      "original_url": "https://cursor.com/docs/origin",
+      "path": "/docs/origin",
+      "source_url": "https://cursor.com/docs/origin",
+      "status": "live",
+      "title": "Origin"
+    },
+    "origin__browse.md": {
+      "hash": "36b81809924140ecd76b2e716124a654ab7054892716ab37e809a88a03b8e32e",
+      "last_updated": "2026-08-17T18:53:58+00:00",
+      "original_url": "https://cursor.com/docs/origin/browse",
+      "path": "/docs/origin/browse",
+      "source_url": "https://cursor.com/docs/origin/browse",
+      "status": "live",
+      "title": "Browse & Search"
+    },
+    "origin__cli.md": {
+      "hash": "25b56694008fba801a56ae55d06b9bfea1a9a152e285e80d755f231624ce6945",
+      "last_updated": "2026-08-17T18:53:58+00:00",
+      "original_url": "https://cursor.com/docs/origin/cli",
+      "path": "/docs/origin/cli",
+      "source_url": "https://cursor.com/docs/origin/cli",
+      "status": "live",
+      "title": "Install the CLI"
+    },
+    "origin__cli__reference__commands.md": {
+      "hash": "764d549fbc73c3766459148e38a25561b5711cfa3785ab57affbb0dd3e9d9c40",
+      "last_updated": "2026-08-17T18:53:58+00:00",
+      "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
+      "path": "/docs/origin/cli/reference/commands",
+      "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
+      "status": "live",
+      "title": "Commands"
+    },
+    "origin__cli__reference__pull-requests.md": {
+      "hash": "e0677bcc6874ede40332922e4d990011daadeb8e710d6b557758ae94de1a6189",
+      "last_updated": "2026-08-17T18:53:58+00:00",
+      "original_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
+      "path": "/docs/origin/cli/reference/pull-requests",
+      "source_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
+      "status": "live",
+      "title": "Pull request commands"
+    },
+    "origin__codebase-settings.md": {
+      "hash": "9bf70a541b1099edc493c834857cc769b8eda291581e2686f7f67f56214b5dea",
+      "last_updated": "2026-08-17T18:53:59+00:00",
+      "original_url": "https://cursor.com/docs/origin/codebase-settings",
+      "path": "/docs/origin/codebase-settings",
+      "source_url": "https://cursor.com/docs/origin/codebase-settings",
+      "status": "live",
+      "title": "Codebase settings"
+    },
+    "origin__create-repository.md": {
+      "hash": "51e789f5c2cd060a7b925a40c678b7ddc68f0292d5dcd93980e1a7350be5e99c",
+      "last_updated": "2026-08-17T18:53:59+00:00",
+      "original_url": "https://cursor.com/docs/origin/create-repository",
+      "path": "/docs/origin/create-repository",
+      "source_url": "https://cursor.com/docs/origin/create-repository",
+      "status": "live",
+      "title": "Create an Origin repository"
+    },
+    "origin__git.md": {
+      "hash": "ab2a514096c58d389861792ed805f779a156f86efb0bcfa6cf93dea08d54a6e6",
+      "last_updated": "2026-08-17T18:53:59+00:00",
+      "original_url": "https://cursor.com/docs/origin/git",
+      "path": "/docs/origin/git",
+      "source_url": "https://cursor.com/docs/origin/git",
+      "status": "live",
+      "title": "Clone, Push & Pull"
+    },
+    "origin__integrations.md": {
+      "hash": "d0443eefa8be8928ae0fd4afa41bf6fd44c40216fe7bd171c8178cbf374f4334",
+      "last_updated": "2026-08-17T18:53:59+00:00",
+      "original_url": "https://cursor.com/docs/origin/integrations",
+      "path": "/docs/origin/integrations",
+      "source_url": "https://cursor.com/docs/origin/integrations",
+      "status": "live",
+      "title": "Integrations"
+    },
+    "origin__mirror-github.md": {
+      "hash": "d28905e9523b014596e2f8707373856240e9679bbcbeff4264aaa11fd492eab6",
+      "last_updated": "2026-08-17T18:54:00+00:00",
+      "original_url": "https://cursor.com/docs/origin/mirror-github",
+      "path": "/docs/origin/mirror-github",
+      "source_url": "https://cursor.com/docs/origin/mirror-github",
+      "status": "live",
+      "title": "Mirror a GitHub repository"
+    },
+    "origin__pull-requests.md": {
+      "hash": "d0b12d9f4c3eee60842a3d525c48f02a49ab181813f3c5bf180f0c0872ef5083",
+      "last_updated": "2026-08-17T18:54:00+00:00",
+      "original_url": "https://cursor.com/docs/origin/pull-requests",
+      "path": "/docs/origin/pull-requests",
+      "source_url": "https://cursor.com/docs/origin/pull-requests",
+      "status": "live",
+      "title": "Pull requests"
+    },
+    "origin__settings.md": {
+      "hash": "894e8c1d0ed1d8d908d499c8b2369fb81e79755ae3584b955ac3573c713b72ed",
+      "last_updated": "2026-08-17T18:54:00+00:00",
+      "original_url": "https://cursor.com/docs/origin/settings",
+      "path": "/docs/origin/settings",
+      "source_url": "https://cursor.com/docs/origin/settings",
+      "status": "live",
+      "title": "Settings"
+    },
     "plugins.md": {
       "hash": "3220f5a8903337ad858509dadd74c14e747e5994774908988cd4a2f07a7332cf",
       "last_updated": "2026-08-07T17:12:22+00:00",
@@ -1411,12 +1519,22 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-14T21:35:59+00:00",
+  "last_updated": "2026-08-17T18:54:05+00:00",
   "skipped": [
     {
       "path": "/docs",
       "reason": "Non-markdown response (text/html)",
       "url": "https://cursor.com/docs"
+    },
+    {
+      "path": "/docs/api/origin",
+      "reason": "Non-markdown response (text/html)",
+      "url": "https://cursor.com/docs/api/origin"
+    },
+    {
+      "path": "/docs/api/origin/changelog",
+      "reason": "Non-markdown response (text/html)",
+      "url": "https://cursor.com/docs/api/origin/changelog"
     }
   ],
   "source": {

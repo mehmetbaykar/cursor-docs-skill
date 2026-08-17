@@ -70,11 +70,11 @@ Execution environment type. `cloud` uses Cursor-hosted VMs; `pool` and `machine`
 
 `env.name` string (optional)
 
-Named Cursor-hosted environment, self-hosted pool, or self-hosted machine name.
+Named Cursor-hosted environment, self-hosted pool, or self-hosted machine name. For `env.type: "pool"`, this is the pool name (defaults to `default` when omitted). An unknown pool name returns `400` instead of queueing forever.
 
 `repos` array (optional)
 
-Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. Maximum 20 repositories.
+Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. You can also omit `repos` when `env.type` is `pool` to target a [repo-less pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#repo-less-pools). Maximum 20 repositories.
 
 `repos[0].url` string (required)
 
@@ -179,6 +179,24 @@ curl --request POST \
       }
     ],
     "autoCreatePR": true
+  }'
+```
+
+Self-hosted pool (including repo-less):
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/agents \
+  -u YOUR_API_KEY: \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "prompt": {
+      "text": "Clone the payments service and add a health check"
+    },
+    "env": {
+      "type": "pool",
+      "name": "sandbox"
+    }
   }'
 ```
 
@@ -928,7 +946,7 @@ curl --request POST \
 
 ## Fleet Management
 
-Monitor pool worker utilization and build autoscaling against self-hosted Cloud Agent pools.
+Monitor pool worker utilization and build autoscaling against self-hosted Cloud Agent pools. Durable pools stay registered after the last worker disconnects, so you can scale to zero and bring capacity back when [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) appear.
 
 Authenticate with the pool's service account API key via Basic auth or Bearer token. Other API key types are rejected.
 
@@ -944,6 +962,10 @@ List self-hosted pool workers for the authenticated service account's team, newe
 
 Filter by worker status. One of `all`, `in_use`, or `idle`.
 
+`scope` string (optional, default: `all`)
+
+Filter by worker scope. One of `all`, `team_pool`, or `personal`.
+
 `limit` integer (optional, default: 50)
 
 Results per page. Range: 1 to 100.
@@ -952,10 +974,64 @@ Results per page. Range: 1 to 100.
 
 Pagination cursor from the previous response.
 
+#### Response Fields
+
+`workers` array
+
+Connected workers. Each entry includes:
+
+- `workerId` string — Unique worker identifier.
+- `labels` array — Routing labels as `{ key, value }` pairs. The `pool` label is the pool name the worker joined; `repo` labels come from registered git remotes when present.
+- `isInUse` boolean — Whether the worker currently has an assigned agent.
+- `repoOwner`, `repoName`, `repoUrl` string (optional) — Primary repository metadata when the worker registered a git remote. Omitted for repo-less workers.
+- `repos` array (optional) — Additional registered repositories as `{ owner, name, url }`.
+- `workspaceRootPath` string — Primary workspace path on the worker.
+- `connectedAtMs` integer — Connection time in Unix milliseconds.
+- `userId` integer — Owning user id.
+- `teamId` integer (optional) — Team id for team pool workers.
+- `serviceAccountId` string (optional) — Service account that authenticated the worker.
+- `displayName` string (optional) — Worker display name.
+
+`totalCount` integer
+
+Total workers matching the filter, across all pages.
+
+`nextPageToken` string
+
+Pagination cursor. Empty when there are no more pages.
+
 ```bash
 curl --request GET \
-  --url "https://api.cursor.com/v0/private-workers?status=idle&limit=50" \
+  --url "https://api.cursor.com/v0/private-workers?status=idle&scope=team_pool&limit=50" \
   -u "$CURSOR_API_KEY:"
+```
+
+**Response:**
+
+```json
+{
+  "workers": [
+    {
+      "workerId": "pw_123",
+      "repoOwner": "acme",
+      "repoName": "payments-service",
+      "repoUrl": "https://github.com/acme/payments-service",
+      "workspaceRootPath": "/home/agent/payments-service",
+      "connectedAtMs": 1737306880000,
+      "userId": 321,
+      "teamId": 456,
+      "serviceAccountId": "sa_abc123",
+      "isInUse": false,
+      "labels": [
+        { "key": "repo", "value": "acme/payments-service" },
+        { "key": "pool", "value": "gpu" }
+      ],
+      "displayName": "gpu-worker-1"
+    }
+  ],
+  "nextPageToken": "",
+  "totalCount": 1
+}
 ```
 
 ### Get Fleet Summary
@@ -1001,11 +1077,125 @@ curl --request GET \
   -u "$CURSOR_API_KEY:"
 ```
 
+### List Pools
+
+/v0/private-workers/pools
+
+List durable self-hosted pools for the authenticated service account's team. Pools remain registered after the last worker disconnects, so you can monitor scale-to-zero fleets and decide when to provision capacity.
+
+#### Query Parameters
+
+`scope` string (optional)
+
+Filter by pool list scope. One of `all`, `team_pool`, or `personal`.
+
+`includeStale` boolean (optional, default: false)
+
+When `true`, include pools marked stale after long inactivity.
+
+#### Response Fields
+
+`pools` array
+
+Registered pools. Each entry includes:
+
+- `scope` string — Pool ownership scope (`user` or `team`).
+- `ownerId` integer — Owning user or team id for the scope.
+- `poolName` string — Pool name (for example, `default` or `gpu`).
+- `connectedWorkerCount` integer — Workers currently connected to this pool.
+- `inUseWorkerCount` integer — Connected workers that currently have an assigned agent. Idle capacity is `connectedWorkerCount - inUseWorkerCount`.
+- `firstSeenAtMs`, `lastSeenAtMs` integer — First and last observation times in Unix milliseconds.
+- `isStale` boolean — Whether the pool is marked stale after long inactivity.
+- `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the pool is tied to a repo. Omitted for [repo-less pools](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#repo-less-pools).
+
+```bash
+curl --request GET \
+  --url "https://api.cursor.com/v0/private-workers/pools?scope=team_pool&includeStale=false" \
+  -u "$CURSOR_API_KEY:"
+```
+
+**Response:**
+
+```json
+{
+  "pools": [
+    {
+      "scope": "team",
+      "ownerId": 456,
+      "poolName": "gpu",
+      "repoOwner": "acme",
+      "repoName": "payments-service",
+      "repoUrl": "https://github.com/acme/payments-service",
+      "connectedWorkerCount": 2,
+      "inUseWorkerCount": 1,
+      "firstSeenAtMs": 1737000000000,
+      "lastSeenAtMs": 1737306880000,
+      "isStale": false
+    },
+    {
+      "scope": "team",
+      "ownerId": 456,
+      "poolName": "sandbox",
+      "connectedWorkerCount": 0,
+      "inUseWorkerCount": 0,
+      "firstSeenAtMs": 1737100000000,
+      "lastSeenAtMs": 1737200000000,
+      "isStale": false
+    }
+  ]
+}
+```
+
+The `sandbox` entry is repo-less: repo fields are omitted, and the pool stays selectable with zero connected workers.
+
+### Deregister A Pool
+
+/v0/private-workers/pools
+
+Deregister a durable pool so it no longer appears in pool pickers or [List Pools](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pools).
+
+#### Request Body
+
+`scope` string (required)
+
+Pool ownership scope. One of `user` or `team`.
+
+`poolName` string (required)
+
+Pool name to deregister.
+
+`repoOwner` string (optional)
+
+Repository owner when deregistering a repo-scoped pool record.
+
+`repoName` string (optional)
+
+Repository name when deregistering a repo-scoped pool record. Omit both `repoOwner` and `repoName` for a repo-less pool.
+
+```bash
+curl --request DELETE \
+  --url "https://api.cursor.com/v0/private-workers/pools" \
+  -u "$CURSOR_API_KEY:" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "scope": "team",
+    "poolName": "sandbox"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "deregistered": true
+}
+```
+
 ### List Pending Pool Requests
 
 /v0/private-workers/pending-requests
 
-List self-hosted pool requests that have not been assigned to a worker yet. Use this endpoint to scale capacity when users are waiting for an available pool worker.
+List self-hosted pool requests that have not been assigned to a worker yet. Use this endpoint to scale capacity when users are waiting for an available pool worker, or pair it with [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) before starting an ephemeral worker.
 
 This endpoint requires a service account API key. It returns requests for the key's team and excludes My Machines requests. If the key is scoped to specific repositories, pass `repository`; the repository must be in the key's allowed scope.
 
@@ -1021,7 +1211,28 @@ Pagination cursor from the previous response.
 
 `repository` string (optional)
 
-Filter by repository URL. Required for repo-scoped service account API keys.
+Filter by repository URL. Required for repo-scoped service account API keys. Omit for repo-less pending requests.
+
+#### Response Fields
+
+`requests` array
+
+Pending requests. Each entry includes:
+
+- `id` string — Pending request / agent id (pass to [Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) as `bcId`).
+- `userId` integer — Cursor user id that created the request.
+- `serviceAccountId` string (optional) — Service account associated with the request, when present.
+- `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the request targets a repo. Omitted for repo-less pool requests.
+- `labels` array — Request labels as `{ key, value }` pairs (includes `repo=` and `pool=` when set).
+- `createdAtMs` integer — Request creation time in Unix milliseconds.
+
+`totalCount` integer
+
+Total pending requests matching the filter, across all pages. Use this for queue-depth based autoscaling.
+
+`nextPageToken` string
+
+Pagination cursor. Empty when there are no more pages.
 
 ```bash
 curl --request GET \
@@ -1049,11 +1260,58 @@ curl --request GET \
       "createdAtMs": 1737306880000
     }
   ],
-  "nextPageToken": "eyJjcmVhdGVkQXRNcyI6MTczNzMwNjg4MDAwMH0="
+  "nextPageToken": "eyJjcmVhdGVkQXRNcyI6MTczNzMwNjg4MDAwMH0=",
+  "totalCount": 1
 }
 ```
 
 `repoUrl` omits embedded credentials when the original repository URL includes userinfo.
+
+### Claim A Pending Request
+
+/v0/private-workers/claim
+
+Reserve a pending pool request for a specific worker before that worker starts. Controllers use this to atomically assign work across replicas: read [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests), claim one, then start a worker with a stable worker id that matches the claim.
+
+This endpoint requires a service account API key.
+
+#### Request Body
+
+`bcId` string (required)
+
+Pending request id. Same value as `id` from [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests).
+
+`workerId` string (required)
+
+Worker id to reserve for the request. Start the worker with the same id via `CURSOR_AGENT_WORKER_ID` (or the hidden `--worker-id` flag) so the bridge registers the claimed identity.
+
+```bash
+curl --request POST \
+  --url "https://api.cursor.com/v0/private-workers/claim" \
+  -u "$CURSOR_API_KEY:" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "bcId": "bc-00000000-0000-0000-0000-000000000002",
+    "workerId": "pw_123"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "bcId": "bc-00000000-0000-0000-0000-000000000002",
+  "workerId": "pw_123"
+}
+```
+
+After a successful claim, start the worker with the reserved id:
+
+```bash
+export CURSOR_API_KEY="your-service-account-api-key"
+export CURSOR_AGENT_WORKER_ID="pw_123"
+agent worker --pool gpu --worker-dir /workspace start
+```
 
 ## Metadata Endpoints
 
