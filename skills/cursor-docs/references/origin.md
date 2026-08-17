@@ -30,6 +30,10 @@ In early beta you can:
 
 Origin code storage is available on Pro, Teams, and Enterprise plans. It is not available on free plans. Access opens in stages, so you may not see Origin immediately after it becomes available for your plan.
 
+## Privacy
+
+Origin follows the [Privacy Mode](https://cursor.com/help/security-and-privacy/privacy.md) of the namespace owner: the team or the individual who owns the repo.
+
 ## Enable Origin
 
 Before your team can use Origin, someone has to claim a codebase name. The codebase name is the namespace your repositories live under, the `{owner}` in `https://cursor.com/codebase/{owner}/{repo}`.

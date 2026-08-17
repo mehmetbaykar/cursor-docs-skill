@@ -1254,8 +1254,8 @@
       "title": "Models Kimi K3"
     },
     "origin.md": {
-      "hash": "2ca8f8d4ca557ebdd725f88ff7d1ffee4f663c6e888aef4cdb2b05b093683a21",
-      "last_updated": "2026-08-17T18:53:57+00:00",
+      "hash": "7adf9251cbde59580e82263ead1e0233063dea1db1ed5866a78cc3ca589344e1",
+      "last_updated": "2026-08-17T21:36:07+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "source_url": "https://cursor.com/docs/origin",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-17T18:54:05+00:00",
+  "last_updated": "2026-08-17T21:36:15+00:00",
   "skipped": [
     {
       "path": "/docs",
