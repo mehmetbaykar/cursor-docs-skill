@@ -471,8 +471,8 @@
       "title": "Best Practices"
     },
     "cloud-agent__builds.md": {
-      "hash": "f039756726236e71ae99e112352f82c68ad1df52e74bca1b25677fc5fa641228",
-      "last_updated": "2026-08-13T19:15:58+00:00",
+      "hash": "f7db14153be3d1954c745f16d6738d58c0ba938f9b6361391e3285e823bf838c",
+      "last_updated": "2026-08-18T01:46:45+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-17T21:36:15+00:00",
+  "last_updated": "2026-08-18T01:47:18+00:00",
   "skipped": [
     {
       "path": "/docs",
