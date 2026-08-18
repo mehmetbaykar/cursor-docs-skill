@@ -38,6 +38,8 @@ Origin follows the [Privacy Mode](https://cursor.com/help/security-and-privacy/p
 
 Before your team can use Origin, someone has to claim a codebase name. The codebase name is the namespace your repositories live under, the `{owner}` in `https://cursor.com/codebase/{owner}/{repo}`.
 
+During the beta, you can't change or update your namespace after it's claimed. Choose your codebase name carefully.
+
 - Any team member can claim the codebase name: open [cursor.com/codebase](https://cursor.com/codebase), select **Get Started**, and follow the setup flow
 - Admins can disable Origin for the team at any time from the dashboard
 - Teams on legacy privacy mode cannot enable Origin, so switch to [Privacy Mode](https://cursor.com/help/security-and-privacy/privacy.md#how-do-i-enable-privacy-mode) first if you want access
