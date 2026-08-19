@@ -13,6 +13,7 @@ path: /docs/cli/reference/slash-commands
 | `/plan [prompt]`                       | Switch to Plan mode, show the current plan, or submit a prompt in Plan mode                                            |
 | `/ask`                                 | Toggle Ask mode for read-only questions                                                                                |
 | `/debug [prompt]`                      | Toggle Debug mode or submit a prompt in Debug mode                                                                     |
+| `/goal [objective]`                    | Give the agent a long-lived objective to work towards until it's fully complete. Rolling out.                          |
 | `/logs`                                | Show the debug log path and copy it to the clipboard                                                                   |
 | `/update`                              | Update Cursor Agent to the latest version                                                                              |
 | `/max-mode`                            | Toggle Max Mode on legacy request-based plans                                                                          |

@@ -69,6 +69,10 @@ Review changes with Ctrl+R. Press i to add follow-up instructions. Use ArrowUp/A
 
 Select files and folders to include in context with @. Free up space in the context window by running `/summarize`. `/compress` remains an alias.
 
+### Custom Modes
+
+Pick a [skill](https://cursor.com/docs/skills.md) from the `/` menu and press Enter to attach it to one message. Press Option+Enter instead to invoke it as a Custom Mode that stays active until you exit it.
+
 ## Cloud Agent handoff
 
 Push your conversation to a [Cloud Agent](https://cursor.com/docs/cloud-agent.md) and let it keep running while you're away. Prepend `&` to any message to send it to the cloud. Pick it back up on web or mobile at [cursor.com/agents](https://cursor.com/agents).

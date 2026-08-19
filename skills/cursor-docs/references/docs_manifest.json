@@ -174,8 +174,8 @@
       "title": "Design Mode"
     },
     "agent__overview.md": {
-      "hash": "be502df901ec9cd10829f177b047122b4b4645bc9d70591d8ba512a5f6b4407e",
-      "last_updated": "2026-08-07T17:11:46+00:00",
+      "hash": "3368e673155ac148ba102d6e1d18410c2a8ad69585f37e4ca5f47701a494e794",
+      "last_updated": "2026-08-19T18:49:20+00:00",
       "original_url": "https://cursor.com/docs/agent/overview",
       "path": "/docs/agent/overview",
       "source_url": "https://cursor.com/docs/agent/overview",
@@ -192,8 +192,8 @@
       "title": "Plan Mode"
     },
     "agent__prompting.md": {
-      "hash": "7e90e7d7b23c51315055e51d1917f7ff51b3ecd52a6e0dee5c5d11d246e89fac",
-      "last_updated": "2026-08-07T17:11:47+00:00",
+      "hash": "b330ce2a7350c47ea6376a98b6fa200ca58c4b475bdd90e7b4a69e036a8df408",
+      "last_updated": "2026-08-19T18:49:21+00:00",
       "original_url": "https://cursor.com/docs/agent/prompting",
       "path": "/docs/agent/prompting",
       "source_url": "https://cursor.com/docs/agent/prompting",
@@ -390,8 +390,8 @@
       "title": "Permissions"
     },
     "cli__reference__slash-commands.md": {
-      "hash": "9fa1597a83b9f805204f27f4806f96296ad9df78804c6930c280abcd6fd676ae",
-      "last_updated": "2026-08-07T17:11:54+00:00",
+      "hash": "a088d22cd879c98898f410d497f9d07afb0e0d732c5dedc155be2874f3f26713",
+      "last_updated": "2026-08-19T18:49:27+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/slash-commands",
       "path": "/docs/cli/reference/slash-commands",
       "source_url": "https://cursor.com/docs/cli/reference/slash-commands",
@@ -417,8 +417,8 @@
       "title": "Shell Mode"
     },
     "cli__using.md": {
-      "hash": "ba9dcfbba0a6713aa9ca76e99c94f5e356fb33995d356547ce4e963317817083",
-      "last_updated": "2026-08-07T17:11:55+00:00",
+      "hash": "a51e11d02ded02f98766f9812ec89c59b49c7b28458c972c61bceec1231f7803",
+      "last_updated": "2026-08-19T18:49:28+00:00",
       "original_url": "https://cursor.com/docs/cli/using",
       "path": "/docs/cli/using",
       "source_url": "https://cursor.com/docs/cli/using",
@@ -480,8 +480,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "65659d289d0218928fa34cc755f1416690bc1e63294842767957695ad00a2e9b",
-      "last_updated": "2026-08-12T21:57:19+00:00",
+      "hash": "2843b7119359f2ea593031de6f316cb1ba3e9ca9e9d55176306d3b1a7f9c10cb",
+      "last_updated": "2026-08-19T18:49:30+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -1488,8 +1488,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "5fd5f6eadeb26d1611b03b878c7e87a895ac289524153527cbb60c756c496d4d",
-      "last_updated": "2026-08-07T17:12:27+00:00",
+      "hash": "b6b4db469813aa7934191c84350775b0d9cf8070ddc1e89b9d22e82cb976f5b8",
+      "last_updated": "2026-08-19T18:50:02+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1497,8 +1497,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "09b2452f2de8ec4be6b39fcd8e9ab00b921a63a242504ef3c8ef1d2a8e6d8e55",
-      "last_updated": "2026-08-07T17:12:27+00:00",
+      "hash": "b18c52dcb6081bbd2b7b310fac04cc62416a7eaed6267e018d4bd89fcd4d2bb8",
+      "last_updated": "2026-08-19T18:50:02+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-18T15:41:43+00:00",
+  "last_updated": "2026-08-19T18:50:02+00:00",
   "skipped": [
     {
       "path": "/docs",

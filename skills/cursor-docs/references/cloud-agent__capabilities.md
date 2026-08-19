@@ -118,6 +118,33 @@ Dashboard event `kind` values from `get-events` and from `batch-fetch-details` w
 
 A typical diagnostics flow is `run-info` → `get-events` → `environment-info` → `list-cloud-agents` → `batch-fetch-details` (set `include_events` when you need other runs' dashboard events).
 
+## Subscriptions
+
+Agent tasks rarely end with the last commit. CI has to pass. Reviewers leave comments. A teammate needs to answer a question in Slack. Subscriptions let a cloud agent wait for those events and keep working when they happen, without you re-prompting it.
+
+The agent subscribes to an event source, ends its turn, and wakes when a matching event arrives. Events land as follow-ups in the same conversation, so the agent continues with full context:
+
+- Open a PR, then respond to review comments and CI failures until it merges
+- Ask a question in Slack and continue once someone replies
+- Check back on a long-running job with a timer
+
+To subscribe, describe the wait in your prompt. For example, "open a PR and keep it green until merge" or "ask in #releases and wait for approval". You can also invoke the built-in `/subscribe` skill, which works the same way: tell it what to watch and the agent picks the right subscription.
+
+Agents can subscribe to events from these integrations:
+
+| Integration | Events                                                                                                                                                                                                                     |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GitHub      | Pull request activity (comments, reviews, and lifecycle changes) for one PR, a whole repo, or one author's PRs, and CI results on a branch. Uses the [GitHub integration](https://cursor.com/docs/integrations/github.md). |
+| Slack       | Replies in a thread, messages in a channel, and newly created public channels. Uses the [Slack integration](https://cursor.com/docs/integrations/slack.md).                                                                |
+| Linear      | Issues created or changing state, and new comments on issues. Uses the [Linear integration](https://cursor.com/docs/integrations/linear.md).                                                                               |
+| Timers      | A point in time: a one-off reminder after a delay, or a recurring cron schedule. Recurring loops are also available as the built-in [`/loop`](https://cursor.com/docs/skills.md#built-in-cursor-skills) skill.             |
+
+### How subscriptions work
+
+- Subscriptions belong to a single agent conversation. Events wake that agent as follow-up messages.
+- Bursts coalesce. Several events arriving close together can wake the agent once, and the agent re-reads the source (the PR, thread, or issue) before acting.
+- A subscription lasts at most 180 days. Agents also unsubscribe on their own when the wait is over.
+
 ## Fixing CI Failures
 
 Cloud Agents automatically try to fix CI failures in PRs they create. This currently supports GitHub Actions only.
