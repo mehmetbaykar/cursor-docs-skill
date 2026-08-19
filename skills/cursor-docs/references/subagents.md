@@ -249,6 +249,18 @@ Launch multiple subagents concurrently for maximum throughput:
 
 Agent sends multiple Task tool calls in a single message, so subagents run simultaneously.
 
+### Isolated project copies
+
+Subagents share the parent agent's checkout by default. When several subagents edit files at once, they can overwrite each other's changes. Ask for isolation and each subagent runs in its own copy of the project:
+
+```text
+> Run a swarm of subagents to fix these five flaky tests, each in its own environment
+```
+
+Each subagent gets its own environment with its own branch: an isolated Git worktree with a separate working directory on the same machine, or its own cloud environment with a dedicated VM and clone of the repository. Changes stay on each subagent's branch until the parent agent merges the results.
+
+This is subagent-level isolation within one session. To isolate a whole agent instead, run it in a [worktree](https://cursor.com/docs/configuration/worktrees.md), or hand the task to a [cloud subagent](https://cursor.com/docs/subagents.md#cloud-subagents).
+
 ## Cloud subagents
 
 From a local agent session, you can hand off work to a cloud subagent that runs on its own VM and branch. Your local workspace stays clean and responsive while long-running or parallel work happens in the cloud. The parent agent keeps running locally or in the cloud without interruption. Cloud subagents run from the [Agents Window](https://cursor.com/docs/agent/agents-window.md) in the Cursor desktop app.
