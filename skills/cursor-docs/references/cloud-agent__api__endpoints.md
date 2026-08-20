@@ -948,6 +948,8 @@ curl --request POST \
 
 Monitor pool worker utilization and build autoscaling against self-hosted Cloud Agent pools. Durable pools stay registered after the last worker disconnects, so you can scale to zero and bring capacity back when [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) appear.
 
+The endpoint paths keep the older `private-workers` name; they refer to the same [self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted-agents.md).
+
 Authenticate with the pool's service account API key via Basic auth or Bearer token. Other API key types are rejected.
 
 ### List Workers
@@ -970,9 +972,9 @@ Filter by worker scope. One of `all`, `team_pool`, or `personal`.
 
 Results per page. Range: 1 to 100.
 
-`nextPageToken` string (optional)
+`pageToken` string (optional)
 
-Pagination cursor from the previous response.
+Pagination cursor. Pass the `nextPageToken` from the previous response.
 
 #### Response Fields
 
@@ -980,25 +982,25 @@ Pagination cursor from the previous response.
 
 Connected workers. Each entry includes:
 
-- `workerId` string — Unique worker identifier.
-- `labels` array — Routing labels as `{ key, value }` pairs. The `pool` label is the pool name the worker joined; `repo` labels come from registered git remotes when present.
+- `workerId` string — Unique worker identifier. Auto-generated ids are UUIDs; workers started with `CURSOR_AGENT_WORKER_ID` report that custom id instead.
 - `isInUse` boolean — Whether the worker currently has an assigned agent.
-- `repoOwner`, `repoName`, `repoUrl` string (optional) — Primary repository metadata when the worker registered a git remote. Omitted for repo-less workers.
-- `repos` array (optional) — Additional registered repositories as `{ owner, name, url }`.
+- `repoOwner`, `repoName` string — Primary repository metadata when the worker registered a git remote. Empty strings for repo-less workers.
+- `repoUrl` string (optional) — Primary repository URL. Omitted for repo-less workers.
 - `workspaceRootPath` string — Primary workspace path on the worker.
 - `connectedAtMs` integer — Connection time in Unix milliseconds.
-- `userId` integer — Owning user id.
+- `userId` integer — Owning user id. `0` for workers authenticated with a service account key.
 - `teamId` integer (optional) — Team id for team pool workers.
 - `serviceAccountId` string (optional) — Service account that authenticated the worker.
-- `displayName` string (optional) — Worker display name.
+- `activeBcId` string (optional) — Id of the agent currently running on the worker, when in use.
+- `name` string (optional) — Worker display name (`--name`, defaults to the machine hostname).
 
 `totalCount` integer
 
 Total workers matching the filter, across all pages.
 
-`nextPageToken` string
+`nextPageToken` string (optional)
 
-Pagination cursor. Empty when there are no more pages.
+Pagination cursor for `pageToken`. Omitted when there are no more pages.
 
 ```bash
 curl --request GET \
@@ -1012,24 +1014,19 @@ curl --request GET \
 {
   "workers": [
     {
-      "workerId": "pw_123",
+      "workerId": "a8574fe8-248e-424a-a078-7584a2b93724",
       "repoOwner": "acme",
       "repoName": "payments-service",
       "repoUrl": "https://github.com/acme/payments-service",
       "workspaceRootPath": "/home/agent/payments-service",
       "connectedAtMs": 1737306880000,
-      "userId": 321,
+      "userId": 0,
       "teamId": 456,
       "serviceAccountId": "sa_abc123",
       "isInUse": false,
-      "labels": [
-        { "key": "repo", "value": "acme/payments-service" },
-        { "key": "pool", "value": "gpu" }
-      ],
-      "displayName": "gpu-worker-1"
+      "name": "gpu-worker-1"
     }
   ],
-  "nextPageToken": "",
   "totalCount": 1
 }
 ```
@@ -1148,11 +1145,11 @@ curl --request GET \
 
 The `sandbox` entry is repo-less: repo fields are omitted, and the pool stays selectable with zero connected workers.
 
-### Deregister A Pool
+### Register A Pool
 
 /v0/private-workers/pools
 
-Deregister a durable pool so it no longer appears in pool pickers or [List Pools](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pools).
+Register a durable pool without starting a worker. Use this to make a pool selectable before any worker connects, for example when an orchestrator provisions capacity on demand. Starting a worker with `--pool` registers the pool implicitly; this endpoint is only needed to create the pool up front.
 
 #### Request Body
 
@@ -1162,25 +1159,72 @@ Pool ownership scope. One of `user` or `team`.
 
 `poolName` string (required)
 
-Pool name to deregister.
+Pool name to register (for example, `gpu`).
 
-`repoOwner` string (optional)
+`repoOwner`, `repoName` string (optional)
 
-Repository owner when deregistering a repo-scoped pool record.
+Repository metadata when the pool is tied to a repo. Provide both together, or omit both for a repo-less pool.
 
-`repoName` string (optional)
+`repoUrl` string (optional)
 
-Repository name when deregistering a repo-scoped pool record. Omit both `repoOwner` and `repoName` for a repo-less pool.
+Repository URL for display. Requires `repoOwner` and `repoName`.
+
+#### Response Fields
+
+`registered` boolean
+
+Whether the pool was registered.
 
 ```bash
-curl --request DELETE \
+curl --request POST \
   --url "https://api.cursor.com/v0/private-workers/pools" \
   -u "$CURSOR_API_KEY:" \
   --header 'Content-Type: application/json' \
   --data '{
     "scope": "team",
-    "poolName": "sandbox"
+    "poolName": "payments-pool",
+    "repoOwner": "acme",
+    "repoName": "payments-service",
+    "repoUrl": "https://github.com/acme/payments-service"
   }'
+```
+
+**Response:**
+
+```json
+{
+  "registered": true
+}
+```
+
+### Deregister A Pool
+
+/v0/private-workers/pools
+
+Deregister (soft-delete) a durable pool so it no longer appears in pool pickers or [List Pools](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pools). Workers currently connected to the pool are not affected. Team pools require a team admin; user pools require their owner.
+
+#### Query Parameters
+
+`scope` string (required)
+
+Pool ownership scope. One of `user` or `team`.
+
+`pool_name` string (required)
+
+Pool name to deregister.
+
+`repo_owner` string (optional)
+
+Repository owner when deregistering a repo-scoped pool record.
+
+`repo_name` string (optional)
+
+Repository name when deregistering a repo-scoped pool record. Provide `repo_owner` and `repo_name` together, or omit both for a repo-less pool.
+
+```bash
+curl --request DELETE \
+  --url "https://api.cursor.com/v0/private-workers/pools?scope=team&pool_name=sandbox" \
+  -u "$CURSOR_API_KEY:"
 ```
 
 **Response:**
@@ -1199,6 +1243,8 @@ List self-hosted pool requests that have not been assigned to a worker yet. Use 
 
 This endpoint requires a service account API key. It returns requests for the key's team and excludes My Machines requests. If the key is scoped to specific repositories, pass `repository`; the repository must be in the key's allowed scope.
 
+The response includes a `streamCursor`. Pass it to [Watch Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#watch-pending-pool-requests) to follow queue changes in real time after this snapshot.
+
 #### Query Parameters
 
 `limit` number (optional)
@@ -1207,11 +1253,15 @@ Number of pending requests to return. Default: 50, Max: 100.
 
 `pageToken` string (optional)
 
-Pagination cursor from the previous response.
+Pagination cursor from the previous response. Page tokens are bound to the `repository` and `pool` filters that issued them.
 
 `repository` string (optional)
 
 Filter by repository URL. Required for repo-scoped service account API keys. Omit for repo-less pending requests.
+
+`pool` string (optional)
+
+Filter by pool name. Exact, case-sensitive match against the request's `pool` label. Omit to list requests for every pool on the team.
 
 #### Response Fields
 
@@ -1219,20 +1269,21 @@ Filter by repository URL. Required for repo-scoped service account API keys. Omi
 
 Pending requests. Each entry includes:
 
-- `id` string — Pending request / agent id (pass to [Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) as `bcId`).
+- `id` string — Pending request / agent id (pass to [Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) as `id`).
 - `userId` integer — Cursor user id that created the request.
+- `userEmail` string (optional) — Email of the requesting user, when available. Use it to select user-affine capacity without another lookup.
 - `serviceAccountId` string (optional) — Service account associated with the request, when present.
 - `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the request targets a repo. Omitted for repo-less pool requests.
 - `labels` array — Request labels as `{ key, value }` pairs (includes `repo=` and `pool=` when set).
 - `createdAtMs` integer — Request creation time in Unix milliseconds.
 
-`totalCount` integer
+`nextPageToken` string (optional)
 
-Total pending requests matching the filter, across all pages. Use this for queue-depth based autoscaling.
+Pagination cursor. Omitted when there are no more pages. To measure queue depth, paginate to completion and count the requests.
 
-`nextPageToken` string
+`streamCursor` string
 
-Pagination cursor. Empty when there are no more pages.
+Opaque resume position for [Watch Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#watch-pending-pool-requests). Every page of one logical listing repeats the same `streamCursor`; open the watch from it after you finish paginating. It expires five minutes after the list that issued it.
 
 ```bash
 curl --request GET \
@@ -1248,6 +1299,7 @@ curl --request GET \
     {
       "id": "bc-00000000-0000-0000-0000-000000000002",
       "userId": 321,
+      "userEmail": "owner@acme.example",
       "serviceAccountId": "sa_abc123",
       "repoOwner": "acme",
       "repoName": "payments-service",
@@ -1261,11 +1313,84 @@ curl --request GET \
     }
   ],
   "nextPageToken": "eyJjcmVhdGVkQXRNcyI6MTczNzMwNjg4MDAwMH0=",
-  "totalCount": 1
+  "streamCursor": "djQuZXhhbXBsZS1vcGFxdWUtY3Vyc29y"
 }
 ```
 
 `repoUrl` omits embedded credentials when the original repository URL includes userinfo.
+
+### Watch Pending Pool Requests
+
+/v0/private-workers/pending-requests/stream
+
+Stream pending-request lifecycle events over Server-Sent Events (SSE) so orchestrators can react to queue changes without polling.
+
+This endpoint requires a service account API key. Controllers list-then-watch: call [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) to build your view of the queue, keep the response's `streamCursor`, then open the watch from that exact position. Use the same `repository` and `pool` filters for the list and the watch; cursors are bound to the filters that issued them.
+
+#### Query Parameters
+
+`cursor` string (required)
+
+The `streamCursor` from a list response, or the SSE `id:` of the last event you processed. On reconnect, a native `EventSource` resends that id as the `Last-Event-ID` header, which takes precedence over the query parameter.
+
+`repository` string (optional)
+
+Same semantics as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests). Required for repo-scoped service account API keys. Pagination parameters are not accepted on the stream.
+
+`pool` string (optional)
+
+Watch only events for this pool. Exact, case-sensitive match against the request's `pool` label. Must match the filter used by the list that issued the cursor. Omit to watch every pool on the team.
+
+#### Events
+
+The watch replays the retained transitions after the cursor, then follows live. Every event's SSE `id:` is the cursor to resume from if the connection drops.
+
+- `created` event — A request entered the queue. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests).
+- `claimed` event — A worker claimed the request. Payload: `{ id }`.
+- `expired` event — The request left the queue without being claimed. Payload: `{ id }`.
+- `heartbeat` event — Cursor checkpoint with no state change, sent about every 20 seconds on a quiet stream. Payload: `{}`. Heartbeats advance an idle watch's resume position but do not extend the cursor's lifetime.
+
+#### Cursor lifetime
+
+Every cursor in a watch chain expires **five minutes after the list that issued it**. Heartbeats and reconnects do not extend it. When the cursor expires, or the retained event window no longer covers it, the endpoint returns HTTP `410 Gone` with `{"code": "cursor_expired"}`: re-list and watch from the fresh `streamCursor`. This is routine, not an error path. Re-list proactively on a five-minute timer with jitter instead of riding the `410`, so a fleet of controllers does not synchronize its list calls.
+
+#### Delivery guarantees
+
+Delivery is best-effort, and the list is the source of truth. Events are published after each transition commits, with retries, but a rare failure can drop one, and a dropped event is never redelivered. Between re-lists, treat events as low-latency hints: apply them idempotently (upsert `created` requests, remove `claimed` and `expired` requests by `id`) and let the next list correct any drift. A `claimed` event for a request you never saw is a no-op. Claims stay atomic server-side regardless of your local view.
+
+Do not persist cursors. A service account can hold at most four concurrent streams; use one stream per controller and fan out locally.
+
+```bash
+curl --request GET --no-buffer \
+  --url "https://api.cursor.com/v0/private-workers/pending-requests/stream?cursor=$STREAM_CURSOR" \
+  --header 'Accept: text/event-stream' \
+  -u "$CURSOR_API_KEY:"
+```
+
+**Example stream:**
+
+```
+: connected
+
+event: heartbeat
+id: djQuY3Vyc29yLWNoZWNrcG9pbnQ
+data: {}
+
+event: created
+id: djQuY3Vyc29yLWFmdGVyLWNyZWF0ZWQ
+data: {"id":"bc-00000000-0000-0000-0000-000000000002","userId":321,"userEmail":"owner@acme.example","repoOwner":"acme","repoName":"payments-service","repoUrl":"https://github.com/acme/payments-service","labels":[{"key":"pool","value":"gpu"}],"createdAtMs":1737306880000}
+
+event: claimed
+id: djQuY3Vyc29yLWFmdGVyLWNsYWltZWQ
+data: {"id":"bc-00000000-0000-0000-0000-000000000002"}
+```
+
+**The controller loop:**
+
+1. [List pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) to completion and replace your local view with the result. Keep the response's `streamCursor`.
+2. Open the watch with `?cursor=<streamCursor>` and apply events to your local view. Track the latest event `id:` you processed.
+3. On disconnect, reconnect with the latest event id as `?cursor=`, or rely on a native `EventSource`, which resends it as `Last-Event-ID` automatically.
+4. On HTTP `410 Gone`, go back to step 1 and re-list.
 
 ### Claim A Pending Request
 
@@ -1277,7 +1402,7 @@ This endpoint requires a service account API key.
 
 #### Request Body
 
-`bcId` string (required)
+`id` string (required)
 
 Pending request id. Same value as `id` from [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests).
 
@@ -1291,7 +1416,7 @@ curl --request POST \
   -u "$CURSOR_API_KEY:" \
   --header 'Content-Type: application/json' \
   --data '{
-    "bcId": "bc-00000000-0000-0000-0000-000000000002",
+    "id": "bc-00000000-0000-0000-0000-000000000002",
     "workerId": "pw_123"
   }'
 ```
@@ -1300,7 +1425,7 @@ curl --request POST \
 
 ```json
 {
-  "bcId": "bc-00000000-0000-0000-0000-000000000002",
+  "id": "bc-00000000-0000-0000-0000-000000000002",
   "workerId": "pw_123"
 }
 ```
