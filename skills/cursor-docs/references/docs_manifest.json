@@ -714,8 +714,8 @@
       "title": "Hooks"
     },
     "integrations__azure-devops.md": {
-      "hash": "b1129e42ec443e1c0603026d128030b7396cfc6d4b4ae9fd11cfa86c3f9d07fe",
-      "last_updated": "2026-08-10T21:53:51+00:00",
+      "hash": "d0e28708fb12104928cb54a2be7dae6b5cb328269c04832a89d705a1c978ec62",
+      "last_updated": "2026-08-20T18:55:17+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
       "source_url": "https://cursor.com/docs/integrations/azure-devops",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-20T01:48:12+00:00",
+  "last_updated": "2026-08-20T18:55:43+00:00",
   "skipped": [
     {
       "path": "/docs",
