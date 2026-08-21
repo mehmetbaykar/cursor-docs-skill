@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "984fb7f93e6622108be404ba702cf268fa664002ba1aa822e0f22c662921969c",
-      "last_updated": "2026-08-13T19:15:41+00:00",
+      "hash": "e063a7621625a4510a9b73b22d0b285a0587e9be3a900d76a8b62fd1fa42b7e6",
+      "last_updated": "2026-08-21T01:53:12+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "c4598f6ce06762dfb0203164ff4be23b57b23934043bdad555709a568abbd02e",
-      "last_updated": "2026-08-13T19:15:44+00:00",
+      "hash": "9ea858c259f4e832554edd250e60ae6da927cf94a4f9b9ce3a65170739f8a79b",
+      "last_updated": "2026-08-21T01:53:16+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -840,8 +840,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "5e0eeccf051378d5e394cc25719c93857f5bf6a8346d48d3fbddd92a2c1529d2",
-      "last_updated": "2026-08-13T19:16:10+00:00",
+      "hash": "2758acebc960ab4ca6b5e37186072a9d32266239a24faddf3f1be632ae740c47",
+      "last_updated": "2026-08-21T01:53:52+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1218,8 +1218,8 @@
       "title": "Models Gpt 5"
     },
     "models__grok-4-5.md": {
-      "hash": "d6d6ee9ad8250292b73716e0fa1d0a910b715ea382629837eeba5faf7fbeefa5",
-      "last_updated": "2026-08-12T16:07:17+00:00",
+      "hash": "29d73eb02d3a3d766b09c29beaeb6067f9093d6a276347c3e2502232242d5cc1",
+      "last_updated": "2026-08-21T01:54:10+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-5",
       "path": "/docs/models/grok-4-5",
       "source_url": "https://cursor.com/docs/models/grok-4-5",
@@ -1227,8 +1227,8 @@
       "title": "Models Grok 4 5"
     },
     "models__grok-4-6.md": {
-      "hash": "9ff8e60ac8e8f758132bba4b98343bcfd47857fc66fcc83202727559bf48d837",
-      "last_updated": "2026-08-12T16:07:17+00:00",
+      "hash": "7700e76fdf772840d6ee817d1a9e2f46c83fa2398ce09c9ff9a415cabad7b919",
+      "last_updated": "2026-08-21T01:54:10+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-6",
       "path": "/docs/models/grok-4-6",
       "source_url": "https://cursor.com/docs/models/grok-4-6",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-20T18:55:43+00:00",
+  "last_updated": "2026-08-21T01:54:23+00:00",
   "skipped": [
     {
       "path": "/docs",
