@@ -29,5 +29,3 @@ Learn more about [how tools work](https://cursor.com/docs/agent/overview.md#tool
 Grok 4.6 is part of the [Cursor Models pool](https://cursor.com/docs/models-and-pricing.md#cursor-models) on individual and team plans. This pool also includes Grok 4.5 and Composer 2.5.
 
 Standard on-demand usage is priced at $2/M input tokens, $0.50/M cached input tokens, and $6/M output tokens. The Fast variant is priced at $4/M input tokens, $1/M cached input tokens, and $12/M output tokens. All prices are per million tokens.
-
-A 50% launch discount applies for one week starting August 12, 2026.
