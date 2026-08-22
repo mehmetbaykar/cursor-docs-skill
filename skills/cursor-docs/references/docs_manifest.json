@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "e063a7621625a4510a9b73b22d0b285a0587e9be3a900d76a8b62fd1fa42b7e6",
-      "last_updated": "2026-08-21T01:53:12+00:00",
+      "hash": "795a71c5b51141646bf16e96191c749725c17ec94234ce6466ad5bf5bdac15f8",
+      "last_updated": "2026-08-22T01:46:18+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "9ea858c259f4e832554edd250e60ae6da927cf94a4f9b9ce3a65170739f8a79b",
-      "last_updated": "2026-08-21T01:53:16+00:00",
+      "hash": "59ad3fb9b110fbf2c2b79c289a2b8e1a704f3f1aa1970264a00edd85fb454b55",
+      "last_updated": "2026-08-22T01:46:20+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -840,8 +840,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "2758acebc960ab4ca6b5e37186072a9d32266239a24faddf3f1be632ae740c47",
-      "last_updated": "2026-08-21T01:53:52+00:00",
+      "hash": "348515e57f5be7f5e79aff0324277cd4f00f71a0429f0d8720737f6970fe1e11",
+      "last_updated": "2026-08-22T01:46:43+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-21T01:54:23+00:00",
+  "last_updated": "2026-08-22T01:47:04+00:00",
   "skipped": [
     {
       "path": "/docs",
