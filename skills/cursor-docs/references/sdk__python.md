@@ -346,12 +346,11 @@ Per-run model overrides are sticky. Later sends without an override keep using t
 
 #### Billing and routing pool
 
-- **Cost** follows classic Auto behavior and bundled Auto pricing.
-- **Balance** and **Intelligence** use Cursor Router and bill at the routed model's rate under your plan or contract.
+- All Auto modes bill at the list price of the model each request is routed to.
 - The underlying model can change between requests. Prefer a fixed model id when you need reproducible comparisons.
 - Enterprise model allowlists shape the routing pool. Blocking required models can disable Router.
 
-For current rates and the routing pool, see [Cursor Router](https://cursor.com/docs/cursor-router.md) and [Models & Pricing](https://cursor.com/docs/models-and-pricing.md).
+For current rates and the routing pool, see [Cursor Router](https://cursor.com/docs/cursor-router.md) and [Auto modes](https://cursor.com/docs/models-and-pricing.md#auto-modes).
 
 #### Troubleshooting missing Router
 

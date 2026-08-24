@@ -13,7 +13,7 @@ Cursor supports frontier models from OpenAI, Anthropic, Google, SpaceXAI, and mo
 There are two separate usage pools, each resetting with your monthly billing cycle:
 
 - **Cursor Models**: Significantly more included usage for Cursor Grok 4.6, Grok 4.5, and Composer 2.5.
-- **Other Models**: The pool for third-party models, charged at the model's API price. Pro, Pro Plus, and Ultra include at least $20 of third-party model usage each month (more on higher tiers) with the option to pay for additional usage as needed. The Start plan does not include this pool.
+- **Other Models**: The pool for third-party models, charged at the model's API price. Pro, Pro Plus, and Ultra include this pool, with the option to pay for additional usage as needed. The Start plan does not include this pool.
 
 Both pools are visible in your editor settings and on your [usage dashboard](https://cursor.com/dashboard/usage).
 
@@ -90,12 +90,12 @@ Opting in to regional data residency incurs a 10% uplift on Model pricing for el
 
 Pro, Pro Plus, and Ultra include unlimited tab completions, extended agent usage limits on all models, access to Bugbot, and access to Cloud Agents. Start is a lower-priced plan for developers in India that covers the Cursor Models pool and Cloud Agents.
 
-| Plan                   | Price                  | Other Models usage included | Cursor Models           |
-| :--------------------- | :--------------------- | :-------------------------- | :---------------------- |
-| **Start** (India only) | ₹649/mo, tax inclusive | $0                          | Generous included usage |
-| **Pro**                | $20/mo                 | $20                         | Generous included usage |
-| **Pro Plus**           | $60/mo                 | $70                         | Generous included usage |
-| **Ultra**              | $200/mo                | $400                        | Generous included usage |
+| Plan                   | Price                  | Cursor Models | Other Models |
+| :--------------------- | :--------------------- | :------------ | :----------- |
+| **Start** (India only) | ₹649/mo, tax inclusive | Included      | Not included |
+| **Pro**                | $20/mo                 | Included      | Included     |
+| **Pro Plus**           | $60/mo                 | Included      | Included     |
+| **Ultra**              | $200/mo                | Included      | Included     |
 
 Since different models have different API costs, your model selection affects how quickly your included usage is consumed.
 
@@ -111,8 +111,8 @@ Start does not include the Other Models pool, on-demand usage, Bugbot, Auto, Aut
 
 ### How much usage do I need?
 
-- **Daily Tab users**: Always stay within $20
-- **Limited Agent users**: Often stay within the included $20
+- **Daily Tab users**: Typically stay within included usage
+- **Limited Agent users**: Often stay within included usage
 - **Daily Agent users**: Typically $60–$100/mo total usage
 - **Power users (multiple agents/automation)**: Often $200+/mo total usage
 
@@ -139,19 +139,17 @@ Learn more about [Teams pricing](https://cursor.com/docs/account/teams/pricing.m
 
 On Teams and Enterprise plans, third-party model requests include a Cursor Token Rate of $0.25 per million tokens. This rate applies on top of model API pricing for included usage, on-demand usage, and BYOK usage.
 
-The Cursor Token Rate applies when you select a third-party model directly, and when Auto Balance or Auto Intelligence routes to a third-party model. Auto Cost and all first-party Cursor models, including Grok 4.6, Grok 4.5, and Composer 2.5, are exempt from the Cursor Token Rate.
+The Cursor Token Rate applies when you select a third-party model directly, and when Auto routes to a third-party model. First-party Cursor models, including Grok and Composer, are exempt from the Cursor Token Rate.
 
 ## Auto modes
 
-Auto has three modes: Auto Cost, Auto Balance, and Auto Intelligence.
+Auto has three modes: Cost, Balance, and Intelligence.
 
-### Auto Cost
+All Auto modes bill at the list price of the model each request is routed to. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates. Third-party models also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
 
-Auto Cost pricing is set per million tokens, regardless of which model is used.
+### Legacy Enterprise Auto
 
-### Auto Balance and Auto Intelligence
-
-Auto Balance and Auto Intelligence are charged at Model API rates for the model used, based on actual usage. Third-party models also incur the Cursor Token Rate. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates.
+Until September 7, 2026, Enterprise Auto pricing is set per million tokens, regardless of which model is used.
 
 ## Legacy request-based pricing
 

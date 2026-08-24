@@ -287,7 +287,7 @@ Admins can allow users to configure their own MCP servers outside admin-defined 
 
 ## Using MCP in chat
 
-Cursor automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md#plan). Ask for a specific tool by name or describe what you need. Enable or disable MCP servers from **Customize** in the sidebar.
+Cursor automatically uses MCP tools listed under `Available Tools` when relevant. This includes [Plan Mode](https://cursor.com/docs/agent/plan-mode.md). Ask for a specific tool by name or describe what you need. Enable or disable MCP servers from **Customize** in the sidebar.
 
 ### Tool approval
 

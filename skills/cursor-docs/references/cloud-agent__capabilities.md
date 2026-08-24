@@ -59,7 +59,7 @@ Stdio servers depend on the VM environment to execute. We cannot verify that a s
 
 The Cursor Cloud MCP is a built-in diagnostics server available during Cloud Agent runs. It lets an agent inspect the current run, browse related runs in the same environment, and fetch transcripts, diff metadata, environment details, run events, and setup logs without manually collecting links and files.
 
-Team admins can disable Cursor Cloud MCP for their team from **MCP Configuration** in [team settings](https://cursor.com/dashboard/settings). See [Team dashboard](https://cursor.com/docs/account/teams/dashboard.md#mcp-configuration) for more on MCP admin controls.
+Team admins can disable Cursor Cloud MCP for their team from **MCP Configuration** in [team settings](https://cursor.com/dashboard/settings). See [Team dashboard](https://cursor.com/docs/account/teams/dashboard.md#integrations) for more on MCP admin controls.
 
 #### Access and permissions
 
