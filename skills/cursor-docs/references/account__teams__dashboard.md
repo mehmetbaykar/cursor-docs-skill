@@ -100,7 +100,7 @@ policies for code execution.
 
 ### Repository Blocklist
 
-Prevent access to specific repositories for security or compliance reasons. Learn more in [Model and Integration Management](https://cursor.com/docs/enterprise/model-and-integration-management.md#repository-blocklist).
+Prevent access to specific repositories for security or compliance reasons. Learn more in [Model and Integration Management](https://cursor.com/docs/enterprise/model-and-integration-management.md#git-repository-blocklist).
 
 ### MCP Configuration
 

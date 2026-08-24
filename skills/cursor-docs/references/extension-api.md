@@ -213,7 +213,7 @@ if (!isServerRegistered("my-server")) {
 
 Register additional plugin directories at runtime. Extensions can use this API to tell Cursor about plugin locations without requiring users to manually copy files to `~/.cursor/plugins/local/`.
 
-A `.cursor-plugin/plugin.json` manifest is optional. Without one, Cursor uses [automatic folder-based discovery](https://cursor.com/docs/reference/plugins.md#component-discovery) and picks up components from default locations: `rules/`, `skills/`, `agents/`, `commands/`, `mcp.json`, and `hooks/hooks.json`. For example, to inject skills you can register a directory that contains a `skills/` subfolder; no manifest needed.
+A `.cursor-plugin/plugin.json` manifest is optional. Without one, Cursor uses [automatic folder-based discovery](https://cursor.com/docs/reference/plugins.md#cursor-plugin-component-discovery) and picks up components from default locations: `rules/`, `skills/`, `agents/`, `commands/`, `mcp.json`, and `hooks/hooks.json`. For example, to inject skills you can register a directory that contains a `skills/` subfolder; no manifest needed.
 
 ```text
 my-extension/cursor-plugins/team-tools/

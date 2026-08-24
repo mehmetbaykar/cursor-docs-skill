@@ -26,6 +26,6 @@ Learn more about [how tools work](https://cursor.com/docs/agent/overview.md#tool
 
 ## Pricing
 
-Cursor [plans](https://cursor.com/docs/account/pricing.md) include two usage pools. GPT-5.4 draws from the third-party **Other Models** pool, which charges at the rates below. Individual plans include at least $20 of third-party Other Models usage each month (more on higher tiers). All prices are per million tokens.
+Cursor [plans](https://cursor.com/docs/models-and-pricing.md) include two usage pools. GPT-5.4 draws from the third-party **Other Models** pool, which charges at the rates below. All prices are per million tokens.
 
 A **Fast mode** variant (`gpt-5.4-fast`) is available for priority processing. It runs 15% faster at 2x the standard price. When input exceeds 272k tokens (long context), input pricing doubles and output pricing is 1.5x the standard rate.

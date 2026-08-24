@@ -505,7 +505,7 @@ A common use case: run `/review-bugbot`, then open a pull request with the same 
 
 ## Autofix
 
-Bugbot Autofix automatically spawns a [Cloud Agent](https://cursor.com/docs/cloud-agent.md#overview) to fix bugs found during PR reviews.
+Bugbot Autofix automatically spawns a [Cloud Agent](https://cursor.com/docs/cloud-agent.md) to fix bugs found during PR reviews.
 
 ### How it works
 
