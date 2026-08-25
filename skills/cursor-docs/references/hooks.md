@@ -1049,12 +1049,13 @@ By default, hook failures (crash, timeout, invalid JSON) allow the action throug
 // beforeMCPExecution input
 {
   "tool_name": "<tool name>",
-  "tool_input": "<json params>"
+  "tool_input": "<json params>",
+  "mcp_server_name": "<server name from mcp.json>"
 }
-// Plus either:
-{ "url": "<server url>" }
-// Or:
-{ "command": "<command string>" }
+// Plus either (HTTP/SSE servers):
+{ "url": "<server url>", "mcp_server_url": "<server url>" }
+// Or (stdio servers):
+{ "command": "<launch command and args>" }
 
 // Output
 {
@@ -1063,6 +1064,17 @@ By default, hook failures (crash, timeout, invalid JSON) allow the action throug
   "agent_message": "<message sent to agent>"
 }
 ```
+
+| Field             | Type   | Description                                                                                          |
+| ----------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| `tool_name`       | string | Name of the MCP tool about to run                                                                    |
+| `tool_input`      | string | JSON params string that will be passed to the tool                                                   |
+| `mcp_server_name` | string | The server's key in its `mcp.json` (for example, `linear`). Use this to recognize a specific server. |
+| `mcp_server_url`  | string | Server URL, present only for HTTP/SSE servers                                                        |
+| `url`             | string | Same as `mcp_server_url`; present only for HTTP/SSE servers                                          |
+| `command`         | string | The stdio launch command and arguments joined with spaces; present only for stdio servers            |
+
+Match on `mcp_server_name` (and `tool_name`) to decide whether a call targets your server. `command` is the launch string from the server's config and can differ between installs: relative paths, `${CURSOR_PLUGIN_ROOT}` expansion, or an HTTP transport (which has no `command` at all). A hook that allows anything it does not recognize should treat a missing or unexpected `mcp_server_name` as a deny.
 
 #### afterShellExecution
 
@@ -1094,17 +1106,20 @@ Fires after an MCP tool executes; includes the tool's input parameters and full 
 {
   "tool_name": "<tool name>",
   "tool_input": "<json params>",
+  "mcp_server_name": "<server name from mcp.json>",
   "result_json": "<tool result json>",
   "duration": 1234
 }
 ```
 
-| Field         | Type   | Description                                                                         |
-| ------------- | ------ | ----------------------------------------------------------------------------------- |
-| `tool_name`   | string | Name of the MCP tool that was executed                                              |
-| `tool_input`  | string | JSON params string passed to the tool                                               |
-| `result_json` | string | JSON string of the tool response                                                    |
-| `duration`    | number | Duration in milliseconds spent executing the MCP tool (excludes approval wait time) |
+| Field             | Type   | Description                                                                         |
+| ----------------- | ------ | ----------------------------------------------------------------------------------- |
+| `tool_name`       | string | Name of the MCP tool that was executed                                              |
+| `tool_input`      | string | JSON params string passed to the tool                                               |
+| `mcp_server_name` | string | The server's key in its `mcp.json`                                                  |
+| `mcp_server_url`  | string | Server URL, present only for HTTP/SSE servers                                       |
+| `result_json`     | string | JSON string of the tool response                                                    |
+| `duration`        | number | Duration in milliseconds spent executing the MCP tool (excludes approval wait time) |
 
 #### afterFileEdit
 
