@@ -74,7 +74,7 @@ Ask clarifying questions during a task. While waiting for your response, the age
 
 Checkpoints save snapshots of your codebase during an Agent session. Agent automatically creates them before making significant changes, capturing the state of all modified files.
 
-If Agent takes a wrong turn, click any checkpoint in the chat timeline to preview your files at that point, then restore to revert all files to that state. You can also restore from the `Restore Checkpoint` button on previous requests or the + button when hovering over a message.
+If Agent takes a wrong turn, click any checkpoint in the chat timeline to preview your files at that point, then restore to revert all files to that state. You can also restore from the `Restore Checkpoint` button on previous requests or the + button when hovering over a message. Restoring a checkpoint reverts files only; it does not remove messages from the conversation.
 
 Checkpoints are useful for exploratory work, complex refactoring, and iterative development where you want safe rollback points.
 

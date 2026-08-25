@@ -1269,7 +1269,7 @@ Filter by pool name. Exact, case-sensitive match against the request's `pool` la
 
 Pending requests. Each entry includes:
 
-- `id` string — Pending request / agent id (pass to [Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) as `id`).
+- `id` string — Pending request / agent id (pass to [Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) or [Release A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim) as `id`).
 - `userId` integer — Cursor user id that created the request.
 - `userEmail` string (optional) — Email of the requesting user, when available. Use it to select user-affine capacity without another lookup.
 - `serviceAccountId` string (optional) — Service account associated with the request, when present.
@@ -1398,6 +1398,8 @@ data: {"id":"bc-00000000-0000-0000-0000-000000000002"}
 
 Reserve a pending pool request for a specific worker before that worker starts. Controllers use this to atomically assign work across replicas: read [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests), claim one, then start a worker with a stable worker id that matches the claim.
 
+A second claim while a live claim exists is rejected. [Release A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim) first, then claim a new `workerId`.
+
 This endpoint requires a service account API key.
 
 #### Request Body
@@ -1437,6 +1439,43 @@ export CURSOR_API_KEY="your-service-account-api-key"
 export CURSOR_AGENT_WORKER_ID="pw_123"
 agent worker --pool gpu --worker-dir /workspace start
 ```
+
+### Release A Claim
+
+/v0/private-workers/claims//release
+
+Drop the long-term claim that binds an agent to a self-hosted worker. After release, Cursor stops preferring that machine for the agent.
+
+The claim is a routing suggestion, not live process state. Release does not check whether the worker is connected. A waiting follow-up returns to the pool queue at the next scheduling point. A connected worker finishes its current turn undisturbed. A replacement worker can claim the same agent immediately after release.
+
+A second [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) while a live claim exists is rejected. Release first, then claim a new `workerId`.
+
+`--idle-release-timeout` (env var `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`) makes the worker CLI exit after idle. This endpoint only drops the routing claim.
+
+This endpoint requires a service account API key.
+
+#### Path Parameters
+
+`id` string
+
+Pending request / agent id. Same value as `id` on [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request). No request body.
+
+```bash
+curl --request POST \
+  --url "https://api.cursor.com/v0/private-workers/claims/bc-00000000-0000-0000-0000-000000000002/release" \
+  -u "$CURSOR_API_KEY:"
+```
+
+**Response:**
+
+```json
+{
+  "id": "bc-00000000-0000-0000-0000-000000000002",
+  "workerId": "pw_123"
+}
+```
+
+HTTP `404` means there is no live claim: already released, expired, or adopted. Do not retry a 404.
 
 ## Metadata Endpoints
 
