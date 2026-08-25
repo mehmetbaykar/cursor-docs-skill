@@ -4,8 +4,8 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 166,
-    "pages_skipped": 3,
+    "pages_fetched_successfully": 167,
+    "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
     "total_pages_discovered": 169
@@ -658,6 +658,15 @@
       "source_url": "https://cursor.com/docs/cursor-router",
       "status": "live",
       "title": "Cursor Router"
+    },
+    "cursor.md": {
+      "hash": "acca5236de42a83623cd7c7c3397fd0f91f780d2d8a35eba74cc617c18474733",
+      "last_updated": "2026-08-25T03:55:34+00:00",
+      "original_url": "https://cursor.com/docs",
+      "path": "/docs",
+      "source_url": "https://cursor.com/docs",
+      "status": "live",
+      "title": "Cursor Documentation"
     },
     "customize-cursor.md": {
       "hash": "5485668bf585c6534a1de2d71ab6949d8bd6b5254c428c7d1db0f421b9ef1a38",
@@ -1519,13 +1528,8 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-25T01:48:45+00:00",
+  "last_updated": "2026-08-25T03:56:32+00:00",
   "skipped": [
-    {
-      "path": "/docs",
-      "reason": "Non-markdown response (text/html)",
-      "url": "https://cursor.com/docs"
-    },
     {
       "path": "/docs/api/origin",
       "reason": "Non-markdown response (text/html)",

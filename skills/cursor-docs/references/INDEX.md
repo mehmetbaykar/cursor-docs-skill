@@ -78,6 +78,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `cursor-review__pr-inbox` - [Pull Request Inbox](https://cursor.com/docs/cursor-review/pr-inbox)
 - `cursor-review__pr-page` - [Pull Request Page](https://cursor.com/docs/cursor-review/pr-page)
 - `cursor-router` - [Cursor Router](https://cursor.com/docs/cursor-router)
+- `cursor` - [Cursor Documentation](https://cursor.com/docs)
 - `customize-cursor` - [Customize Cursor](https://cursor.com/docs/customize-cursor)
 - `customizing__aws-bedrock` - [AWS Bedrock](https://cursor.com/docs/customizing/aws-bedrock)
 - `evals` - [Run Cursor in your evals](https://cursor.com/docs/evals)
@@ -175,6 +176,5 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 
 ## Skipped Pages
 
-- `/docs` - Non-markdown response (text/html)
 - `/docs/api/origin` - Non-markdown response (text/html)
 - `/docs/api/origin/changelog` - Non-markdown response (text/html)
