@@ -174,8 +174,8 @@
       "title": "Design Mode"
     },
     "agent__overview.md": {
-      "hash": "0917b8c91075cd266c773ca0ed493937d80007db51cbd86a17648d26c70db3e1",
-      "last_updated": "2026-08-24T21:38:53+00:00",
+      "hash": "8f8dcb7f0a0928af52edc811ae4fa7f5b0e379caf2929dbf6fd8e7a5a29a391e",
+      "last_updated": "2026-08-25T18:53:06+00:00",
       "original_url": "https://cursor.com/docs/agent/overview",
       "path": "/docs/agent/overview",
       "source_url": "https://cursor.com/docs/agent/overview",
@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "08c9bae5801aa9f33dc2a08fbca5e9631dc5088f80f3fe3083abfad1c80accdb",
-      "last_updated": "2026-08-20T01:47:38+00:00",
+      "hash": "3fb7c2e6427f74a1f1e65deed4cb1d4dca182616476de87fd1c2a5a573304bcb",
+      "last_updated": "2026-08-25T18:53:15+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1528,7 +1528,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-25T07:04:31+00:00",
+  "last_updated": "2026-08-25T18:53:49+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
