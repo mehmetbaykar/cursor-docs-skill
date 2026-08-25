@@ -90,3 +90,7 @@ Shortcuts for the chat input box.
 | Cmd K      | Open terminal prompt bar |
 | Cmd Return | Run generated command    |
 | Escape     | Accept command           |
+
+## Related
+
+- [Keyboard shortcuts help](https://cursor.com/help/customization/keyboard-shortcuts.md)

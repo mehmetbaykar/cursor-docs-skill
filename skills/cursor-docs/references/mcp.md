@@ -403,3 +403,7 @@ Yes, but follow security best practices:
 - Limit API key permissions to minimum required
 - Review server code before connecting to sensitive systems
 - Consider running servers in isolated environments
+
+## Related
+
+- [MCP help](https://cursor.com/help/customization/mcp.md)

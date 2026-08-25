@@ -30,8 +30,8 @@
       "title": "Request-Based Pricing (Legacy)"
     },
     "account__regions.md": {
-      "hash": "c35fe310e634fca6da8cd7cc467680cb61b8950dd911eba9024d821d6f6d5173",
-      "last_updated": "2026-08-07T17:11:41+00:00",
+      "hash": "ed299829044e696772e4ae12dcafc9b422bc9ed76dae701403939d46d3752dd1",
+      "last_updated": "2026-08-25T01:47:50+00:00",
       "original_url": "https://cursor.com/docs/account/regions",
       "path": "/docs/account/regions",
       "source_url": "https://cursor.com/docs/account/regions",
@@ -156,8 +156,8 @@
       "title": "Agents Window"
     },
     "agent__debug-mode.md": {
-      "hash": "4f3946c25f80b7a72bd0aaa4f8aa8b39066906f8f98eb51a3e2112d1cd6fb5fa",
-      "last_updated": "2026-08-07T17:11:45+00:00",
+      "hash": "6e61c1de81f09d4de643c64c585f91f32299de4642bc9a20de5c579c8dd03f11",
+      "last_updated": "2026-08-25T01:47:55+00:00",
       "original_url": "https://cursor.com/docs/agent/debug-mode",
       "path": "/docs/agent/debug-mode",
       "source_url": "https://cursor.com/docs/agent/debug-mode",
@@ -183,8 +183,8 @@
       "title": "Cursor Agent"
     },
     "agent__plan-mode.md": {
-      "hash": "862da34f589dba29f073899c3f65f539b2576f201f38a15eed3deba9f116c64f",
-      "last_updated": "2026-08-07T17:11:46+00:00",
+      "hash": "d22dc4d6aa1f7e9c79802c4975277bb6f064820074e36a6355bd478a1a79af7e",
+      "last_updated": "2026-08-25T01:47:56+00:00",
       "original_url": "https://cursor.com/docs/agent/plan-mode",
       "path": "/docs/agent/plan-mode",
       "source_url": "https://cursor.com/docs/agent/plan-mode",
@@ -219,8 +219,8 @@
       "title": "Run Modes"
     },
     "agent__tools__browser.md": {
-      "hash": "ce2a7fcbdb4af3dee0d0eca8b0bb3855124612b371552f94dc72fc95a94d54bb",
-      "last_updated": "2026-08-07T17:11:48+00:00",
+      "hash": "0cf5760df7651b045789b7a3c4ec0a78c5f8a2f9f6acda28e816276f2c7079b5",
+      "last_updated": "2026-08-25T01:47:57+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/browser",
       "path": "/docs/agent/tools/browser",
       "source_url": "https://cursor.com/docs/agent/tools/browser",
@@ -246,8 +246,8 @@
       "title": "Search"
     },
     "agent__tools__terminal.md": {
-      "hash": "2f6ccbe5c15d1cc36faec73b2dc6881587e7131389aacc02baf06a363d7cae5f",
-      "last_updated": "2026-08-07T17:11:49+00:00",
+      "hash": "ef07237a03090fc3c7f943a96c3defd6c52b8616282a7e4c0c89e246b24d95e9",
+      "last_updated": "2026-08-25T01:47:58+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/terminal",
       "path": "/docs/agent/tools/terminal",
       "source_url": "https://cursor.com/docs/agent/tools/terminal",
@@ -273,8 +273,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "e1baa91b48653b58351210e35ba18936754f4b62c7c7034001feaddc5e9200fb",
-      "last_updated": "2026-08-24T21:38:56+00:00",
+      "hash": "849d17b97c3f5a7f4a6d8d3bf2fd51a0523102dcff5c8b0646902009af3d6abf",
+      "last_updated": "2026-08-25T01:48:00+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -453,8 +453,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__automations.md": {
-      "hash": "e501648d3c96045b17c3ce377fb710c8d1af23e198fc6c5f4fca4be5cdc77ad1",
-      "last_updated": "2026-08-07T17:11:56+00:00",
+      "hash": "24c5b709338c6e51c792a4de102f12f5e5b077fc5b1a08fd9991ebda0fa02e35",
+      "last_updated": "2026-08-25T01:48:06+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
@@ -651,8 +651,8 @@
       "title": "Pull Request Page"
     },
     "cursor-router.md": {
-      "hash": "10a38a64cb5a191bb1f9b6c9543836f1783b3842326666354626788f9652cabb",
-      "last_updated": "2026-08-24T21:39:08+00:00",
+      "hash": "41cb40054e5c3024733f40fc201004473bcc13f1f2ea3daed98ea58184a3920d",
+      "last_updated": "2026-08-25T01:48:13+00:00",
       "original_url": "https://cursor.com/docs/cursor-router",
       "path": "/docs/cursor-router",
       "source_url": "https://cursor.com/docs/cursor-router",
@@ -822,8 +822,8 @@
       "title": "Xcode"
     },
     "mcp.md": {
-      "hash": "a6b612d7ca3803022b7e41decfc08d79c4133c1523f1243f6bf360a27f8e31df",
-      "last_updated": "2026-08-24T21:39:13+00:00",
+      "hash": "2271c4b46ac2272535a934242bb0828669770668befbd605096094dc6f1b9d49",
+      "last_updated": "2026-08-25T01:48:20+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp",
@@ -1362,8 +1362,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "3220f5a8903337ad858509dadd74c14e747e5994774908988cd4a2f07a7332cf",
-      "last_updated": "2026-08-07T17:12:22+00:00",
+      "hash": "d741c8f315baeb8354c704e80a065b0ce14995c599eed13baecaa715170c99b3",
+      "last_updated": "2026-08-25T01:48:40+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1389,8 +1389,8 @@
       "title": "Ignore file"
     },
     "reference__keyboard-shortcuts.md": {
-      "hash": "7512dfcb8f5ee3c70debf947fbd6d19b6b1ef09b2c9e0ff0cd52cc4d0bbf7e0c",
-      "last_updated": "2026-08-07T17:12:23+00:00",
+      "hash": "16a71eef20051caf93fc6eb28cd603afe8a6ee936249db139ecbfad835b10159",
+      "last_updated": "2026-08-25T01:48:41+00:00",
       "original_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
       "path": "/docs/reference/keyboard-shortcuts",
       "source_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
@@ -1434,8 +1434,8 @@
       "title": "Third Party Hooks"
     },
     "rules.md": {
-      "hash": "91244477944564a7927d21c636ae83299124400334996dfc1910c66f8fa802c5",
-      "last_updated": "2026-08-07T17:12:25+00:00",
+      "hash": "3a483e6118e8f70e00a4a8501a88c07e96ee32e8f131e4604e86ffc3a868156e",
+      "last_updated": "2026-08-25T01:48:42+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
       "source_url": "https://cursor.com/docs/rules",
@@ -1488,8 +1488,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "b6b4db469813aa7934191c84350775b0d9cf8070ddc1e89b9d22e82cb976f5b8",
-      "last_updated": "2026-08-19T18:50:02+00:00",
+      "hash": "bd6a90a3ec93ed65164c8f2b8a5bdeaea39489e1dae00b6d6752f46d78fc1b7a",
+      "last_updated": "2026-08-25T01:48:44+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1519,7 +1519,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-24T21:39:35+00:00",
+  "last_updated": "2026-08-25T01:48:45+00:00",
   "skipped": [
     {
       "path": "/docs",

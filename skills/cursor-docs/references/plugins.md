@@ -301,3 +301,7 @@ formats.
 ### How do Cursor Plugins relate to the Agent Plugins standard?
 
 [Agent Plugins](https://agent-plugins.org) is an open, vendor-neutral specification for packaging skills and MCP servers into portable plugins. Cursor supports the standard, so spec-conformant plugins load in Cursor without changes. Cursor Plugins are developed in parallel and add Cursor-specific components like rules, agents, commands, hooks, and variables.
+
+## Related
+
+- [Plugins help](https://cursor.com/help/customization/plugins.md)

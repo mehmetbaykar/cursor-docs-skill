@@ -192,3 +192,7 @@ The origin allowlist provides best-effort protection. Be aware of these behavior
 - **JavaScript navigation**: Client-side navigation (via `window.location` or similar) from an allowed origin to a non-allowed origin will succeed
 
 The origin allowlist restricts automatic agent navigation but cannot prevent all navigation paths. Review your allowlist regularly and consider the security implications of allowing access to domains that may redirect or link to external sites.
+
+## Related
+
+- [Browser tool help](https://cursor.com/help/ai-features/browser.md)

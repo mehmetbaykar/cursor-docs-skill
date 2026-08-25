@@ -271,3 +271,4 @@ Tips:
 - [Slack integration](https://cursor.com/docs/integrations/slack.md)
 - [Microsoft Teams integration](https://cursor.com/docs/integrations/microsoft-teams.md)
 - [Linear integration](https://cursor.com/docs/integrations/linear.md)
+- [Automations help](https://cursor.com/help/ai-features/automations.md)
