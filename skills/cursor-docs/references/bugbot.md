@@ -342,7 +342,7 @@ Analytics may take a short time to become available after a review is queued.
 
 ## Incremental reviews
 
-By default, Bugbot reviews the full pull request diff on every push. Turn on **Incremental Review** in [Bugbot Automations](https://cursor.com/automations/from-cursor/bugbot) to review only the changes since the previous Bugbot review.
+By default, Bugbot reviews only the changes since the previous Bugbot review. Turn off **Incremental Review** in [Bugbot Automations](https://cursor.com/automations/from-cursor/bugbot) to review the full pull request diff on every push.
 
 ![Incremental Review setting in Bugbot Automations](https://cursor.com/docs-static/images/bugbot/incremental-review-setting.png)
 

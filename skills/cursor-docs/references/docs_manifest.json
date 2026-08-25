@@ -273,8 +273,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "849d17b97c3f5a7f4a6d8d3bf2fd51a0523102dcff5c8b0646902009af3d6abf",
-      "last_updated": "2026-08-25T01:48:00+00:00",
+      "hash": "92f1eecf890e74ef324884d4545ea9747dea9c2b2f1b4a07f71cd6e02eab3bf8",
+      "last_updated": "2026-08-25T07:03:53+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -714,8 +714,8 @@
       "title": "Quickstart"
     },
     "hooks.md": {
-      "hash": "bea4544e21c43d46661e45023e216ba24758d54fafaa620318092c0fabeede40",
-      "last_updated": "2026-08-07T17:12:04+00:00",
+      "hash": "c14a13923aae6588d8cf84fe4c32d53825a798e82612bd29c72434451a5e7166",
+      "last_updated": "2026-08-25T07:04:06+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks",
@@ -1528,7 +1528,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-25T03:56:32+00:00",
+  "last_updated": "2026-08-25T07:04:31+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
