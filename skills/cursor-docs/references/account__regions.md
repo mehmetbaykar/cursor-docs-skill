@@ -49,3 +49,7 @@ Yes. Enterprise customers can enroll in US-only data residency so inference,
 processing, and storage for supported features stay in the US. See
 [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md#data-residency)
 for supported models, exclusions, pricing, and how to enable it.
+
+## Related
+
+- [Regions help](https://cursor.com/help/security-and-privacy/regions.md)

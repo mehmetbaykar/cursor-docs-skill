@@ -405,3 +405,7 @@ No. Rules do not impact Cursor Tab or other AI features.
 
 No. User Rules are not applied to Inline Edit (Cmd/Ctrl+K). They are only
 used by Agent (Chat).
+
+## Related
+
+- [Rules help](https://cursor.com/help/customization/rules.md)

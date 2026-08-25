@@ -80,3 +80,7 @@ with Agent.create(
 ```
 
 The SDK runs Cursor agent workflows. It is not a standalone chat-completions or raw inference API. See [Cursor Router in the TypeScript SDK](https://cursor.com/docs/sdk/typescript.md#cursor-router) or [Python SDK](https://cursor.com/docs/sdk/python.md#cursor-router) for catalog discovery, per-run mode overrides, and troubleshooting.
+
+## Related
+
+- [Cursor Router help](https://cursor.com/help/models-and-usage/cursor-router.md)

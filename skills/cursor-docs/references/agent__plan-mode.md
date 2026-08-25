@@ -43,3 +43,7 @@ For larger changes, spend extra time creating a precise, well-scoped plan. The h
 
 - Use the mode picker dropdown in Agent
 - Press Shift+Tab for quick switching
+
+## Related
+
+- [Plan mode help](https://cursor.com/help/ai-features/plan-mode.md)

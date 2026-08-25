@@ -44,3 +44,7 @@ When standard Agent interactions struggle with a bug, Debug Mode provides a diff
 
 - Use the mode picker dropdown in Agent
 - Press Shift+Tab for quick switching
+
+## Related
+
+- [Debug mode help](https://cursor.com/help/ai-features/debug-mode.md)

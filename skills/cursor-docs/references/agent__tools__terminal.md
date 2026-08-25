@@ -38,3 +38,7 @@ if [[ -n "$CURSOR_AGENT" ]]; then
   PS1='\u@\h \W \$ '
 fi
 ```
+
+## Related
+
+- [Terminal help](https://cursor.com/help/ai-features/terminal.md)
