@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "3fb7c2e6427f74a1f1e65deed4cb1d4dca182616476de87fd1c2a5a573304bcb",
-      "last_updated": "2026-08-25T18:53:15+00:00",
+      "hash": "3996591731edcb993ea2aba9267bd713ef2078038771ac3864ea3ec00892bc43",
+      "last_updated": "2026-08-26T01:53:37+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -723,8 +723,8 @@
       "title": "Hooks"
     },
     "integrations__azure-devops.md": {
-      "hash": "d0e28708fb12104928cb54a2be7dae6b5cb328269c04832a89d705a1c978ec62",
-      "last_updated": "2026-08-20T18:55:17+00:00",
+      "hash": "dbf80ba0562379107d44fae3f229911cf38672b6e27f33da49c2074802676ff2",
+      "last_updated": "2026-08-26T01:53:47+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
       "source_url": "https://cursor.com/docs/integrations/azure-devops",
@@ -1528,7 +1528,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-25T18:53:49+00:00",
+  "last_updated": "2026-08-26T01:54:17+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
