@@ -107,7 +107,7 @@ Remote Control and its settings are only available in the [Agents Window](https:
 - **Enable Remote Control in Cursor.** In the Agents Window, turn it on under **Settings > Agents** before handing off a session.
 - **Enable it for your team.** On Teams and Enterprise plans, an admin must enable Remote Control from [Cursor Dashboard → Cloud Agents → Self-Hosted](https://cursor.com/dashboard/cloud-agents#self-hosted) before members can use it.
 - **Allow cloud data storage.** Remote Control isn't available when your privacy settings disable cloud data storage.
-- **Use a Git-backed workspace.** The workspace must have a Git remote. Local and Remote SSH workspaces are supported.
+- **Use a local or Remote SSH workspace.** Both workspace types are supported, and the project doesn't need a Git remote.
 - **Keep your computer available.** Your computer must stay awake and online because tool calls run on it. You can turn on **Keep this computer awake** under **Settings > Agents** to prevent sleep while the computer is plugged in.
 
 ### Hand off a session
@@ -140,7 +140,6 @@ For the trust boundaries that apply when tool calls run on your computer, see [S
 
 ### Current limitations
 
-- **Git-backed workspaces only.** Remote Control requires a workspace with a Git remote.
 - **Your computer must stay available.** Tool calls can't run while your computer is asleep or offline.
 
 ### Team controls

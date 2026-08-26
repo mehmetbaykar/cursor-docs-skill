@@ -309,7 +309,7 @@ Unique identifier for the agent (for example, `bc-00000000-0000-0000-0000-000000
 Agent lifecycle status. Controllers use it to decide whether a machine must stay up:
 
 - `ACTIVE` — A turn is running, waiting on background work, or about to start. Keep the agent's machine up.
-- `IDLE` — The last turn finished and follow-ups are accepted. The agent's machine may be [hibernated or snapshotted](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation). Runs that ended in a recoverable error also report `IDLE`; run-level error detail stays on [Get A Run](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-a-run).
+- `IDLE` — The last turn finished and follow-ups are accepted. The agent's machine may be [hibernated or snapshotted](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation). Runs that ended in a recoverable error also report `IDLE`; run-level error detail stays on [Get A Run](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-a-run).
 - `ARCHIVED` — The agent was archived or expired. Terminal; claims end and workspace state can be deleted.
 
 ```bash
@@ -954,7 +954,7 @@ curl --request POST \
 }
 ```
 
-## Fleet Management
+## Workers and Pools
 
 Monitor worker utilization and build autoscaling for your pools. Durable pools stay registered after the last worker disconnects, so you can scale to zero and bring capacity back when [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) appear.
 
@@ -1041,7 +1041,7 @@ curl --request GET \
 }
 ```
 
-### Get Fleet Summary
+### Get Worker Summary
 
 /v0/private-workers/summary
 
@@ -1184,7 +1184,7 @@ Repository URL for display. Requires `repoOwner` and `repoName`.
 
 `offlineReconnectTimeoutSeconds` integer (optional, default: 0)
 
-Seconds a claimed request waits for an offline worker from this pool to reconnect before the claim expires and the request returns to the queue. Set this when machines [hibernate between turns](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation) and can be revived. With `0`, follow-ups for an offline worker reacquire from the pool immediately. Must be a non-negative integer.
+Seconds a claimed request waits for an offline worker from this pool to reconnect before the claim expires and the request returns to the queue. Set this when machines [hibernate between turns](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation) and can be revived. With `0`, follow-ups for an offline worker reacquire from the pool immediately. Must be a non-negative integer.
 
 #### Response Fields
 
@@ -1258,7 +1258,7 @@ curl --request DELETE \
 
 List pool requests that have not been assigned to a worker yet. Use this endpoint to scale capacity when users are waiting for an available pool worker, or pair it with [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) before starting an ephemeral worker.
 
-For pools with an `offlineReconnectTimeoutSeconds`, the listing also surfaces claimed-but-offline entries: requests whose claimed worker is offline while a reconnect window is open. These entries carry `claimedWorkerId` and `wakeTimeoutMs` so a controller can [revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation).
+For pools with an `offlineReconnectTimeoutSeconds`, the listing also surfaces claimed-but-offline entries: requests whose claimed worker is offline while a reconnect window is open. These entries carry `claimedWorkerId` and `wakeTimeoutMs` so a controller can [revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation).
 
 This endpoint requires a service account API key. It returns requests for the key's team and excludes My Machines requests. If the key is scoped to specific repositories, pass `repository`; the repository must be in the key's allowed scope.
 
@@ -1368,7 +1368,7 @@ The watch replays the retained transitions after the cursor, then follows live. 
 
 - `created` event — A request entered the queue, including a claimed-but-offline request whose reconnect window lapsed and whose claim expired. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests).
 - `claimed` event — A worker claimed the request, or an offline worker reconnected and resumed its claimed request. Payload: `{ id }`.
-- `claimed_offline` event — A follow-up arrived for a request whose claimed worker is offline. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests), including `claimedWorkerId` and `wakeTimeoutMs`. [Revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation) before the window lapses, or the claim expires and the request is re-advertised with a fresh `created` event.
+- `claimed_offline` event — A follow-up arrived for a request whose claimed worker is offline. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests), including `claimedWorkerId` and `wakeTimeoutMs`. [Revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation) before the window lapses, or the claim expires and the request is re-advertised with a fresh `created` event.
 - `expired` event — The request left the queue without being claimed. Payload: `{ id }`.
 - `heartbeat` event — Cursor checkpoint with no state change, sent about every 20 seconds on a quiet stream. Payload: `{}`. Heartbeats advance an idle watch's resume position but do not extend the cursor's lifetime.
 
