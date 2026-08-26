@@ -62,19 +62,19 @@ Display name for the agent. Maximum 100 characters. When omitted, Cursor auto-de
 
 `env` object (optional)
 
-Execution environment target. Use a named `cloud` environment, or route to a self-hosted `pool` or `machine`. Mutually exclusive with explicit `repos` when selecting a named Cursor-hosted environment.
+Execution environment target. Use a named `cloud` environment, or route to a `pool` or `machine` you host. Mutually exclusive with explicit `repos` when selecting a named Cursor-hosted environment.
 
 `env.type` string (required if `env` provided)
 
-Execution environment type. `cloud` uses Cursor-hosted VMs; `pool` and `machine` route to self-hosted workers.
+Execution environment type. `cloud` uses Cursor-hosted VMs; `pool` and `machine` route to your own workers.
 
 `env.name` string (optional)
 
-Named Cursor-hosted environment, self-hosted pool, or self-hosted machine name. For `env.type: "pool"`, this is the pool name (defaults to `default` when omitted). An unknown pool name returns `400` instead of queueing forever.
+Named Cursor-hosted environment, pool, or machine name. For `env.type: "pool"`, this is the pool name (defaults to `default` when omitted). An unknown pool name returns `400` instead of queueing forever.
 
 `repos` array (optional)
 
-Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. You can also omit `repos` when `env.type` is `pool` to target a [repo-less pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#repo-less-pools). Maximum 20 repositories.
+Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. You can also omit `repos` when `env.type` is `pool` to target an [any-repo pool](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#any-repo-pools). Maximum 20 repositories.
 
 `repos[0].url` string (required)
 
@@ -182,7 +182,7 @@ curl --request POST \
   }'
 ```
 
-Self-hosted pool (including repo-less):
+Worker pool (including any-repo):
 
 ```bash
 curl --request POST \
@@ -301,6 +301,16 @@ Retrieve durable metadata for an agent. Execution status lives on runs — fetch
 `id` string
 
 Unique identifier for the agent (for example, `bc-00000000-0000-0000-0000-000000000001`).
+
+#### Response Fields
+
+`status` string
+
+Agent lifecycle status. Controllers use it to decide whether a machine must stay up:
+
+- `ACTIVE` — A turn is running, waiting on background work, or about to start. Keep the agent's machine up.
+- `IDLE` — The last turn finished and follow-ups are accepted. The agent's machine may be [hibernated or snapshotted](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation). Runs that ended in a recoverable error also report `IDLE`; run-level error detail stays on [Get A Run](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-a-run).
+- `ARCHIVED` — The agent was archived or expired. Terminal; claims end and workspace state can be deleted.
 
 ```bash
 curl --request GET \
@@ -891,7 +901,7 @@ curl --request DELETE \
 
 /v1/sub-tokens
 
-Create a one-hour user-scoped token for a self-hosted worker to run as an active team member.
+Create a one-hour user-scoped token for a worker to run as an active team member.
 
 Requires an agent-scoped team service account API key. User-scoped tokens can't mint other user-scoped tokens.
 
@@ -946,9 +956,9 @@ curl --request POST \
 
 ## Fleet Management
 
-Monitor pool worker utilization and build autoscaling against self-hosted Cloud Agent pools. Durable pools stay registered after the last worker disconnects, so you can scale to zero and bring capacity back when [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) appear.
+Monitor worker utilization and build autoscaling for your pools. Durable pools stay registered after the last worker disconnects, so you can scale to zero and bring capacity back when [pending requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) appear.
 
-The endpoint paths keep the older `private-workers` name; they refer to the same [self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted-agents.md).
+The endpoint paths keep the older `private-workers` name; they refer to the same [workers](https://cursor.com/docs/cloud-agent/bring-your-own-machine.md).
 
 Authenticate with the pool's service account API key via Basic auth or Bearer token. Other API key types are rejected.
 
@@ -956,7 +966,7 @@ Authenticate with the pool's service account API key via Basic auth or Bearer to
 
 /v0/private-workers
 
-List self-hosted pool workers for the authenticated service account's team, newest first.
+List pool workers for the authenticated service account's team, newest first.
 
 #### Query Parameters
 
@@ -984,8 +994,8 @@ Connected workers. Each entry includes:
 
 - `workerId` string — Unique worker identifier. Auto-generated ids are UUIDs; workers started with `CURSOR_AGENT_WORKER_ID` report that custom id instead.
 - `isInUse` boolean — Whether the worker currently has an assigned agent.
-- `repoOwner`, `repoName` string — Primary repository metadata when the worker registered a git remote. Empty strings for repo-less workers.
-- `repoUrl` string (optional) — Primary repository URL. Omitted for repo-less workers.
+- `repoOwner`, `repoName` string — Primary repository metadata when the worker registered a git remote. Empty strings for any-repo workers.
+- `repoUrl` string (optional) — Primary repository URL. Omitted for any-repo workers.
 - `workspaceRootPath` string — Primary workspace path on the worker.
 - `connectedAtMs` integer — Connection time in Unix milliseconds.
 - `userId` integer — Owning user id. `0` for workers authenticated with a service account key.
@@ -1060,7 +1070,7 @@ if (team && team.totalConnected > 0) {
 
 /v0/private-workers/
 
-Retrieve a single self-hosted pool worker by its ID.
+Retrieve a single pool worker by its ID.
 
 #### Path Parameters
 
@@ -1078,7 +1088,7 @@ curl --request GET \
 
 /v0/private-workers/pools
 
-List durable self-hosted pools for the authenticated service account's team. Pools remain registered after the last worker disconnects, so you can monitor scale-to-zero fleets and decide when to provision capacity.
+List durable pools for the authenticated service account's team. Pools remain registered after the last worker disconnects, so you can monitor scale-to-zero fleets and decide when to provision capacity.
 
 #### Query Parameters
 
@@ -1103,7 +1113,8 @@ Registered pools. Each entry includes:
 - `inUseWorkerCount` integer — Connected workers that currently have an assigned agent. Idle capacity is `connectedWorkerCount - inUseWorkerCount`.
 - `firstSeenAtMs`, `lastSeenAtMs` integer — First and last observation times in Unix milliseconds.
 - `isStale` boolean — Whether the pool is marked stale after long inactivity.
-- `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the pool is tied to a repo. Omitted for [repo-less pools](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#repo-less-pools).
+- `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the pool is tied to a repo. Omitted for [any-repo pools](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#any-repo-pools).
+- `offlineReconnectTimeoutSeconds` integer — Seconds a claimed request waits for this pool's offline worker to reconnect before the claim expires. `0` means follow-ups for an offline worker reacquire from the pool immediately.
 
 ```bash
 curl --request GET \
@@ -1127,7 +1138,8 @@ curl --request GET \
       "inUseWorkerCount": 1,
       "firstSeenAtMs": 1737000000000,
       "lastSeenAtMs": 1737306880000,
-      "isStale": false
+      "isStale": false,
+      "offlineReconnectTimeoutSeconds": 900
     },
     {
       "scope": "team",
@@ -1137,19 +1149,20 @@ curl --request GET \
       "inUseWorkerCount": 0,
       "firstSeenAtMs": 1737100000000,
       "lastSeenAtMs": 1737200000000,
-      "isStale": false
+      "isStale": false,
+      "offlineReconnectTimeoutSeconds": 0
     }
   ]
 }
 ```
 
-The `sandbox` entry is repo-less: repo fields are omitted, and the pool stays selectable with zero connected workers.
+The `sandbox` entry is any-repo: repo fields are omitted, and the pool stays selectable with zero connected workers.
 
 ### Register A Pool
 
 /v0/private-workers/pools
 
-Register a durable pool without starting a worker. Use this to make a pool selectable before any worker connects, for example when an orchestrator provisions capacity on demand. Starting a worker with `--pool` registers the pool implicitly; this endpoint is only needed to create the pool up front.
+Register a durable pool without starting a worker. Use this to make a pool selectable before any worker connects, for example when a controller provisions capacity on demand. Starting a worker with `--pool` registers the pool implicitly; this endpoint is only needed to create the pool up front.
 
 #### Request Body
 
@@ -1163,11 +1176,15 @@ Pool name to register (for example, `gpu`).
 
 `repoOwner`, `repoName` string (optional)
 
-Repository metadata when the pool is tied to a repo. Provide both together, or omit both for a repo-less pool.
+Repository metadata when the pool is tied to a repo. Provide both together, or omit both for an any-repo pool.
 
 `repoUrl` string (optional)
 
 Repository URL for display. Requires `repoOwner` and `repoName`.
+
+`offlineReconnectTimeoutSeconds` integer (optional, default: 0)
+
+Seconds a claimed request waits for an offline worker from this pool to reconnect before the claim expires and the request returns to the queue. Set this when machines [hibernate between turns](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation) and can be revived. With `0`, follow-ups for an offline worker reacquire from the pool immediately. Must be a non-negative integer.
 
 #### Response Fields
 
@@ -1219,7 +1236,7 @@ Repository owner when deregistering a repo-scoped pool record.
 
 `repo_name` string (optional)
 
-Repository name when deregistering a repo-scoped pool record. Provide `repo_owner` and `repo_name` together, or omit both for a repo-less pool.
+Repository name when deregistering a repo-scoped pool record. Provide `repo_owner` and `repo_name` together, or omit both for an any-repo pool.
 
 ```bash
 curl --request DELETE \
@@ -1239,7 +1256,9 @@ curl --request DELETE \
 
 /v0/private-workers/pending-requests
 
-List self-hosted pool requests that have not been assigned to a worker yet. Use this endpoint to scale capacity when users are waiting for an available pool worker, or pair it with [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) before starting an ephemeral worker.
+List pool requests that have not been assigned to a worker yet. Use this endpoint to scale capacity when users are waiting for an available pool worker, or pair it with [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) before starting an ephemeral worker.
+
+For pools with an `offlineReconnectTimeoutSeconds`, the listing also surfaces claimed-but-offline entries: requests whose claimed worker is offline while a reconnect window is open. These entries carry `claimedWorkerId` and `wakeTimeoutMs` so a controller can [revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation).
 
 This endpoint requires a service account API key. It returns requests for the key's team and excludes My Machines requests. If the key is scoped to specific repositories, pass `repository`; the repository must be in the key's allowed scope.
 
@@ -1257,7 +1276,7 @@ Pagination cursor from the previous response. Page tokens are bound to the `repo
 
 `repository` string (optional)
 
-Filter by repository URL. Required for repo-scoped service account API keys. Omit for repo-less pending requests.
+Filter by repository URL. Required for repo-scoped service account API keys. Omit for any-repo pending requests.
 
 `pool` string (optional)
 
@@ -1273,9 +1292,11 @@ Pending requests. Each entry includes:
 - `userId` integer — Cursor user id that created the request.
 - `userEmail` string (optional) — Email of the requesting user, when available. Use it to select user-affine capacity without another lookup.
 - `serviceAccountId` string (optional) — Service account associated with the request, when present.
-- `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the request targets a repo. Omitted for repo-less pool requests.
+- `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the request targets a repo. Omitted for any-repo pool requests.
 - `labels` array — Request labels as `{ key, value }` pairs (includes `repo=` and `pool=` when set).
 - `createdAtMs` integer — Request creation time in Unix milliseconds.
+- `claimedWorkerId` string (optional) — Present on claimed-but-offline entries: the request is claimed by this worker, which is currently offline. Start a worker with this id (`CURSOR_AGENT_WORKER_ID`) to resume the agent on its machine.
+- `wakeTimeoutMs` integer (optional) — Milliseconds left in the reconnect window of a claimed-but-offline entry. When the window lapses, the claim expires and the request is re-advertised as an unclaimed entry.
 
 `nextPageToken` string (optional)
 
@@ -1323,7 +1344,7 @@ curl --request GET \
 
 /v0/private-workers/pending-requests/stream
 
-Stream pending-request lifecycle events over Server-Sent Events (SSE) so orchestrators can react to queue changes without polling.
+Stream pending-request lifecycle events over Server-Sent Events (SSE) so controllers can react to queue changes without polling.
 
 This endpoint requires a service account API key. Controllers list-then-watch: call [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests) to build your view of the queue, keep the response's `streamCursor`, then open the watch from that exact position. Use the same `repository` and `pool` filters for the list and the watch; cursors are bound to the filters that issued them.
 
@@ -1345,8 +1366,9 @@ Watch only events for this pool. Exact, case-sensitive match against the request
 
 The watch replays the retained transitions after the cursor, then follows live. Every event's SSE `id:` is the cursor to resume from if the connection drops.
 
-- `created` event — A request entered the queue. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests).
-- `claimed` event — A worker claimed the request. Payload: `{ id }`.
+- `created` event — A request entered the queue, including a claimed-but-offline request whose reconnect window lapsed and whose claim expired. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests).
+- `claimed` event — A worker claimed the request, or an offline worker reconnected and resumed its claimed request. Payload: `{ id }`.
+- `claimed_offline` event — A follow-up arrived for a request whose claimed worker is offline. Payload: the same request object as [List Pending Pool Requests](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-pending-pool-requests), including `claimedWorkerId` and `wakeTimeoutMs`. [Revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#advanced-hibernation) before the window lapses, or the claim expires and the request is re-advertised with a fresh `created` event.
 - `expired` event — The request left the queue without being claimed. Payload: `{ id }`.
 - `heartbeat` event — Cursor checkpoint with no state change, sent about every 20 seconds on a quiet stream. Payload: `{}`. Heartbeats advance an idle watch's resume position but do not extend the cursor's lifetime.
 
@@ -1356,7 +1378,7 @@ Every cursor in a watch chain expires **five minutes after the list that issued 
 
 #### Delivery guarantees
 
-Delivery is best-effort, and the list is the source of truth. Events are published after each transition commits, with retries, but a rare failure can drop one, and a dropped event is never redelivered. Between re-lists, treat events as low-latency hints: apply them idempotently (upsert `created` requests, remove `claimed` and `expired` requests by `id`) and let the next list correct any drift. A `claimed` event for a request you never saw is a no-op. Claims stay atomic server-side regardless of your local view.
+Delivery is best-effort, and the list is the source of truth. Events are published after each transition commits, with retries, but a rare failure can drop one, and a dropped event is never redelivered. Between re-lists, treat events as low-latency hints: apply them idempotently (upsert `created` and `claimed_offline` requests, remove `claimed` and `expired` requests by `id`) and let the next list correct any drift. A `claimed` event for a request you never saw is a no-op. Claims stay atomic server-side regardless of your local view.
 
 Do not persist cursors. A service account can hold at most four concurrent streams; use one stream per controller and fan out locally.
 
