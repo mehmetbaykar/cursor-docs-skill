@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "3996591731edcb993ea2aba9267bd713ef2078038771ac3864ea3ec00892bc43",
-      "last_updated": "2026-08-26T01:53:37+00:00",
+      "hash": "3a5d71ecc514b0c30e0161c1ea1fedd709e3ceb45f80743e4f7cc08e37cf718b",
+      "last_updated": "2026-08-26T19:59:26+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -507,8 +507,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "24da5ce2f88994b664e8d45889c36a3d3a6e9741e7a1be74b9967895dfe9b691",
-      "last_updated": "2026-08-24T21:39:03+00:00",
+      "hash": "5ba60028832aabd38aa2e0362122ace053943a4f6a24d3260165da68fccc9f91",
+      "last_updated": "2026-08-26T19:59:28+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -1528,7 +1528,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-26T01:54:17+00:00",
+  "last_updated": "2026-08-26T20:00:00+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
