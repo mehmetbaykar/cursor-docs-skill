@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "3a5d71ecc514b0c30e0161c1ea1fedd709e3ceb45f80743e4f7cc08e37cf718b",
-      "last_updated": "2026-08-26T19:59:26+00:00",
+      "hash": "f0817bd46cac1b5f24a1bf2268063d2378ddaba7f6f7ce8ad3d6f37c86553d30",
+      "last_updated": "2026-08-27T14:05:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -507,8 +507,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "5ba60028832aabd38aa2e0362122ace053943a4f6a24d3260165da68fccc9f91",
-      "last_updated": "2026-08-26T19:59:28+00:00",
+      "hash": "62656f200be56e639d27102b69f2184d7d0abb7be790bfb32b9e262007f5f0f0",
+      "last_updated": "2026-08-27T14:05:20+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -543,8 +543,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "2b72c3508e32250e3dab32b0e6b602f7d53d9d48e84be3896e0b7fef25d2f70e",
-      "last_updated": "2026-08-07T17:11:58+00:00",
+      "hash": "cee67730a63b858f69a7b8ccea2d08fdb5556fdb4d4086ab1a762c68ca3515f0",
+      "last_updated": "2026-08-27T14:05:21+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -813,8 +813,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "8c5f3e56472f743819da32d62003c44a5d4721df39f87ccd4578be8ead0c12d5",
-      "last_updated": "2026-08-24T21:39:12+00:00",
+      "hash": "94a3a44910f2b43a7c582ca7712b28a03de9b6aa77e3c2a81b6fa3641025f512",
+      "last_updated": "2026-08-27T14:05:30+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1497,8 +1497,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "5e9026e3abdbe229cfeebf3c236176bc9bba953c57432fdb719d38334ee76764",
-      "last_updated": "2026-08-27T00:41:08+00:00",
+      "hash": "0d1aeb7cc1557cbc211e04f07cbfbe0ca729c251c944b9494c32e58c43546221",
+      "last_updated": "2026-08-27T14:05:54+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1528,7 +1528,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-27T00:41:08+00:00",
+  "last_updated": "2026-08-27T14:05:54+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
