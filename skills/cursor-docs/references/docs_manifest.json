@@ -1371,8 +1371,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "d741c8f315baeb8354c704e80a065b0ce14995c599eed13baecaa715170c99b3",
-      "last_updated": "2026-08-25T01:48:40+00:00",
+      "hash": "a928ca33f51cee987ca8fee1c07126f48078b31c02740c6754ad3b64b7d7f98f",
+      "last_updated": "2026-08-27T00:41:03+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1497,8 +1497,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "bd6a90a3ec93ed65164c8f2b8a5bdeaea39489e1dae00b6d6752f46d78fc1b7a",
-      "last_updated": "2026-08-25T01:48:44+00:00",
+      "hash": "5e9026e3abdbe229cfeebf3c236176bc9bba953c57432fdb719d38334ee76764",
+      "last_updated": "2026-08-27T00:41:08+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1528,7 +1528,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-26T20:00:00+00:00",
+  "last_updated": "2026-08-27T00:41:08+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
