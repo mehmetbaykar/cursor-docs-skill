@@ -156,8 +156,9 @@ An Agent Plugin has a `plugin.json` manifest at its root. A Cursor Plugin has a
 `.cursor-plugin/plugin.json` manifest. Team marketplaces can distribute either
 format using the same access and installation modes described above.
 
-You can also load either format directly from `~/.cursor/plugins/local` while
-developing a plugin. See [Test plugins locally](https://cursor.com/docs/plugins.md#test-plugins-locally).
+You can also develop either format from `~/.cursor/plugins/local`. See
+[Test plugins locally](https://cursor.com/docs/plugins.md#test-plugins-locally) for the folder layout and when
+Cursor loads it.
 
 ### MCP Apps deeplinks
 
@@ -259,14 +260,24 @@ to create an Agent Plugin.
 
 ### Test plugins locally
 
-Before you publish, load either plugin format from `~/.cursor/plugins/local`:
+Before you publish, put either plugin format in `~/.cursor/plugins/local`:
 
 1. Create a folder for your plugin:
    `~/.cursor/plugins/local/my-plugin`
 2. Copy your plugin files into that folder. Include either a root `plugin.json`
    for an Agent Plugin or `.cursor-plugin/plugin.json` for a Cursor Plugin.
 3. Restart Cursor, or run **Developer: Reload Window**.
-4. Verify your plugin components load in Cursor, such as rules, skills, or MCP servers.
+4. Open **Customize** and confirm the plugin components you expect, such as
+   rules, skills, or MCP servers.
+
+After a reload, Cursor discovers plugins in this folder if local plugin
+imports are allowed.
+
+On Teams and Enterprise, admins control this with **Allow Local Plugin
+Imports** under **Dashboard -> Settings -> Security & Identity ->
+Marketplace and Plugins**. The setting is off by default on Enterprise. If a
+marketplace plugin with the same name is already installed, that install
+takes precedence over the local copy.
 
 For faster iteration, symlink your plugin repository:
 

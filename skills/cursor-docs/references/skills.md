@@ -66,12 +66,14 @@ You can run any built-in skill by typing `/` in Agent chat and selecting its nam
 
 Skills are automatically loaded from these locations:
 
-| Location            | Scope               |
-| ------------------- | ------------------- |
-| `.agents/skills/`   | Project-level       |
-| `.cursor/skills/`   | Project-level       |
-| `~/.agents/skills/` | User-level (global) |
-| `~/.cursor/skills/` | User-level (global) |
+| Location            | Scope                                    |
+| ------------------- | ---------------------------------------- |
+| `.agents/skills/`   | Project-level                            |
+| `.cursor/skills/`   | Project-level                            |
+| `~/.agents/skills/` | User-level (global) on the local machine |
+| `~/.cursor/skills/` | User-level (global) on the local machine |
+
+Cursor loads user-level skills from the machine the agent runs on. Your local `~/.cursor/skills/` and `~/.agents/skills/` folders are not copied to Cloud Agents, Agents Window remote SSH, or [self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md). On those surfaces, use project skills in the repo, or [bake skills into the worker image](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md).
 
 For compatibility, Cursor also loads skills from Claude and Codex directories: `.claude/skills/`, `.codex/skills/`, `~/.claude/skills/`, and `~/.codex/skills/`.
 
@@ -304,3 +306,4 @@ Agent Skills is an open standard. Learn more at [agentskills.io](https://agentsk
 ## Related
 
 - [Skills help](https://cursor.com/help/customization/skills.md)
+- [Self-hosted worker pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
