@@ -1114,7 +1114,7 @@ Registered pools. Each entry includes:
 - `firstSeenAtMs`, `lastSeenAtMs` integer — First and last observation times in Unix milliseconds.
 - `isStale` boolean — Whether the pool is marked stale after long inactivity.
 - `repoOwner`, `repoName`, `repoUrl` string (optional) — Repository metadata when the pool is tied to a repo. Omitted for [any-repo pools](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#any-repo-pools).
-- `offlineReconnectTimeoutSeconds` integer — Seconds a claimed request waits for this pool's offline worker to reconnect before the claim expires. `0` means follow-ups for an offline worker reacquire from the pool immediately.
+- `workerReadyTimeoutSeconds` integer — Seconds a claimed request waits for this pool's offline worker to reconnect before the claim expires. `0` means follow-ups for an offline worker reacquire from the pool immediately.
 
 ```bash
 curl --request GET \
@@ -1139,7 +1139,7 @@ curl --request GET \
       "firstSeenAtMs": 1737000000000,
       "lastSeenAtMs": 1737306880000,
       "isStale": false,
-      "offlineReconnectTimeoutSeconds": 900
+      "workerReadyTimeoutSeconds": 900
     },
     {
       "scope": "team",
@@ -1150,7 +1150,7 @@ curl --request GET \
       "firstSeenAtMs": 1737100000000,
       "lastSeenAtMs": 1737200000000,
       "isStale": false,
-      "offlineReconnectTimeoutSeconds": 0
+      "workerReadyTimeoutSeconds": 0
     }
   ]
 }
@@ -1182,7 +1182,7 @@ Repository metadata when the pool is tied to a repo. Provide both together, or o
 
 Repository URL for display. Requires `repoOwner` and `repoName`.
 
-`offlineReconnectTimeoutSeconds` integer (optional, default: 0)
+`workerReadyTimeoutSeconds` integer (optional, default: 0)
 
 Seconds a claimed request waits for an offline worker from this pool to reconnect before the claim expires and the request returns to the queue. Set this when machines [hibernate between turns](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation) and can be revived. With `0`, follow-ups for an offline worker reacquire from the pool immediately. Must be a non-negative integer.
 
@@ -1258,7 +1258,7 @@ curl --request DELETE \
 
 List pool requests that have not been assigned to a worker yet. Use this endpoint to scale capacity when users are waiting for an available pool worker, or pair it with [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) before starting an ephemeral worker.
 
-For pools with an `offlineReconnectTimeoutSeconds`, the listing also surfaces claimed-but-offline entries: requests whose claimed worker is offline while a reconnect window is open. These entries carry `claimedWorkerId` and `wakeTimeoutMs` so a controller can [revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation).
+For pools configured with `workerReadyTimeoutSeconds`, the listing also surfaces claimed-but-offline entries: requests whose claimed worker is offline while a reconnect window is open. These entries carry `claimedWorkerId` and `wakeTimeoutMs` so a controller can [revive the machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md#hibernation).
 
 This endpoint requires a service account API key. It returns requests for the key's team and excludes My Machines requests. If the key is scoped to specific repositories, pass `repository`; the repository must be in the key's allowed scope.
 
