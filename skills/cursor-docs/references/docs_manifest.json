@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 167,
+    "pages_fetched_successfully": 160,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 169
+    "total_pages_discovered": 162
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -525,8 +525,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__security-network.md": {
-      "hash": "8c47f924aa8894eeb7293b33cae2aeece741f97b0cc34d6cd2675ee3ce1c162e",
-      "last_updated": "2026-08-24T21:39:04+00:00",
+      "hash": "621f1e2538f0188f00b0da1cb6b10d003f7eed38c0c3efeda5f5dde39d69cb87",
+      "last_updated": "2026-08-28T15:16:23+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
@@ -586,69 +586,6 @@
       "source_url": "https://cursor.com/docs/configuration/worktrees",
       "status": "live",
       "title": "Worktrees"
-    },
-    "cursor-review__cli__authentication.md": {
-      "hash": "05e4ddfb21c6791621a18958dcf15fb55e3f0d2bfb88c99ee7046b2ca829cc79",
-      "last_updated": "2026-08-07T17:12:00+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/cli/authentication",
-      "path": "/docs/cursor-review/cli/authentication",
-      "source_url": "https://cursor.com/docs/cursor-review/cli/authentication",
-      "status": "live",
-      "title": "gt CLI"
-    },
-    "cursor-review__cli__parameters.md": {
-      "hash": "cd19214ba9d88c7782ecf9aa42a923184b6ff31637dedac0a30bf5f1e8dd5877",
-      "last_updated": "2026-08-07T17:12:00+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/cli/parameters",
-      "path": "/docs/cursor-review/cli/parameters",
-      "source_url": "https://cursor.com/docs/cursor-review/cli/parameters",
-      "status": "live",
-      "title": "Parameters"
-    },
-    "cursor-review__cli__stacking.md": {
-      "hash": "c53519abf6a269de4f76b62671c75bd9c664f56ed6dd2809e75e0d87eb5c3ddc",
-      "last_updated": "2026-08-07T17:12:01+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/cli/stacking",
-      "path": "/docs/cursor-review/cli/stacking",
-      "source_url": "https://cursor.com/docs/cursor-review/cli/stacking",
-      "status": "live",
-      "title": "Stacking"
-    },
-    "cursor-review__merge-queue.md": {
-      "hash": "462a0cab363373314881871a60df2ded0a9e4a240cd2351ffd49f58feffbce10",
-      "last_updated": "2026-08-07T17:12:01+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/merge-queue",
-      "path": "/docs/cursor-review/merge-queue",
-      "source_url": "https://cursor.com/docs/cursor-review/merge-queue",
-      "status": "live",
-      "title": "Merge Queue"
-    },
-    "cursor-review__overview.md": {
-      "hash": "6bb0c15a5572754de5cea6afede0beb67a64379dafa66bc109e839118ca43a31",
-      "last_updated": "2026-08-07T17:12:01+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/overview",
-      "path": "/docs/cursor-review/overview",
-      "source_url": "https://cursor.com/docs/cursor-review/overview",
-      "status": "live",
-      "title": "Cursor Review"
-    },
-    "cursor-review__pr-inbox.md": {
-      "hash": "5ea43a87c7d801538bc857aea80c34ca988212141bd3d3ff26ac2f69d6536c10",
-      "last_updated": "2026-08-07T17:12:01+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/pr-inbox",
-      "path": "/docs/cursor-review/pr-inbox",
-      "source_url": "https://cursor.com/docs/cursor-review/pr-inbox",
-      "status": "live",
-      "title": "Pull Request Inbox"
-    },
-    "cursor-review__pr-page.md": {
-      "hash": "f6a9f60b6adb3434926c4bcada5159019b5b5138fa9b0371262fb9e68fabe071",
-      "last_updated": "2026-08-07T17:12:02+00:00",
-      "original_url": "https://cursor.com/docs/cursor-review/pr-page",
-      "path": "/docs/cursor-review/pr-page",
-      "source_url": "https://cursor.com/docs/cursor-review/pr-page",
-      "status": "live",
-      "title": "Pull Request Page"
     },
     "cursor-router.md": {
       "hash": "41cb40054e5c3024733f40fc201004473bcc13f1f2ea3daed98ea58184a3920d",
@@ -1344,8 +1281,8 @@
       "title": "Integrations"
     },
     "origin__mirror-github.md": {
-      "hash": "d28905e9523b014596e2f8707373856240e9679bbcbeff4264aaa11fd492eab6",
-      "last_updated": "2026-08-17T18:54:00+00:00",
+      "hash": "84603d8a897c9702861f53e4dd36e3a26807d79890b2c98dc339c670219218e1",
+      "last_updated": "2026-08-28T15:16:52+00:00",
       "original_url": "https://cursor.com/docs/origin/mirror-github",
       "path": "/docs/origin/mirror-github",
       "source_url": "https://cursor.com/docs/origin/mirror-github",
@@ -1528,7 +1465,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-27T14:05:54+00:00",
+  "last_updated": "2026-08-28T15:16:58+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

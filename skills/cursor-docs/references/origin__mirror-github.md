@@ -61,4 +61,4 @@ If browse looks stale:
 
 ## When not to mirror
 
-If you only want automated review comments on GitHub PRs, [Cursor Review](https://cursor.com/docs/cursor-review/overview.md) and [Bugbot](https://cursor.com/docs/bugbot.md) do that without moving storage. Mirror when you want Origin-hosted code storage, browse, and pull requests.
+If you only want automated review comments on GitHub PRs, [Bugbot](https://cursor.com/docs/bugbot.md) does that without moving storage. Mirror when you want Origin-hosted code storage, browse, and pull requests.
