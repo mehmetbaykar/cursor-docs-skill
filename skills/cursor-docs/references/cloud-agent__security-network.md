@@ -239,9 +239,9 @@ If you need to add the proxy IPs directly to an allowlist, use these addresses:
 52.44.113.131
 ```
 
-### Cursor Review IPs
+### Origin IPs
 
-If your team uses Cloud Agents alongside [Cursor Review](https://cursor.com/docs/cursor-review/overview.md), allowlist these additional IPs on top of the git egress proxy IPs above:
+If your team uses Cloud Agents alongside [Origin](https://cursor.com/docs/origin.md), allowlist these additional IPs on top of the git egress proxy IPs above:
 
 ```text
 34.192.39.182
