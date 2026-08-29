@@ -6,7 +6,7 @@ path: /docs/reference/ignore-file
 
 # Ignore file
 
-Cursor reads and indexes your project's codebase to power its features. Control which directories and files Cursor can access using a `.cursorignore` file in your root directory.
+Cursor reads your project's codebase to power its features. Control which directories and files Cursor can access using a `.cursorignore` file in your root directory.
 
 Cursor blocks access to files listed in `.cursorignore` from:
 
@@ -20,7 +20,7 @@ governed by `.cursorignore`
 
 **Security**: Restrict access to API keys, credentials, and secrets. While Cursor blocks ignored files, complete protection isn't guaranteed due to LLM unpredictability.
 
-**Performance**: In large codebases or monorepos, exclude irrelevant portions for faster indexing and more accurate file discovery.
+**Performance**: In large codebases or monorepos, exclude irrelevant portions for more accurate file discovery.
 
 ## Configuring `.cursorignore`
 
@@ -61,17 +61,13 @@ Common patterns to add:
 - Credentials: `**/credentials.json`, `**/secrets.json`
 - Keys: `**/*.key`, `**/*.pem`, `**/id_rsa`
 
-## `.cursorindexingignore`
-
-Use `.cursorindexingignore` to exclude files from indexing only. These files remain accessible to AI features but won't appear in codebase searches. Use this for large generated files or vendored dependencies that shouldn't appear in search results.
-
 ## Files ignored by default
 
 Cursor automatically ignores files in `.gitignore` and the default ignore list below. Override with `!` prefix in `.cursorignore`.
 
 ### Default ignore list
 
-For indexing only, these files are ignored in addition to files in your `.gitignore`, `.cursorignore` and `.cursorindexingignore`:
+These files are ignored in addition to files in your `.gitignore` and `.cursorignore`:
 
 ```sh
 package-lock.json
