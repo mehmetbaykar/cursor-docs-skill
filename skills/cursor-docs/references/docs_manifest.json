@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "70b1e773f19ba2b6c8a74ff682875f01b06c8f5111f4d627832ac4e87961af87",
-      "last_updated": "2026-08-24T21:38:49+00:00",
+      "hash": "6bf4a3d04a5d8aa80b8ecc32bfdb9363f9fdf9a7f1bf2dd42b38f53c8fc06c6f",
+      "last_updated": "2026-08-29T01:43:32+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -237,8 +237,8 @@
       "title": "Canvases"
     },
     "agent__tools__search.md": {
-      "hash": "3aff4bd9ee86b081d91e5d64aa93f8017039d3708a855ab685a1d44133298049",
-      "last_updated": "2026-08-07T17:11:48+00:00",
+      "hash": "f18b8ec0e81879f5c861f379ec6cf1c07b555250b00567eff1be29eb3511f2c2",
+      "last_updated": "2026-08-29T01:43:39+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/search",
       "path": "/docs/agent/tools/search",
       "source_url": "https://cursor.com/docs/agent/tools/search",
@@ -1326,8 +1326,8 @@
       "title": "Deeplinks"
     },
     "reference__ignore-file.md": {
-      "hash": "0c5e7fc7898b05e1d97e090c7f55b1f511380d384b9b6507c3c0b2bd4ddea2ae",
-      "last_updated": "2026-08-07T17:12:23+00:00",
+      "hash": "62d8af5e2adad7d1568c5a2b0cfd08b6cc4dc90ffc1b734d8b3612812123c12e",
+      "last_updated": "2026-08-29T01:44:19+00:00",
       "original_url": "https://cursor.com/docs/reference/ignore-file",
       "path": "/docs/reference/ignore-file",
       "source_url": "https://cursor.com/docs/reference/ignore-file",
@@ -1465,7 +1465,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-28T15:16:58+00:00",
+  "last_updated": "2026-08-29T01:44:24+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

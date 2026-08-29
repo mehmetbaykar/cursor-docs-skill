@@ -872,7 +872,7 @@ curl -X POST https://api.cursor.com/teams/remove-member \
 
 /settings/repo-blocklists/repos
 
-Retrieve all repository blocklists configured for your team. Add repositories and use patterns to prevent files or directories from being indexed or used as context.
+Retrieve all repository blocklists configured for your team. Add repositories and use patterns to prevent files or directories from being used as context.
 
 #### Pattern Examples
 
