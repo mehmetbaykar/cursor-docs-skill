@@ -271,9 +271,9 @@ Type `/in-cloud` and the next task you submit runs as a cloud subagent. It spins
 
 This is useful for isolating long-running or parallel work, such as fixing CI, investigating an issue, or exploring a codebase while you keep working locally.
 
-### Babysit a PR with /babysit
+### Put a PR on autopilot with /autopilot
 
-Ask a cloud subagent to babysit a pull request with `/babysit` or by clicking the quick-action pill. The cloud agent iterates remotely to prepare the PR for merge without tying up your local session.
+Ask a cloud subagent to take over a pull request with `/autopilot` or by clicking the quick-action pill. The cloud agent iterates remotely to prepare the PR for merge without tying up your local session.
 
 Cloud subagents use the [environment](https://cursor.com/docs/cloud-agent/setup.md) configured for your repo and follow the same model and capability rules as other [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Because they run on a cloud VM, their [MCP servers](https://cursor.com/docs/cloud-agent/capabilities.md#mcp-tools) come from your team's configuration at [cursor.com/agents](https://cursor.com/agents), not from your local session.
 

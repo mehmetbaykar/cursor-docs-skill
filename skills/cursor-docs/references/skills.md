@@ -41,7 +41,7 @@ Cursor includes a small set of built in skills to improve your general workflows
 | Skill                     | What it does                                                                                         |
 | ------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `/automate`               | Creates Cursor Automations triggered by schedules, Slack messages, GitHub events, and other sources. |
-| `/babysit`                | Monitors a pull request and addresses feedback, conflicts, failing checks, and follow-up work.       |
+| `/autopilot`              | Monitors a pull request and addresses feedback, conflicts, failing checks, and follow-up work.       |
 | `/canvas`                 | Creates interactive React artifacts that render alongside the conversation.                          |
 | `/create-hook`            | Creates Cursor hooks and updates `hooks.json` for agent lifecycle events.                            |
 | `/create-rule`            | Creates Cursor rules with the appropriate scope and instructions.                                    |

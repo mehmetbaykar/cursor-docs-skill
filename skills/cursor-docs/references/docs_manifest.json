@@ -147,8 +147,8 @@
       "title": "Agent Review"
     },
     "agent__agents-window.md": {
-      "hash": "513c5f0d80807d296584999b28d775cbf936b15e6bd0be404ab3bd4e020037d8",
-      "last_updated": "2026-08-07T17:11:45+00:00",
+      "hash": "1c2177953d688607a8d334dc7b2001ed8467aa384f23ed8837624d850408f96c",
+      "last_updated": "2026-08-31T20:47:07+00:00",
       "original_url": "https://cursor.com/docs/agent/agents-window",
       "path": "/docs/agent/agents-window",
       "source_url": "https://cursor.com/docs/agent/agents-window",
@@ -1200,8 +1200,8 @@
       "title": "Models Kimi K3"
     },
     "origin.md": {
-      "hash": "0b1f701ef0e9c3ea51340b35af4882c81de08386a663a3c8d2f5260652304ab9",
-      "last_updated": "2026-08-18T15:41:35+00:00",
+      "hash": "3a244dd3ade3c3c1e0b54c0310cf764bd93ecf88b43f2f2ff4c1bb0f454398bf",
+      "last_updated": "2026-08-31T20:47:46+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "source_url": "https://cursor.com/docs/origin",
@@ -1434,8 +1434,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "0d1aeb7cc1557cbc211e04f07cbfbe0ca729c251c944b9494c32e58c43546221",
-      "last_updated": "2026-08-27T14:05:54+00:00",
+      "hash": "db3a76c1312cf5eeccb5048745df519089def1be464ba80522e020bf51910428",
+      "last_updated": "2026-08-31T20:47:53+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1443,8 +1443,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "b18c52dcb6081bbd2b7b310fac04cc62416a7eaed6267e018d4bd89fcd4d2bb8",
-      "last_updated": "2026-08-19T18:50:02+00:00",
+      "hash": "f04d51955d4661a15c7fcb57ab23d81cc2d45d3c6162fbce6cc1f181836d6d4a",
+      "last_updated": "2026-08-31T20:47:54+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents",
@@ -1465,7 +1465,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-29T01:44:24+00:00",
+  "last_updated": "2026-08-31T20:47:54+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
