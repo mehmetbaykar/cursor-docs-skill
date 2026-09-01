@@ -753,6 +753,8 @@ curl -X POST https://api.cursor.com/teams/filtered-usage-events \
 
 Set spending limits for individual team members. This allows you to control how much each user can spend on AI usage within your team. Rate limited to 250 requests per minute per team. See [rate limits](https://cursor.com/docs/api.md#rate-limits).
 
+To update up to 100 members per request, use [Set User Spend Limits in Bulk (Preview)](https://cursor.com/docs/account/teams/admin-api.md#set-user-spend-limits-in-bulk-preview).
+
 #### Parameters
 
 `userEmail` string Required
@@ -794,6 +796,84 @@ curl -X POST https://api.cursor.com/teams/user-spend-limit \
 {
   "outcome": "error",
   "message": "Invalid email format"
+}
+```
+
+### Set User Spend Limits in Bulk (Preview)
+
+/teams/user-spend-limits
+
+Set spending limits for up to 100 team members in one request. Rate limited to 20 requests per minute per team. See [rate limits](https://cursor.com/docs/api.md#rate-limits).
+
+This bulk route is in preview and may change. Request shape, response fields, and error behavior can shift before general availability.
+
+#### Parameters
+
+`updates` array Required
+
+One to 100 user spend limit updates. Each update contains:
+
+- `userEmail` string - Email address of the team member
+- `spendLimitDollars` number | null - Integer spending limit in dollars. Set to `null` to remove the limit.
+
+#### Response Fields
+
+- `requestedCount` number - Number of updates in the request
+- `updatedCount` number - Number of limits that changed
+- `unchangedCount` number - Number of limits already set to the requested value
+- `failedCount` number - Number of updates Cursor could not apply
+- `results` array - Results in request order. Each result includes `userEmail` and a status of `updated`, `unchanged`, or `failed`. Failed results also include an `error` message.
+
+* **Availability**: Enterprise only. The bulk endpoint is rolling out; teams that are not yet enabled receive a `403` response
+* A missing team member produces a `failed` result without blocking other updates
+* Invalid request fields, duplicate emails, or more than 100 updates return a `400` response without applying any updates
+* Repeating a successful update returns `unchanged` and does not create another audit event
+
+```bash
+curl -X POST https://api.cursor.com/teams/user-spend-limits \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "updates": [
+      {
+        "userEmail": "developer@company.com",
+        "spendLimitDollars": 100
+      },
+      {
+        "userEmail": "contractor@company.com",
+        "spendLimitDollars": null
+      },
+      {
+        "userEmail": "former-employee@company.com",
+        "spendLimitDollars": 50
+      }
+    ]
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "requestedCount": 3,
+  "updatedCount": 1,
+  "unchangedCount": 1,
+  "failedCount": 1,
+  "results": [
+    {
+      "userEmail": "developer@company.com",
+      "status": "updated"
+    },
+    {
+      "userEmail": "contractor@company.com",
+      "status": "unchanged"
+    },
+    {
+      "userEmail": "former-employee@company.com",
+      "status": "failed",
+      "error": "User not found in team"
+    }
+  ]
 }
 ```
 
