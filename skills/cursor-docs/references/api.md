@@ -17,7 +17,7 @@ Cursor provides multiple APIs for programmatic access to your team's data, AI-po
 | [AI Code Tracking API](https://cursor.com/docs/account/teams/ai-code-tracking-api.md) | Track AI-generated code contributions at commit and change levels for attribution and analytics.                     | Enterprise teams |
 | [Bugbot API](https://cursor.com/docs/bugbot.md#api)                                   | Trigger Bugbot reviews and retrieve per-review analytics.                                                            | Enterprise teams |
 | [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md)              | Programmatically create and manage AI-powered coding agents for automated workflows and code generation.             | Beta (All Plans) |
-| [Origin API](https://cursor.com/docs/api/origin.md)                                   | Work with Origin repositories, commits, checks, pull requests, and app installations.                                | Alpha            |
+| [Origin API](https://cursor.com/docs/api/origin/llms-full.txt)                        | Work with Origin repositories, commits, checks, pull requests, and app installations.                                | Alpha            |
 | [TypeScript SDK](https://cursor.com/docs/sdk/typescript.md)                           | Run Cursor agents from TypeScript with one interface for local and cloud runtimes.                                   | All users        |
 | [Python SDK](https://cursor.com/docs/sdk/python.md)                                   | Run Cursor agents from Python with sync and async clients for local and cloud runtimes.                              | All users        |
 | [SDK Bridge](https://cursor.com/docs/sdk/bridge.md)                                   | Build agent SDKs in other languages on the open bridge protocol and standalone binaries.                             | All users        |
@@ -79,7 +79,7 @@ API keys are tied to your organization and viewable by all admins. Keys are unaf
 
 ## Rate Limits
 
-All APIs implement rate limiting to ensure fair usage and system stability. Rate limits are enforced per team and reset every minute.
+All APIs implement rate limiting to ensure fair usage and system stability. Limits apply per authenticated user, team, or organization, and most are scoped to a single endpoint. Unless an endpoint documents a different limit, the default is 20 requests per minute.
 
 ### Rate Limits by API
 
@@ -88,6 +88,7 @@ All APIs implement rate limiting to ensure fair usage and system stability. Rate
 | **Admin API**            | Most endpoints                                                            | 20 requests/minute                                    |
 | **Admin API**            | `/teams/filtered-usage-events` and `/organizations/filtered-usage-events` | 60 requests/minute                                    |
 | **Admin API**            | `/teams/user-spend-limit`                                                 | 250 requests/minute                                   |
+| **Organization API**     | Most endpoints                                                            | 20 requests/minute per endpoint                       |
 | **Analytics API**        | Most team-level endpoints                                                 | 100 requests/minute                                   |
 | **Analytics API**        | `/analytics/team/conversation-insights`                                   | 20 requests/minute                                    |
 | **Analytics API**        | By-user endpoints                                                         | 50 requests/minute                                    |
@@ -98,12 +99,12 @@ All APIs implement rate limiting to ensure fair usage and system stability. Rate
 
 ### Rate Limit Response
 
-When you exceed the rate limit, you'll receive a `429 Too Many Requests` response:
+When you exceed the rate limit, you'll receive a `429 Too Many Requests` response. Admin and Organization API responses include `Retry-After: 60` and this body:
 
 ```json
 {
-  "error": "Too Many Requests",
-  "message": "Rate limit exceeded. Please try again later."
+  "code": "error",
+  "message": "Rate limit exceeded"
 }
 ```
 

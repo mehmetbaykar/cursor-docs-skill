@@ -11,7 +11,7 @@ Claude Opus 5 is Anthropic's latest Opus model and replaces Opus 4.8. It is a st
 - Stronger than Opus 4.8 on thoroughness, carefulness, and intent understanding. It holds the goal across long sessions and finishes multi-step work with less hand-holding.
 - Competitive with Fable 5 on hard coding work, often finishing tasks faster end-to-end while charging standard Opus rates.
 - Strong at planning and tool use. It maps work before executing, chains tool results into follow-up actions, and adapts when tool output surprises it.
-- Zero Data Retention compatible. Unlike Fable 5, Opus 5 does not require Anthropic data-retention opt-in.
+- Zero Data Retention compatible. Unlike Fable 5 and Fable 5.1, Opus 5 does not require Anthropic data-retention opt-in.
 
 ## Limitations
 

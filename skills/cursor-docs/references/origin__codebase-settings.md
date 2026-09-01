@@ -31,4 +31,4 @@ Exact controls in the Permissions UI may change during early beta.
 - **Third-party apps** such as Vercel, Depot, and Buildkite: install them here, then see which apps are active on a given repository from that repository's **Apps** tab in [Repository settings](https://cursor.com/docs/origin/settings.md#apps)
 - **Internal apps** for API access: create an app for your team, then use the app credentials and installation flow to call the Origin API
 
-Apps authenticate with app JWTs and installation access tokens. For base URL, authentication, scopes, webhooks, and endpoint reference, see the [Origin API](https://cursor.com/docs/api/origin.md).
+Apps authenticate with app JWTs and installation access tokens. For base URL, authentication, scopes, webhooks, and endpoint reference, see the [Origin API](https://cursor.com/docs/api/origin/llms-full.txt).
