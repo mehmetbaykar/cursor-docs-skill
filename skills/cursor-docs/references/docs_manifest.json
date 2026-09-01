@@ -4,16 +4,16 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 172,
+    "pages_fetched_successfully": 173,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 174
+    "total_pages_discovered": 175
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "4111610699b4b87a6043c7daf06f5b8c0618dd69740fba44f136c7eb55a83dec",
-      "last_updated": "2026-08-24T21:38:48+00:00",
+      "hash": "01a96d6de718c6912a8ffcabad843808fbaef111642168a3130d4e67a9f7bcee",
+      "last_updated": "2026-09-01T18:24:30+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "29528bb84642a5e6b010b2b243cf7d02be3d693d1a06a1aebba6501c2c07a97f",
-      "last_updated": "2026-08-24T21:38:48+00:00",
+      "hash": "d3be7cba4cde2dc426eb30f0401c2653d51399d0a3e9506e3d7c2debdd899c4f",
+      "last_updated": "2026-09-01T18:24:31+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "b4a8d70398f742709a9d7707837e92b7aa94bd91af9986239e0adfa67ec21f8b",
-      "last_updated": "2026-08-24T21:38:50+00:00",
+      "hash": "50c26f2ea60b71cad3c2db95fae9d7d349af8b17605a03c5a6a7143db480ec16",
+      "last_updated": "2026-09-01T18:24:34+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -255,8 +255,8 @@
       "title": "Terminal"
     },
     "api.md": {
-      "hash": "075bb5123ff9dfca6f9a3cb4890eda67ec220f36cf46a5839c5c1f0a3ff194e9",
-      "last_updated": "2026-08-07T17:11:49+00:00",
+      "hash": "46639b8c206d78c1be7f8a391778fdb8f793624bb930c422bc406e0d02c9af9c",
+      "last_updated": "2026-09-01T18:24:40+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "source_url": "https://cursor.com/docs/api",
@@ -642,8 +642,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "acca5236de42a83623cd7c7c3397fd0f91f780d2d8a35eba74cc617c18474733",
-      "last_updated": "2026-08-25T03:55:34+00:00",
+      "hash": "b0367252adde1d73eb5e5a9ab4cadbd12ef0a08fcf2225ef8dbbaa3948b1b924",
+      "last_updated": "2026-09-01T18:24:30+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -732,8 +732,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "6f62cbca59e7fac94ed5a190e4870ea82e7ce29ff9d2c7089f10cf3410a30b1f",
-      "last_updated": "2026-09-01T08:34:10+00:00",
+      "hash": "b1d8e623e5831e1b56fd719e628cf1b38fb7ff01cc7a6bbfb4f9ef35efbccecf",
+      "last_updated": "2026-09-01T18:24:59+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -894,8 +894,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "94347dd2da7c7c8b6100be14a59f1e415b643fed9a9e4ffb794d8261a83eae80",
-      "last_updated": "2026-08-24T21:39:13+00:00",
+      "hash": "9b3a7ee381b39f0f89e32662e50f6ff54105338d31d85dd0a0265e8c7d64cfbe",
+      "last_updated": "2026-09-01T18:25:06+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -947,9 +947,18 @@
       "status": "live",
       "title": "Models Claude 4 Sonnet"
     },
+    "models__claude-fable-5-1.md": {
+      "hash": "975ee4fa5f94e95f983f05c3100db2fb149b7456743371a64157cff14d0bd8b7",
+      "last_updated": "2026-09-01T18:25:08+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-fable-5-1",
+      "path": "/docs/models/claude-fable-5-1",
+      "source_url": "https://cursor.com/docs/models/claude-fable-5-1",
+      "status": "live",
+      "title": "Models Claude Fable 5 1"
+    },
     "models__claude-fable-5.md": {
-      "hash": "1fba12221c2a1741a1ef2acda0799ceda750fedb967e5483b771f83738fec02b",
-      "last_updated": "2026-08-07T17:12:11+00:00",
+      "hash": "0b0d6db11f5f541f4b387c51c5b17b15954bf05ef8874f2ea9a9cf3d95707775",
+      "last_updated": "2026-09-01T18:25:08+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5",
       "path": "/docs/models/claude-fable-5",
       "source_url": "https://cursor.com/docs/models/claude-fable-5",
@@ -1002,8 +1011,8 @@
       "title": "Models Claude Opus 4 8"
     },
     "models__claude-opus-5.md": {
-      "hash": "54ed52ac8a4c364c826f69589fbcc552d3df6cb6791f92d8d1984fdb26a5cff1",
-      "last_updated": "2026-08-24T21:39:17+00:00",
+      "hash": "f3f8b79cec0bbe0a7a7cd45b1b0947f2c2a2994c119edf8145c0d93c094d8e59",
+      "last_updated": "2026-09-01T18:25:10+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5",
       "path": "/docs/models/claude-opus-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-5",
@@ -1335,8 +1344,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "764d549fbc73c3766459148e38a25561b5711cfa3785ab57affbb0dd3e9d9c40",
-      "last_updated": "2026-08-17T18:53:58+00:00",
+      "hash": "e6a4dcfb20ba6900ae05ea9e7ce522bf31beaa428a5912525f1639938d4eb01b",
+      "last_updated": "2026-09-01T18:25:24+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
@@ -1353,8 +1362,8 @@
       "title": "Pull request commands"
     },
     "origin__codebase-settings.md": {
-      "hash": "9bf70a541b1099edc493c834857cc769b8eda291581e2686f7f67f56214b5dea",
-      "last_updated": "2026-08-17T18:53:59+00:00",
+      "hash": "34eb0ba2ade6bcc88f8a2d3583053ed095b53bcb837c00e2f986348e410db960",
+      "last_updated": "2026-09-01T18:25:24+00:00",
       "original_url": "https://cursor.com/docs/origin/codebase-settings",
       "path": "/docs/origin/codebase-settings",
       "source_url": "https://cursor.com/docs/origin/codebase-settings",
@@ -1380,8 +1389,8 @@
       "title": "Clone, Push & Pull"
     },
     "origin__integrations.md": {
-      "hash": "d0443eefa8be8928ae0fd4afa41bf6fd44c40216fe7bd171c8178cbf374f4334",
-      "last_updated": "2026-08-17T18:53:59+00:00",
+      "hash": "8f41fdbb6f982e93ac72022ce3553dc8863bf026d680890ed1244f727e2cc551",
+      "last_updated": "2026-09-01T18:25:25+00:00",
       "original_url": "https://cursor.com/docs/origin/integrations",
       "path": "/docs/origin/integrations",
       "source_url": "https://cursor.com/docs/origin/integrations",
@@ -1573,7 +1582,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-01T08:34:37+00:00",
+  "last_updated": "2026-09-01T18:25:32+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

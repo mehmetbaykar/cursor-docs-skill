@@ -39,4 +39,4 @@ A local agent in Cursor can also [create Origin repositories](https://cursor.com
 
 - [Create a repository](https://cursor.com/docs/origin/create-repository.md)
 - [Pull requests](https://cursor.com/docs/origin/pull-requests.md)
-- [Origin API](https://cursor.com/docs/api/origin.md)
+- [Origin API](https://cursor.com/docs/api/origin/llms-full.txt)

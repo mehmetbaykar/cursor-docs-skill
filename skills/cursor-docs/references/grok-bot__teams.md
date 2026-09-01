@@ -18,7 +18,9 @@ Grok Bot gives each person on your team standing Bots for everyday work: researc
 
 [Plans and billing](https://cursor.com/help/grok-bot/plans.md) is the canonical plan and usage matrix.
 
-## How Grok Bot is built
+## Architecture
+
+### How Grok Bot is built
 
 Grok Bot is a computer-use agent that operates applications, browsers, and development environments. It runs in Cursor's cloud, and each user's work executes on a dedicated cloud computer. The desktop and mobile apps are thin clients for chat, review, and approvals.
 
@@ -38,20 +40,22 @@ The pieces fit together like this:
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
 6. **Models and data.** Cursor manages model selection. With Privacy Mode enabled, customer data is not used for training; Cursor enforces this on its servers, and when the setting can't be verified, the system defaults to not training.
 
-## How users are isolated
+### How users are isolated
 
 Each user gets a dedicated computer with hardware-level separation, and one user cannot reach another user's computer. Every computer is a Firecracker microVM with its own kernel, memory, and virtual devices.
 
 Within one user, the boundary is different: all of that user's Bots share one computer, and Bots isolate personalities and workspaces, not compute. Treat a login or file on the computer as available to every Bot that user runs, sign the browser out of accounts a Bot no longer needs, and remove sensitive temporary files when work completes. When a workload needs its own computer and credential set, give it its own Cursor user.
 
-## Before you roll out
+## Roll out Grok Bot
+
+### Before you roll out
 
 - **Move off Privacy Mode (Legacy).** That setting blocks Grok Bot entirely, and you're prompted to change it before enabling. Check the privacy setting in Team Settings.
 - **Plan for shared egress addresses.** If your company restricts services by source IP, see [static egress IPs](https://cursor.com/docs/grok-bot/teams.md#static-egress-ips).
 - **Decide how members sign in to company tools** from the computer. See [identity and sign-ins](https://cursor.com/docs/grok-bot/teams.md#identity-and-sign-ins).
 - **Review the policies Grok Bot inherits**: your MCP configuration, Team Rules, and Auto Review team instructions.
 
-## Set up your team
+### Set up your team
 
 ### Enable Grok Bot for your team
 
@@ -74,7 +78,7 @@ Any permitted connector is available to every Bot a member runs; see the
 Check the **Cloud Agents** and **Public template sharing** entries under
 [admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls); both ship with permissive defaults.
 
-## Admin controls
+### Admin controls
 
 Nearly everything sits on the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot); entries note when a control lives elsewhere.
 
@@ -90,7 +94,11 @@ Nearly everything sits on the Grok Bot page of the [Cursor dashboard](https://cu
 - **Action Recording.** An Enterprise plan setting that records Bot actions and is off by default. To receive the events in your own collector, configure [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md). See [logging and audit](https://cursor.com/docs/grok-bot/teams.md#logging-and-audit).
 - **Connector policy.** Grok Bot inherits your team's Cursor MCP allow and block policy in full; there is no separate Grok Bot connector list, and connectors appear as plugins in the app. Configure the policy under [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). When policy blocks a server, members see the plugin as **Disabled by team admin**. Provisioning connectors to members, whether mandatory or default-on, is not available.
 
-## Network policy
+## Security
+
+Use these controls and deployment details to evaluate and limit what Bots can access, change, and retain.
+
+### Network policy
 
 Admins set a Grok Bot network policy for the team from the dashboard. It controls which destinations team computers can reach.
 
@@ -108,13 +116,13 @@ Admins set a Grok Bot network policy for the team from the dashboard. It control
 
 Blocking a plugin doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.
 
-## Static egress IPs
+### Static egress IPs
 
 Hosted computers reach the internet through shared static egress IP addresses. The ranges are shared across Grok Bot customers, and dedicated per-customer IPs are not available, so treat the ranges as identifying Grok Bot traffic rather than your team alone. Current ranges are available from your account team, and the product control is the destination allowlist rather than a source IP editor.
 
 If your company inspects TLS traffic, allow Cursor's published hostnames and bypass inspection for them; your account team can provide the current list.
 
-## Approvals and Auto Review
+### Approvals and Auto Review
 
 Approvals keep consequential actions under the member's control. The strongest boundary is the one in the request itself, so have members state what a Bot may change and where it must stop:
 
@@ -131,7 +139,7 @@ Auto Review is the review layer behind those prompts: an independent review mode
 - **Members can add personal rules** under **Settings** > **General** > **Auto-review**: Require Approval rules always stop matching actions, Always Allow rules let matching actions proceed only when the review finds no other reason to stop, and Require Approval wins when both match. Narrow rules around a known action and scope work best, like "require approval before sending any external email" or "always allow running `git status` in `/workspace/reports`"; avoid broad rules like "allow everything in the browser". Personal rules are stored on the current desktop and synced to its Grok Bot computer, so another desktop installation needs its own.
 - **It doesn't review every side effect.** Memory writes and most settings changes are examples. Treat it as a complement to explicit boundaries and least privilege, working alongside controls that don't depend on a model's judgment: per-action approvals, the network policy, and per-user isolation.
 
-## Identity and sign-ins
+### Identity and sign-ins
 
 Members sign in to Grok Bot with their Cursor account, so your existing Cursor SSO configuration applies. SAML 2.0 single sign-on works with Okta, Microsoft Entra, Google Workspace, and OneLogin, SSO can be required for all members (which blocks password login), and SCIM 2.0 provisioning is available on the Enterprise plan. For step-by-step Okta and Entra ID configuration, including app assignment and sign-in rules for the computer browser, see [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md).
 
@@ -147,18 +155,18 @@ To revoke access quickly, terminate the member's computer from the dashboard (th
 
 When a project or login should no longer be available, members clean up directly: pause or delete related routines, sign out of websites on the computer, uninstall plugins and revoke their authorization in the source service, and remove sensitive files from `/workspace`. Deleting a Bot doesn't remove computer files or browser sessions.
 
-## Logging and audit
+### Logging and audit
 
 Audit Logs and Action Recording use separate pipelines. Audit Logs cover administrative and security events. Action Recording captures Bot actions internally, and OpenTelemetry Export sends those events to your collector when configured.
 
 - **Audit logs on the Enterprise plan** cover admin, security, and authentication events. View them in the dashboard or stream them to your SIEM.
 - **Action Recording** is an Enterprise plan setting that is off by default. When a team enables it, Cursor records Bot actions, including scrubbed shell commands, in an internal store with a 90 day retention. To receive the sanitized events in your own collector, configure [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md). Action Recording events don't appear on the Audit Log page.
 
-## Endpoint tooling
+### Endpoint tooling
 
 Grok Bot doesn't ship a built-in customer-facing telemetry or EDR feed. The computers are Cursor-operated infrastructure that Cursor monitors for operational health and abuse, and that telemetry deliberately excludes customer data. Team Setup manifests let admins install their own tooling on every team computer.
 
-## Data retention and deletion
+### Data retention and deletion
 
 Each member's computer keeps local files, browser sessions, and anything saved in the browser on a durable disk across sessions.
 
@@ -170,11 +178,11 @@ Each member's computer keeps local files, browser sessions, and anything saved i
 
 A per-organization retention policy and customer-managed point-in-time restore of an individual computer are not available.
 
-## Data residency
+### Data residency
 
 Grok Bot computers run in the United States today. If your review needs a written residency commitment, contact your account team.
 
-## Models and data
+### Models and data
 
 Cursor manages model selection. There is no customer-facing model picker, and the serving mix can change over time with no fixed vendor set guaranteed. Usage analytics show the model that actually served each request, including failovers, and billing follows the actual serving model.
 
@@ -182,21 +190,21 @@ Cursor manages model selection. There is no customer-facing model picker, and th
 - **Privacy Mode applies.** While a member is on your team, the team's privacy mode governs them, and with Privacy Mode enabled, customer data is not used for training.
 - **Zero Data Retention follows Cursor's existing provider agreements.** Model providers don't keep prompts or outputs, and Grok Bot adds no separate control. Providers may run abuse and safety classifiers, and flagged data may be stored for investigation.
 
-## Local execution
+### Local execution
 
 Bots can act on a member's own machine through the desktop app: run commands, read files, and move files between the cloud computer and the local machine. This is separate from work in the hosted computer, with its own control, and it's distinct from Auto Review, which governs work inside the hosted computer.
 
 Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **General** > **Agent** > **Execution on Local Computer**: ask every time, always allow, or never. Recommend **Never** unless a Bot has a specific reason to work on local files. Local execution can be disabled entirely, and a team-level ceiling is enforced through settings; a dashboard control for the ceiling is not available today.
 
-## Hosting
+### Hosting
 
 Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today, and routing computer traffic through a VPN, tunnel, or private link into your network is not offered. The supported model is shared static egress combined with the destination allowlist.
 
-## Prompt injection
+### Prompt injection
 
 Content a Bot reads from the outside world, like web pages, plugin results, and command output, can try to steer it. Grok Bot layers defenses: Auto Review checks Bot actions against the member's actual request when enforcement is on, and beneath it sit controls that don't depend on any model's judgment, including the network policy, per-action approvals, and per-user isolation. Outside content is marked as untrusted data when presented to the model. These controls reduce, but don't eliminate, risk from malicious content, which is another reason to keep consequential actions behind approval.
 
-## Certifications
+### Certifications
 
 Anysphere, the company behind Cursor, holds ISO/IEC 27001 and ISO/IEC 42001 certifications, issued by Schellman, and Grok Bot is included in the current ISO scope. ISO/IEC 27001 certifies the information security management system, the security program of the whole organization. ISO/IEC 42001 certifies the AI management system, how Cursor governs the AI it builds and operates. Certificates and reports are available at [trust.cursor.com](https://trust.cursor.com).
 
