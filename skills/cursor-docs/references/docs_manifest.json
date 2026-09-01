@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 160,
+    "pages_fetched_successfully": 172,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 162
+    "total_pages_discovered": 174
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -273,8 +273,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "92f1eecf890e74ef324884d4545ea9747dea9c2b2f1b4a07f71cd6e02eab3bf8",
-      "last_updated": "2026-08-25T07:03:53+00:00",
+      "hash": "4cbde175d78ea8d08cd96799ced562e4c2243bfd6e8775a424a1b45a3c1796e8",
+      "last_updated": "2026-09-01T08:33:55+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -542,6 +542,51 @@
       "status": "live",
       "title": "Security overview"
     },
+    "cloud-agent__self-hosted-guides__choose-runtime.md": {
+      "hash": "9e0cbff04ca648ba53fec1efcdcc099145f29eee559118e343fc09c9966e70d1",
+      "last_updated": "2026-09-01T08:34:04+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime",
+      "path": "/docs/cloud-agent/self-hosted-guides/choose-runtime",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime",
+      "status": "live",
+      "title": "Choose where Cloud Agents run"
+    },
+    "cloud-agent__self-hosted-guides__cloud-run.md": {
+      "hash": "9f5ba9e4f8049239fb147a880449effafb07f1677638ff56ad2ad250c3a85c82",
+      "last_updated": "2026-09-01T08:34:04+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/cloud-run",
+      "path": "/docs/cloud-agent/self-hosted-guides/cloud-run",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/cloud-run",
+      "status": "live",
+      "title": "Self-Hosted Cloud: Deploying with Cloud Run Worker Pools"
+    },
+    "cloud-agent__self-hosted-guides__kubernetes.md": {
+      "hash": "ffcf2575b17a624dacf22b21fbea560156bf147f8e0fdae39e26198ddad9074f",
+      "last_updated": "2026-09-01T08:34:05+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/kubernetes",
+      "path": "/docs/cloud-agent/self-hosted-guides/kubernetes",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/kubernetes",
+      "status": "live",
+      "title": "Self-Hosted Cloud: Deploying with Kubernetes"
+    },
+    "cloud-agent__self-hosted-guides__my-machines.md": {
+      "hash": "2ae91d43a6d48952251ea36189199fa17dad7729e94823430472190bd4ee25bd",
+      "last_updated": "2026-09-01T08:34:05+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines",
+      "path": "/docs/cloud-agent/self-hosted-guides/my-machines",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines",
+      "status": "live",
+      "title": "My Machines"
+    },
+    "cloud-agent__self-hosted-guides__pool.md": {
+      "hash": "b0f9dbbd8d11c3771cbb592993e956803a54b628a01053cc9120be5a1641dd31",
+      "last_updated": "2026-09-01T08:34:05+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/pool",
+      "path": "/docs/cloud-agent/self-hosted-guides/pool",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/pool",
+      "status": "live",
+      "title": "Self-Hosted Agents"
+    },
     "cloud-agent__self-hosted.md": {
       "hash": "cee67730a63b858f69a7b8ccea2d08fdb5556fdb4d4086ab1a762c68ca3515f0",
       "last_updated": "2026-08-27T14:05:21+00:00",
@@ -649,6 +694,69 @@
       "source_url": "https://cursor.com/docs/get-started/quickstart",
       "status": "live",
       "title": "Quickstart"
+    },
+    "grok-bot.md": {
+      "hash": "21ec3fd1448b92a716c55f9dce0982cf7254a8302cce9a75cbdc128dd5dfd885",
+      "last_updated": "2026-09-01T08:34:08+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot",
+      "path": "/docs/grok-bot",
+      "source_url": "https://cursor.com/docs/grok-bot",
+      "status": "live",
+      "title": "Grok Bot"
+    },
+    "grok-bot__get-started.md": {
+      "hash": "51ef1c528a24e0567b09e20c90d1b2cf1956f6313c899b1258e254915dced1f0",
+      "last_updated": "2026-09-01T08:34:09+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/get-started",
+      "path": "/docs/grok-bot/get-started",
+      "source_url": "https://cursor.com/docs/grok-bot/get-started",
+      "status": "live",
+      "title": "Get started with Grok Bot"
+    },
+    "grok-bot__identity.md": {
+      "hash": "84ae514e6f16aca243aa2837a0bbe266d022f446c9a6c509d79a4a554ab41062",
+      "last_updated": "2026-09-01T08:34:09+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/identity",
+      "path": "/docs/grok-bot/identity",
+      "source_url": "https://cursor.com/docs/grok-bot/identity",
+      "status": "live",
+      "title": "Configure identity and access"
+    },
+    "grok-bot__settings.md": {
+      "hash": "168d62333255e76cf6e1504342c43342f45827e895a5a7621fd52e32447dc98f",
+      "last_updated": "2026-09-01T08:34:09+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/settings",
+      "path": "/docs/grok-bot/settings",
+      "source_url": "https://cursor.com/docs/grok-bot/settings",
+      "status": "live",
+      "title": "Settings and notifications"
+    },
+    "grok-bot__teams.md": {
+      "hash": "6f62cbca59e7fac94ed5a190e4870ea82e7ce29ff9d2c7089f10cf3410a30b1f",
+      "last_updated": "2026-09-01T08:34:10+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/teams",
+      "path": "/docs/grok-bot/teams",
+      "source_url": "https://cursor.com/docs/grok-bot/teams",
+      "status": "live",
+      "title": "Grok Bot for Teams and Enterprise"
+    },
+    "grok-bot__use-cases.md": {
+      "hash": "e229fdee44a57a865fa0f3ec2568b0ab82f469a9e43c38eca7afc133b38c5dc8",
+      "last_updated": "2026-09-01T08:34:10+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/use-cases",
+      "path": "/docs/grok-bot/use-cases",
+      "source_url": "https://cursor.com/docs/grok-bot/use-cases",
+      "status": "live",
+      "title": "Grok Bot use cases"
+    },
+    "grok-bot__work.md": {
+      "hash": "dc4cbbb007ba5fb5a1c66a88ae9e2e09f092902fc90c1c730ce5dd60e49de1b2",
+      "last_updated": "2026-09-01T08:34:10+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/work",
+      "path": "/docs/grok-bot/work",
+      "source_url": "https://cursor.com/docs/grok-bot/work",
+      "status": "live",
+      "title": "Work with Grok Bot"
     },
     "hooks.md": {
       "hash": "c14a13923aae6588d8cf84fe4c32d53825a798e82612bd29c72434451a5e7166",
@@ -1465,7 +1573,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-08-31T20:47:54+00:00",
+  "last_updated": "2026-09-01T08:34:37+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

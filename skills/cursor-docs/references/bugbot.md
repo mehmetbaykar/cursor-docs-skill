@@ -352,9 +352,10 @@ Effort levels control how much time Bugbot spends reasoning during a review. Hig
 
 Choose from these effort levels:
 
+- **Low**: Optimizes for cost, with quality close to Default. Reviews are cheaper and take longer.
 - **Default**: Optimizes for efficiency and speed. Reviews are less expensive, but Bugbot may find fewer bugs.
 - **High**: Spends more time reasoning. Reviews are more expensive and take longer, but Bugbot may find more bugs.
-- **Custom**: Lets you describe when Bugbot should use longer and deeper reviews. Cursor dynamically sets effort levels based on your instructions.
+- **Smart**: Lets you describe when Bugbot should use Low, Default, or High. Cursor dynamically sets effort levels based on your instructions.
 
 Effort levels are available only for usage-based Bugbot plans.
 
