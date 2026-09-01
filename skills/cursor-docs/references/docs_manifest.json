@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "6bf4a3d04a5d8aa80b8ecc32bfdb9363f9fdf9a7f1bf2dd42b38f53c8fc06c6f",
-      "last_updated": "2026-08-29T01:43:32+00:00",
+      "hash": "ee4341104416629162788a5b15c02fc8469593d886aec7f538988edfc365d30a",
+      "last_updated": "2026-09-01T23:15:21+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -255,8 +255,8 @@
       "title": "Terminal"
     },
     "api.md": {
-      "hash": "46639b8c206d78c1be7f8a391778fdb8f793624bb930c422bc406e0d02c9af9c",
-      "last_updated": "2026-09-01T18:24:40+00:00",
+      "hash": "9a6c962573c7a73b2fc9c3aaf0a7611b23165de6d49d1633f4eac8a5cf9655a4",
+      "last_updated": "2026-09-01T23:15:27+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "source_url": "https://cursor.com/docs/api",
@@ -291,8 +291,8 @@
       "title": "ACP"
     },
     "cli__changelog.md": {
-      "hash": "dea2dc8993541581c84de5366da76bd2875aed08f3866b8009b06b04b131d2da",
-      "last_updated": "2026-08-12T16:06:50+00:00",
+      "hash": "3517cb1d917653b94482985baed5f302c3adaaa820c5b6ecf714643b06e3204e",
+      "last_updated": "2026-09-01T23:15:29+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
       "source_url": "https://cursor.com/docs/cli/changelog",
@@ -1582,7 +1582,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-01T18:25:32+00:00",
+  "last_updated": "2026-09-01T23:16:11+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
