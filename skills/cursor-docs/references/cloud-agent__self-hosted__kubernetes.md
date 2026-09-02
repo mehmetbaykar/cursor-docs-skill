@@ -1,12 +1,12 @@
 ---
 title: "Self-Hosted Cloud: Deploying with Kubernetes"
-source: https://cursor.com/docs/cloud-agent/self-hosted-guides/kubernetes
-path: /docs/cloud-agent/self-hosted-guides/kubernetes
+source: https://cursor.com/docs/cloud-agent/self-hosted/kubernetes
+path: /docs/cloud-agent/self-hosted/kubernetes
 ---
 
 # Self-Hosted Cloud: Deploying with Kubernetes
 
-Deploy and manage [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md) workers using a Kubernetes operator. It handles scaling, rolling updates, and lifecycle management.
+Deploy and manage [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) workers using a Kubernetes operator. It handles scaling, rolling updates, and lifecycle management.
 
 ![Self-hosted Cloud Agents deployed with Kubernetes](https://cursor.com/docs-static/images/cloud-agent/self-hosted-k8s.png)
 
@@ -120,7 +120,7 @@ agent worker \
 `--pool` registers each worker for pool assignment, where each Cloud Agent session claims one worker at a time. `--idle-release-timeout` (in seconds) keeps the worker alive briefly after the session ends for follow-up messages, then exits with code 0 so the pod gets replaced.
 
 Workers deployed on Kubernetes support the same hooks model as [Self-Hosted
-Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#hooks). They run project hooks from
+Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks). They run project hooks from
 `.cursor/hooks.json` and, on Enterprise, also support team hooks and
 enterprise-managed hooks.
 
@@ -216,7 +216,7 @@ kubectl patch wd my-workers -n cursord --type merge \
 
 The controller scales in batches and **never terminates busy workers**. Pods actively processing agent work are preserved until they finish.
 
-`readyReplicas` is the Kubernetes operator's warm-size control. The CLI `agent worker controller --warm-idle` keeps process-forked workers via `--spawn` and does not patch a `WorkerDeployment`. See [Worker controller](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#worker-controller) for that path.
+`readyReplicas` is the Kubernetes operator's warm-size control. The CLI `agent worker controller --warm-idle` keeps process-forked workers via `--spawn` and does not patch a `WorkerDeployment`. See [Worker controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller) for that path.
 
 ***
 
@@ -235,7 +235,7 @@ Agent sessions are never interrupted by deployments.
 
 ## Worker labels
 
-Use [Cursor worker labels](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#labels) to make workers selectable for specific teams, repos, or environments. These are separate from Kubernetes pod labels. They're passed as `--label` flags to the `agent` CLI and control which workers are eligible for a given session.
+Use [Cursor worker labels](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#labels) to make workers selectable for specific teams, repos, or environments. These are separate from Kubernetes pod labels. They're passed as `--label` flags to the `agent` CLI and control which workers are eligible for a given session.
 
 Inside the `WorkerDeployment` pod, pass labels with the worker args:
 
@@ -272,7 +272,6 @@ Busy workers are never terminated, even during scale-down or rolling updates.
 
 ## Related
 
-- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
-- [EKS + Helm reference deployment](https://github.com/cursor/cookbook/tree/main/self-hosted-cloud-agent/eks) (cookbook)
+- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md)
 - [Cloud Agents overview](https://cursor.com/docs/cloud-agent.md)
 - [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)

@@ -1,18 +1,18 @@
 ---
 title: "Choose where Cloud Agents run"
-source: https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime
-path: /docs/cloud-agent/self-hosted-guides/choose-runtime
+source: https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime
+path: /docs/cloud-agent/self-hosted/choose-runtime
 ---
 
 # Choose where Cloud Agents run
 
 Cursor-hosted Cloud Agents run each agent in an isolated cloud VM with managed lifecycle, saved environments, artifact capture, and dashboard controls for secrets and network access.
 
-Self-hosted paths run tool calls on hardware you control through [My Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md) or [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md). The agent loop still runs in Cursor's cloud.
+[Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) runs tool calls on hardware you control through [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) or [Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md). The agent loop still runs in Cursor's cloud.
 
 ## Self-hosted or Cursor-hosted: which is right for you?
 
-Cursor-hosted cloud agents are sufficient for over 80% of our customers. Leverage this decision tree to evaluate what works best for your organization.
+Cursor-hosted Cloud Agents cover the requirements of over 80% of our customers. Use this decision tree to evaluate what works best for your organization.
 
 ## Quick comparison
 
@@ -37,7 +37,7 @@ This lets Cursor operate the agent infrastructure after setup while your team co
 
 ## When My Machines fits
 
-My Machines works best for personal or small-scale workflows where a specific user already has a machine with the right checkout, tools, credentials, and private network access.
+[My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) works best for personal or small-scale workflows where a specific user already has a machine with the right checkout, tools, credentials, and private network access.
 
 Use it for:
 
@@ -49,7 +49,7 @@ My Machines is not an org-wide fleet system. Each worker belongs to the user who
 
 ## When Self-Hosted Pool fits
 
-Self-Hosted Pool is for Enterprise teams that want centralized ownership of worker hardware or need to route work to specific fleets.
+[Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) is for Enterprise teams that want centralized ownership of worker hardware or need to route work to specific fleets.
 
 Use a pool when you need:
 
@@ -72,10 +72,8 @@ All three options support Privacy Mode and controlled secrets. The main differen
 | How do agents reach private resources?      | Environment networking, allowlists, Tailscale or similar clients, and private connectivity for supported source control paths | Your machine's existing network        | Your worker fleet's network   |
 | Best operational fit                        | Most teams and repos                                                                                                          | Individual users and specific machines | Centralized enterprise fleets |
 
-## Related
+## Next steps
 
-- [Cloud Agent setup](https://cursor.com/docs/cloud-agent/setup.md)
-- [Cloud Agent security and network](https://cursor.com/docs/cloud-agent/security-network.md)
-- [My Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md)
-- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
-- [Private connectivity](https://cursor.com/docs/cloud-agent/private-connectivity.md)
+- [Cloud Agent setup](https://cursor.com/docs/cloud-agent/setup.md): stay on managed Cloud Agents and configure environments, secrets, and network access.
+- [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md): connect a personal laptop, devbox, or VM.
+- [Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md): set up a shared pool for your team.

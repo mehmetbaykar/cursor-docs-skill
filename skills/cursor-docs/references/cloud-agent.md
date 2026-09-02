@@ -64,7 +64,7 @@ The Cloud Agents dashboard shows which environment and Build an agent used, alon
 
 Cursor manages VM provisioning, isolation, snapshots, startup, artifacts, and capacity for every Cloud Agent. You can add secrets, restrict outbound domains, connect to private networks with Tailscale or a similar client, and use private connectivity for supported source control paths.
 
-See [Cloud Agent security and network](https://cursor.com/docs/cloud-agent/security-network.md) for the full set of environment and network controls. If you're weighing whether to self-host, see [why most teams start with Cursor Cloud](https://cursor.com/docs/cloud-agent/self-hosted.md).
+See [Cloud Agent security and network](https://cursor.com/docs/cloud-agent/security-network.md) for the full set of environment and network controls. To run tool execution on hardware you manage, see [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md).
 
 ## Models
 
