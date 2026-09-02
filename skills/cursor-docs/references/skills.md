@@ -76,7 +76,7 @@ Skills are automatically loaded from these locations:
 Cursor loads user-level skills from the machine where the agent runs. Cursor
 does not copy your local `~/.cursor/skills/` and `~/.agents/skills/` folders
 to Cloud Agents, Agents Window remote SSH sessions, or [self-hosted
-workers](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md). In those environments,
+workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md). In those environments,
 use project skills from the repo or bake skills into the worker image.
 
 For compatibility, Cursor also loads skills from Claude and Codex directories: `.claude/skills/`, `.codex/skills/`, `~/.claude/skills/`, and `~/.codex/skills/`.
@@ -310,4 +310,4 @@ Agent Skills is an open standard. Learn more at [agentskills.io](https://agentsk
 ## Related
 
 - [Skills help](https://cursor.com/help/customization/skills.md)
-- [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime.md)
+- [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime.md)

@@ -1,12 +1,12 @@
 ---
 title: "Self-Hosted Cloud: Deploying with Cloud Run Worker Pools"
-source: https://cursor.com/docs/cloud-agent/self-hosted-guides/cloud-run
-path: /docs/cloud-agent/self-hosted-guides/cloud-run
+source: https://cursor.com/docs/cloud-agent/self-hosted/cloud-run
+path: /docs/cloud-agent/self-hosted/cloud-run
 ---
 
 # Self-Hosted Cloud: Deploying with Cloud Run Worker Pools
 
-Deploy and manage [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md) workers on Google Cloud using [Cloud Run Worker Pools](https://cloud.google.com/run/docs/deploy-worker-pools). A second Worker Pool runs a custom autoscaler that polls the Cursor [fleet management API](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#fleet-management-api) and scales the worker pool up or down based on utilization.
+Deploy and manage [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) workers on Google Cloud using [Cloud Run Worker Pools](https://cloud.google.com/run/docs/deploy-worker-pools). A second Worker Pool runs a custom autoscaler that polls the Cursor [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools) and scales the worker pool up or down based on utilization.
 
 This guide covers a minimal reference setup. Adapt the image contents, secrets, and autoscaling logic to match your own infrastructure.
 
@@ -23,14 +23,14 @@ Two Cloud Run Worker Pools work together:
 - `gcloud` CLI installed and authenticated (`gcloud auth login`, `gcloud config set project <PROJECT_ID>`)
 - The following APIs enabled in your project: Cloud Run (`run.googleapis.com`), Artifact Registry (`artifactregistry.googleapis.com`), Cloud Build (`cloudbuild.googleapis.com`), and Secret Manager (`secretmanager.googleapis.com`)
 - A **Cursor Enterprise plan** with Self-Hosted Cloud Agents enabled
-- A [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md) for pool worker authentication — see [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#authenticate-workers)
+- A [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md) for pool worker authentication — see [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#authenticate-workers)
 - A Git token (e.g. a GitHub personal access token or fine-grained token) with read/write access to the repositories your agents will operate on
 
 Your worker pool needs **outbound HTTPS** access to:
 
 - `api2.cursor.sh`
 - `api2direct.cursor.sh`
-- `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` (for [artifact](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#artifacts) uploads)
+- `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` (for [artifact](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#artifacts) uploads)
 - Your git host (for example `github.com`) and any package registries your builds need
 
 No inbound ports or firewall rules are required.
@@ -155,7 +155,7 @@ session claims one worker at a time. `--idle-release-timeout` (in seconds)
 keeps the worker alive briefly after the session ends for follow-up
 messages, then exits with code 0 so Cloud Run replaces the instance.
 
-Cloud Run workers support the same [hooks model](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#hooks) as other Self-Hosted Pool workers. They run project hooks from `.cursor/hooks.json`, and on Enterprise also support team hooks and enterprise-managed hooks.
+Cloud Run workers support the same [hooks model](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks) as other Self-Hosted Pool workers. They run project hooks from `.cursor/hooks.json`, and on Enterprise also support team hooks and enterprise-managed hooks.
 
 ***
 
@@ -227,15 +227,15 @@ Once the pool rolls out, its workers should appear in the **Self-Hosted** sectio
 
 Each worker serves one repository. To support multiple repositories, deploy
 an additional Cloud Run Worker Pool per repo and use [pool
-names](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#pool-names) or
-[labels](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#labels) to route agent sessions
+names](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#pool-names) or
+[labels](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#labels) to route agent sessions
 to the right pool.
 
 ***
 
 ## Step 7: Deploy the autoscaler
 
-The worker pool is deployed with a static instance count. To scale based on utilization, deploy a small Node.js app as a second Worker Pool that polls the Cursor fleet management API and calls the Cloud Run Admin API to resize the worker pool.
+The worker pool is deployed with a static instance count. To scale based on utilization, deploy a small Node.js app as a second Worker Pool that polls the Cursor [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-worker-summary) and calls the Cloud Run Admin API to resize the worker pool.
 
 Create a directory for the autoscaler and add the three files below.
 
@@ -395,7 +395,7 @@ The autoscaler's service account needs permission to update the worker pool. Gra
 | `GOOGLE_CLOUD_PROJECT` | —       | Project ID that hosts the worker pool.                                       |
 | `CLOUD_RUN_LOCATION`   | —       | Region of the worker pool, for example `us-central1`.                        |
 | `WORKER_SERVICE_NAME`  | —       | Name of the Cursor worker pool to scale.                                     |
-| `CURSOR_API_KEY`       | —       | Team-level Cursor API key used to query the fleet management API.            |
+| `CURSOR_API_KEY`       | —       | Team-level Cursor API key used to query the Cloud Agents API.                |
 | `TARGET_UTILIZATION`   | `0.5`   | Desired fraction of workers in use. Lower values scale up more aggressively. |
 | `MIN_INSTANCES`        | `1`     | Floor on the worker pool size.                                               |
 | `MAX_INSTANCES`        | `50`    | Ceiling on the worker pool size.                                             |
@@ -412,7 +412,7 @@ Once the worker pool is running:
 3. Your Cloud Run workers should appear in the list of available workers.
 4. Start a task, and the agent will execute its tool calls inside your Cloud Run containers.
 
-You can also verify workers are connected from the command line using the [fleet management API](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#fleet-management-api):
+You can also verify workers are connected from the command line using the [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-worker-summary):
 
 ```bash
 curl --request GET \
@@ -424,7 +424,7 @@ curl --request GET \
 
 ## Related
 
-- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
-- [Kubernetes deployment guide](https://cursor.com/docs/cloud-agent/self-hosted-guides/kubernetes.md)
+- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md)
+- [Kubernetes deployment guide](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md)
 - [Cloud Agents overview](https://cursor.com/docs/cloud-agent.md)
 - [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)

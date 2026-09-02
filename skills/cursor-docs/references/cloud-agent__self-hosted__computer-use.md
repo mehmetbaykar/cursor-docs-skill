@@ -1,16 +1,16 @@
 ---
 title: "Computer use and desktop sharing"
-source: https://cursor.com/docs/cloud-agent/self-hosted-guides/computer-use
-path: /docs/cloud-agent/self-hosted-guides/computer-use
+source: https://cursor.com/docs/cloud-agent/self-hosted/computer-use
+path: /docs/cloud-agent/self-hosted/computer-use
 ---
 
 # Computer use and desktop sharing
 
-Computer use lets an agent on a [self-hosted worker](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md) click, type, take screenshots, and drive applications with a UI. Agents can also drive a browser when the worker has Chrome or Chromium installed. Desktop sharing lets authorized viewers watch or take control of the agent's desktop from Cursor. For the product behavior on managed Cloud Agents, see [Capabilities](https://cursor.com/docs/cloud-agent/capabilities.md).
+Computer use lets an agent on a [Self-Hosted Machines worker](https://cursor.com/docs/cloud-agent/self-hosted.md) click, type, take screenshots, and drive applications with a UI. Agents can also drive a browser when the worker has Chrome or Chromium installed. Desktop sharing lets authorized viewers watch or take control of the agent's desktop from Cursor. For the product behavior on managed Cloud Agents, see [Capabilities](https://cursor.com/docs/cloud-agent/capabilities.md).
 
 Both features are explicit opt-ins and are never enabled by the server.
 Computer use currently requires a Linux worker; see
-[Prerequisites](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#prerequisites).
+[Requirements](https://cursor.com/docs/cloud-agent/self-hosted.md#requirements).
 
 ## Install dependencies
 
@@ -26,17 +26,17 @@ sudo apt-get install -y --no-install-recommends \
 
 Install Chrome or Chromium (optional, recommended) for browser computer use.
 
-For [pools](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md), bake the packages into your worker image so every machine comes up ready.
+For [pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md), bake the packages into your worker image so every machine comes up ready.
 
 ## Enable computer use
 
-Start the worker with `--computer-use`:
+Start a [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) worker with `--computer-use`:
 
 ```bash
 agent worker --computer-use start
 ```
 
-Pool workers take the same flag:
+[Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) workers take the same flag:
 
 ```bash
 agent worker --computer-use --pool gpu start
@@ -84,5 +84,3 @@ agent worker debug
 
 - [API reference](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools): endpoints for workers, pools, the pending-request queue, and worker tokens.
 - [Cloud Agent capabilities](https://cursor.com/docs/cloud-agent/capabilities.md): desktop and browser control on managed Cloud Agents.
-- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
-- [My Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md)

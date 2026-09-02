@@ -1,12 +1,12 @@
 ---
 title: "My Machines"
-source: https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines
-path: /docs/cloud-agent/self-hosted-guides/my-machines
+source: https://cursor.com/docs/cloud-agent/self-hosted/my-machines
+path: /docs/cloud-agent/self-hosted/my-machines
 ---
 
 # My Machines
 
-My Machines lets a specific user run Cloud Agent tool calls on a machine they already use: a laptop, devbox, or remote VM. Use it when that machine is the desired execution environment for a repo.
+My Machines is the personal [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) configuration. It lets a specific user run Cloud Agent tool calls on a machine they already use: a laptop, devbox, or remote VM. Use it when that machine is the desired execution environment for a repo.
 
 A worker on your machine opens an outbound connection to Cursor. The agent loop runs in Cursor's cloud, but terminal commands, file edits, browser actions, and other tool calls execute on your machine. No inbound ports or firewall changes are required.
 
@@ -14,7 +14,7 @@ Cursor-managed Cloud Agents are the recommended path for most teams, including
 teams that need access to private networks. You can use network allowlists,
 Tailscale or similar clients, and private connectivity for supported source
 control paths without operating your own worker. See [Choose where Cloud
-Agents run](https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime.md).
+Agents run](https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime.md).
 
 Use My Machines when you want to:
 
@@ -23,7 +23,7 @@ Use My Machines when you want to:
 - Reuse machine-local state that you do not want to recreate in a cloud environment
 - Try the worker model before building a centrally managed pool
 
-For org-wide worker fleets, see [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md).
+For org-wide worker fleets, see [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md).
 
 ## Quickstart
 
@@ -83,6 +83,17 @@ agent worker start --name "my-devbox"
 agent worker start --worker-dir /path/to/repo
 ```
 
+Register multiple repository roots by repeating `--worker-dir`:
+
+```bash
+agent worker \
+  --worker-dir "$HOME/repos/app" \
+  --worker-dir "$HOME/repos/infra" \
+  start
+```
+
+Each path must exist. For each root with a Git remote, the worker registers routing metadata so Cursor can match requests to the correct checkout.
+
 ### Use an API key
 
 For devboxes or automation where browser login isn't practical, use a personal user API key from [Cursor Dashboard → API Keys](https://cursor.com/dashboard/api):
@@ -96,7 +107,7 @@ user API key, or a user-scoped token. [Service account API
 keys](https://cursor.com/docs/account/enterprise/service-accounts.md) only start pool workers
 (`--pool`), and team Admin API keys and organization API keys can't start
 workers at all. See [Self-Hosted
-Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#authenticate-workers) for
+Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#authenticate-workers) for
 team-shared workers.
 
 ### Use a user-scoped token
@@ -119,7 +130,7 @@ This is useful in Kubernetes because environment variables from Secrets are fixe
 
 Use `worker=` or `machine=` when you want Slack, GitHub, or Linear requests to run on one of your named machines. These are the only trigger options that target My Machines.
 
-Start the machine with [`--name`](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md#name-the-machine), then include that name in the request:
+Start the machine with [`--name`](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#name-the-machine), then include that name in the request:
 
 - In Slack, use `@Cursor worker=my-devbox fix the flaky test` or `@Cursor machine=my-devbox fix the flaky test`.
 - In GitHub, comment `@cursoragent worker=my-devbox fix the flaky test` or `@cursoragent machine=my-devbox fix the flaky test`. You must be a trusted repo commenter, and the target machine must belong to the Cursor user linked to your GitHub account.
@@ -139,7 +150,7 @@ The trigger's target repo comes from the surface, not from the machine name:
 - **Linear** uses the repo resolved from the issue or project (for example `[repo=]`, issue labels, project labels, or the dashboard default). See [Repository selection](https://cursor.com/docs/integrations/linear.md#repository-selection).
 - **GitHub** uses the repo of the issue, pull request, or review comment where `@cursoragent` was mentioned.
 
-Each machine's registered repo comes from the git remote in the directory where you started the worker. To serve more than one repo, start a worker in each repo's checkout.
+Each machine's registered repos come from the git remotes of its worker directories. To serve more than one repo from one machine, pass [`--worker-dir`](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#run-from-a-different-repo-directory) once per checkout, or start a worker in each repo's checkout.
 
 ### When a `worker=` request can't run
 
@@ -151,7 +162,7 @@ The error appears as an ephemeral reply in Slack, an agent activity error in Lin
 
 If no machine matches the linked user and target repo, the request fails instead of falling back to another environment. Confirm the machine name, your Cursor account linking, and the worker directory's git remote.
 
-`self_hosted`, `pool=`, and `repo=` on their own don't target My Machines. Use them with [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md#triggering-pool-agents) workers. When you pair `repo=` with `worker=`, it sets which repo Cursor matches against your machines.
+`self_hosted`, `pool=`, and `repo=` on their own don't target My Machines. Use them with [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents) workers. When you pair `repo=` with `worker=`, it sets which repo Cursor matches against your machines.
 
 ## Artifacts
 
@@ -166,7 +177,7 @@ To disable artifact uploads, block outbound traffic to `cloud-agent-artifacts.s3
 Workers need outbound HTTPS access to:
 
 - `api2.cursor.sh` and `api2direct.cursor.sh` for the agent session
-- `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` for [artifact](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md#artifacts) uploads
+- `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` for [artifact](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#artifacts) uploads
 
 If your firewall can only match wildcards, `*.s3.us-east-1.amazonaws.com` covers the artifact host, but also opens every other bucket in the region. Prefer an exact-host rule when the firewall supports it.
 
@@ -201,9 +212,14 @@ agent worker debug
 
 This checks authentication, privacy routing, repo labels, and whether Cursor can see matching workers. To print the same diagnostics before starting the worker, use `agent worker start --debug`.
 
-## Related
+If the machine does not appear in the picker:
 
-- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
-- [Computer use](https://cursor.com/docs/cloud-agent/self-hosted-guides/computer-use.md)
-- [Cloud Agent security and network](https://cursor.com/docs/cloud-agent/security-network.md)
-- [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)
+- Confirm the worker process is still running.
+- Confirm the Cursor app and CLI use the same account.
+- Check that the worker directory has the expected Git remote.
+- Check outbound access to the hosts listed in [Networking](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#networking).
+
+## Next steps
+
+- [Computer use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md): let agents drive a desktop and browser on your machine, and watch or control the agent desktop from Cursor.
+- [API reference](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools): endpoints for workers, pools, the pending-request queue, and worker tokens.
