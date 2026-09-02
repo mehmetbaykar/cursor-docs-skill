@@ -18,7 +18,7 @@ Cloud Agents to your own machines.
 Use Self-Hosted Machines when Cursor's managed cloud can't meet your constraints:
 
 - You have strict network requirements, and code or services can't be reached from outside your network. For private source control or package registries, start with managed Cloud Agents and [private connectivity](https://cursor.com/docs/cloud-agent/private-connectivity.md) ([AWS PrivateLink](https://cursor.com/docs/cloud-agent/private-connectivity.md#aws-privatelink) or [Cloudflare Tunnel](https://cursor.com/docs/cloud-agent/private-connectivity.md#cloudflare-tunnel)).
-- You have custom hardware, such as GPU machines or Macs for iOS development. Use a machine you already run, or a VM from a host such as AWS, Namespace, Coder, or Cloudflare.
+- You have custom hardware, such as GPU machines or Macs for iOS development. Use a machine you already run, or a VM from a [partner host](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md) such as AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, or Vercel.
 - You have custom images, such as a different operating system or an existing build pipeline, that are difficult to save as a [Cloud Agent build](https://cursor.com/docs/cloud-agent/builds.md).
 
 If you want to try this out, check out the [My Machines
@@ -59,11 +59,11 @@ scaling.
 
 ## How it works
 
-| Term           | Definition                                                                                                                                                                                     | Example                                                                                                                                                    |
-| :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Worker**     | A machine you own, registered to Cursor with the Cursor CLI. The place where the agent gets work done: editing files, running commands, and accessing code.                                    | A Linux VM in your AWS account, or a Mac mini on your desk.                                                                                                |
-| **Pool**       | A routing target you can select in the Cursor client UI. Chats wait in the pool until a worker claims them. Once a worker claims a chat, all activity in that chat is forwarded to the worker. | A `gpu` pool routes requests that need GPUs, served only by machines with GPUs. An `ios` pool is served only by Macs for chats related to iOS development. |
-| **Controller** | Code you run that adjusts worker capacity based on demand.                                                                                                                                     | A request arrives on a pool with no idle workers. Your controller notices and starts a new machine.                                                        |
+| Term           | Definition                                                                                                                                                                                          | Example                                                                                                                                                              |
+| :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Worker**     | A machine you own, registered to Cursor with the Cursor CLI. The place where the agent gets work done: editing files, running commands, and accessing code.                                         | A Linux VM in your AWS account, or a Mac mini on your desk.                                                                                                          |
+| **Team Pool**  | A routing target you can select in the Cursor client UI. Chats wait in the team pool until a worker claims them. Once a worker claims a chat, all activity in that chat is forwarded to the worker. | A `gpu` team pool routes requests that need GPUs, served only by machines with GPUs. An `ios` team pool is served only by Macs for chats related to iOS development. |
+| **Controller** | Code you run that adjusts worker capacity based on demand.                                                                                                                                          | A request arrives on a team pool with no idle workers. Your controller notices and starts a new machine.                                                             |
 
 Use the Cursor CLI to start a worker on your machine. `agent worker start` opens a long-lived outbound HTTPS connection to Cursor's backend, and Cursor sends agent tool calls over that connection. Cursor never connects into your network: the outbound connection from your machine to Cursor is all that's required.
 
@@ -71,6 +71,8 @@ Workers come in two configurations:
 
 1. **My Machines.** Best for personal workflows and one-offs: your devbox, a spare VM, or a machine with state you don't want to recreate. Connect a machine to your account. Multiple agents can run on the same machine. See [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md).
 2. **Team Pools.** Best for teams and enterprises: shared capacity, service account authentication, and centrally managed images. Register machines under a pool name, and Cursor routes each new chat to an available machine in the pool, one agent per machine. Run a controller to scale the pool up and down. See [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md).
+
+To run Team Pool workers on a third-party VM or sandbox, see [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
 
 ## Supported deployment patterns
 
@@ -80,7 +82,7 @@ Run a worker anywhere you can install the Cursor CLI and its dependencies:
 - **Persistent hosts or containers.** Run one or more pool workers under `systemd`, `launchd`, Docker, or another process manager.
 - **Dynamic infrastructure.** Use the built-in [worker controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller) or the Cloud Agents API to start machines when requests arrive.
 - **Kubernetes.** Follow the [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) guide to run pool workers with the Cursor operator and Helm chart.
-- **Partner hosts and templates.** Run pool workers on AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, or Vercel with partner guides, or clone a Cursor reference template for AWS Lambda MicroVMs, Cloudflare Containers, or Kubernetes. See [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
+- **Partner hosts and templates.** Run pool workers on AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, Vercel, or Coder with partner guides, or clone a Cursor reference template for AWS Lambda MicroVMs, Cloudflare Containers, or Kubernetes. See [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
 
 Deployment guides, partner guides, and templates are reference architectures. You own the worker image, infrastructure, secrets, scaling policy, and production validation.
 
@@ -133,11 +135,12 @@ curl https://cursor.com/install -fsS | bash
 
 - [Choose where Cloud Agents run](https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime.md): compare managed Cloud Agents, My Machines, and Team Pools.
 - [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md): connect your first worker in a few minutes, then configure personal workers, workspace roots, and local MCP servers.
-- [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md): organize workers into pools for your team, and [scale worker capacity](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller) with a controller.
+- [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md): organize workers into team pools, and [scale worker capacity](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller) with a controller.
 - [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): deploy pool workers with the operator and Helm chart.
-- [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md): partner guides for AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, and Vercel, and reference templates for AWS Lambda MicroVMs, Cloudflare Containers, and Kubernetes.
+- [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md): partner guides for AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, Vercel, and Coder, and reference templates for AWS Lambda MicroVMs, Cloudflare Containers, and Kubernetes.
 - [Computer use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md): let agents drive a desktop and browser on your workers.
 - [API reference](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools): endpoints for workers, pools, the pending-request queue (list, SSE watch, claim, and release), and worker tokens.
+- [Self-Hosted Machines](https://cursor.com/help/ai-features/self-hosted-machines.md): short answers for setup, Team Pools, integrations, and troubleshooting.
 
 ### Bring Self-Hosted Machines to your enterprise
 
