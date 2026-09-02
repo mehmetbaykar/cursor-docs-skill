@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/gemini-2-5-flash
 path: /docs/models/gemini-2-5-flash
 ---
 
-We recommend using [Gemini 3.7 Flash](https://cursor.com/docs/models/gemini-3-7-flash.md). It's Google's latest speed-tier model.
+We recommend using [Gemini 3.8 Flash](https://cursor.com/docs/models/gemini-3-8-flash.md). It's Google's latest speed-tier model.
 
 ## Tools
 

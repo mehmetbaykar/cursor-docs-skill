@@ -1,14 +1,14 @@
 ---
-title: "Pools"
+title: "Team Pools"
 source: https://cursor.com/docs/cloud-agent/self-hosted/pool
 path: /docs/cloud-agent/self-hosted/pool
 ---
 
-# Pools
+# Team Pools
 
 A pool is a named routing target that connects requests with [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) workers. Requests wait in the pool until an available worker claims them. Create separate pools for different execution environments, such as `gpu` for work that needs GPUs or `ios` for work that needs a Mac.
 
-Self-Hosted Pool is for Enterprise teams that want Cloud Agents to run inside company-managed infrastructure. Instead of each developer starting a worker on a personal machine, admins operate a pool of workers that can be assigned to agents across the organization.
+Team Pools are for Enterprise teams that want Cloud Agents to run inside company-managed infrastructure. Instead of each developer starting a worker on a personal machine, admins operate a pool of workers that can be assigned to agents across the organization.
 
 Pools are an infrastructure-ownership choice. They do not move the agent loop out of Cursor's cloud. The worker executes terminal commands, file edits, browser actions, and other tool calls in your infrastructure while Cursor handles orchestration, model access, and the Cloud Agent experience.
 
@@ -36,7 +36,7 @@ Your repos, build caches, secrets, and tool execution stay in your environment w
 
 Workers only need outbound access. No inbound ports, public IPs, or VPN tunnels are required. See [Networking](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#networking) for the full list of required hosts.
 
-Self-Hosted Cloud Agents support up to 10 workers per user and 50 per team. For larger company-wide deployments, [contact us](https://cursor.com/contact-sales?source=self-hosted-agents) to discuss scaling.
+Self-Hosted Machines support up to 200 workers per user and 1000 per team. For larger company-wide deployments, [contact us](https://cursor.com/contact-sales?source=self-hosted-agents) to discuss scaling.
 
 ## Prerequisites
 
@@ -101,6 +101,16 @@ agent worker --pool gpu --idle-release-timeout 600 start
 ```
 
 `--idle-release-timeout` keeps the worker alive for a window (in seconds) after a session ends to handle follow-up messages. The default is `3600` seconds. See [Session lifecycle](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#session-lifecycle) for how release and reconnection work.
+
+### Enable computer use
+
+Pass `--computer-use` so claimed agents can click, type, take screenshots, and drive apps on the worker:
+
+```bash
+agent worker --pool gpu --computer-use start
+```
+
+On macOS, the first start installs the **Cursor Computer Use** helper app. Grant it **Accessibility** and **Screen Recording**, verify with a task that takes a screenshot, then snapshot the machine so every worker restored from the image is ready. On Linux, bake the desktop packages into the worker image. See [Computer use and desktop sharing](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md) for the macOS permission steps, MDM profile guidance, and the Linux display options.
 
 ## Register multiple repo roots
 
@@ -186,7 +196,7 @@ To have the worker clone the claimed agent's repos on claim, pass `--clone-git-r
 agent worker --pool sandbox --clone-git-repos start
 ```
 
-`--clone-git-repos` implies `--mint-github-token`. Clone uses that minted short-lived GitHub token. A team admin must enable GitHub token minting for self-hosted pool workers, and `git` must be on `PATH`.
+`--clone-git-repos` implies `--mint-github-token`. Clone uses that minted short-lived GitHub token. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
 
 Use this flag only on any-repo pool workers: a named `--pool` other than `default`, with no bound repository (`repo=`) and no bound machine (`name=`). The CLI exits with a clear error on a bound-repo worker, a named machine, the `default` pool, or a personal [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) worker.
 
@@ -246,7 +256,7 @@ Pool workers handle:
 - Requests with `pool=<name>`, which also selects that named pool
 - Self-hosted requests with repository selection from the trigger surface, such as `repo=<owner/repo>` where supported
 
-`repo=` selects the repository for the run. For self-hosted pool runs, that repository becomes the `repo=<owner/repo>` worker label. It does not target a personal machine.
+`repo=` selects the repository for the run. For Team Pool runs, that repository becomes the `repo=<owner/repo>` worker label. It does not target a personal machine.
 
 Use these options from integrations to start pool agents:
 
@@ -266,11 +276,21 @@ The Cloud Agent API uses the same resolver with `usePrivateWorker` and `labels` 
 
 ## Hooks
 
-Self-hosted workers run project hooks committed in your repository through `.cursor/hooks.json`.
+Self-Hosted Machines workers run command-based [hooks](https://cursor.com/docs/hooks.md) during Cloud Agent sessions. They load configuration from the workspace the worker serves.
 
-If you're on Enterprise, self-hosted workers also support team hooks and enterprise-managed hooks.
+- **Project hooks.** Commit `.cursor/hooks.json` and the scripts it references in the repository or workspace directory the worker uses. That is the git checkout, a `--worker-dir` root, or the directory you pass for an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools).
+- **Team and enterprise-managed hooks.** On Enterprise, workers also run hooks configured in the [web dashboard](https://cursor.com/dashboard/team-content?section=hooks).
 
-See [Hooks](https://cursor.com/docs/hooks.md) for configuration details.
+The [Hooks](https://cursor.com/docs/hooks.md) reference covers the schema, events, and examples. [Cloud agent support](https://cursor.com/docs/hooks.md#cloud-agent-support) lists which events the Cloud Agent loop runs.
+
+The Cloud Agent limits that also apply on these tool-execution workers:
+
+- **Command-based hooks only.** Prompt-based hooks do not run.
+- **No IDE-only hooks.** Tab hooks (`beforeTabFileRead`, `afterTabFileEdit`) and `workspaceOpen` do not run on workers.
+
+`sessionStart` and `sessionEnd` run on Self-Hosted Machines workers. They fire when a Cloud Agent session claims the worker and when that claim is released. Cursor-managed Cloud Agents skip those hooks.
+
+[Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) workers use this same hooks model.
 
 ## Labels
 
@@ -353,6 +373,7 @@ To disable artifact uploads, block outbound traffic to `cloud-agent-artifacts.s3
 Workers need outbound HTTPS access to:
 
 - `api2.cursor.sh` and `api2direct.cursor.sh` for the agent session
+- `downloads.cursor.com` for CLI updates and the first-time [Cursor Computer Use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md#macos) install on macOS
 - `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` for [artifact](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#artifacts) uploads
 
 If your firewall can only match wildcards, `*.s3.us-east-1.amazonaws.com` covers the artifact host, but also opens every other bucket in the region. Prefer an exact-host rule when the firewall supports it.
@@ -364,19 +385,17 @@ No inbound ports, public IPs, or VPN tunnels are required. If you use a proxy, s
 | If you block...                                       | Effect                                                                                                                                                                        |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `api2.cursor.sh` or `api2direct.cursor.sh`            | The worker can't start or continue an agent session.                                                                                                                          |
+| `downloads.cursor.com`                                | CLI updates and the first-time Cursor Computer Use install on macOS fail. A worker that already has both installed keeps running.                                             |
 | `cloud-agent-artifacts.s3.us-east-1.amazonaws.com`    | Artifact uploads fail. PR embeds, dashboard previews, and notification attachments that depend on artifacts are missing. The agent session and other tool calls keep working. |
 | An outbound host a specific tool or integration needs | Only that tool or integration fails. The agent continues.                                                                                                                     |
 
 The [Prerequisites](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#prerequisites) section covers the broader set of hosts a worker needs during agent runs (git hosts, package registries, internal APIs).
 
-## Deploy on Kubernetes or Cloud Run
+## Deploy on Kubernetes
 
-Run pool workers on a container platform when you want the platform to handle scheduling, rolling updates, and health checks:
+Run pool workers on Kubernetes when you want the platform to handle scheduling, rolling updates, and health checks. The [Kubernetes guide](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) covers a Helm chart and operator that manage `WorkerDeployment` resources, warm capacity, rolling updates, and token rotation.
 
-- [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): a Helm chart and Kubernetes operator manage `WorkerDeployment` resources, warm capacity, rolling updates, and token rotation.
-- [Cloud Run](https://cursor.com/docs/cloud-agent/self-hosted/cloud-run.md): Cloud Run Worker Pools on Google Cloud, with a custom autoscaler driven by the Cloud Agents API.
-
-Other hosts work the same way: any VM, container, or bare-metal machine that can install the Cursor CLI and reach Cursor over outbound HTTPS can run a pool worker under `systemd`, Docker, or your own process manager.
+Other hosts work the same way: any VM, container, or bare-metal machine that can install the Cursor CLI and reach Cursor over outbound HTTPS can run a pool worker under `systemd`, Docker, or your own process manager. For partner guides and reference templates covering AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, and Vercel, see [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
 
 ## Worker controller
 
@@ -690,24 +709,27 @@ The `cursor_self_hosted_worker_session_ends_total` counter includes a `reason` l
 agent worker [options] start
 ```
 
-| Flag                           | Description                                                                                                                                                                                                                                                 |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--worker-dir <path>`          | Workspace root to expose to agents. Repeatable up to 20 paths. Each path must exist and be a directory. Git remotes are optional; see [any-repo pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools). Default: current directory. |
-| `--management-addr <addr>`     | Address for `/healthz`, `/readyz`, and `/metrics` endpoints, for example `:8080`.                                                                                                                                                                           |
-| `--label <key=value>`          | Add a label. Repeatable. Mutually exclusive with `--labels-file`.                                                                                                                                                                                           |
-| `--labels-file <path>`         | Path to JSON or TOML labels file. Mutually exclusive with `--label`. Env var: `CURSOR_WORKER_LABELS_FILE`.                                                                                                                                                  |
-| `--idle-release-timeout <sec>` | Seconds to stay connected after a session ends. Default: `3600`. Pass `0` to disable idle-based release. Env var: `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`.                                                                                                     |
-| `--pool [name]`                | Register for pool assignment. Optional pool name; defaults to `default`. Each session claims one worker at a time. Env var: `CURSOR_WORKER_POOL_NAME`.                                                                                                      |
-| `--single-use`                 | Legacy alias for `--pool`.                                                                                                                                                                                                                                  |
-| `--pool-name <name>`           | Deprecated alias for `--pool <name>`. Env var: `CURSOR_WORKER_POOL_NAME`.                                                                                                                                                                                   |
-| `--api-key <key>`              | Service account API key for pool workers. Env var: `CURSOR_API_KEY`.                                                                                                                                                                                        |
-| `--auth-token <token>`         | Pre-minted access token. Used by the Kubernetes operator and other automation that exchanges an API key for a short-lived token externally.                                                                                                                 |
-| `--auth-token-file <path>`     | File containing an access token. The CLI re-reads this file when reconnecting after an auth failure or disconnect, which lets a controller rotate the mounted token without restarting the pod.                                                             |
-| `--clone-git-repos`            | On claim, clone the agent's GitHub repos into the workspace. Any-repo named pools only (not `default`, and not a bound repo or named machine). Implies `--mint-github-token`. Requires `git` on `PATH`. Default: off.                                       |
-| `--mint-github-token`          | Receive short-lived GitHub tokens during claimed runs. Pool workers only. Requires team-admin enablement. At most one credential-enabled worker per OS user or container.                                                                                   |
-| `--sync-dashboard-secrets`     | Receive eligible dashboard Cloud Agent secrets as environment variables during claimed runs. Pool workers only. Same one-worker-per-user rule.                                                                                                              |
-| `--worker-id <id>`             | Stable worker id used with [claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request). Prefer the env var so older CLI builds ignore an unknown flag. Env var: `CURSOR_AGENT_WORKER_ID`.                                         |
-| `-e, --endpoint <url>`         | API endpoint. Default: `https://api2.cursor.sh`.                                                                                                                                                                                                            |
+| Flag                           | Description                                                                                                                                                                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--worker-dir <path>`          | Workspace root to expose to agents. Repeatable up to 20 paths. Each path must exist and be a directory. Git remotes are optional; see [any-repo pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools). Default: current directory.        |
+| `--management-addr <addr>`     | Address for `/healthz`, `/readyz`, and `/metrics` endpoints, for example `:8080`.                                                                                                                                                                                  |
+| `--label <key=value>`          | Add a label. Repeatable. Mutually exclusive with `--labels-file`.                                                                                                                                                                                                  |
+| `--labels-file <path>`         | Path to JSON or TOML labels file. Mutually exclusive with `--label`. Env var: `CURSOR_WORKER_LABELS_FILE`.                                                                                                                                                         |
+| `--idle-release-timeout <sec>` | Seconds to stay connected after a session ends. Default: `3600`. Pass `0` to disable idle-based release. Env var: `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`.                                                                                                            |
+| `--computer-use`               | Let claimed agents drive this machine's desktop. On macOS, installs Cursor Computer Use if needed; grant it Accessibility and Screen Recording. See [Computer use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md).                               |
+| `--display <display>`          | Linux only. Existing X11 display to require for `--computer-use`, for example `:0`. When omitted, a reachable `DISPLAY` is reused or a managed desktop is started.                                                                                                 |
+| `--share-desktop [mode]`       | Linux only. Let authorized viewers watch or control the agent desktop: `view` or `view_and_control` (default). Separate from computer use; see [Share the agent desktop](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md#share-the-agent-desktop). |
+| `--pool [name]`                | Register for pool assignment. Optional pool name; defaults to `default`. Each session claims one worker at a time. Env var: `CURSOR_WORKER_POOL_NAME`.                                                                                                             |
+| `--single-use`                 | Legacy alias for `--pool`.                                                                                                                                                                                                                                         |
+| `--pool-name <name>`           | Deprecated alias for `--pool <name>`. Env var: `CURSOR_WORKER_POOL_NAME`.                                                                                                                                                                                          |
+| `--api-key <key>`              | Service account API key for pool workers. Env var: `CURSOR_API_KEY`.                                                                                                                                                                                               |
+| `--auth-token <token>`         | Pre-minted access token. Used by the Kubernetes operator and other automation that exchanges an API key for a short-lived token externally.                                                                                                                        |
+| `--auth-token-file <path>`     | File containing an access token. The CLI re-reads this file when reconnecting after an auth failure or disconnect, which lets a controller rotate the mounted token without restarting the pod.                                                                    |
+| `--clone-git-repos`            | On claim, clone the agent's GitHub repos into the workspace. Any-repo named pools only (not `default`, and not a bound repo or named machine). Implies `--mint-github-token`. Requires `git` on `PATH`. Default: off.                                              |
+| `--mint-github-token`          | Receive short-lived GitHub tokens during claimed runs. Pool workers only. Requires team-admin enablement. At most one credential-enabled worker per OS user or container.                                                                                          |
+| `--sync-dashboard-secrets`     | Receive eligible dashboard Cloud Agent secrets as environment variables during claimed runs. Pool workers only. Same one-worker-per-user rule.                                                                                                                     |
+| `--worker-id <id>`             | Stable worker id used with [claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request). Prefer the env var so older CLI builds ignore an unknown flag. Env var: `CURSOR_AGENT_WORKER_ID`.                                                |
+| `-e, --endpoint <url>`         | API endpoint. Default: `https://api2.cursor.sh`.                                                                                                                                                                                                                   |
 
 ## FAQ
 
@@ -732,14 +754,29 @@ your custom worker image.
 Yes. Configure MCP servers through the Cloud Agents dashboard. See the
 [MCP servers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers) section for how routing works by transport type.
 
+### Do hooks run on self-hosted workers?
+
+Yes. Self-Hosted Machines workers run project hooks from
+`.cursor/hooks.json`. On Enterprise, they also run team and
+enterprise-managed hooks. See [Hooks](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks).
+
 ### Can multiple agents use one pool worker?
 
 A pool worker serves one agent at a time. Add workers or scale the pool when
 requests wait for capacity.
 
+### Can Mac pool workers run computer use?
+
+Yes. Start them with `--computer-use`. The first start installs the
+**Cursor Computer Use** helper app; grant it Accessibility and Screen
+Recording, verify with a task that takes a screenshot, then snapshot the
+machine. Screen Recording can't be granted silently by MDM, so approve it
+once on the template and image from there. See [Computer use and desktop
+sharing](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md#macos).
+
 ## Next steps
 
 - [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): operator and Helm chart for pools at scale.
-- [Cloud Run](https://cursor.com/docs/cloud-agent/self-hosted/cloud-run.md): Cloud Run Worker Pools with a custom autoscaler.
+- [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md): partner guides and reference templates for other platforms.
 - [Computer use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md): let agents drive a desktop and browser on your workers.
 - [API reference](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools): endpoints for workers, pools, the pending-request queue, and worker tokens.

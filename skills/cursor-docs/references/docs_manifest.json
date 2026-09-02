@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 175,
+    "pages_fetched_successfully": 176,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 177
+    "total_pages_discovered": 178
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "d3be7cba4cde2dc426eb30f0401c2653d51399d0a3e9506e3d7c2debdd899c4f",
-      "last_updated": "2026-09-01T18:24:31+00:00",
+      "hash": "8eef87aa28bde59f1770cadb0aadfa061e4ccd4ffe5b24b1e1ba764f40a9e054",
+      "last_updated": "2026-09-02T20:58:17+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "ee4341104416629162788a5b15c02fc8469593d886aec7f538988edfc365d30a",
-      "last_updated": "2026-09-01T23:15:21+00:00",
+      "hash": "3e6e3eac884a49c83e3d19123f8f4e88467eb948e8e3fd3456c214ccfb6bbea8",
+      "last_updated": "2026-09-02T20:58:17+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "50c26f2ea60b71cad3c2db95fae9d7d349af8b17605a03c5a6a7143db480ec16",
-      "last_updated": "2026-09-01T18:24:34+00:00",
+      "hash": "98141c9f67b469c16e554549d28ff3676e0635053509098a3cb5f12d332192e6",
+      "last_updated": "2026-09-02T20:58:19+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -372,8 +372,8 @@
       "title": "Output format"
     },
     "cli__reference__parameters.md": {
-      "hash": "789bd1b1183ad013855d771f1495b44ecfa2e483bcd0de0d3116af7305cbb90c",
-      "last_updated": "2026-08-07T17:11:53+00:00",
+      "hash": "871878c12a1b909d474a2c08fb5dd43765712ca53375c6dd398f7caaf47199b3",
+      "last_updated": "2026-09-02T20:58:30+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/parameters",
       "path": "/docs/cli/reference/parameters",
       "source_url": "https://cursor.com/docs/cli/reference/parameters",
@@ -480,8 +480,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "66497a2003c863b00e991705f7be3b5acfdf7ae3f6a976d3933062b75709b3f4",
-      "last_updated": "2026-08-24T21:39:02+00:00",
+      "hash": "70a2c3b6df9c37a03c98346d883d8850ca11410fe07c7301e49c8d6fdccf2738",
+      "last_updated": "2026-09-02T20:58:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -507,8 +507,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "b6f88961a85529f6adc30582b6311c962580fdf3449cd73b2c18c0832a964e71",
-      "last_updated": "2026-09-02T11:10:39+00:00",
+      "hash": "2ac57aaf8a548e8e93a5ff4b50c4f0f084428c82b9b6e81021dcc6a25dec9cbb",
+      "last_updated": "2026-09-02T20:58:35+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -543,8 +543,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "3d4471be0c792fb53dbacb8c653530b6160e7a31ae47bf2d79d09f616d7e4c75",
-      "last_updated": "2026-09-02T11:10:40+00:00",
+      "hash": "b9699dbd5f4945a690be326e40476131937d8f5beaf09ae7f51f2bd430c55ebd",
+      "last_updated": "2026-09-02T20:58:36+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -552,35 +552,35 @@
       "title": "Self-Hosted Machines"
     },
     "cloud-agent__self-hosted__choose-runtime.md": {
-      "hash": "5370a0bea2b0beaad3a331e300a1af6151b6c67bf4ff843f071d6968d83c0114",
-      "last_updated": "2026-09-02T11:10:40+00:00",
+      "hash": "faade5d39869a7a02971c049a05c714435b28bdbdde355140b869c9025ac58ff",
+      "last_updated": "2026-09-02T20:58:36+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime",
       "path": "/docs/cloud-agent/self-hosted/choose-runtime",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime",
       "status": "live",
       "title": "Choose where Cloud Agents run"
     },
-    "cloud-agent__self-hosted__cloud-run.md": {
-      "hash": "9e9ffbc347d489a3c7aea0f153bf8b1bfdf1937db3f495f3661bef1a554d38aa",
-      "last_updated": "2026-09-02T11:10:40+00:00",
-      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/cloud-run",
-      "path": "/docs/cloud-agent/self-hosted/cloud-run",
-      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/cloud-run",
-      "status": "live",
-      "title": "Self-Hosted Cloud: Deploying with Cloud Run Worker Pools"
-    },
     "cloud-agent__self-hosted__computer-use.md": {
-      "hash": "5b1c689b44640217cdbca3978c81afc36759d852fbbe45c735d73c83933094fe",
-      "last_updated": "2026-09-02T11:10:41+00:00",
+      "hash": "308c6aeab86a760fadbea00bc13b11bdc42565e9585ab61952723b035bc1aff7",
+      "last_updated": "2026-09-02T20:58:37+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/computer-use",
       "path": "/docs/cloud-agent/self-hosted/computer-use",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/computer-use",
       "status": "live",
       "title": "Computer use and desktop sharing"
     },
+    "cloud-agent__self-hosted__integrations.md": {
+      "hash": "4a87dd8baa9d9511549698d9e8eea7521ce62d490338edf82b5b87bce72ca53f",
+      "last_updated": "2026-09-02T20:58:37+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
+      "path": "/docs/cloud-agent/self-hosted/integrations",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
+      "status": "live",
+      "title": "Integrations"
+    },
     "cloud-agent__self-hosted__kubernetes.md": {
-      "hash": "bf6974781e79b238a2d08923c109b6beebc5671720b4589bb8ea0a3690123fe3",
-      "last_updated": "2026-09-02T11:10:41+00:00",
+      "hash": "a55e4912a29f265430761c0b5dd262fd689c4a1c16cc9e088d4f1c961f17d6a4",
+      "last_updated": "2026-09-02T20:58:37+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/kubernetes",
       "path": "/docs/cloud-agent/self-hosted/kubernetes",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/kubernetes",
@@ -588,8 +588,8 @@
       "title": "Self-Hosted Cloud: Deploying with Kubernetes"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "9370936f2612125f5bf857672c144778a9699596c0488fea0da2d78aed1baf4f",
-      "last_updated": "2026-09-02T11:10:41+00:00",
+      "hash": "10906445bec4d7b9f608bb92be07dd55965e24414094fba72e57c39b872b91e1",
+      "last_updated": "2026-09-02T20:58:37+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
@@ -597,13 +597,13 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "ca1a42b6e919709534bb292009273503913f3d16f66b81cc5a5291d9a3a6b8e2",
-      "last_updated": "2026-09-02T11:10:42+00:00",
+      "hash": "11f73d2c57646c5a0625cbf67b1f7433a5d7588c8d6642eb2e95f9e65eafcfe2",
+      "last_updated": "2026-09-02T20:58:38+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "status": "live",
-      "title": "Pools"
+      "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
       "hash": "9250c52f3a489a776b91df3b5f861d7173bffe274adaaf689de403f73b22e81f",
@@ -651,8 +651,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "b0367252adde1d73eb5e5a9ab4cadbd12ef0a08fcf2225ef8dbbaa3948b1b924",
-      "last_updated": "2026-09-01T18:24:30+00:00",
+      "hash": "0aa81c8869d8eaeac9fa6d439df8b41d75dfd43f6b674e7d0eaa195bfdcd06ae",
+      "last_updated": "2026-09-02T20:58:16+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -777,8 +777,8 @@
       "title": "Work with Grok Bot"
     },
     "hooks.md": {
-      "hash": "c14a13923aae6588d8cf84fe4c32d53825a798e82612bd29c72434451a5e7166",
-      "last_updated": "2026-08-25T07:04:06+00:00",
+      "hash": "932ab2f33346dcf22eca105aff4de873033346bf3012a611dcb2170c0b647a86",
+      "last_updated": "2026-09-02T20:58:44+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks",
@@ -876,8 +876,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "4a5b2311fd1e2571d6a2d25c31291b2db09cf5332b956fd30d2cdc412332c194",
-      "last_updated": "2026-09-02T11:10:50+00:00",
+      "hash": "3c52a952e3b5ad336fffb23a412c29c2175325c6b1e6a0835e52f6f8dfd6b6c4",
+      "last_updated": "2026-09-02T20:58:47+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -912,8 +912,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "9b3a7ee381b39f0f89e32662e50f6ff54105338d31d85dd0a0265e8c7d64cfbe",
-      "last_updated": "2026-09-01T18:25:06+00:00",
+      "hash": "ff30052c8aada4d34b283f484bbcdb636de2c5867d6c36079f8891bf9e15fa9a",
+      "last_updated": "2026-09-02T20:58:48+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1065,8 +1065,8 @@
       "title": "Models Cursor Composer 2 5"
     },
     "models__gemini-2-5-flash.md": {
-      "hash": "40fdeac0b68ef93d6d1e9d310a6be2adde8dcd4bb6cfb0ebf45d7f132a7677c0",
-      "last_updated": "2026-08-24T21:39:18+00:00",
+      "hash": "dad3cfcba1b1658be66ebef11e78aa151aeb6209bc70ed8114a31035d9a5d650",
+      "last_updated": "2026-09-02T20:58:54+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-2-5-flash",
       "path": "/docs/models/gemini-2-5-flash",
       "source_url": "https://cursor.com/docs/models/gemini-2-5-flash",
@@ -1083,8 +1083,8 @@
       "title": "Models Gemini 3 1 Pro"
     },
     "models__gemini-3-5-flash.md": {
-      "hash": "1adf9b25c2d56f16488c9ac65b8aa09fffd21e7cb9d06f3a92f2b83cc42f295e",
-      "last_updated": "2026-08-24T21:39:19+00:00",
+      "hash": "24009e496fd0c2c670ff866dd180807ad0f2c69161ea24d5f8e28260c28d3ce9",
+      "last_updated": "2026-09-02T20:58:54+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-5-flash",
       "path": "/docs/models/gemini-3-5-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-5-flash",
@@ -1092,8 +1092,8 @@
       "title": "Models Gemini 3 5 Flash"
     },
     "models__gemini-3-6-flash.md": {
-      "hash": "07cde6e2363c33a55238068704bf90efad45eb714ee8236ffbb7de0f49a8f841",
-      "last_updated": "2026-08-24T21:39:19+00:00",
+      "hash": "68ee65bf01739dab93be18ed509efc1a2e4f3963b9c1024af37d1bf801dc78ac",
+      "last_updated": "2026-09-02T20:58:55+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-6-flash",
       "path": "/docs/models/gemini-3-6-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-6-flash",
@@ -1101,13 +1101,22 @@
       "title": "Models Gemini 3 6 Flash"
     },
     "models__gemini-3-7-flash.md": {
-      "hash": "6fe93148930e91c0abe90050d657db832cabb50e9ed8917317a40e7562937c59",
-      "last_updated": "2026-08-24T21:39:19+00:00",
+      "hash": "5c84db4ebdb02cb829794edbc62baca47c245f3405c8af2db043faf6a9b3c0d7",
+      "last_updated": "2026-09-02T20:58:55+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-7-flash",
       "path": "/docs/models/gemini-3-7-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-7-flash",
       "status": "live",
       "title": "Models Gemini 3 7 Flash"
+    },
+    "models__gemini-3-8-flash.md": {
+      "hash": "369a0e9968c0d9b32d045bb165f0c22e844f7baee9de080771ae964cfa6ba3ef",
+      "last_updated": "2026-09-02T20:58:55+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-8-flash",
+      "path": "/docs/models/gemini-3-8-flash",
+      "source_url": "https://cursor.com/docs/models/gemini-3-8-flash",
+      "status": "live",
+      "title": "Models Gemini 3 8 Flash"
     },
     "models__gemini-3-flash.md": {
       "hash": "0f8fe3dc4784748273436a4fe877cf268de514d63835adcec325e62a5930fd5e",
@@ -1600,7 +1609,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-02T11:11:17+00:00",
+  "last_updated": "2026-09-02T20:59:12+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

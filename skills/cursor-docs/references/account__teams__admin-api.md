@@ -529,8 +529,8 @@ Filter by a specific automation UUID. Pass `*` to return events from all automat
 Filter cloud agent (background agent) runs by where they executed. Use this to isolate inference spend for self-hosted agents from Cursor-hosted runs. Accepted values:
 
 - `CLOUD` - Cursor-hosted runs
-- `SELF_HOSTED` - any self-hosted run (a self-hosted pool worker or a personal "My Machine" worker)
-- `SELF_HOSTED_POOL` - team self-hosted pool workers only
+- `SELF_HOSTED` - any self-hosted run (a Team Pool worker or a My Machines worker)
+- `SELF_HOSTED_POOL` - Team Pool workers only
 - `SELF_HOSTED_MACHINE` - personal "My Machine" workers only
 
 An unrecognized `hostingType` value returns a `400` error rather than an empty result, so a typo can't be mistaken for genuinely zero self-hosted spend. This filter covers inference spend only; self-hosted compute runs on your own machines and is never metered by Cursor.

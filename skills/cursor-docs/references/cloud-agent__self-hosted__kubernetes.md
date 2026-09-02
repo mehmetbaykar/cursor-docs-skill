@@ -6,7 +6,7 @@ path: /docs/cloud-agent/self-hosted/kubernetes
 
 # Self-Hosted Cloud: Deploying with Kubernetes
 
-Deploy and manage [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) workers using a Kubernetes operator. It handles scaling, rolling updates, and lifecycle management.
+Deploy and manage [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) workers using a Kubernetes operator. It handles scaling, rolling updates, and lifecycle management.
 
 ![Self-hosted Cloud Agents deployed with Kubernetes](https://cursor.com/docs-static/images/cloud-agent/self-hosted-k8s.png)
 
@@ -272,6 +272,6 @@ Busy workers are never terminated, even during scale-down or rolling updates.
 
 ## Related
 
-- [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md)
+- [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md)
 - [Cloud Agents overview](https://cursor.com/docs/cloud-agent.md)
 - [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)

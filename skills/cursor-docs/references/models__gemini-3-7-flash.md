@@ -4,7 +4,9 @@ source: https://cursor.com/docs/models/gemini-3-7-flash
 path: /docs/models/gemini-3-7-flash
 ---
 
-Gemini 3.7 Flash is Google's latest speed-tier model. It pairs strong agentic coding performance with low per-token costs. Use it for high-throughput coding tasks that benefit from reasoning and a large context window.
+We recommend using [Gemini 3.8 Flash](https://cursor.com/docs/models/gemini-3-8-flash.md). It's Google's latest speed-tier model at the same price.
+
+Gemini 3.7 Flash is Google's previous speed-tier model. It pairs strong agentic coding performance with low per-token costs.
 
 ## Strengths
 
