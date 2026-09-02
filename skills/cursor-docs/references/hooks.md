@@ -100,6 +100,8 @@ Cloud agents load hooks from these sources:
 
 User-level hooks (`~/.cursor/hooks.json`) are not available in cloud agents. Cloud agent VMs don't have access to your local home directory configuration.
 
+[Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) workers (Pools and My Machines) run the same command-based project hooks, and on Enterprise also run team and enterprise-managed hooks. On those workers, `sessionStart` and `sessionEnd` fire when a session claims the worker and when that claim is released. See [Hooks on Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks).
+
 ### Execution type limits
 
 Cloud agents run **command-based hooks** only. Prompt-based hooks require authentication wiring between the hook and the agent loop, which isn't available in the cloud execution environment.

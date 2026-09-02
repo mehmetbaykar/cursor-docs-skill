@@ -12,6 +12,8 @@ Each cloud agent runs in its own isolated VM with a full desktop environment. Ag
 
 This means agents can start dev servers, open the app in a browser, click through UI flows, and verify their changes work before pushing a PR. Read more in the [announcement blog post](https://cursor.com/blog/agent-computer-use).
 
+On [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md), start the worker with `--computer-use` to let the agent drive that machine's desktop. macOS workers use the Cursor Computer Use helper app; Linux workers use an X11 display. See [Computer use and desktop sharing](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md).
+
 ## Demos and Artifacts
 
 Agents create artifacts such as screenshots, videos, and log references to demonstrate their work. These artifacts are attached to the PR so you can quickly validate changes without checking out the branch locally.
