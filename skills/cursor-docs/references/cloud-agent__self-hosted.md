@@ -45,8 +45,8 @@ Managed Cloud Agents take the fleet off your plate. There's no worker pool to si
 Cost follows [model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing). The compute an agent runs on is part of the managed service, so you don't reserve worker capacity or take on a separate cloud infrastructure bill for agent VMs.
 
 Need to run tools on your own infrastructure for custom hardware, network, or
-policy requirements? See [Bring your own
-machine](https://cursor.com/docs/cloud-agent/bring-your-own-machine.md).
+policy requirements? See [Self-Hosted
+Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime.md).
 
 ## Next steps
 

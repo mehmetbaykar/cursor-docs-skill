@@ -619,6 +619,7 @@ Yes. Configure MCP servers through the Cloud Agents dashboard. See the
 
 - [Choose where Cloud Agents run](https://cursor.com/docs/cloud-agent/self-hosted-guides/choose-runtime.md)
 - [My Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md)
+- [Computer use](https://cursor.com/docs/cloud-agent/self-hosted-guides/computer-use.md)
 - [Kubernetes deployment guide](https://cursor.com/docs/cloud-agent/self-hosted-guides/kubernetes.md)
 - [Self-hosted Cloud Agents cookbook](https://github.com/cursor/cookbook/tree/main/self-hosted-cloud-agent) (EC2, ECS, EKS reference deployments)
 - [Cloud Agent security and network](https://cursor.com/docs/cloud-agent/security-network.md)

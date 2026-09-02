@@ -51,7 +51,7 @@ Once you're set up, put an agent to work. For example:
 
 You get the full cloud agent workflow from your pocket, not a stripped-down chat box. The same machines, models, and review tools you use on the web come with you.
 
-- **Run agents on cloud machines.** Pick a worker for each run: a Cloud machine, a [bring-your-own-machine pool](https://cursor.com/docs/cloud-agent/bring-your-own-machine/pools.md), or one of [My Machines](https://cursor.com/docs/cloud-agent/bring-your-own-machine/my-machines.md). Agents work in full development environments, so they install dependencies, run tests, and verify their changes.
+- **Run agents on cloud machines.** Pick a worker for each run: a Cloud machine, a [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md), or one of [My Machines](https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines.md). Agents work in full development environments, so they install dependencies, run tests, and verify their changes.
 - **Use any model.** Choose any model available for cloud agents. Every run uses the model's maximum supported context window.
 - **Let agents run long.** Start a task, lock your phone, and check back later. Agents keep working in the cloud whether or not your device stays connected.
 - **Follow the work live.** Watch the chat stream as the agent codes, send follow-ups to a running agent, and tap a subagent card to read its child transcript.
