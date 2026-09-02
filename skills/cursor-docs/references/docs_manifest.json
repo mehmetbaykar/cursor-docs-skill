@@ -543,8 +543,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "b9699dbd5f4945a690be326e40476131937d8f5beaf09ae7f51f2bd430c55ebd",
-      "last_updated": "2026-09-02T20:58:36+00:00",
+      "hash": "6cda4c6d1426dc3f6861e346f7b43b37325d8d7739873967ce8980e95a191cb4",
+      "last_updated": "2026-09-02T23:16:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -570,8 +570,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "4a87dd8baa9d9511549698d9e8eea7521ce62d490338edf82b5b87bce72ca53f",
-      "last_updated": "2026-09-02T20:58:37+00:00",
+      "hash": "c46c20dc2b471404d53bd99bdcf14ad4eee73fe485bd176f025d2446a8e733f5",
+      "last_updated": "2026-09-02T23:16:43+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
@@ -597,8 +597,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "11f73d2c57646c5a0625cbf67b1f7433a5d7588c8d6642eb2e95f9e65eafcfe2",
-      "last_updated": "2026-09-02T20:58:38+00:00",
+      "hash": "b51c73cbf20b177637a317a06be89dd50702c9ce3f6511ddb8c02a21df92337e",
+      "last_updated": "2026-09-02T23:16:44+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1609,7 +1609,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-02T20:59:12+00:00",
+  "last_updated": "2026-09-02T23:17:23+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

@@ -395,7 +395,7 @@ The [Prerequisites](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#prer
 
 Run pool workers on Kubernetes when you want the platform to handle scheduling, rolling updates, and health checks. The [Kubernetes guide](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) covers a Helm chart and operator that manage `WorkerDeployment` resources, warm capacity, rolling updates, and token rotation.
 
-Other hosts work the same way: any VM, container, or bare-metal machine that can install the Cursor CLI and reach Cursor over outbound HTTPS can run a pool worker under `systemd`, Docker, or your own process manager. For partner guides and reference templates covering AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, and Vercel, see [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
+Other hosts work the same way: any VM, container, or bare-metal machine that can install the Cursor CLI and reach Cursor over outbound HTTPS can run a pool worker under `systemd`, Docker, or your own process manager. For partner guides and reference templates covering AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, Vercel, and Coder, see [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
 
 ## Worker controller
 
