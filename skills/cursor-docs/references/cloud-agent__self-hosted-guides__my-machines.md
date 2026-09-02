@@ -65,6 +65,8 @@ Keep this process running while you use the machine. By default, a My Machines w
 2. The machine should show up in the environment dropdown.
 3. Send a task.
 
+![Cursor's Run on menu with my-devbox highlighted under My Machines](https://cursor.com/docs-static/images/cloud-agent/my-machines-picker.png)
+
 ## Common options
 
 ### Name the machine
@@ -202,5 +204,6 @@ This checks authentication, privacy routing, repo labels, and whether Cursor can
 ## Related
 
 - [Self-Hosted Pool](https://cursor.com/docs/cloud-agent/self-hosted-guides/pool.md)
+- [Computer use](https://cursor.com/docs/cloud-agent/self-hosted-guides/computer-use.md)
 - [Cloud Agent security and network](https://cursor.com/docs/cloud-agent/security-network.md)
 - [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)

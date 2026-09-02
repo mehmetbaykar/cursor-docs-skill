@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 173,
+    "pages_fetched_successfully": 175,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 175
+    "total_pages_discovered": 177
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "f0817bd46cac1b5f24a1bf2268063d2378ddaba7f6f7ce8ad3d6f37c86553d30",
-      "last_updated": "2026-08-27T14:05:17+00:00",
+      "hash": "b90beaa7cff1ac3f4888cea8d3e045d32800211f4cb97e49bde1f7ea3435949b",
+      "last_updated": "2026-09-02T04:20:51+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -507,8 +507,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "62656f200be56e639d27102b69f2184d7d0abb7be790bfb32b9e262007f5f0f0",
-      "last_updated": "2026-08-27T14:05:20+00:00",
+      "hash": "5ba60028832aabd38aa2e0362122ace053943a4f6a24d3260165da68fccc9f91",
+      "last_updated": "2026-09-02T04:20:54+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -560,6 +560,15 @@
       "status": "live",
       "title": "Self-Hosted Cloud: Deploying with Cloud Run Worker Pools"
     },
+    "cloud-agent__self-hosted-guides__computer-use.md": {
+      "hash": "76f5d9b849328a3918959f278840e48746f5638bd47e82173683ebf58cc7b2ad",
+      "last_updated": "2026-09-02T04:20:56+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/computer-use",
+      "path": "/docs/cloud-agent/self-hosted-guides/computer-use",
+      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/computer-use",
+      "status": "live",
+      "title": "Computer use and desktop sharing"
+    },
     "cloud-agent__self-hosted-guides__kubernetes.md": {
       "hash": "ffcf2575b17a624dacf22b21fbea560156bf147f8e0fdae39e26198ddad9074f",
       "last_updated": "2026-09-01T08:34:05+00:00",
@@ -570,8 +579,8 @@
       "title": "Self-Hosted Cloud: Deploying with Kubernetes"
     },
     "cloud-agent__self-hosted-guides__my-machines.md": {
-      "hash": "2ae91d43a6d48952251ea36189199fa17dad7729e94823430472190bd4ee25bd",
-      "last_updated": "2026-09-01T08:34:05+00:00",
+      "hash": "a5c6b550ec1ebc918f2bdb549d8c337909e6e47b42fb0bad4a4f4781184acac0",
+      "last_updated": "2026-09-02T04:20:56+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines",
       "path": "/docs/cloud-agent/self-hosted-guides/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/my-machines",
@@ -579,8 +588,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted-guides__pool.md": {
-      "hash": "b0f9dbbd8d11c3771cbb592993e956803a54b628a01053cc9120be5a1641dd31",
-      "last_updated": "2026-09-01T08:34:05+00:00",
+      "hash": "245796242f04402754578d1047acb7bcec1eddc0c32d476aeb21c3f78214f9c9",
+      "last_updated": "2026-09-02T04:20:57+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/pool",
       "path": "/docs/cloud-agent/self-hosted-guides/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted-guides/pool",
@@ -588,8 +597,8 @@
       "title": "Self-Hosted Agents"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "cee67730a63b858f69a7b8ccea2d08fdb5556fdb4d4086ab1a762c68ca3515f0",
-      "last_updated": "2026-08-27T14:05:21+00:00",
+      "hash": "88b6d5f987b60ac800031f45428fa3af220a7a3e19f846c0dedfd490e7120d81",
+      "last_updated": "2026-09-02T04:20:55+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -722,6 +731,15 @@
       "status": "live",
       "title": "Configure identity and access"
     },
+    "grok-bot__private-networks.md": {
+      "hash": "c44540d112323e7eb7661d0d10cbf53f928ebd0ff0dc30fdb5a7829d932b1f00",
+      "last_updated": "2026-09-02T04:21:01+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/private-networks",
+      "path": "/docs/grok-bot/private-networks",
+      "source_url": "https://cursor.com/docs/grok-bot/private-networks",
+      "status": "live",
+      "title": "Connect to private networks"
+    },
     "grok-bot__settings.md": {
       "hash": "168d62333255e76cf6e1504342c43342f45827e895a5a7621fd52e32447dc98f",
       "last_updated": "2026-09-01T08:34:09+00:00",
@@ -732,8 +750,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "b1d8e623e5831e1b56fd719e628cf1b38fb7ff01cc7a6bbfb4f9ef35efbccecf",
-      "last_updated": "2026-09-01T18:24:59+00:00",
+      "hash": "63451a2a732d4fed7ca3f0c6994563719a484ba72a601cbf5a47a139e1d110a3",
+      "last_updated": "2026-09-02T04:21:01+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -858,8 +876,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "94a3a44910f2b43a7c582ca7712b28a03de9b6aa77e3c2a81b6fa3641025f512",
-      "last_updated": "2026-08-27T14:05:30+00:00",
+      "hash": "e2c2c15f2184d41cd9f06b9c361d24c0ade3bf3331e65d3611634b3b6977560f",
+      "last_updated": "2026-09-02T04:21:06+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1551,8 +1569,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "db3a76c1312cf5eeccb5048745df519089def1be464ba80522e020bf51910428",
-      "last_updated": "2026-08-31T20:47:53+00:00",
+      "hash": "09091c15e1469687e89c4c68c605f520714604a777a9fcc808ea5082ad3f781c",
+      "last_updated": "2026-09-02T04:21:28+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1582,7 +1600,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-01T23:16:11+00:00",
+  "last_updated": "2026-09-02T04:21:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

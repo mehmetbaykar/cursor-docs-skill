@@ -87,7 +87,7 @@ Nearly everything sits on the Grok Bot page of the [Cursor dashboard](https://cu
 - **Cloud Agents.** Allow or block delegation to Cursor Cloud Agents. The default is on.
 - **Public template sharing.** Off keeps Bot template sharing within your team, and the policy is enforced on Cursor's servers, including for existing public templates. Teams on the Enterprise plan start with public sharing off.
 - **Team Rules.** Rules applied for every member's Bots. Rules are always required and can't be made optional, and you scope each rule to Cursor, Grok Bot, or both. Keep them short and few, like "never move company data to personal accounts"; for enforcement, use Auto Review instructions instead.
-- **Team Setup.** Manifests of admin install scripts that run on every team computer, so your standard tooling is in place everywhere. Don't put secret values in setup scripts.
+- **Team Setup.** Manifests of admin install scripts that run on every team computer, so your standard tooling is in place everywhere. Don't put secret values in setup scripts. To install your own networking client and reach private services, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 - **Computer management.** Organization admins can look up any member's computer, see when it was created and last active, and terminate it; team admin rights aren't enough, because a computer spans every team the member belongs to. The durable disk is kept, and the member's next session starts a fresh computer.
 - **Auto Review team instructions.** Team-wide allow and block instructions that feed the reviewer's decisions for every member. These live in team settings under Security and Automation.
 - **Local execution.** The policy for Bots acting on a member's own machine. See [local execution](https://cursor.com/docs/grok-bot/teams.md#local-execution).
@@ -198,7 +198,7 @@ Per-command approval is the default, and the approval card shows the exact comma
 
 ### Hosting
 
-Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today, and routing computer traffic through a VPN, tunnel, or private link into your network is not offered. The supported model is shared static egress combined with the destination allowlist.
+Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today, and Cursor doesn't operate a VPN, tunnel, or private link into your network for Grok Bot. The supported model is shared static egress combined with the destination allowlist. Teams on the Enterprise plan can install their own networking client on every team computer through Team Setup to reach private services; see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ### Prompt injection
 
@@ -296,6 +296,7 @@ ride your identity provider, so your session policies also apply.
 ## Related pages
 
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
+- [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)
 - [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md)
