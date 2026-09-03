@@ -255,8 +255,8 @@
       "title": "Terminal"
     },
     "api.md": {
-      "hash": "9a6c962573c7a73b2fc9c3aaf0a7611b23165de6d49d1633f4eac8a5cf9655a4",
-      "last_updated": "2026-09-01T23:15:27+00:00",
+      "hash": "cbbd45280e049adc1dd7c3c7ad0d599c6729b24d12981bb7a06ecc7dfabd5da2",
+      "last_updated": "2026-09-03T16:20:44+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "source_url": "https://cursor.com/docs/api",
@@ -1627,7 +1627,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-03T04:15:35+00:00",
+  "last_updated": "2026-09-03T16:21:26+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
