@@ -6,10 +6,6 @@ path: /docs/cloud-agent/mobile
 
 # Cursor for iOS
 
-### Beta
-
-Cursor for iOS is in beta. Features may change before general availability.
-
 Cursor for iOS is a native mobile app for controlling agents running [in the cloud](https://cursor.com/docs/cloud-agent.md) and on your local computer. Start agents, follow their work in real time, and review and merge their pull requests from your iPhone or iPad. It runs on the same backend as [cursor.com/agents](https://cursor.com/agents) and the desktop Agents Window, so the agents you start on mobile show up everywhere you work.
 
 [https://apps.apple.com/app/cursor/id6767085653](https://apps.apple.com/app/cursor/id6767085653)
@@ -81,7 +77,7 @@ The app focuses on directing and reviewing agents. It isn't an IDE, and it isn't
 - **Secrets and environments.** Configure [cloud agent environments](https://cursor.com/docs/cloud-agent/setup.md) and secrets on the web. Agents on mobile use what's already set up.
 - **MCP server management.** Pick servers per run on mobile; add and manage them on the web.
 - **Source control setup.** Connect or reconnect [GitHub](https://cursor.com/docs/integrations/github.md) and [GitLab](https://cursor.com/docs/integrations/gitlab.md) from the dashboard.
-- **Automations, rules, and skills config.** Manage these on the web. Agents pick up whatever the repo already contains.
+- **Automations, rules, and skills config.** Manage these on the web. Agents pick up project skills from the repo and any personal skills you have synced.
 - **Admin, billing, and usage.** Web only.
 
 ## Move between devices

@@ -29,7 +29,12 @@ Clone one of these repositories to start from a working worker deployment. Each 
 
 - **AWS Lambda MicroVMs.** [anysphere/aws-lambda-workers](https://github.com/anysphere/aws-lambda-workers): a `--spawn` hook launches one Firecracker-isolated Lambda MicroVM per claimed request.
 - **Cloudflare Containers.** [anysphere/cloudflare-workers](https://github.com/anysphere/cloudflare-workers): a Cloudflare Worker acts as the controller and starts one Cloudflare Container per claimed request.
-- **Kubernetes.** [anysphere/k8s-workers](https://github.com/anysphere/k8s-workers): a `--spawn` sample that creates a Pod per claimed request, or keeps warm idle Pods, without a CRD. For the operator path, where a Helm chart manages `WorkerDeployment` resources and warm capacity, follow the [Kubernetes guide](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md).
+- **Kubernetes.** [anysphere/k8s-workers](https://github.com/anysphere/k8s-workers): a Helm sample that runs `agent worker controller --spawn` in your cluster and creates one Pod per claimed request, or keeps warm idle Pods with `--warm-idle`, without a CRD. This is the Kubernetes path for new deployments.
+
+The Cursor Kubernetes operator and `WorkerDeployment` Helm chart are
+deprecated. Clusters that already run the operator can keep using it; the
+[operator reference](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) stays
+available for them. Don't start new deployments on it.
 
 ## What every integration needs
 
@@ -46,5 +51,5 @@ For a single personal machine instead of a platform-managed fleet, use [My Machi
 
 - [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md): start a pool worker by hand before you automate it on a platform.
 - [Worker controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller): the `--spawn` hook model every template builds on.
-- [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): operator and Helm chart for pools at scale.
+- [Kubernetes operator (deprecated)](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): reference for clusters that already run the `WorkerDeployment` operator.
 - [API reference](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools): endpoints for workers, pools, the pending-request queue, and worker tokens.

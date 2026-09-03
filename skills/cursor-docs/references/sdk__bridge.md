@@ -139,7 +139,7 @@ See [protocol.md](https://github.com/cursor/sdk-bridge/blob/main/docs/protocol.m
 
 Pin codegen to a release tag, and prefer a bridge whose `manifest.json` `sdkVersion` matches. Older adapters keep working against newer bridges. New RPCs stay invisible until you regenerate.
 
-Call `SdkBridgeControlService.GetVersion` when you need to gate on `protocol_version` or `capabilities` at runtime.
+Call `SdkBridgeControlService.GetVersion` when you need to gate on `bridge_version`, `protocol_version`, or `capabilities` (for example `agent.usage`) at runtime.
 
 ## Support
 

@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 178,
+    "pages_fetched_successfully": 177,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 180
+    "total_pages_discovered": 179
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -75,8 +75,8 @@
       "title": "Usage Analytics"
     },
     "account__teams__dashboard.md": {
-      "hash": "15133fd9bdc800dcbe38a926472cad7d7907093857a4d2adae03ecd2f4a7d07d",
-      "last_updated": "2026-08-24T21:38:50+00:00",
+      "hash": "06be31c708545700ebfb42f9cbc63d7589047eca453afe6685f53d775fdedffc",
+      "last_updated": "2026-09-03T23:13:59+00:00",
       "original_url": "https://cursor.com/docs/account/teams/dashboard",
       "path": "/docs/account/teams/dashboard",
       "source_url": "https://cursor.com/docs/account/teams/dashboard",
@@ -462,8 +462,8 @@
       "title": "Automations"
     },
     "cloud-agent__best-practices.md": {
-      "hash": "60f76b7c434549b97306af7130bdc845f7a256b5de98489f922ec318911bd406",
-      "last_updated": "2026-08-08T02:14:40+00:00",
+      "hash": "4b997257a86455468794c6f1a58e9bbc6e3dbab5655b3f7b5529924f71c3f3a6",
+      "last_updated": "2026-09-03T23:14:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/best-practices",
       "path": "/docs/cloud-agent/best-practices",
       "source_url": "https://cursor.com/docs/cloud-agent/best-practices",
@@ -507,8 +507,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "2ac57aaf8a548e8e93a5ff4b50c4f0f084428c82b9b6e81021dcc6a25dec9cbb",
-      "last_updated": "2026-09-02T20:58:35+00:00",
+      "hash": "00a2281977c99c0d2787cc81b8a5291cd9e69751b1ab6b896f2401856d9c1fbd",
+      "last_updated": "2026-09-03T23:14:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -543,8 +543,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "2dccca3050c6fc52c14a4b23ab553db73f17281e7e18782647d1979251cb1620",
-      "last_updated": "2026-09-03T04:15:01+00:00",
+      "hash": "ce72c6ed6b8a344197bb60e9a1041a5bc159a7a46ffbcd1564ee9295cf5ecc14",
+      "last_updated": "2026-09-03T23:14:21+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -570,22 +570,13 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "c46c20dc2b471404d53bd99bdcf14ad4eee73fe485bd176f025d2446a8e733f5",
-      "last_updated": "2026-09-02T23:16:43+00:00",
+      "hash": "5e5b1c4dc8a58f41679dc8d11f9a178e168f1f9c77e77bda90b5e64529ebb8ec",
+      "last_updated": "2026-09-03T23:14:22+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "status": "live",
       "title": "Integrations"
-    },
-    "cloud-agent__self-hosted__kubernetes.md": {
-      "hash": "a55e4912a29f265430761c0b5dd262fd689c4a1c16cc9e088d4f1c961f17d6a4",
-      "last_updated": "2026-09-02T20:58:37+00:00",
-      "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/kubernetes",
-      "path": "/docs/cloud-agent/self-hosted/kubernetes",
-      "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/kubernetes",
-      "status": "live",
-      "title": "Self-Hosted Cloud: Deploying with Kubernetes"
     },
     "cloud-agent__self-hosted__my-machines.md": {
       "hash": "10906445bec4d7b9f608bb92be07dd55965e24414094fba72e57c39b872b91e1",
@@ -597,8 +588,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "f59b0ea074ec8a92bf8b19c444eb001a74d9145858d1c9e42b531a1f2b947f99",
-      "last_updated": "2026-09-03T04:15:03+00:00",
+      "hash": "fa14d59c94d47e569db442789e38885acb3469774c00ecaf8e846fc0052c47ac",
+      "last_updated": "2026-09-03T23:14:23+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1470,8 +1461,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "a928ca33f51cee987ca8fee1c07126f48078b31c02740c6754ad3b64b7d7f98f",
-      "last_updated": "2026-08-27T00:41:03+00:00",
+      "hash": "7da15dbb15244f93c3d6cbca0b4b69cb86aee0eba101f6e04546036678439425",
+      "last_updated": "2026-09-03T23:15:01+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1551,8 +1542,8 @@
       "title": "Rules"
     },
     "sdk__bridge.md": {
-      "hash": "aea8170dc9748086a5ece6634e882f64e36519ded3bd6866391e4e3c60c72d4d",
-      "last_updated": "2026-08-07T17:12:25+00:00",
+      "hash": "8020c411af233195fd7d6a9b837a769f634f731775a01722363082c9e9e726aa",
+      "last_updated": "2026-09-03T23:15:05+00:00",
       "original_url": "https://cursor.com/docs/sdk/bridge",
       "path": "/docs/sdk/bridge",
       "source_url": "https://cursor.com/docs/sdk/bridge",
@@ -1560,8 +1551,8 @@
       "title": "Cursor SDK Bridge"
     },
     "sdk__changelog.md": {
-      "hash": "c229d8b7fbb85671cfdd548be0bb1ab170a3abac784da5f997eded036b6e6348",
-      "last_updated": "2026-08-07T17:12:25+00:00",
+      "hash": "aaf5f0b4f549d662298a2b78de23d03d6c745ba783b7dc6640cd12f92e84cee7",
+      "last_updated": "2026-09-03T23:15:05+00:00",
       "original_url": "https://cursor.com/docs/sdk/changelog",
       "path": "/docs/sdk/changelog",
       "source_url": "https://cursor.com/docs/sdk/changelog",
@@ -1569,8 +1560,8 @@
       "title": "SDK Changelog"
     },
     "sdk__python.md": {
-      "hash": "e5f350169d72c75aec5a1bb8e7b6d07fe37083acea76154523d390e9344012c7",
-      "last_updated": "2026-08-24T21:39:34+00:00",
+      "hash": "7924414f9719e89a7e985fbf8083b9d836e1474bd7ecf85d531a4708316db4c4",
+      "last_updated": "2026-09-03T23:15:06+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -1578,8 +1569,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "20765d5c6c9748b7dadf4bbef5371ebde2d9b45d4f7ff82d79ac66a46dc7f76c",
-      "last_updated": "2026-08-24T21:39:34+00:00",
+      "hash": "5bb970c38b4d1949623a85846f5d4f290b7575b615fff3c2472436cd8630d05b",
+      "last_updated": "2026-09-03T23:15:06+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1596,8 +1587,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "22937ac3f4f10b3391f0ec667ae05806e6ad7cd998f1e1091780841a2dc7d2cb",
-      "last_updated": "2026-09-02T11:11:17+00:00",
+      "hash": "43464c87bb08bd3ed12f8d999ec5f5556af32adeb07ed72cf55276caab20fb81",
+      "last_updated": "2026-09-03T23:15:07+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1627,7 +1618,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-03T16:21:26+00:00",
+  "last_updated": "2026-09-03T23:15:07+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

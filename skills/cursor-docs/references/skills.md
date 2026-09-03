@@ -73,11 +73,13 @@ Skills are automatically loaded from these locations:
 | `~/.agents/skills/` | User-level (global) on the local machine |
 | `~/.cursor/skills/` | User-level (global) on the local machine |
 
-Cursor loads user-level skills from the machine where the agent runs. Cursor
-does not copy your local `~/.cursor/skills/` and `~/.agents/skills/` folders
-to Cloud Agents, Agents Window remote SSH sessions, or [self-hosted
-workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md). In those environments,
-use project skills from the repo or bake skills into the worker image.
+User-level skills in `~/.cursor/skills/` stay on your machine until you [sync
+them for Cloud Agents](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) or [publish
+them to your team](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team). Cursor does
+not copy `~/.agents/skills/` or unsynced local skills to Cloud Agents, Agents
+Window remote SSH sessions, or [self-hosted
+workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md). On self-hosted workers, use
+project skills from the repo or bake skills into the worker image.
 
 For compatibility, Cursor also loads skills from Claude and Codex directories: `.claude/skills/`, `.codex/skills/`, `~/.claude/skills/`, and `~/.codex/skills/`.
 
@@ -277,6 +279,38 @@ Keep your main `SKILL.md` focused and move detailed reference material to separa
 
 To view discovered skills, open **Customize** in the sidebar and go to **Skills**. Skills installed from plugins or your project appear alongside rules in the **Agent Decides** section.
 
+## Use personal skills with Cloud Agents
+
+Personal skills in `~/.cursor/skills/` run on your local machine. Turn on **Sync Skills for Cloud Agents** to use those same skills with [Cloud Agents](https://cursor.com/docs/cloud-agent.md).
+
+Synced skills stay private to you. They are not shared with your team.
+
+### Sync your skills
+
+1. Open **Settings → Agents**.
+2. Under **Context and Tools**, turn on **Sync Skills for Cloud Agents**.
+3. Confirm. Cursor copies the contents of `~/.cursor/skills/` so your Cloud Agents can use them.
+
+You can also start a sync from **Customize → Skills**.
+
+Only `~/.cursor/skills/` syncs. Project skills, `~/.agents/skills/`, and other files on your machine stay local.
+
+### Stop syncing
+
+Turn off **Sync Skills for Cloud Agents** under **Settings → Agents**. Cursor moves the synced skills back to your machine.
+
+### Team admin controls
+
+On Teams and Enterprise plans, admins decide whether members can sync:
+
+1. Open [Team Settings](https://cursor.com/dashboard/team-settings).
+2. Go to **Security & Identity**.
+3. Turn **Sync Skills for Cloud Agents** off to disable sync for everyone on the team.
+
+When the team setting is on, each member still chooses whether to sync. When it is off, no one on the team can sync.
+
+To share a skill with teammates, [publish it to your team marketplace](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team). Publishing is different from sync: teammates can install a published skill, and Cursor stores a copy in a repository hosted for your team.
+
 ## Installing skills from GitHub
 
 You can import skills from GitHub repositories:
@@ -310,4 +344,5 @@ Agent Skills is an open standard. Learn more at [agentskills.io](https://agentsk
 ## Related
 
 - [Skills help](https://cursor.com/help/customization/skills.md)
+- [Publish a skill to your team](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team)
 - [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime.md)
