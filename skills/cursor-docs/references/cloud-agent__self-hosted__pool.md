@@ -290,7 +290,7 @@ The Cloud Agent limits that also apply on these tool-execution workers:
 
 `sessionStart` and `sessionEnd` run on Self-Hosted Machines workers. They fire when a Cloud Agent session claims the worker and when that claim is released. Cursor-managed Cloud Agents skip those hooks.
 
-[Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) workers use this same hooks model.
+Workers on [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#deploy-on-kubernetes) and other orchestrated platforms use this same hooks model.
 
 ## Labels
 
@@ -393,13 +393,18 @@ The [Prerequisites](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#prer
 
 ## Deploy on Kubernetes
 
-Run pool workers on Kubernetes when you want the platform to handle scheduling, rolling updates, and health checks. The [Kubernetes guide](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) covers a Helm chart and operator that manage `WorkerDeployment` resources, warm capacity, rolling updates, and token rotation.
+Run pool workers on Kubernetes when you want the platform to handle scheduling, health checks, and Pod lifecycle. Start from [anysphere/k8s-workers](https://github.com/anysphere/k8s-workers): a Helm sample that runs the [worker controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller) in your cluster with `--spawn`. The spawn hook creates one worker Pod per claimed request, or the controller keeps warm idle Pods with `--warm-idle`. No CRD is required.
+
+The Cursor Kubernetes operator and `WorkerDeployment` Helm chart are
+deprecated. If your cluster already runs the operator, it keeps working, and
+the [operator reference](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md) stays
+available. New Kubernetes deployments should use the k8s-workers template.
 
 Other hosts work the same way: any VM, container, or bare-metal machine that can install the Cursor CLI and reach Cursor over outbound HTTPS can run a pool worker under `systemd`, Docker, or your own process manager. For partner guides and reference templates covering AWS Lambda, Cloudflare, Namespace, Modal, Daytona, E2B, Vercel, and Coder, see [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
 
 ## Worker controller
 
-`agent worker controller` starts workers from a `--spawn` hook. It keeps process-forked workers. It does not patch a Kubernetes `WorkerDeployment`. On Kubernetes, keep warm size with `WorkerDeployment.spec.readyReplicas`. See the [Kubernetes deployment guide](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md#scaling).
+`agent worker controller` starts workers from a `--spawn` hook. The hook can fork a process, start a container, or create a Kubernetes Pod, as the [k8s-workers template](https://github.com/anysphere/k8s-workers) does. `--warm-idle` is the warm-capacity path: the controller runs the hook once per missing idle worker instead of patching a Deployment or HPA. `WorkerDeployment.spec.readyReplicas` belongs to the deprecated [Kubernetes operator](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md#scaling); only clusters that already run it need that control.
 
 `--spawn <path>` is required. The hook runs once after a successful claim, or once per missing warm worker. Hook environment includes `CURSOR_API_KEY`, `CURSOR_API_URL`, `CURSOR_API_ENDPOINT`, `CURSOR_AGENT_WORKER_ID`, and request fields. Authenticate with a [service account](https://cursor.com/docs/account/enterprise/service-accounts.md) key via `--api-key` or `CURSOR_API_KEY`. The key binds the team. Session login is not used.
 
@@ -747,7 +752,9 @@ Yes. Project-level skills in `.cursor/skills/` or `.agents/skills/` are
 automatically available on self-hosted workers.
 
 To share skills across a team, check them into the repo or bake them into
-your custom worker image.
+your custom worker image. [Personal skill
+sync](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) applies to
+managed Cloud Agents, not self-hosted workers.
 
 ### Do MCP servers work on self-hosted workers?
 
@@ -776,7 +783,8 @@ sharing](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md#macos).
 
 ## Next steps
 
-- [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): operator and Helm chart for pools at scale.
+- [anysphere/k8s-workers](https://github.com/anysphere/k8s-workers): Kubernetes template built on `agent worker controller --spawn`, with claim-then-spawn and `--warm-idle` modes.
 - [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md): partner guides and reference templates for other platforms.
+- [Kubernetes operator (deprecated)](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes.md): reference for clusters that already run the `WorkerDeployment` operator.
 - [Computer use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md): let agents drive a desktop and browser on your workers.
 - [API reference](https://cursor.com/docs/cloud-agent/api/endpoints.md#workers-and-pools): endpoints for workers, pools, the pending-request queue, and worker tokens.

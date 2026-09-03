@@ -107,6 +107,18 @@ After setting marketplace access, choose how each plugin is distributed to that 
 - **Default On**: The plugin is installed by default, but developers can opt out.
 - **Required**: The plugin is always installed and cannot be uninstalled.
 
+### Allow members to publish
+
+On the **Default** marketplace, admins control whether members can publish personal skills:
+
+1. Open [Dashboard → Plugins](https://cursor.com/dashboard/plugins).
+2. Open the **Default** team marketplace, then **Marketplace Settings**.
+3. Turn **Allow Members to Publish** on or off.
+
+The setting is on by default. When it is off, only team admins can publish new skills. Skills members already published stay available, and those authors can still update or unpublish them.
+
+See [Publish a skill to your team](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team).
+
 ## Add a team marketplace
 
 Use this flow to import a GitHub repository as a team marketplace:
@@ -142,6 +154,26 @@ Developers can find team marketplaces in Customize.
 - Default On plugins are installed automatically, but developers can opt out.
 - Required plugins are installed automatically and cannot be uninstalled.
 - Install and configure marketplace MCP servers for use in the Agent Window, IDE, and CLI.
+
+## Publish a skill to your team
+
+On Teams and Enterprise plans, members can publish a personal skill from `~/.cursor/skills/` to the team's **Default** marketplace.
+
+1. Open **Customize** and go to **Skills**.
+2. Open the personal skill you want to share.
+3. Choose **Publish** and confirm.
+
+Cursor packs the skill into a plugin, stores a copy in a repository hosted for your team, and adds it to the Default marketplace. The skill then loads from that plugin instead of your local folder.
+
+After you publish:
+
+- **Installs are opt-in.** Teammates find the skill in the team marketplace and install it themselves. Publishing does not install it for anyone else. The author gets it automatically.
+- **Authors stay in control.** Use **Sync changes** to push updates, or **Unpublish** to return the skill to your machine.
+- **One skill, one plugin.** The plugin is named after the skill. Publishing does not bundle other skills the published skill references.
+
+Access follows your existing [marketplace access](https://cursor.com/docs/plugins.md#marketplace-access) settings. Admins can turn member publishing off with [Allow Members to Publish](https://cursor.com/docs/plugins.md#allow-members-to-publish).
+
+To use personal skills with your own Cloud Agents without sharing them, [sync them](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) instead.
 
 ## Installing plugins
 
@@ -313,6 +345,15 @@ formats.
 
 [Agent Plugins](https://agent-plugins.org) is an open, vendor-neutral specification for packaging skills and MCP servers into portable plugins. Cursor supports the standard, so spec-conformant plugins load in Cursor without changes. Cursor Plugins are developed in parallel and add Cursor-specific components like rules, agents, commands, hooks, and variables.
 
+### How do I publish a personal skill to my team?
+
+Open **Customize → Skills**, open a personal skill in `~/.cursor/skills/`, and choose **Publish**. Cursor adds it to your team's Default marketplace. See [Publish a skill to your team](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team).
+
+### Does publishing a skill install it for everyone?
+
+No. Teammates choose whether to install it from the marketplace. The author gets it automatically. Admins can later change the plugin to Default On or Required.
+
 ## Related
 
 - [Plugins help](https://cursor.com/help/customization/plugins.md)
+- [Skills](https://cursor.com/docs/skills.md)

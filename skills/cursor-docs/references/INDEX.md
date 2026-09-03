@@ -69,7 +69,6 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `cloud-agent__self-hosted__choose-runtime` - [Choose where Cloud Agents run](https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime)
 - `cloud-agent__self-hosted__computer-use` - [Computer use and desktop sharing](https://cursor.com/docs/cloud-agent/self-hosted/computer-use)
 - `cloud-agent__self-hosted__integrations` - [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations)
-- `cloud-agent__self-hosted__kubernetes` - [Self-Hosted Cloud: Deploying with Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/kubernetes)
 - `cloud-agent__self-hosted__my-machines` - [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines)
 - `cloud-agent__self-hosted__pool` - [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool)
 - `cloud-agent__settings` - [Cloud Agents settings](https://cursor.com/docs/cloud-agent/settings)
