@@ -6,10 +6,11 @@ path: /docs/grok-bot/private-networks
 
 # Connect to private networks
 
-Grok Bot computers run in Cursor's cloud and reach the internet through [shared static egress IP addresses](https://cursor.com/docs/grok-bot/teams.md#static-egress-ips). If the systems your Bots need, such as internal APIs, source control, databases, or staging environments, live on a private network, you can connect by installing your organization's networking client on every team computer through **Team Setup**. Tailscale and Cloudflare Tunnel are common choices, and this page has a worked example for each. Other VPN, zero-trust, or mesh clients that run on Linux follow the same pattern. Your services stay off the public internet, and access is governed by the access controls and identity provider you already use.
+Grok Bot computers run in Cursor's cloud and reach the internet through [shared static egress IP addresses](https://cursor.com/docs/grok-bot/security.md#static-egress-ips). If the systems your Bots need, such as internal APIs, source control, databases, or staging environments, live on a private network, you can connect by installing your organization's networking client on every team computer through **Team Setup**. Tailscale and Cloudflare Tunnel are common choices, and this page has a worked example for each. Other VPN, zero-trust, or mesh clients that run on Linux follow the same pattern. Your services stay off the public internet, and access is governed by the access controls and identity provider you already use.
 
-Team Setup is available on the Enterprise plan. The Grok Bot
-[network policy](https://cursor.com/docs/grok-bot/teams.md#network-policy) is a separate layer
+**Team Setup is Enterprise only.** It does not appear on other plans.
+**Network Controls is also Enterprise only.** That
+[network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) is a separate layer
 that still applies; private network reach doesn't replace your destination
 allowlist.
 
@@ -25,7 +26,7 @@ This is a pattern you run, not a Cursor-managed network mode. Cursor provides th
 
 ## Before you start
 
-- You're a team admin on the **Enterprise** plan. Team Setup doesn't appear on other plans.
+- You're a team admin on the Enterprise plan. **Team Setup is Enterprise only** and doesn't appear on other plans.
 - Your networking client runs on Debian-based Linux and can be installed and started from a shell script. Team computers run Linux, and scripts run as the computer user with `sudo` available.
 - Your network has a way in for that client: a gateway, exit node, or tunnel connector inside the VPC or intranet you want to reach, per your vendor's architecture.
 - You've decided how computers will authenticate to your network. Keep credentials out of setup scripts.
@@ -156,7 +157,7 @@ Other clients that install and run on Debian-based Linux follow the same Team Se
 
 ## Work with the network policy
 
-The Grok Bot [network policy](https://cursor.com/docs/grok-bot/teams.md#network-policy) is a separate layer that controls which destinations team computers may reach. If your team uses **Team allowlist only**, add the destinations your networking client needs, such as coordination servers, relays, and gateways, from your vendor's documentation. Network policy changes apply when a computer is created or recreated.
+The Grok Bot [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) is a separate layer that controls which destinations team computers may reach. If your team uses **Team allowlist only**, add the destinations your networking client needs, such as coordination servers, relays, and gateways, from your vendor's documentation. Network policy changes apply when a computer is created or recreated.
 
 ## Limitations
 
@@ -207,8 +208,10 @@ Team Setup and your own gateway or connector, as described on this page.
 
 ### Which plans include Team Setup?
 
-Enterprise. Team admins manage manifests. If you don't see Team Setup on
-the Grok Bot page of the dashboard, contact your account team.
+**Team Setup is Enterprise only.** Team admins manage manifests. If you
+don't see it on the Grok Bot page of the dashboard, you are not on
+Enterprise, or you need your account team to enable Grok Bot for the
+organization.
 
 ### What happens if the setup script fails on some computers?
 
@@ -218,6 +221,7 @@ computers skip the install.
 
 ## Related pages
 
+- [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Cloud Agents: Running Tailscale](https://cursor.com/docs/cloud-agent/setup.md#running-tailscale) and [Running Cloudflare Tunnel](https://cursor.com/docs/cloud-agent/setup.md#running-cloudflare-tunnel)

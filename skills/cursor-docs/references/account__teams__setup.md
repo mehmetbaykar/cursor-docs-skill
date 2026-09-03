@@ -68,4 +68,4 @@ MDM instructions:
 
 ### Can I be a member of more than one team?
 
-No, a Cursor account cannot be a member of more than one team at a time. If you need to switch teams, you'll need to leave your current team first before joining another.
+On a Teams plan, a Cursor account is one team at a time. Leave your current team before joining another. In an Enterprise Organization, you can belong to multiple teams in the same org, with a different role in each. See [Organizations](https://cursor.com/docs/enterprise/organizations.md).

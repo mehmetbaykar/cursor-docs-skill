@@ -95,5 +95,9 @@ place.
 
 ### Teams and Enterprise
 
-The security model, approvals and Auto Review, admin controls, and the
-recommended rollout baseline.
+Admin controls, identity, private networks, and the recommended rollout
+baseline.
+
+### Security
+
+Network policy, approvals and Auto Review, logging, and data handling.

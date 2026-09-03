@@ -18,7 +18,7 @@ may not appear for you.
 - **Agent.** The time zone routines use for schedules and **Execution on Local Computer**. Cursor manages model selection, so there's no model picker.
 - **Auto-review.** Your personal Auto Review rules.
 
-Two of these settings deserve care. Execution on Local Computer controls whether Bots can run commands on the desktop in front of you; per-command approval is the default, and the setting applies to that desktop alone. Auto Review rules shape which actions stop for your approval, and they're stored on the current desktop and synced to its Grok Bot computer. Either way, don't assume another desktop installation carries the same configuration. Read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/teams.md#approvals-and-auto-review) before changing either.
+Two of these settings deserve care. Execution on Local Computer controls whether Bots can run commands on the desktop in front of you; per-command approval is the default, and the setting applies to that desktop alone. Auto Review rules shape which actions stop for your approval, and they're stored on the current desktop and synced to its Grok Bot computer. Either way, don't assume another desktop installation carries the same configuration. Read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) before changing either.
 
 ## Plugins
 
@@ -30,7 +30,7 @@ Use **Marketplace** to discover plugins and packaged skills, and **Yours** to re
 
 ## Team Setup
 
-On the Teams plan and the Enterprise plan, **Team Setup** shows the managed setup your admin provides for team computers. You can review or reinstall the current setup. Admins configure it from the dashboard; see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
+**Team Setup is Enterprise only.** When an Enterprise admin provides a managed setup, **Team Setup** shows it here so you can review or reinstall it. Admins configure manifests from the dashboard; see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
 
 ## Updates
 
@@ -61,4 +61,5 @@ Errors appear above the composer under **Notifications**. Some notices include *
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
+- [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Delete your Grok Bot account](https://cursor.com/help/grok-bot/delete-account.md)

@@ -42,8 +42,8 @@ Self-Hosted Machines support up to 200 workers per user and 1000 per team. For l
 
 - A **Cursor Enterprise plan**
 - Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents):
-  - **Allow Self-Hosted Agents** lets users opt in to self-hosted runs.
-  - **Require Self-Hosted Agents** routes every Cloud Agent run to self-hosted workers.
+  - **Allow Self-Hosted Machines** lets users opt in to self-hosted runs.
+  - **Require Self-Hosted Machines** routes every Cloud Agent run to self-hosted workers.
 - A [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md) for pool worker authentication
 - A worker machine or image with:
   - `agent` CLI installed
@@ -245,13 +245,13 @@ From the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents), pi
 
 Use pool triggers when you want a Cloud Agent to run on your team's shared worker fleet. Pool workers are the right target for centrally managed capacity, autoscaling, CI-like runners, and repo-scoped infrastructure.
 
-Team admins control self-hosted routing from the Self-Hosted section of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). **Allow Self-Hosted Agents** lets users opt in per request. Without opt-in, runs use Cursor's managed infrastructure. **Require Self-Hosted Agents** routes Cloud Agent runs to self-hosted workers.
+Team admins control self-hosted routing from the Self-Hosted section of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). **Allow Self-Hosted Machines** lets users opt in per request. Without opt-in, runs use Cursor's managed infrastructure. **Require Self-Hosted Machines** routes Cloud Agent runs to self-hosted workers.
 
 When Cursor starts a pool agent, it matches workers with labels. Every pool request includes a `repo=<owner/repo>` label. Requests for a named pool also include `pool=<name>`.
 
 Pool workers handle:
 
-- Runs covered by **Require Self-Hosted Agents**, unless the request targets a specific My Machines worker with `worker=` or `machine=`
+- Runs covered by **Require Self-Hosted Machines**, unless the request targets a specific My Machines worker with `worker=` or `machine=`
 - Requests with `self_hosted=true`, `self_hosted`, or `selfhosted`
 - Requests with `pool=<name>`, which also selects that named pool
 - Self-hosted requests with repository selection from the trigger surface, such as `repo=<owner/repo>` where supported
@@ -266,9 +266,9 @@ Use these options from integrations to start pool agents:
 
 Policy handling depends on where the request starts:
 
-- **Slack** rejects self-hosted opt-in when Allow Self-Hosted Agents is off and replies in Slack. If Require Self-Hosted Agents is on, every Slack mention runs self-hosted.
-- **GitHub** lets repo `OWNER` and `COLLABORATOR` users route runs to self-hosted workers. Other commenters run on managed infrastructure when they opt in, or are skipped if Require Self-Hosted Agents is on. This protects public repos where outside contributors can leave comments.
-- **Linear** rejects explicit self-hosted requests when Allow Self-Hosted Agents is off. The issue gets an agent activity error that asks an admin to turn on self-hosted workers or remove the hint to run on Cursor's managed infrastructure.
+- **Slack** rejects self-hosted opt-in when Allow Self-Hosted Machines is off and replies in Slack. If Require Self-Hosted Machines is on, every Slack mention runs self-hosted.
+- **GitHub** lets repo `OWNER` and `COLLABORATOR` users route runs to self-hosted workers. Other commenters run on managed infrastructure when they opt in, or are skipped if Require Self-Hosted Machines is on. This protects public repos where outside contributors can leave comments.
+- **Linear** rejects explicit self-hosted requests when Allow Self-Hosted Machines is off. The issue gets an agent activity error that asks an admin to turn on self-hosted workers or remove the hint to run on Cursor's managed infrastructure.
 
 To target one of your own machines by name, use [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#trigger-this-machine-from-a-chat-surface) with `worker=` or `machine=`.
 

@@ -116,7 +116,7 @@ curl https://cursor.com/install -fsS | bash
   export CURSOR_API_KEY="<team service-account API key>"
   ```
 
-- Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents): **Allow Self-Hosted Agents** lets users opt in, and **Require Self-Hosted Agents** routes every Cloud Agent run to your workers.
+- Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents): **Allow Self-Hosted Machines** lets users opt in, and **Require Self-Hosted Machines** routes every Cloud Agent run to your workers.
 
 **Computer use** (optional)
 
