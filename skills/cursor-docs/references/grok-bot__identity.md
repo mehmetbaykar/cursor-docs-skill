@@ -6,7 +6,7 @@ path: /docs/grok-bot/identity
 
 # Configure identity and access
 
-This guide is for admins running Okta or Microsoft Entra ID. It covers giving people outside your engineering organization access to Grok Bot through your Cursor team, and letting members sign in to IdP-provisioned apps from the Bot's computer. For the broader security model, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
+This guide is for admins running Okta or Microsoft Entra ID. It covers giving people outside your engineering organization access to Grok Bot through your Cursor team, and letting members sign in to IdP-provisioned apps from the Bot's computer. For the broader security model, see [Grok Bot security](https://cursor.com/docs/grok-bot/security.md).
 
 Grok Bot uses your Cursor account, so there is no separate Grok Bot app in
 Okta or Entra ID. Everything in this guide happens on the Cursor app you
@@ -27,7 +27,7 @@ Only the first change controls Grok Bot sign-in. The second never blocks it, and
 
 Grok Bot access requires the user to be a member of your Cursor team. Members sign in with their Cursor account, so your existing [Cursor SSO](https://cursor.com/docs/account/teams/sso.md) applies. With auto-provisioning on, a user joins the team at first sign-in; otherwise, provision the user, then have them sign in to Cursor for a seat or invite them from the [Cursor dashboard](https://cursor.com/dashboard).
 
-If you use [SCIM](https://cursor.com/docs/account/teams/scim.md), provisioning is SCIM 2.0, available on the Enterprise plan, and deprovisioning is automatic: removing the user in your identity provider removes them from Cursor.
+**SCIM is Enterprise only.** If you use [SCIM](https://cursor.com/docs/account/teams/scim.md), provisioning is SCIM 2.0, and deprovisioning is automatic: removing the user in your identity provider removes them from Cursor.
 
 ## Assign the Cursor app
 
@@ -68,7 +68,7 @@ Don't turn FastPass or device compliance off for the whole company. Add a higher
 These sign-in methods work in the computer browser:
 
 - **Password plus a second factor that works in a remote browser**, such as Okta Verify push or an authenticator app.
-- **Passkeys stored in a password manager on the computer**, installed with a [Team Setup script](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
+- **Passkeys stored in a password manager on the computer**, installed with a [Team Setup script](https://cursor.com/docs/grok-bot/teams.md#admin-controls). Team Setup is Enterprise only.
 
 Requiring managed devices for Grok Bot sign-in itself still works. Grok Bot
 uses your Cursor SSO, so a device-aware sign-in policy in your identity
@@ -105,7 +105,7 @@ For phishing resistance without a managed device, use an authentication strength
 
 The change works when a user can sign in to IdP-provisioned apps from the Bot's computer without a FastPass or device-compliance error, plugin sign-in works as before, and laptop sign-ins are unchanged.
 
-Revocation stays with you either way: revoking the user in your identity provider ends their in-computer application sessions, and an admin can [terminate the member's computer](https://cursor.com/docs/grok-bot/teams.md#identity-and-sign-ins) at any time.
+Revocation stays with you either way: revoking the user in your identity provider ends their in-computer application sessions, and an organization admin can [terminate the member's computer](https://cursor.com/docs/grok-bot/security.md#identity-and-sign-ins) at any time.
 
 ## Limitations
 
@@ -140,6 +140,7 @@ the team in the dashboard.
 
 ## Related pages
 
+- [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
 - [SSO](https://cursor.com/docs/account/teams/sso.md)
 - [SCIM](https://cursor.com/docs/account/teams/scim.md)

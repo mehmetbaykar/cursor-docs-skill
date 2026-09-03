@@ -125,7 +125,7 @@ Plugins give Bots a structured way to work with services like Gmail, Notion, and
 
 - **Plugins are account-wide.** An installed plugin is available to every Bot you run.
 - **Plugin logins stay off the computer.** OAuth tokens are held on Cursor's connector backend, and the Bot invokes tools without receiving them.
-- **Team policy applies.** A plugin blocked by your team's MCP policy shows **Disabled by team admin**. Blocking a plugin doesn't block that service's website; the [team network policy](https://cursor.com/docs/grok-bot/teams.md#network-policy) closes that second path.
+- **Team policy applies.** A plugin blocked by your team's connector policy shows **Disabled by team admin**. Blocking a plugin doesn't block that service's website. Closing that second path takes **Network Controls**, which is Enterprise only. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy).
 
 ### Files and the workspace
 
@@ -145,7 +145,7 @@ Recover and update preserve durable files and logins. Reset returns the computer
 
 ### Your local computer is separate
 
-The cloud computer is separate from the machine in front of you. A Bot runs commands on your local computer only under the local execution policy: per-command approval by default, settable to always allow, ask every time, or never. That policy is its own control, separate from the approvals that govern work on the cloud computer. See [local execution](https://cursor.com/docs/grok-bot/teams.md#local-execution).
+The cloud computer is separate from the machine in front of you. A Bot runs commands on your local computer only under the local execution policy: per-command approval by default, settable to always allow, ask every time, or never. That policy is its own control, separate from the approvals that govern work on the cloud computer. See [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution).
 
 ## Skills and routines
 

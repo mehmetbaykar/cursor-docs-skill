@@ -8,7 +8,7 @@ path: /docs/grok-bot/use-cases
 
 The best Bot roles own a repeatable outcome, not a loose category of questions. Start each role with read-and-prepare work, review the result, and only then add approved actions or a [routine](https://cursor.com/docs/grok-bot/work.md#skills-and-routines).
 
-Every starter prompt below ends at a review point on purpose. Keep sending, publishing, purchasing, and production changes behind [approval](https://cursor.com/docs/grok-bot/teams.md#approvals-and-auto-review).
+Every starter prompt below ends at a review point on purpose. Keep sending, publishing, purchasing, and production changes behind [approval](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review).
 
 ## Sales outbound
 

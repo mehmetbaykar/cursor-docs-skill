@@ -126,11 +126,11 @@ Agent tasks rarely end with the last commit. CI has to pass. Reviewers leave com
 
 The agent subscribes to an event source, ends its turn, and wakes when a matching event arrives. Events land as follow-ups in the same conversation, so the agent continues with full context:
 
-- Open a PR, then respond to review comments and CI failures until it merges
+- Open a PR, then respond to review comments and CI failures
 - Ask a question in Slack and continue once someone replies
 - Check back on a long-running job with a timer
 
-To subscribe, describe the wait in your prompt. For example, "open a PR and keep it green until merge" or "ask in #releases and wait for approval". You can also invoke the built-in `/subscribe` skill, which works the same way: tell it what to watch and the agent picks the right subscription.
+To subscribe, describe the wait in your prompt. For example, "open a PR and keep CI green" or "ask in #releases and wait for approval". You can also invoke the built-in `/subscribe` skill, which works the same way: tell it what to watch and the agent picks the right subscription.
 
 Agents can subscribe to events from these integrations:
 

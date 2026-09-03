@@ -72,7 +72,7 @@ Ask for revisions, and name lasting preferences explicitly, like a report
 format you want reused. When the process is stable, save it as a
 [skill or routine](https://cursor.com/docs/grok-bot/work.md#skills-and-routines).
 
-Before you let a Bot change external systems, read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/teams.md#approvals-and-auto-review). It covers approval prompts, the review model behind them, and how to keep credentials out of chat.
+Before you let a Bot change external systems, read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review). It covers approval prompts, the review model behind them, and how to keep credentials out of chat.
 
 ## Use Grok Bot on iOS
 
