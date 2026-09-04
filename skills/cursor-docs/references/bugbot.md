@@ -29,7 +29,7 @@ Connect your repositories through the Cursor dashboard to start using Bugbot.
 - **GitHub** (including GitHub Enterprise Server): See the [GitHub integration page](https://cursor.com/docs/integrations/github.md)
 - **GitLab** (including GitLab Self-Hosted): See the [GitLab integration page](https://cursor.com/docs/integrations/gitlab.md)
 - **Bitbucket** (including Bitbucket Data Center): See the [Bitbucket integration page](https://cursor.com/docs/integrations/bitbucket.md)
-- **Azure DevOps** (Azure DevOps Services, limited availability): See the [Azure DevOps integration page](https://cursor.com/docs/integrations/azure-devops.md#set-up-bugbot)
+- **Azure DevOps** (Azure DevOps Services): See the [Azure DevOps integration page](https://cursor.com/docs/integrations/azure-devops.md#set-up-bugbot)
 
 After connecting, open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to enable it on specific repositories.
 

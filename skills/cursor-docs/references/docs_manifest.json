@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "8eef87aa28bde59f1770cadb0aadfa061e4ccd4ffe5b24b1e1ba764f40a9e054",
-      "last_updated": "2026-09-02T20:58:17+00:00",
+      "hash": "642928e142e3dd120e4360606da6aea108d19acbd85ff0b59327b8770f28f4ad",
+      "last_updated": "2026-09-04T20:42:37+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "98141c9f67b469c16e554549d28ff3676e0635053509098a3cb5f12d332192e6",
-      "last_updated": "2026-09-02T20:58:19+00:00",
+      "hash": "3e209b217444761f5c90b8cd668740a4fef05f78634917f2f88f1f721bb20f76",
+      "last_updated": "2026-09-04T20:42:40+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -273,8 +273,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "4cbde175d78ea8d08cd96799ced562e4c2243bfd6e8775a424a1b45a3c1796e8",
-      "last_updated": "2026-09-01T08:33:55+00:00",
+      "hash": "b12e70bc6cb26ec60e5a5ceafa669e7fba17a00848a291a478cd67a3ea9ac1ae",
+      "last_updated": "2026-09-04T20:42:47+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -435,8 +435,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "edbe6f925b963723e10c3b75f079484c27d6cc37d185b5f722fd278a647262ad",
-      "last_updated": "2026-09-02T11:10:36+00:00",
+      "hash": "23f7a3775d447b9d2557dd9c1216541fa30fb8333c840b36ac98f880d3ba90c4",
+      "last_updated": "2026-09-04T20:42:53+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -516,8 +516,8 @@
       "title": "Cursor for iOS"
     },
     "cloud-agent__private-connectivity.md": {
-      "hash": "e9967ce2a64735eabbb7728ada66f07bce1d91ce179ad14674d1003b76f80eed",
-      "last_updated": "2026-08-07T17:11:58+00:00",
+      "hash": "60781fe805e82f49fc8f8ee7ec581b3053c6dbe9110743934bf43a0ceaf740fc",
+      "last_updated": "2026-09-04T20:42:56+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "path": "/docs/cloud-agent/private-connectivity",
       "source_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
@@ -642,8 +642,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "0aa81c8869d8eaeac9fa6d439df8b41d75dfd43f6b674e7d0eaa195bfdcd06ae",
-      "last_updated": "2026-09-02T20:58:16+00:00",
+      "hash": "6448500b4b40e04be6e49723f205fa283bf8b775b64fa92b8ccccde1957bcf55",
+      "last_updated": "2026-09-04T20:42:37+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -732,8 +732,8 @@
       "title": "Connect to private networks"
     },
     "grok-bot__security-faq.md": {
-      "hash": "9b61377d023830a712c918f91de845d690a59f2c74e0ee9050bf6cfaae52919c",
-      "last_updated": "2026-09-04T04:21:46+00:00",
+      "hash": "a5448a4a8c5ebc3dca3ec15859a5abf405056e58e1050fba062db81fa257dc6e",
+      "last_updated": "2026-09-04T20:43:04+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -741,8 +741,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "d9ee9d75773daa1fcecb3ab967c298ed2fccc56a7e7c1176d99117b7864517ce",
-      "last_updated": "2026-09-04T04:21:45+00:00",
+      "hash": "275f3e67c21055047e5884d9b90565f89564ba0060bf42621cbc5aa6eba4832d",
+      "last_updated": "2026-09-04T20:43:03+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -795,8 +795,8 @@
       "title": "Hooks"
     },
     "integrations__azure-devops.md": {
-      "hash": "dbf80ba0562379107d44fae3f229911cf38672b6e27f33da49c2074802676ff2",
-      "last_updated": "2026-08-26T01:53:47+00:00",
+      "hash": "5950ada4e85015bc7d5ab4c6960a2e2a12a99d24e6fd9328c6f3940cbc114eee",
+      "last_updated": "2026-09-04T20:43:06+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
       "source_url": "https://cursor.com/docs/integrations/azure-devops",
@@ -921,8 +921,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "ff30052c8aada4d34b283f484bbcdb636de2c5867d6c36079f8891bf9e15fa9a",
-      "last_updated": "2026-09-02T20:58:48+00:00",
+      "hash": "1649a5d7958ac2742e83ad551411864636e5bad7d3e5f1df2b60a2e0a17535b8",
+      "last_updated": "2026-09-04T20:43:10+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1254,8 +1254,8 @@
       "title": "Models Gpt 5 5"
     },
     "models__gpt-5-6-luna.md": {
-      "hash": "278cdaeab06708db71ade9badbc475961711c862345f6357c821a5f75dd306fc",
-      "last_updated": "2026-08-24T21:39:23+00:00",
+      "hash": "f38959f8f1ff0d09baf01ac279ad11c09d3feebc0f130c436ef014639f593323",
+      "last_updated": "2026-09-04T20:43:23+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-luna",
       "path": "/docs/models/gpt-5-6-luna",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-luna",
@@ -1263,8 +1263,8 @@
       "title": "Models Gpt 5 6 Luna"
     },
     "models__gpt-5-6-sol.md": {
-      "hash": "07bdae46dd03c1b1f06d38e1c8941d9c22f022d61e9e752d686a276c9cca340f",
-      "last_updated": "2026-08-24T21:39:24+00:00",
+      "hash": "38050d35cd52ecd0836b1c7b876278451d2494d24ee37ec28ff6242d95fb083c",
+      "last_updated": "2026-09-04T20:43:23+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-sol",
       "path": "/docs/models/gpt-5-6-sol",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-sol",
@@ -1272,8 +1272,8 @@
       "title": "Models Gpt 5 6 Sol"
     },
     "models__gpt-5-6-terra.md": {
-      "hash": "76b238a7af5c4a34d7392a0191dce14758446012fe4e95051892506bc8c5dbff",
-      "last_updated": "2026-08-24T21:39:24+00:00",
+      "hash": "124bfbe985386aef0a714d76510da5723600cc06d951a81f89e138904c302dee",
+      "last_updated": "2026-09-04T20:43:23+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-terra",
       "path": "/docs/models/gpt-5-6-terra",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-terra",
@@ -1618,7 +1618,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-04T11:10:36+00:00",
+  "last_updated": "2026-09-04T20:43:36+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
