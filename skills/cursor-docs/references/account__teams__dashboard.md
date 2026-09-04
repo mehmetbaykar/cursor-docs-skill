@@ -134,7 +134,7 @@ Access detailed AI-generated code analytics for your team's repositories. Retrie
 
 ### Audit Log
 
-View comprehensive, tamper-proof records of security events and administrative actions. Track authentication, team changes, permission updates, API key actions, settings modifications, and more. Requires an Enterprise subscription. Learn more in [Compliance and Monitoring](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+View comprehensive, tamper-proof records of security events and administrative actions. Track authentication, team changes, permission updates, API key actions, settings modifications, and more. Filter by application. CSV export includes the application. Requires an Enterprise subscription. Learn more in [Compliance and Monitoring](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
 
 **SCIM** (System for Cross-domain Identity Management) provisioning is also
 available for [Enterprise](https://cursor.com/docs/enterprise.md) plans. See our [SCIM
@@ -148,7 +148,7 @@ Manage your team members, invite new users, and control access permissions. Set 
 
 ## Audit Log
 
-Track security events, administrative actions, and team changes with comprehensive audit logs. View detailed records of who did what, when, and from where. Audit logs capture authentication events, membership changes, permission updates, API key actions, settings modifications, and more.
+Track security events, administrative actions, and team changes with comprehensive audit logs. View detailed records of who did what, when, and from where. Audit logs capture authentication events, membership changes, permission updates, API key actions, settings modifications, and more. Filter by application. CSV export includes the application.
 
 ![Audit Log](https://cursor.com/docs-static/images/account/team/audit-log.png)
 
