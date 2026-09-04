@@ -131,7 +131,7 @@ Cloud Agents are charged at API pricing for the selected [model](https://cursor.
 
 - Ensure you've added secrets in [cursor.com/dashboard/cloud-agents](https://cursor.com/dashboard/cloud-agents)
 - Secrets are workspace/team-scoped; make sure you're using the correct account
-- Try restarting the cloud agent after adding new secrets
+- Secrets are injected when an agent starts. Agents already running won't pick up new secrets, so start a new agent after adding them
 
 ### Can't find the Secrets tab
 

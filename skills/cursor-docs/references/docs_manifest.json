@@ -426,8 +426,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "3e93358946be680df88701288f6a9fe6d42dc58f43707c288183cadb26a6bbdf",
-      "last_updated": "2026-09-02T11:10:36+00:00",
+      "hash": "d98b9d0ad5863f44c7524c3eab57baf1915235ca1488467723bc5f7e8d447c2d",
+      "last_updated": "2026-09-04T11:09:45+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -1618,7 +1618,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-04T04:22:12+00:00",
+  "last_updated": "2026-09-04T11:10:36+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
