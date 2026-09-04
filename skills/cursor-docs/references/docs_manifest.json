@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "3e6e3eac884a49c83e3d19123f8f4e88467eb948e8e3fd3456c214ccfb6bbea8",
-      "last_updated": "2026-09-02T20:58:17+00:00",
+      "hash": "87f78a2989033af254493d27e8bacda4f5604375679591e894487e3d0b7a0caf",
+      "last_updated": "2026-09-04T04:21:23+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -75,8 +75,8 @@
       "title": "Usage Analytics"
     },
     "account__teams__dashboard.md": {
-      "hash": "06be31c708545700ebfb42f9cbc63d7589047eca453afe6685f53d775fdedffc",
-      "last_updated": "2026-09-03T23:13:59+00:00",
+      "hash": "c41704898b236188e405c2862767390acb80afe2e8dc9404037b2c468b43f807",
+      "last_updated": "2026-09-04T04:21:25+00:00",
       "original_url": "https://cursor.com/docs/account/teams/dashboard",
       "path": "/docs/account/teams/dashboard",
       "source_url": "https://cursor.com/docs/account/teams/dashboard",
@@ -732,8 +732,8 @@
       "title": "Connect to private networks"
     },
     "grok-bot__security-faq.md": {
-      "hash": "2323ff6df5ecaf01380554b94d768e9a2e009738bededb12e73c1f3c4c8b8de4",
-      "last_updated": "2026-09-03T04:15:08+00:00",
+      "hash": "9b61377d023830a712c918f91de845d690a59f2c74e0ee9050bf6cfaae52919c",
+      "last_updated": "2026-09-04T04:21:46+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -741,8 +741,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "2fd73aedaee6f0578ad24fac4f98235f743be3318f629eeba6947d6242a19bdc",
-      "last_updated": "2026-09-03T04:15:07+00:00",
+      "hash": "d9ee9d75773daa1fcecb3ab967c298ed2fccc56a7e7c1176d99117b7864517ce",
+      "last_updated": "2026-09-04T04:21:45+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -759,8 +759,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "aa344dc39db58eeba108060f4f83e54f10fcbb6cb7c262b7954b51666125e0db",
-      "last_updated": "2026-09-03T04:15:08+00:00",
+      "hash": "d68dd40d8ad3fcd76686a2906c6af00802afa0ae0caa2bf04b5076bde0d097c6",
+      "last_updated": "2026-09-04T04:21:46+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1618,7 +1618,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-03T23:15:07+00:00",
+  "last_updated": "2026-09-04T04:22:12+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

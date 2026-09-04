@@ -79,7 +79,7 @@ End time (defaults to now). See [Date Formats](https://cursor.com/docs/account/t
 
 `eventTypes` string
 
-Comma-separated event types to filter by. Possible values: `login`, `logout`, `add_user`, `remove_user`, `update_user_role`, `team_settings`, `mcp_server_config`, `team_api_key`, `user_api_key`, `privacy_mode`, `user_spend_limit`, `team_rule`, `team_repo`, `team_hook`, `team_command`, `create_directory_group`, `delete_directory_group`, `update_directory_group`, `update_directory_group_permissions`, `add_user_to_directory_group`, `remove_user_from_directory_group`, `bugbot_installation`, `bugbot_installation_settings`, `bugbot_repo_settings`, `bugbot_team_rule`, `bugbot_team_settings`, `bugbot_bulk_repo_update`
+Comma-separated event types to filter by. Possible values: `login`, `logout`, `add_user`, `remove_user`, `update_user_role`, `team_settings`, `mcp_server_config`, `team_api_key`, `user_api_key`, `privacy_mode`, `user_spend_limit`, `team_rule`, `team_repo`, `team_hook`, `team_command`, `create_directory_group`, `delete_directory_group`, `update_directory_group`, `update_directory_group_permissions`, `add_user_to_directory_group`, `remove_user_from_directory_group`, `bugbot_installation`, `bugbot_installation_settings`, `bugbot_repo_settings`, `bugbot_team_rule`, `bugbot_team_settings`, `bugbot_bulk_repo_update`, `grok_bot_created`, `grok_bot_access_changed`, `grok_bot_team_setup_manifest`, `mcp_authentication`, `slack_account_link`, `grok_bot_routine`
 
 `search` string
 
@@ -133,6 +133,8 @@ curl -X GET "https://api.cursor.com/teams/audit-logs?users=admin@company.com,dev
 
 **Response:**
 
+Each object in `events` includes `application_type`: `grok_bot` for Grok Bot, `cursor` for other Cursor surfaces, or an empty string when the application cannot be determined (including rows written before this field existed).
+
 ```json
 {
   "events": [
@@ -142,6 +144,7 @@ curl -X GET "https://api.cursor.com/teams/audit-logs?users=admin@company.com,dev
       "ip_address": "203.0.113.42",
       "user_email": "admin@company.com",
       "event_type": "add_user",
+      "application_type": "cursor",
       "event_data": {
         "email": "admin@company.com",
         "method": "manual"
@@ -153,6 +156,7 @@ curl -X GET "https://api.cursor.com/teams/audit-logs?users=admin@company.com,dev
       "ip_address": "192.168.1.1",
       "user_email": "developer@company.com",
       "event_type": "login",
+      "application_type": "grok_bot",
       "event_data": {
         "ip_address": "192.168.1.1",
         "user_agent": "Cursor/0.42.0"

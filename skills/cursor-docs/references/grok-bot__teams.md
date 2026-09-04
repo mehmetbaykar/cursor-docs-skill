@@ -87,26 +87,26 @@ Check the **Cloud Agents** and **Public template sharing** entries under
 
 Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). That page is admin-only. **Enterprise only** means the control is hidden on self-serve Teams. It is not a default you can turn on later.
 
-| Control                       | Availability                                            | Where                                  |
-| ----------------------------- | ------------------------------------------------------- | -------------------------------------- |
-| Enable Grok Bot               | Enterprise only                                         | Grok Bot page                          |
-| Network Controls              | Enterprise only                                         | Grok Bot page                          |
-| Team Setup                    | Enterprise only                                         | Grok Bot page                          |
-| Action Recording              | Enterprise only                                         | Grok Bot page                          |
-| Computer management           | Enterprise only. Organization admins.                   | Grok Bot page                          |
-| Cloud Agents                  | Teams and Enterprise                                    | Grok Bot page                          |
-| Public template sharing       | Teams and Enterprise                                    | Grok Bot page                          |
-| Team Rules                    | Teams and Enterprise                                    | Grok Bot page                          |
-| Connector policy              | Teams and Enterprise. MCP allowlist is Enterprise only. | Teams Marketplace                      |
-| Auto Review team instructions | Teams and Enterprise                                    | Team Settings, Security and Automation |
-| Audit logs                    | Enterprise only                                         | Dashboard audit log, or SIEM stream    |
-| OpenTelemetry Export          | Enterprise only                                         | Team Settings                          |
-| SCIM                          | Enterprise only                                         | Identity provider                      |
+| Control                       | Availability                                            | Where                                                       |
+| ----------------------------- | ------------------------------------------------------- | ----------------------------------------------------------- |
+| Enable Grok Bot               | Enterprise only                                         | Grok Bot page                                               |
+| Network Controls              | Enterprise only                                         | Grok Bot page                                               |
+| Team Setup                    | Enterprise only                                         | Grok Bot page                                               |
+| Action Recording              | Enterprise only                                         | Grok Bot page                                               |
+| Computer management           | Enterprise only. Organization admins.                   | Grok Bot page                                               |
+| Cloud Agents                  | Teams and Enterprise                                    | Grok Bot page                                               |
+| Public template sharing       | Teams and Enterprise                                    | Grok Bot page                                               |
+| Team Rules                    | Teams and Enterprise                                    | Grok Bot page                                               |
+| Connector policy              | Teams and Enterprise. MCP allowlist is Enterprise only. | Teams Marketplace                                           |
+| Auto Review team instructions | Teams and Enterprise                                    | Team Settings, Security and Automation                      |
+| Audit logs                    | Enterprise only                                         | Dashboard audit log (filter by application), or SIEM stream |
+| OpenTelemetry Export          | Enterprise only                                         | Team Settings                                               |
+| SCIM                          | Enterprise only                                         | Identity provider                                           |
 
 - **Enable Grok Bot. Enterprise only.** An organization-wide switch. Incomplete setup shows **Disabled** and **Enable**; after setup, the page shows **Enabled** and **Disable**. Disabling blocks members and doesn't delete member computers. Self-serve Teams do not get this switch. Their dashboard shows **Learn more**, and a first admin visit can open onboarding at `/bot/onboarding`.
 - **Network Controls. Enterprise only.** Four modes, directory-group scope, and a lock. The dashboard label is **Network Controls**. Self-serve Teams have no destination allowlist. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy).
 - **Team Setup. Enterprise only.** Manifests of admin install scripts that run on every team computer, so your standard tooling is in place everywhere. Don't put secret values in setup scripts. To install your own networking client and reach private services, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
-- **Action Recording. Enterprise only.** Records Bot actions and is off by default. Events do not appear on the Audit Log page. To receive them in your own collector, configure [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md), which is also Enterprise only. See [logging and audit](https://cursor.com/docs/grok-bot/security.md#logging-and-audit).
+- **Action Recording. Enterprise only.** Records Bot actions and is off by default. Events do not appear on the Audit Log page; control-plane changes do, and Bot actions go to Action Recording and [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md), tagged `cursor.surface=grok_bot`. See [logging and audit](https://cursor.com/docs/grok-bot/security.md#logging-and-audit).
 - **Computer management. Enterprise only.** Organization admins can look up any member's computer, see when it was created and last active, and terminate it. Team admin rights aren't enough, because a computer spans every team the member belongs to. The durable disk is kept, and the member's next session starts a fresh computer.
 - **Cloud Agents. Teams and Enterprise.** Allow or block delegation to Cursor Cloud Agents. The default is on. The toggle applies to the whole team.
 - **Public template sharing. Teams and Enterprise.** Off keeps Bot template sharing within your team, and the policy is enforced on Cursor's servers, including for existing public templates. Enterprise teams start with public sharing off. Other teams start with public sharing allowed. The control itself is on both plans.
@@ -114,7 +114,7 @@ Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https:
 - **Auto Review team instructions. Teams and Enterprise.** Team-wide allow and block instructions that feed the reviewer's decisions for every member. These live in team settings under Security and Automation, not on the Grok Bot page.
 - **Local execution.** The policy for Bots acting on a member's own machine. See [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution). A dashboard control for the team ceiling is not available on any plan.
 - **Connector policy.** Grok Bot inherits your team's Cursor connector policy. There is no separate Grok Bot connector list, and connectors appear as plugins in the app. Configure marketplace require and restrict in **Teams Marketplace** (Integrations), not on the Grok Bot page. The MCP allowlist is Enterprise only. See [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). When policy blocks a server, members see the plugin as **Disabled by team admin**. Provisioning connectors to members, whether mandatory or default-on, is not available.
-- **Audit logs. Enterprise only.** Admin, security, and authentication events. View them in the dashboard or stream them to your SIEM. Self-serve Teams do not get this log.
+- **Audit logs. Enterprise only.** Admin, security, and authentication events, plus Grok Bot control-plane events: Bot creation, member access changes, Team Setup manifests, MCP authentication, Slack account links, and routines. Rows carry the application that acted and can be filtered by it. View them in the dashboard or stream them to your SIEM. Self-serve Teams do not get this log.
 - **OpenTelemetry Export. Enterprise only.** The customer path for Action Recording events. Configure it under Team Settings. See [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md).
 - **SCIM. Enterprise only.** SCIM 2.0 provisioning and deprovisioning. See [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md).
 

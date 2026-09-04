@@ -93,11 +93,13 @@ an organization-level lock is not available.
 
 Spend and usage are on the dashboard usage page, broken down by product.
 **Audit logs are Enterprise only.** They cover admin, security, and
-authentication events and can stream to your SIEM. **Action Recording is
-Enterprise only** and is a separate setting, off by default. When enabled,
-it records Bot actions internally. **OpenTelemetry Export is Enterprise
-only.** Configure it to receive those events in your own collector. They
-don't appear on the Audit Log page.
+authentication events,     plus Grok Bot control-plane events like Bot
+creation, access changes, Team Setup, and routines, filterable by application, and
+can stream to your SIEM. **Action Recording is Enterprise only** and is a
+separate setting, off by default. When enabled, it records Bot actions
+internally. **OpenTelemetry Export is Enterprise only.** Configure it to
+receive those events in your own collector, tagged
+`cursor.surface=grok_bot`. They don't appear on the Audit Log page.
 
 ### Can I restrict which models Grok Bot uses?
 

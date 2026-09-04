@@ -76,9 +76,9 @@ When a project or login should no longer be available, members clean up directly
 
 ## Logging and audit
 
-Audit Logs and Action Recording use separate pipelines. Audit Logs cover administrative and security events. Action Recording captures Bot actions, and OpenTelemetry Export sends those events to your collector when configured.
+Audit Logs and Action Recording use separate pipelines. Audit Logs cover administrative and security events, including Grok Bot control-plane actions. Action Recording captures Bot actions, and OpenTelemetry Export sends those events to your collector when configured, tagged `cursor.surface=grok_bot`.
 
-- **Audit logs. Enterprise only.** They cover admin, security, and authentication events. View them in the dashboard or stream them to your SIEM. Self-serve Teams do not get this log.
+- **Audit logs. Enterprise only.** They cover admin, security, and authentication events, plus Grok Bot control-plane events: Bot creation, member access changes, Team Setup manifests, MCP authentication, Slack account links, and routines. Filter them by application in the dashboard, or stream them to your SIEM. Self-serve Teams do not get this log.
 - **Action Recording. Enterprise only.** It is a setting on the Grok Bot page, off by default. When a team enables it, Cursor records Bot actions, including scrubbed shell commands, in an internal store with a 90 day retention. Action Recording events don't appear on the Audit Log page. To receive the sanitized events in your own collector, configure [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md), which is also Enterprise only. Privacy Mode (Legacy) forces recording off.
 
 ## Endpoint tooling
