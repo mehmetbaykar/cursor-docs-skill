@@ -111,8 +111,11 @@ contact your account team.
 
 ### Where do Grok Bot computers run?
 
-In the United States today. If your review needs a written residency
-commitment, contact your account team.
+In the United States today. That is not the same as Cursor's
+[US-only data residency](https://cursor.com/docs/enterprise/privacy-and-data-governance.md#data-residency)
+program, which does not apply to Grok Bot by default. If your review
+needs a written residency commitment, contact your account team. See
+[data residency](https://cursor.com/docs/grok-bot/security.md#data-residency).
 
 ### Can we run Grok Bot on-premises or from our own image?
 

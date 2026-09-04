@@ -74,7 +74,7 @@ If your endpoint service is outside `us-east-1`, enable cross-region access on t
 Cursor will provide the AWS principal to add to your endpoint service allowed principals. Add the exact principal Cursor provides:
 
 ```text
-arn:aws:iam::<cursor-aws-account-id>:role/<cursor-provided-role>
+arn:aws:iam::<cursor-aws-account-id>:root
 ```
 
 Cursor cannot create its interface endpoint until this principal is allowed. If the principal is missing or does not match exactly, AWS returns `InvalidServiceName`.

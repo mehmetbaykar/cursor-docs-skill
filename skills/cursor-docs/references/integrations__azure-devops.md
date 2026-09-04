@@ -37,7 +37,7 @@ To disconnect your Azure DevOps account, return to the integrations dashboard an
 
 ## Set up Bugbot
 
-Bugbot on Azure DevOps is in limited availability. Setup needs a Microsoft Entra ID administrator to grant tenant admin consent, and we walk you through that step. [Contact us](https://cursor.com/contact-sales?source=docs-bugbot-azure-devops) to get started.
+Setup needs a Microsoft Entra ID administrator to grant tenant admin consent.
 
 Bugbot reviews Azure DevOps pull requests under a Microsoft Entra service principal that Cursor provisions in your tenant. That service principal installs the service hooks Bugbot listens to, reads pull request diffs, and posts review comments and build statuses. Setup runs once per Azure DevOps organization, in this order:
 

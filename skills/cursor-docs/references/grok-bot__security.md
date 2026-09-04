@@ -99,7 +99,7 @@ A per-organization retention policy and customer-managed point-in-time restore o
 
 ## Data residency
 
-Grok Bot computers run in the United States today. If your review needs a written residency commitment, contact your account team.
+Grok Bot computers run in the United States today. That is not the same as Cursor's [US-only data residency](https://cursor.com/docs/enterprise/privacy-and-data-governance.md#data-residency) program, which does not apply to Grok Bot by default. If your review needs a written residency commitment, contact your account team.
 
 ## Models and data
 

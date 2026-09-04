@@ -22,6 +22,10 @@ The Cloud Agents API lets you programmatically launch and manage cloud agents th
 
 This API splits work into a durable agent plus per-prompt runs, replacing the flatter v0 surface. The legacy [v0 reference](https://cursor.com/docs/cloud-agent/api/v0.md) remains available.
 
+The 15 MB image limit below applies to API image inputs. Web attachments at
+[cursor.com/agents](https://cursor.com/agents) use separate limits. See
+[Cloud Agent web attachment limits](https://cursor.com/help/ai-features/cloud-agents.md#what-are-the-attachment-limits-for-cloud-agents-on-the-web).
+
 ## Endpoints
 
 ### Create An Agent
