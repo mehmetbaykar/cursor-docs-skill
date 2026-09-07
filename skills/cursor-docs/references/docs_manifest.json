@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 177,
+    "pages_fetched_successfully": 178,
     "pages_skipped": 2,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 179
+    "total_pages_discovered": 180
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -723,17 +723,26 @@
       "title": "Configure identity and access"
     },
     "grok-bot__private-networks.md": {
-      "hash": "2b71e10b540c28f2cd3b6e2fd7fc04b651ed6a0b140ef8cf36bc3df0e7a1f2fc",
-      "last_updated": "2026-09-03T04:15:07+00:00",
+      "hash": "12b7167f65315ecdc379f6504665066d6b422db0cf1570953a25c03b28a1058e",
+      "last_updated": "2026-09-07T23:27:46+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
       "source_url": "https://cursor.com/docs/grok-bot/private-networks",
       "status": "live",
       "title": "Connect to private networks"
     },
+    "grok-bot__proxies.md": {
+      "hash": "48d3977de47c56cf8f423b70c7e16195adde031b259a4f135d9538dfc96e391d",
+      "last_updated": "2026-09-07T23:27:46+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/proxies",
+      "path": "/docs/grok-bot/proxies",
+      "source_url": "https://cursor.com/docs/grok-bot/proxies",
+      "status": "live",
+      "title": "Configure TLS-inspecting proxies"
+    },
     "grok-bot__security-faq.md": {
-      "hash": "a5448a4a8c5ebc3dca3ec15859a5abf405056e58e1050fba062db81fa257dc6e",
-      "last_updated": "2026-09-04T20:43:04+00:00",
+      "hash": "35f5984b984e865775deba4e4641d216be9348ea04667c1d4d7cc168dee9507c",
+      "last_updated": "2026-09-07T23:27:47+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -741,8 +750,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "275f3e67c21055047e5884d9b90565f89564ba0060bf42621cbc5aa6eba4832d",
-      "last_updated": "2026-09-04T20:43:03+00:00",
+      "hash": "5e158d7843f77ace6a593c1ae8473e9908f3a3b3cb0d56f4c679485bd7ba9449",
+      "last_updated": "2026-09-07T23:27:47+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -759,8 +768,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "d68dd40d8ad3fcd76686a2906c6af00802afa0ae0caa2bf04b5076bde0d097c6",
-      "last_updated": "2026-09-04T04:21:46+00:00",
+      "hash": "1a69011bccfade0c1cde3bdd10cef47a0e717c7eb7a1a2d4e919829388c9ef14",
+      "last_updated": "2026-09-07T23:27:48+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1618,7 +1627,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-07T19:07:36+00:00",
+  "last_updated": "2026-09-07T23:28:19+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

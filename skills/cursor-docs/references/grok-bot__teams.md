@@ -54,6 +54,7 @@ Within one user, the boundary is different: all of that user's Bots share one co
 
 - **Move off Privacy Mode (Legacy).** That setting blocks Grok Bot entirely, and you're prompted to change it before enabling. Check the privacy setting in Team Settings.
 - **Plan for shared egress addresses.** If your company restricts services by source IP, see [static egress IPs](https://cursor.com/docs/grok-bot/security.md#static-egress-ips).
+- **Clear your gateway.** If member devices sit behind Zscaler or another TLS-inspecting proxy, allow Cursor's domains, including the nested `*.*.cursorvm.com` pattern, and exempt them from inspection before members connect. See [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
 - **Decide how members sign in to company tools** from the computer. See [identity and sign-ins](https://cursor.com/docs/grok-bot/security.md#identity-and-sign-ins).
 - **Review the policies Grok Bot inherits**: Team Rules and Auto Review team instructions, which are on Teams and Enterprise. The MCP allowlist is Enterprise only.
 
@@ -184,6 +185,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 - [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
+- [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)
 - [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md)
