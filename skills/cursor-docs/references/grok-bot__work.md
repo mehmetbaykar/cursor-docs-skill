@@ -23,7 +23,7 @@ A Bot is a durable AI teammate with a name, a job, its own conversation, and wor
 2. Open **Bot actions** and choose **Edit Profile** to set the name, title, description, and avatar.
 3. Send a real first task with a clear finish line; see [use cases](https://cursor.com/docs/grok-bot/use-cases.md) for starter prompts.
 
-Your existing Bots can also suggest or create a focused Bot when a job should have a long-lived owner. An account can have up to 50 Bots and group chats combined.
+Your existing Bots can also suggest or create a focused Bot when a job should have a long-lived owner.
 
 ### Edit a Bot
 

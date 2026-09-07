@@ -777,8 +777,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "9f95345e00b4e2a6a3f9e53894016627fa4269b3a05029374f6f43438661bd57",
-      "last_updated": "2026-09-03T04:15:09+00:00",
+      "hash": "d32e27eafbdab74045d2f302392f0e6ddc4ced05acc790c6a6f511e5af63309c",
+      "last_updated": "2026-09-07T19:07:10+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -1618,7 +1618,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-04T20:43:36+00:00",
+  "last_updated": "2026-09-07T19:07:36+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
