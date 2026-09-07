@@ -78,6 +78,15 @@ destination allowlist, and installing your own networking client through
 **Team Setup**, which is Enterprise only. See
 [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
+### Grok Bot hangs at computer setup from our network. Why?
+
+A TLS-inspecting gateway such as Zscaler is letting `api2.cursor.sh`
+through and blocking or inspecting the computer's nested `cursorvm.com`
+hostname. Chat may or may not keep working; the computer link fails
+either way. Allow `*.cursorvm.com` and `*.*.cursorvm.com`, exempt them from
+inspection, and apply the change to off-network profiles too. See
+[Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
+
 ## Approvals, logging, and data
 
 ### What does Auto Review check?

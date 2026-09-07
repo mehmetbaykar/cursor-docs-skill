@@ -37,7 +37,7 @@ Blocking a plugin doesn't block that service's website. The connector policy and
 
 Hosted computers reach the internet through shared static egress IP addresses. The ranges are shared across Grok Bot customers, and dedicated per-customer IPs are not available, so treat the ranges as identifying Grok Bot traffic rather than your team alone. Current ranges are available from your account team, and the product control is the destination allowlist rather than a source IP editor.
 
-If your company inspects TLS traffic, allow Cursor's published hostnames and bypass inspection for them; your account team can provide the current list.
+If member devices sit behind Zscaler or another TLS-inspecting gateway, allow Cursor's domains and exempt them from inspection on every profile, including off-network. See [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
 
 **Team Setup is Enterprise only.** Those teams can install their own networking client on every team computer to reach private services. That path is separate from these shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
@@ -133,6 +133,7 @@ Anysphere, the company behind Cursor, holds ISO/IEC 27001 and ISO/IEC 42001 cert
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
+- [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
 - [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md)
 
 ### Review Grok Bot with your account team

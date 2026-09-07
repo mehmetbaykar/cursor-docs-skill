@@ -224,4 +224,5 @@ computers skip the install.
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
+- [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md), for the path from member devices to Cursor
 - [Cloud Agents: Running Tailscale](https://cursor.com/docs/cloud-agent/setup.md#running-tailscale) and [Running Cloudflare Tunnel](https://cursor.com/docs/cloud-agent/setup.md#running-cloudflare-tunnel)
