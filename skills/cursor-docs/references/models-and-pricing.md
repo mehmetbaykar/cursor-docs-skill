@@ -145,13 +145,9 @@ The Cursor Token Rate applies when you select a third-party model directly, and 
 
 ## Auto modes
 
-Auto has three modes: Cost, Balance, and Intelligence.
+Auto has three modes: Cost, Balance, and Intelligence. See [Cursor Router](https://cursor.com/docs/cursor-router.md) for how these modes work.
 
 All Auto modes bill at the list price of the model each request is routed to. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates. Third-party models also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
-
-### Legacy Enterprise Auto
-
-Until September 7, 2026, Enterprise Auto pricing is set per million tokens, regardless of which model is used.
 
 ## Legacy request-based pricing
 

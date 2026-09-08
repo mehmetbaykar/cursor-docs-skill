@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "642928e142e3dd120e4360606da6aea108d19acbd85ff0b59327b8770f28f4ad",
-      "last_updated": "2026-09-04T20:42:37+00:00",
+      "hash": "0ad307a62a9048e83788266025a307458fd7673ed4954ced11c26c195d8f660f",
+      "last_updated": "2026-09-08T04:25:32+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "3e209b217444761f5c90b8cd668740a4fef05f78634917f2f88f1f721bb20f76",
-      "last_updated": "2026-09-04T20:42:40+00:00",
+      "hash": "ffae9ebc688dbb72b37657e8f7b9d8549d5d5cd150e0e76897e80d35a13f6793",
+      "last_updated": "2026-09-08T04:25:34+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -633,8 +633,8 @@
       "title": "Worktrees"
     },
     "cursor-router.md": {
-      "hash": "41cb40054e5c3024733f40fc201004473bcc13f1f2ea3daed98ea58184a3920d",
-      "last_updated": "2026-08-25T01:48:13+00:00",
+      "hash": "2a41431c3fa498de3e648348fee69a482d7110ecb2cb3fd0b93c60227c9e820d",
+      "last_updated": "2026-09-08T04:25:53+00:00",
       "original_url": "https://cursor.com/docs/cursor-router",
       "path": "/docs/cursor-router",
       "source_url": "https://cursor.com/docs/cursor-router",
@@ -642,8 +642,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "6448500b4b40e04be6e49723f205fa283bf8b775b64fa92b8ccccde1957bcf55",
-      "last_updated": "2026-09-04T20:42:37+00:00",
+      "hash": "429536274a571b8c00dc70b0e15440413d1f62e57d11ac2c4a525e052362295f",
+      "last_updated": "2026-09-08T04:25:31+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -930,8 +930,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "1649a5d7958ac2742e83ad551411864636e5bad7d3e5f1df2b60a2e0a17535b8",
-      "last_updated": "2026-09-04T20:43:10+00:00",
+      "hash": "8dfc0fd4e20dbd2bc12400720c0edb4eadb532419bc9559ecba462780e169855",
+      "last_updated": "2026-09-08T04:26:03+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1627,7 +1627,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-07T23:28:19+00:00",
+  "last_updated": "2026-09-08T04:26:26+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

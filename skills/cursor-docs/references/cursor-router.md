@@ -32,8 +32,6 @@ Balance and Intelligence use your usage limits faster than Cost. You can switch 
 
 All Auto modes bill at the list price of the model each request is routed to. Third-party models also incur the Cursor Token Rate.
 
-Until September 7, 2026, Enterprise Auto Cost pricing is set per million tokens, regardless of which model is used ($1.25/1M input and cache write, $0.25/1M cache read, $6.00/1M output).
-
 ## Team settings
 
 Admins configure Cursor Router from the [team dashboard](https://cursor.com/docs/account/teams/dashboard.md).
