@@ -10,11 +10,11 @@ Grok Bot gives each person on your team standing Bots for everyday work: researc
 
 ## Availability
 
-| Plan        | Access                                                                        |
-| ----------- | ----------------------------------------------------------------------------- |
-| Individuals | Included with every paid Cursor plan, or through an individual SuperGrok link |
-| Teams       | Included; every member has access, and usage follows the seat's allowance     |
-| Enterprise  | Contact your account team to enable Grok Bot for your organization            |
+| Plan        | Access                                                                                |
+| ----------- | ------------------------------------------------------------------------------------- |
+| Individuals | Included with every paid Cursor plan, or through an individual SuperGrok link         |
+| Teams       | Included; every member has access, and usage follows the seat's allowance             |
+| Enterprise  | Enable Grok Bot for your team from [your dashboard](https://cursor.com/dashboard/bot) |
 
 That table is product access, not the admin control list. Grok Bot is included on Teams. Several settings are **Enterprise only** and do not appear for self-serve Teams. The [admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls) table names each one.
 
