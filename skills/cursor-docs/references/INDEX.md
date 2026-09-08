@@ -156,6 +156,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `models__grok-4-6` - [Models Grok 4 6](https://cursor.com/docs/models/grok-4-6)
 - `models__kimi-k2-7-code` - [Models Kimi K2 7 Code](https://cursor.com/docs/models/kimi-k2-7-code)
 - `models__kimi-k3` - [Models Kimi K3](https://cursor.com/docs/models/kimi-k3)
+- `models__muse-spark-1-3` - [Models Muse Spark 1 3](https://cursor.com/docs/models/muse-spark-1-3)
 - `origin` - [Origin](https://cursor.com/docs/origin)
 - `origin__browse` - [Browse & Search](https://cursor.com/docs/origin/browse)
 - `origin__cli` - [Install the CLI](https://cursor.com/docs/origin/cli)
