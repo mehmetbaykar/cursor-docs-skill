@@ -10,7 +10,7 @@ Origin is currently released in early beta. You can create repos, push and pull 
 
 Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
 
-Mirroring copies a GitHub repository into Origin and keeps Origin updated as the GitHub repo changes. Use it when the code already lives on GitHub and you want Origin browse, search, and agent workflows on that history.
+Mirroring copies a GitHub repository into Origin and keeps Origin updated as the GitHub repo changes. GitHub stays the source of truth. Use this when the code already lives on GitHub and you want Origin browse, search, and agent workflows on that history.
 
 ## Prerequisites
 
@@ -31,21 +31,45 @@ You can confirm sync status later under the repository **Settings → General** 
 
 ## What syncs
 
-| Included                                     | Not included                         |
-| -------------------------------------------- | ------------------------------------ |
-| Git history, branches, and tags              | GitHub Issues                        |
-| Code you can browse and search on Origin     | GitHub Actions workflows and secrets |
-| Pull requests, which sync in both directions |                                      |
-| Ongoing updates so Origin stays fresh        |                                      |
+| Included                                      | Not included                         |
+| --------------------------------------------- | ------------------------------------ |
+| Git history, branches, and tags               | GitHub Issues                        |
+| Code you can browse and search on Origin      | GitHub Actions workflows and secrets |
+| GitHub pull requests you can review in Cursor |                                      |
+| Ongoing updates so Origin stays current       |                                      |
 
-Pull requests on a mirrored repo work on Origin and sync back to GitHub. Issues and CI configuration stay on GitHub unless you rebuild them elsewhere.
+Issues and CI configuration stay on GitHub. Origin also does not sync GitHub branches named `origin` or `origin/...`, so they cannot overwrite your Origin-only workspace.
+
+## Clone URL
+
+The green **Code** button copies the same HTTPS remote used for every Origin repo:
+
+```text
+https://origin.cursor.com/{owner}/{repo}.git
+```
+
+Pushes to this remote go to GitHub. Origin updates after GitHub accepts the push. See [Clone, Push & Pull](https://cursor.com/docs/origin/git.md).
+
+## Forge-local `origin/` branches
+
+`origin/` branches are your workspace on the Origin copy. Use them to keep working when GitHub is unavailable, or for any other git state you want only on Origin. Push them with `origin push local`, not `git push origin`.
+
+Origin does not sync GitHub branches named `origin` or `origin/...`. That is deliberate, so a GitHub branch with that name cannot overwrite what you pushed with `origin push local`.
+
+See [forge-local branches](https://cursor.com/docs/origin/git.md#forge-local-branches-on-mirrored-repos).
 
 ## After you mirror
 
 - Browse and search at [cursor.com/codebase](https://cursor.com/codebase)
-- Clone the Origin remote from the green **Code** button if you want a local checkout from Origin. You can push too: pushes to a synced repo pass through to GitHub, which remains the source of truth.
-- Attach cloud agents to the Origin repo
-- Review [pull requests](https://cursor.com/docs/origin/pull-requests.md) on Origin, with changes syncing back to GitHub
+- Clone the Origin remote from the green **Code** button when you want a local checkout from Origin
+- Attach [cloud agents](https://cursor.com/docs/origin/integrations.md) to the Origin repo. On a mirrored repo, those agents open GitHub pull requests
+- Review [GitHub pull requests](https://cursor.com/docs/origin/pull-requests.md#mirrored-github-repositories) in Cursor
+
+## If GitHub is unreachable
+
+Keep working on the Origin copy with `origin/` branches and `origin push local`. `/local` is the supported write path while GitHub is down.
+
+Reads of an already-synced repo may still work over the same HTTPS clone URL. Origin serves the copy it already has. Git LFS batch does not fail over. A repo that has not finished its first sync still needs GitHub.
 
 ## Detach from GitHub
 
@@ -61,4 +85,4 @@ If browse looks stale:
 
 ## When not to mirror
 
-If you only want automated review comments on GitHub PRs, [Bugbot](https://cursor.com/docs/bugbot.md) does that without moving storage. Mirror when you want Origin-hosted code storage, browse, and pull requests.
+If you only want automated review comments on GitHub PRs, [Bugbot](https://cursor.com/docs/bugbot.md) does that without moving storage. Mirror when you want Origin browse, search, and cloud agents on that GitHub history.

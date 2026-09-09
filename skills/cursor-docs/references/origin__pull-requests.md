@@ -25,7 +25,7 @@ git checkout -b my-change
 git push -u origin my-change
 ```
 
-From the repository **Code** tab, use the create-pull-request flow after your branch is on Origin. Cursor cloud agents can also open pull requests on Origin as part of a task.
+From the repository **Code** tab, use the create-pull-request flow after your branch is on Origin. Cursor cloud agents can also open pull requests as part of a task. On a [mirrored GitHub repository](https://cursor.com/docs/origin/mirror-github.md), those agents open GitHub pull requests.
 
 ## Pull request page
 
@@ -40,6 +40,10 @@ Along with the tabs, you can request reviewers, leave reviews, comment on the pu
 
 ## Mirrored GitHub repositories
 
-On a repository [mirrored from GitHub](https://cursor.com/docs/origin/mirror-github.md), you can see and interact with GitHub pull requests as if they were Origin pull requests, and your changes sync back to GitHub.
+On a repository [mirrored from GitHub](https://cursor.com/docs/origin/mirror-github.md), the **Pull Requests** tab shows GitHub pull requests. You can review them in Cursor. GitHub stays the source of truth.
+
+Cloud agents attached to the mirrored repo open GitHub pull requests.
+
+Branches named `origin/...` stay on Origin so you can keep working when GitHub is unavailable. They are not GitHub pull request heads. Push those with `origin push local`. See [forge-local branches](https://cursor.com/docs/origin/git.md#forge-local-branches-on-mirrored-repos).
 
 Pull requests opened on a repository created directly on Origin stay on Origin. They are not mirrored anywhere.

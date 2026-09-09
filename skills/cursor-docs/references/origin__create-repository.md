@@ -30,7 +30,7 @@ To copy an existing GitHub repository into Origin, select **Sync from GitHub** o
 
 Cursor agents can create Origin repositories as part of a task. Ask the agent in Cursor to create a repo on Origin; it can install the [Origin CLI](https://cursor.com/docs/origin/cli.md), sign in, create the repo, set the remote, and push.
 
-Agents use the same permissions as your Cursor account. You need access to Origin code storage for the create to succeed. [Cloud agents](https://cursor.com/docs/origin/integrations.md) can work against existing Origin repositories: clone, branch, commit, push, and open pull requests.
+Agents use the same permissions as your Cursor account. You need access to Origin code storage for the create to succeed. [Cloud agents](https://cursor.com/docs/origin/integrations.md) can work against existing Origin repositories: clone, branch, commit, and push. On a repo created on Origin they can open Origin pull requests; on a [mirrored GitHub repo](https://cursor.com/docs/origin/mirror-github.md) they open GitHub pull requests.
 
 ## Name, visibility, and sharing
 

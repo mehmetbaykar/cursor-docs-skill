@@ -1398,8 +1398,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "e6a4dcfb20ba6900ae05ea9e7ce522bf31beaa428a5912525f1639938d4eb01b",
-      "last_updated": "2026-09-01T18:25:24+00:00",
+      "hash": "bf72b82f7e8d8976e5234f84d7297d274b925b68b314f528d1058a418c0e79e8",
+      "last_updated": "2026-09-09T16:33:37+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
@@ -1425,8 +1425,8 @@
       "title": "Codebase settings"
     },
     "origin__create-repository.md": {
-      "hash": "51e789f5c2cd060a7b925a40c678b7ddc68f0292d5dcd93980e1a7350be5e99c",
-      "last_updated": "2026-08-17T18:53:59+00:00",
+      "hash": "5616715481702b72b8b68043263ae3eba0a5b1c43fe8b07e3cc712a4b76250c3",
+      "last_updated": "2026-09-09T16:33:38+00:00",
       "original_url": "https://cursor.com/docs/origin/create-repository",
       "path": "/docs/origin/create-repository",
       "source_url": "https://cursor.com/docs/origin/create-repository",
@@ -1434,8 +1434,8 @@
       "title": "Create an Origin repository"
     },
     "origin__git.md": {
-      "hash": "ab2a514096c58d389861792ed805f779a156f86efb0bcfa6cf93dea08d54a6e6",
-      "last_updated": "2026-08-17T18:53:59+00:00",
+      "hash": "efc4a5befd0d6c78f4d30e9fd05d3bdde6adfcb3de26a4908fb65af8cba353d6",
+      "last_updated": "2026-09-09T16:33:39+00:00",
       "original_url": "https://cursor.com/docs/origin/git",
       "path": "/docs/origin/git",
       "source_url": "https://cursor.com/docs/origin/git",
@@ -1443,8 +1443,8 @@
       "title": "Clone, Push & Pull"
     },
     "origin__integrations.md": {
-      "hash": "8f41fdbb6f982e93ac72022ce3553dc8863bf026d680890ed1244f727e2cc551",
-      "last_updated": "2026-09-01T18:25:25+00:00",
+      "hash": "19039d0335e02413d3e60598b716f4c927a281689eb590d0e28a49047f1523eb",
+      "last_updated": "2026-09-09T16:33:39+00:00",
       "original_url": "https://cursor.com/docs/origin/integrations",
       "path": "/docs/origin/integrations",
       "source_url": "https://cursor.com/docs/origin/integrations",
@@ -1452,8 +1452,8 @@
       "title": "Integrations"
     },
     "origin__mirror-github.md": {
-      "hash": "84603d8a897c9702861f53e4dd36e3a26807d79890b2c98dc339c670219218e1",
-      "last_updated": "2026-08-28T15:16:52+00:00",
+      "hash": "53496746c1c176eaf3238bfe8f1b8223e614be5b8acb1df8a3732446df1d77c1",
+      "last_updated": "2026-09-09T16:33:39+00:00",
       "original_url": "https://cursor.com/docs/origin/mirror-github",
       "path": "/docs/origin/mirror-github",
       "source_url": "https://cursor.com/docs/origin/mirror-github",
@@ -1461,8 +1461,8 @@
       "title": "Mirror a GitHub repository"
     },
     "origin__pull-requests.md": {
-      "hash": "d0b12d9f4c3eee60842a3d525c48f02a49ab181813f3c5bf180f0c0872ef5083",
-      "last_updated": "2026-08-17T18:54:00+00:00",
+      "hash": "06005a843597bdc08b8915456229a3e9662e9d68eee39a88e89d1dc8f85d2432",
+      "last_updated": "2026-09-09T16:33:40+00:00",
       "original_url": "https://cursor.com/docs/origin/pull-requests",
       "path": "/docs/origin/pull-requests",
       "source_url": "https://cursor.com/docs/origin/pull-requests",
@@ -1636,7 +1636,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-08T21:05:38+00:00",
+  "last_updated": "2026-09-09T16:33:46+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
