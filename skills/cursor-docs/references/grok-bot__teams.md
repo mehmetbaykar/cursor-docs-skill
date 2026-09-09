@@ -186,6 +186,13 @@ whose admin has not finished setup, members see a team-setup message
 instead. The next step is for an admin to use the Enterprise only enable
 switch. Self-serve Teams do not use that switch.
 
+### Can I see what kind of work my team does with Grok Bot?
+
+Yes, on Enterprise teams where it has rolled out. The Conversation
+Insights page of the Analytics dashboard has a **Grok Bot** source that
+groups Bot conversations by Type of Work and Level of Automation. See
+[Grok Bot Conversation Insights](https://cursor.com/docs/account/teams/analytics.md#grok-bot-conversation-insights).
+
 Isolation, egress, approvals, logging, and data-handling questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).
 
 ## Related pages
@@ -196,6 +203,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
 - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
+- [Grok Bot Conversation Insights](https://cursor.com/docs/account/teams/analytics.md#grok-bot-conversation-insights)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)
 - [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md)
 
