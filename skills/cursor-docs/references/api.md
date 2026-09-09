@@ -26,7 +26,7 @@ The Cloud Agents API and SDKs run Cursor agent workflows (workspace context, too
 
 ## Authentication
 
-All Cursor APIs accept Basic Authentication. The Cloud Agents API additionally accepts Bearer tokens — pick whichever is easier for your HTTP client.
+The Admin, Analytics, AI Code Tracking, and Bugbot APIs accept Basic Authentication. The Cloud Agents API accepts Basic or Bearer authentication. The Origin API uses Bearer credentials through the Origin CLI or an Origin App.
 
 ### Basic Authentication
 
@@ -76,6 +76,10 @@ Generate an API key from [Cursor Dashboard → API Keys](https://cursor.com/dash
 Create a user API key from [Cursor Dashboard → API Keys](https://cursor.com/dashboard/api), or use a [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md) from team settings.
 
 API keys are tied to your organization and viewable by all admins. Keys are unaffected by the original creator's account status.
+
+#### Origin API
+
+For user-authenticated requests, sign in with the Origin CLI or provide it a personal user API key. The CLI exchanges the key for a short-lived access token before it calls Origin. Team Admin API keys with the `admin:*` scope do not authenticate to Origin. Apps use app JWTs and installation access tokens. See [Origin API authentication](https://cursor.com/docs/api/origin/llms-full.txt#authentication).
 
 ## Rate Limits
 

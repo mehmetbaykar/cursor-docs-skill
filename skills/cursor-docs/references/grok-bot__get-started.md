@@ -20,8 +20,8 @@ Get the installer from the Grok Bot page of the [Cursor
 dashboard](https://cursor.com/dashboard/bot): the **Download Grok Bot** setup
 row installs the desktop app or copies a link you can share. If you don't
 have dashboard access, ask your admin for the download link. The app runs
-on macOS (Apple silicon and Intel) and Windows (x64 and Arm64) and checks
-for updates automatically; there is no Linux desktop app. On iPhone,
+on macOS (Apple silicon and Intel), Windows (x64 and Arm64), and Linux
+(x64 and Arm64) and checks for updates automatically. On iPhone,
 install Grok Bot from the App Store; see
 [Use Grok Bot on iOS](https://cursor.com/docs/grok-bot/get-started.md#use-grok-bot-on-ios).
 
