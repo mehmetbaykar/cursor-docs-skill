@@ -16,9 +16,9 @@ may not appear for you.
 - **Account.** Sign in or out of the Cursor account Grok Bot uses. The account menu also shows the installed version and a link to the iOS app.
 - **Appearance.** Follow System, Light, or Dark.
 - **Agent.** The time zone routines use for schedules and **Execution on Local Computer**. Cursor manages model selection, so there's no model picker.
-- **Auto-review.** Your personal Auto Review rules.
+- **Auto-review.** Your personal Auto-review rules, plus any team rules your admin requires.
 
-Two of these settings deserve care. Execution on Local Computer controls whether Bots can run commands on the desktop in front of you; per-command approval is the default, and the setting applies to that desktop alone. Auto Review rules shape which actions stop for your approval, and they're stored on the current desktop and synced to its Grok Bot computer. Either way, don't assume another desktop installation carries the same configuration. Read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) before changing either.
+Two of these settings deserve care. Execution on Local Computer controls whether Bots can run commands on the desktop in front of you; per-command approval is the default, and the setting applies to that desktop alone. Auto-review rules shape which actions stop for your approval. When your admin enforces Auto-review for the team, the same table also shows locked team rules with `Required by your admin. You can't edit or delete this rule.` Members can add their own rules on top, but they only make behavior stricter; **Ask first** wins when rules conflict. If your admin turns enforcement off, you only see and use your own rules. Your personal rules are stored on the current desktop and synced to its Grok Bot computer, so another desktop installation needs its own. Read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) before changing either.
 
 ## Plugins
 

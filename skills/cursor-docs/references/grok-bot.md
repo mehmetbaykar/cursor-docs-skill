@@ -10,8 +10,8 @@ Grok Bot gives you Bots you can keep around: AI teammates with names, jobs, and 
 
 You work with a Bot by messaging it. Give it a task, the relevant context, and access to the tools it needs. It takes on multi-step work across apps and websites, keeps you updated in the conversation, and comes back when something needs your approval.
 
-Grok Bot runs on macOS, Windows, and iOS, and is included with every paid
-individual Cursor plan and with the Cursor Teams plan. You can also link an
+Grok Bot runs on macOS, Windows, Linux, and iOS, and is included with
+every paid individual Cursor plan and with the Cursor Teams plan. You can also link an
 individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription. See
 [Plans and billing](https://cursor.com/help/grok-bot/plans.md) for the full matrix.
 
@@ -68,9 +68,9 @@ them.
 
 ### Which platforms are supported?
 
-The desktop app runs on macOS (Apple silicon and Intel) and Windows (x64
-and Arm64), and the mobile app runs on iPhone. There is no Linux desktop
-app, and the computers Bots work on run in Cursor's cloud.
+The desktop app runs on macOS (Apple silicon and Intel), Windows (x64
+and Arm64), and Linux (x64 and Arm64), and the mobile app runs on iPhone.
+The computers Bots work on run in Cursor's cloud.
 
 ### How much does Grok Bot cost?
 

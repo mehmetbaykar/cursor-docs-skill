@@ -31,12 +31,12 @@ The security model rests on four principles:
 - **Per-user isolation.** Each user's work runs in a dedicated Firecracker microVM, a micro virtual machine with hardware-level separation from other users.
 - **No access by default.** A Bot can use only the accounts and plugins the user or team grants it.
 - **Human approval gates.** Sensitive actions require user approval, evaluated by an independent review model called Auto Review.
-- **Administrative control.** Team admins can set Team Rules, Cloud Agent delegation, and template sharing. Network Controls, Team Setup, Action Recording, and the organization-wide enable switch are Enterprise only.
+- **Administrative control.** Team admins can set Team Rules, Enforce Auto-review, Auto-review rules, Cloud Agent delegation, and template sharing. Network Controls, Team Setup, Action Recording, and the organization-wide enable switch are Enterprise only.
 
 The pieces fit together like this:
 
 1. **Local machine.** Chat, review, and approvals happen on the member's device. Work runs in the hosted computer. Optional [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution) requires per-command approval by default and can be turned off.
-2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, and public template sharing are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup, Action Recording, and computer management for organization admins. Members never see this page.
+2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Enforce Auto-review, Auto-review rules, Cloud Agent delegation, and public template sharing are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup, Action Recording, and computer management for organization admins. Members never see this page.
 3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It hands login, two-factor authentication, and payment steps to the member.
 4. **Plugins.** Your team's Cursor MCP (Model Context Protocol) policy applies in full, allowing or blocking each connector. OAuth tokens stay on Cursor's connector backend, and Bots invoke tools without receiving them.
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
@@ -56,7 +56,7 @@ Within one user, the boundary is different: all of that user's Bots share one co
 - **Plan for shared egress addresses.** If your company restricts services by source IP, see [static egress IPs](https://cursor.com/docs/grok-bot/security.md#static-egress-ips).
 - **Clear your gateway.** If member devices sit behind Zscaler or another TLS-inspecting proxy, allow Cursor's domains, including the nested `*.*.cursorvm.com` pattern, and exempt them from inspection before members connect. See [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
 - **Decide how members sign in to company tools** from the computer. See [identity and sign-ins](https://cursor.com/docs/grok-bot/security.md#identity-and-sign-ins).
-- **Review the policies Grok Bot inherits**: Team Rules and Auto Review team instructions, which are on Teams and Enterprise. The MCP allowlist is Enterprise only.
+- **Review the policies Grok Bot inherits**: Team Rules, team Auto-review rules, and the connector policy. The MCP allowlist is Enterprise only.
 
 ### Set up your team
 
@@ -74,6 +74,13 @@ switch.
 allow-all. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) for
 the modes. Self-serve Teams do not see this panel.
 
+### Decide whether to enforce Auto-review
+
+Turn on **Enforce Auto-Review** if every member must keep Auto-review on.
+Then use **Configure Rules** to add **Ask first** and **Allow
+automatically** rules that apply to every member's Bots. Changes save
+automatically.
+
 ### Audit your connector policy
 
 Any permitted connector is available to every Bot a member runs; see the
@@ -88,21 +95,22 @@ Check the **Cloud Agents** and **Public template sharing** entries under
 
 Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). That page is admin-only. **Enterprise only** means the control is hidden on self-serve Teams. It is not a default you can turn on later.
 
-| Control                       | Availability                                            | Where                                                       |
-| ----------------------------- | ------------------------------------------------------- | ----------------------------------------------------------- |
-| Enable Grok Bot               | Enterprise only                                         | Grok Bot page                                               |
-| Network Controls              | Enterprise only                                         | Grok Bot page                                               |
-| Team Setup                    | Enterprise only                                         | Grok Bot page                                               |
-| Action Recording              | Enterprise only                                         | Grok Bot page                                               |
-| Computer management           | Enterprise only. Organization admins.                   | Grok Bot page                                               |
-| Cloud Agents                  | Teams and Enterprise                                    | Grok Bot page                                               |
-| Public template sharing       | Teams and Enterprise                                    | Grok Bot page                                               |
-| Team Rules                    | Teams and Enterprise                                    | Grok Bot page                                               |
-| Connector policy              | Teams and Enterprise. MCP allowlist is Enterprise only. | Teams Marketplace                                           |
-| Auto Review team instructions | Teams and Enterprise                                    | Team Settings, Security and Automation                      |
-| Audit logs                    | Enterprise only                                         | Dashboard audit log (filter by application), or SIEM stream |
-| OpenTelemetry Export          | Enterprise only                                         | Team Settings                                               |
-| SCIM                          | Enterprise only                                         | Identity provider                                           |
+| Control                 | Availability                                            | Where                                                       |
+| ----------------------- | ------------------------------------------------------- | ----------------------------------------------------------- |
+| Enable Grok Bot         | Enterprise only                                         | Grok Bot page                                               |
+| Network Controls        | Enterprise only                                         | Grok Bot page                                               |
+| Team Setup              | Enterprise only                                         | Grok Bot page                                               |
+| Action Recording        | Enterprise only                                         | Grok Bot page                                               |
+| Computer management     | Enterprise only. Organization admins.                   | Grok Bot page                                               |
+| Cloud Agents            | Teams and Enterprise                                    | Grok Bot page                                               |
+| Public template sharing | Teams and Enterprise                                    | Grok Bot page                                               |
+| Team Rules              | Teams and Enterprise                                    | Grok Bot page                                               |
+| Enforce Auto-review     | Teams and Enterprise                                    | Grok Bot page                                               |
+| Auto-review rules       | Teams and Enterprise                                    | Grok Bot page                                               |
+| Connector policy        | Teams and Enterprise. MCP allowlist is Enterprise only. | Teams Marketplace                                           |
+| Audit logs              | Enterprise only                                         | Dashboard audit log (filter by application), or SIEM stream |
+| OpenTelemetry Export    | Enterprise only                                         | Team Settings                                               |
+| SCIM                    | Enterprise only                                         | Identity provider                                           |
 
 - **Enable Grok Bot. Enterprise only.** An organization-wide switch. Incomplete setup shows **Disabled** and **Enable**; after setup, the page shows **Enabled** and **Disable**. Disabling blocks members and doesn't delete member computers. Self-serve Teams do not get this switch. Their dashboard shows **Learn more**, and a first admin visit can open onboarding at `/bot/onboarding`.
 - **Network Controls. Enterprise only.** Four modes, directory-group scope, and a lock. The dashboard label is **Network Controls**. Self-serve Teams have no destination allowlist. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy).
@@ -111,8 +119,9 @@ Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https:
 - **Computer management. Enterprise only.** Organization admins can look up any member's computer, see when it was created and last active, and terminate it. Team admin rights aren't enough, because a computer spans every team the member belongs to. The durable disk is kept, and the member's next session starts a fresh computer.
 - **Cloud Agents. Teams and Enterprise.** Allow or block delegation to Cursor Cloud Agents. The default is on. The toggle applies to the whole team.
 - **Public template sharing. Teams and Enterprise.** Off keeps Bot template sharing within your team, and the policy is enforced on Cursor's servers, including for existing public templates. Enterprise teams start with public sharing off. Other teams start with public sharing allowed. The control itself is on both plans.
-- **Team Rules. Teams and Enterprise.** Rules applied for every member's Bots. Rules are always required and can't be made optional, and you scope each rule to Cursor, Grok Bot, or both. Keep them short and few, like "never move company data to personal accounts"; for enforcement, use Auto Review instructions instead.
-- **Auto Review team instructions. Teams and Enterprise.** Team-wide allow and block instructions that feed the reviewer's decisions for every member. These live in team settings under Security and Automation, not on the Grok Bot page.
+- **Team Rules. Teams and Enterprise.** Rules applied for every member's Bots. Rules are always required and can't be made optional, and you scope each rule to Cursor, Grok Bot, or both. Keep them short and few, like "never move company data to personal accounts." Use Auto-review rules for approval behavior.
+- **Enforce Auto-review. Teams and Enterprise.** Prevents members from turning Auto-review off. When it is on, Bots always check risky actions before running them and ask for approval when needed.
+- **Auto-review rules. Teams and Enterprise.** Team-wide **Ask first** and **Allow automatically** rules that apply to every member's Bots on top of their own rules. Members see these rows in **Settings** > **General** > **Auto-review**, but they cannot edit or delete them. If rules conflict, **Ask first** wins. Turn enforcement off to stop applying the team rules.
 - **Local execution.** The policy for Bots acting on a member's own machine. See [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution). A dashboard control for the team ceiling is not available on any plan.
 - **Connector policy.** Grok Bot inherits your team's Cursor connector policy. There is no separate Grok Bot connector list, and connectors appear as plugins in the app. Configure marketplace require and restrict in **Teams Marketplace** (Integrations), not on the Grok Bot page. The MCP allowlist is Enterprise only. See [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). When policy blocks a server, members see the plugin as **Disabled by team admin**. Provisioning connectors to members, whether mandatory or default-on, is not available.
 - **Audit logs. Enterprise only.** Admin, security, and authentication events, plus Grok Bot control-plane events: Bot creation, member access changes, Team Setup manifests, MCP authentication, Slack account links, and routines. Rows carry the application that acted and can be filtered by it. View them in the dashboard or stream them to your SIEM. Self-serve Teams do not get this log.
@@ -131,11 +140,11 @@ For administrators:
 
 1. **Configure Network Controls. Enterprise only.** Teams without a policy default to allow-all. Self-serve Teams cannot set this. See [Grok Bot security](https://cursor.com/docs/grok-bot/security.md#network-policy).
 2. **Audit connector policy in Teams Marketplace before enabling Grok Bot.** Any permitted connector is available to every Bot a member runs.
-3. **Ask members to keep Auto Review enforcement on.** Enforcement is enabled by Cursor and currently active for all users, and each member's own setting remains the off switch.
+3. **Turn on Enforce Auto-review before you rely on team rules.** Members can add stricter personal rules on top, and **Ask first** wins when rules conflict.
 4. **Set an explicit local execution policy**, and decide whether Bots may act on member machines at all.
 5. **Disable Cloud Agent spawning** if you don't need delegation.
 6. **Keep public template sharing off** unless members should publish Bot templates outside the team.
-7. **Add team block instructions** for actions that are never acceptable in your environment, and allow instructions for routine safe work. Production deployments, external email, payments, and accepting legal terms are common block examples.
+7. **Add team Auto-review rules** for actions that should always ask first or can proceed automatically. Production deployments, external email, payments, and accepting legal terms are good **Ask first** examples. Keep automatic rules narrow.
 8. **Gate sign-in to managed devices through your identity provider.** Grok Bot sign-in uses your SSO, so a device-aware sign-in policy applies to it. This gates sign-in, not the hosted computer itself.
 
 For members:
