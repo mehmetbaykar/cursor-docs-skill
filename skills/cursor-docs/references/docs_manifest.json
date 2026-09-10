@@ -750,8 +750,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "5659c68bc3f5002714e8ecec1c0b887e64e6d0eb4c29ad28877022f1634bd8b9",
-      "last_updated": "2026-09-10T04:30:56+00:00",
+      "hash": "c4d5a0a258b9916f6837d805d7fa94087599e1ed2902498ff7e493f3ffadaff9",
+      "last_updated": "2026-09-10T16:19:24+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -759,8 +759,8 @@
       "title": "Grok Bot security"
     },
     "grok-bot__settings.md": {
-      "hash": "ac82f5e5331f05f8dd20e995ab0fdafea0321df2a12b3795c61739332258da7c",
-      "last_updated": "2026-09-09T20:53:07+00:00",
+      "hash": "3692763c4327127804369b16a537e59520c413020898337696225a40bc6c97b1",
+      "last_updated": "2026-09-10T16:19:25+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/settings",
       "path": "/docs/grok-bot/settings",
       "source_url": "https://cursor.com/docs/grok-bot/settings",
@@ -786,8 +786,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "d32e27eafbdab74045d2f302392f0e6ddc4ced05acc790c6a6f511e5af63309c",
-      "last_updated": "2026-09-07T19:07:10+00:00",
+      "hash": "b4b1c8ade8688ef4466b006f7a71723c42b316e02aa89c9677980285ec71eeb1",
+      "last_updated": "2026-09-10T16:19:26+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -1636,7 +1636,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-10T04:31:29+00:00",
+  "last_updated": "2026-09-10T16:19:53+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
