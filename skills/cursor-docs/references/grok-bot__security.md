@@ -9,8 +9,9 @@ path: /docs/grok-bot/security
 Use these controls and deployment details to decide whether Grok Bot is allowed in, and to limit what Bots can access, change, and retain. Rollout steps and the dashboard settings list live on [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).
 
 **Enterprise only** on the Grok Bot dashboard: the organization-wide enable
-switch, **Network Controls**, **Team Setup**, **Action Recording**, and
-computer management for organization admins. Audit logs, OpenTelemetry
+switch, **Network Controls**, **Team Setup**, **Action Recording**,
+**Enforce Auto-review** with its team rules, and computer management for
+organization admins. Audit logs, OpenTelemetry
 Export, the MCP allowlist, and SCIM are also Enterprise only. Self-serve
 Teams do not see those settings. The full list is on
 [admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
@@ -53,8 +54,8 @@ When an action needs approval, the conversation shows the proposed operation and
 
 Auto Review is the review layer behind those prompts: an independent review model that evaluates risky Bot actions before they run, covering shell commands, plugin calls, computer use, automation writes (changes to routines and event triggers), and delegation such as Cloud Agent and subagent launches. It can let an action proceed, require approval, or deny it.
 
-- **Team admins can enforce Auto-review.** The switch lives on the Grok Bot page of the Cursor dashboard. When it is on, members can't turn Auto-review off.
-- **Admins can add team Auto-review rules.** These live on the Grok Bot page too. They apply to every member's Bots, show up as locked rows in the member settings table, and save automatically when an admin adds, edits, or deletes a rule. If admins turn enforcement off, the team rules stop applying and members go back to their own rules only.
+- **Team admins can enforce Auto-review. Enterprise only.** The switch lives on the Grok Bot page of the Cursor dashboard. When it is on, members can't turn Auto-review off.
+- **Admins can add team Auto-review rules. Enterprise only.** These live on the Grok Bot page too. They apply to every member's Bots, show up as locked rows in the member settings table, and save automatically when an admin adds, edits, or deletes a rule. If admins turn enforcement off, the team rules stop applying and members go back to their own rules only.
 - **Members can add personal rules** under **Settings** > **General** > **Auto-review**. **Ask first** rules always stop matching actions, and **Allow automatically** rules let matching actions proceed only when the reviewer finds no other reason to stop. Members can add personal rules on top of team rules, but they only make behavior stricter; **Ask first** wins when rules conflict. Keep rules narrow and tied to a known action, like "ask first before sending any external email" or "allow automatically when running `git status` in `/workspace/reports`". Avoid broad rules like "allow everything in the browser". Personal rules are stored on the current desktop and synced to its Grok Bot computer, so another desktop installation needs its own.
 - **It doesn't review every side effect.** Memory writes and most settings changes are examples. Treat it as a complement to explicit boundaries and least privilege, working alongside controls that don't depend on a model's judgment: per-action approvals, the network policy, and per-user isolation.
 
@@ -113,7 +114,7 @@ Cursor manages model selection. There is no customer-facing model picker, and th
 
 Bots can act on a member's own machine through the desktop app: run commands, read files, and move files between the cloud computer and the local machine. This is separate from work in the hosted computer, with its own control, and it's distinct from Auto Review, which governs work inside the hosted computer.
 
-Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **General** > **Agent** > **Execution on Local Computer**: ask every time, always allow, or never. Recommend **Never** unless a Bot has a specific reason to work on local files. Local execution can be disabled entirely, and a team-level ceiling is enforced through settings; a dashboard control for the ceiling is not available today.
+Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **General** > **Agent** > **Execution on Local Computer**: ask every time, always allow, or never. Recommend **Never** unless a Bot has a specific reason to work on local files. Admins can cap the policy for the whole team with [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) on the Grok Bot page; a member's own setting still applies when it is stricter.
 
 ## Hosting
 

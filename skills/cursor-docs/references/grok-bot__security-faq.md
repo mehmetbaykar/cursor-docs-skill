@@ -55,8 +55,9 @@ Directory-group scope is part of **Network Controls**, which is Enterprise
 only. Groups can set their own policy, and a lock makes the team policy
 effective for everyone. The organization-wide enable switch is also
 Enterprise only and applies to the whole organization. Cloud Agents, Team
-Rules, Enforce Auto-review, Auto-review rules, and public template sharing
-apply to the whole team on Teams and Enterprise.
+Rules, and public template sharing apply to the whole team on Teams and
+Enterprise. Enforce Auto-review and Auto-review rules are Enterprise only
+and also apply to the whole team.
 
 ### Why do some websites block Bots?
 
@@ -94,8 +95,8 @@ inspection, and apply the change to off-network profiles too. See
 With enforcement on, Auto Review evaluates shell commands, plugin calls,
 computer use, automation writes, and delegation such as Cloud Agent and
 subagent launches. It can let an action proceed, require approval, or
-deny it. Team admins can enforce Auto-review from the Grok Bot page and
-add team Auto-review rules that every member inherits. Members can add
+deny it. On Enterprise, team admins can enforce Auto-review from the Grok
+Bot page and add team Auto-review rules that every member inherits. Members can add
 stricter personal rules on top, and **Ask first** wins when rules
 conflict. If an admin turns enforcement off, members go back to their
 own rules only. It doesn't review every side effect, such as memory
