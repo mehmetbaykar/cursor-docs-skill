@@ -92,7 +92,7 @@ Each member's computer keeps local files, browser sessions, and anything saved i
 
 - **Idle computers hibernate automatically.** Hibernation is not deletion.
 - **Image updates preserve files.** Computers on a stale system image are recreated on the fresh image with member files preserved.
-- **Member resets keep synced data.** Members can reset their own computer from the desktop app. Reset keeps the synced durable data, and recent unsynced work can be lost. See [Recover Grok Bot computer data](https://cursor.com/help/grok-bot/computer-recovery.md).
+- **Member resets keep synced data.** Members can reset their own computer from the desktop app. Reset keeps the synced durable data, and recent unsynced work can be lost. See [Grok Bot computer](https://cursor.com/help/grok-bot/computer-recovery.md).
 - **Deletion follows the DPA.** Under the [Data Processing Agreement](https://cursor.com/terms/dpa), data is deleted or returned within 30 days of written direction after the service ends.
 - **Backups run daily.** Cursor's production control plane is covered by daily encrypted backups, replicated to a separate recovery facility.
 

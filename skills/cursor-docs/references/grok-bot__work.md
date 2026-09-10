@@ -141,7 +141,7 @@ The app and the computer update separately. When the computer is unreachable, wo
 4. Use **Update Agent Computer** to rebuild on the latest image.
 5. Use **Reset Agent Computer** only as a last resort.
 
-Recover and update preserve durable files and logins. Reset returns the computer to its synced durable state, and anything not yet synced doesn't come back. Conversations are stored outside the computer, so they survive even a reset. See [Recover Grok Bot computer data](https://cursor.com/help/grok-bot/computer-recovery.md).
+Recover and update preserve durable files and logins. Reset returns the computer to its synced durable state, and anything not yet synced doesn't come back. Conversations are stored outside the computer, so they survive even a reset. See [Grok Bot computer](https://cursor.com/help/grok-bot/computer-recovery.md).
 
 ### Your local computer is separate
 
@@ -189,12 +189,13 @@ A test run performs real work. It can navigate websites, change files, and
 call connected tools. Use safe inputs and keep write actions behind
 approval.
 
-Open the Bot, choose **View conversation details**, then **Routines** to enable, pause, test, edit, inspect run history, or delete. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond.
+Open the Bot, choose **View conversation details**, then **Routines** to enable, pause, test, edit, inspect run history, or delete. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack listeners, webhooks, and why **Run history** can say **No runs yet**, see [Routines](https://cursor.com/help/grok-bot/routines.md).
 
 Routines earn trust the same way people do: automate preparation before execution, keep sending, purchasing, deleting, publishing, and production changes behind approval, report missing or stale sources instead of working around them, and re-test after a website, plugin, or source format changes.
 
 ## Related pages
 
+- [Routines](https://cursor.com/help/grok-bot/routines.md)
 - [Get started with Grok Bot](https://cursor.com/docs/grok-bot/get-started.md)
 - [Grok Bot use cases](https://cursor.com/docs/grok-bot/use-cases.md)
 - [Settings and notifications](https://cursor.com/docs/grok-bot/settings.md)
