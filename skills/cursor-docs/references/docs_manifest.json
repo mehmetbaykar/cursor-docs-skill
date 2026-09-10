@@ -741,8 +741,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "9fca3e6d778fc60e040d5d67f8817e585f1a338300b4a23165fd0d663a16d177",
-      "last_updated": "2026-09-09T20:53:07+00:00",
+      "hash": "6be0ca0afa364b8e4144b55a72173562368f362392f0271d0b258b4d78e2f60f",
+      "last_updated": "2026-09-10T04:30:56+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -750,8 +750,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "03f5dba648e685188224d84a21e779d803df08f227b0f8a6fcc740db11efd374",
-      "last_updated": "2026-09-09T20:53:07+00:00",
+      "hash": "5659c68bc3f5002714e8ecec1c0b887e64e6d0eb4c29ad28877022f1634bd8b9",
+      "last_updated": "2026-09-10T04:30:56+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -768,8 +768,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "8c00222ab613d8a8231991808ffa3a9c294aa59f80861408525c0374b47e8c1b",
-      "last_updated": "2026-09-09T23:10:13+00:00",
+      "hash": "4ca65606d5e2cbe82b05788e85eca364967922f7207df35da7e3a4ef1d691b63",
+      "last_updated": "2026-09-10T04:30:57+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1636,7 +1636,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-09T23:10:46+00:00",
+  "last_updated": "2026-09-10T04:31:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
