@@ -192,4 +192,5 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 
 - `/docs/api/origin` - Non-markdown response (text/html)
 - `/docs/api/origin/changelog` - Non-markdown response (text/html)
+- `/docs/api/origin/grants-api` - Non-markdown response (text/html)
 - `/docs/api/origin/openapi.yaml` - Non-markdown response (application/yaml)

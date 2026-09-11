@@ -5,10 +5,10 @@
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
     "pages_fetched_successfully": 181,
-    "pages_skipped": 3,
+    "pages_skipped": 4,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 184
+    "total_pages_discovered": 185
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -273,8 +273,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "e8f76a4ed828ed752bad516d43323baea20c52f15631ee0cd75a8c3ece81030a",
-      "last_updated": "2026-09-11T16:23:27+00:00",
+      "hash": "9264193bb88e961cc1640223117d13bc93e6bbf1a3894cd7d3b25b4b8d5eba36",
+      "last_updated": "2026-09-11T20:54:03+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -723,8 +723,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__get-started.md": {
-      "hash": "00fd9b8b305e03e3dca851b38bc9ea9e107f6d20c8c2c2a63b77b70b250bd8ad",
-      "last_updated": "2026-09-09T20:53:06+00:00",
+      "hash": "466da6f9dd1cf7aa1f35d69f7c081bf69f4fcea4a841113b2a98769f1f44f7a1",
+      "last_updated": "2026-09-11T20:54:20+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/get-started",
       "path": "/docs/grok-bot/get-started",
       "source_url": "https://cursor.com/docs/grok-bot/get-started",
@@ -1654,7 +1654,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-11T16:24:13+00:00",
+  "last_updated": "2026-09-11T20:54:54+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
@@ -1665,6 +1665,11 @@
       "path": "/docs/api/origin/changelog",
       "reason": "Non-markdown response (text/html)",
       "url": "https://cursor.com/docs/api/origin/changelog"
+    },
+    {
+      "path": "/docs/api/origin/grants-api",
+      "reason": "Non-markdown response (text/html)",
+      "url": "https://cursor.com/docs/api/origin/grants-api"
     },
     {
       "path": "/docs/api/origin/openapi.yaml",

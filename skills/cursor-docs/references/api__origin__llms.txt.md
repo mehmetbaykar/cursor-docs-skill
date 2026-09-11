@@ -84,6 +84,15 @@ The base URL for API requests is `https://api.cursor.com/v1/origin`. The Origin 
 - [Batch Redeliver Webhook Deliveries](https://cursor.com/docs/api/origin#batch-redeliver-webhook-deliveries)
 - [Ping Webhook](https://cursor.com/docs/api/origin#ping-webhook)
 
+## Grants
+
+- [List Repository Grants](https://cursor.com/docs/api/origin/grants-api#list-repository-grants)
+- [Upsert Repository Grant](https://cursor.com/docs/api/origin/grants-api#upsert-repository-grant)
+- [Delete Repository Grant](https://cursor.com/docs/api/origin/grants-api#delete-repository-grant)
+- [List Namespace Grants](https://cursor.com/docs/api/origin/grants-api#list-namespace-grants)
+- [Upsert Namespace Grant](https://cursor.com/docs/api/origin/grants-api#upsert-namespace-grant)
+- [Delete Namespace Grant](https://cursor.com/docs/api/origin/grants-api#delete-namespace-grant)
+
 ## Repositories
 
 - [List Repos](https://cursor.com/docs/api/origin#list-repos)

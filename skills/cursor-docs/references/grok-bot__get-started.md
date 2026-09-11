@@ -6,7 +6,7 @@ path: /docs/grok-bot/get-started
 
 # Get started with Grok Bot
 
-This guide takes you from install to your first finished task. You'll set up the desktop app, create a Bot with a clear job, and review its work.
+This guide takes you from install to your first finished task. You'll set up the desktop app, create a Bot with a clear job, and review its work. For a shorter help-center checklist, follow [Onboarding](https://cursor.com/help/grok-bot/onboarding.md).
 
 Grok Bot access is included with every paid individual Cursor plan and with
 the Cursor Teams plan, or through an individual SuperGrok link. See [Plans and
