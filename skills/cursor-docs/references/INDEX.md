@@ -34,6 +34,8 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `agent__tools__search` - [Search](https://cursor.com/docs/agent/tools/search)
 - `agent__tools__terminal` - [Terminal](https://cursor.com/docs/agent/tools/terminal)
 - `api` - [Cursor APIs Overview](https://cursor.com/docs/api)
+- `api__origin__llms-full.txt` - [Origin API](https://cursor.com/docs/api/origin/llms-full.txt)
+- `api__origin__llms.txt` - [Cursor Origin API](https://cursor.com/docs/api/origin/llms.txt)
 - `approval-agents` - [PR Routing & Approval](https://cursor.com/docs/approval-agents)
 - `bugbot` - [Bugbot](https://cursor.com/docs/bugbot)
 - `cli__acp` - [ACP](https://cursor.com/docs/cli/acp)
@@ -190,3 +192,4 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 
 - `/docs/api/origin` - Non-markdown response (text/html)
 - `/docs/api/origin/changelog` - Non-markdown response (text/html)
+- `/docs/api/origin/openapi.yaml` - Non-markdown response (application/yaml)

@@ -19,7 +19,7 @@ https://cursor.com/docs/cloud-agent/identity
 
 This API is local to the agent VM. It is unrelated to the [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md), which uses Cursor API keys and manages agents from outside the VM. The same socket also serves [agent metadata](https://cursor.com/docs/cloud-agent/metadata.md) for values that don't belong in a credential.
 
-Cursor-managed Cloud Agent VMs serve the token socket. Every token they mint carries `agent_runtime: managed`.
+Cursor-managed Cloud Agent VMs serve the token socket. Every token they mint carries `agent_runtime: managed`. [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) workers serve it when you start them with `--identity-socket`. Their tokens carry `agent_runtime: self_hosted`. See [Self-hosted workers](https://cursor.com/docs/cloud-agent/identity.md#self-hosted-workers).
 
 ## How it works
 
@@ -30,7 +30,7 @@ Cursor-managed Cloud Agent VMs serve the token socket. Every token they mint car
 
 ## Mint a token
 
-The agent mints a token over the Unix socket at `CURSOR_AGENT_SOCKET`. On Cursor-managed VMs the default is `/run/cursor/api.sock`.
+The agent mints a token over the Unix socket at `CURSOR_AGENT_SOCKET`. On Cursor-managed VMs the default is `/run/cursor/api.sock`. [Self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted.md) have no default path. Read the variable in scripts that run on both.
 
 ```bash
 curl --unix-socket "${CURSOR_AGENT_SOCKET:-/run/cursor/api.sock}" \
@@ -84,6 +84,18 @@ Tokens are valid for **5 minutes**. There is no refresh endpoint. Mint again whe
 
 If the socket is missing right after boot, retry the connection.
 
+## Self-hosted workers
+
+A [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) worker serves the same API when you start it with `--identity-socket`:
+
+```bash
+agent worker --pool gpu --identity-socket start
+```
+
+The flag is off by default. Only the worker's command line turns it on. Once set, the worker opens one socket per claimed agent and publishes the socket path as `CURSOR_AGENT_SOCKET` in that agent's shells. The request and response contract, error codes, and rate limits match Cursor-managed VMs. A script that reads `CURSOR_AGENT_SOCKET` works on both.
+
+These tokens carry `agent_runtime: self_hosted` and the same owner, team, and repository claims. The worker doesn't serve the [agent metadata](https://cursor.com/docs/cloud-agent/metadata.md) API.
+
 ## Verify a token
 
 Publish these URLs to your identity provider or resource server:
@@ -132,7 +144,7 @@ Header: `alg=RS256`, `typ=JWT`, plus `kid`.
 | `jti`                      | Yes                   | Unique id per mint.                                                                                                                                                                                                          |
 | `cloud_agent_id`           | Yes                   | Cloud Agent id (`bcId`).                                                                                                                                                                                                     |
 | `nonce`                    | No                    | Present only when the mint request included one.                                                                                                                                                                             |
-| `agent_runtime`            | Yes                   | `managed` on Cursor-managed Cloud Agent VMs.                                                                                                                                                                                 |
+| `agent_runtime`            | Yes                   | `managed` on Cursor-managed Cloud Agent VMs, `self_hosted` on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/identity.md#self-hosted-workers) workers.                                                           |
 | `owner_email`              | When known            | Lowercased user email. Prefer `sub` or `owner_user_id` for allowlists; email can change.                                                                                                                                     |
 | `owner_user_id`            | When known            | Cursor user id, as a decimal string.                                                                                                                                                                                         |
 | `owner_service_account_id` | When known            | Service account id when a service account owns the agent.                                                                                                                                                                    |
