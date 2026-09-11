@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 179,
-    "pages_skipped": 2,
+    "pages_fetched_successfully": 181,
+    "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 181
+    "total_pages_discovered": 184
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -263,6 +263,24 @@
       "status": "live",
       "title": "Cursor APIs Overview"
     },
+    "api__origin__llms-full.txt.md": {
+      "hash": "e2e0bf8f6b1667f67611c87f93efa06a4a52d5b091a6119432548413f0e20bb4",
+      "last_updated": "2026-09-11T11:10:35+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
+      "path": "/docs/api/origin/llms-full.txt",
+      "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
+      "status": "live",
+      "title": "Origin API"
+    },
+    "api__origin__llms.txt.md": {
+      "hash": "a7843b597edaa7aa80deefb4c70f8da7a001c087befd999bc6d24819b931922e",
+      "last_updated": "2026-09-11T11:10:35+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/llms.txt",
+      "path": "/docs/api/origin/llms.txt",
+      "source_url": "https://cursor.com/docs/api/origin/llms.txt",
+      "status": "live",
+      "title": "Cursor Origin API"
+    },
     "approval-agents.md": {
       "hash": "7dec547775fa8951c1e1a9b418fad6dc65db01925966470755b54da64c296000",
       "last_updated": "2026-08-07T17:11:49+00:00",
@@ -489,8 +507,8 @@
       "title": "Capabilities"
     },
     "cloud-agent__identity.md": {
-      "hash": "535ca52b86ffe3960bcdaef048e8e5b61cacab630aa116a109f3f820e2744028",
-      "last_updated": "2026-08-12T21:57:20+00:00",
+      "hash": "b637cf75de96cb8a541e692fa80c497c7ea3e4eda992fc9fd04fd57c0c96eae5",
+      "last_updated": "2026-09-11T11:10:45+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
@@ -543,8 +561,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "ce72c6ed6b8a344197bb60e9a1041a5bc159a7a46ffbcd1564ee9295cf5ecc14",
-      "last_updated": "2026-09-03T23:14:21+00:00",
+      "hash": "45701cdf17539680216f9d74902e7b5ee5793cdd45f09fe0779af55eada34eac",
+      "last_updated": "2026-09-11T11:10:47+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -570,8 +588,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "5e5b1c4dc8a58f41679dc8d11f9a178e168f1f9c77e77bda90b5e64529ebb8ec",
-      "last_updated": "2026-09-03T23:14:22+00:00",
+      "hash": "a619ac657dc7aacb841a227ccacfb8fcd292b95e3f3044f5507ca0f910af3e91",
+      "last_updated": "2026-09-11T11:10:48+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
@@ -588,8 +606,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "fa14d59c94d47e569db442789e38885acb3469774c00ecaf8e846fc0052c47ac",
-      "last_updated": "2026-09-03T23:14:23+00:00",
+      "hash": "9a705fafb2a52558a8acd1d7b62407be48c7db037e7ba2c4394da4757b82b268",
+      "last_updated": "2026-09-11T11:10:48+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1636,7 +1654,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-10T16:19:53+00:00",
+  "last_updated": "2026-09-11T11:11:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
@@ -1647,6 +1665,11 @@
       "path": "/docs/api/origin/changelog",
       "reason": "Non-markdown response (text/html)",
       "url": "https://cursor.com/docs/api/origin/changelog"
+    },
+    {
+      "path": "/docs/api/origin/openapi.yaml",
+      "reason": "Non-markdown response (application/yaml)",
+      "url": "https://cursor.com/docs/api/origin/openapi.yaml"
     }
   ],
   "source": {
