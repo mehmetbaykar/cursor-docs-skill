@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 181,
+    "pages_fetched_successfully": 182,
     "pages_skipped": 4,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 185
+    "total_pages_discovered": 186
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -722,6 +722,15 @@
       "status": "live",
       "title": "Grok Bot"
     },
+    "grok-bot__computers.md": {
+      "hash": "2adc3096d5d9c336ebb688f727eabadf96823cd9f5eb7961c48d8e0801c84c70",
+      "last_updated": "2026-09-12T04:26:15+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/computers",
+      "path": "/docs/grok-bot/computers",
+      "source_url": "https://cursor.com/docs/grok-bot/computers",
+      "status": "live",
+      "title": "Manage Grok Bot computers"
+    },
     "grok-bot__get-started.md": {
       "hash": "cdee06daa5a866af2b75f32b74218187fc8b853d3585611ebba55e40dca0f658",
       "last_updated": "2026-09-11T23:12:27+00:00",
@@ -768,8 +777,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "c4d5a0a258b9916f6837d805d7fa94087599e1ed2902498ff7e493f3ffadaff9",
-      "last_updated": "2026-09-10T16:19:24+00:00",
+      "hash": "d529b84b78d9b30d8bbe9afcc6aa572ab7fce0b66096030aab8066cba7de607d",
+      "last_updated": "2026-09-12T04:26:16+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -786,8 +795,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "4ca65606d5e2cbe82b05788e85eca364967922f7207df35da7e3a4ef1d691b63",
-      "last_updated": "2026-09-10T04:30:57+00:00",
+      "hash": "faad2756362e0405c30b91ffc97d4be5bb2fb800d185d0197723bfd08ddbde36",
+      "last_updated": "2026-09-12T04:26:17+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1654,7 +1663,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-11T23:12:59+00:00",
+  "last_updated": "2026-09-12T04:26:49+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

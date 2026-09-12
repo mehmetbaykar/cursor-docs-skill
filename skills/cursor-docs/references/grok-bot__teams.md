@@ -126,7 +126,7 @@ Team-wide "Ask first" and "Allow automatically" rules that apply to every member
 
 ### Computers and network
 
-How team computers are set up, what they can reach, and how you terminate one.
+How team computers are set up, what they can reach, and how you recreate or terminate them.
 
 #### Network Controls
 
@@ -140,9 +140,9 @@ Manifests of install scripts that run on every team computer, so the same toolin
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
-#### Computer management
+#### Grok Bot Computers
 
-Lets organization admins look up any member's computer, see when it was created and last active, and terminate it. Team admin rights aren't enough, because one computer spans every team the member belongs to. Terminating keeps the durable disk, and the member's next session starts a fresh computer on it. Pair it with a session revoke in your identity provider when you need to cut off access fast.
+Lets organization admins recreate or terminate the computers of many members at once, with a result for each member. Team admin rights aren't enough, because one computer spans every team the member belongs to. Recreate moves members to the latest image and Team Setup while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. Neither action removes access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -242,6 +242,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
 - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
+- [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md)
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
 - [Grok Bot Conversation Insights](https://cursor.com/docs/account/teams/analytics.md#grok-bot-conversation-insights)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)
