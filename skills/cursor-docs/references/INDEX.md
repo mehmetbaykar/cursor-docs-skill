@@ -85,6 +85,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `extension-api` - [Extension API reference](https://cursor.com/docs/extension-api)
 - `get-started__quickstart` - [Quickstart](https://cursor.com/docs/get-started/quickstart)
 - `grok-bot` - [Grok Bot](https://cursor.com/docs/grok-bot)
+- `grok-bot__computers` - [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers)
 - `grok-bot__get-started` - [Get started with Grok Bot](https://cursor.com/docs/grok-bot/get-started)
 - `grok-bot__identity` - [Configure identity and access](https://cursor.com/docs/grok-bot/identity)
 - `grok-bot__private-networks` - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks)
