@@ -57,7 +57,8 @@ effective for everyone. The organization-wide enable switch is also
 Enterprise only and applies to the whole organization. Cloud Agents, Team
 Rules, and public template sharing apply to the whole team on Teams and
 Enterprise. Enforce Auto-review and Auto-review rules are Enterprise only
-and also apply to the whole team.
+and also apply to the whole team. Allow Local Egress is Enterprise only
+and applies to the whole team.
 
 ### Why do some websites block Bots?
 
@@ -73,10 +74,10 @@ your account team.
 
 ### Can traffic run through our own network?
 
-Cursor doesn't operate a VPN, tunnel, or private link into your network
-for Grok Bot. The supported paths are shared static egress with the
-destination allowlist, and installing your own networking client through
-**Team Setup**, which is Enterprise only. See
+Yes. A member can route a Grok Bot computer's web traffic through their
+desktop, using its network and IP address. Enterprise teams can also
+install a networking client on every hosted computer through **Team
+Setup**. See
 [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ### Grok Bot hangs at computer setup from our network. Why?

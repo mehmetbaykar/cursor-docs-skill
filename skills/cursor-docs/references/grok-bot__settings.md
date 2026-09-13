@@ -20,6 +20,16 @@ may not appear for you.
 
 Two of these settings deserve care. Execution on Local Computer controls whether Bots can run commands on the desktop in front of you; per-command approval is the default, and the setting applies to that desktop alone. Auto-review rules shape which actions stop for your approval. When your admin enforces Auto-review for the team, the same table also shows locked team rules with `Required by your admin. You can't edit or delete this rule.` Members can add their own rules on top, but they only make behavior stricter; **Ask first** wins when rules conflict. If your admin turns enforcement off, you only see and use your own rules. Your personal rules are stored on the current desktop and synced to its Grok Bot computer, so another desktop installation needs its own. Read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) before changing either.
 
+## Computer
+
+### Route traffic through your desktop
+
+Turn on **Route egress through this desktop** to send your Grok Bot computer's web traffic through the current desktop. Destinations see your desktop's IP address, and the Bot can reach networks available from that device.
+
+The setting applies to one desktop. If your Enterprise admin turns off **Allow Local Egress**, the toggle turns off and locks with `Your team's admin has turned off local egress.` Any active route stops within five minutes. Your choice is preserved and takes effect again if the admin re-allows local egress.
+
+For private network options and their tradeoffs, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+
 ## Plugins
 
 Use **Marketplace** to discover plugins and packaged skills, and **Yours** to review installed plugins and private skills. An installed plugin may still need browser authentication, and individual plugin tools can be enabled or disabled. On the Teams plan and the Enterprise plan, team-provided plugins may be required or restricted by an admin. See [Connect plugins](https://cursor.com/help/grok-bot/connect-plugins.md).

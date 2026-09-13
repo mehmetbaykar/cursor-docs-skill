@@ -6,7 +6,7 @@ path: /docs/grok-bot/private-networks
 
 # Connect to private networks
 
-Grok Bot computers run in Cursor's cloud and reach the internet through [shared static egress IP addresses](https://cursor.com/docs/grok-bot/security.md#static-egress-ips). If the systems your Bots need, such as internal APIs, source control, databases, or staging environments, live on a private network, you can connect by installing your organization's networking client on every team computer through **Team Setup**. Tailscale and Cloudflare Tunnel are common choices, and this page has a worked example for each. Other VPN, zero-trust, or mesh clients that run on Linux follow the same pattern. Your services stay off the public internet, and access is governed by the access controls and identity provider you already use.
+Grok Bot computers run in Cursor's cloud and reach the internet through [shared static egress IP addresses](https://cursor.com/docs/grok-bot/security.md#static-egress-ips). If the systems your Bots need live on a private network, route traffic through a member's desktop or install your organization's networking client on every team computer through **Team Setup**.
 
 **Team Setup is Enterprise only.** It does not appear on other plans.
 **Network Controls is also Enterprise only.** That
@@ -16,11 +16,25 @@ allowlist.
 
 ## What you can do
 
+- **Route one member's traffic through their desktop**, so Bots can reach services available from that device and destinations see its IP address.
 - **Install your networking client on every team computer automatically**, from one admin-managed manifest, with no per-computer setup.
 - **Let Bots reach services on your private network** without exposing those services to the internet or adding shared egress IPs to your allowlists.
 - **Keep control on your side.** Your network, your access rules, your identity provider. You can revoke a computer from your own admin console at any time.
 
-## A pattern you operate
+## Choose a connection method
+
+| Method                                      | Use it when                                                                   |
+| ------------------------------------------- | ----------------------------------------------------------------------------- |
+| Route egress through a desktop              | One member needs access through a network already available from their device |
+| Install a networking client with Team Setup | Your Enterprise team needs a consistent connection on every hosted computer   |
+
+### Route through a member's desktop
+
+In the Grok Bot desktop app, open **Settings** > **Computer** and turn on **Route egress through this desktop**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress**.
+
+Each member controls their own desktop route. Enterprise admins can remove this option for the whole team from [Grok Bot in the Cursor dashboard](https://cursor.com/dashboard/bot). See [Route traffic through your desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop).
+
+### Install a networking client with Team Setup
 
 This is a pattern you run, not a Cursor-managed network mode. Cursor provides the hook: Team Setup runs your install scripts on every team computer. You own the rest: installing the client, configuring it, authenticating computers, maintaining access rules, and keeping up with your vendor's changes. Cursor installs nothing by default, doesn't operate or monitor your network client, and the dashboard shows no client status. Your vendor's documentation is the source of truth for installing and configuring their software; this page covers the Cursor side.
 
