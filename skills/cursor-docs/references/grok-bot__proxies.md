@@ -98,13 +98,14 @@ the cause.
 
 Three controls are easy to confuse:
 
-| You want to                                                                    | Use                                                                                                  |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| Let member devices reach Cursor and their hosted computer through your gateway | This page                                                                                            |
-| Limit which destinations the hosted computer may reach                         | [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy), Enterprise only       |
-| Let the hosted computer reach services on your private network                 | [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md), Enterprise only |
+| You want to                                                                    | Use                                                                                                                             |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Let member devices reach Cursor and their hosted computer through your gateway | This page                                                                                                                       |
+| Limit which destinations the hosted computer may reach                         | [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy), Enterprise only                                  |
+| Route hosted computer traffic through a member device                          | [Route traffic through your desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop)           |
+| Install a networking client on every hosted computer                           | [Team Setup](https://cursor.com/docs/grok-bot/private-networks.md#install-a-networking-client-with-team-setup), Enterprise only |
 
-The hosted computer's own traffic leaves from Cursor's [shared static egress IPs](https://cursor.com/docs/grok-bot/security.md#static-egress-ips) and doesn't pass through the gateway on member devices.
+By default, the hosted computer's own traffic leaves from Cursor's [shared static egress IPs](https://cursor.com/docs/grok-bot/security.md#static-egress-ips) and doesn't pass through the gateway on member devices. When a member enables **Route egress through this desktop**, routed traffic uses that device's network and is subject to its gateway policy.
 
 ## FAQ
 

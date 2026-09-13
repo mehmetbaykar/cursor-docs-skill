@@ -47,12 +47,12 @@ The security model rests on four principles:
 - **Per-user isolation.** Each user's work runs in a dedicated Firecracker microVM, a micro virtual machine with hardware-level separation from other users.
 - **No access by default.** A Bot can use only the accounts and plugins the user or team grants it.
 - **Human approval gates.** Sensitive actions require user approval, evaluated by an independent review model called Auto Review.
-- **Administrative control.** Team admins can set Team Rules, Cloud Agent delegation, template sharing, and the local execution ceiling. Network Controls, Team Setup, Action Recording, Enforce Auto-review, Auto-review rules, and the organization-wide enable switch are Enterprise only.
+- **Administrative control.** Team admins can set Team Rules, Cloud Agent delegation, template sharing, and the local execution ceiling. Network Controls, Team Setup, Allow Local Egress, Action Recording, Enforce Auto-review, Auto-review rules, and the organization-wide enable switch are Enterprise only.
 
 The pieces fit together like this:
 
 1. **Local machine.** Chat, review, and approvals happen on the member's device. Work runs in the hosted computer. Optional [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution) requires per-command approval by default and can be turned off.
-2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup, Action Recording, Enforce Auto-review, Auto-review rules, and computer management for organization admins. Members never see this page.
+2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup, Allow Local Egress, Action Recording, Enforce Auto-review, Auto-review rules, and computer management for organization admins. Members never see this page.
 3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It hands login, two-factor authentication, and payment steps to the member.
 4. **Plugins.** Your team's Cursor MCP (Model Context Protocol) policy applies in full, allowing or blocking each connector. OAuth tokens stay on Cursor's connector backend, and Bots invoke tools without receiving them.
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
@@ -103,6 +103,12 @@ Grok Bot inherits your team's Cursor connector policy. There is no separate Grok
 #### Execution on Local Computer
 
 Caps what Bots may do on a member's own machine through the desktop app: open files and run tasks. Pick **Always allow**, **Ask every time**, or **Never allow** on the Grok Bot page. **Always allow**, the default, leaves the choice to each member, whose own setting defaults to asking before every task. **Ask every time** makes every local task ask for approval, and **Never allow** turns local execution off for the whole team. A member's own setting still applies when it is stricter than the team's. Pick **Never allow** unless Bots have a specific reason to work on member machines. See [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution).
+
+#### Allow Local Egress
+
+Let members route Grok Bot's web traffic through their own computer. Off disables the option in Grok Bot. The switch is on by default. Turning it off stops active routes within five minutes. Turning it back on restores each member's previous choice. See [Route traffic through your desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop).
+
+*Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
 ### Rules and approvals
 

@@ -10,8 +10,8 @@ Use these controls and deployment details to decide whether Grok Bot is allowed 
 
 **Enterprise only** on the Grok Bot dashboard: the organization-wide enable
 switch, **Network Controls**, **Team Setup**, **Action Recording**,
-**Enforce Auto-review** with its team rules, and computer management for
-organization admins. Audit logs, OpenTelemetry
+**Allow Local Egress**, **Enforce Auto-review** with its team rules, and
+computer management for organization admins. Audit logs, OpenTelemetry
 Export, the MCP allowlist, and SCIM are also Enterprise only. Self-serve
 Teams do not see those settings. The full list is on
 [admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
@@ -36,11 +36,11 @@ Blocking a plugin doesn't block that service's website. The connector policy and
 
 ## Static egress IPs
 
-Hosted computers reach the internet through shared static egress IP addresses. The ranges are shared across Grok Bot customers, and dedicated per-customer IPs are not available, so treat the ranges as identifying Grok Bot traffic rather than your team alone. Current ranges are available from your account team, and the product control is the destination allowlist rather than a source IP editor.
+Hosted computers reach the internet through shared static egress IP addresses by default. The ranges are shared across Grok Bot customers, and dedicated per-customer IPs are not available, so treat the ranges as identifying Grok Bot traffic rather than your team alone. Current ranges are available from your account team, and the product control is the destination allowlist rather than a source IP editor.
 
 If member devices sit behind Zscaler or another TLS-inspecting gateway, allow Cursor's domains and exempt them from inspection on every profile, including off-network. See [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
 
-**Team Setup is Enterprise only.** Those teams can install their own networking client on every team computer to reach private services. That path is separate from these shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+Members can route traffic through their desktop to use its network and IP address. **Team Setup is Enterprise only.** Those teams can also install their own networking client on every team computer. Both paths are separate from the shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ## Approvals and Auto Review
 
@@ -118,7 +118,7 @@ Per-command approval is the default, and the approval card shows the exact comma
 
 ## Hosting
 
-Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today, and Cursor doesn't operate a VPN, tunnel, or private link into your network for Grok Bot. The supported model is shared static egress combined with the destination allowlist. **Team Setup is Enterprise only.** Those teams can install their own networking client on every team computer to reach private services; see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today. Hosted computers use shared static egress by default. Members can route traffic through their desktop, and Enterprise teams can install a networking client with **Team Setup**. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ## Prompt injection
 
