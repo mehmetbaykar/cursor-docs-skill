@@ -33,7 +33,7 @@ supports Agent Plugins alongside Cursor Plugins.
 - **Agent Plugins**: spec-conformant plugins with a `plugin.json` manifest at the plugin root, packaging skills and MCP servers
 - **Cursor Plugins**: plugins with a `.cursor-plugin/plugin.json` manifest, which add rules, agents, commands, hooks, and [variables](https://cursor.com/docs/reference/plugins.md#variables)
 
-A plugin that follows the Agent Plugins specification loads in Cursor without changes. Cursor Plugins continue to develop in parallel with the standard, so Cursor-specific components and marketplace features keep working as they do today.
+A plugin that follows the Agent Plugins specification loads in Cursor. Cursor does not expand the standard's `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` variables in `mcp.json`; use `${CURSOR_PLUGIN_ROOT}` for the plugin root. See [MCP servers](https://cursor.com/docs/reference/plugins.md#mcp-servers) in the reference. Cursor Plugins continue to develop in parallel with the standard, so Cursor-specific components and marketplace features keep working as they do today.
 
 Learn more at [agent-plugins.org](https://agent-plugins.org) or read the [specification on GitHub](https://github.com/agentplugins/agent-plugins-spec).
 
@@ -311,11 +311,7 @@ Marketplace and Plugins**. The setting is off by default on Enterprise. If a
 marketplace plugin with the same name is already installed, that install
 takes precedence over the local copy.
 
-For faster iteration, symlink your plugin repository:
-
-```bash
-ln -s /path/to/my-plugin ~/.cursor/plugins/local/my-plugin
-```
+Symlinks in `~/.cursor/plugins/local` load only when the target resolves to a directory inside that folder. Cursor skips a symlink that points to a plugin repository elsewhere on disk.
 
 When your plugin is ready, submit it for review at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish).
 Cursor Plugins can use `.cursor-plugin/marketplace.json` for multi-plugin
@@ -343,7 +339,7 @@ formats.
 
 ### How do Cursor Plugins relate to the Agent Plugins standard?
 
-[Agent Plugins](https://agent-plugins.org) is an open, vendor-neutral specification for packaging skills and MCP servers into portable plugins. Cursor supports the standard, so spec-conformant plugins load in Cursor without changes. Cursor Plugins are developed in parallel and add Cursor-specific components like rules, agents, commands, hooks, and variables.
+[Agent Plugins](https://agent-plugins.org) is an open, vendor-neutral specification for packaging skills and MCP servers into portable plugins. Cursor supports the standard, so spec-conformant plugins load in Cursor. Cursor does not expand the standard's `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` variables in `mcp.json`; use `${CURSOR_PLUGIN_ROOT}` for the plugin root. Cursor Plugins are developed in parallel and add Cursor-specific components like rules, agents, commands, hooks, and variables.
 
 ### How do I publish a personal skill to my team?
 

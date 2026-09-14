@@ -18,7 +18,7 @@ Skills work across any agent that supports the Agent Skills standard.
 
 ### Version-controlled
 
-Skills are stored as files and can be tracked in your repository, or installed via GitHub repository links.
+Skills are stored as files and can be tracked in your repository.
 
 ### Actionable
 
@@ -311,14 +311,9 @@ When the team setting is on, each member still chooses whether to sync. When it 
 
 To share a skill with teammates, [publish it to your team marketplace](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team). Publishing is different from sync: teammates can install a published skill, and Cursor stores a copy in a repository hosted for your team.
 
-## Installing skills from GitHub
+## Installing skills from a repository
 
-You can import skills from GitHub repositories:
-
-1. Open **Customize** in the sidebar
-2. Go to **Rules** and click **Add Rule**
-3. Select **Remote Rule (Github)**
-4. Enter the GitHub repository URL
+Skills aren't imported on their own. To bring skills in from a GitHub repository, package them in a [plugin](https://cursor.com/docs/plugins.md) and publish that plugin through a marketplace: import the repository in **Customize** with **From GitHub Repository** (the repository needs a `.cursor-plugin/marketplace.json`), or add it as a [team marketplace](https://cursor.com/docs/plugins.md#add-a-team-marketplace), then [install the plugin](https://cursor.com/docs/plugins.md#installing-plugins). The skills arrive with the plugin and appear in Customize alongside your other skills.
 
 ## Migrating rules and commands to skills
 

@@ -180,6 +180,7 @@ Command hooks execute shell scripts that receive JSON input via stdin and return
 
 ```json
 {
+  "version": 1,
   "hooks": {
     "beforeShellExecution": [
       {
@@ -194,7 +195,7 @@ Command hooks execute shell scripts that receive JSON input via stdin and return
 
 **Exit code behavior:**
 
-- Exit code `0` - Hook succeeded, use the JSON output
+- Exit code `0` - Hook succeeded, use the JSON output. For permission hooks (`beforeShellExecution`, `beforeMCPExecution`, `beforeReadFile`, `beforeTabFileRead`, `subagentStart`, `preToolUse`), invalid JSON or a response that doesn't match the hook's schema blocks the action.
 - Exit code `2` - Block the action (equivalent to returning `permission: "deny"`)
 - Other exit codes - Hook failed, action proceeds (fail-open by default)
 
@@ -204,6 +205,7 @@ Prompt hooks use an LLM to evaluate a natural language condition. They're useful
 
 ```json
 {
+  "version": 1,
   "hooks": {
     "beforeShellExecution": [
       {
@@ -625,7 +627,7 @@ For more details about our hooks partners, see the [Hooks for security and platf
 
 ## Configuration
 
-Define hooks in a `hooks.json` file. Configuration can exist at multiple levels. All matching hooks from every source run; when responses conflict, higher-priority sources take precedence during merge:
+Define hooks in a `hooks.json` file. Configuration can exist at multiple levels. All matching hooks from every source run, and Cursor merges their responses: any `deny` wins over `ask`, and `ask` wins over `allow`, regardless of source. `user_message` and `agent_message` values are concatenated. For other fields, such as `followup_message`, the last response wins. Responses merge in the priority order below, so for those fields a lower-priority source overrides a higher-priority one:
 
 ```sh
 ~/.cursor/
@@ -694,27 +696,28 @@ The Agent hooks (`sessionStart`, `sessionEnd`, `preToolUse`, `postToolUse`, `pos
 
 ### Global Configuration Options
 
-| Option    | Type   | Default | Description           |
-| --------- | ------ | ------- | --------------------- |
-| `version` | number | `1`     | Config schema version |
+| Option    | Type   | Default  | Description                                                  |
+| --------- | ------ | -------- | ------------------------------------------------------------ |
+| `version` | number | required | Config schema version. Must be a positive integer (use `1`). |
 
 ### Per-Script Configuration Options
 
-| Option       | Type                      | Default          | Description                                                                                                                                    |
-| ------------ | ------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `command`    | string                    | required         | Script path or command                                                                                                                         |
-| `type`       | `"command"` \| `"prompt"` | `"command"`      | Hook execution type                                                                                                                            |
-| `timeout`    | number                    | platform default | Execution timeout in seconds                                                                                                                   |
-| `loop_limit` | number \| null            | `5`              | Per-script loop limit for stop/subagentStop hooks. `null` means no limit. Default is `5` for Cursor hooks, `null` for Claude Code hooks.       |
-| `failClosed` | boolean                   | `false`          | When `true`, hook failures (crash, timeout, invalid JSON) block the action instead of allowing it through. Useful for security-critical hooks. |
-| `matcher`    | object                    | -                | Filter criteria for when hook runs                                                                                                             |
+| Option       | Type                      | Default          | Description                                                                                                                                                                                                                                              |
+| ------------ | ------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `command`    | string                    | required         | Script path or command                                                                                                                                                                                                                                   |
+| `type`       | `"command"` \| `"prompt"` | `"command"`      | Hook execution type                                                                                                                                                                                                                                      |
+| `timeout`    | number                    | platform default | Execution timeout in seconds                                                                                                                                                                                                                             |
+| `loop_limit` | number \| null            | `5`              | Per-script loop limit for stop/subagentStop hooks. `null` means no limit. Default is `5` for Cursor hooks, `null` for Claude Code hooks.                                                                                                                 |
+| `failClosed` | boolean                   | `false`          | When `true`, hook failures (crash, timeout, non-zero exit code, no output) block the action instead of allowing it through. Permission hooks block on invalid JSON or an invalid response even when this is `false`. Useful for security-critical hooks. |
+| `matcher`    | string                    | -                | Regex that filters when the hook runs. An empty string or `"*"` matches everything.                                                                                                                                                                      |
 
 ### Matcher Configuration
 
-Matchers let you filter when a hook runs. Which field the matcher applies to depends on the hook:
+Matchers let you filter when a hook runs. A matcher is a regex string; an empty string or `"*"` matches everything. Which value the regex is tested against depends on the hook:
 
 ```json
 {
+  "version": 1,
   "hooks": {
     "preToolUse": [
       {
@@ -746,8 +749,10 @@ Matchers let you filter when a hook runs. Which field the matcher applies to dep
 - **preToolUse / postToolUse / postToolUseFailure**: Filter by tool type. Values include `Shell`, `Read`, `Write`, `Grep`, `Delete`, `Task`, and MCP tools using the `MCP:<tool_name>` format.
 - **subagentStart / subagentStop**: Filter by subagent type (`generalPurpose`, `explore`, `shell`, etc.).
 - **beforeShellExecution / afterShellExecution**: Filter by the shell command text; the matcher is matched against the full command string.
-- **beforeReadFile**: Filter by tool type (`TabRead`, `Read`, etc.).
-- **afterFileEdit**: Filter by tool type (`TabWrite`, `Write`, etc.).
+- **beforeReadFile**: Matched against the value `Read`.
+- **afterFileEdit**: Matched against the value `Write`.
+- **beforeTabFileRead**: Matched against the value `TabRead`.
+- **afterTabFileEdit**: Matched against the value `TabWrite`.
 - **beforeSubmitPrompt**: Matched against the value `UserPromptSubmit`.
 - **stop**: Matched against the value `Stop`.
 - **afterAgentResponse**: Matched against the value `AgentResponse`.
@@ -937,7 +942,7 @@ Called when a tool fails, times out, or is denied. Useful for error tracking and
 
 // Output
 {
-  // No output fields currently supported
+  "additional_context": "Tests time out on CI runners. Retry with --maxWorkers=2."
 }
 ```
 
@@ -947,6 +952,10 @@ Called when a tool fails, times out, or is denied. Useful for error tracking and
 | `failure_type`  | string  | Type of failure: `"error"`, `"timeout"`, or `"permission_denied"` |
 | `duration`      | number  | Time in milliseconds until the failure occurred                   |
 | `is_interrupt`  | boolean | Whether this failure was caused by a user interrupt/cancellation  |
+
+| Output Field         | Type              | Description                                                               |
+| -------------------- | ----------------- | ------------------------------------------------------------------------- |
+| `additional_context` | string (optional) | Extra context injected into the conversation after the failed tool result |
 
 #### subagentStart
 
@@ -1038,7 +1047,7 @@ The `followup_message` field enables loop-style flows where subagent completion 
 
 Called before any shell command or MCP tool is executed. Return a permission decision.
 
-By default, hook failures (crash, timeout, invalid JSON) allow the action through (fail-open). Set `failClosed: true` on the hook definition to block the action on failure instead. This is recommended for security-critical `beforeMCPExecution` hooks.
+Invalid JSON or a response that doesn't match the hook's schema blocks the action. Crashes, timeouts, and non-zero exit codes other than `2` fail open by default: Cursor logs the failure and allows the action through. Set `failClosed: true` on the hook definition to block on those failures too. This is recommended for security-critical `beforeMCPExecution` hooks.
 
 ```json
 // beforeShellExecution input
@@ -1139,7 +1148,7 @@ Fires after the Agent edits a file; useful for formatters or accounting of agent
 
 Called before Agent reads a file. Use for access control to block sensitive files from being sent to the model.
 
-By default, `beforeReadFile` hook failures (crash, timeout, invalid JSON) are logged and the read is allowed through. Set `failClosed: true` on the hook definition to block the read on failure instead.
+Invalid JSON or a response that doesn't match the hook's schema blocks the read. Crashes, timeouts, and non-zero exit codes other than `2` are logged and the read is allowed through by default. Set `failClosed: true` on the hook definition to block the read on those failures too.
 
 ```json
 // Input

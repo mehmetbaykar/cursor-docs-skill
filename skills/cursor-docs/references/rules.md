@@ -315,21 +315,9 @@ By default, non‑enforced Team Rules can be disabled by users. Use Enforce this
 
 Some teams use enforced rules as part of internal compliance workflows. While this is supported, AI guidance should not be your only security control.
 
-## Importing Rules
+## Importing rules from a repository
 
-You can import rules from external sources to reuse existing configurations or bring in rules from other tools.
-
-### Remote rules (via GitHub)
-
-Import rules directly from any GitHub repository you have access to—public or private.
-
-1. Open **Customize** in the sidebar
-2. Go to **Rules** and click **Add Rule**
-3. Select **Remote Rule (Github)**
-4. Paste the GitHub repository URL containing the rules. Cursor will scan for all `.mdc` files in the repo.
-5. Cursor will pull and sync the rule(s) into your project
-
-Rules will be placed in `.cursor/rules/imported/<repoName>`. Rules will also keep their relative paths, so `dir/rule.mdc` will be imported as `.cursor/rule/imported/<repoName>/dir/rule.mdc`.
+Rules aren't imported on their own. To bring rules in from a GitHub repository, package them in a [plugin](https://cursor.com/docs/plugins.md) and publish that plugin through a marketplace: import the repository in **Customize** with **From GitHub Repository** (the repository needs a `.cursor-plugin/marketplace.json`), or add it as a [team marketplace](https://cursor.com/docs/plugins.md#add-a-team-marketplace), then [install the plugin](https://cursor.com/docs/plugins.md#installing-plugins). The rules arrive with the plugin and appear in Customize alongside your other rules.
 
 ## AGENTS.md
 

@@ -6,7 +6,7 @@ path: /docs/account/teams/admin-api
 
 # Admin API
 
-The Admin API lets you programmatically access your team's data, including member information, usage metrics, spending details, and model access.
+The Admin API lets you programmatically access your team's data, including member information, usage metrics, spending details, model access, and Grok Bot.
 
 - The Admin API uses [Basic Authentication](https://cursor.com/docs/api.md#basic-authentication) with your API key as the username.
 - For details on creating API keys, authentication methods, rate limits, and best practices, see the [API Overview](https://cursor.com/docs/api.md).
@@ -1839,3 +1839,674 @@ Error bodies use:
 | `403`  | Model access control is not available for that team                                                                                                                                                                               |
 | `409`  | Provider or model read or write while `state` is `unrestricted` or `legacy`                                                                                                                                                       |
 | `400`  | Unknown provider, model, parameter id, or parameter value; invalid body; empty `allowedValues`; default outside `allowedValues`; settings that resolve to no valid model variant; or a Smart Auto required model would be blocked |
+
+## Grok Bot
+
+Enable Grok Bot and manage capabilities, Enforce Auto-Review, group access, network policy, team rules, and setup scripts.
+
+- **Authentication**: Team API key (Basic auth). Reads require **`read:*`** or **`admin:*`**. Writes require **`admin:*`**. A write with a `read:*` key returns `401`.
+- **Rate limits**: 20 requests per minute per team per endpoint. When you exceed the limit, the API returns `429` with `Retry-After: 60`. See [rate limits](https://cursor.com/docs/api.md#rate-limits).
+- **Reads on every plan**: `GET /grok-bot/access`, `/network`, and `/auto-review` return the effective policy on every plan. Writes return `403` when the feature is not available to the team.
+
+### Enable Grok Bot
+
+/grok-bot/enable
+
+Enable Grok Bot for the team. The first enable on an eligible Enterprise team starts the trial. Returns 204 No Content on success.
+
+```bash
+curl -X POST https://api.cursor.com/grok-bot/enable \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```text
+204 No Content
+```
+
+### Disable Grok Bot
+
+/grok-bot/disable
+
+Disable Grok Bot for the team. Members lose access; their computers are not deleted. Returns **403** on Teams plans.
+
+```bash
+curl -X POST https://api.cursor.com/grok-bot/disable \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```text
+204 No Content
+```
+
+### Get Grok Bot Capabilities
+
+/grok-bot/capabilities
+
+Return the team's Grok Bot capabilities.
+
+#### Response Fields
+
+`enabled` boolean
+
+Whether Grok Bot is enabled. Read-only.
+
+`cloudAgents` boolean
+
+Whether members can delegate work to Cloud Agents.
+
+`templateSharing` string | null
+
+`all`, `team_only`, `none`, or `null` for the team default.
+
+`actionRecording` boolean
+
+Whether Action Recording is enabled.
+
+`localExecution` string | null
+
+Team ceiling for Bots on a member's machine: `never`, `ask`, `always`, or `null` for no ceiling.
+
+```bash
+curl -X GET https://api.cursor.com/grok-bot/capabilities \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "enabled": true,
+  "cloudAgents": true,
+  "templateSharing": "team_only",
+  "actionRecording": false,
+  "localExecution": "ask"
+}
+```
+
+### Update Grok Bot Capabilities
+
+/grok-bot/capabilities
+
+Update Grok Bot capabilities. Omitted fields stay unchanged. Returns **403** when a field is not available to the team.
+
+`enabled` is read-only. Use [Enable Grok Bot](https://cursor.com/docs/account/teams/admin-api.md#enable-grok-bot) or [Disable Grok Bot](https://cursor.com/docs/account/teams/admin-api.md#disable-grok-bot). Send at least one field.
+
+#### Parameters
+
+`cloudAgents` boolean
+
+Whether members can delegate work to Cloud Agents.
+
+`templateSharing` string | null
+
+`all`, `team_only`, `none`, or `null` to restore the team default.
+
+`actionRecording` boolean
+
+Whether Action Recording is enabled.
+
+`localExecution` string | null
+
+`never`, `ask`, `always`, or `null` to clear the team ceiling.
+
+```bash
+curl -X PATCH https://api.cursor.com/grok-bot/capabilities \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "cloudAgents": false,
+    "localExecution": "never"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "enabled": true,
+  "cloudAgents": false,
+  "templateSharing": "team_only",
+  "actionRecording": false,
+  "localExecution": "never"
+}
+```
+
+### Get Enforce Auto-Review
+
+/grok-bot/auto-review
+
+Return the team's Enforce Auto-Review policy.
+
+#### Response Fields
+
+`enforced` boolean
+
+When `true`, every member must keep Enforce Auto-Review on.
+
+`rules` object
+
+Team `allow` and `block` instruction lists that feed Auto Review.
+
+```bash
+curl -X GET https://api.cursor.com/grok-bot/auto-review \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "enforced": true,
+  "rules": {
+    "allow": ["Read-only git commands"],
+    "block": ["Publishing releases"]
+  }
+}
+```
+
+### Replace Enforce Auto-Review
+
+/grok-bot/auto-review
+
+Replace the team's Enforce Auto-Review policy. Returns **403** when Enforce Auto-Review is not available to the team.
+
+Empty `allow` and `block` lists keep stored instructions if your team can't set Auto-Review rules. Non-empty lists return **403** in that case.
+
+#### Parameters
+
+`enforced` boolean Required
+
+When `true`, every member must keep Enforce Auto-Review on.
+
+`rules` object Required
+
+Allow and block instruction lists.
+
+- `allow` string\[]: Up to 20 instructions, 1,000 characters each. Trimmed and deduped.
+- `block` string\[]: Up to 20 instructions, 1,000 characters each. Trimmed and deduped.
+
+```bash
+curl -X PUT https://api.cursor.com/grok-bot/auto-review \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "enforced": true,
+    "rules": {
+      "allow": ["Read-only git commands"],
+      "block": ["Publishing releases"]
+    }
+  }'
+```
+
+Lock Enforce Auto-Review without changing instructions:
+
+```bash
+curl -X PUT https://api.cursor.com/grok-bot/auto-review \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "enforced": true,
+    "rules": { "allow": [], "block": [] }
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "enforced": true,
+  "rules": {
+    "allow": ["Read-only git commands"],
+    "block": ["Publishing releases"]
+  }
+}
+```
+
+### Get Grok Bot Access
+
+/grok-bot/access
+
+Return who on the team can use Grok Bot.
+
+#### Response Fields
+
+`mode` string
+
+`all` or `limited`.
+
+`groups` array
+
+Selected groups when `mode` is `limited`. Each item has an encoded `id` and a `name`. Empty when `mode` is `all`.
+
+```bash
+curl -X GET https://api.cursor.com/grok-bot/access \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "mode": "limited",
+  "groups": [
+    {
+      "id": "group_PDSPmvukpYgZEDXsoNirw3CFhy",
+      "name": "Platform Engineering"
+    }
+  ]
+}
+```
+
+### Update Grok Bot Access
+
+/grok-bot/access
+
+Set who on the team can use Grok Bot. Returns **403** when group access is not available to the team.
+
+#### Parameters
+
+`mode` string Required
+
+`all` for every member, or `limited` for selected billing groups.
+
+`groupIds` array
+
+Encoded group IDs from [List Groups](https://cursor.com/docs/account/teams/admin-api.md#list-groups). Required when `mode` is `limited` (1-100, duplicates count once). Omit when `mode` is `all`.
+
+Unknown or malformed IDs, an empty limited list, or group IDs with `all` return **400**.
+
+```bash
+curl -X PUT https://api.cursor.com/grok-bot/access \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "mode": "limited",
+    "groupIds": ["group_PDSPmvukpYgZEDXsoNirw3CFhy"]
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "mode": "limited",
+  "groups": [
+    {
+      "id": "group_PDSPmvukpYgZEDXsoNirw3CFhy",
+      "name": "Platform Engineering"
+    }
+  ]
+}
+```
+
+### Get Grok Bot Network Policy
+
+/grok-bot/network
+
+Return the team's Grok Bot network policy.
+
+#### Response Fields
+
+`egressMode` string
+
+`unset`, `allow_all`, `default_with_network_settings`, or `network_settings_only`.
+
+`allowlist` array
+
+Allowed destinations: domains, wildcard domains, IP addresses, CIDR ranges, or `host-or-CIDR:port` such as `54.85.223.0/24:3306`.
+
+`locked` boolean
+
+When `true`, group policies cannot override the team policy.
+
+```bash
+curl -X GET https://api.cursor.com/grok-bot/network \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "egressMode": "network_settings_only",
+  "allowlist": ["linkedin.com", "*.crunchbase.com", "10.0.0.0/8", "54.85.223.0/24:3306"],
+  "locked": true
+}
+```
+
+### Replace Grok Bot Network Policy
+
+/grok-bot/network
+
+Replace the team's Grok Bot network policy. Returns **403** on Teams plans.
+
+#### Parameters
+
+`egressMode` string Required
+
+One of:
+
+- `unset`: Apply no policy
+- `allow_all`: Allow every destination
+- `default_with_network_settings`: Cursor defaults plus the allowlist
+- `network_settings_only`: The allowlist and destinations required to run Grok Bot
+
+`allowlist` array Required
+
+Up to 500 destinations, 1 to 253 characters each. Domains, wildcard domains, IP addresses, CIDR ranges, or `host-or-CIDR:port` such as `54.85.223.0/24:3306`.
+
+`locked` boolean Required
+
+When `true`, group policies cannot override the team policy.
+
+Partial bodies, unknown modes, and invalid allowlist entries return **400**.
+
+```bash
+curl -X PUT https://api.cursor.com/grok-bot/network \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "egressMode": "network_settings_only",
+    "allowlist": ["linkedin.com", "*.crunchbase.com", "10.0.0.0/8", "54.85.223.0/24:3306"],
+    "locked": true
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "egressMode": "network_settings_only",
+  "allowlist": ["linkedin.com", "*.crunchbase.com", "10.0.0.0/8", "54.85.223.0/24:3306"],
+  "locked": true
+}
+```
+
+### List Grok Bot Team Rules
+
+/grok-bot/team-rules
+
+List Grok Bot team rules, newest first.
+
+#### Parameters
+
+`limit` number
+
+Results per page. Default: `50`. Maximum: `100`.
+
+`cursor` string
+
+Opaque cursor from the previous `nextCursor`.
+
+```bash
+curl -X GET "https://api.cursor.com/grok-bot/team-rules?limit=50" \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "teamRules": [
+    {
+      "id": "rule_PDSPmvukpYgZEDXsoNirw3CFhy",
+      "name": "Ask before publishing",
+      "content": "Never publish a release without an explicit go from the requester.",
+      "enabled": true,
+      "scope": "grokBot",
+      "createdAt": "2024-01-15T10:30:00.000Z",
+      "updatedAt": "2024-01-15T10:30:00.000Z"
+    }
+  ],
+  "nextCursor": null
+}
+```
+
+### Create Grok Bot Team Rule
+
+/grok-bot/team-rules
+
+Create a Grok Bot team rule. A team can store up to 50 Grok Bot rules. Returns **201**.
+
+#### Parameters
+
+`name` string Required
+
+1 to 255 characters.
+
+`content` string Required
+
+1 to 30,000 characters.
+
+`enabled` boolean Required
+
+Whether the rule is active.
+
+```bash
+curl -X POST https://api.cursor.com/grok-bot/team-rules \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Ask before publishing",
+    "content": "Never publish a release without an explicit go from the requester.",
+    "enabled": true
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "teamRule": {
+    "id": "rule_PDSPmvukpYgZEDXsoNirw3CFhy",
+    "name": "Ask before publishing",
+    "content": "Never publish a release without an explicit go from the requester.",
+    "enabled": true,
+    "scope": "grokBot",
+    "createdAt": "2024-01-15T10:30:00.000Z",
+    "updatedAt": "2024-01-15T10:30:00.000Z"
+  }
+}
+```
+
+### Update Grok Bot Team Rule
+
+/grok-bot/team-rules/:id
+
+Update a Grok Bot team rule. Returns **404** when the rule does not exist.
+
+Send at least one field.
+
+#### Parameters
+
+`id` string Required
+
+Encoded rule ID from the list or create response.
+
+`name` string
+
+1 to 255 characters.
+
+`content` string
+
+1 to 30,000 characters.
+
+`enabled` boolean
+
+Whether the rule is active.
+
+```bash
+curl -X PATCH https://api.cursor.com/grok-bot/team-rules/rule_PDSPmvukpYgZEDXsoNirw3CFhy \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "enabled": false
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "teamRule": {
+    "id": "rule_PDSPmvukpYgZEDXsoNirw3CFhy",
+    "name": "Ask before publishing",
+    "content": "Never publish a release without an explicit go from the requester.",
+    "enabled": false,
+    "scope": "grokBot",
+    "createdAt": "2024-01-15T10:30:00.000Z",
+    "updatedAt": "2024-01-15T10:30:00.000Z"
+  }
+}
+```
+
+### Delete Grok Bot Team Rule
+
+/grok-bot/team-rules/:id
+
+Delete a Grok Bot team rule. Returns 204 No Content on success.
+
+#### Parameters
+
+`id` string Required
+
+Encoded rule ID to delete.
+
+```bash
+curl -X DELETE https://api.cursor.com/grok-bot/team-rules/rule_PDSPmvukpYgZEDXsoNirw3CFhy \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```text
+204 No Content
+```
+
+### List Grok Bot Setup Manifests
+
+/grok-bot/setup-manifests
+
+List Grok Bot setup manifests, ordered by `id`.
+
+#### Parameters
+
+`limit` number
+
+Results per page. Default: `50`. Maximum: `100`.
+
+`cursor` string
+
+Opaque cursor from the previous `nextCursor`.
+
+```bash
+curl -X GET "https://api.cursor.com/grok-bot/setup-manifests?limit=50" \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "manifests": [
+    {
+      "id": "toolchain",
+      "scripts": [
+        { "id": "node", "setup": "mise install node@22", "check": "node --version" },
+        { "id": "pnpm", "setup": "npm i -g pnpm" }
+      ]
+    }
+  ],
+  "nextCursor": null
+}
+```
+
+### Upsert Grok Bot Setup Manifest
+
+/grok-bot/setup-manifests/:manifestId
+
+Create or replace a setup manifest. A team can store up to 100 manifests. Returns **409** when the manifest changed during the request.
+
+#### Parameters
+
+`manifestId` string Required
+
+1 to 128 characters, starting with a letter or number, then letters, numbers, `.`, `_`, or `-`.
+
+`scripts` array Required
+
+Setup scripts.
+
+- `id` string: Same format as `manifestId`
+- `setup` string: Non-empty install command
+- `check` string: Optional verification command
+
+```bash
+curl -X PUT https://api.cursor.com/grok-bot/setup-manifests/toolchain \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "scripts": [
+      { "id": "node", "setup": "mise install node@22", "check": "node --version" },
+      { "id": "pnpm", "setup": "npm i -g pnpm" }
+    ]
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "manifest": {
+    "id": "toolchain",
+    "scripts": [
+      { "id": "node", "setup": "mise install node@22", "check": "node --version" },
+      { "id": "pnpm", "setup": "npm i -g pnpm" }
+    ]
+  }
+}
+```
+
+### Delete Grok Bot Setup Manifest
+
+/grok-bot/setup-manifests/:manifestId
+
+Delete a setup manifest. Returns 204 No Content on success.
+
+#### Parameters
+
+`manifestId` string Required
+
+Manifest key to delete.
+
+```bash
+curl -X DELETE https://api.cursor.com/grok-bot/setup-manifests/toolchain \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```text
+204 No Content
+```
+
+### Errors
+
+Error bodies use:
+
+```json
+{ "code": "error", "message": "…" }
+```
+
+| Status | When                                                                                                                                           |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `401`  | Bad key, missing `read:*` / `admin:*`, or Grok Bot Admin API not enabled for the team                                                          |
+| `403`  | The write is not available to the team or its plan                                                                                             |
+| `404`  | A well-formed rule or manifest ID in the path does not exist                                                                                   |
+| `409`  | A setup manifest changed during the request                                                                                                    |
+| `400`  | Invalid body or ID; empty PATCH; `enabled` on capabilities; unknown group; too many rules or manifests; no owner to attribute a setup manifest |
+| `429`  | The endpoint's rate limit was exceeded                                                                                                         |

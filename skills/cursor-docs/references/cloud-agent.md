@@ -20,7 +20,7 @@ Cloud agents can also run in multi-repo environments. Use one when a task spans 
 
 ## How to access
 
-Before anyone can start a cloud agent from a repository, a Cursor account admin needs to connect source control for the account. Set up [GitHub (Cloud and Enterprise Server)](https://cursor.com/docs/integrations/github.md), [GitLab (Cloud and Self-Hosted)](https://cursor.com/docs/integrations/gitlab.md), [Bitbucket Cloud](https://cursor.com/docs/integrations/bitbucket.md), or [Azure DevOps](https://cursor.com/docs/integrations/azure-devops.md).
+Before anyone can start a cloud agent from a repository, a Cursor account admin needs to connect source control for the account. Set up [GitHub (Cloud and Enterprise Server)](https://cursor.com/docs/integrations/github.md), [GitLab (Cloud and Self-Hosted)](https://cursor.com/docs/integrations/gitlab.md), [Bitbucket Cloud](https://cursor.com/docs/integrations/bitbucket.md), or [Azure DevOps](https://cursor.com/docs/integrations/azure-devops.md). To start without a repository, use [Start from scratch](https://cursor.com/docs/cloud-agent/setup.md#start-from-scratch).
 
 You can kick off cloud agents from wherever you work:
 
