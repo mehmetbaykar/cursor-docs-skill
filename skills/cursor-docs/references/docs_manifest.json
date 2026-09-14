@@ -507,8 +507,8 @@
       "title": "Capabilities"
     },
     "cloud-agent__identity.md": {
-      "hash": "b637cf75de96cb8a541e692fa80c497c7ea3e4eda992fc9fd04fd57c0c96eae5",
-      "last_updated": "2026-09-11T11:10:45+00:00",
+      "hash": "6722c6cf420e869a1eb26e88c5888b1aacba9d11da067cca0d7a1b0b975ce036",
+      "last_updated": "2026-09-14T04:46:47+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
@@ -597,8 +597,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "10906445bec4d7b9f608bb92be07dd55965e24414094fba72e57c39b872b91e1",
-      "last_updated": "2026-09-02T20:58:37+00:00",
+      "hash": "255ae52bcaeeefc8ce43587add722e08782b37703b1a498e5550001d37c3475a",
+      "last_updated": "2026-09-14T04:46:50+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
@@ -606,8 +606,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "9a705fafb2a52558a8acd1d7b62407be48c7db037e7ba2c4394da4757b82b268",
-      "last_updated": "2026-09-11T11:10:48+00:00",
+      "hash": "f08707a6cd7bf3dd294dde23c4eed2e237478db8888a48bf02b7a51b4da73be5",
+      "last_updated": "2026-09-14T04:46:50+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1663,7 +1663,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-13T11:42:09+00:00",
+  "last_updated": "2026-09-14T04:47:23+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
