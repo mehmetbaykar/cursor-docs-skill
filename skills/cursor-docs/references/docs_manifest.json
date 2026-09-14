@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "01a96d6de718c6912a8ffcabad843808fbaef111642168a3130d4e67a9f7bcee",
-      "last_updated": "2026-09-01T18:24:30+00:00",
+      "hash": "4cea0c8365bf18efbe6359a60c829bab050eb42e296ac777db05a31bef9266ce",
+      "last_updated": "2026-09-14T19:49:25+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "87f78a2989033af254493d27e8bacda4f5604375679591e894487e3d0b7a0caf",
-      "last_updated": "2026-09-04T04:21:23+00:00",
+      "hash": "85c92e532eff980814959ee193c02daaa8ef33e113e83d155466401fc41f6ab5",
+      "last_updated": "2026-09-14T19:49:26+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -264,8 +264,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "db3a577c15b51e0a446afb4a938e466e0dd0b7f40c96a2d402acf6c51c45f093",
-      "last_updated": "2026-09-12T15:27:51+00:00",
+      "hash": "dc7c47dfd69c7dd76cfaf240ac464342c2c314ae96704e2c4fe80780e1cdd987",
+      "last_updated": "2026-09-14T19:49:36+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -273,8 +273,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "40396e6cb5d042fb3f8e42cdbb810188d3e5ccad3021ffec5a649377b663388d",
-      "last_updated": "2026-09-12T15:27:51+00:00",
+      "hash": "3c95c48b4cc07bbdaeefec81d56e838d9f262334f57fcc836e90261d9b7e0383",
+      "last_updated": "2026-09-14T19:49:36+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -444,8 +444,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "d98b9d0ad5863f44c7524c3eab57baf1915235ca1488467723bc5f7e8d447c2d",
-      "last_updated": "2026-09-04T11:09:45+00:00",
+      "hash": "cba52c3c6594353d175292faa011e400f4ede33e6c1d1b3d7dca6b6409096596",
+      "last_updated": "2026-09-14T19:49:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -624,8 +624,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "74988de60e916f0caf65da848e953ebdf4a28e891e7c91c82d46d1e3884b1a5b",
-      "last_updated": "2026-08-12T21:57:22+00:00",
+      "hash": "367a20f1c2f8fbb16cec927edb63247c43c921364b466458388d13f0baeb877d",
+      "last_updated": "2026-09-14T19:49:50+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -795,8 +795,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "8920ed06f24201306e20a74c4330fe3a15e2256617c5bf87953441dd36388f76",
-      "last_updated": "2026-09-13T11:41:41+00:00",
+      "hash": "1a10fb57b2bff694521a7967c49d223442e2505038a0e4b26134dbc4ec5fb725",
+      "last_updated": "2026-09-14T19:49:56+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -822,8 +822,8 @@
       "title": "Work with Grok Bot"
     },
     "hooks.md": {
-      "hash": "932ab2f33346dcf22eca105aff4de873033346bf3012a611dcb2170c0b647a86",
-      "last_updated": "2026-09-02T20:58:44+00:00",
+      "hash": "5c1805606293ef3478abb10b28c49b97aaa75ed71bf2da4a1212fe81a8f702bb",
+      "last_updated": "2026-09-14T19:49:57+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks",
@@ -1506,8 +1506,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "7da15dbb15244f93c3d6cbca0b4b69cb86aee0eba101f6e04546036678439425",
-      "last_updated": "2026-09-03T23:15:01+00:00",
+      "hash": "0a71a559e6ffbef058a1b7ae145c0f4ae0a07be3e062b2efc604c29675e9d1d3",
+      "last_updated": "2026-09-14T19:50:24+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1551,8 +1551,8 @@
       "title": "permissions.json reference"
     },
     "reference__plugins.md": {
-      "hash": "4a3f9313343c25d41a0581960a92e9d73ad205786b05649a8f53cadc83b8ed73",
-      "last_updated": "2026-08-07T17:12:24+00:00",
+      "hash": "5404e509b87637b60b75b36b0612be261389d6ec7096c62be976409ce5fc741d",
+      "last_updated": "2026-09-14T19:50:25+00:00",
       "original_url": "https://cursor.com/docs/reference/plugins",
       "path": "/docs/reference/plugins",
       "source_url": "https://cursor.com/docs/reference/plugins",
@@ -1578,8 +1578,8 @@
       "title": "Third Party Hooks"
     },
     "rules.md": {
-      "hash": "3a483e6118e8f70e00a4a8501a88c07e96ee32e8f131e4604e86ffc3a868156e",
-      "last_updated": "2026-08-25T01:48:42+00:00",
+      "hash": "70c90918e06b7ddd338dea81266497588f9967b0d2e54fdad951a770007128a3",
+      "last_updated": "2026-09-14T19:50:27+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
       "source_url": "https://cursor.com/docs/rules",
@@ -1632,8 +1632,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "43464c87bb08bd3ed12f8d999ec5f5556af32adeb07ed72cf55276caab20fb81",
-      "last_updated": "2026-09-03T23:15:07+00:00",
+      "hash": "8cd17bc4e280f80f862d8fca568d2abf5a154bced93a0cbe69aecbc994512628",
+      "last_updated": "2026-09-14T19:50:29+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1663,7 +1663,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-14T04:47:23+00:00",
+  "last_updated": "2026-09-14T19:50:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

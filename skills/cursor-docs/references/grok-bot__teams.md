@@ -174,6 +174,10 @@ Streams Cursor usage metrics and logs, including recorded Grok Bot actions, to a
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
+## Admin API
+
+Enable Grok Bot and manage capabilities, Enforce Auto-Review, group access, network policy, team rules, and setup scripts through the [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot).
+
 ## Security
 
 The security model, network policy, approvals and Auto Review, identity, logging, data handling, and certifications live on [Grok Bot security](https://cursor.com/docs/grok-bot/security.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).
@@ -209,6 +213,10 @@ The organization-wide **Enable Grok Bot** switch is Enterprise only. It
 lives on the Grok Bot page of the Cursor dashboard. Self-serve Teams do
 not get this switch. Disabling blocks members without deleting their
 computers.
+
+### Can I manage Grok Bot through the Admin API?
+
+Yes. Use the [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot).
 
 ### Can I set a Grok Bot spend cap?
 
@@ -250,6 +258,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
 - [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md)
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
+- [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot)
 - [Grok Bot Conversation Insights](https://cursor.com/docs/account/teams/analytics.md#grok-bot-conversation-insights)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)
 - [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md)
