@@ -17,7 +17,7 @@ Organization API keys are organization-scoped credentials. Team API keys are tea
 
 Use an **Organization API key** when calling organization-level endpoints like `/organizations/team-memberships/sync`, `/organizations/pooled-usage`, and `/organizations/groups`.
 
-Use a **Team API key** when calling team-level endpoints under `/teams/*` (for example, `/teams/members` and `/teams/spend`).
+Use a **Team API key** when calling endpoints under `/teams/*` (for example, `/teams/members` and `/teams/spend`).
 
 ### Key differences
 
@@ -1339,7 +1339,7 @@ Bulk org routes (`PUT .../providers/:provider`, `PUT .../providers/:provider/mod
 
 ## Organization Groups
 
-Organization groups organize members across teams linked to the same organization. For dashboard setup and group-level controls, see [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md).
+Organization groups organize members across teams linked to the same organization. For dashboard setup and group-level controls, see [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md). Team directory groups use the Team Admin API at [`/teams/directory-groups`](https://cursor.com/docs/account/teams/admin-api.md#team-directory-groups) and `team_group_…` ids. Those routes do not accept Organization Group `id` (`g_`) or `publicId` (`grp_`) values.
 
 - **Availability**: Enterprise only
 - **Authentication**: Organization API key (Basic auth). Every group route, read or write, requires the **`members:*`** scope. Keys with **`admin:*`** also work because admin implies members.
