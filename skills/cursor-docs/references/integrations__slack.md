@@ -39,26 +39,29 @@ Run `@Cursor help` for an up-to-date command list.
 | Command                      | Description                                                                                                                                                 |
 | :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `@Cursor [prompt]`           | Start a Cloud Agent. In threads with existing agents, adds follow-up instructions. Who can follow up is controlled by Team follow-ups, not ownership alone. |
-| `@Cursor settings`           | Configure defaults and channel's default repository                                                                                                         |
+| `@Cursor settings`           | Configure defaults and channel's default repository. Also shows the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool)    |
 | `@Cursor [options] [prompt]` | Set the target, model, branch, PR behavior, worker, or output channel for a run                                                                             |
 | `@Cursor agent [prompt]`     | Force create a new agent in a thread (e.g. `@Cursor start a new agent to fix billing`)                                                                      |
 | `@Cursor list my agents`     | Show your running agents                                                                                                                                    |
+| `@Cursor pool`               | Show the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) for Slack launches                                            |
+| `@Cursor pool set <name>`    | Set the team default pool (team admins)                                                                                                                     |
+| `@Cursor pool unset`         | Clear the team default pool (team admins)                                                                                                                   |
 
 #### Options
 
 Customize Cloud Agent behavior with these options:
 
-| Option                | Description                                                                                                | Natural language example       | Inline example      |
-| :-------------------- | :--------------------------------------------------------------------------------------------------------- | :----------------------------- | :------------------ |
-| `repo`                | Use a specific repository                                                                                  | `in acme/backend`              | `repo=acme/backend` |
-| `env` / `environment` | Use a named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md)                        | `use the Platform environment` | `env=Platform`      |
-| `branch`              | Use a specific base branch                                                                                 | `work from the dev branch`     | `branch=dev`        |
-| `model`               | Use a specific model                                                                                       | `with opus`                    | `model=opus`        |
-| `autopr`              | Enable or disable automatic PR creation                                                                    | Inline option required         | `autopr=false`      |
-| `worker` / `machine`  | Run on a named [My Machine](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md)                | Inline option required         | `worker=my-devbox`  |
-| `pool`                | Run on a named [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents) | Inline option required         | `pool=gpu`          |
-| `self_hosted`         | Run on one of your Team Pools                                                                              | Inline option required         | `self_hosted=true`  |
-| `channel`             | Post agent updates in another channel you and Cursor can access                                            | Inline option required         | `channel=#eng-bots` |
+| Option                | Description                                                                                                                                                                                                                    | Natural language example       | Inline example      |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- | :------------------ |
+| `repo`                | Use a specific repository                                                                                                                                                                                                      | `in acme/backend`              | `repo=acme/backend` |
+| `env` / `environment` | Use a named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md)                                                                                                                                            | `use the Platform environment` | `env=Platform`      |
+| `branch`              | Use a specific base branch                                                                                                                                                                                                     | `work from the dev branch`     | `branch=dev`        |
+| `model`               | Use a specific model                                                                                                                                                                                                           | `with opus`                    | `model=opus`        |
+| `autopr`              | Enable or disable automatic PR creation                                                                                                                                                                                        | Inline option required         | `autopr=false`      |
+| `worker` / `machine`  | Run on a named [My Machine](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md)                                                                                                                                    | Inline option required         | `worker=my-devbox`  |
+| `pool`                | Run on a named [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents). Optional when your team has a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) | Inline option required         | `pool=gpu`          |
+| `self_hosted`         | Run on one of your Team Pools. Uses the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) when one is set; `self_hosted=false` skips it                                                     | Inline option required         | `self_hosted=true`  |
+| `channel`             | Post agent updates in another channel you and Cursor can access                                                                                                                                                                | Inline option required         | `channel=#eng-bots` |
 
 #### Syntax formats
 
@@ -88,6 +91,7 @@ When combining options:
 - **Later values** override earlier ones if duplicated
 - **Inline options** take precedence over settings modal defaults
 - **`env`** takes precedence over `repo` when both are present
+- **`pool`, `worker`, `machine`, and `self_hosted=false`** take precedence over the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool)
 
 The bot parses options from anywhere in the message, allowing natural command writing.
 
@@ -222,6 +226,43 @@ Cursor evaluates your message in this order:
 3. **Routing rules** — Custom keyword-to-target mappings (repository or environment)
 4. **Channel default** — The repository set for this channel
 5. **Default repository** — Fallback when no match is found
+
+### Team default pool
+
+Team admins can set one [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) as the default for `@Cursor` launches. Members then run on that pool without adding `pool=<name>` or `self_hosted=true` to every mention. The default applies to the whole team, in every channel.
+
+Team Pools require an Enterprise plan. The team default only applies while
+**Allow Self-Hosted Machines** is on in the [Cloud Agents
+dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents). If
+an admin turns it off, Slack ignores the default and mentions run on Cursor's
+managed infrastructure.
+
+Manage the default from Slack. Setting or clearing it requires the same permission as changing Self-Hosted settings in the dashboard. Anyone can view it.
+
+```bash
+@Cursor pool set gpu
+@Cursor pool
+@Cursor pool unset
+```
+
+`@Cursor settings` also lists the team default pool.
+
+#### How Cursor picks where a mention runs
+
+Options in your message always win. Cursor resolves the target in this order:
+
+1. **Options in your message.** `pool=<name>` targets that pool. `worker=` or `machine=` targets one of your [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md). `self_hosted=false` runs on Cursor's managed infrastructure. Each of these skips the team default. A bare `self_hosted=true` fills in the team default pool.
+2. **Your default My Machines worker.** If you have a default worker of your own, it outranks the team default pool.
+3. **Team default pool.** Used when your message has none of the options above.
+
+#### Repositories and the team default pool
+
+[Repository selection](https://cursor.com/docs/integrations/slack.md#how-routing-works) works the same way with a team default pool: message content, recent activity, routing rules, channel default, then your default repository and the team's. What happens next depends on how the pool is registered:
+
+- **Any repo pool, no repository resolved.** Slack starts an agent on the pool without a repository. Source control is up to the worker, as with any [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools). If a default repository does resolve, the agent gets it as context without limiting which workers can claim the run.
+- **Repo-bound pool, no repository resolved.** Slack rejects the mention with an ephemeral reply instead of falling back to managed infrastructure. Add `repo=` or `pool=` to the mention, use `self_hosted=false` to run on managed infrastructure, or check the default with `@Cursor pool` and `@Cursor settings`.
+- **Repository resolved and the pool serves it.** Slack launches with `repo=` and `pool=` set, the same as an explicit `pool=<name>` mention.
+- **Repository resolved but the pool's workers only serve other repositories.** Slack rejects the mention with an ephemeral reply. Pick a repository the pool serves with `repo=`, or a pool that serves this repository with `pool=`.
 
 ### Privacy
 
