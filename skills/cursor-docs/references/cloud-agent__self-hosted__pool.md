@@ -206,7 +206,7 @@ If clone fails, the request stays in the queue. Operators see a generic clone fa
 
 `--clone-git-repos`, `--mint-github-token`, and `--sync-dashboard-secrets` assume one worker per container or OS user. Co-locating multiple credential-enabled workers under the same user is unsupported.
 
-Any-repo pools omit `repo=` routing labels. Start agents against them with `env.type: "pool"` and `env.name` set to the pool name, and omit `repos` (see [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent)). Pick the pool under **Any repo** on [cursor.com/agents](https://cursor.com/agents).
+Any-repo pools omit `repo=` routing labels. Start agents against them with `env.type: "pool"` and `env.name` set to the pool name, and omit `repos` (see [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent)). Pick the pool under **Any repo** on [cursor.com/agents](https://cursor.com/agents). In Slack, an any-repo pool set as the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) lets `@Cursor` start an agent even when no repository resolves from the message or defaults.
 
 ## Manage pools
 
@@ -247,7 +247,7 @@ Use pool triggers when you want a Cloud Agent to run on your team's shared worke
 
 Team admins control self-hosted routing from the Self-Hosted section of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). **Allow Self-Hosted Machines** lets users opt in per request. Without opt-in, runs use Cursor's managed infrastructure. **Require Self-Hosted Machines** routes Cloud Agent runs to self-hosted workers.
 
-When Cursor starts a pool agent, it matches workers with labels. Every pool request includes a `repo=<owner/repo>` label. Requests for a named pool also include `pool=<name>`.
+When Cursor starts a pool agent, it matches workers with labels. Pool requests for a repository include a `repo=<owner/repo>` label; requests to an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) without a repository omit it. Requests for a named pool also include `pool=<name>`.
 
 Pool workers handle:
 
@@ -260,7 +260,7 @@ Pool workers handle:
 
 Use these options from integrations to start pool agents:
 
-- **Slack**: Mention `@Cursor` with `self_hosted=true`, standalone `self_hosted`, `selfhosted`, or `pool=<name>`. Legacy aliases like `private_worker=true`, `useprivateworker`, and `useprivateworkers=false` still work.
+- **Slack**: Mention `@Cursor` with `self_hosted=true`, standalone `self_hosted`, `selfhosted`, or `pool=<name>`. Legacy aliases like `private_worker=true`, `useprivateworker`, and `useprivateworkers=false` still work. Team admins can set a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) with `@Cursor pool set <name>` so members run on it without an option in each mention. Explicit `pool=`, `worker=`, `machine=`, or `self_hosted=false` override the default, and an any-repo default pool lets Slack launch without a resolved repository.
 - **GitHub**: Comment `@cursoragent self_hosted=true ...` or `@cursoragent pool=<name> ...` on an issue, pull request, or review comment. The legacy `private_worker=true` alias still works.
 - **Linear**: Add `pool=<name>` or `[pool=<name>]` to the issue body. You can also use issue or project labels where the parent label is `pool` and the child label is the value. Linear does not parse standalone `self_hosted=true`.
 

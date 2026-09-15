@@ -100,6 +100,7 @@ The base URL for API requests is `https://api.cursor.com/v1/origin`. The Origin 
 - [List Comparison Files](https://cursor.com/docs/api/origin#list-comparison-files)
 - [Get Contents](https://cursor.com/docs/api/origin#get-contents)
 - [Batch Get Contents](https://cursor.com/docs/api/origin#batch-get-contents)
+- [Grep Contents](https://cursor.com/docs/api/origin#grep-contents)
 
 ## Git data
 
@@ -153,6 +154,7 @@ The base URL for API requests is `https://api.cursor.com/v1/origin`. The Origin 
 - [Remove All Pull Request Labels](https://cursor.com/docs/api/origin#remove-all-pull-request-labels)
 - [Remove Pull Request Label](https://cursor.com/docs/api/origin#remove-pull-request-label)
 - [Merge Pull Request](https://cursor.com/docs/api/origin#merge-pull-request)
+- [Get Pull Request Mergeability](https://cursor.com/docs/api/origin#get-pull-request-mergeability)
 - [List Pull Request Requested Reviewers](https://cursor.com/docs/api/origin#list-pull-request-requested-reviewers)
 - [Request Pull Request Reviewers](https://cursor.com/docs/api/origin#request-pull-request-reviewers)
 - [Remove Pull Request Requested Reviewers](https://cursor.com/docs/api/origin#remove-pull-request-requested-reviewers)
