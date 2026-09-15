@@ -77,11 +77,6 @@ The base URL for API requests is `https://api.cursor.com/v1/origin`. The Origin 
 - [List Branches](https://cursor.com/docs/api/origin#list-branches)
 - [Get Repo Tarball](https://cursor.com/docs/api/origin#get-repo-tarball)
 - [Sync Mirror](https://cursor.com/docs/api/origin#sync-mirror)
-- [Detach Repo Mirror](https://cursor.com/docs/api/origin#detach-repo-mirror)
-- [Get Mirror Transition Job](https://cursor.com/docs/api/origin#get-mirror-transition-job)
-- [Get Active Mirror Transition Job](https://cursor.com/docs/api/origin#get-active-mirror-transition-job)
-- [Force Repo Mirror Cutover](https://cursor.com/docs/api/origin#force-repo-mirror-cutover)
-- [Transition Repo Mirror](https://cursor.com/docs/api/origin#transition-repo-mirror)
 
 ## Checks
 

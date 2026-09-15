@@ -5,10 +5,10 @@
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
     "pages_fetched_successfully": 182,
-    "pages_skipped": 4,
+    "pages_skipped": 5,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 186
+    "total_pages_discovered": 187
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "85c92e532eff980814959ee193c02daaa8ef33e113e83d155466401fc41f6ab5",
-      "last_updated": "2026-09-14T19:49:26+00:00",
+      "hash": "52c125fe4c460c1e573c143eb79a83746cd798c4ef29ec0e7fe2126de31df57a",
+      "last_updated": "2026-09-15T11:37:12+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -264,8 +264,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "dc7c47dfd69c7dd76cfaf240ac464342c2c314ae96704e2c4fe80780e1cdd987",
-      "last_updated": "2026-09-14T19:49:36+00:00",
+      "hash": "74da80bb84bd304d3423a5cf48c808fedc5acf1b527927ee597f95491913b402",
+      "last_updated": "2026-09-15T11:37:21+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -273,8 +273,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "3c95c48b4cc07bbdaeefec81d56e838d9f262334f57fcc836e90261d9b7e0383",
-      "last_updated": "2026-09-14T19:49:36+00:00",
+      "hash": "af8b212e3036f4d94900d9ccba43a5deb3d487a423c3468fd9222e8aa6be5581",
+      "last_updated": "2026-09-15T11:37:21+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -1663,7 +1663,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-14T19:50:29+00:00",
+  "last_updated": "2026-09-15T11:38:11+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
@@ -1679,6 +1679,11 @@
       "path": "/docs/api/origin/grants-api",
       "reason": "Non-markdown response (text/html)",
       "url": "https://cursor.com/docs/api/origin/grants-api"
+    },
+    {
+      "path": "/docs/api/origin/migrations",
+      "reason": "Non-markdown response (text/html)",
+      "url": "https://cursor.com/docs/api/origin/migrations"
     },
     {
       "path": "/docs/api/origin/openapi.yaml",
