@@ -10,6 +10,8 @@ Agent is Cursor's assistant that can complete complex coding tasks independently
 
 Learn more about [how agents work](https://cursor.com/learn/agents.md) and help you build faster.
 
+For a larger body of work, such as a feature or a migration, create a [Project](https://cursor.com/docs/agent/projects.md): a coordinator agent plans the work and delegates it to other agents.
+
 ## How Agent works
 
 An agent is built on three components:

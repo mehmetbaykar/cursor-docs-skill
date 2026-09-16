@@ -26,6 +26,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `agent__design-mode` - [Design Mode](https://cursor.com/docs/agent/design-mode)
 - `agent__overview` - [Cursor Agent](https://cursor.com/docs/agent/overview)
 - `agent__plan-mode` - [Plan Mode](https://cursor.com/docs/agent/plan-mode)
+- `agent__projects` - [Projects](https://cursor.com/docs/agent/projects)
 - `agent__prompting` - [Prompting agents](https://cursor.com/docs/agent/prompting)
 - `agent__security` - [Agent Security](https://cursor.com/docs/agent/security)
 - `agent__security__run-modes` - [Run Modes](https://cursor.com/docs/agent/security/run-modes)

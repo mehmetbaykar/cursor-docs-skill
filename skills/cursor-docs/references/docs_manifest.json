@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 182,
+    "pages_fetched_successfully": 183,
     "pages_skipped": 5,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 187
+    "total_pages_discovered": 188
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -174,8 +174,8 @@
       "title": "Design Mode"
     },
     "agent__overview.md": {
-      "hash": "8f8dcb7f0a0928af52edc811ae4fa7f5b0e379caf2929dbf6fd8e7a5a29a391e",
-      "last_updated": "2026-08-25T18:53:06+00:00",
+      "hash": "3d8dddcd8cb2885569e86e629b8dfdb6c73eb091689fc1c7cbaa7fde8202116e",
+      "last_updated": "2026-09-16T04:42:04+00:00",
       "original_url": "https://cursor.com/docs/agent/overview",
       "path": "/docs/agent/overview",
       "source_url": "https://cursor.com/docs/agent/overview",
@@ -190,6 +190,15 @@
       "source_url": "https://cursor.com/docs/agent/plan-mode",
       "status": "live",
       "title": "Plan Mode"
+    },
+    "agent__projects.md": {
+      "hash": "597d21f0cfde8af0f7549bfa011dc308a584be515e7ae735a3b5a126b9be7afe",
+      "last_updated": "2026-09-16T04:42:05+00:00",
+      "original_url": "https://cursor.com/docs/agent/projects",
+      "path": "/docs/agent/projects",
+      "source_url": "https://cursor.com/docs/agent/projects",
+      "status": "live",
+      "title": "Projects"
     },
     "agent__prompting.md": {
       "hash": "3cf31cf84e25135edeb8b597072e9bbce65ee98b3b8df98703dcb8f96bb965fc",
@@ -795,8 +804,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "1a10fb57b2bff694521a7967c49d223442e2505038a0e4b26134dbc4ec5fb725",
-      "last_updated": "2026-09-14T19:49:56+00:00",
+      "hash": "34624cf65b0818f98f5614b572cca1e17f38e460581708f9ad13a397a7d59b8a",
+      "last_updated": "2026-09-16T04:42:29+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1663,7 +1672,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-15T21:16:04+00:00",
+  "last_updated": "2026-09-16T04:43:00+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

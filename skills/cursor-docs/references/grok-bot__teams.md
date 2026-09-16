@@ -158,7 +158,7 @@ What gets recorded, and where it goes.
 
 #### Action Recording
 
-Records Bot actions, including scrubbed shell commands. The switch is on the Grok Bot page and is off by default. Recorded events don't appear on the Audit Log page. To receive them in your own collector, configure [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md), which delivers each event tagged `cursor.surface=grok_bot`. Retention details are on [logging and audit](https://cursor.com/docs/grok-bot/security.md#logging-and-audit).
+Records Bot actions: connector (MCP) tool calls, shell commands, browser navigations, and computer use sessions. Events are sanitized before they are stored or exported. Shell commands are secret-scrubbed; browser navigations keep each page as `scheme://host/path` with the title but strip query strings and credentials; computer use sessions record action and screenshot counts and the session duration, without the screenshots, clicks, or typed text. The switch is on the Grok Bot page and is off by default. Recorded events don't appear on the Audit Log page. To receive them in your own collector, configure [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md), which delivers each event tagged `cursor.surface=grok_bot`. Retention details are on [logging and audit](https://cursor.com/docs/grok-bot/security.md#logging-and-audit).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
