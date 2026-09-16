@@ -147,6 +147,14 @@ Agents can subscribe to events from these integrations:
 - Bursts coalesce. Several events arriving close together can wake the agent once, and the agent re-reads the source (the PR, thread, or issue) before acting.
 - A subscription lasts at most 180 days. Agents also unsubscribe on their own when the wait is over.
 
+### GitHub CI subscriptions
+
+A CI subscription waits until every check on the commit has completed, then delivers one commit-wide result: success, or failure with the names of the failed checks.
+
+Some checks stay pending for a long time, for example while a person approves them. A single pending check holds back the whole result, and the agent keeps waiting.
+
+Finish those checks with GitHub's [`action_required`](https://docs.github.com/en/rest/checks/runs#create-a-check-run) conclusion instead of leaving them pending. The check completes, still requires action, and still blocks merge when it's a required check, so the CI subscription delivers while merge stays protected.
+
 ## Fixing CI Failures
 
 Cloud Agents automatically try to fix CI failures in PRs they create. This currently supports GitHub Actions only.

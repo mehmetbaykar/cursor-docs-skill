@@ -507,8 +507,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "a105ac4baaf07454bf01df25466fdeba3210fc53197f14f1682680111988fca6",
-      "last_updated": "2026-09-03T04:14:59+00:00",
+      "hash": "1e6a63c7e38f4f5f7b6bd7f6dc365dc64cd29ab92718252ba8af2d901461052f",
+      "last_updated": "2026-09-16T21:14:12+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -1672,7 +1672,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-16T16:46:29+00:00",
+  "last_updated": "2026-09-16T21:14:48+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
