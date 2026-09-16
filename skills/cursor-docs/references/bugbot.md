@@ -346,6 +346,16 @@ By default, Bugbot reviews only the changes since the previous Bugbot review. Tu
 
 ![Incremental Review setting in Bugbot Automations](https://cursor.com/docs-static/images/bugbot/incremental-review-setting.png)
 
+## PR summaries
+
+Bugbot writes a summary of each pull request it reviews. **Post PR Summary** in [Bugbot Automations](https://cursor.com/automations/from-cursor/bugbot) controls where the summary goes:
+
+- **In Description** (default): Bugbot adds the summary to the pull request description and updates it on each review.
+- **As Comment**: Bugbot posts the summary as a comment and updates that comment on each review.
+- **Off**: Bugbot posts no summary.
+
+Turn summaries on or off for your own PRs with the **PR Summaries** personal setting. Choose **On**, **Off**, or **Use Installation Default**.
+
 ## Effort Levels
 
 Effort levels control how much time Bugbot spends reasoning during a review. Higher effort levels can find more bugs, but each review may take longer and take up more usage.
@@ -414,7 +424,7 @@ Cursor will automatically enable or disable rules as it learns more about your t
 
 #### Manual rules
 
-In [Bugbot repository rules](https://cursor.com/dashboard/bugbot/repository-rules), you can create manual rules for individual repositories.
+In [Bugbot repository rules](https://cursor.com/dashboard/bugbot/repository-rules), you can create manual rules for individual repositories. Like learned rules, manual rules apply only when learning is enabled for the organization and the repository.
 
 | Field            | Description                                                                                                    |
 | :--------------- | :------------------------------------------------------------------------------------------------------------- |
@@ -502,7 +512,7 @@ Under the hood, `/review-bugbot` stores the [patch ID](https://git-scm.com/docs/
 
 A common use case: run `/review-bugbot`, then open a pull request with the same diff, and Bugbot recognizes the review and skips the remote PR review.
 
-`/review` and `/review-bugbot` are available in Cursor 3.7+ and at [cursor.com/agents](https://cursor.com/agents). CLI support is coming soon.
+`/review` and `/review-bugbot` are available in Cursor 3.7+, at [cursor.com/agents](https://cursor.com/agents), and in the [Cursor CLI](https://cursor.com/docs/cli/overview.md).
 
 ## Autofix
 
@@ -542,6 +552,16 @@ Team admins can set a default autofix mode for all team members in a GitHub orga
 - **Commit to Existing Branch** — Push fixes directly to the PR branch (max 3 attempts per PR to prevent loops)
 
 Individual team members can override these defaults in their personal settings.
+
+Available autofix modes depend on your repository provider:
+
+| Provider                                            | Create New Branch | Commit to Existing Branch |
+| :-------------------------------------------------- | :---------------- | :------------------------ |
+| GitHub, [Origin](https://cursor.com/docs/origin.md) | Yes               | Yes                       |
+| GitLab, Bitbucket                                   | No                | Yes                       |
+| Azure DevOps                                        | No                | No                        |
+
+Installation settings offer only the modes your provider supports. If your personal setting picks a mode your provider doesn't support, Bugbot skips the autofix run for that PR.
 
 Autofix uses your **Default agent model** from [Settings → Models](https://cursor.com/dashboard/settings). If you haven't set a personal model preference, autofix falls back to your team's default model (if you're on a team) or the system default.
 

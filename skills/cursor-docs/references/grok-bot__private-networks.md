@@ -129,7 +129,7 @@ Run Tailscale on each computer and route through an [exit node](https://tailscal
 **If it doesn't work:**
 
 - The client installed but nobody authenticated. The login step is deliberately manual, since scripts can't hold secrets. Check the machine list in your Tailscale admin console.
-- Your team's network policy is allowlist-only and blocks Tailscale's coordination servers or relays. Allow the endpoints from Tailscale's docs, then recreate the computer.
+- Your team's network policy is allowlist-only and blocks Tailscale's coordination servers or relays. Allow the endpoints from Tailscale's docs. Running computers apply the change within about a minute. Sleeping computers apply it when they next wake.
 - The exit node isn't advertised or approved in your tailnet. Check route settings in the admin console.
 - The computer was recreated, for example after an image update or reset, and the session didn't survive. Authenticate again.
 
@@ -154,7 +154,7 @@ The same Team Setup mechanics work for [Cloudflare Tunnel](https://developers.cl
 
 - The connector inside your network is down. Check tunnel health in your Cloudflare dashboard; this fails on your side, not the computer's.
 - Cloudflare Access denies the request. Check your Access logs and confirm the member has authenticated.
-- Your team's network policy is allowlist-only and blocks the tunnel hostname or Cloudflare's endpoints. Allow them, then recreate the computer.
+- Your team's network policy is allowlist-only and blocks the tunnel hostname or Cloudflare's endpoints. Allow them. Running computers apply the change within about a minute. Sleeping computers apply it when they next wake.
 - A service token was embedded in the setup script. Don't do this; manifests are plain text. Use identity-based Access, or supply tokens at use time.
 - A `cloudflared access tcp` listener isn't running when the Bot needs it. Listeners don't persist across sessions; start one when needed.
 
@@ -164,14 +164,14 @@ Other clients that install and run on Debian-based Linux follow the same Team Se
 
 ## Roll out to existing computers
 
-- **New computers** apply manifests when they're created.
-- **Running computers** pick up manifest changes on a periodic refresh; expect up to about a day.
-- **To apply immediately,** restart or recreate the computer. Members can reset their own computer from the desktop app, and organization admins can terminate a member's computer from the dashboard. The durable disk is kept, and the next session starts a fresh computer that applies current manifests at boot.
+- **New computers** apply manifests when they start.
+- **Running computers** pick up manifest changes on a periodic refresh, roughly daily.
+- **To apply a manifest change immediately,** recreate the computer or have the member reset it from the desktop app. Organization admins can recreate or terminate a member's computer from the dashboard. The durable disk is kept, and the next computer applies current manifests when it starts.
 - **Image updates** recreate computers automatically, and your scripts re-apply. Sign-in sessions, including your network client's login, may need to be re-established after a computer is recreated.
 
 ## Work with the network policy
 
-The Grok Bot [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) is a separate layer that controls which destinations team computers may reach. If your team uses **Team allowlist only**, add the destinations your networking client needs, such as coordination servers, relays, and gateways, from your vendor's documentation. Network policy changes apply when a computer is created or recreated.
+The Grok Bot [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) is a separate layer that controls which destinations team computers may reach. If your team uses **Team allowlist only**, add the destinations your networking client needs, such as coordination servers, relays, and gateways, from your vendor's documentation. Running computers apply policy changes within about a minute. Sleeping computers apply them when they next wake. You don't need to recreate the computer.
 
 ## Limitations
 
@@ -197,9 +197,9 @@ this page. Validate your client on a pilot computer first.
 
 ### Do existing computers get a new manifest?
 
-Yes, within about a day. Running computers refresh manifests
-periodically. Restart or recreate a computer to apply changes
-immediately.
+Yes. Running computers refresh manifests periodically, roughly daily. To
+apply a manifest change immediately, recreate the computer or have the
+member reset it from the desktop app.
 
 ### Does this change the IP addresses my services see?
 
@@ -211,8 +211,8 @@ shared static ranges.
 ### We use a strict network allowlist. Will our client work?
 
 Only if you allow its endpoints. Add the destinations your client
-requires to your team allowlist, then recreate computers to pick up the
-policy change.
+requires to your team allowlist. Running computers apply the change within
+about a minute. Sleeping computers apply it when they next wake.
 
 ### Is this the same as the Tailscale and Cloudflare Tunnel sections in the Cloud Agents docs?
 

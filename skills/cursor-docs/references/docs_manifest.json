@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "f05b087f4e8e9dbafd7f3041ff1bcbecd4ef50f24d530494d86acf3dff6b7c54",
-      "last_updated": "2026-09-15T16:51:25+00:00",
+      "hash": "eb017b1c5867989af74859ceb4379f4697df0737921557fec1770b1df766d733",
+      "last_updated": "2026-09-16T16:45:45+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -282,8 +282,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "be388c6dfab8fe0819d660caf711bbb6856fa25184d87bf34aa58110c4601ffa",
-      "last_updated": "2026-09-15T16:51:26+00:00",
+      "hash": "e88bfb97aa043a2250f391da9c992dd78408711287524617e61edbdc71e9b57e",
+      "last_updated": "2026-09-16T16:45:46+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -291,8 +291,8 @@
       "title": "Cursor Origin API"
     },
     "approval-agents.md": {
-      "hash": "7dec547775fa8951c1e1a9b418fad6dc65db01925966470755b54da64c296000",
-      "last_updated": "2026-08-07T17:11:49+00:00",
+      "hash": "94c790ef686b8d26279978ce677c347a7d52b80ff53e68ce8cc0c8c7a3ab92a0",
+      "last_updated": "2026-09-16T16:45:46+00:00",
       "original_url": "https://cursor.com/docs/approval-agents",
       "path": "/docs/approval-agents",
       "source_url": "https://cursor.com/docs/approval-agents",
@@ -300,8 +300,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "b12e70bc6cb26ec60e5a5ceafa669e7fba17a00848a291a478cd67a3ea9ac1ae",
-      "last_updated": "2026-09-04T20:42:47+00:00",
+      "hash": "425e5e19ea426dd4874e1473a67d64bb4e374204459615e02fd23f10e10c4833",
+      "last_updated": "2026-09-16T16:45:46+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -732,8 +732,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "2adc3096d5d9c336ebb688f727eabadf96823cd9f5eb7961c48d8e0801c84c70",
-      "last_updated": "2026-09-12T04:26:15+00:00",
+      "hash": "5360a8abb8d21d895673b73ae738d9420bfde82509a70b1c3ebd1a8ccbe1e164",
+      "last_updated": "2026-09-16T16:46:00+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
@@ -759,8 +759,8 @@
       "title": "Configure identity and access"
     },
     "grok-bot__private-networks.md": {
-      "hash": "1d5a48a81a9ce6d019bf5949ff18eea23350232b115b12f3f7ba0e2aa9c1a5fc",
-      "last_updated": "2026-09-13T11:41:39+00:00",
+      "hash": "57be8cd34f92acc24b1d5c5ac389e30b90f2abc6c66b0e03fcd7a0b6cfdae8c0",
+      "last_updated": "2026-09-16T16:46:00+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
       "source_url": "https://cursor.com/docs/grok-bot/private-networks",
@@ -777,8 +777,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "659c582d6412db309fe76b0fa48f09c475bfdd51644d5d79933a09cd1e4baa8c",
-      "last_updated": "2026-09-13T11:41:40+00:00",
+      "hash": "ef3594d13bd476601a8d81301e4155533a3bf8d902471f3633435dd2cb702611",
+      "last_updated": "2026-09-16T16:46:01+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -786,8 +786,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "de7d24a8d2422b4ce146b66cdcc3a207c3702059f99f4f27c52e8c0abaa91ba5",
-      "last_updated": "2026-09-13T11:41:40+00:00",
+      "hash": "b1f8bdb20512044e3d8d7a815d73df4f9405d80bbf9f07ec1d5d9d0281f1692e",
+      "last_updated": "2026-09-16T16:46:01+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -1524,8 +1524,8 @@
       "title": "Plugins"
     },
     "reference__deeplinks.md": {
-      "hash": "e6bad2bef91fe7bb1d90cecaaa9c794d0b68dc63cd667902f9ac5fad0f754d30",
-      "last_updated": "2026-08-07T17:12:23+00:00",
+      "hash": "366916a223b0b38d3ad094c1185233e483bac6edcaef998d4809c289f67cd213",
+      "last_updated": "2026-09-16T16:46:25+00:00",
       "original_url": "https://cursor.com/docs/reference/deeplinks",
       "path": "/docs/reference/deeplinks",
       "source_url": "https://cursor.com/docs/reference/deeplinks",
@@ -1533,8 +1533,8 @@
       "title": "Deeplinks"
     },
     "reference__ignore-file.md": {
-      "hash": "62d8af5e2adad7d1568c5a2b0cfd08b6cc4dc90ffc1b734d8b3612812123c12e",
-      "last_updated": "2026-08-29T01:44:19+00:00",
+      "hash": "4a359d188ce0ff661303b406641245e0c93efeb18f53cf28734246f48a3dc460",
+      "last_updated": "2026-09-16T16:46:25+00:00",
       "original_url": "https://cursor.com/docs/reference/ignore-file",
       "path": "/docs/reference/ignore-file",
       "source_url": "https://cursor.com/docs/reference/ignore-file",
@@ -1542,8 +1542,8 @@
       "title": "Ignore file"
     },
     "reference__keyboard-shortcuts.md": {
-      "hash": "16a71eef20051caf93fc6eb28cd603afe8a6ee936249db139ecbfad835b10159",
-      "last_updated": "2026-08-25T01:48:41+00:00",
+      "hash": "18f3f09e627e0fd819be819e7a41d437067ec8edafee071c9e71e4b276fb1c5a",
+      "last_updated": "2026-09-16T16:46:25+00:00",
       "original_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
       "path": "/docs/reference/keyboard-shortcuts",
       "source_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
@@ -1578,8 +1578,8 @@
       "title": "sandbox.json reference"
     },
     "reference__third-party-hooks.md": {
-      "hash": "b2c0b94541cb022a30408e2bca76192f1c10b7e0446cbbb8cf24896498a05b5f",
-      "last_updated": "2026-08-07T17:12:25+00:00",
+      "hash": "b0cf18c355b76ffa901d2d33aff264acd3fe062cc4e39030aa1247b84a3d3d5b",
+      "last_updated": "2026-09-16T16:46:26+00:00",
       "original_url": "https://cursor.com/docs/reference/third-party-hooks",
       "path": "/docs/reference/third-party-hooks",
       "source_url": "https://cursor.com/docs/reference/third-party-hooks",
@@ -1632,8 +1632,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "2663f19f7f1daf25c1997cbd30ef3a23ed45917bbefe3cc266145b5c2815abc0",
-      "last_updated": "2026-08-07T17:12:26+00:00",
+      "hash": "c28eaba2f2ede4428bf5dcf08dd5fb39f92057fb541c991190e6be2515fa7fab",
+      "last_updated": "2026-09-16T16:46:28+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -1672,7 +1672,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-16T04:43:00+00:00",
+  "last_updated": "2026-09-16T16:46:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

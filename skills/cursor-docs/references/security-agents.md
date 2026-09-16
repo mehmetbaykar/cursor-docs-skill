@@ -43,7 +43,7 @@ Use custom instructions to give each agent more context. You can describe the ty
 
 ### Tools and MCPs
 
-Both agent types support tools and MCPs. Each agent needs at least one tool or MCP to run.
+Both agent types support tools and MCPs. A Security Reviewer needs at least one tool or MCP before you can save it. A Vulnerability Scanner saves without one and reports its findings to the [Flagged vulnerabilities](https://cursor.com/docs/security-agents.md#flagged-vulnerabilities) list.
 
 Use tools and MCPs to connect Security Agents to the systems where your team tracks security work.
 
@@ -67,7 +67,7 @@ Use the `/review-security` or `/review` skills to run the Security Agent from yo
 
 ![Running the /review-security skill from the agent input](https://cursor.com/docs-static/images/security-review/review-security-skill.png)
 
-`/review` and `/review-security` are available in Cursor 3.7+ and at [cursor.com/agents](https://cursor.com/agents). CLI support is coming soon.
+`/review` and `/review-security` are available in Cursor 3.7+, at [cursor.com/agents](https://cursor.com/agents), and in the [Cursor CLI](https://cursor.com/docs/cli/overview.md).
 
 ## Billing
 
@@ -85,6 +85,25 @@ Security Agents track three key metrics across agent runs:
 - **Resolution rate**: the percentage of reported findings that were fixed.
 
 To determine whether an issue was fixed, Cursor uses LLMs to review incremental diffs and assess whether the flagged issue was resolved.
+
+## Flagged vulnerabilities
+
+Vulnerability Scanner findings appear in the **Flagged Vulnerabilities** list on the [Security Agents page in Automations](https://cursor.com/automations/from-cursor/security) and on each scanner's detail page. The list groups findings by repository. Filter them by scanner, status, feedback, and severity.
+
+| Field           | Description                                                                                                                 |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| **Status**      | **Active** or **Dismissed**. Change it from the list to dismiss or restore a finding.                                       |
+| **Feedback**    | **Useful**, **False Positive**, or **Unimportant**. Set it from the list to record whether the finding was worth reporting. |
+| **Severity**    | Severity reported by the scanner. Filter by **Critical**, **High**, or **Medium**.                                          |
+| **Location**    | File the finding points to.                                                                                                 |
+| **Detected On** | Date the scanner found the issue.                                                                                           |
+| **Commit**      | Commit the scan ran against.                                                                                                |
+| **Reported**    | Link to where the finding was reported, when the scanner recorded one.                                                      |
+
+Each finding has two actions:
+
+- **Fix in Cursor** starts a [Cloud Agent](https://cursor.com/docs/cloud-agent.md) to fix the vulnerability in that repository.
+- **View in codebase** opens the scan run in [Origin](https://cursor.com/docs/origin.md). This appears only when Origin is enabled for your team.
 
 ## Viewing Runs
 
