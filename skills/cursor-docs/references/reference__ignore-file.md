@@ -47,9 +47,7 @@ dist/           # Directory
 
 ### Hierarchical ignore
 
-Enable `Cursor Settings` > `Features` > `Editor` > `Hierarchical Cursor Ignore` to search parent directories for `.cursorignore` files.
-
-Starting in Cursor 3.11, this setting moves to `Cursor Settings` > `Indexing` > `Ignore Files` > `Hierarchical Cursor Ignore`.
+Enable `Cursor Settings` > `Indexing` > `Ignore Files` > `Hierarchical Cursor Ignore` to search parent directories for `.cursorignore` files.
 
 ## Global ignore files
 

@@ -105,6 +105,8 @@ Turn on the capabilities you want:
 
 Choose the organizations and repositories where the agent should run.
 
+PR Routing & Approval supports GitHub and [Origin](https://cursor.com/docs/origin.md) repositories only. Remove any GitLab, Bitbucket, or Azure DevOps repositories from the agent before you save it.
+
 ### Configure triggers
 
 Triggers decide when the agent runs. PR Routing & Approval supports pull request events such as:
@@ -153,4 +155,4 @@ Use the custom prompt to guide how the agent should use MCP tools.
 
 After configuring, save the agent. Existing agents can be enabled or disabled from the detail page.
 
-Team members without admin permission can view PR Routing & Approval but cannot edit it.
+On Team plans, every team member can create and edit PR Routing & Approval. On Enterprise plans, only team admins can edit it; other members can view it.

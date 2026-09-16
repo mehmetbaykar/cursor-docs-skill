@@ -146,8 +146,9 @@ customer-facing EDR feed.
 ### Why do members have to sign in to company tools again?
 
 Sign-in sessions inside the computer can drop when the computer is
-recreated, for example after an image update or a policy change. Sessions
-ride your identity provider, so your session policies also apply.
+recreated, for example after an image update or when an admin recreates
+it. Sessions ride your identity provider, so your session policies also
+apply.
 
 ### What happens to data when an admin terminates a computer?
 

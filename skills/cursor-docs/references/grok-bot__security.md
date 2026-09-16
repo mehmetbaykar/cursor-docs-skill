@@ -29,7 +29,7 @@ Teams do not see those settings. The full list is on
 
 - **Destinations** cover web domains as well as IP ranges with ports for raw connections, with no cap on the number of entries.
 - **Directory groups. Enterprise only, inside Network Controls.** Groups can set their own network policy, which replaces the team's for their members, and a lock makes the team policy effective for everyone.
-- **The policy is separate from Cloud Agent network settings**, and it's applied when a computer is created or recreated. Recreate or restart a running computer to pick up a new policy.
+- **The policy is separate from Cloud Agent network settings.** Running computers apply changes automatically within about a minute. Sleeping computers apply changes when they next wake. You don't need to recreate the computer.
 - **Restricting egress limits where data can be sent.** Dedicated data loss prevention hooks are not available.
 
 Blocking a plugin doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.

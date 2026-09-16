@@ -151,7 +151,7 @@ print(deeplink)
 
 ### What is the maximum length for deeplink URLs?
 
-Deeplink URLs have a maximum length of 8,000 characters. When generating deeplinks programmatically, ensure your content doesn't exceed this limit when URL-encoded. The interactive generators above will show you the current URL length and remaining characters as you type.
+Deeplink URLs have a maximum length of 10,000 characters. When generating deeplinks programmatically, ensure your content doesn't exceed this limit when URL-encoded. The interactive generators above will show you the current URL length and remaining characters as you type.
 
 ### How do I use deeplinks on the web instead of in the Cursor app?
 
