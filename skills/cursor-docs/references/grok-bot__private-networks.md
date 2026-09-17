@@ -47,7 +47,7 @@ This is a pattern you run, not a Cursor-managed network mode. Cursor provides th
 
 ## How Team Setup runs your scripts
 
-Team Setup lives on the **Grok Bot** page of the [Cursor dashboard](https://cursor.com/dashboard/bot): manifests of install scripts that run on every team computer. Each manifest holds one or more script entries, and each entry has an **ID**, a **Setup Script**, and an optional **Check Script**.
+Team Setup lives on the **Grok Bot** page of the [Cursor dashboard](https://cursor.com/dashboard/bot): manifests of install scripts that run on every team computer. Each manifest holds one or more script entries, and each entry has an **ID**, a **Setup Script**, and an optional **Check Script**. To run a manifest on one cohort's computers only, add it under the group's Grok Bot tab instead; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings). Group manifests follow the same rules as the ones below.
 
 - Scripts run **as the computer user** on every team computer; use `sudo` for privileged installs.
 - They run when a computer starts, and on a periodic refresh, roughly daily, while it runs.

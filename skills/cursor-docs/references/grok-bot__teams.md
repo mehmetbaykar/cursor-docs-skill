@@ -66,7 +66,7 @@ Within one user, the boundary is different: all of that user's Bots share one co
 
 ## Admin controls
 
-Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot), which only admins see. A few live in Team Settings, your Team Marketplace, or your identity provider. Several controls are available only on the [Enterprise plan](https://cursor.com/docs/enterprise.md); the rest are available on Teams and Enterprise.
+Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot), which only admins see. A few live in Team Settings, your Team Marketplace, or your identity provider. Several controls are available only on the [Enterprise plan](https://cursor.com/docs/enterprise.md); the rest are available on Teams and Enterprise. Enterprise teams can also widen several of these controls for one cohort from a group's Grok Bot tab; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 ### Access and identity
 
@@ -116,11 +116,11 @@ Guidance Bots follow, and the review layer that stops actions.
 
 #### Team Rules
 
-Rules that every member's Bots follow. Add them from the Grok Bot page and scope each rule to Cursor, Grok Bot, or both. Rules applied to Grok Bot are always required, so members can't turn them off. Keep them short and few, like "never move company data to personal accounts." Rules guide a Bot; for approval behavior, use [Auto-review rules](https://cursor.com/docs/grok-bot/teams.md#auto-review-rules).
+Rules that every member's Bots follow. Add them from the Grok Bot page and scope each rule to Cursor, Grok Bot, or both. Rules applied to Grok Bot are always required, so members can't turn them off. Keep them short and few, like "never move company data to personal accounts." Rules guide a Bot; for approval behavior, use [Auto-review rules](https://cursor.com/docs/grok-bot/teams.md#auto-review-rules). For guidance that belongs to one cohort, add Group Rules under [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 #### Enforce Auto-review
 
-Prevents members from turning Auto-review off. The switch is on the Grok Bot page and is off by default. When it is on, Bots always check risky actions before running them and ask for approval when needed. Turn it on before you rely on team Auto-review rules.
+Prevents members from turning Auto-review off. The switch is on the Grok Bot page and is off by default. When it is on, Bots always check risky actions before running them and ask for approval when needed. Turn it on before you rely on team Auto-review rules. A group can lift the lock for its own members with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -142,7 +142,7 @@ Restricts which destinations team computers can reach. Pick one of four modes, f
 
 #### Team Setup
 
-Manifests of install scripts that run on every team computer, so the same tooling is present everywhere. Keep secret values out of setup scripts. Members see the managed setup under **Team Setup** in the app, where they can review or reinstall it. For how manifests run, and to install a networking client that reaches private services, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+Manifests of install scripts that run on every team computer, so the same tooling is present everywhere. Keep secret values out of setup scripts. Members see the managed setup under **Team Setup** in the app, where they can review or reinstall it. For how manifests run, and to install a networking client that reaches private services, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md). To run extra scripts on one cohort's computers only, add them under [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -171,6 +171,21 @@ Admin, security, and authentication events, plus Grok Bot control-plane events: 
 #### OpenTelemetry Export
 
 Streams Cursor usage metrics and logs, including recorded Grok Bot actions, to a collector you run. It's the customer path for Action Recording events. Configure it under **Team Settings** > **OpenTelemetry Export**. Endpoint requirements and the event schema are on [OpenTelemetry Export](https://cursor.com/docs/enterprise/opentelemetry-export.md).
+
+*Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
+
+### Group settings
+
+The controls above set the team-wide baseline. To widen that baseline for one cohort, open a group your team owns from [Members > Groups](https://cursor.com/dashboard/members?subtab=groups) and use its **Grok Bot** tab. Group settings only widen: a group can grant its members more than the team allows, never less, and a member in several groups gets the most permissive result. This is the same rule as [group model access](https://cursor.com/docs/enterprise/model-and-integration-management.md#how-team-and-group-model-access-combine). A group control left at the team's value changes nothing, so tighten controls on the Grok Bot page and widen them per group.
+
+The tab has four sections:
+
+- **Agent Capabilities.** Allow [Cloud Agents](https://cursor.com/docs/grok-bot/teams.md#cloud-agents), raise the [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) ceiling, or turn on [Allow Local Egress](https://cursor.com/docs/grok-bot/teams.md#allow-local-egress) for group members when the team has them off or stricter. For Auto-review, **Don't enforce for this group** lifts the team's [Enforce Auto-review](https://cursor.com/docs/grok-bot/teams.md#enforce-auto-review) lock so group members can turn Auto-review off, and group Auto-review rules combine with the team's [Auto-review rules](https://cursor.com/docs/grok-bot/teams.md#auto-review-rules), with "Ask first" winning when rules conflict.
+- **Network.** The group's own network policy, as described under [Network Controls](https://cursor.com/docs/grok-bot/teams.md#network-controls). A locked team policy applies to everyone.
+- **Group Rules.** Rules for the group's Bots, combined with [Team Rules](https://cursor.com/docs/grok-bot/teams.md#team-rules). Members can't turn them off.
+- **Setup Scripts.** Manifests that run on group members' computers alongside [Team Setup](https://cursor.com/docs/grok-bot/teams.md#team-setup). They use the same structure and run the same way, and the same no-secrets rule applies. See [how Team Setup runs your scripts](https://cursor.com/docs/grok-bot/private-networks.md#how-team-setup-runs-your-scripts).
+
+Group settings apply to groups your team owns, whether you manage membership by hand or sync it through [SCIM](https://cursor.com/docs/account/teams/scim.md#directory-groups). They are separate from [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md). To control who can use Grok Bot at all, use **Manage Group Access** on the Grok Bot page instead; see [Enabling Grok Bot for your team](https://cursor.com/docs/grok-bot/teams.md#enabling-grok-bot-for-your-team).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
