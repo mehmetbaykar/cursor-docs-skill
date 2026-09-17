@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 183,
+    "pages_fetched_successfully": 184,
     "pages_skipped": 5,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 188
+    "total_pages_discovered": 189
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "eb017b1c5867989af74859ceb4379f4697df0737921557fec1770b1df766d733",
-      "last_updated": "2026-09-16T16:45:45+00:00",
+      "hash": "afe95659892def01f4893463cb2409886b121e6513604908b6e0e1541c631059",
+      "last_updated": "2026-09-17T16:52:26+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -507,8 +507,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "1e6a63c7e38f4f5f7b6bd7f6dc365dc64cd29ab92718252ba8af2d901461052f",
-      "last_updated": "2026-09-16T21:14:12+00:00",
+      "hash": "82ed8c07dccb324e19e050bc2bd4176bbfec6e7ede164baa6eb0feaeb9ca1fcf",
+      "last_updated": "2026-09-17T16:52:33+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -804,8 +804,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "909c00030a1350c713b2548b6446ddfdd814c3ab7a8725da57716d1308893e2c",
-      "last_updated": "2026-09-17T04:45:06+00:00",
+      "hash": "e1746f57330bedf2fe50bfa3a158f5af3fdceb0345a242a661e2101f1e76705e",
+      "last_updated": "2026-09-17T16:52:43+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -948,8 +948,8 @@
       "title": "Xcode"
     },
     "mcp.md": {
-      "hash": "2271c4b46ac2272535a934242bb0828669770668befbd605096094dc6f1b9d49",
-      "last_updated": "2026-08-25T01:48:20+00:00",
+      "hash": "a066b70279c3e2d561addc9a1b88dcdd4e229fff7a01b93a9375c70bd1a18ce7",
+      "last_updated": "2026-09-17T16:52:47+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp",
@@ -1451,6 +1451,15 @@
       "status": "live",
       "title": "Pull request commands"
     },
+    "origin__clonekit-ci.md": {
+      "hash": "ba6ece6451c5305d3723ced0499b01991f0147a537bc93dc55396d2cefa588b3",
+      "last_updated": "2026-09-17T16:53:04+00:00",
+      "original_url": "https://cursor.com/docs/origin/clonekit-ci",
+      "path": "/docs/origin/clonekit-ci",
+      "source_url": "https://cursor.com/docs/origin/clonekit-ci",
+      "status": "live",
+      "title": "Set up CloneKit in CI with `origin repo clone-fast`"
+    },
     "origin__codebase-settings.md": {
       "hash": "34eb0ba2ade6bcc88f8a2d3583053ed095b53bcb837c00e2f986348e410db960",
       "last_updated": "2026-09-01T18:25:24+00:00",
@@ -1515,8 +1524,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "0a71a559e6ffbef058a1b7ae145c0f4ae0a07be3e062b2efc604c29675e9d1d3",
-      "last_updated": "2026-09-14T19:50:24+00:00",
+      "hash": "541f07a84680a7a1d9e01032b5244775e1030066b550f541a17efd68ed20a574",
+      "last_updated": "2026-09-17T16:53:06+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1672,7 +1681,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-17T04:45:33+00:00",
+  "last_updated": "2026-09-17T16:53:10+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

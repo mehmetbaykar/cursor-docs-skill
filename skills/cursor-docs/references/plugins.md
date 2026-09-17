@@ -63,10 +63,10 @@ marketplace.
 
 [Contact sales](https://cursor.com/contact-sales?source=docs-plugins) for unlimited team marketplaces and Enterprise admin controls.
 
-Open **Dashboard -> Plugins** to manage Team Marketplaces.
+Open **Dashboard -> Plugins & MCPs** to manage Team Marketplaces.
 
 On Enterprise plans, only admins can add team marketplaces from **Dashboard
--> Plugins**.
+-> Plugins & MCPs**.
 
 ### Default team marketplace
 
@@ -78,10 +78,10 @@ Adding a Team MCP server to the Default marketplace does not install or enable i
 
 Admins can link standalone Team MCP servers to the Default marketplace:
 
-1. Open **Dashboard -> Integrations & MCP**.
+1. Open **Dashboard -> Plugins & MCPs**.
 2. Find **Team MCP Servers**.
 3. Select **Add to Team Marketplace** in the migration prompt.
-4. Open **Dashboard -> Plugins** to review the Default marketplace, its access, and plugin installation modes.
+4. Review the Default marketplace, its access, and plugin installation modes on the same page.
 
 Cursor creates the Default marketplace if needed and links the existing MCP servers to it. The servers remain available to Cloud Agents while teammates gain the option to install and configure them locally.
 
@@ -111,7 +111,7 @@ After setting marketplace access, choose how each plugin is distributed to that 
 
 On the **Default** marketplace, admins control whether members can publish personal skills:
 
-1. Open [Dashboard → Plugins](https://cursor.com/dashboard/plugins).
+1. Open [Dashboard → Plugins & MCPs](https://cursor.com/dashboard/plugins).
 2. Open the **Default** team marketplace, then **Marketplace Settings**.
 3. Turn **Allow Members to Publish** on or off.
 
@@ -123,7 +123,7 @@ See [Publish a skill to your team](https://cursor.com/docs/plugins.md#publish-a-
 
 Use this flow to import a GitHub repository as a team marketplace:
 
-1. Go to **Dashboard -> Plugins**.
+1. Go to **Dashboard -> Plugins & MCPs**.
 2. In **Team Marketplaces**, click **Add Marketplace**.
 3. Follow the instructions to create a marketplace from scratch, or use "Import from Repo" if importing from GitHub.
 4. Add and review plugins using "Add to Marketplace".
