@@ -98,7 +98,7 @@ Controls whether members can publish Bot templates outside your team. Off keeps 
 
 #### Connector policy
 
-Grok Bot inherits your team's Cursor connector policy. There is no separate Grok Bot connector list, and connectors appear as plugins in the app. Set which servers members can use from your Team Marketplace on the dashboard's [Plugins page](https://cursor.com/dashboard/plugins), not on the Grok Bot page. The MCP allowlist is Enterprise only; see [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). Any permitted connector is available to every Bot a member runs, and a blocked one shows as **Disabled by team admin**. Pushing connectors to members, whether mandatory or default-on, is not available.
+Grok Bot inherits your team's Cursor connector policy. There is no separate Grok Bot connector list, and connectors appear as plugins in the app. Set which servers members can use from your Team Marketplace on the dashboard's [Plugins & MCPs page](https://cursor.com/dashboard/plugins), not on the Grok Bot page. The MCP allowlist is Enterprise only; see [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). Any permitted connector is available to every Bot a member runs, and a blocked one shows as **Disabled by team admin**. Pushing connectors to members, whether mandatory or default-on, is not available.
 
 #### Execution on Local Computer
 
