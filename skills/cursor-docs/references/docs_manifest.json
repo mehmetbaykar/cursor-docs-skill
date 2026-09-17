@@ -102,8 +102,8 @@
       "title": "Team Pricing"
     },
     "account__teams__scim.md": {
-      "hash": "4f75c6d7f019b30916e36bbe09980f914b5f0153f8edcf6a2e946c25277965cf",
-      "last_updated": "2026-09-03T04:14:47+00:00",
+      "hash": "b465a35d6172aa79d183e23e131baeae476f59aa8375511484b38d6fc595a8cf",
+      "last_updated": "2026-09-17T04:44:43+00:00",
       "original_url": "https://cursor.com/docs/account/teams/scim",
       "path": "/docs/account/teams/scim",
       "source_url": "https://cursor.com/docs/account/teams/scim",
@@ -615,8 +615,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "a29bfadbdc32d59532b3401bc5b07fd24a596461cae3b755c1d3b5624d481889",
-      "last_updated": "2026-09-15T16:51:40+00:00",
+      "hash": "ada22d967b19e70a31be52a60ba3efbd0fc057ca19926784d5c51a8ee6cb49f3",
+      "last_updated": "2026-09-17T04:45:00+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -759,8 +759,8 @@
       "title": "Configure identity and access"
     },
     "grok-bot__private-networks.md": {
-      "hash": "57be8cd34f92acc24b1d5c5ac389e30b90f2abc6c66b0e03fcd7a0b6cfdae8c0",
-      "last_updated": "2026-09-16T16:46:00+00:00",
+      "hash": "9b9f0047bde82f28d3b956ff862f1bc352c3a2f745e56d7001280c5649cf787c",
+      "last_updated": "2026-09-17T04:45:05+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
       "source_url": "https://cursor.com/docs/grok-bot/private-networks",
@@ -777,8 +777,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "ef3594d13bd476601a8d81301e4155533a3bf8d902471f3633435dd2cb702611",
-      "last_updated": "2026-09-16T16:46:01+00:00",
+      "hash": "88dcc77ad07ce7b11f276f2dd6459274d5a8c7b8846a3553f3528ee079cbbdb7",
+      "last_updated": "2026-09-17T04:45:05+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -786,8 +786,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "b1f8bdb20512044e3d8d7a815d73df4f9405d80bbf9f07ec1d5d9d0281f1692e",
-      "last_updated": "2026-09-16T16:46:01+00:00",
+      "hash": "df968dc0411d44371d95f8d298f3340487e9b4a6332327177a6e1efc2b809bcf",
+      "last_updated": "2026-09-17T04:45:05+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -804,8 +804,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "34624cf65b0818f98f5614b572cca1e17f38e460581708f9ad13a397a7d59b8a",
-      "last_updated": "2026-09-16T04:42:29+00:00",
+      "hash": "909c00030a1350c713b2548b6446ddfdd814c3ab7a8725da57716d1308893e2c",
+      "last_updated": "2026-09-17T04:45:06+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1434,8 +1434,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "bf72b82f7e8d8976e5234f84d7297d274b925b68b314f528d1058a418c0e79e8",
-      "last_updated": "2026-09-09T16:33:37+00:00",
+      "hash": "265f8e58b717e06e0a964bef0a2716dd19f1b1b64dee331b584c9591ff474c14",
+      "last_updated": "2026-09-17T04:45:26+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
@@ -1672,7 +1672,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-16T21:14:48+00:00",
+  "last_updated": "2026-09-17T04:45:33+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

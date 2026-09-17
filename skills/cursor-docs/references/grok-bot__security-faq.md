@@ -58,7 +58,10 @@ Enterprise only and applies to the whole organization. Cloud Agents, Team
 Rules, and public template sharing apply to the whole team on Teams and
 Enterprise. Enforce Auto-review and Auto-review rules are Enterprise only
 and also apply to the whole team. Allow Local Egress is Enterprise only
-and applies to the whole team.
+and applies to the whole team. On Enterprise, a group's Grok Bot tab can
+widen Cloud Agents, local execution, local egress, Auto-review, rules,
+and setup scripts for that group's members, never tighten them. See
+[Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 ### Why do some websites block Bots?
 

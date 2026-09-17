@@ -175,7 +175,7 @@ Use `--name` and `--pool <name>` to make multi-repo workers recognizable in the 
 
 In pool mode, one Cloud Agent claims the worker at a time. Without `--pool`, shared assignment is allowed. Add `--management-addr 0.0.0.0:8080` before `start` when you need `/healthz`, `/readyz`, and `/metrics` for an orchestrator.
 
-Non-git directories can be execution roots, but they don't contribute repo routing metadata. All repos needed by the agent must already be cloned and accessible to the worker before the process starts. The worker process also needs filesystem and SCM access to each root.
+Non-git directories can be execution roots, but they don't contribute repo routing metadata. For a multi-repo worker, clone each repository before the worker starts. To start from an empty workspace and let the worker bootstrap source control after assignment, use an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools).
 
 ## Any-repo pools
 
@@ -188,7 +188,29 @@ mkdir -p "$HOME/cursor-sandboxes/default"
 agent worker --pool sandbox --worker-dir "$HOME/cursor-sandboxes/default" start
 ```
 
-Add a [`.cursor/rules`](https://cursor.com/docs/rules.md) file in that directory to teach Cursor which directories and tools are available on those machines.
+To give every any-repo request repository instructions, create an `.mdc` file under `.cursor/rules` inside the directory passed to `--worker-dir`. The filename is arbitrary. This example uses `repo-info.mdc`:
+
+```md title=".cursor/rules/repo-info.mdc"
+---
+alwaysApply: true
+---
+
+This any-repo worker can clone from `github.acme.internal` with the
+pre-authenticated `gh` CLI.
+
+- For requests about payments, billing, or checkout, use
+  `platform/payments-service`. If it is missing, run:
+  `GH_HOST=github.acme.internal gh repo clone platform/payments-service`
+- For requests about the member portal or account settings, use
+  `web/member-portal`. If it is missing, run:
+  `GH_HOST=github.acme.internal gh repo clone web/member-portal`
+- Clone only the repositories needed for the request. Run subsequent commands
+  from the cloned repository.
+- If no mapping matches the request, report that the repository is not
+  configured. Do not guess a repository name, clone URL, or credentials.
+```
+
+[`alwaysApply: true`](https://cursor.com/docs/rules.md#rule-anatomy) includes the rule in every request. Keep the file in the worker directory so it is available before cloning, and replace the example mappings with your repositories and SCM commands.
 
 To have the worker clone the claimed agent's repos on claim, pass `--clone-git-repos`. This is opt-in. Default any-repo behavior does not clone.
 
