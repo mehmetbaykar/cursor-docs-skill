@@ -16,7 +16,9 @@ Instant Grep supports full regex and word-boundary matching, so Agent can constr
 
 ## Privacy and security
 
-File paths are encrypted before being sent to Cursor's servers. Code content is never stored in plaintext.
+Instant Grep builds and queries its index on your machine. Cursor does not upload file paths or code to build a search index, and it does not store embeddings of your codebase for search.
+
+When Agent opens a match, that file content can still be included in the model request. [Data Use](https://cursor.com/data-use) describes how Cursor handles that data.
 
 ## Explore subagent
 
@@ -27,16 +29,6 @@ Agent uses the Explore subagent automatically when it decides a task benefits fr
 This is useful for context management. Searching through many files generates a lot of context. The subagent keeps the main conversation focused by summarizing results instead of dumping raw file contents.
 
 ## FAQ
-
-### Can I customize path encryption?
-
-Create a `.cursor/keys` file in your workspace root:
-
-```json
-{
-  "path_decryption_key": "your-custom-key-here"
-}
-```
 
 ### Does Cursor support multi-root workspaces?
 
