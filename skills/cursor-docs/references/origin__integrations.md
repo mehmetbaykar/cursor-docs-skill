@@ -23,7 +23,7 @@ Common triggers for Origin repos:
 
 Create automations from [cursor.com/automations](https://cursor.com/automations), the Agents Window, or the `/automate` skill. Choose the Origin repository (or a multi-repo environment that includes it), set the trigger and prompt, then save and activate.
 
-See [Automations](https://cursor.com/docs/cloud-agent/automations.md) for billing, permission scopes, and the full trigger list.
+See [Automations](https://cursor.com/docs/cloud-agent/automations.md) for [billing](https://cursor.com/docs/cloud-agent/automations.md#billing), [sharing](https://cursor.com/docs/cloud-agent/automations.md#share), and the full trigger list.
 
 ## Cloud agents
 

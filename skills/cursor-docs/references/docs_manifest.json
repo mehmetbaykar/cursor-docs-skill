@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "afe95659892def01f4893463cb2409886b121e6513604908b6e0e1541c631059",
-      "last_updated": "2026-09-17T16:52:26+00:00",
+      "hash": "af389201e4e14e93df4726c62f676f4c24ff5a97067a608b550e830da2efbefa",
+      "last_updated": "2026-09-18T16:19:30+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -480,8 +480,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__automations.md": {
-      "hash": "24c5b709338c6e51c792a4de102f12f5e5b077fc5b1a08fd9991ebda0fa02e35",
-      "last_updated": "2026-08-25T01:48:06+00:00",
+      "hash": "6be6c82e1a8b9c3a2b85a35d434bda350e87f84aff324329243dc2904953825c",
+      "last_updated": "2026-09-18T16:19:36+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
@@ -660,8 +660,8 @@
       "title": "Worktrees"
     },
     "cursor-router.md": {
-      "hash": "2a41431c3fa498de3e648348fee69a482d7110ecb2cb3fd0b93c60227c9e820d",
-      "last_updated": "2026-09-08T04:25:53+00:00",
+      "hash": "98974edfdc539deaafe46386516950c36143e54a0647f6f8311cbb919f52f16f",
+      "last_updated": "2026-09-18T16:19:42+00:00",
       "original_url": "https://cursor.com/docs/cursor-router",
       "path": "/docs/cursor-router",
       "source_url": "https://cursor.com/docs/cursor-router",
@@ -1488,8 +1488,8 @@
       "title": "Clone, Push & Pull"
     },
     "origin__integrations.md": {
-      "hash": "19039d0335e02413d3e60598b716f4c927a281689eb590d0e28a49047f1523eb",
-      "last_updated": "2026-09-09T16:33:39+00:00",
+      "hash": "0d656d9e6b298d850212b2f27a29c1ee83fcc1e651321e710db22644a6be1ee6",
+      "last_updated": "2026-09-18T16:20:08+00:00",
       "original_url": "https://cursor.com/docs/origin/integrations",
       "path": "/docs/origin/integrations",
       "source_url": "https://cursor.com/docs/origin/integrations",
@@ -1681,7 +1681,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-17T16:53:10+00:00",
+  "last_updated": "2026-09-18T16:20:13+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
