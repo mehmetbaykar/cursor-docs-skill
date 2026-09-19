@@ -120,6 +120,8 @@ Use the context menu (⋯) on an agent's response for followup instructions. Use
 
 ### Status updates & handoff
 
+Before Cursor starts changing code, it posts a short plan in the thread when you are fixing a bug or when implementation details would help you follow along. Straightforward requests skip that note. While it works, Cursor updates a short status under the thread.
+
 When Cloud Agent runs, you first get an option to *Open in Cursor*.
 
 ![Open in Cursor button in Slack](https://cursor.com/docs-static/images/cloud-agent/slack/slack-open-in-cursor.png)
@@ -139,9 +141,12 @@ Manage Cloud Agents using the context menu by clicking the three dots (⋯) on a
 Available options:
 
 - **Add follow-up**: Add instructions to an existing agent
+- **Switch repository**: Relaunch the same request against a different repository or [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md)
 - **Delete**: Stop and archive the Cloud Agent
 - **View request ID**: View unique request ID for troubleshooting (include when contacting support)
 - **Give feedback**: Provide feedback about agent performance
+
+If the agent needs a repository or environment outside the current one, Slack also shows **Switch repository** on the launch message. Choose the new target and Cursor continues from there.
 
 ## Configuration
 

@@ -117,6 +117,12 @@ This is available on [cursor.com/agents](https://cursor.com/agents) now and roll
 
 In the [CLI](https://cursor.com/docs/cli/overview.md), pressing Enter while the agent works steers the active run at a safe boundary, and pressing Enter again interrupts the turn.
 
+## Side chats
+
+Open a [side chat](https://cursor.com/help/ai-features/side-chats.md) to ask a question or investigate a tangent without interrupting the main conversation. Type `/side` or `/btw` in the chat input, optionally followed by your question, or use the plus button at the top of the chat panel.
+
+A side chat is a durable agent conversation. It uses the parent thread as hidden reference context and keeps its own transcript. @-mention the side chat in the main thread to pull that context back.
+
 ## Goals with /goal
 
 Agent reads each message as a new job. Use `/goal` to give the agent a long-lived objective to work towards until it's fully complete:

@@ -174,8 +174,8 @@
       "title": "Design Mode"
     },
     "agent__overview.md": {
-      "hash": "3d8dddcd8cb2885569e86e629b8dfdb6c73eb091689fc1c7cbaa7fde8202116e",
-      "last_updated": "2026-09-16T04:42:04+00:00",
+      "hash": "0f0b3f93e6141144de6c98521bfe3ae3c64c54a96b02f1df00c965449770d0cc",
+      "last_updated": "2026-09-19T04:30:10+00:00",
       "original_url": "https://cursor.com/docs/agent/overview",
       "path": "/docs/agent/overview",
       "source_url": "https://cursor.com/docs/agent/overview",
@@ -930,8 +930,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "2e3261412209be173678c8d8cacff9683cce0c27146b25f451046376d558c8ba",
-      "last_updated": "2026-09-15T16:51:53+00:00",
+      "hash": "5c47c97b9047282807dbe779db217eaa6b7f2d42ac0cbb5cb594e578f1d9c5d9",
+      "last_updated": "2026-09-19T04:30:35+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1524,8 +1524,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "541f07a84680a7a1d9e01032b5244775e1030066b550f541a17efd68ed20a574",
-      "last_updated": "2026-09-17T16:53:06+00:00",
+      "hash": "da3b223ada788ec71a0393be40aa0b6f3204b43f1acf28074cf70d131762f64f",
+      "last_updated": "2026-09-19T04:30:54+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1681,7 +1681,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-18T23:14:37+00:00",
+  "last_updated": "2026-09-19T04:30:58+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

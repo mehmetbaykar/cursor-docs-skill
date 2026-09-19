@@ -121,11 +121,11 @@ See [Publish a skill to your team](https://cursor.com/docs/plugins.md#publish-a-
 
 ## Add a team marketplace
 
-Use this flow to import a GitHub repository as a team marketplace:
+Use this flow to import a repository as a team marketplace. **Import from Repo** accepts GitHub, GitLab, Bitbucket, and Azure DevOps URLs. Connect that provider if Cursor asks.
 
 1. Go to **Dashboard -> Plugins & MCPs**.
 2. In **Team Marketplaces**, click **Add Marketplace**.
-3. Follow the instructions to create a marketplace from scratch, or use "Import from Repo" if importing from GitHub.
+3. Follow the instructions to create a marketplace from scratch, or use **Import from Repo** and paste the repository URL.
 4. Add and review plugins using "Add to Marketplace".
 5. Under **Marketplace Settings**, set **Marketplace Access**, optionally enable Auto Refresh, then save.
 
@@ -135,10 +135,10 @@ Example repository to try:
 
 ## Keep plugins up to date
 
-When importing from GitHub, plugins are indexed when you first import the repository. You can refresh plugins in two ways:
+Plugins are indexed when you first import the repository. You can refresh them in two ways:
 
-- **Automatically**: Turn on **Enable Auto Refresh** to update plugins automatically whenever changes are pushed to the branch the marketplace tracks. This requires the [Cursor GitHub App](https://cursor.com/docs/integrations/github.md) installed on the repository. Cursor re-indexes a marketplace at most once every 10 minutes, batching rapid pushes to the latest commit.
-- **Manually**: Click "Refresh" to manually update.
+- **Automatically**: On GitHub imports, turn on **Enable Auto Refresh** to update plugins whenever changes are pushed to the branch the marketplace tracks. This requires the [Cursor GitHub App](https://cursor.com/docs/integrations/github.md) installed on the repository. Cursor re-indexes a marketplace at most once every 10 minutes, batching rapid pushes to the latest commit.
+- **Manually**: Click **Refresh** to update from the repository.
 
 For marketplaces created with "Import from Repo", Auto Refresh re-reads the full manifest on each push, so new plugins added to the repository are picked up automatically.
 
