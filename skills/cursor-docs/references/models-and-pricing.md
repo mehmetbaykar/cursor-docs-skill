@@ -12,25 +12,29 @@ Cursor supports frontier models from OpenAI, Anthropic, Google, SpaceXAI, and mo
 
 There are two separate usage pools, each resetting with your monthly billing cycle:
 
-- **Cursor Models**: Significantly more included usage for Cursor Grok 4.6, Grok 4.5, and Composer 2.5.
+- **Cursor Models**: Significantly more included usage for Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5.
 - **Other Models**: The pool for third-party models, charged at the model's API price. Pro, Pro Plus, and Ultra include this pool, with the option to pay for additional usage as needed. The Start plan does not include this pool.
 
 Both pools are visible in your editor settings and on your [usage dashboard](https://cursor.com/dashboard/usage).
 
 ## Cursor Models
 
-The Cursor Models pool includes Cursor Grok 4.6, Grok 4.5, and Composer 2.5.
+The Cursor Models pool includes Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5.
 
 On Teams and Enterprise plans, [Cursor Router](https://cursor.com/docs/cursor-router.md) picks the model for each Auto request based on your optimization mode.
 
-| Model                                                       | Provider | Input | Cache write | Cache read | Output | Notes                                  |
-| ----------------------------------------------------------- | -------- | ----- | ----------- | ---------- | ------ | -------------------------------------- |
-| Grok 4.6                                                    | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI |
-| Grok 4.6 (Fast)                                             | Cursor   | $4    | -           | $1         | $12    | Jointly trained by Cursor and SpaceXAI |
-| Grok 4.5                                                    | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI |
-| Grok 4.5 (Fast)                                             | Cursor   | $4    | -           | $1         | $18    | Jointly trained by Cursor and SpaceXAI |
-| [Composer 2.5](https://cursor.com/blog/composer-2-5)        | Cursor   | $0.5  | -           | $0.2       | $2.5   | -                                      |
-| [Composer 2.5 (Fast)](https://cursor.com/blog/composer-2-5) | Cursor   | $3    | -           | $0.5       | $15    | -                                      |
+| Model                                                       | Provider | Input | Cache write | Cache read | Output | Notes                                                                                                                                                                                                                         |
+| ----------------------------------------------------------- | -------- | ----- | ----------- | ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Grok 4.7](https://x.ai/news/grok-4-7)                      | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI; Long context (>256k input tokens) is billed at 2x standard rates, up to 500k; Fast mode is available at 2x pricing; Fast mode for long context (>256k) is billed at 3x standard rates |
+| [Grok 4.7 (Fast)](https://x.ai/news/grok-4-7)               | Cursor   | $4    | -           | $1         | $12    | Jointly trained by Cursor and SpaceXAI; Long context (>256k input tokens) is billed at 2x standard rates, up to 500k; Fast mode is available at 2x pricing; Fast mode for long context (>256k) is billed at 3x standard rates |
+| [Grok 4.7 500k](https://x.ai/news/grok-4-7)                 | Cursor   | $4    | -           | $1         | $12    | Jointly trained by Cursor and SpaceXAI; Long context (>256k input tokens) is billed at 2x standard rates, up to 500k; Fast mode is available at 2x pricing; Fast mode for long context (>256k) is billed at 3x standard rates |
+| [Grok 4.7 500k (Fast)](https://x.ai/news/grok-4-7)          | Cursor   | $6    | -           | $1.5       | $18    | Jointly trained by Cursor and SpaceXAI; Long context (>256k input tokens) is billed at 2x standard rates, up to 500k; Fast mode is available at 2x pricing; Fast mode for long context (>256k) is billed at 3x standard rates |
+| Grok 4.6                                                    | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI                                                                                                                                                                                        |
+| Grok 4.6 (Fast)                                             | Cursor   | $4    | -           | $1         | $12    | Jointly trained by Cursor and SpaceXAI                                                                                                                                                                                        |
+| Grok 4.5                                                    | Cursor   | $2    | -           | $0.5       | $6     | Jointly trained by Cursor and SpaceXAI                                                                                                                                                                                        |
+| Grok 4.5 (Fast)                                             | Cursor   | $4    | -           | $1         | $18    | Jointly trained by Cursor and SpaceXAI                                                                                                                                                                                        |
+| [Composer 2.5](https://cursor.com/blog/composer-2-5)        | Cursor   | $0.5  | -           | $0.2       | $2.5   | -                                                                                                                                                                                                                             |
+| [Composer 2.5 (Fast)](https://cursor.com/blog/composer-2-5) | Cursor   | $3    | -           | $0.5       | $15    | -                                                                                                                                                                                                                             |
 
 ## Other Models
 
@@ -106,7 +110,7 @@ Since different models have different API costs, your model selection affects ho
 
 Start is available to developers in India. It costs ₹649 per month, tax inclusive, billed monthly in INR with UPI, credit card, or debit card. Every other individual plan displays its price before tax.
 
-Start includes generous usage of the Cursor Models pool, so you can run Grok 4.6, Grok 4.5, and Composer 2.5 for daily building. On Start, all three models run in non-fast mode, and both Grok 4.6 and Grok 4.5 use a fixed medium effort level. You cannot change effort levels or enable Fast mode on Start. Upgrade to Pro or higher to choose effort levels and Fast mode.
+Start includes generous usage of the Cursor Models pool, so you can run Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5 for daily building. On Start, these models run in non-fast mode, and Grok 4.7, Grok 4.6, and Grok 4.5 use a fixed medium effort level. You cannot change effort levels or enable Fast mode on Start. Upgrade to Pro or higher to choose effort levels and Fast mode.
 
 Start also includes [Cloud Agents](https://cursor.com/docs/cloud-agent.md), [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md), and plugins, MCP servers, hooks, and skills.
 
