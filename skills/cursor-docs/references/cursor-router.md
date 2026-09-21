@@ -16,7 +16,7 @@ When you select **Auto** and choose **Balance** or **Intelligence** in the model
 
 Cursor Router is data-driven and managed by Cursor. You can't hand-pick which model handles a request, and the model pool changes over time as new models ship. You steer routing by choosing an optimization mode.
 
-On Enterprise plans, Cursor Router respects your team's model access controls. If a model is blocked for your team, the router routes to an allowed model instead. Blocking too many models reduces routing quality and can disable the router. To create cost savings, the router needs a powerful yet cost-efficient model to use when it isn't calling other frontier models, so enabling [Cursor Grok 4.6](https://cursor.com/docs/models/grok-4-6.md) is a requirement for the router to work.
+On Enterprise plans, Cursor Router respects your team's model access controls. If a model is blocked for your team, the router routes to an allowed model instead. Blocking too many models reduces routing quality and can disable the router. To create cost savings, the router needs a powerful yet cost-efficient model to use when it isn't calling other frontier models, so enabling [Grok 4.6](https://cursor.com/docs/models/grok-4-6.md) is a requirement for the router to work.
 
 ## Optimization modes
 
