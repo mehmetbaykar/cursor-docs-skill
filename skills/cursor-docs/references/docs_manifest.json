@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 185,
+    "pages_fetched_successfully": 186,
     "pages_skipped": 5,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 190
+    "total_pages_discovered": 191
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "74e7f0d038f586f4c34a6b18ddfcf33288348955cb1fe63b48ce10963b304b76",
-      "last_updated": "2026-09-21T19:57:08+00:00",
+      "hash": "ef28fd927a83eb617e970c9ab602214211209d742658cdea9e7d76e8ac4b53cb",
+      "last_updated": "2026-09-22T21:13:13+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "ba07a96f417b4bc1ff217c26909daaf29cd5d077537c251ae48e4a97fab2b00c",
-      "last_updated": "2026-09-21T19:57:11+00:00",
+      "hash": "bfbc35e6726a28b3d983a287a7c5700769f02e6cb47dee53bc1477db1425582a",
+      "last_updated": "2026-09-22T21:13:15+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -174,8 +174,8 @@
       "title": "Design Mode"
     },
     "agent__overview.md": {
-      "hash": "0f0b3f93e6141144de6c98521bfe3ae3c64c54a96b02f1df00c965449770d0cc",
-      "last_updated": "2026-09-19T04:30:10+00:00",
+      "hash": "b08954bcc93dac1ac672cd62ea4c1ab522d02669e402d044ad06c9450de64ec8",
+      "last_updated": "2026-09-22T21:13:18+00:00",
       "original_url": "https://cursor.com/docs/agent/overview",
       "path": "/docs/agent/overview",
       "source_url": "https://cursor.com/docs/agent/overview",
@@ -633,8 +633,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "367a20f1c2f8fbb16cec927edb63247c43c921364b466458388d13f0baeb877d",
-      "last_updated": "2026-09-14T19:49:50+00:00",
+      "hash": "088f6c365f2a9634cad0a97b801af501455b9bfe1bc251627fb6c7f08536d8c8",
+      "last_updated": "2026-09-22T21:13:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -669,8 +669,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "1d3f729269ebac8d61fa383d6d059a75be6d769c74a31de9566a142b3eb9f38e",
-      "last_updated": "2026-09-21T19:57:07+00:00",
+      "hash": "7ee580f565cf0183e85244a34ca52175a96476a235cdc45a28ab9fb912266638",
+      "last_updated": "2026-09-22T21:13:12+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -732,8 +732,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "5360a8abb8d21d895673b73ae738d9420bfde82509a70b1c3ebd1a8ccbe1e164",
-      "last_updated": "2026-09-16T16:46:00+00:00",
+      "hash": "d9757b8d77806b29767c9c5b257b33eef50653bd905a06f31c200c7e529d0f7d",
+      "last_updated": "2026-09-22T21:13:37+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
@@ -804,8 +804,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "e1746f57330bedf2fe50bfa3a158f5af3fdceb0345a242a661e2101f1e76705e",
-      "last_updated": "2026-09-17T16:52:43+00:00",
+      "hash": "7b081c50db72e0efb8cf808028825538e82a8e38e3d31608344a850420f52a69",
+      "last_updated": "2026-09-22T21:13:39+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1081,6 +1081,15 @@
       "source_url": "https://cursor.com/docs/models/claude-opus-4-8",
       "status": "live",
       "title": "Models Claude Opus 4 8"
+    },
+    "models__claude-opus-5-5.md": {
+      "hash": "85e147c400117409905e116f8aa6cfabbc3afd4cc43f6ee07ebc14917b86e7e0",
+      "last_updated": "2026-09-22T21:13:48+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-opus-5-5",
+      "path": "/docs/models/claude-opus-5-5",
+      "source_url": "https://cursor.com/docs/models/claude-opus-5-5",
+      "status": "live",
+      "title": "Models Claude Opus 5 5"
     },
     "models__claude-opus-5.md": {
       "hash": "599260cbaddd017d49ce3bbca77b5c50b87a6a1eec6ff1c3fa53ff321e1ee662",
@@ -1479,8 +1488,8 @@
       "title": "Codebase settings"
     },
     "origin__create-repository.md": {
-      "hash": "5616715481702b72b8b68043263ae3eba0a5b1c43fe8b07e3cc712a4b76250c3",
-      "last_updated": "2026-09-09T16:33:38+00:00",
+      "hash": "173470b201029bede53a98a0e148c234561e6f318b2f35ad3f4313e39ee4a027",
+      "last_updated": "2026-09-22T21:14:00+00:00",
       "original_url": "https://cursor.com/docs/origin/create-repository",
       "path": "/docs/origin/create-repository",
       "source_url": "https://cursor.com/docs/origin/create-repository",
@@ -1524,8 +1533,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "894e8c1d0ed1d8d908d499c8b2369fb81e79755ae3584b955ac3573c713b72ed",
-      "last_updated": "2026-08-17T18:54:00+00:00",
+      "hash": "d58ef187a21cd118f22ae54c93f2a0583d0a068c07f2a1ccdfae07e008fdd6b7",
+      "last_updated": "2026-09-22T21:14:02+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "source_url": "https://cursor.com/docs/origin/settings",
@@ -1690,7 +1699,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-22T16:51:25+00:00",
+  "last_updated": "2026-09-22T21:14:07+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

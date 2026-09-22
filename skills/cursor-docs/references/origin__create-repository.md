@@ -17,7 +17,7 @@ Create an empty Origin repository from the web UI, or ask a Cursor agent to crea
 From [cursor.com/codebase](https://cursor.com/codebase):
 
 1. Select **New**
-2. In the **New repo** dialog, enter a **Repo Name** and choose **Internal** or **Private** visibility
+2. In the **New repo** dialog, enter a **Repo Name**. If the repo will be owned by a team codebase, also choose **Internal** or **Private** visibility. Repos owned by a personal account are always created as private, so the visibility chooser is not shown.
 3. Select **Create Repo**
 
 After creation, open the repo to copy the clone URL from the green **Code** button and push from your machine.
@@ -34,11 +34,20 @@ Agents use the same permissions as your Cursor account. You need access to Origi
 
 ## Name, visibility, and sharing
 
-- Enter a **Repo Name** in the **New repo** dialog
-- Choose visibility: **Internal** (visible to anyone with access to your team's codebase) or **Private** (visible only to members granted access directly or through codebase permissions)
-- Team access follows your Cursor team / codebase access
+Enter a **Repo Name** in the **New repo** dialog. What comes next depends on whether the repo is owned by a team codebase or by your personal account.
 
-Repository **Settings** includes **General**, **Permissions**, **Rules and Protections**, and **Apps**. See [Settings](https://cursor.com/docs/origin/settings.md).
+### Team-owned repos
+
+- Choose visibility in the **New repo** dialog:
+  - **Internal**, visible to anyone on your team with access to the codebase
+  - **Private**, visible only to members granted access directly or through codebase permissions
+- Team access follows your Cursor team and codebase access
+- After creation, manage visibility and per-repo access from the repository **Settings** tab. See [Settings](https://cursor.com/docs/origin/settings.md).
+
+### Personal repos
+
+- Repos created under a personal account are always **Private** and visible only to you by default. The **New repo** dialog does not show a visibility chooser for personal repos.
+- To share a personal repo, open the repo, go to **Settings**, then **Collaborators**, and invite the people you want to give access.
 
 ## Push your first commit
 
