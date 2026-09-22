@@ -15,7 +15,7 @@ Claude Sonnet 5 is Anthropic's latest medium-tier model and replaces Sonnet 4.6.
 
 ## Limitations
 
-- For peak quality on the hardest tasks, [Opus 5](https://cursor.com/docs/models/claude-opus-5.md) remains the stronger choice.
+- For peak quality on the hardest tasks, [Opus 5.5](https://cursor.com/docs/models/claude-opus-5-5.md) remains the stronger choice.
 - The updated tokenizer maps the same input to more tokens, so token counts run higher than older Sonnet models.
 
 ## Tools

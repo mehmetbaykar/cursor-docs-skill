@@ -25,7 +25,7 @@ Head to [Team Settings](https://cursor.com/dashboard/restricted_models/claude-fa
 ## Limitations
 
 - Same Anthropic data-retention opt-in as other Fable models. Privacy Mode and Enterprise customers need admin approval before use.
-- Input and output rates stay at about twice [Claude Opus 5](https://cursor.com/docs/models/claude-opus-5.md).
+- Input and output rates are about 2.5x [Claude Opus 5.5](https://cursor.com/docs/models/claude-opus-5-5.md), which now scores higher on [CursorBench](https://cursor.com/cursorbench).
 
 ## Data retention
 

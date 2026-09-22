@@ -119,6 +119,14 @@ The setting is on by default. When it is off, only team admins can publish new s
 
 See [Publish a skill to your team](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team).
 
+### Serve marketplace from Cursor
+
+On a GitHub-imported team marketplace, admins can turn on **Serve marketplace from Cursor** under **Marketplace Settings**. Cursor keeps a synced copy of this repository and serves plugins from it, so team members can use the marketplace without GitHub access to the source repo. Access is controlled by [Marketplace access](https://cursor.com/docs/plugins.md#marketplace-access).
+
+While the first sync is in progress, the setting shows **Syncing** and stays locked. If repo sync cannot complete, access continues being served from GitHub.
+
+This setting applies to GitHub-imported marketplaces. Imports from GitLab, Bitbucket, or Azure DevOps keep serving from the source repository.
+
 ## Add a team marketplace
 
 Use this flow to import a repository as a team marketplace. **Import from Repo** accepts GitHub, GitLab, Bitbucket, and Azure DevOps URLs. Connect that provider if Cursor asks.

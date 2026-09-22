@@ -4,7 +4,9 @@ source: https://cursor.com/docs/models/claude-opus-5
 path: /docs/models/claude-opus-5
 ---
 
-Claude Opus 5 is Anthropic's latest Opus model and replaces Opus 4.8. It is a step-change over Opus 4.8 on agentic coding, professional knowledge work, and long-horizon reasoning, and it lands on par with Fable 5 on [CursorBench](https://cursor.com/cursorbench) at Opus pricing. We recommend the high thinking variant for the best results.
+We recommend using [Claude Opus 5.5](https://cursor.com/docs/models/claude-opus-5-5.md). It replaces Opus 5 with a higher CursorBench score at 20% lower input and output rates.
+
+Claude Opus 5 is Anthropic's previous Opus model and replaces Opus 4.8. It is a step-change over Opus 4.8 on agentic coding, professional knowledge work, and long-horizon reasoning, and it lands on par with Fable 5 on [CursorBench](https://cursor.com/cursorbench) at Opus pricing. We recommend the high thinking variant for the best results.
 
 ## Strengths
 
@@ -15,6 +17,7 @@ Claude Opus 5 is Anthropic's latest Opus model and replaces Opus 4.8. It is a st
 
 ## Limitations
 
+- Costs more than [Opus 5.5](https://cursor.com/docs/models/claude-opus-5-5.md) per token ($5/$25 vs $4/$20) while scoring lower on CursorBench.
 - Same per-token price as Opus 4.8, so it still consumes the Other Models pool faster than Sonnet or Composer.
 - Can over-elaborate in long sessions where brevity matters more than depth.
 
