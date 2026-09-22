@@ -148,7 +148,7 @@ Manifests of install scripts that run on every team computer, so the same toolin
 
 #### Grok Bot Computers
 
-Lets organization admins recreate or terminate the computers of many members at once, with a result for each member. Team admin rights aren't enough, because one computer spans every team the member belongs to. Recreate moves members to the latest image and Team Setup while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. Neither action removes access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
+Lets organization admins recreate or terminate the computers of many members at once, with a result for each member. Team admin rights aren't enough, because one computer spans every team the member belongs to. Recreate moves members to the latest image and Team Setup while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. **Terminate Inactive Computers**, below it, does the terminate for you when a computer goes 30 days without use. It is off by default. None of these remove access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 

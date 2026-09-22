@@ -6,7 +6,7 @@ path: /docs/grok-bot/computers
 
 # Manage Grok Bot computers
 
-Each member of your team gets one hosted computer where every Bot they run does its work. **Grok Bot Computers** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot) lets an organization admin recreate or terminate those computers for many members at once, with a confirmation step and a result for each member. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
+Each member of your team gets one hosted computer where every Bot they run does its work. **Grok Bot Computers** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot) gives organization admins two ways to manage those computers: run a recreate or terminate across many members at once, or turn on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for computers that go 30 days without use. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
 
 **Grok Bot Computers is Enterprise only**, and it appears only for
 organization admins. Team admin rights aren't enough, because one computer
@@ -14,14 +14,12 @@ spans every team the member belongs to. Members never see this control.
 
 ## Recreate or terminate
 
-Both actions keep the member's durable disk. They differ in what happens next.
+Both actions keep the member's durable disk, so their synced Bots, files, and logins come back on the next computer. Both remove apps and packages members installed themselves. Anything your Team Setup manifests install comes back on the new computer.
 
-| Action        | What happens                                                                                                                                                                                                                     | What members keep                                                                                                                                                                                                     | When to use it                                                                                                                                                                                                  |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Recreate**  | Builds a replacement computer on the latest image and runs [Team Setup](https://cursor.com/docs/grok-bot/private-networks.md). The current computer stays available until the replacement is ready, then Grok Bot switches over. | Synced Bots, files, and logins. A Bot that is mid-turn is asked to pause at a safe point and resumes on the new computer. If it can't pause in time, the recreate for that member is not started and shows as failed. | Roll out a new image or apply an updated Team Setup manifest to many members at once. [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) changes reach computers without a recreate. |
-| **Terminate** | Deletes the member's computer, running or hibernated. It does not restart on its own; the member's next session starts a fresh computer on the same durable disk.                                                                | Synced Bots, files, and logins. Running work stops.                                                                                                                                                                   | End a member's current work, or clear a computer that is stuck. Terminating does not remove access; see the [FAQ](https://cursor.com/docs/grok-bot/computers.md#faq).                                           |
-
-Both actions remove apps and packages that members installed themselves. Anything your Team Setup manifests install comes back on the new computer.
+| Action        | What happens                                                                                                                                                                                                                                                                                                                                                                                          | When to use it                                                                                                                                                                                            |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Recreate**  | Builds a replacement computer on the latest image and runs [Team Setup](https://cursor.com/docs/grok-bot/private-networks.md). The current computer stays available until the replacement is ready, then Grok Bot switches over. A Bot that is mid-turn pauses at a safe point and resumes on the new computer. If it can't pause in time, that member's recreate is not started and shows as failed. | Roll out a new image or an updated Team Setup manifest to many members at once. [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) changes reach computers without a recreate. |
+| **Terminate** | Deletes the member's computer, running or hibernated. Running work stops. The computer does not restart on its own; the member's next message starts a fresh one on the same durable disk.                                                                                                                                                                                                            | End a member's current work, or clear a computer that is stuck. Terminating does not remove access; see the [FAQ](https://cursor.com/docs/grok-bot/computers.md#faq).                                     |
 
 ## Run an operation
 
@@ -37,8 +35,11 @@ picks everyone in the current results.
 
 ### Choose an action
 
-Select **Recreate VMs…** or **Terminate VMs…**. A confirmation screen
-restates the action and the number of members it affects.
+Open **Manage selected** and pick **Recreate VMs** or **Terminate VMs**.
+A confirmation screen restates the action and the number of members it
+affects. The same menu also offers **Delete VMs and Data**, which removes
+the computer and its durable data. Use it only when you want the member
+to start from empty.
 
 ### Confirm
 
@@ -62,19 +63,30 @@ finishes, select **Done** to clear the results and start another.
 
 A finished operation lists a result for every member you selected.
 
-| Result                                        | Meaning                                                                                                                                                                          | What to do                                                                                                                                                                                                                       |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Skipped**, No VM                            | The member had no running or hibernated computer.                                                                                                                                | Nothing.                                                                                                                                                                                                                         |
-| **Skipped**, Action could not be completed    | The member left the team, or their account changed, while the operation was queued.                                                                                              | Nothing.                                                                                                                                                                                                                         |
-| **Failed**, Another recreation is in progress | The member's computer is already being recreated, by an update or another admin.                                                                                                 | Wait for it to finish, then run again for this member.                                                                                                                                                                           |
-| **Failed**, VM scan incomplete                | Cursor couldn't confirm the state of the member's computer, so it made no change.                                                                                                | Run the operation again in a few minutes.                                                                                                                                                                                        |
-| **Failed**, Action could not be completed     | The recreate or terminate did not finish. For a recreate, a Bot on the member's computer may have been unable to pause in time; the member's current computer is left as it was. | Run the operation again for the affected members, once their Bots are idle if you can. If it fails twice, [contact support](https://cursor.com/help/grok-bot/get-help.md) with the member's email and the time of the operation. |
+| Result                                        | Meaning                                                                                                                                                                      | What to do                                                                                                                                                                                                                       |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Skipped**, No VM                            | The member had no running or hibernated computer.                                                                                                                            | Nothing.                                                                                                                                                                                                                         |
+| **Skipped**, Action could not be completed    | The member left the team, or their account changed, while the operation was queued.                                                                                          | Nothing.                                                                                                                                                                                                                         |
+| **Failed**, Another recreation is in progress | The member's computer is already being recreated, by an update or another admin.                                                                                             | Wait for it to finish, then run again for this member.                                                                                                                                                                           |
+| **Failed**, VM scan incomplete                | Cursor couldn't confirm the state of the member's computer, so it made no change.                                                                                            | Run the operation again in a few minutes.                                                                                                                                                                                        |
+| **Failed**, Action could not be completed     | The recreate or terminate did not finish. For a recreate, a Bot on the member's computer may have been unable to pause in time, and the member keeps their current computer. | Run the operation again for the affected members, once their Bots are idle if you can. If it fails twice, [contact support](https://cursor.com/help/grok-bot/get-help.md) with the member's email and the time of the operation. |
+
+## Terminate inactive computers automatically
+
+A hibernated computer stays around until someone terminates it, even when the member has moved on or stopped using Grok Bot. **Terminate Inactive Computers**, below **Grok Bot Computers** on the same dashboard page, does that cleanup for you. When a member's computer goes 30 days without use, Cursor terminates it. Using Grok Bot again restarts the count.
+
+The setting is off by default. Turning it on opens a confirmation. Two things to know before you select **Turn On**:
+
+- **Computers already past 30 days are included.** There is no grace period. Cursor checks hibernated computers on a rolling schedule, so termination lands in the days after the 30-day mark rather than at the exact moment.
+- **Members lose nothing and do nothing.** An automatic terminate works like a manual one. The durable disk stays, and the member's next message starts a fresh computer with their Bots, files, and logins in place. Apps and packages they installed themselves are removed, and Team Setup runs again.
+
+Turning the setting off stops further terminations. One computer spans every team a member belongs to, so the setting applies to a member's computer if any of their Enterprise teams has it on.
 
 ## What members see
 
-During a recreate, the desktop app shows **Updating Grok Bot's Computer** until the switch completes. Bots that were working pause at a safe point and continue on the new computer. If a Bot can't pause in time, the member keeps their current computer and that member's result shows as failed. Sign-in sessions inside the computer can drop when it is recreated, so members sign in to company tools again under your identity provider's policies.
+During a recreate, the desktop app shows **Updating Grok Bot's Computer** until the switch completes. Bots that were working pause at a safe point and continue on the new computer. Sign-in sessions inside the computer can drop when it is recreated, so members sign in to company tools again under your identity provider's policies.
 
-After a terminate, the member's next message starts a fresh computer on their durable disk. The reconnect can take a few minutes. Bots, files, and logins that had synced come back; a turn that was running is lost.
+After a terminate, manual or automatic, the member's next message starts a fresh computer on their durable disk. The reconnect can take a few minutes. Bots, files, and logins that had synced come back; a turn that was running is lost.
 
 ## FAQ
 
@@ -86,12 +98,18 @@ affects the same computer everywhere.
 
 ### Does terminating stop a member from using Grok Bot?
 
-No. Terminating a computer ends the member's current work; their next
-message starts a fresh computer on the same durable disk, with their Bots,
-files, and logins. To remove access, remove the member from the team or turn
-off their access with **Manage Group Access**, and revoke their sessions in
-your identity provider. See
+No. Terminating a computer, by hand or automatically, ends the member's
+current work. Their next message starts a fresh computer on the same
+durable disk, with their Bots, files, and logins. To remove access, remove
+the member from the team or turn off their access with **Manage Group
+Access**, and revoke their sessions in your identity provider. See
 [Enable Grok Bot](https://cursor.com/docs/grok-bot/teams.md#enable-grok-bot).
+
+### Can automatic termination interrupt a Bot that is still working?
+
+No. The 30 days count from when the computer went to sleep after its last
+use. A computer that is awake, because a Bot is working or the member is
+using Grok Bot, is never terminated by this setting.
 
 ## Related pages
 
