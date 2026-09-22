@@ -79,7 +79,7 @@ End time (defaults to now). See [Date Formats](https://cursor.com/docs/account/t
 
 `eventTypes` string
 
-Comma-separated event types to filter by. Possible values: `login`, `logout`, `add_user`, `remove_user`, `update_user_role`, `team_settings`, `mcp_server_config`, `team_api_key`, `user_api_key`, `privacy_mode`, `user_spend_limit`, `team_rule`, `team_repo`, `team_hook`, `team_command`, `create_directory_group`, `delete_directory_group`, `update_directory_group`, `update_directory_group_permissions`, `add_user_to_directory_group`, `remove_user_from_directory_group`, `bugbot_installation`, `bugbot_installation_settings`, `bugbot_repo_settings`, `bugbot_team_rule`, `bugbot_team_settings`, `bugbot_bulk_repo_update`, `grok_bot_created`, `grok_bot_access_changed`, `grok_bot_team_setup_manifest`, `mcp_authentication`, `slack_account_link`, `grok_bot_routine`
+Comma-separated event types to filter by. Possible values: `login`, `logout`, `add_user`, `remove_user`, `update_user_role`, `team_settings`, `mcp_server_config`, `team_api_key`, `user_api_key`, `privacy_mode`, `user_spend_limit`, `team_rule`, `team_repo`, `team_hook`, `team_command`, `create_directory_group`, `delete_directory_group`, `update_directory_group`, `update_directory_group_permissions`, `add_user_to_directory_group`, `remove_user_from_directory_group`, `bugbot_installation`, `bugbot_installation_settings`, `bugbot_repo_settings`, `bugbot_team_rule`, `bugbot_team_settings`, `bugbot_bulk_repo_update`, `grok_bot_created`, `grok_bot_lifecycle`, `sand_onboarding`, `grok_bot_access_changed`, `grok_bot_team_setup_manifest`, `grok_bot_group_settings`, `grok_bot_group_resource`, `grok_bot_resource`, `grok_bot_machine`, `grok_bot_vm`, `grok_bot_vm_bulk`, `grok_bot_routine`, `mcp_authentication`, `slack_account_link`
 
 `search` string
 
@@ -134,6 +134,8 @@ curl -X GET "https://api.cursor.com/teams/audit-logs?users=admin@company.com,dev
 **Response:**
 
 Each object in `events` includes `application_type`: `grok_bot` for Grok Bot, `cursor` for other Cursor surfaces, or an empty string when the application cannot be determined (including rows written before this field existed).
+
+Routine rows identify the Bot with `event_data.sand_agent_id`.
 
 ```json
 {

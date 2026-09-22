@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "5754c4ae80a6382cf6faba92449a6f97974e183c60f1a21e069a99b7fe3e5d36",
-      "last_updated": "2026-09-15T21:15:03+00:00",
+      "hash": "b740fd6b23eaf72c6177c854650ad3254c8494624a32d7bdd74ac8123fc44b81",
+      "last_updated": "2026-09-22T00:02:06+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "90657e074a606697841003c671ebfc09931fb4677392f9c94cdee2823f80a019",
-      "last_updated": "2026-09-19T20:32:40+00:00",
+      "hash": "759d6276a4de70ffb60dc4424ea149880f1a5e80a02ded45d6f2cc310d0b0ae6",
+      "last_updated": "2026-09-22T00:02:13+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -282,8 +282,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "c90b96e6a6306c05dc45b4e88d60d1463f75a73c819720c0b30310b42a210a43",
-      "last_updated": "2026-09-19T20:32:40+00:00",
+      "hash": "a295a44365d792729df65b3de154b4affa4cbebe31eddaad1c503b3763440e57",
+      "last_updated": "2026-09-22T00:02:14+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -1690,7 +1690,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-21T19:58:10+00:00",
+  "last_updated": "2026-09-22T00:02:57+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
