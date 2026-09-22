@@ -2898,11 +2898,13 @@ Requires scope `repository:checks:write` (installation access token).
 
 Upserts a check suite + check run using an installation access token with `repository:checks:write`. The write is attributed to the app that owns the authenticated installation. A repeated call with the same `(repo, head_sha, suite.key, check.key)` updates the existing check run in place rather than creating a duplicate.
 
-The endpoint atomically resolves or creates the suite attempt and upserts one run attempt. `externalUpdatedAt` orders updates to the same run identity; stale retries cannot overwrite newer state.
+The endpoint atomically resolves or creates the suite attempt and upserts one run attempt. `externalUpdatedAt` orders updates to the same run identity; stale retries cannot overwrite newer state. A post that is ignored as stale, and a post that repeats the stored values, both still return `200` with the stored suite and run, so read `outcome` to tell `ignored_stale` and `unchanged` apart from `created` and `updated`. `updatedAt` does not move for either, so it cannot distinguish them.
+
+Within a suite, the current attempt for a run `key` is the run with the newest `externalUpdatedAt`, breaking ties by `createdAt` and then by `id`, newest first. Each `(actor, key, externalId)` reported against a commit is one suite attempt, and the current attempt per `(actor, key)` is the one whose runs carry the newest `externalUpdatedAt`, with a suite that has no runs ranking by its own `createdAt`. A run is current for its commit only while its suite is the commit's current attempt, so a run posted under an older suite `externalId` stays hidden from the commit-scoped listings while another attempt of that suite has newer activity. Superseded attempts stay readable by id.
 
 `deadlineAt` records an optional deadline on the run. Origin stores it, returns it on reads, and clears it once the run reaches `completed`. A deadline more than 24 hours in the future is rejected with `InvalidArgument` (HTTP 400) rather than clamped.
 
-When the deadline passes on a run still `in_progress`, Origin completes the run itself with a `timed_out` conclusion and delivers `repository.check_run.completed`. Expiry runs as a periodic sweep rather than on a per-run timer, so a run can sit past its deadline briefly before Origin closes it. A `queued` run never expires, and neither does a run that carries no `deadlineAt`. Completing the run yourself before the deadline clears it. Origin leaves the run's `externalUpdatedAt` untouched when it times a run out, so a later completion from your provider can still overwrite the `timed_out` conclusion.
+When the deadline passes on a run still `in_progress`, Origin completes the run itself with a `timed_out` conclusion, setting `completedAt` if the run had none, and delivers `repository.check_run.completed`. Expiry runs as a periodic sweep rather than on a per-run timer, so expiry lands some minutes after the deadline rather than at it. The sweep runs about every 30 minutes by default, an operational setting that can change. A `queued` run never expires, and neither does a run that carries no `deadlineAt`. Completing the run yourself before the deadline clears it. Origin leaves the run's `externalUpdatedAt` untouched when it times a run out, so a later completion from your provider can still overwrite the `timed_out` conclusion.
 
 #### Path Parameters
 
@@ -2966,11 +2968,11 @@ The external system's last-update time. Used to order concurrent updates so a st
 
 `checkRun.startedAt` string
 
-When the check run started.
+When the check run started. A value more than 60 seconds in the future returns `InvalidArgument` (HTTP 400).
 
 `checkRun.completedAt` string
 
-When the check run completed.
+When the check run completed. A value more than 60 seconds in the future returns `InvalidArgument` (HTTP 400), as does a value that precedes `startedAt` when both are posted together.
 
 `checkRun.detailsUrl` string
 
@@ -3282,6 +3284,10 @@ RFC 3339 timestamp of the outstanding re-request. Absent when no re-request is p
 
 Principal that asked for the re-run, carrying the same actor variants as `actor`. Present whenever `rerequestedAt` is set, and cleared together with it.
 
+`outcome` string
+
+What this call did to `checkRun`. Allowed values: `created`, `updated`, `unchanged`, `ignored_stale`. A post that was ignored as stale and a post that repeated the stored values both return the stored run, so this field is the only way to tell them apart.
+
 ```bash
 curl --request POST \
   --url 'https://api.cursor.com/v1/origin/repos/OWNER_SLUG/REPO_NAME/check-runs' \
@@ -3380,7 +3386,8 @@ curl --request POST \
       "summary": "128 tests passed.",
       "text": "All suites green."
     }
-  }
+  },
+  "outcome": "created"
 }
 ```
 
@@ -3393,6 +3400,8 @@ Requires scope `repository:checks:write` (installation access token).
 Atomically upserts several check runs belonging to one suite. The request accepts at most 10 runs and rejects duplicate `(external_id, key)` identities. Every run is committed or the entire request is rolled back.
 
 Each run accepts the same optional `deadlineAt` as [Post Check Run](https://cursor.com/docs/api/origin/llms-full.txt#post-check-run).
+
+Origin applies the `externalUpdatedAt` ordering rule to each run separately. A run ignored as stale does not fail the batch: the response carries the stored run in its place, and `results[].outcome` reports each run's verdict in request order.
 
 #### Path Parameters
 
@@ -3456,11 +3465,11 @@ The external system's last-update time. Used to order concurrent updates so a st
 
 `checkRuns[0].startedAt` string
 
-When the check run started.
+When the check run started. A value more than 60 seconds in the future returns `InvalidArgument` (HTTP 400).
 
 `checkRuns[0].completedAt` string
 
-When the check run completed.
+When the check run completed. A value more than 60 seconds in the future returns `InvalidArgument` (HTTP 400), as does a value that precedes `startedAt` when both are posted together.
 
 `checkRuns[0].detailsUrl` string
 
@@ -3606,7 +3615,7 @@ Public identifier for the service account.
 
 `checkRuns` array
 
-Persisted check runs in the same order as the request.
+Deprecated: read `results[].checkRun` instead. Still populated, in request order.
 
 `checkRuns[].id` string
 
@@ -3772,6 +3781,18 @@ RFC 3339 timestamp of the outstanding re-request. Absent when no re-request is p
 
 Principal that asked for the re-run, carrying the same actor variants as `actor`. Present whenever `rerequestedAt` is set, and cleared together with it.
 
+`results` array
+
+One result per posted run, in request order.
+
+`results[].checkRun` object
+
+The stored check run after this call: the posted values when `outcome` is `created` or `updated`, and the run as it already was otherwise. Carries the same fields as `checkRuns[]`.
+
+`results[].outcome` string
+
+What this call did to `results[].checkRun`. Allowed values: `created`, `updated`, `unchanged`, `ignored_stale`. A run ignored as stale and a run that repeated the stored values both return the stored run, so this field is the only way to tell them apart.
+
 ```bash
 curl --request POST \
   --url 'https://api.cursor.com/v1/origin/repos/OWNER_SLUG/REPO_NAME/check-runs:batchUpsert' \
@@ -3873,6 +3894,49 @@ curl --request POST \
         "summary": "128 tests passed.",
         "text": "All suites green."
       }
+    }
+  ],
+  "results": [
+    {
+      "checkRun": {
+        "id": "cr_01k2ja2000e0080000000000g7",
+        "repository": {
+          "id": "repo_01k2ja2000e0080000000000q4",
+          "name": "rocket",
+          "owner": {
+            "slug": "acme",
+            "id": "ns_01k2ja2000e0080000000000p3",
+            "type": "team"
+          }
+        },
+        "checkSuite": {
+          "id": "crg_01k2ja2000e0080000000000h8"
+        },
+        "sha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4",
+        "key": "ci-8842-unit-tests",
+        "name": "unit-tests",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://ci.acme.dev/runs/8842",
+        "externalUpdatedAt": "2026-08-02T14:44:30Z",
+        "startedAt": "2026-08-02T14:40:00Z",
+        "completedAt": "2026-08-02T14:44:30Z",
+        "createdAt": "2026-08-01T09:30:00Z",
+        "updatedAt": "2026-08-02T14:45:00Z",
+        "externalId": "run-8842",
+        "actor": {
+          "user": {
+            "id": "user_01k2ja2000e0080000000000c3",
+            "email": "jane@acme.dev"
+          }
+        },
+        "output": {
+          "title": "Unit tests",
+          "summary": "128 tests passed.",
+          "text": "All suites green."
+        }
+      },
+      "outcome": "created"
     }
   ]
 }
@@ -4169,7 +4233,7 @@ Severity of the annotation. Allowed values: `notice`, `warning`, `failure`.
 
 `annotations[].message` string
 
-Annotation message.
+Annotation message. May contain Markdown.
 
 `annotations[].title` string
 
@@ -4284,7 +4348,7 @@ Severity of the annotation. Allowed values: `notice`, `warning`, `failure`.
 
 `annotations[].message` string Required
 
-Annotation message. Must be non-empty. Maximum 65,535 bytes of UTF-8.
+Annotation message. May contain Markdown. Must be non-empty. Maximum 65,535 bytes of UTF-8.
 
 `annotations[].title` string
 
@@ -4342,7 +4406,7 @@ Severity of the annotation. Allowed values: `notice`, `warning`, `failure`.
 
 `annotations[].message` string
 
-Annotation message.
+Annotation message. May contain Markdown.
 
 `annotations[].title` string
 
@@ -4856,7 +4920,7 @@ curl --request GET \
 
 Requires scope `repository:checks:read` (installation access token or user access token).
 
-Lists a suite's current check runs. When a run key was reported more than once in the suite, only the latest attempt for that key is returned; superseded attempts are omitted. A run that has been re-requested stays in the listing and reads as pending, with `status` `rerequested` and `rerequestedAt` set, and its superseded `conclusion` and timings unchanged, until the app that owns it answers. Read a superseded attempt by its own id with [Get Check Run](https://cursor.com/docs/api/origin/llms-full.txt#get-check-run). Paginated.
+Lists a suite's current check runs. When a run key was reported more than once in the suite, only the latest attempt for that key is returned; superseded attempts are omitted. [Post Check Run](https://cursor.com/docs/api/origin/llms-full.txt#post-check-run) defines which attempt is the latest. A run that has been re-requested stays in the listing and reads as pending, with `status` `rerequested` and `rerequestedAt` set, and its superseded `conclusion` and timings unchanged, until the app that owns it answers. Read a superseded attempt by its own id with [Get Check Run](https://cursor.com/docs/api/origin/llms-full.txt#get-check-run). Paginated.
 
 #### Path Parameters
 
@@ -5115,7 +5179,7 @@ curl --request GET \
 
 Requires scope `repository:checks:read` (installation access token or user access token).
 
-Lists a commit's current check runs across all suites: only runs belonging to each suite's latest attempt, and within each suite only the latest attempt per run key. Superseded attempts are omitted. A run that has been re-requested stays in the listing and reads as pending, with `status` `rerequested` and `rerequestedAt` set, and its superseded `conclusion` and timings unchanged, until the app that owns it answers. Read a superseded attempt by its own id with [Get Check Run](https://cursor.com/docs/api/origin/llms-full.txt#get-check-run). Optionally filtered by check name and status. Paginated.
+Lists a commit's current check runs across all suites: only runs belonging to each suite's latest attempt, and within each suite only the latest attempt per run key. Superseded attempts are omitted; [Post Check Run](https://cursor.com/docs/api/origin/llms-full.txt#post-check-run) defines which attempt is the latest. A run that has been re-requested stays in the listing and reads as pending, with `status` `rerequested` and `rerequestedAt` set, and its superseded `conclusion` and timings unchanged, until the app that owns it answers. Read a superseded attempt by its own id with [Get Check Run](https://cursor.com/docs/api/origin/llms-full.txt#get-check-run). Optionally filtered by check name and status. Paginated.
 
 Filters apply to the collapsed set, so a run matches on its latest attempt's status and a filter never resurfaces a superseded attempt. Page tokens embed the filters they were minted under, so a token replayed under different filters is rejected; restart pagination when a filter changes.
 
@@ -5384,7 +5448,7 @@ curl --request GET \
 
 Requires scope `repository:checks:read` (installation access token or user access token).
 
-Lists check suites reported against a commit. Returns only the latest attempt of each suite, per reporting actor and suite key; superseded attempts are omitted. Read a superseded attempt by its own id with [Get Check Suite](https://cursor.com/docs/api/origin/llms-full.txt#get-check-suite). Returns suite metadata only (no embedded runs). Paginated.
+Lists check suites reported against a commit. Returns only the latest attempt of each suite, per reporting actor and suite key; superseded attempts are omitted, and [Post Check Run](https://cursor.com/docs/api/origin/llms-full.txt#post-check-run) defines which attempt is the latest. Read a superseded attempt by its own id with [Get Check Suite](https://cursor.com/docs/api/origin/llms-full.txt#get-check-suite). Returns suite metadata only (no embedded runs). Paginated.
 
 #### Path Parameters
 
@@ -7057,6 +7121,10 @@ Requires scope `repository:contents:read` (installation access token or user acc
 
 Returns a single Git reference by name. `ref` is typically `heads/<branch>` or `tags/<tag>` (with or without a leading `refs/`), or the symbolic `HEAD`. Exact match only; use ListMatchingGitRefs for prefixes. Empty repositories return 409 Conflict.
 
+`pull/<number>/merge` is a pull request's merge preview: a commit that merges its current head into the tip of its base branch as of the last refresh. Reading it here is the supported way to get the preview, and it is a different commit from the pull request's `mergeCommitSha`, which is set only once the pull request has merged.
+
+Origin refreshes the preview when a pull request is created, when its head is pushed, when it is retargeted, and when it is reopened, before the matching `pull_request.*` webhook events publish and within a bounded time budget. A refresh that does not finish in time leaves the previous ref in place, and the events still publish. Origin does not refresh it because the base branch merely advanced, and it deletes the ref when the merge has conflicts, so a `404` on an open pull request means the merge conflicts or the preview is not prepared yet.
+
 #### Path Parameters
 
 `ownerSlug` string Required
@@ -7069,7 +7137,7 @@ Repo name, unique to the owner entity.
 
 `ref` string Required
 
-Git reference name. Typically `heads/<branch>` or `tags/<tag>`; a leading `refs/` is accepted and normalized. The symbolic `HEAD` is also accepted (returned as `ref: "HEAD"` with the tip commit). Exact match on the full ref name.
+Git reference name. Typically `heads/<branch>` or `tags/<tag>`; a leading `refs/` is accepted and normalized. The symbolic `HEAD` is also accepted (returned as `ref: "HEAD"` with the tip commit), as is `pull/<number>/merge` for a pull request's merge preview. Exact match on the full ref name.
 
 #### Response Fields
 
@@ -8516,6 +8584,8 @@ Review `verdict` is `approve`, `request_changes`, or `comment`. `submittedAt` is
 
 Comments expose a `thread` reference for grouping. Create-comment requests still accept the scalar `threadId` command parameter when replying. Resolve or reopen a thread with [Update Pull Request Thread](https://cursor.com/docs/api/origin/llms-full.txt#update-pull-request-thread).
 
+Origin records a new pull request `version` when the head is pushed or when the pull request is retargeted to another base, never because the base branch advanced on its own. So `version.baseSha`, and the `base.sha` that mirrors it, can lag the base branch's current tip until the next head push or retarget.
+
 ### List Pull Requests
 
 /v1/origin/repos///pulls
@@ -8577,6 +8647,14 @@ Optional inclusive upper bound on creation time, in the same RFC 3339 format as 
 `sortBy` string
 
 Sort key. Allowed values: `created` (creation order, the default) or `updated` (time of last update). Any other value returns `InvalidArgument` (HTTP 400).
+
+`headSha` string
+
+Optional head commit filter: the full 40- or 64-character hex SHA of a pull request head, matched case-insensitively. Selects a pull request when any of its recorded versions has that head commit, current or superseded, so compare `head.sha` on each result to tell the two apart. The other filters still apply, and `state` defaults to `open`, so pass `state=all` to reach merged and closed pull requests. Malformed, abbreviated, and unknown SHAs match nothing.
+
+`stackId` string
+
+Optional stack filter: a stack id as returned in `pullRequests[].stack.id`. Returns only that stack's members, in the requested sort order rather than stack order, so rebuild the stack from each member's `stack.parentPullRequest`. `state` still defaults to `open`, which excludes merged members; pass `state=all` for the whole stack. A well-formed id that names no stack in this repository returns an empty list, and any other value returns `InvalidArgument` (HTTP 400).
 
 #### Response Fields
 
@@ -8698,7 +8776,7 @@ RFC 3339 merge timestamp; may appear on merged pull requests.
 
 `pullRequests[].mergeCommitSha` string
 
-Merge commit SHA; may appear after merge.
+SHA of the commit the merge wrote to the base branch. Set once the pull request merges and absent before. The pre-merge preview is a different commit, read through the `pull/<number>/merge` ref with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `pullRequests[].additions` integer
 
@@ -8731,6 +8809,30 @@ Six-character hex color without a leading `#`.
 `pullRequests[].labels[].description` string
 
 Label description. Absent when the label has none.
+
+`pullRequests[].stack` object
+
+Stack membership: the chain of dependent pull requests this one belongs to, each stacked on the one it builds upon. Absent when the pull request is not part of a stack.
+
+`pullRequests[].stack.id` string
+
+Stable stack identifier, shared by every member of the stack. Pass it as `stackId` to [List Pull Requests](https://cursor.com/docs/api/origin/llms-full.txt#list-pull-requests) to read the other members.
+
+`pullRequests[].stack.parentPullRequest` object
+
+The pull request this one is stacked on. Absent on the root of the stack. A merged parent stays referenced until the child is retargeted or re-parented.
+
+`pullRequests[].stack.parentPullRequest.id` string
+
+Stable Origin identifier of the parent pull request.
+
+`pullRequests[].stack.parentPullRequest.number` string
+
+Repository-local number of the parent pull request, encoded as a JSON string.
+
+`pullRequests[].stack.parentPullRequest.repository` object
+
+Repository the parent belongs to, carrying the same `id`, `name`, and `owner` fields as a check run's `repository`. Stacks never cross repositories, so this is always the pull request's own repository.
 
 `pullRequests[].version` object
 
@@ -8780,7 +8882,7 @@ curl --request GET \
         "sha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4"
       },
       "base": {
-        "ref": "main",
+        "ref": "add-telemetry-schema",
         "sha": "3b1f9c2d8a7e6f5049c8b7a6d5e4f3a2b1c0d9e8"
       },
       "author": {
@@ -8802,6 +8904,22 @@ curl --request GET \
           "description": "Something isn't working"
         }
       ],
+      "stack": {
+        "id": "stk_01k2ja2000e0080000000000s1",
+        "parentPullRequest": {
+          "id": "pr_01k2ja2000e0080000000000d3",
+          "number": "16",
+          "repository": {
+            "id": "repo_01k2ja2000e0080000000000q4",
+            "name": "rocket",
+            "owner": {
+              "slug": "acme",
+              "id": "ns_01k2ja2000e0080000000000p3",
+              "type": "team"
+            }
+          }
+        }
+      },
       "version": {
         "number": "3",
         "headSha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4",
@@ -8951,7 +9069,7 @@ RFC 3339 merge timestamp; may appear on merged pull requests.
 
 `mergeCommitSha` string
 
-Merge commit SHA; may appear after merge.
+SHA of the commit the merge wrote to the base branch. Set once the pull request merges and absent before. The pre-merge preview is a different commit, read through the `pull/<number>/merge` ref with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `additions` integer
 
@@ -8984,6 +9102,30 @@ Six-character hex color without a leading `#`.
 `labels[].description` string
 
 Label description. Absent when the label has none.
+
+`stack` object
+
+Stack membership: the chain of dependent pull requests this one belongs to, each stacked on the one it builds upon. Absent when the pull request is not part of a stack.
+
+`stack.id` string
+
+Stable stack identifier, shared by every member of the stack. Pass it as `stackId` to [List Pull Requests](https://cursor.com/docs/api/origin/llms-full.txt#list-pull-requests) to read the other members.
+
+`stack.parentPullRequest` object
+
+The pull request this one is stacked on. Absent on the root of the stack. A merged parent stays referenced until the child is retargeted or re-parented.
+
+`stack.parentPullRequest.id` string
+
+Stable Origin identifier of the parent pull request.
+
+`stack.parentPullRequest.number` string
+
+Repository-local number of the parent pull request, encoded as a JSON string.
+
+`stack.parentPullRequest.repository` object
+
+Repository the parent belongs to, carrying the same `id`, `name`, and `owner` fields as a check run's `repository`. Stacks never cross repositories, so this is always the pull request's own repository.
 
 `version` object
 
@@ -9027,7 +9169,7 @@ curl --request GET \
     "sha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4"
   },
   "base": {
-    "ref": "main",
+    "ref": "add-telemetry-schema",
     "sha": "3b1f9c2d8a7e6f5049c8b7a6d5e4f3a2b1c0d9e8"
   },
   "author": {
@@ -9049,6 +9191,22 @@ curl --request GET \
       "description": "Something isn't working"
     }
   ],
+  "stack": {
+    "id": "stk_01k2ja2000e0080000000000s1",
+    "parentPullRequest": {
+      "id": "pr_01k2ja2000e0080000000000d3",
+      "number": "16",
+      "repository": {
+        "id": "repo_01k2ja2000e0080000000000q4",
+        "name": "rocket",
+        "owner": {
+          "slug": "acme",
+          "id": "ns_01k2ja2000e0080000000000p3",
+          "type": "team"
+        }
+      }
+    }
+  },
   "version": {
     "number": "3",
     "headSha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4",
@@ -9104,9 +9262,17 @@ Target branch name (what the change merges into). Must name a branch that exists
 
 When true, create as a draft. When false or omitted, create as open (ready for review).
 
-`parentPullNumber` string
+`parentPullRequest` object
 
-Optional parent pull request number when stacking this change on another open/draft change in the same repository.
+Optional stack parent: another open or draft pull request in the same repository. Set exactly one member. An empty selector, more than one member, or `clear` returns `InvalidArgument` (HTTP 400).
+
+`parentPullRequest.number` string
+
+Parent pull request number within the repository.
+
+`parentPullRequest.id` string
+
+Parent pull request id, as returned in `id`.
 
 #### Response Fields
 
@@ -9224,7 +9390,7 @@ RFC 3339 merge timestamp; may appear on merged pull requests.
 
 `mergeCommitSha` string
 
-Merge commit SHA; may appear after merge.
+SHA of the commit the merge wrote to the base branch. Set once the pull request merges and absent before. The pre-merge preview is a different commit, read through the `pull/<number>/merge` ref with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `additions` integer
 
@@ -9257,6 +9423,30 @@ Six-character hex color without a leading `#`.
 `labels[].description` string
 
 Label description. Absent when the label has none.
+
+`stack` object
+
+Stack membership: the chain of dependent pull requests this one belongs to, each stacked on the one it builds upon. Absent when the pull request is not part of a stack.
+
+`stack.id` string
+
+Stable stack identifier, shared by every member of the stack. Pass it as `stackId` to [List Pull Requests](https://cursor.com/docs/api/origin/llms-full.txt#list-pull-requests) to read the other members.
+
+`stack.parentPullRequest` object
+
+The pull request this one is stacked on. Absent on the root of the stack. A merged parent stays referenced until the child is retargeted or re-parented.
+
+`stack.parentPullRequest.id` string
+
+Stable Origin identifier of the parent pull request.
+
+`stack.parentPullRequest.number` string
+
+Repository-local number of the parent pull request, encoded as a JSON string.
+
+`stack.parentPullRequest.repository` object
+
+Repository the parent belongs to, carrying the same `id`, `name`, and `owner` fields as a check run's `repository`. Stacks never cross repositories, so this is always the pull request's own repository.
 
 `version` object
 
@@ -9345,9 +9535,9 @@ curl --request POST \
 
 Requires scope `repository:pull_requests:write` (installation access token or user access token).
 
-Updates a pull request's title, body, base branch, and/or lifecycle state.
+Updates a pull request's title, body, base branch, stack parent, and/or lifecycle state.
 
-Omitted fields are unchanged. Present fields are applied in order: metadata, then reopen/draft/ready-for-review, then base, then close. Close runs last so a same-request retarget can still see an open change; reopen runs before base so a closed pull can be retargeted. If a later step fails, earlier steps may already have been committed.
+Omitted fields are unchanged. Present fields are applied in order: metadata, then reopen/draft/ready-for-review, then base, then stack parent, then close. Close runs last so a same-request retarget can still see an open change; reopen runs before base so a closed pull can be retargeted; the stack parent runs after base so an explicit parent wins over the one a base change derives. If a later step fails, earlier steps may already have been committed.
 
 A `title` longer than 256 characters, or a `body` longer than 65,536 characters, returns `InvalidArgument` (HTTP 400). Both limits count Unicode code points.
 
@@ -9384,6 +9574,22 @@ New body / description. An empty string clears the body. Maximum length: 65,536 
 `base` string
 
 New base branch. Retargets the pull request and can update stack parentage when the new base is another change's head (or the default branch). Must name a branch that exists in the repo at call time; a commit SHA, a tag name, or a branch that does not exist returns `InvalidArgument` (HTTP 400).
+
+`parentPullRequest` object
+
+Stack parent edit. Set exactly one member: `number` or `id` stacks this pull request on that parent, replacing any current parent, and `clear` removes the parent. Omit the field to leave the stack unchanged. An empty selector, `clear: false`, or more than one member returns `InvalidArgument` (HTTP 400). This is an association only: no branch is rewritten, and `base` is retargeted only when you send it too. Origin applies it after `base`, so an explicit parent wins over the one a base change derives.
+
+`parentPullRequest.number` string
+
+Parent pull request number within the repository.
+
+`parentPullRequest.id` string
+
+Parent pull request id, as returned in `id`.
+
+`parentPullRequest.clear` boolean
+
+Removes the current stack parent. Only `true` is accepted.
 
 #### Response Fields
 
@@ -9501,7 +9707,7 @@ RFC 3339 merge timestamp; may appear on merged pull requests.
 
 `mergeCommitSha` string
 
-Merge commit SHA; may appear after merge.
+SHA of the commit the merge wrote to the base branch. Set once the pull request merges and absent before. The pre-merge preview is a different commit, read through the `pull/<number>/merge` ref with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `additions` integer
 
@@ -9534,6 +9740,30 @@ Six-character hex color without a leading `#`.
 `labels[].description` string
 
 Label description. Absent when the label has none.
+
+`stack` object
+
+Stack membership: the chain of dependent pull requests this one belongs to, each stacked on the one it builds upon. Absent when the pull request is not part of a stack.
+
+`stack.id` string
+
+Stable stack identifier, shared by every member of the stack. Pass it as `stackId` to [List Pull Requests](https://cursor.com/docs/api/origin/llms-full.txt#list-pull-requests) to read the other members.
+
+`stack.parentPullRequest` object
+
+The pull request this one is stacked on. Absent on the root of the stack. A merged parent stays referenced until the child is retargeted or re-parented.
+
+`stack.parentPullRequest.id` string
+
+Stable Origin identifier of the parent pull request.
+
+`stack.parentPullRequest.number` string
+
+Repository-local number of the parent pull request, encoded as a JSON string.
+
+`stack.parentPullRequest.repository` object
+
+Repository the parent belongs to, carrying the same `id`, `name`, and `owner` fields as a check run's `repository`. Stacks never cross repositories, so this is always the pull request's own repository.
 
 `version` object
 
@@ -10055,6 +10285,46 @@ curl --request GET \
   "createdAt": "2026-08-01T09:30:00Z",
   "updatedAt": "2026-08-02T14:45:00Z"
 }
+```
+
+### Delete Pull Request Comment
+
+/v1/origin/repos///pulls/comments/
+
+Requires scope `repository:pull_requests:reviews:write` (installation access token or user access token).
+
+Deletes a pull request comment by its stable Origin id. The response body is empty.
+
+The comment's author can always delete it. Any other caller must hold write access to the repository, which `repository:contents:write` grants, and otherwise receives `PermissionDenied` (HTTP 403). Deleting the last comment of a thread removes the thread; deleting any other comment, the thread opener included, leaves the thread and its remaining comments in place. Thread resolution is not a gate. Reactions to the comment and its edit history are removed with it.
+
+An unknown id, an already-deleted comment, and a comment in another repository all return `404`. A malformed id returns `InvalidArgument` (HTTP 400).
+
+#### Path Parameters
+
+`ownerSlug` string Required
+
+Owning entity's unique slug.
+
+`repoName` string Required
+
+Repo name, unique to the owner entity.
+
+`commentId` string Required
+
+#### Response Fields
+
+Successful requests return no response body.
+
+```bash
+curl --request DELETE \
+  --url 'https://api.cursor.com/v1/origin/repos/OWNER_SLUG/REPO_NAME/pulls/comments/COMMENT_ID' \
+  --header 'Authorization: Bearer YOUR_ORIGIN_TOKEN'
+```
+
+**Response:**
+
+```text
+204 No Content
 ```
 
 ### Create Pull Request Comment
@@ -11141,7 +11411,7 @@ How the pull request lands. Allowed values: `merge`, which writes a merge commit
 
 `mergeCommitSha` string
 
-SHA of the merge commit written to the base.
+SHA of the commit the merge wrote to the base branch. The pre-merge preview is a different commit, read through the `pull/<number>/merge` ref with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `mergedPullNumbers` array
 
@@ -11265,7 +11535,7 @@ RFC 3339 merge timestamp; may appear on merged pull requests.
 
 `pullRequest.mergeCommitSha` string
 
-Merge commit SHA; may appear after merge.
+SHA of the commit the merge wrote to the base branch. Set once the pull request merges and absent before. The pre-merge preview is a different commit, read through the `pull/<number>/merge` ref with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `pullRequest.additions` integer
 
@@ -11298,6 +11568,30 @@ Six-character hex color without a leading `#`.
 `pullRequest.labels[].description` string
 
 Label description. Absent when the label has none.
+
+`pullRequest.stack` object
+
+Stack membership: the chain of dependent pull requests this one belongs to, each stacked on the one it builds upon. Absent when the pull request is not part of a stack.
+
+`pullRequest.stack.id` string
+
+Stable stack identifier, shared by every member of the stack. Pass it as `stackId` to [List Pull Requests](https://cursor.com/docs/api/origin/llms-full.txt#list-pull-requests) to read the other members.
+
+`pullRequest.stack.parentPullRequest` object
+
+The pull request this one is stacked on. Absent on the root of the stack. A merged parent stays referenced until the child is retargeted or re-parented.
+
+`pullRequest.stack.parentPullRequest.id` string
+
+Stable Origin identifier of the parent pull request.
+
+`pullRequest.stack.parentPullRequest.number` string
+
+Repository-local number of the parent pull request, encoded as a JSON string.
+
+`pullRequest.stack.parentPullRequest.repository` object
+
+Repository the parent belongs to, carrying the same `id`, `name`, and `owner` fields as a check run's `repository`. Stacks never cross repositories, so this is always the pull request's own repository.
 
 `pullRequest.version` object
 
@@ -13818,36 +14112,38 @@ Every event Origin delivers, and each event's payload documented field by field.
 
 ### Events
 
-| Event                               | Delivered when                                                                                                                               |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repository.created`                | A repository is created.                                                                                                                     |
-| `repository.deleted`                | A repository is deleted.                                                                                                                     |
-| `repository.pushed`                 | One or more refs change in a push.                                                                                                           |
-| `repository.metadata.updated`       | A repository's default branch changes.                                                                                                       |
-| `pull_request.created`              | A pull request opens.                                                                                                                        |
-| `pull_request.head_ref.pushed`      | The pull request head advances.                                                                                                              |
-| `pull_request.base_ref.updated`     | The base ref or resolved base commit changes.                                                                                                |
-| `pull_request.metadata.updated`     | The title or description changes.                                                                                                            |
-| `pull_request.closed`               | A pull request closes without merging, including when Origin closes it because a push left its head with no history in common with its base. |
-| `pull_request.merged`               | A pull request merges.                                                                                                                       |
-| `pull_request.reopened`             | A closed pull request reopens.                                                                                                               |
-| `pull_request.published`            | A draft becomes open.                                                                                                                        |
-| `pull_request.label.added`          | A label is assigned to a pull request.                                                                                                       |
-| `pull_request.label.removed`        | A label is unassigned from a pull request, including when the label definition is deleted.                                                   |
-| `pull_request.comment.created`      | A visible pull request comment is created.                                                                                                   |
-| `pull_request.review.submitted`     | A review is submitted with any verdict.                                                                                                      |
-| `pull_request.review.dismissed`     | A submitted review is dismissed, explicitly or by being superseded.                                                                          |
-| `pull_request.reviewer.added`       | A reviewer is requested.                                                                                                                     |
-| `pull_request.reviewer.removed`     | A reviewer is removed.                                                                                                                       |
-| `pull_request.reviewer.rerequested` | A reviewer is requested again.                                                                                                               |
-| `repository.check_run.created`      | A check run is created.                                                                                                                      |
-| `repository.check_run.completed`    | A check run completes.                                                                                                                       |
-| `repository.check_run.rerequested`  | A completed check run is re-requested. Delivered only to the app that owns the run.                                                          |
-| `installation.created`              | The app is installed.                                                                                                                        |
-| `installation.updated`              | Scopes, repository selection, or the owner namespace slug change.                                                                            |
-| `installation.suspended`            | The installation is suspended.                                                                                                               |
-| `installation.unsuspended`          | A suspended installation is restored.                                                                                                        |
-| `installation.deleted`              | The app is uninstalled.                                                                                                                      |
+| Event                                   | Delivered when                                                                                                                               |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repository.created`                    | A repository is created.                                                                                                                     |
+| `repository.deleted`                    | A repository is deleted.                                                                                                                     |
+| `repository.pushed`                     | One or more refs change in a push.                                                                                                           |
+| `repository.metadata.updated`           | A repository's default branch changes.                                                                                                       |
+| `pull_request.created`                  | A pull request opens.                                                                                                                        |
+| `pull_request.head_ref.pushed`          | The pull request head advances.                                                                                                              |
+| `pull_request.base_ref.updated`         | The base ref or resolved base commit changes.                                                                                                |
+| `pull_request.metadata.updated`         | The title or description changes.                                                                                                            |
+| `pull_request.closed`                   | A pull request closes without merging, including when Origin closes it because a push left its head with no history in common with its base. |
+| `pull_request.merged`                   | A pull request merges.                                                                                                                       |
+| `pull_request.reopened`                 | A closed pull request reopens.                                                                                                               |
+| `pull_request.published`                | A draft becomes open.                                                                                                                        |
+| `pull_request.label.added`              | A label is assigned to a pull request.                                                                                                       |
+| `pull_request.label.removed`            | A label is unassigned from a pull request, including when the label definition is deleted.                                                   |
+| `pull_request.comment.created`          | A visible pull request comment is created.                                                                                                   |
+| `pull_request.comment.reaction.added`   | A reaction is placed on a pull request comment. Re-placing a reaction the reactor already holds delivers this event again.                   |
+| `pull_request.comment.reaction.removed` | A reaction is removed from a pull request comment. Removing a reaction the reactor does not hold delivers nothing.                           |
+| `pull_request.review.submitted`         | A review is submitted with any verdict.                                                                                                      |
+| `pull_request.review.dismissed`         | A submitted review is dismissed, explicitly or by being superseded.                                                                          |
+| `pull_request.reviewer.added`           | A reviewer is requested.                                                                                                                     |
+| `pull_request.reviewer.removed`         | A reviewer is removed.                                                                                                                       |
+| `pull_request.reviewer.rerequested`     | A reviewer is requested again.                                                                                                               |
+| `repository.check_run.created`          | A check run is created.                                                                                                                      |
+| `repository.check_run.completed`        | A check run completes.                                                                                                                       |
+| `repository.check_run.rerequested`      | A completed check run is re-requested. Delivered only to the app that owns the run.                                                          |
+| `installation.created`                  | The app is installed.                                                                                                                        |
+| `installation.updated`                  | Scopes, repository selection, or the owner namespace slug change.                                                                            |
+| `installation.suspended`                | The installation is suspended.                                                                                                               |
+| `installation.unsuspended`              | A suspended installation is restored.                                                                                                        |
+| `installation.deleted`                  | The app is uninstalled.                                                                                                                      |
 
 Every event's payload shape is documented field by field in [Event payloads](https://cursor.com/docs/api/origin/llms-full.txt#event-payloads).
 
@@ -14366,7 +14662,7 @@ The ref this side points at, as Origin records it.
 
 `pullRequest.head.sha` string
 
-Tip commit SHA of this side at the change's latest version.
+Tip commit SHA of this side at the change's latest version. For `base` this is the version's `base_sha`, which can lag the branch's current tip (see `PullRequestVersion`).
 
 `pullRequest.base` object
 
@@ -14378,7 +14674,7 @@ The ref this side points at, as Origin records it.
 
 `pullRequest.base.sha` string
 
-Tip commit SHA of this side at the change's latest version.
+Tip commit SHA of this side at the change's latest version. For `base` this is the version's `base_sha`, which can lag the branch's current tip (see `PullRequestVersion`).
 
 `pullRequest.author` object
 
@@ -14428,7 +14724,7 @@ When the pull request was merged; unset unless merged. RFC 3339 timestamp.
 
 `pullRequest.mergeCommitSha` string
 
-SHA of the resulting merge commit; set once merged.
+SHA of the commit the merge wrote to the base branch; set once merged, unset before. The pre-merge preview is the `pull/\<number>/merge` ref (see GetGitRef), a different commit.
 
 `pullRequest.additions` integer
 
@@ -14441,6 +14737,48 @@ Lines deleted by the pull request's latest version.
 `pullRequest.changedFiles` integer
 
 Files changed by the pull request's latest version.
+
+`pullRequest.stack` object
+
+Stack membership. Unset when the pull request is not part of a stack.
+
+`pullRequest.stack.id` string
+
+Stable stack identifier. Pass it as `stack_id` to `ListPullRequests` to list the stack's members.
+
+`pullRequest.stack.parentPullRequest` object
+
+The pull request this one is stacked on. Unset for the root of the stack. A merged parent stays referenced until the child is retargeted or re-parented.
+
+`pullRequest.stack.parentPullRequest.id` string
+
+Immutable Origin change id.
+
+`pullRequest.stack.parentPullRequest.number` string
+
+`pullRequest.stack.parentPullRequest.repository` object
+
+Repository reference for this pull request.
+
+`pullRequest.stack.parentPullRequest.repository.id` string
+
+`pullRequest.stack.parentPullRequest.repository.name` string
+
+`pullRequest.stack.parentPullRequest.repository.owner` object
+
+The owner of a repo.
+
+`pullRequest.stack.parentPullRequest.repository.owner.slug` string
+
+Unique URL-friendly name of the owner.
+
+`pullRequest.stack.parentPullRequest.repository.owner.id` string
+
+Unique ID of the owner namespace.
+
+`pullRequest.stack.parentPullRequest.repository.owner.type` string
+
+`team` or `user`. Output-only; unset when unknown. One of `team`, `user`.
 
 `pullRequest.version` object
 
@@ -14456,7 +14794,7 @@ Head commit SHA for this version.
 
 `pullRequest.version.baseSha` string
 
-Base commit SHA this version is diffed against.
+Base commit SHA this version is diffed against: the base branch tip as resolved when the version was recorded. It can lag the branch's current tip until the next head push or retarget.
 
 `pullRequest.version.createdAt` string
 
@@ -14503,7 +14841,7 @@ Unique ID of the owner namespace.
       "sha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4"
     },
     "base": {
-      "ref": "main",
+      "ref": "add-telemetry-schema",
       "sha": "3b1f9c2d8a7e6f5049c8b7a6d5e4f3a2b1c0d9e8"
     },
     "author": {
@@ -14517,6 +14855,22 @@ Unique ID of the owner namespace.
     "additions": 128,
     "deletions": 46,
     "changedFiles": 5,
+    "stack": {
+      "id": "stk_01k2ja2000e0080000000000s1",
+      "parentPullRequest": {
+        "id": "pr_01k2ja2000e0080000000000d3",
+        "number": "16",
+        "repository": {
+          "id": "repo_01k2ja2000e0080000000000q4",
+          "name": "rocket",
+          "owner": {
+            "slug": "acme",
+            "id": "ns_01k2ja2000e0080000000000p3",
+            "type": "team"
+          }
+        }
+      }
+    },
     "version": {
       "number": "3",
       "headSha": "9a41f0c3d2b8e7f6a5c4d3e2f1b0a9c8d7e6f5a4",
@@ -14723,7 +15077,7 @@ Head commit SHA for this version.
 
 `comment.thread.version.baseSha` string
 
-Base commit SHA this version is diffed against.
+Base commit SHA this version is diffed against: the base branch tip as resolved when the version was recorded. It can lag the branch's current tip until the next head push or retarget.
 
 `comment.thread.version.createdAt` string
 
@@ -14844,6 +15198,134 @@ RFC 3339 timestamp.
 }
 ```
 
+### Pull Request Comment Reaction Events
+
+pull\_request.comment.reaction.added
+pull\_request.comment.reaction.removed
+
+A reaction added to or removed from a pull request comment. The envelope's `event.type` carries the action. An add is delivered at least once: placing a reaction the reactor already holds on the comment delivers another `pull_request.comment.reaction.added` for the same `(comment, reactor, content)`; removing a reaction the reactor does not hold delivers nothing.
+
+#### Payload Fields
+
+`pullRequest` object
+
+The pull request the comment was filed on.
+
+`pullRequest.id` string
+
+Immutable Origin change id.
+
+`pullRequest.number` string
+
+`pullRequest.repository` object
+
+Repository reference for this pull request.
+
+`pullRequest.repository.id` string
+
+`pullRequest.repository.name` string
+
+`pullRequest.repository.owner` object
+
+The owner of a repo.
+
+`pullRequest.repository.owner.slug` string
+
+Unique URL-friendly name of the owner.
+
+`pullRequest.repository.owner.id` string
+
+Unique ID of the owner namespace.
+
+`pullRequest.repository.owner.type` string
+
+`team` or `user`. Output-only; unset when unknown. One of `team`, `user`.
+
+`comment` object
+
+The comment the reaction is on.
+
+`comment.id` string
+
+`comment.thread` object
+
+The thread the comment belongs to.
+
+`comment.thread.id` string
+
+`reaction` object
+
+The reaction that was added or removed.
+
+`reaction.content` string
+
+The reaction placed on the comment. The set is closed; an unrecognized value should be read as a reaction the receiver cannot render. One of `thumbs_up`, `thumbs_down`, `laugh`, `hooray`, `confused`, `heart`, `rocket`, `eyes`.
+
+`reaction.reactor` object
+
+The principal that placed the reaction. Only the reactor can remove it, so this is the acting principal on both the added and removed events.
+
+`reaction.reactor.user` object
+
+`reaction.reactor.user.id` string
+
+`reaction.reactor.user.email` string Required
+
+`reaction.reactor.user.displayName` string
+
+Human-readable display name: the account's first and last name, each trimmed, joined with a space — exactly the name the product UI renders. Omitted when the account has no name; never synthesized from the email, the id, or any other field. May also be absent on webhook payloads whose actor could not be resolved.
+
+`reaction.reactor.user.handle` string
+
+The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`reaction.reactor.app` object
+
+`reaction.reactor.app.id` string
+
+`reaction.reactor.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
+`reaction.reactor.serviceAccount` object
+
+`reaction.reactor.serviceAccount.id` string
+
+**Sample `event.payload`:**
+
+```json
+{
+  "pullRequest": {
+    "id": "pr_01k2ja2000e0080000000000d4",
+    "number": "17",
+    "repository": {
+      "id": "repo_01k2ja2000e0080000000000q4",
+      "name": "rocket",
+      "owner": {
+        "slug": "acme",
+        "id": "ns_01k2ja2000e0080000000000p3",
+        "type": "team"
+      }
+    }
+  },
+  "comment": {
+    "id": "cmt_01k2ja2000e0080000000000e5",
+    "thread": {
+      "id": "cth_01k2ja2000e0080000000000s6"
+    }
+  },
+  "reaction": {
+    "content": "thumbs_up",
+    "reactor": {
+      "user": {
+        "id": "user_01k2ja2000e0080000000000c3",
+        "email": "jane@acme.dev"
+      }
+    }
+  }
+}
+```
+
 ### Pull Request Review Events
 
 pull\_request.review\.submitted
@@ -14949,7 +15431,7 @@ Head commit SHA for this version.
 
 `review.pullRequestVersion.baseSha` string
 
-Base commit SHA this version is diffed against.
+Base commit SHA this version is diffed against: the base branch tip as resolved when the version was recorded. It can lag the branch's current tip until the next head push or retarget.
 
 `review.pullRequestVersion.createdAt` string
 
@@ -15372,7 +15854,7 @@ RFC 3339 timestamp.
 
 `checkRun.updatedAt` string
 
-RFC 3339 timestamp.
+When Origin last wrote the run. Not advanced by a post that was ignored as stale or that repeated the stored values (see `PostCheckRunResponse.outcome`), so it cannot tell those two apart. RFC 3339 timestamp.
 
 `checkRun.externalId` string
 
@@ -15426,7 +15908,7 @@ Detailed output. May contain Markdown. Maximum UTF-8 size: 65535 bytes.
 
 `checkRun.deadlineAt` string
 
-Optional deadline. Omitted or unset means no expiration. RFC 3339 timestamp.
+Optional deadline. Omitted or unset means no expiration. Cleared when the run completes, including when it expires as `timed_out` (see `CheckRunInput.deadline_at`). RFC 3339 timestamp.
 
 `checkRun.isRerequestable` boolean
 
@@ -15747,7 +16229,7 @@ RFC 3339 timestamp.
 
 `checkRun.updatedAt` string
 
-RFC 3339 timestamp.
+When Origin last wrote the run. Not advanced by a post that was ignored as stale or that repeated the stored values (see `PostCheckRunResponse.outcome`), so it cannot tell those two apart. RFC 3339 timestamp.
 
 `checkRun.externalId` string
 
@@ -15801,7 +16283,7 @@ Detailed output. May contain Markdown. Maximum UTF-8 size: 65535 bytes.
 
 `checkRun.deadlineAt` string
 
-Optional deadline. Omitted or unset means no expiration. RFC 3339 timestamp.
+Optional deadline. Omitted or unset means no expiration. Cleared when the run completes, including when it expires as `timed_out` (see `CheckRunInput.deadline_at`). RFC 3339 timestamp.
 
 `checkRun.isRerequestable` boolean
 

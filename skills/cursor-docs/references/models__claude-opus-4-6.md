@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-opus-4-6
 path: /docs/models/claude-opus-4-6
 ---
 
-We recommend using [Claude Opus 5](https://cursor.com/docs/models/claude-opus-5.md). It scores higher on [CursorBench](https://cursor.com/cursorbench), offers stronger autonomous capabilities, and is priced the same.
+We recommend using [Claude Opus 5.5](https://cursor.com/docs/models/claude-opus-5-5.md). It scores higher on [CursorBench](https://cursor.com/cursorbench), offers stronger autonomous capabilities, and costs less per token.
 
 Opus 4.6 is Anthropic's previous flagship model. It tracks conversation intent across many turns and maintains coherent reasoning throughout long sessions. It plans before it acts, produces concrete fixes, and writes idiomatic code with strong style.
 

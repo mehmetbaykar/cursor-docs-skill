@@ -66,8 +66,8 @@
       "title": "Analytics API"
     },
     "account__teams__analytics.md": {
-      "hash": "53d3c6d32dcafcd3b3baa62c2ee5fb24dd4e56e6e9e032e4dd6ac7b6cc5fdc00",
-      "last_updated": "2026-09-09T23:09:44+00:00",
+      "hash": "6091460063db42d77979ad1c47f0acf89aedbfe79b7049a6041c332d6425802e",
+      "last_updated": "2026-09-22T16:50:15+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics",
       "path": "/docs/account/teams/analytics",
       "source_url": "https://cursor.com/docs/account/teams/analytics",
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "759d6276a4de70ffb60dc4424ea149880f1a5e80a02ded45d6f2cc310d0b0ae6",
-      "last_updated": "2026-09-22T00:02:13+00:00",
+      "hash": "2c37b5365e8d2b692a94607d1f39646187eff4bdf5a3bbb050c523a795f5c88b",
+      "last_updated": "2026-09-22T16:50:24+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -282,8 +282,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "a295a44365d792729df65b3de154b4affa4cbebe31eddaad1c503b3763440e57",
-      "last_updated": "2026-09-22T00:02:14+00:00",
+      "hash": "3271d120b84c5916c1de38d66b2ca0d1411667b5b7bfd47a60e3d00419b1c01b",
+      "last_updated": "2026-09-22T16:50:25+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -966,8 +966,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "a255f5e16cf1f17506b06806c69840470d33152f8f28ccd71ffc0df110885f7d",
-      "last_updated": "2026-09-21T19:57:44+00:00",
+      "hash": "1190d03fef37c218834ebf70ed5a15f613ef38fa49b5ef63796d78e68fcd584c",
+      "last_updated": "2026-09-22T16:50:54+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1020,8 +1020,8 @@
       "title": "Models Claude 4 Sonnet"
     },
     "models__claude-fable-5-1.md": {
-      "hash": "975ee4fa5f94e95f983f05c3100db2fb149b7456743371a64157cff14d0bd8b7",
-      "last_updated": "2026-09-01T18:25:08+00:00",
+      "hash": "a8c99e74e05576d4568c1bb2318bd72de18b584214b7b8c6bb5d36745aae10ec",
+      "last_updated": "2026-09-22T16:50:56+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5-1",
       "path": "/docs/models/claude-fable-5-1",
       "source_url": "https://cursor.com/docs/models/claude-fable-5-1",
@@ -1038,8 +1038,8 @@
       "title": "Models Claude Fable 5"
     },
     "models__claude-opus-4-5.md": {
-      "hash": "43be5e77e76cea8689e7c5df2ecea8fa10a8aadcf21e4a20b8c66b10c5b1a023",
-      "last_updated": "2026-08-24T21:39:15+00:00",
+      "hash": "3907d20735bd75a98f83ee64798159fb932f5b83a3414c220bc993b4125d6d08",
+      "last_updated": "2026-09-22T16:50:56+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-5",
       "path": "/docs/models/claude-opus-4-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-5",
@@ -1047,8 +1047,8 @@
       "title": "Models Claude Opus 4 5"
     },
     "models__claude-opus-4-6.md": {
-      "hash": "ff1244340798c5408c0f9c4eb170bb68443663fceb6b064a81e9c315de0c4f20",
-      "last_updated": "2026-08-24T21:39:16+00:00",
+      "hash": "6ef2511e70532f7fef05bb9493ccd73f2531072ae000dcfa7dd8b8ea36a0ccc4",
+      "last_updated": "2026-09-22T16:50:57+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-6",
       "path": "/docs/models/claude-opus-4-6",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-6",
@@ -1065,8 +1065,8 @@
       "title": "Models Claude Opus 4 7 Fast"
     },
     "models__claude-opus-4-7.md": {
-      "hash": "c2c222ac3403e1dc258d4ee44eff8271818009a603bdbd96908a36c1694df779",
-      "last_updated": "2026-08-24T21:39:16+00:00",
+      "hash": "3f6b0d81e4620afafe594d6da50c20145c36cd6f87bf03d742762d8084f5e05a",
+      "last_updated": "2026-09-22T16:50:57+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-7",
       "path": "/docs/models/claude-opus-4-7",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-7",
@@ -1074,8 +1074,8 @@
       "title": "Models Claude Opus 4 7"
     },
     "models__claude-opus-4-8.md": {
-      "hash": "dcf40f0a29b586ecee1aa8451d734ca7e8ae9e4dc7a9825228f3a4e1a774c1e0",
-      "last_updated": "2026-08-24T21:39:16+00:00",
+      "hash": "0b4608562a186d03fe3116ee982309de418b7466edbc258787ee1b3e1be799fc",
+      "last_updated": "2026-09-22T16:50:58+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-8",
       "path": "/docs/models/claude-opus-4-8",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-8",
@@ -1083,8 +1083,8 @@
       "title": "Models Claude Opus 4 8"
     },
     "models__claude-opus-5.md": {
-      "hash": "f3f8b79cec0bbe0a7a7cd45b1b0947f2c2a2994c119edf8145c0d93c094d8e59",
-      "last_updated": "2026-09-01T18:25:10+00:00",
+      "hash": "599260cbaddd017d49ce3bbca77b5c50b87a6a1eec6ff1c3fa53ff321e1ee662",
+      "last_updated": "2026-09-22T16:50:58+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5",
       "path": "/docs/models/claude-opus-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-5",
@@ -1092,8 +1092,8 @@
       "title": "Models Claude Opus 5"
     },
     "models__claude-sonnet-5.md": {
-      "hash": "f259edfa746a831fe2b53b9ec5bd3dde06152dea913637f75e9fa41fc9a19db9",
-      "last_updated": "2026-08-24T21:39:17+00:00",
+      "hash": "8b08eaff1c652535aed4bdf0898433b681102af73a374c4753a0f6b6c2754264",
+      "last_updated": "2026-09-22T16:50:58+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5",
       "path": "/docs/models/claude-sonnet-5",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5",
@@ -1533,8 +1533,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "da3b223ada788ec71a0393be40aa0b6f3204b43f1acf28074cf70d131762f64f",
-      "last_updated": "2026-09-19T04:30:54+00:00",
+      "hash": "5dec1fc54c434162a65b1c7317dad06182ed514007366ad4d28a12b7a803c6f6",
+      "last_updated": "2026-09-22T16:51:19+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1690,7 +1690,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-22T00:02:57+00:00",
+  "last_updated": "2026-09-22T16:51:25+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

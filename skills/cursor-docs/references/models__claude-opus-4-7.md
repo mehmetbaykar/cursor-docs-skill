@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-opus-4-7
 path: /docs/models/claude-opus-4-7
 ---
 
-We recommend using [Claude Opus 5](https://cursor.com/docs/models/claude-opus-5.md). It is Anthropic's latest Opus release with the same pricing and stronger agentic capabilities.
+We recommend using [Claude Opus 5.5](https://cursor.com/docs/models/claude-opus-5-5.md). It is Anthropic's latest Opus release with lower pricing and stronger agentic capabilities.
 
 Opus 4.7 is Anthropic's strongest model and a meaningful jump over Opus 4.6 on [CursorBench](https://cursor.com/blog/cursorbench). It excels at autonomous, multi-step work: it holds intent across long sessions, self-corrects when it hits friction, and writes production-ready code without hand-holding. We recommend the high thinking variant for the best results.
 
