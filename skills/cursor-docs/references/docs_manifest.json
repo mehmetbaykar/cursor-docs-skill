@@ -120,8 +120,8 @@
       "title": "Get Started"
     },
     "account__teams__sso.md": {
-      "hash": "527952cf8939e922b094a3c79a0d24371eabbe3f5e95f960dd5187d497ea1376",
-      "last_updated": "2026-09-03T04:14:47+00:00",
+      "hash": "26e24983446ccf346c23f6a8cb972193fd86be28085360a41723c2a13d8ab195",
+      "last_updated": "2026-09-23T04:37:29+00:00",
       "original_url": "https://cursor.com/docs/account/teams/sso",
       "path": "/docs/account/teams/sso",
       "source_url": "https://cursor.com/docs/account/teams/sso",
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "2c37b5365e8d2b692a94607d1f39646187eff4bdf5a3bbb050c523a795f5c88b",
-      "last_updated": "2026-09-22T16:50:24+00:00",
+      "hash": "dff742a8fdf1a21bf958cc43dbed4b879eee2846d27104b931e0af8b9f3ed00f",
+      "last_updated": "2026-09-23T04:37:35+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -282,8 +282,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "3271d120b84c5916c1de38d66b2ca0d1411667b5b7bfd47a60e3d00419b1c01b",
-      "last_updated": "2026-09-22T16:50:25+00:00",
+      "hash": "a4c30469c4c9cd12a63bf19356f704eec718f5f6da9ec6ad43fdc79db2510116",
+      "last_updated": "2026-09-23T04:37:35+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -615,8 +615,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "ada22d967b19e70a31be52a60ba3efbd0fc057ca19926784d5c51a8ee6cb49f3",
-      "last_updated": "2026-09-17T04:45:00+00:00",
+      "hash": "fc8668f2aad3761604fe34f0fb27ade51215a7bfaaf2beaf7187fd647f0d915f",
+      "last_updated": "2026-09-23T04:37:48+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -894,8 +894,8 @@
       "title": "JetBrains"
     },
     "integrations__jira.md": {
-      "hash": "9d3e707b466442f91634e8696ffa4279a93049c640785fa018ef31e65b10ca1c",
-      "last_updated": "2026-08-07T17:12:07+00:00",
+      "hash": "9077ab279058bca571e02ba7ed2470545f721c0c8b809f526679ef9c182c5e0d",
+      "last_updated": "2026-09-23T04:37:57+00:00",
       "original_url": "https://cursor.com/docs/integrations/jira",
       "path": "/docs/integrations/jira",
       "source_url": "https://cursor.com/docs/integrations/jira",
@@ -930,8 +930,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "5c47c97b9047282807dbe779db217eaa6b7f2d42ac0cbb5cb594e578f1d9c5d9",
-      "last_updated": "2026-09-19T04:30:35+00:00",
+      "hash": "844da482a3ff1c43c26af09ab1df7caed9bcbffbfd58e56ae2cb46554fd1e34e",
+      "last_updated": "2026-09-23T04:37:59+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1699,7 +1699,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-22T21:14:07+00:00",
+  "last_updated": "2026-09-23T04:38:27+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
