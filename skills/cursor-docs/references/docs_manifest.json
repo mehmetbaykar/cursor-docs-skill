@@ -480,8 +480,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__automations.md": {
-      "hash": "6be6c82e1a8b9c3a2b85a35d434bda350e87f84aff324329243dc2904953825c",
-      "last_updated": "2026-09-18T16:19:36+00:00",
+      "hash": "90e9e20b6b93304720b437586c98f78798d06b20b538c5ee8486cc64e943e40e",
+      "last_updated": "2026-09-23T21:26:58+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
@@ -507,8 +507,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "82ed8c07dccb324e19e050bc2bd4176bbfec6e7ede164baa6eb0feaeb9ca1fcf",
-      "last_updated": "2026-09-17T16:52:33+00:00",
+      "hash": "e8cbbf8d2b06cfa9e181f2bde2556abd53a364e8542df1000898745c28436598",
+      "last_updated": "2026-09-23T21:26:59+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -570,8 +570,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "45701cdf17539680216f9d74902e7b5ee5793cdd45f09fe0779af55eada34eac",
-      "last_updated": "2026-09-11T11:10:47+00:00",
+      "hash": "504489212fad45c319b5a2370049d0d106232198764627143c9c5c703c9369ec",
+      "last_updated": "2026-09-23T21:27:01+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -597,8 +597,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "a619ac657dc7aacb841a227ccacfb8fcd292b95e3f3044f5507ca0f910af3e91",
-      "last_updated": "2026-09-11T11:10:48+00:00",
+      "hash": "5bcd5e2d430ca44d62a07c3ef24dd7d2b8488a7354e3fb655f6c02cea7cc2b69",
+      "last_updated": "2026-09-23T21:27:02+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
@@ -615,8 +615,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "fc8668f2aad3761604fe34f0fb27ade51215a7bfaaf2beaf7187fd647f0d915f",
-      "last_updated": "2026-09-23T04:37:48+00:00",
+      "hash": "d91661b3f89649d99d7fdbed1625f4a989e8eee9409e6a8d8d6e2269df933a4e",
+      "last_updated": "2026-09-23T21:27:03+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1699,7 +1699,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-23T04:38:27+00:00",
+  "last_updated": "2026-09-23T21:27:42+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
