@@ -149,6 +149,8 @@ Customize Cloud Agent behavior while using mentions with `@Cursor` with these op
 | `branch` | Specify base branch | `branch=main`       |
 | `model`  | Specify model       | `model=opus`        |
 
+Cursor skips options inside a code block and leaves the code in your prompt as written.
+
 ### Routing rules
 
 Routing rules let you define keywords that automatically map to specific repositories. When a Jira work item or comment contains specific keywords, Cursor routes the Cloud Agent to the associated repository.

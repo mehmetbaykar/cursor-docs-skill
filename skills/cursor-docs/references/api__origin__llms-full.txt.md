@@ -220,6 +220,8 @@ Authorization: Bearer oit_...
 
 The response includes `expiresAt`. Mint tokens just in time, refresh them before expiration, treat them like passwords, and never log them.
 
+A token expires at most 15 minutes after creation, and never later than the app JWT that requested it, so the five-minute JWT recommended above yields a token of at most five minutes. Read `expiresAt` and mint a new token when it passes rather than assuming a duration: Origin tokens are shorter-lived than GitHub App installation tokens, and an integration that reuses a token on GitHub's schedule fails once the token expires. Sign the JWT with a later `exp` when a job needs the full 15 minutes, as the [CloneKit CI recipe](https://cursor.com/docs/origin/clonekit-ci.md#mint-a-token-in-the-job) does.
+
 Removing the installation, or deleting the app, invalidates its installation tokens before `expiresAt`. The REST API and Git over HTTPS then reject the token with `401`. Do not retry with the same token; the app must be reinstalled before it can mint a working one.
 
 An installation token cannot exceed the installation's approved scopes or repository access. You can attenuate a token to fewer `scopes` or `repositoryIds`. Empty or omitted arrays inherit the complete installation grant.
@@ -481,12 +483,53 @@ Resource snapshots contain the resource's current fields. Container context uses
 - `ThreadReference` identifies the thread containing a pull request comment.
 - `OriginActor` identifies a public actor as one of `user`, `app`, or `serviceAccount`. Exactly one variant is present; read the identity from that variant.
 
+## Check runs
+
+Apps report CI results as check suites and check runs against a commit through [Post Check Run](https://cursor.com/docs/api/origin/llms-full.txt#post-check-run) and [Batch Upsert Check Runs](https://cursor.com/docs/api/origin/llms-full.txt#batch-upsert-check-runs), and read them back through the [Checks](https://cursor.com/docs/api/origin/llms-full.txt#checks) endpoints. This section defines the terms those endpoints share: which attempt is current, how Origin orders and reports writes, and how timestamps and deadlines behave.
+
+### Attempts and the current attempt
+
+Each `(actor, key, externalId)` reported against a commit is one suite attempt, and each `(suite, key, externalId)` within it is one run attempt. Reusing an `externalId` updates that attempt in place; a new `externalId` starts a new attempt and keeps the earlier one as history. Superseded attempts stay readable by id through [Get Check Suite](https://cursor.com/docs/api/origin/llms-full.txt#get-check-suite) and [Get Check Run](https://cursor.com/docs/api/origin/llms-full.txt#get-check-run).
+
+Where the API shows a commit's current checks, in [List Check Suites For Commit](https://cursor.com/docs/api/origin/llms-full.txt#list-check-suites-for-commit), [List Check Runs For Commit](https://cursor.com/docs/api/origin/llms-full.txt#list-check-runs-for-commit), and the pull request's CI state and required checks, Origin collapses attempts in two steps:
+
+1. The current suite attempt per `(actor, key)` is the one whose runs carry the newest `externalUpdatedAt`; a suite with no runs ranks by its `createdAt`. Ties break by the suite's `createdAt`, then its `id`, newest first.
+2. Within that suite attempt, the current run for a `key` is the one with the newest `externalUpdatedAt`. Ties break by `createdAt`, then `id`, newest first.
+
+[List Check Runs For Suite](https://cursor.com/docs/api/origin/llms-full.txt#list-check-runs-for-suite) applies the second step to the suite you name. A run is current for its commit only when its suite is the commit's current suite attempt. Because the first step ranks whole suite attempts, a run posted under a superseded suite attempt stays out of the commit's checks while another attempt holds a newer `externalUpdatedAt`; once its timestamp is the newest, its suite attempt becomes current and the other attempt's runs are hidden instead.
+
+A run whose re-run was requested keeps its place as the current attempt for its `key` and reads as pending until the owning app answers: see [Rerequest Check Run](https://cursor.com/docs/api/origin/llms-full.txt#rerequest-check-run).
+
+### Ordering writes
+
+Origin orders posts to one run, the same `externalId` and `key` in the suite, by `checkRun.externalUpdatedAt` at millisecond precision. A post applies only when its value is at or after the run's stored `externalUpdatedAt`, raised to `rerequestedAt` while a re-request is outstanding. Equal values apply, so the later post wins, with two exceptions that are also treated as stale: a `queued` or `in_progress` post cannot reopen a `completed` run at the same timestamp, and a post at exactly the stored timestamp is ignored while `rerequestedAt` is set. A newer value always applies, including reopening a `completed` run.
+
+A stale post still succeeds. The response is HTTP `200` with the stored suite and run, not the posted values, and the run's `updatedAt` does not move. Each posted run comes back as a pair: `checkRun`, the stored run after the call, and `outcome`, what the write did to it. [Post Check Run](https://cursor.com/docs/api/origin/llms-full.txt#post-check-run) returns the pair at the top level of its response, next to `checkSuite`. [Batch Upsert Check Runs](https://cursor.com/docs/api/origin/llms-full.txt#batch-upsert-check-runs) returns one pair per posted run in `results[]`, in request order, so a batch element carries the same per-run result the single call inlines. Read `outcome`, or each `results[].outcome`, to learn what the write did:
+
+| `outcome`       | Meaning                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| `created`       | No run existed for `(externalId, key)` in the suite; one was created.                       |
+| `updated`       | An existing run was replaced with the posted values.                                        |
+| `unchanged`     | The posted values, `externalUpdatedAt` included, equal the stored run; nothing was written. |
+| `ignored_stale` | The post was ignored as stale; `checkRun` carries the stored run, not the posted values.    |
+
+`updatedAt` does not advance on an `unchanged` or `ignored_stale` post, so it cannot tell the two apart; only `outcome` can. Treat an unrecognized value as "the stored run is in the response; whether it was written is unknown". In a batch, Origin applies the rule to each run separately: a stale run does not fail the batch, and `results[]` carries the stored run in that run's slot with `outcome` `ignored_stale`.
+
+On Batch Upsert Check Runs, the top-level `checkRuns[]` is deprecated in favor of `results[]`. It is still populated with the same stored runs, in the same order, but it carries no outcomes; read `results[]` instead. This applies to the batch only: on Post Check Run, `checkRun` and `outcome` are the top-level fields to read.
+
+### Timestamps and deadlines
+
+A post whose `externalUpdatedAt`, `startedAt`, or `completedAt` is more than 60 seconds in the future returns `InvalidArgument` (HTTP 400). `completedAt` must not precede `startedAt` when both are in the same post. `deadlineAt` must not be more than 24 hours in the future.
+
+Only an `in_progress` run expires. Once its `deadlineAt` has passed, a periodic sweep completes it with the conclusion `timed_out`, sets `completedAt` if the run had none, clears `deadlineAt`, and delivers [`repository.check_run.completed`](https://cursor.com/docs/api/origin/llms-full.txt#events). Expiry lands some minutes after the deadline rather than at it: the sweep runs about every 30 minutes by default, an operational setting that can change, so do not depend on the interval. A `queued` run never expires, and neither does a run with no `deadlineAt`. A `completed` post clears the deadline. Origin leaves `externalUpdatedAt` untouched when it times a run out, so a later post with a newer `externalUpdatedAt` still applies to a timed-out run.
+
 ## Current limitations
 
 - Namespace-wide repository listing and repository creation are not part of the partner API. Discover repositories through the installation.
 - Commit comparison returns summary data rather than an embedded commit list. Changed files have their own paginated endpoint, [List Comparison Files](https://cursor.com/docs/api/origin/llms-full.txt#list-comparison-files).
 - Threads are addressable only for resolution. There is no endpoint that lists threads directly; read them from the comments they contain.
 - Push webhooks do not include a complete commit list.
+- Pull request webhook payloads do not carry the merge preview commit. Read `pull/{pullNumber}/merge` with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref) after the event arrives; see [Git data](https://cursor.com/docs/api/origin/llms-full.txt#git-data).
 - Pull request merge supports native Origin repositories. Mirrored repositories are rejected.
 - A mirrored repository is read-only for an installation until it becomes a stable outbound mirror. See [Mirrored repositories](https://cursor.com/docs/api/origin/llms-full.txt#mirrored-repositories).
 
@@ -499,6 +542,7 @@ Resource snapshots contain the resource's current fields. Container context uses
 - Request the minimum scopes and repository access.
 - Treat page tokens as opaque and restart pagination when filters change.
 - Keep check `key` values stable and readable. Use a new immutable `externalId` for each retry and increasing `externalUpdatedAt` values for updates.
+- Read `outcome` on every Post Check Run response, and each `results[].outcome` on every Batch Upsert Check Runs response; a stale post returns `200` with the stored run. See [Check runs](https://cursor.com/docs/api/origin/llms-full.txt#check-runs).
 - Verify webhook signatures against the raw request body before parsing.
 - Deduplicate deliveries with `webhook-id` and process asynchronously after returning `2xx`.
 - Ignore unknown JSON fields for forward compatibility.
@@ -2889,6 +2933,8 @@ See [Transition Repo Mirror](https://cursor.com/docs/api/origin/migrations#trans
   - `summary`: primary Markdown summary, up to 65,535 UTF-8 bytes.
   - `text`: extended Markdown details, up to 65,535 UTF-8 bytes.
 - Use `detailsUrl` for a link to the provider's external results page.
+
+[Check runs](https://cursor.com/docs/api/origin/llms-full.txt#check-runs) defines which attempt is current, how `externalUpdatedAt` orders writes and what `outcome` reports, and the timestamp and deadline rules these endpoints share.
 
 ### Post Check Run
 
@@ -6802,6 +6848,8 @@ curl --request POST \
 
 Low-level git objects. Reads need `repository:contents:read`, and an empty repository returns `409`. [Create Commit From Files](https://cursor.com/docs/api/origin/llms-full.txt#create-commit-from-files) and [Create Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#create-git-ref) write git objects and need `repository:contents:write`.
 
+Besides branches and tags, [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref) reads a pull request's merge preview at `pull/{pullNumber}/merge` (normalized to `refs/pull/{pullNumber}/merge`): a commit that merges the pull request's current head into the tip of its base branch as of the last refresh. Origin refreshes it when the pull request is created, when its head is pushed, when it is retargeted, and when it is reopened, before the matching `pull_request.*` webhook events are published and within a bounded time budget; a refresh that does not finish in time leaves the previous ref in place, and the events still publish. Origin does not refresh it because the base branch advanced on its own, and it deletes the ref when the merge has conflicts, so a `404` on an open pull request means conflicts or a preview not yet prepared. Get Git Ref is the supported way to find the preview; the pull request's `mergeCommitSha` is a different commit, set only once it has merged.
+
 ### Get Blob
 
 /v1/origin/repos///git/blobs/
@@ -8579,6 +8627,10 @@ curl --request PATCH \
 ## Pull requests
 
 Closed or merged pull requests may additionally include `closedAt`, `mergedAt`, and `mergeCommitSha`. Treat `head.ref` and `base.ref` as opaque Origin ref strings; they may be short branch names or fully qualified `refs/heads/…` values.
+
+`version` is the pull request's latest numbered revision. Origin records a new version when the head is pushed or when the pull request is retargeted to another base, each with its own `headSha`, `baseSha`, and diff stats. The base branch advancing on its own records nothing, so `version.baseSha` (and `base.sha`, which mirrors it) is the base tip as resolved when the version was recorded and can lag the branch's current tip until the next head push or retarget. Read the branch's current tip with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
+
+`mergeCommitSha` is the commit the merge wrote to the base branch: set once merged, unset before. The pre-merge preview is the `pull/{pullNumber}/merge` ref, a different commit; see [Git data](https://cursor.com/docs/api/origin/llms-full.txt#git-data).
 
 Review `verdict` is `approve`, `request_changes`, or `comment`. `submittedAt` is absent for an unsubmitted draft review. `dismissal` is absent while the verdict remains active. Dismissed reviews remain visible in review listings. Reviews automatically superseded by a newer decision carry a server-generated message.
 

@@ -274,7 +274,7 @@ When Cursor starts a pool agent, it matches workers with labels. Pool requests f
 Pool workers handle:
 
 - Runs covered by **Require Self-Hosted Machines**, unless the request targets a specific My Machines worker with `worker=` or `machine=`
-- Requests with `self_hosted=true`, `self_hosted`, or `selfhosted`
+- Requests with `self_hosted=true` or its short form, `sh=1`
 - Requests with `pool=<name>`, which also selects that named pool
 - Self-hosted requests with repository selection from the trigger surface, such as `repo=<owner/repo>` where supported
 
@@ -282,9 +282,11 @@ Pool workers handle:
 
 Use these options from integrations to start pool agents:
 
-- **Slack**: Mention `@Cursor` with `self_hosted=true`, standalone `self_hosted`, `selfhosted`, or `pool=<name>`. Legacy aliases like `private_worker=true`, `useprivateworker`, and `useprivateworkers=false` still work. Team admins can set a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) with `@Cursor pool set <name>` so members run on it without an option in each mention. Explicit `pool=`, `worker=`, `machine=`, or `self_hosted=false` override the default, and an any-repo default pool lets Slack launch without a resolved repository.
-- **GitHub**: Comment `@cursoragent self_hosted=true ...` or `@cursoragent pool=<name> ...` on an issue, pull request, or review comment. The legacy `private_worker=true` alias still works.
-- **Linear**: Add `pool=<name>` or `[pool=<name>]` to the issue body. You can also use issue or project labels where the parent label is `pool` and the child label is the value. Linear does not parse standalone `self_hosted=true`.
+- **Slack**: Mention `@Cursor` with `self_hosted=true`, `sh=1`, or `pool=<name>`. Team admins can set a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) with `@Cursor pool set <name>` so members run on it without an option in each mention. Explicit `pool=`, `worker=`, `machine=`, or `self_hosted=false` override the default, and an any-repo default pool lets Slack launch without a resolved repository.
+- **GitHub**: Comment `@cursoragent self_hosted=true ...`, `@cursoragent sh=1 ...`, or `@cursoragent pool=<name> ...` on an issue, pull request, or review comment.
+- **Linear**: Mention `@Cursor` in a comment with `self_hosted=true`, `sh=1`, `pool=<name>`, or `[pool=<name>]`. Cursor reads these options from that comment, not from the issue description. You can also use issue or project labels where the parent label is `pool` and the child label is the pool name. Labels are the only way to pick a pool when you [delegate an issue](https://cursor.com/docs/integrations/linear.md#delegating-issues) to Cursor, because there's no comment to read. A `pool=` in the comment wins over a pool label, and `self_hosted=false` skips pool labels.
+
+Write each option as `key=value`. `self_hosted` and its short form `sh` accept `true`, `t`, or `1` to opt in and `false`, `f`, or `0` to opt out. Anything else stays in your prompt as text. That includes `self_hosted`, `selfhosted`, or `sh` with no value, and other values like `sh=/bin/bash`. Slack, GitHub, and Linear all ignore these options inside a code block, so pasted code doesn't change where the agent runs.
 
 Policy handling depends on where the request starts:
 

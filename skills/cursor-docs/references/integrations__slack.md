@@ -51,17 +51,17 @@ Run `@Cursor help` for an up-to-date command list.
 
 Customize Cloud Agent behavior with these options:
 
-| Option                | Description                                                                                                                                                                                                                    | Natural language example       | Inline example      |
-| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- | :------------------ |
-| `repo`                | Use a specific repository                                                                                                                                                                                                      | `in acme/backend`              | `repo=acme/backend` |
-| `env` / `environment` | Use a named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md)                                                                                                                                            | `use the Platform environment` | `env=Platform`      |
-| `branch`              | Use a specific base branch                                                                                                                                                                                                     | `work from the dev branch`     | `branch=dev`        |
-| `model`               | Use a specific model                                                                                                                                                                                                           | `with opus`                    | `model=opus`        |
-| `autopr`              | Enable or disable automatic PR creation                                                                                                                                                                                        | Inline option required         | `autopr=false`      |
-| `worker` / `machine`  | Run on a named [My Machine](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md)                                                                                                                                    | Inline option required         | `worker=my-devbox`  |
-| `pool`                | Run on a named [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents). Optional when your team has a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) | Inline option required         | `pool=gpu`          |
-| `self_hosted`         | Run on one of your Team Pools. Uses the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) when one is set; `self_hosted=false` skips it                                                     | Inline option required         | `self_hosted=true`  |
-| `channel`             | Post agent updates in another channel you and Cursor can access                                                                                                                                                                | Inline option required         | `channel=#eng-bots` |
+| Option                | Description                                                                                                                                                                                                                    | Natural language example       | Inline example               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- | :--------------------------- |
+| `repo`                | Use a specific repository                                                                                                                                                                                                      | `in acme/backend`              | `repo=acme/backend`          |
+| `env` / `environment` | Use a named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md)                                                                                                                                            | `use the Platform environment` | `env=Platform`               |
+| `branch`              | Use a specific base branch                                                                                                                                                                                                     | `work from the dev branch`     | `branch=dev`                 |
+| `model`               | Use a specific model                                                                                                                                                                                                           | `with opus`                    | `model=opus`                 |
+| `autopr`              | Enable or disable automatic PR creation                                                                                                                                                                                        | Inline option required         | `autopr=false`               |
+| `worker` / `machine`  | Run on a named [My Machine](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md)                                                                                                                                    | Inline option required         | `worker=my-devbox`           |
+| `pool`                | Run on a named [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents). Optional when your team has a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) | Inline option required         | `pool=gpu`                   |
+| `self_hosted` / `sh`  | Run on one of your Team Pools. Uses the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) when one is set, and `self_hosted=false` skips it. Takes `true`/`t`/`1` or `false`/`f`/`0`        | Inline option required         | `self_hosted=true` or `sh=1` |
+| `channel`             | Post agent updates in another channel you and Cursor can access                                                                                                                                                                | Inline option required         | `channel=#eng-bots`          |
 
 #### Syntax formats
 
@@ -91,9 +91,15 @@ When combining options:
 - **Later values** override earlier ones if duplicated
 - **Inline options** take precedence over settings modal defaults
 - **`env`** takes precedence over `repo` when both are present
-- **`pool`, `worker`, `machine`, and `self_hosted=false`** take precedence over the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool)
+- **`pool`, `worker`, `machine`, and `self_hosted=false` (or `sh=0`)** take precedence over the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool)
 
 The bot parses options from anywhere in the message, allowing natural command writing.
+
+Cursor ignores `key=value` options inside triple-backtick code blocks, even one-line blocks, and leaves the code in your prompt as written. In this message, `pool=None` is inside the code block, so it doesn't pick a pool:
+
+````bash
+@Cursor why does this crash? ```engine = create_engine(db_url, pool=None)```
+````
 
 #### Using thread context
 
@@ -256,7 +262,7 @@ Manage the default from Slack. Setting or clearing it requires the same permissi
 
 Options in your message always win. Cursor resolves the target in this order:
 
-1. **Options in your message.** `pool=<name>` targets that pool. `worker=` or `machine=` targets one of your [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md). `self_hosted=false` runs on Cursor's managed infrastructure. Each of these skips the team default. A bare `self_hosted=true` fills in the team default pool.
+1. **Options in your message.** `pool=<name>` targets that pool. `worker=` or `machine=` targets one of your [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md). `self_hosted=false` (or `sh=0`) runs on Cursor's managed infrastructure. Each of these skips the team default. A bare `self_hosted=true` (or `sh=1`) fills in the team default pool.
 2. **Your default My Machines worker.** If you have a default worker of your own, it outranks the team default pool.
 3. **Team default pool.** Used when your message has none of the options above.
 
