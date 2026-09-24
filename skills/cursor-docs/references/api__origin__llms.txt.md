@@ -75,6 +75,7 @@ The base URL for API requests is `https://api.cursor.com/v1/origin`. The Origin 
 
 ## Repositories
 
+- [List Namespaces](https://cursor.com/docs/api/origin#list-namespaces)
 - [List Repos](https://cursor.com/docs/api/origin#list-repos)
 - [Get Repo](https://cursor.com/docs/api/origin#get-repo)
 - [Update Repo](https://cursor.com/docs/api/origin#update-repo)

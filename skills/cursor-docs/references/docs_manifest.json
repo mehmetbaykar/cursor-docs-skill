@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "3f2f1e6a50b4663a2ac30546ebd1220ba4fc9a7837eff4ecd00debc5741b0565",
-      "last_updated": "2026-09-24T04:37:04+00:00",
+      "hash": "2f443224bb5290f521b7c345629d0c8adfae4108ba3697036c570afe702745c2",
+      "last_updated": "2026-09-24T17:03:57+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -282,8 +282,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "fa0b56f8c3cf1c4f19f109d1396d7d0123cab6db9f17fe88312ff2d5c00295ae",
-      "last_updated": "2026-09-24T04:37:04+00:00",
+      "hash": "de270b27cfd09702f80f3cbcd0ea55c448dc1c4e1fe8c2d7f15ec6fb55683078",
+      "last_updated": "2026-09-24T17:03:57+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -804,8 +804,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "7b081c50db72e0efb8cf808028825538e82a8e38e3d31608344a850420f52a69",
-      "last_updated": "2026-09-22T21:13:39+00:00",
+      "hash": "cb157cc22525dfcaba4e7602287c8d51985b43f1a20e59f43c22a9917cf48563",
+      "last_updated": "2026-09-24T17:04:14+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1699,7 +1699,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-24T04:38:00+00:00",
+  "last_updated": "2026-09-24T17:04:41+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
