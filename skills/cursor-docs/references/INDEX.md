@@ -184,6 +184,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `reference__plugins` - [Plugins reference](https://cursor.com/docs/reference/plugins)
 - `reference__sandbox` - [sandbox.json reference](https://cursor.com/docs/reference/sandbox)
 - `reference__third-party-hooks` - [Third Party Hooks](https://cursor.com/docs/reference/third-party-hooks)
+- `rollouts` - [Rollouts](https://cursor.com/docs/rollouts)
 - `rules` - [Rules](https://cursor.com/docs/rules)
 - `sdk__bridge` - [Cursor SDK Bridge](https://cursor.com/docs/sdk/bridge)
 - `sdk__changelog` - [SDK Changelog](https://cursor.com/docs/sdk/changelog)

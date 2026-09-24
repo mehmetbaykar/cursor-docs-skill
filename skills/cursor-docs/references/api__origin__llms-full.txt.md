@@ -37,6 +37,10 @@ Requests and responses use `application/json`. JSON field names are **camelCase*
 
 Responses carry fields that sit at their default value rather than dropping them, so a `false` boolean, a `0` number, an empty string, and an empty array are all present in the body. Read the value itself instead of treating a missing key as the default. Fields documented as absent or omitted are optional in the contract and stay out of the body when they are unset.
 
+### Preview
+
+Some surface is published in preview. It appears in this reference and the spec, but its shape can change before it's generally available. The [OpenAPI specification](https://cursor.com/docs/api/origin/openapi.yaml) marks it `x-cursor-visibility: PREVIEW`. The marker can sit on an operation, a parameter, a schema, or a single field, so a stable operation can still return a preview field. Endpoints in preview carry a **Preview** badge in this reference. Treat preview fields as optional and don't build a hard dependency on their shape.
+
 ## Getting started
 
 ### Origin access
@@ -442,6 +446,8 @@ Paginated endpoints accept:
 
 Responses use a resource-specific collection field and `nextPageToken`. It is empty when no next page exists. Public list responses do not include total counts. Page tokens are bound to their originating resource and filters. Restart pagination when filters change. Invalid or mismatched non-empty tokens return `400`.
 
+Send the same `pageSize` on every request in a sequence, continuations included. Endpoints differ in what a page token remembers: some return the default of 30 when a continuation omits `pageSize`, and some keep the first request's size even when a continuation sends a different one. A constant `pageSize` gets the same page size from every endpoint.
+
 ### Errors
 
 Errors use a Google RPC-style body:
@@ -465,6 +471,12 @@ A `404` never distinguishes a resource that does not exist from one your app can
 Every error response carries the request ID twice: in an `X-Request-ID` response header, and as a `google.rpc.RequestInfo` entry in `details`. Origin echoes the `x-request-id` you sent, or generates one when you send none. The `RequestInfo` entry is present even when `message` is an opaque internal error, so quote the request ID when you contact Cursor about a failed call.
 
 Unmatched paths under `/v1/origin`, and requests that use the wrong method on a known path, return this same body rather than a generic router error. The message names the method and path and never echoes the query string.
+
+### IDs
+
+Resource IDs are opaque strings with a type prefix, such as `app_…` for an app and `i_…` for an installation. Store and compare them as whole strings. Don't parse them, derive meaning from their characters, or rely on their sort order.
+
+An ID stays the same for the life of its resource, while names and slugs can change. A repository keeps its ID across a rename, so key cached data on the ID rather than on `{ownerSlug}/{repoName}`, and address the repository by ID as described in [Repository paths](https://cursor.com/docs/api/origin/llms-full.txt#repository-paths).
 
 ### Repository paths
 
@@ -550,7 +562,7 @@ Only an `in_progress` run expires. Once its `deadlineAt` has passed, a periodic 
 
 ## Endpoint reference
 
-Download the [OpenAPI specification](https://cursor.com/docs/api/origin/openapi.yaml) for the complete component schemas. The document declares `https://api.cursor.com` as its server and a `bearerAuth` HTTP bearer security scheme, and each operation lists the response codes that operation can return, plus a request and response example. Every operation also carries an `x-origin-scopes` extension: `scopes` holds the scope the operation requires, and `tokenTypes` holds the credential kinds it accepts. Path parameters carry the same names the URLs use, `ownerSlug` and `repoName`. Every operation carries a unique `operationId`; where one operation answers two URL shapes, the second shape's id takes a `_2` suffix, as in `OriginService_GetRepoTarball_2`.
+Download the [OpenAPI specification](https://cursor.com/docs/api/origin/openapi.yaml) for the complete component schemas. The document declares `https://api.cursor.com` as its server and a `bearerAuth` HTTP bearer security scheme, and each operation lists the response codes that operation can return, plus a request and response example. Every operation also carries an `x-origin-scopes` extension: `scopes` holds the scope the operation requires, and `tokenTypes` holds the credential kinds it accepts. Each webhook payload schema carries an `x-origin-webhook-events` extension listing the [events](https://cursor.com/docs/api/origin/llms-full.txt#event-payloads) that deliver it, and [preview](https://cursor.com/docs/api/origin/llms-full.txt#preview) surface carries `x-cursor-visibility: PREVIEW`. Path parameters carry the same names the URLs use, `ownerSlug` and `repoName`. Every operation carries a unique `operationId`; where one operation answers two URL shapes, the second shape's id takes a `_2` suffix, as in `OriginService_GetRepoTarball_2`.
 
 The JSON snippets show schema-shaped placeholder values. Response field descriptions reflect the OpenAPI schema and current platform contract.
 
@@ -14380,6 +14392,8 @@ lowercaseHex(SHA-256("<webhook-id>.<webhook-timestamp>.<raw-request-body>"))
 
 Verify the Ed25519 signature over the UTF-8 bytes of that hexadecimal digest against an active Origin JWKS key. Reject timestamps more than five minutes from the current time.
 
+Standard Webhooks libraries do not verify Origin deliveries. The headers use Standard Webhooks names, but Origin signs the SHA-256 digest instead of the signed content itself, under a `v1ed` version tag the Standard Webhooks spec doesn't define. Verify with the construction above, as the following example does.
+
 ```typescript
 import {
   createHash,
@@ -14520,11 +14534,13 @@ Every event's payload shape is documented field by field in [Event payloads](htt
 
 The five `installation.*` events go to the app itself rather than to a repository subscription. Origin always sends them, so they do not appear in the app's selectable event list. Every other event in this table is a repository-scoped subscription.
 
+A new app subscribes to none of the repository-scoped events. Select the ones you need in the app's settings, or set them with the `events` field of [Create App](https://cursor.com/docs/api/origin/llms-full.txt#create-app) or [Update App](https://cursor.com/docs/api/origin/llms-full.txt#update-app). Origin delivers an event only to apps subscribed to it, with a webhook URL set, whose installation covers the repository and holds the scope the event requires. Otherwise there's no delivery and no error: nothing is sent, and nothing appears in [List Webhook Deliveries](https://cursor.com/docs/api/origin/llms-full.txt#list-webhook-deliveries).
+
 Origin does not deliver `repository.pushed` for a repository it mirrors from GitHub. GitHub owns those pushes and sends its own push webhooks, so an Origin delivery would duplicate them. Pushes to native Origin repositories and to outbound mirrors are delivered as usual, and the mirror state does not affect any other event. `repository.deleted` is delivered for a repository mirrored from GitHub: stopping the sync deletes the Cursor-side repository only, and GitHub sends nothing for it.
 
 ### Event payloads
 
-Each event's [envelope](https://cursor.com/docs/api/origin/llms-full.txt#delivery-envelope) carries the event's payload object in `payload`. Events that share a shape share a payload family; each family below documents the events that deliver it, its fields, and a sample payload, generated from the [OpenAPI specification](https://cursor.com/docs/api/origin/openapi.yaml).
+Each event's [envelope](https://cursor.com/docs/api/origin/llms-full.txt#delivery-envelope) carries the event's payload object in `payload`. Events that share a shape share a payload family; each family below documents the events that deliver it, its fields, and a sample payload, generated from the [OpenAPI specification](https://cursor.com/docs/api/origin/openapi.yaml). In the spec, each payload schema's `x-origin-webhook-events` extension lists the events that deliver it.
 
 ### Repository Created
 
