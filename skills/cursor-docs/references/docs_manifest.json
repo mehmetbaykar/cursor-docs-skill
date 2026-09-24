@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 186,
+    "pages_fetched_successfully": 187,
     "pages_skipped": 5,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 191
+    "total_pages_discovered": 192
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "2f443224bb5290f521b7c345629d0c8adfae4108ba3697036c570afe702745c2",
-      "last_updated": "2026-09-24T17:03:57+00:00",
+      "hash": "3708b71ce26762aa0ebed55d71a8712970c656173f0473d551d630bdb8d3aefd",
+      "last_updated": "2026-09-24T21:27:23+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -282,8 +282,8 @@
       "title": "Origin API"
     },
     "api__origin__llms.txt.md": {
-      "hash": "de270b27cfd09702f80f3cbcd0ea55c448dc1c4e1fe8c2d7f15ec6fb55683078",
-      "last_updated": "2026-09-24T17:03:57+00:00",
+      "hash": "3df7af73480d76f7709ff804b54a83ab90f61e63aa0fd1c307806529a9b243d7",
+      "last_updated": "2026-09-24T21:27:23+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms.txt",
       "path": "/docs/api/origin/llms.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms.txt",
@@ -453,8 +453,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "cba52c3c6594353d175292faa011e400f4ede33e6c1d1b3d7dca6b6409096596",
-      "last_updated": "2026-09-14T19:49:42+00:00",
+      "hash": "d121b84dfaa7a3dc5146207c2d992baf6628c07365312fb30d43c9f790bc89d3",
+      "last_updated": "2026-09-24T21:27:31+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -1613,6 +1613,15 @@
       "status": "live",
       "title": "Third Party Hooks"
     },
+    "rollouts.md": {
+      "hash": "01e39805c769ce6687077741e2377a725dfd756cb36b64229e2ca321a13aa858",
+      "last_updated": "2026-09-24T21:28:09+00:00",
+      "original_url": "https://cursor.com/docs/rollouts",
+      "path": "/docs/rollouts",
+      "source_url": "https://cursor.com/docs/rollouts",
+      "status": "live",
+      "title": "Rollouts"
+    },
     "rules.md": {
       "hash": "70c90918e06b7ddd338dea81266497588f9967b0d2e54fdad951a770007128a3",
       "last_updated": "2026-09-14T19:50:27+00:00",
@@ -1659,8 +1668,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "c28eaba2f2ede4428bf5dcf08dd5fb39f92057fb541c991190e6be2515fa7fab",
-      "last_updated": "2026-09-16T16:46:28+00:00",
+      "hash": "cc9d4179de18e4c1b4d9c5e107edf1233db0bc7e022e6d1215462b0646d1ae54",
+      "last_updated": "2026-09-24T21:28:11+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -1699,7 +1708,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-24T17:04:41+00:00",
+  "last_updated": "2026-09-24T21:28:12+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
