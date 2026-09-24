@@ -1126,7 +1126,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `repositories[].visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`.
+Repository visibility. Allowed values: `internal`, `private`, `public`.
 
 `repositories[].allowMergeCommit` boolean
 
@@ -2138,6 +2138,89 @@ curl --request POST \
 
 Partners discover their repositories through [List App Installation Repositories](https://cursor.com/docs/api/origin/llms-full.txt#list-app-installation-repositories). Namespace-wide repository listing and creation are not part of the partner API.
 
+### List Namespaces
+
+/v1/origin/namespaces
+
+Requires no scope (user access token).
+
+Lists the namespaces you can list repositories in, ordered by slug.
+
+The candidates are the namespaces of your teams, your personal namespace, and the namespaces holding repositories you were granted. Only those on which you hold `namespace:repositories:read` are returned, so every result is a valid `ownerSlug` for [List Repos](https://cursor.com/docs/api/origin/llms-full.txt#list-repos).
+
+The caller must be a Cursor user credential; the call needs no scope of its own. App tokens, installation tokens, and service accounts receive `PermissionDenied` (HTTP 403).
+
+#### Query Parameters
+
+`pageSize` integer
+
+Max namespaces to return. Defaults to 30 when unset or 0. Values above 100 are clamped to 100.
+
+`pageToken` string
+
+Opaque cursor from a previous response's `next_page_token`. Empty for the first page. The token carries the page size, so `pageSize` is ignored on follow-up requests.
+
+#### Response Fields
+
+`namespaces` array
+
+Namespaces you can list repositories in, ordered by slug.
+
+`namespaces[].namespace` object
+
+Owner reference for the namespace.
+
+`namespaces[].namespace.slug` string
+
+URL-facing owner slug. Use it as `ownerSlug` with [List Repos](https://cursor.com/docs/api/origin/llms-full.txt#list-repos).
+
+`namespaces[].namespace.id` string
+
+Origin owner identifier.
+
+`namespaces[].namespace.type` string
+
+Owner namespace type. Output-only. Allowed values: `team`, `user`. Omitted when unknown.
+
+`namespaces[].viewerCanCreateRepositories` boolean
+
+Whether [Create Repo](https://cursor.com/docs/api/origin/llms-full.txt#create-repo) in this namespace would pass authorization and the owner's plan and settings checks for you.
+
+`nextPageToken` string
+
+Opaque cursor for the next page; empty when there are no more pages.
+
+```bash
+curl --request GET \
+  --url 'https://api.cursor.com/v1/origin/namespaces' \
+  --header 'Authorization: Bearer YOUR_ORIGIN_TOKEN'
+```
+
+**Response shape:**
+
+```json
+{
+  "namespaces": [
+    {
+      "namespace": {
+        "slug": "acme",
+        "id": "ns_01k2ja2000e0080000000000p3",
+        "type": "team"
+      },
+      "viewerCanCreateRepositories": true
+    },
+    {
+      "namespace": {
+        "slug": "jane",
+        "id": "ns_01k2ja2000e0080000000000p4",
+        "type": "user"
+      },
+      "viewerCanCreateRepositories": false
+    }
+  ]
+}
+```
+
 ### List Repos
 
 /v1/origin/repos/
@@ -2238,7 +2321,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `repositories[].visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`.
+Repository visibility. Allowed values: `internal`, `private`, `public`.
 
 `repositories[].allowMergeCommit` boolean
 
@@ -2374,7 +2457,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`.
+Repository visibility. Allowed values: `internal`, `private`, `public`.
 
 `allowMergeCommit` boolean
 
@@ -2456,7 +2539,7 @@ Whether the head branch is deleted automatically on merge. Supported only on rep
 
 `visibility` string
 
-New repository visibility. Allowed values: `internal`, `private`. Omit it to leave the visibility unchanged.
+New repository visibility. Allowed values: `internal`, `private`, `public`. Omit it to leave the visibility unchanged. A request that sets `public` returns `FailedPrecondition` (HTTP 400).
 
 #### Response Fields
 
@@ -2526,7 +2609,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`.
+Repository visibility. Allowed values: `internal`, `private`, `public`.
 
 `allowMergeCommit` boolean
 
@@ -2676,7 +2759,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`.
+Repository visibility. Allowed values: `internal`, `private`, `public`.
 
 `allowMergeCommit` boolean
 
@@ -5850,7 +5933,7 @@ Repo name, unique to the owner entity.
 
 `sha` string Required
 
-SHA, branch, tag, or symbolic ref (for example `HEAD`) of the commit to fetch.
+SHA, branch, tag, or symbolic ref (for example `HEAD`) of the commit to fetch. An abbreviated SHA resolves the same way as on [Get Git Commit](https://cursor.com/docs/api/origin/llms-full.txt#get-git-commit).
 
 #### Response Fields
 
@@ -5992,7 +6075,7 @@ Repo name, unique to the owner entity.
 
 `sha` string Required
 
-SHA, branch, tag, or symbolic ref (for example `HEAD`) of the commit whose files should be listed.
+SHA, branch, tag, or symbolic ref (for example `HEAD`) of the commit whose files should be listed. An abbreviated SHA resolves the same way as on [Get Git Commit](https://cursor.com/docs/api/origin/llms-full.txt#get-git-commit).
 
 #### Query Parameters
 
@@ -8628,15 +8711,13 @@ curl --request PATCH \
 
 Closed or merged pull requests may additionally include `closedAt`, `mergedAt`, and `mergeCommitSha`. Treat `head.ref` and `base.ref` as opaque Origin ref strings; they may be short branch names or fully qualified `refs/heads/…` values.
 
-`version` is the pull request's latest numbered revision. Origin records a new version when the head is pushed or when the pull request is retargeted to another base, each with its own `headSha`, `baseSha`, and diff stats. The base branch advancing on its own records nothing, so `version.baseSha` (and `base.sha`, which mirrors it) is the base tip as resolved when the version was recorded and can lag the branch's current tip until the next head push or retarget. Read the branch's current tip with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
+`version` is the pull request's latest numbered revision. Origin records a new version when the head is pushed, when the pull request is retargeted to another base, and when a pull request is reopened after its head moved while it was closed, each with its own `headSha`, `baseSha`, and diff stats. A reopen that records a version sends [`pull_request.head_ref.pushed`](https://cursor.com/docs/api/origin/llms-full.txt#events), the same event a push sends. The base branch advancing on its own records nothing, so `version.baseSha` (and `base.sha`, which mirrors it) is the base tip as resolved when the version was recorded and can lag the branch's current tip until the next version is recorded. Read the branch's current tip with [Get Git Ref](https://cursor.com/docs/api/origin/llms-full.txt#get-git-ref).
 
 `mergeCommitSha` is the commit the merge wrote to the base branch: set once merged, unset before. The pre-merge preview is the `pull/{pullNumber}/merge` ref, a different commit; see [Git data](https://cursor.com/docs/api/origin/llms-full.txt#git-data).
 
 Review `verdict` is `approve`, `request_changes`, or `comment`. `submittedAt` is absent for an unsubmitted draft review. `dismissal` is absent while the verdict remains active. Dismissed reviews remain visible in review listings. Reviews automatically superseded by a newer decision carry a server-generated message.
 
 Comments expose a `thread` reference for grouping. Create-comment requests still accept the scalar `threadId` command parameter when replying. Resolve or reopen a thread with [Update Pull Request Thread](https://cursor.com/docs/api/origin/llms-full.txt#update-pull-request-thread).
-
-Origin records a new pull request `version` when the head is pushed or when the pull request is retargeted to another base, never because the base branch advanced on its own. So `version.baseSha`, and the `base.sha` that mirrors it, can lag the base branch's current tip until the next head push or retarget.
 
 ### List Pull Requests
 
@@ -9617,11 +9698,11 @@ New body / description. An empty string clears the body. Maximum length: 65,536 
 
 `state` string
 
-`"open"` or `"closed"`. `"closed"` closes the pull request. `"open"` without `draft: true` marks it ready for review, including publishing an existing draft. Merged is not writable. use `MergePullRequest`.
+`"open"` or `"closed"`. `"closed"` closes the pull request. `"open"` without `draft: true` marks it ready for review, including publishing an existing draft. Reopening a pull request whose head moved while it was closed records a new `version` and sends [`pull_request.head_ref.pushed`](https://cursor.com/docs/api/origin/llms-full.txt#events). Merged is not writable; use `MergePullRequest`.
 
 `draft` boolean
 
-`true` marks the pull request draft; `false` marks it ready for review (and reopens it if currently closed). Ignored when `state` is `"closed"`.
+`true` marks the pull request draft; `false` marks it ready for review (and reopens it if currently closed, which can record a new `version`). Ignored when `state` is `"closed"`.
 
 `base` string
 
@@ -11433,7 +11514,7 @@ Requires scope `repository:contents:write` (installation access token or user ac
 
 Merges a pull request into its base.
 
-For a stacked pull request, merges the entire root-to-target prefix ending at this pull number. not only this pull. Supported only on native Origin repositories; mirrored repositories are rejected.
+For a stacked pull request, merges the entire root-to-target prefix ending at this pull number, not only this pull. Supported only on native Origin repositories; mirrored repositories are rejected.
 
 #### Path Parameters
 
@@ -14519,7 +14600,7 @@ Effective direction during a transition, until cutover completes. One of `inboun
 
 `repository.visibility` string
 
-Repository visibility, `internal` or `private`. One of `internal`, `private`.
+Repository visibility, `internal`, `private`, or `public`. One of `internal`, `private`, `public`.
 
 `repository.allowMergeCommit` boolean
 
@@ -14859,7 +14940,7 @@ Effective direction during a transition, until cutover completes. One of `inboun
 
 `repository.visibility` string
 
-Repository visibility, `internal` or `private`. One of `internal`, `private`.
+Repository visibility, `internal`, `private`, or `public`. One of `internal`, `private`, `public`.
 
 `repository.allowMergeCommit` boolean
 
@@ -14905,6 +14986,7 @@ pull\_request.merged
 pull\_request.metadata.updated
 pull\_request.head\_ref.pushed
 pull\_request.base\_ref.updated
+pull\_request.stack\_parent.updated
 
 A pull request lifecycle change. The lifecycle action is the envelope's `event.type`; there is no separate action field.
 
