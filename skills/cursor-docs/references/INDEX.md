@@ -197,6 +197,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 ## Skipped Pages
 
 - `/docs/api/origin` - Non-markdown response (text/html)
+- `/docs/api/origin/acting-as-users` - Non-markdown response (text/html)
 - `/docs/api/origin/changelog` - Non-markdown response (text/html)
 - `/docs/api/origin/grants-api` - Non-markdown response (text/html)
 - `/docs/api/origin/migrations` - Non-markdown response (text/html)

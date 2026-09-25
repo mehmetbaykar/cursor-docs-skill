@@ -232,6 +232,8 @@ An installation token cannot exceed the installation's approved scopes or reposi
 
 Use installation tokens for repository-scoped operations, including pull requests, check-run writes, and [Git over HTTPS](https://cursor.com/docs/api/origin/llms-full.txt#git-https-authentication).
 
+To act as a member of the installation's namespace instead of as the app, mint an installation user token. See [Acting on behalf of users](https://cursor.com/docs/api/origin/acting-as-users).
+
 ### Git HTTPS authentication
 
 Installation access tokens authenticate Git over HTTPS. The Git endpoint uses HTTP Basic authentication: the password is the installation token, and the username is `x-access-token`. Bearer credentials belong on the REST API; Git HTTPS rejects them.
@@ -353,6 +355,7 @@ Request only the minimum scopes your app needs. `repository:metadata:read` and a
 | `repository:settings:write`              | Update repository settings: the default branch, visibility, merge methods, and automatic head-branch deletion. Upsert and delete grants on a repository.                                                                    |
 | `namespace:settings:read`                | Read the grants held directly on an owner. Read the SSH certificate authorities an owner trusts and whether it requires certificates.                                                                                       |
 | `namespace:settings:write`               | Upsert and delete grants on an owner. Add and remove SSH certificate authorities and set whether the owner requires certificates; these writes are carried by a Cursor user credential.                                     |
+| `namespace:user_tokens:write`            | Mint installation user tokens that act as a member of the installation's namespace. A token can't carry this scope. See [Acting on behalf of users](https://cursor.com/docs/api/origin/acting-as-users).                    |
 
 Requesting a `:write` scope also grants the matching `:read` scope, so `repository:labels:write` covers `repository:labels:read` and you do not have to list both. The reverse does not hold: a read scope never grants writes.
 
@@ -1055,6 +1058,77 @@ curl --request POST \
 }
 ```
 
+### Create Installation User Token
+
+/v1/origin/app/installations//user\_access\_tokens
+
+Requires no scope (app JWT).
+
+Creates an installation user token that acts on behalf of one member of the installation's namespace.
+
+The installation must belong to the authenticated app and have accepted `namespace:user_tokens:write`. Name the user with exactly one of `userId` or `userEmail`. An unknown, ambiguous, or ineligible user receives `PermissionDenied` (HTTP 403) without revealing which condition failed.
+
+The token's access is limited to permissions held by both the installation and the user. When both `scopes` and `repositoryIds` are set, each scope must be allowed on every listed repository for both principals or the request receives `PermissionDenied` (HTTP 403). See [Acting on behalf of users](https://cursor.com/docs/api/origin/acting-as-users) for the complete flow.
+
+#### Path Parameters
+
+`installationId` string Required
+
+The unique identifier of the installation to scope the token to. Bound from the URL path; the installation must belong to the authenticated app.
+
+#### Request Body
+
+`userId` string
+
+The user's `user_…` ID, as returned in actor payloads. Set exactly one of `userId` or `userEmail`.
+
+`userEmail` string
+
+The user's account email. It must match exactly one eligible namespace member.
+
+`scopes` array
+
+Scope strings that cap the token. Values must be unique and included in the installation's accepted scopes. Requesting `namespace:user_tokens:write` returns `InvalidArgument` (HTTP 400); it authorizes minting and cannot be delegated to the token. Empty or omitted adds no scope cap.
+
+`repositoryIds` array
+
+Repository IDs that cap the token. Values must be unique, accessible to the installation, and contain at most 50 entries. Empty or omitted adds no repository cap.
+
+#### Response Fields
+
+`token` string
+
+Short-lived installation user token. Treat it as a secret and do not log it.
+
+`expiresAt` string
+
+RFC 3339 expiration time; the token expires after at most 15 minutes and never outlives the app JWT used to mint it.
+
+```bash
+curl --request POST \
+  --url 'https://api.cursor.com/v1/origin/app/installations/INSTALLATION_ID/user_access_tokens' \
+  --header 'Authorization: Bearer YOUR_ORIGIN_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "userId": "user_01k2ja2000e0080000000000c3",
+  "scopes": [
+    "repository:pull_requests:reviews:write"
+  ],
+  "repositoryIds": [
+    "repo_01k2ja2000e0080000000000q4"
+  ]
+}'
+```
+
+**Response shape:**
+
+```json
+{
+  "token": "YOUR_INSTALLATION_USER_TOKEN",
+  "expiresAt": "2026-08-01T10:30:00Z"
+}
+```
+
 ### List App Installation Repositories
 
 /v1/origin/installation/repos
@@ -1139,7 +1213,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `repositories[].visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`, `public`.
+Repository visibility. Allowed values: `internal`, `private`.
 
 `repositories[].allowMergeCommit` boolean
 
@@ -1594,7 +1668,7 @@ Clean replace of the webhook event subscriptions. Omit to leave them unchanged.
 
 `events.events` array
 
-The app's complete new set of webhook event subscriptions. An empty list clears them.
+The app's complete new set of webhook event subscriptions. An empty list clears repository subscriptions; `installation.*` events are always delivered and cannot be listed here.
 
 `description` string
 
@@ -2334,7 +2408,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `repositories[].visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`, `public`.
+Repository visibility. Allowed values: `internal`, `private`.
 
 `repositories[].allowMergeCommit` boolean
 
@@ -2470,7 +2544,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`, `public`.
+Repository visibility. Allowed values: `internal`, `private`.
 
 `allowMergeCommit` boolean
 
@@ -2552,7 +2626,7 @@ Whether the head branch is deleted automatically on merge. Supported only on rep
 
 `visibility` string
 
-New repository visibility. Allowed values: `internal`, `private`, `public`. Omit it to leave the visibility unchanged. A request that sets `public` returns `FailedPrecondition` (HTTP 400), or `InvalidArgument` (HTTP 400) on a repository that is neither a native Origin repository nor a stable outbound mirror (see [Mirrored repositories](https://cursor.com/docs/api/origin/llms-full.txt#mirrored-repositories)).
+New repository visibility. Allowed values: `internal`, `private`. Omit it to leave the visibility unchanged.
 
 #### Response Fields
 
@@ -2622,7 +2696,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`, `public`.
+Repository visibility. Allowed values: `internal`, `private`.
 
 `allowMergeCommit` boolean
 
@@ -2772,7 +2846,7 @@ Effective mirror direction during a transition, until cutover completes. Allowed
 
 `visibility` string
 
-Repository visibility. Allowed values: `internal`, `private`, `public`.
+Repository visibility. Allowed values: `internal`, `private`.
 
 `allowMergeCommit` boolean
 
@@ -5808,7 +5882,15 @@ Max commits to return. Defaults to 30 when unset or 0. Values above 100 are clam
 
 `pageToken` string
 
-Opaque cursor from a previous response's `next_page_token`. Empty for the first page. Encodes the starting ref and page, so `sha`/`page_size` on a follow-up request are ignored when a token is supplied.
+Opaque cursor from a previous response's `nextPageToken`. Empty for the first page. Encodes the starting ref, walk position, and email filters; `sha`, `pageSize`, `authorEmails`, and `committerEmails` are ignored when a token is supplied. A filtered page can contain fewer than `pageSize` commits, or none, while `nextPageToken` is set. Keep paging until it is empty.
+
+`authorEmails` array
+
+Optional Git author email filter. Matches any listed email, case-insensitively after trimming whitespace. Blank entries and duplicates are ignored. At most 100 distinct emails; empty means no filter. These are Git author emails, not Origin actor IDs. Each page scans at most 1,000 commits for matches.
+
+`committerEmails` array
+
+Optional Git committer email filter. Uses the same normalization and 100-email limit as `authorEmails`; empty means no filter. When both filters are set, a commit must match both lists. Each page scans at most 1,000 commits for matches.
 
 #### Response Fields
 
@@ -14659,7 +14741,7 @@ Effective direction during a transition, until cutover completes. One of `inboun
 
 `repository.visibility` string
 
-Repository visibility, `internal`, `private`, or `public`. One of `internal`, `private`, `public`.
+Repository visibility, `internal` or `private`. One of `internal`, `private`.
 
 `repository.allowMergeCommit` boolean
 
@@ -14859,6 +14941,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`pusher.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`pusher.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`pusher.user.performedVia.app.id` string
+
+`pusher.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `pusher.app` object
 
 `pusher.app.id` string
@@ -14999,7 +15095,7 @@ Effective direction during a transition, until cutover completes. One of `inboun
 
 `repository.visibility` string
 
-Repository visibility, `internal`, `private`, or `public`. One of `internal`, `private`, `public`.
+Repository visibility, `internal` or `private`. One of `internal`, `private`.
 
 `repository.allowMergeCommit` boolean
 
@@ -15124,6 +15220,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `pullRequest.author.user.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`pullRequest.author.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`pullRequest.author.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`pullRequest.author.user.performedVia.app.id` string
+
+`pullRequest.author.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `pullRequest.author.app` object
 
@@ -15412,6 +15522,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`actor.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`actor.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`actor.user.performedVia.app.id` string
+
+`actor.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `actor.app` object
 
 `actor.app.id` string
@@ -15574,6 +15698,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`comment.author.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`comment.author.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`comment.author.user.performedVia.app.id` string
+
+`comment.author.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `comment.author.app` object
 
 `comment.author.app.id` string
@@ -15721,6 +15859,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`reaction.reactor.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`reaction.reactor.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`reaction.reactor.user.performedVia.app.id` string
+
+`reaction.reactor.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `reaction.reactor.app` object
 
 `reaction.reactor.app.id` string
@@ -15835,6 +15987,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`review.author.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`review.author.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`review.author.user.performedVia.app.id` string
+
+`review.author.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `review.author.app` object
 
 `review.author.app.id` string
@@ -15896,6 +16062,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `review.dismissal.dismissedBy.user.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`review.dismissal.dismissedBy.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`review.dismissal.dismissedBy.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`review.dismissal.dismissedBy.user.performedVia.app.id` string
+
+`review.dismissal.dismissedBy.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `review.dismissal.dismissedBy.app` object
 
@@ -16016,6 +16196,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`reviewer.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`reviewer.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`reviewer.user.performedVia.app.id` string
+
+`reviewer.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `reviewer.group` object
 
 Public Origin group identity (`grp_…`). Currently id-only.
@@ -16043,6 +16237,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `createdBy.user.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`createdBy.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`createdBy.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`createdBy.user.performedVia.app.id` string
+
+`createdBy.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `createdBy.app` object
 
@@ -16199,6 +16407,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`checkSuite.actor.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`checkSuite.actor.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`checkSuite.actor.user.performedVia.app.id` string
+
+`checkSuite.actor.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `checkSuite.actor.app` object
 
 `checkSuite.actor.app.id` string
@@ -16315,6 +16537,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`checkRun.actor.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`checkRun.actor.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`checkRun.actor.user.performedVia.app.id` string
+
+`checkRun.actor.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `checkRun.actor.app` object
 
 `checkRun.actor.app.id` string
@@ -16372,6 +16608,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `checkRun.rerequestedBy.user.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`checkRun.rerequestedBy.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`checkRun.rerequestedBy.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`checkRun.rerequestedBy.user.performedVia.app.id` string
+
+`checkRun.rerequestedBy.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `checkRun.rerequestedBy.app` object
 
@@ -16574,6 +16824,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`checkSuite.actor.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`checkSuite.actor.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`checkSuite.actor.user.performedVia.app.id` string
+
+`checkSuite.actor.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `checkSuite.actor.app` object
 
 `checkSuite.actor.app.id` string
@@ -16690,6 +16954,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`checkRun.actor.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`checkRun.actor.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`checkRun.actor.user.performedVia.app.id` string
+
+`checkRun.actor.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `checkRun.actor.app` object
 
 `checkRun.actor.app.id` string
@@ -16747,6 +17025,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `checkRun.rerequestedBy.user.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`checkRun.rerequestedBy.user.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`checkRun.rerequestedBy.user.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`checkRun.rerequestedBy.user.performedVia.app.id` string
+
+`checkRun.rerequestedBy.user.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `checkRun.rerequestedBy.app` object
 
@@ -16945,6 +17237,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`installation.installedBy.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`installation.installedBy.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`installation.installedBy.performedVia.app.id` string
+
+`installation.installedBy.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `app` object
 
 The app the installation belongs to.
@@ -17095,6 +17401,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `installation.installedBy.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`installation.installedBy.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`installation.installedBy.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`installation.installedBy.performedVia.app.id` string
+
+`installation.installedBy.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `app` object
 
@@ -17247,6 +17567,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`installation.installedBy.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`installation.installedBy.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`installation.installedBy.performedVia.app.id` string
+
+`installation.installedBy.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `app` object
 
 The app the installation belongs to.
@@ -17398,6 +17732,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
 
+`installation.installedBy.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`installation.installedBy.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`installation.installedBy.performedVia.app.id` string
+
+`installation.installedBy.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
+
 `app` object
 
 The app the installation belongs to.
@@ -17547,6 +17895,20 @@ Human-readable display name: the account's first and last name, each trimmed, jo
 `installation.installedBy.handle` string
 
 The user's claimed profile handle (the identity behind cursor.com /@handle), without the @ prefix. Present only while the user's profile is publicly visible; omitted for users without a claimed handle and for non-public profiles.
+
+`installation.installedBy.performedVia` object
+
+Set when an app acted on this user's behalf with an installation user token, for the action this actor field describes. For example, on a comment's author it names the app that created the comment, not an actor that later edited or deleted it. Absent when the user acted directly, and may be absent when delegation data is unavailable.
+
+`installation.installedBy.performedVia.app` object
+
+The app that acted on the user's behalf.
+
+`installation.installedBy.performedVia.app.id` string
+
+`installation.installedBy.performedVia.app.displayName` string
+
+The app's registered display name, never empty when present. Omitted on payloads whose app could not be resolved and on the first-party Cursor facade actor.
 
 `app` object
 
