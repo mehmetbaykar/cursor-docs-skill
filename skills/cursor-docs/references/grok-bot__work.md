@@ -20,7 +20,7 @@ A Bot is a durable AI teammate with a name, a job, its own conversation, and wor
 ### Create a Bot
 
 1. Choose **New** in the sidebar, or press Cmd+N, then select **Create new agent**.
-2. Open **Bot actions** and choose **Edit Profile** to set the name, title, description, and avatar.
+2. Click the Bot's name at the top of the chat, then choose **Bot settings** to set the name, label, and description. Click the Bot's picture in the same panel to change its avatar. See [Change a Bot's name, picture, and description](https://cursor.com/help/grok-bot/edit-bot.md).
 3. Send a real first task with a clear finish line; see [use cases](https://cursor.com/docs/grok-bot/use-cases.md) for starter prompts.
 
 Your existing Bots can also suggest or create a focused Bot when a job should have a long-lived owner.

@@ -9,7 +9,7 @@ path: /docs/grok-bot/security
 Use these controls and deployment details to decide whether Grok Bot is allowed in, and to limit what Bots can access, change, and retain. Rollout steps and the dashboard settings list live on [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).
 
 **Enterprise only** on the Grok Bot dashboard: the organization-wide enable
-switch, **Network Controls**, **Team Setup**, **Action Recording**,
+switch, **Network Controls**, **Team Setup**, **Team Secrets**, **Action Recording**,
 **Allow Local Egress**, **Enforce Auto-review** with its team rules, and
 computer management for organization admins. Audit logs, OpenTelemetry
 Export, the MCP allowlist, and SCIM are also Enterprise only. Self-serve
