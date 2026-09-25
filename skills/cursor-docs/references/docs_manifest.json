@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "b740fd6b23eaf72c6177c854650ad3254c8494624a32d7bdd74ac8123fc44b81",
-      "last_updated": "2026-09-22T00:02:06+00:00",
+      "hash": "8a2c40b90fcc52780990a704fc60d878e5a3522b860c2a3102db03fbb74bb247",
+      "last_updated": "2026-09-25T17:04:22+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin__llms-full.txt.md": {
-      "hash": "3708b71ce26762aa0ebed55d71a8712970c656173f0473d551d630bdb8d3aefd",
-      "last_updated": "2026-09-24T21:27:23+00:00",
+      "hash": "9af03771c42d250cdf1e7ca6ee0dbb6915b8db670dbd2010a64582cc90c2296a",
+      "last_updated": "2026-09-25T17:04:33+00:00",
       "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
       "path": "/docs/api/origin/llms-full.txt",
       "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
@@ -615,8 +615,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "d91661b3f89649d99d7fdbed1625f4a989e8eee9409e6a8d8d6e2269df933a4e",
-      "last_updated": "2026-09-23T21:27:03+00:00",
+      "hash": "489f1ecb2200cd5e3f7008e8b00f089e76e1c40bda155659584fde04782ae082",
+      "last_updated": "2026-09-25T17:04:47+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1614,8 +1614,8 @@
       "title": "Third Party Hooks"
     },
     "rollouts.md": {
-      "hash": "01e39805c769ce6687077741e2377a725dfd756cb36b64229e2ca321a13aa858",
-      "last_updated": "2026-09-24T21:28:09+00:00",
+      "hash": "15b1814af862613c640d9aaac9866d2ffdf93a4bbe1ae6a61c58c5cbb4c70231",
+      "last_updated": "2026-09-25T17:05:24+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1708,7 +1708,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-25T04:48:13+00:00",
+  "last_updated": "2026-09-25T17:05:27+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

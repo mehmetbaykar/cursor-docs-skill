@@ -34,6 +34,8 @@ When Rollouts detects a regression, it names the change it suspects, opens an is
 
 The [Rollouts page](https://cursor.com/automations/rollouts) groups changes into **Attention**, **Monitoring**, **Pending**, and **Verified**. Each environment a change deploys to shows its own status, such as **Deploying**, **Monitoring**, **Verified**, **Deploy failed**, or **Issues found**.
 
+A change sits in **Attention** while it has an open issue or a failed deploy. Once every issue on the change is closed, it counts as **Verified**. Reopening an issue moves it back to **Attention**.
+
 ## Set up Rollouts
 
 In [Automations](https://cursor.com/automations), select **Enable** on the Rollouts card under **From Cursor**. Setup has four steps:

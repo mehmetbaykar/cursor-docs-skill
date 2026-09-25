@@ -27,7 +27,7 @@ Retrieve all team members and their details.
 
 Array of team member objects, each containing:
 
-- `id` string - Encoded user ID for the team member (e.g., `user_PDSPmvukpYgZEDXsoNirw3CFhy`)
+- `id` string - Encoded user ID for the team member (e.g., `user_PDSPmvukpYgZEDXsoNirw3CFhy`). OpenTelemetry Export carries the same value as the optional [`cursor.user.account_id`](https://cursor.com/docs/enterprise/opentelemetry-export/wire.md#resource-attributes) resource attribute.
 - `email` string - Email address of the team member
 - `name` string - Display name of the team member
 - `role` string - Role in the team (e.g., `member`, `owner`)
