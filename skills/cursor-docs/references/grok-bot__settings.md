@@ -54,7 +54,7 @@ See [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md#update-recover
 
 ## Per-Bot settings
 
-Open **View conversation details**, then **Agent settings**, to edit one Bot's name, title, description, avatar, and notifications preference. These belong to that Bot alone.
+Click the Bot's name at the top of the chat (**View conversation details**), then choose **Bot settings**, to edit one Bot's name, label, description, and notifications preference. Click the Bot's picture in the same panel to change its avatar. These belong to that Bot alone. See [Change a Bot's name, picture, and description](https://cursor.com/help/grok-bot/edit-bot.md).
 
 ## Attention states and notifications
 

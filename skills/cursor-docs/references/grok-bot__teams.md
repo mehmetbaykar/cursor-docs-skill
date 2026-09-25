@@ -47,12 +47,12 @@ The security model rests on four principles:
 - **Per-user isolation.** Each user's work runs in a dedicated Firecracker microVM, a micro virtual machine with hardware-level separation from other users.
 - **No access by default.** A Bot can use only the accounts and plugins the user or team grants it.
 - **Human approval gates.** Sensitive actions require user approval, evaluated by an independent review model called Auto Review.
-- **Administrative control.** Team admins can set Team Rules, Cloud Agent delegation, template sharing, and the local execution ceiling. Network Controls, Team Setup, Allow Local Egress, Action Recording, Enforce Auto-review, Auto-review rules, and the organization-wide enable switch are Enterprise only.
+- **Administrative control.** Team admins can set Team Rules, Cloud Agent delegation, template sharing, and the local execution ceiling. Network Controls, Team Setup, Team Secrets, Allow Local Egress, Action Recording, Enforce Auto-review, Auto-review rules, and the organization-wide enable switch are Enterprise only.
 
 The pieces fit together like this:
 
 1. **Local machine.** Chat, review, and approvals happen on the member's device. Work runs in the hosted computer. Optional [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution) requires per-command approval by default and can be turned off.
-2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup, Allow Local Egress, Action Recording, Enforce Auto-review, Auto-review rules, and computer management for organization admins. Members never see this page.
+2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup, Team Secrets, Allow Local Egress, Action Recording, Enforce Auto-review, Auto-review rules, and computer management for organization admins. Members never see this page.
 3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It hands login, two-factor authentication, and payment steps to the member.
 4. **Plugins.** Your team's Cursor MCP (Model Context Protocol) policy applies in full, allowing or blocking each connector. OAuth tokens stay on Cursor's connector backend, and Bots invoke tools without receiving them.
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
@@ -142,7 +142,23 @@ Restricts which destinations team computers can reach. Pick one of four modes, f
 
 #### Team Setup
 
-Manifests of install scripts that run on every team computer, so the same tooling is present everywhere. Keep secret values out of setup scripts. Members see the managed setup under **Team Setup** in the app, where they can review or reinstall it. For how manifests run, and to install a networking client that reaches private services, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md). To run extra scripts on one cohort's computers only, add them under [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
+Manifests of install scripts that run on every team computer, so the same tooling is present everywhere. Keep secret values out of setup scripts; when a script needs a credential, store it as a [Team Secret](https://cursor.com/docs/grok-bot/teams.md#team-secrets) and read it from the environment. Members see the managed setup under **Team Setup** in the app, where they can review or reinstall it. For how manifests run, and to install a networking client that reaches private services, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md). To run extra scripts on one cohort's computers only, add them under [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
+
+*Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
+
+#### Team Secrets
+
+Team-wide values that Team Setup scripts read as environment variables, so a script can hold a license key, auth key, or service token without the value appearing in the manifest. Add them under **Team Secrets** on the Grok Bot page: each secret is an environment variable name and a value. Cursor stores the value encrypted, and the dashboard never shows it again after you save it. Team admins, including unpaid admins, can add, replace, or delete them.
+
+How they reach the computer:
+
+- Every Setup Script and Check Script in your Team Setup manifests, and in group [Setup Scripts](https://cursor.com/docs/grok-bot/teams.md#group-settings), runs with the team's secrets in its environment. Reference a secret by name, for example `"$MY_LICENSE_KEY"`.
+- Secrets exist only in the script's process environment. Once the script finishes, the value is gone unless the script wrote it somewhere, so store nothing on the computer that you don't want every Bot that member runs to reach.
+- Script output is checked for secret values before it's logged, and matches are redacted.
+- A computer receives secrets only when its Team Setup comes from exactly one team. A member whose computer applies setup from two or more teams gets no secrets from any of them, since scripts from different teams share one computer user.
+- Changes, including rotated values, take effect the next time the scripts run: when a computer starts, on the periodic refresh, or when you recreate it. See [Roll out to existing computers](https://cursor.com/docs/grok-bot/private-networks.md#roll-out-to-existing-computers).
+
+Limits: up to 100 secrets per team, up to 32 KB per value, and up to 96 KB in total. Names must be valid environment variable names, and names the computer runtime reserves, such as `PATH`, `HOME`, and anything starting with `SAND_` or `LD_`, are rejected when you save. Team Secrets are for scripts you control. They don't make a value available to Bots directly, and they're separate from the [secrets members store on a Bot](https://cursor.com/help/grok-bot/secrets.md). They aren't available through the Admin API.
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -183,7 +199,7 @@ The tab has four sections:
 - **Agent Capabilities.** Allow [Cloud Agents](https://cursor.com/docs/grok-bot/teams.md#cloud-agents), raise the [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) ceiling, or turn on [Allow Local Egress](https://cursor.com/docs/grok-bot/teams.md#allow-local-egress) for group members when the team has them off or stricter. For Auto-review, **Don't enforce for this group** lifts the team's [Enforce Auto-review](https://cursor.com/docs/grok-bot/teams.md#enforce-auto-review) lock so group members can turn Auto-review off, and group Auto-review rules combine with the team's [Auto-review rules](https://cursor.com/docs/grok-bot/teams.md#auto-review-rules), with "Ask first" winning when rules conflict.
 - **Network.** The group's own network policy, as described under [Network Controls](https://cursor.com/docs/grok-bot/teams.md#network-controls). A locked team policy applies to everyone.
 - **Group Rules.** Rules for the group's Bots, combined with [Team Rules](https://cursor.com/docs/grok-bot/teams.md#team-rules). Members can't turn them off.
-- **Setup Scripts.** Manifests that run on group members' computers alongside [Team Setup](https://cursor.com/docs/grok-bot/teams.md#team-setup). They use the same structure and run the same way, and the same no-secrets rule applies. See [how Team Setup runs your scripts](https://cursor.com/docs/grok-bot/private-networks.md#how-team-setup-runs-your-scripts).
+- **Setup Scripts.** Manifests that run on group members' computers alongside [Team Setup](https://cursor.com/docs/grok-bot/teams.md#team-setup). They use the same structure and run the same way, the same no-secrets rule applies, and they read the same [Team Secrets](https://cursor.com/docs/grok-bot/teams.md#team-secrets) as the team's manifests; there are no group-level secrets. See [how Team Setup runs your scripts](https://cursor.com/docs/grok-bot/private-networks.md#how-team-setup-runs-your-scripts).
 
 Group settings apply to groups your team owns, whether you manage membership by hand or sync it through [SCIM](https://cursor.com/docs/account/teams/scim.md#directory-groups). They are separate from [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md). To control who can use Grok Bot at all, use **Manage Group Access** on the Grok Bot page instead; see [Enabling Grok Bot for your team](https://cursor.com/docs/grok-bot/teams.md#enabling-grok-bot-for-your-team).
 
@@ -191,7 +207,7 @@ Group settings apply to groups your team owns, whether you manage membership by 
 
 ## Admin API
 
-Enable Grok Bot and manage capabilities, Enforce Auto-Review, group access, network policy, team rules, and setup scripts through the [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot).
+Enable Grok Bot and manage capabilities, Enforce Auto-Review, group access, network policy, team rules, and setup scripts through the [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot). [Team Secrets](https://cursor.com/docs/grok-bot/teams.md#team-secrets) are managed from the dashboard only.
 
 ## Security
 

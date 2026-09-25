@@ -43,7 +43,7 @@ This is a pattern you run, not a Cursor-managed network mode. Cursor provides th
 - You're a team admin on the Enterprise plan. **Team Setup is Enterprise only** and doesn't appear on other plans.
 - Your networking client runs on Debian-based Linux and can be installed and started from a shell script. Team computers run Linux, and scripts run as the computer user with `sudo` available.
 - Your network has a way in for that client: a gateway, exit node, or tunnel connector inside the VPC or intranet you want to reach, per your vendor's architecture.
-- You've decided how computers will authenticate to your network. Keep credentials out of setup scripts.
+- You've decided how computers will authenticate to your network. Keep credentials out of setup scripts; if a script needs one, store it as a [Team Secret](https://cursor.com/docs/grok-bot/teams.md#team-secrets).
 
 ## How Team Setup runs your scripts
 
@@ -53,6 +53,7 @@ Team Setup lives on the **Grok Bot** page of the [Cursor dashboard](https://curs
 - They run when a computer starts, and on a periodic refresh, roughly daily, while it runs.
 - If a Check Script is present and exits 0, the Setup Script is skipped; use it to avoid reinstalling on every pass. After a setup runs, the check runs again to verify it succeeded.
 - Entries run one at a time, in order. Each script has a 30-minute timeout. A failed script doesn't block the computer; it's retried on a later refresh.
+- Scripts read your team's [Team Secrets](https://cursor.com/docs/grok-bot/teams.md#team-secrets) as environment variables, so a credential a script needs never appears in the manifest. Secrets are present only while the script runs, and script output is redacted before it's logged. A computer whose setup comes from more than one team receives no secrets.
 
 ## Create the manifest
 
@@ -98,12 +99,13 @@ Prefer editing JSON? Toggle from **Form** to **JSON** at the top of the editor. 
 }
 ```
 
-Do not include secrets. Setup scripts run as the computer user on every
-team computer, and manifests are plain text applied to your whole fleet.
-Don't embed auth keys, tokens, or other credentials. Have members
-authenticate interactively in the computer's browser, where your identity
-provider's policies apply, or use a mechanism from your vendor's
-documentation that keeps long-lived credentials out of the script.
+Do not paste secret values into scripts. Setup scripts run as the computer
+user on every team computer, and manifests are plain text applied to your
+whole fleet. If a script needs an auth key, token, or other credential,
+store it as a [Team Secret](https://cursor.com/docs/grok-bot/teams.md#team-secrets) and read it
+from the environment, for example `"$MY_AUTH_KEY"`. Where your vendor
+supports it, prefer having members authenticate interactively in the
+computer's browser, where your identity provider's policies apply.
 
 ## Set up your networking client
 
@@ -122,13 +124,13 @@ Run Tailscale on each computer and route through an [exit node](https://tailscal
 
 **Connect and verify:**
 
-1. Authenticate each computer. Tailscale prints a login URL that opens in the computer's browser, where your identity provider's policies apply. Keep auth keys out of the script.
+1. Authenticate each computer. Tailscale prints a login URL that opens in the computer's browser, where your identity provider's policies apply. If you'd rather join computers without a member signing in, store a reusable, tagged [auth key](https://tailscale.com/docs/concepts/auth-keys) as a [Team Secret](https://cursor.com/docs/grok-bot/teams.md#team-secrets) and pass it from the environment, for example `tailscale up --auth-key "$TS_AUTHKEY"`. Every team computer then joins under the same key and tags rather than under the member's identity, so scope the key's ACLs accordingly. Never paste the key into the script itself.
 2. Confirm the computer appears in your Tailscale admin console and is allowed to use the exit node.
 3. Ask a Bot to reach an internal hostname.
 
 **If it doesn't work:**
 
-- The client installed but nobody authenticated. The login step is deliberately manual, since scripts can't hold secrets. Check the machine list in your Tailscale admin console.
+- The client installed but nobody authenticated. With browser login, the step is manual; with an auth key, check that the Team Secret exists, that its name matches what the script reads, and that the key hasn't expired. Check the machine list in your Tailscale admin console.
 - Your team's network policy is allowlist-only and blocks Tailscale's coordination servers or relays. Allow the endpoints from Tailscale's docs. Running computers apply the change within about a minute. Sleeping computers apply it when they next wake.
 - The exit node isn't advertised or approved in your tailnet. Check route settings in the admin console.
 - The computer was recreated, for example after an image update or reset, and the session didn't survive. Authenticate again.
@@ -137,7 +139,7 @@ Run Tailscale on each computer and route through an [exit node](https://tailscal
 
 The same Team Setup mechanics work for [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/): a `cloudflared` connector inside your network publishes private services through Cloudflare's edge, protected by Cloudflare Access, and the computer reaches them by hostname. This arrangement hasn't been exercised on team computers the way the Tailscale one has, so validate it on a pilot computer before rolling out.
 
-**Before you start:** you run a Cloudflare Tunnel connector inside your private network, with the services you need routed through it, and you've chosen your Cloudflare Access policy. Identity-based policies fit this pattern well, since members sign in through the browser. Access service tokens are secrets; keep them out of setup scripts.
+**Before you start:** you run a Cloudflare Tunnel connector inside your private network, with the services you need routed through it, and you've chosen your Cloudflare Access policy. Identity-based policies fit this pattern well, since members sign in through the browser. Access service tokens are secrets; if you use them, store them as [Team Secrets](https://cursor.com/docs/grok-bot/teams.md#team-secrets) rather than in setup scripts.
 
 **Team Setup manifest:**
 
@@ -155,7 +157,7 @@ The same Team Setup mechanics work for [Cloudflare Tunnel](https://developers.cl
 - The connector inside your network is down. Check tunnel health in your Cloudflare dashboard; this fails on your side, not the computer's.
 - Cloudflare Access denies the request. Check your Access logs and confirm the member has authenticated.
 - Your team's network policy is allowlist-only and blocks the tunnel hostname or Cloudflare's endpoints. Allow them. Running computers apply the change within about a minute. Sleeping computers apply it when they next wake.
-- A service token was embedded in the setup script. Don't do this; manifests are plain text. Use identity-based Access, or supply tokens at use time.
+- A service token was embedded in the setup script. Don't do this; manifests are plain text. Use identity-based Access, or store the token as a Team Secret and have the script read it from the environment.
 - A `cloudflared access tcp` listener isn't running when the Bot needs it. Listeners don't persist across sessions; start one when needed.
 
 Choosing between them: Tailscale gives the computer network-level reach, and with an exit node, egress from your network. Cloudflare Tunnel publishes specific services through Cloudflare's edge behind Access: per-service rather than whole-network, and egress addresses seen by other services don't change.
@@ -184,10 +186,13 @@ The Grok Bot [network policy](https://cursor.com/docs/grok-bot/security.md#netwo
 
 ### Can I put an auth key or credential in the setup script?
 
-No. Setup scripts are not a secret store, and the dashboard warns against
-including secrets. Authenticate computers interactively, or use a
-mechanism from your vendor's docs that doesn't require embedding a
-long-lived credential in the script.
+Not in the script text. Manifests are plain text, and the dashboard warns
+against pasting secrets into them. Store the credential as a
+[Team Secret](https://cursor.com/docs/grok-bot/teams.md#team-secrets) on the Grok Bot page and
+have the script read it as an environment variable. Team Secrets are
+Enterprise only. Where your vendor supports
+it, interactive browser login is still the simplest option, since your
+identity provider's policies apply to it.
 
 ### Which networking tools can I use?
 

@@ -759,8 +759,8 @@
       "title": "Configure identity and access"
     },
     "grok-bot__private-networks.md": {
-      "hash": "9b9f0047bde82f28d3b956ff862f1bc352c3a2f745e56d7001280c5649cf787c",
-      "last_updated": "2026-09-17T04:45:05+00:00",
+      "hash": "a99120c442255b5c3b94ddf893a259f4732ef8d43fb14f0230d17c542008ba58",
+      "last_updated": "2026-09-25T04:47:37+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
       "source_url": "https://cursor.com/docs/grok-bot/private-networks",
@@ -786,8 +786,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "df968dc0411d44371d95f8d298f3340487e9b4a6332327177a6e1efc2b809bcf",
-      "last_updated": "2026-09-17T04:45:05+00:00",
+      "hash": "71c3b24cc1479bff75c403d21bb8c9218026373bc116ef6b98c70b13fa7bc3f3",
+      "last_updated": "2026-09-25T04:47:38+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -795,8 +795,8 @@
       "title": "Grok Bot security"
     },
     "grok-bot__settings.md": {
-      "hash": "3ab046ff4021e22782f28513422586622cbd6077855082b7dadddb4380233861",
-      "last_updated": "2026-09-13T11:41:40+00:00",
+      "hash": "6aa019be8a9d6c4a0e51eb0dc6205082f9251c1512385ab75fdf8a9b0fdb8a95",
+      "last_updated": "2026-09-25T04:47:38+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/settings",
       "path": "/docs/grok-bot/settings",
       "source_url": "https://cursor.com/docs/grok-bot/settings",
@@ -804,8 +804,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "cb157cc22525dfcaba4e7602287c8d51985b43f1a20e59f43c22a9917cf48563",
-      "last_updated": "2026-09-24T17:04:14+00:00",
+      "hash": "12cb9c4cb5fdc3c7bdd8a5f6016771495640ba3f278920d5928f98a220be1faa",
+      "last_updated": "2026-09-25T04:47:39+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -822,8 +822,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "b4b1c8ade8688ef4466b006f7a71723c42b316e02aa89c9677980285ec71eeb1",
-      "last_updated": "2026-09-10T16:19:26+00:00",
+      "hash": "970e373b4f1358656be3c1ec6611543579b794d31610f585d25211278d30f37a",
+      "last_updated": "2026-09-25T04:47:39+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -1708,7 +1708,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-24T21:28:12+00:00",
+  "last_updated": "2026-09-25T04:48:13+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",
