@@ -25,12 +25,12 @@ allowlist.
 
 | Method                                      | Use it when                                                                   |
 | ------------------------------------------- | ----------------------------------------------------------------------------- |
-| Route egress through a desktop              | One member needs access through a network already available from their device |
+| Route traffic through a desktop             | One member needs access through a network already available from their device |
 | Install a networking client with Team Setup | Your Enterprise team needs a consistent connection on every hosted computer   |
 
 ### Route through a member's desktop
 
-In the Grok Bot desktop app, open **Settings** > **Computer** and turn on **Route egress through this desktop**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress**.
+In the Grok Bot desktop app, open **Settings** > **Computer** and, in the **Network** section, turn on **Route traffic through this computer**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress**.
 
 Each member controls their own desktop route. Enterprise admins can remove this option for the whole team from [Grok Bot in the Cursor dashboard](https://cursor.com/dashboard/bot). See [Route traffic through your desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop).
 
