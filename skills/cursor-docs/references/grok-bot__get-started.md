@@ -27,14 +27,18 @@ install Grok Bot from the App Store; see
 
 ### Sign in with your Cursor account
 
-Choose **Get started** on the welcome screen and finish authentication in
+Choose **Sign in** on the welcome screen and finish authentication in
 your browser. Grok Bot uses your Cursor account, and there is no separate
 Grok Bot login. If your organization uses single sign-on, sign in through
 your normal company flow; your existing Cursor SSO configuration applies.
 For sign-in problems, see [Sign in to Grok Bot](https://cursor.com/help/grok-bot/sign-in.md).
 
-### Create your first Bot
+### Meet your first Bot
 
+After you sign in, click through a short intro. Grok Bot then sets up
+your first Bot, named **Grok Bot**, and opens a chat with it.
+
+To add more Bots, choose **New** in the sidebar, then **Create new Bot**.
 Pick a suggested teammate, or choose **Create your own** and give the Bot
 a short name, one primary job, and a description of how it should work. A
 focused Bot builds more useful context than one catch-all helper. For
@@ -60,7 +64,7 @@ a five-minute first result, attach a document and try:
 ### Sign in to the tools it needs
 
 When the Bot reaches an app that requires authentication, it hands you
-the computer. Open **Agent Computer**, take over, enter the password or
+the computer. Click **Open computer**, take over, enter the password or
 two-factor code yourself, and return control. The Bot doesn't see your
 password, and the signed-in session persists on your computer for future
 tasks. For supported services, you can also [connect a

@@ -50,7 +50,7 @@ Approvals keep consequential actions under the member's control. The strongest b
 > change the campaign or message the agency. Ask for approval after showing
 > the current value, proposed value, and expected impact.
 
-When an action needs approval, the conversation shows the proposed operation and its inputs. **Allow once** lets the Bot continue with that action, **Always allow** can save a matching rule, and **Deny** blocks it (on iPhone, the controls are **Approve once** and **Deny**). An approval controls the proposed action, not work already completed, and nobody should approve an action whose target or effect they can't identify.
+When an action needs approval, the conversation shows the proposed operation and its inputs. **Allow once** lets the Bot continue with that action, **Always allow** can save a matching rule, and **Deny** blocks it. The controls are the same on iPhone. An approval controls the proposed action, not work already completed, and nobody should approve an action whose target or effect they can't identify.
 
 Auto Review is the review layer behind those prompts: an independent review model that evaluates risky Bot actions before they run, covering shell commands, plugin calls, computer use, automation writes (changes to routines and event triggers), and delegation such as Cloud Agent and subagent launches. It can let an action proceed, require approval, or deny it.
 
