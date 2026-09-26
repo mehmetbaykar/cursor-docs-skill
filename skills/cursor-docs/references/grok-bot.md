@@ -101,3 +101,8 @@ baseline.
 ### Security
 
 Network policy, approvals and Auto Review, logging, and data handling.
+
+### Deployment
+
+Push the desktop app to managed devices, pick a version, and plan
+updates.

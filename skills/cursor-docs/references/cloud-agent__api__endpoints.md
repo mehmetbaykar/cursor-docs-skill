@@ -1438,6 +1438,24 @@ Pending request id. Same value as `id` from [List Pending Pool Requests](https:/
 
 Worker id to reserve for the request. Start the worker with the same id via `CURSOR_AGENT_WORKER_ID` (or the hidden `--worker-id` flag) so the bridge registers the claimed identity.
 
+`sessionToken` boolean (optional, default: `false`)
+
+Also mint a [session token](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#session-tokens) for this claim, so the worker can start without the service account key. If the token can't be minted, the claim fails and the request stays unclaimed.
+
+#### Response Fields
+
+`id`, `workerId` string
+
+The claimed request and worker id.
+
+`token` string (optional)
+
+Session token that serves only this claim. Present when the request sent `sessionToken: true`. It stops working when the claim is released, or when the API key that minted it is deleted or expires.
+
+`expiresAt` string (optional)
+
+ISO 8601 timestamp, 7 days after minting. Present with `token`.
+
 ```bash
 curl --request POST \
   --url "https://api.cursor.com/v0/private-workers/claim" \
@@ -1465,6 +1483,83 @@ export CURSOR_API_KEY="your-service-account-api-key"
 export CURSOR_AGENT_WORKER_ID="pw_123"
 agent worker --pool gpu --worker-dir /workspace start
 ```
+
+With a session token:
+
+```bash
+curl --request POST \
+  --url "https://api.cursor.com/v0/private-workers/claim" \
+  -u "$CURSOR_API_KEY:" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "id": "bc-00000000-0000-0000-0000-000000000002",
+    "workerId": "pw_123",
+    "sessionToken": true
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "id": "bc-00000000-0000-0000-0000-000000000002",
+  "workerId": "pw_123",
+  "token": "eyJ...",
+  "expiresAt": "2026-10-02T21:00:00.000Z"
+}
+```
+
+Start the worker with the token instead of the key:
+
+```bash
+printf '%s' "$TOKEN" > /run/cursor/token
+export CURSOR_AGENT_WORKER_ID="pw_123"
+agent worker --pool gpu --worker-dir /workspace --auth-token-file /run/cursor/token start
+```
+
+### Create A Session Token
+
+/v0/private-workers/tokens
+
+Mint a [session token](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#session-tokens) for a claim your team already holds. Use it when a worker reconnects to an existing claim, such as a revived hibernated machine, or when a run outlasts its token. `agent worker controller --session-token` calls this for you when it wakes a hibernated machine.
+
+The token serves only this claim. It stops working when the claim is released, or when the API key that minted it is deleted or expires.
+
+This endpoint requires an agent-scoped service account API key from the team that holds the claim. A repository-scoped key can mint tokens only for agents on repositories in its scope.
+
+#### Request Body
+
+`id` string (required)
+
+Agent id the claim is for. Same value as `id` on [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request).
+
+`workerId` string (required)
+
+Worker id the claim binds to the agent.
+
+```bash
+curl --request POST \
+  --url "https://api.cursor.com/v0/private-workers/tokens" \
+  -u "$CURSOR_API_KEY:" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "id": "bc-00000000-0000-0000-0000-000000000002",
+    "workerId": "pw_123"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "id": "bc-00000000-0000-0000-0000-000000000002",
+  "workerId": "pw_123",
+  "token": "eyJ...",
+  "expiresAt": "2026-10-02T21:00:00.000Z"
+}
+```
+
+HTTP `404` means your team holds no claim binding that worker to that agent.
 
 ### Release A Claim
 

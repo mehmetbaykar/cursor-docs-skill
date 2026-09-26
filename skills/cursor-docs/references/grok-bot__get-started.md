@@ -88,4 +88,5 @@ Most setup problems clear after you fully quit and reopen the app. For symptom-b
 
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
 - [Grok Bot use cases](https://cursor.com/docs/grok-bot/use-cases.md)
+- [Deploy Grok Bot to your organization](https://cursor.com/docs/grok-bot/deployment.md)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)

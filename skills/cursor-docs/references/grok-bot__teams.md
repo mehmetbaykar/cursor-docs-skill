@@ -28,6 +28,8 @@ On the Enterprise plan, an admin turns it on from [Grok Bot in the Cursor dashbo
 
 Admins on either plan can bring members in with "Invite Team" on the Grok Bot page. Existing Cursor users on your team get an email with a download link. New users get an invitation to your Cursor team, by email or invite link, that also points them to Grok Bot. Teams that manage membership through SCIM see only the existing-users option.
 
+To install the desktop app on managed devices yourself and plan updates, see [Deploy Grok Bot to your organization](https://cursor.com/docs/grok-bot/deployment.md).
+
 ## Before you roll out
 
 - **Move off Privacy Mode (Legacy).** That setting blocks Grok Bot entirely, and you're prompted to change it before enabling. Check the privacy setting in Team Settings.
@@ -282,6 +284,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 
 ## Related pages
 
+- [Deploy Grok Bot to your organization](https://cursor.com/docs/grok-bot/deployment.md)
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
