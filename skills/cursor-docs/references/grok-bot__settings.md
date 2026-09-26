@@ -44,11 +44,11 @@ Use **Marketplace** to discover plugins and packaged skills, and **Yours** to re
 
 ## Updates
 
-The update controls live in the **Beta** section of settings, and the Grok Bot app and the Agent Computer update separately:
+The update controls live in the **Updates** section of settings, and the Grok Bot app and the Agent Computer update separately:
 
 - **Check for Updates** and **Restart to Update** update the desktop app.
-- **Update Agent Computer** rebuilds the cloud computer on the latest image while preserving durable state.
-- **Reset Agent Computer** is a last resort that returns the computer to its synced durable state; unsynced recent work doesn't come back.
+- **Update Grok Bot's Computer** rebuilds the cloud computer on the latest image while preserving durable state.
+- **Reset Grok Bot's Computer** is a last resort that returns the computer to its synced durable state; unsynced recent work doesn't come back.
 
 See [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md#update-recover-or-reset) for the least destructive recovery order.
 
