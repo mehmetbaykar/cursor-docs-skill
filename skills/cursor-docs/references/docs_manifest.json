@@ -750,8 +750,8 @@
       "title": "Deploy Grok Bot to your organization"
     },
     "grok-bot__get-started.md": {
-      "hash": "31cdd70f39eb2600a08be814b49e7f329a98f4fa20ca2df48fa635aefd755365",
-      "last_updated": "2026-09-26T11:16:51+00:00",
+      "hash": "2593cf80393a9278623bf64334ab5735202db5b981a53417dbec5fb949d6c8f9",
+      "last_updated": "2026-09-27T05:11:00+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/get-started",
       "path": "/docs/grok-bot/get-started",
       "source_url": "https://cursor.com/docs/grok-bot/get-started",
@@ -804,8 +804,8 @@
       "title": "Grok Bot security"
     },
     "grok-bot__settings.md": {
-      "hash": "2dedfc2db32cc773332bd7d8e7d59a8657afc73e05a162fe828d997bd0ab0a18",
-      "last_updated": "2026-09-26T11:16:53+00:00",
+      "hash": "720913ca1f893fd82d1db5616465d02dd573754fdc11259281085b6c8ded06f8",
+      "last_updated": "2026-09-27T05:11:02+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/settings",
       "path": "/docs/grok-bot/settings",
       "source_url": "https://cursor.com/docs/grok-bot/settings",
@@ -1717,7 +1717,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-26T21:04:05+00:00",
+  "last_updated": "2026-09-27T05:11:41+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin",

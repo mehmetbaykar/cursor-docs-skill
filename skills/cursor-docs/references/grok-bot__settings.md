@@ -26,6 +26,8 @@ Two of these settings deserve care. Execution on Local Computer controls whether
 
 In the **Network** section, turn on **Route traffic through this computer** to send your Grok Bot computer's web traffic through the current desktop. The route applies to new connections. Destinations see your desktop's IP address, and the Bot can reach networks available from that device.
 
+![The Network section in Grok Bot's Computer settings, with the Route traffic through this computer toggle turned off](https://cursor.com/docs-static/images/grok-bot/settings-network-light.png)
+
 The setting applies to one desktop. If your Enterprise admin turns off **Allow Local Egress**, the toggle turns off and locks with `Disabled by your admin. You can't turn this on.` Any active route stops within five minutes. Your choice is preserved and takes effect again if the admin re-allows local egress.
 
 For private network options and their tradeoffs, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
@@ -49,6 +51,8 @@ The update controls live in the **Updates** pane of settings, and the Grok Bot a
 - **Check for Updates** and **Restart to Update** update the desktop app.
 - **Update Grok Bot's Computer**, in the **Grok Bot's Computer** section, rebuilds the cloud computer on the latest image while preserving durable state.
 - **Reset Grok Bot's Computer** is a last resort that returns the computer to its synced durable state; unsynced recent work doesn't come back.
+
+![The Grok Bot's Computer section in Grok Bot's Updates settings, with Update and Reset buttons](https://cursor.com/docs-static/images/grok-bot/settings-computer-light.png)
 
 See [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md#update-recover-or-reset) for the least destructive recovery order.
 

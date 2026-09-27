@@ -39,10 +39,9 @@ After you sign in, click through a short intro. Grok Bot then sets up
 your first Bot, named **Grok Bot**, and opens a chat with it.
 
 To add more Bots, choose **New** in the sidebar, then **Create new Bot**.
-Pick a suggested teammate, or choose **Create your own** and give the Bot
-a short name, one primary job, and a description of how it should work. A
-focused Bot builds more useful context than one catch-all helper. For
-example:
+Then open the Bot's **Bot settings** and give it a short name, one primary
+job, and a description of how it should work. A focused Bot builds more
+useful context than one catch-all helper. For example:
 
 > Name: Piper
 > Job: Product performance
