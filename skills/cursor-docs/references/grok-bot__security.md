@@ -114,7 +114,7 @@ Cursor manages model selection. There is no customer-facing model picker, and th
 
 Bots can act on a member's own machine through the desktop app: run commands, read files, and move files between the cloud computer and the local machine. This is separate from work in the hosted computer, with its own control, and it's distinct from Auto Review, which governs work inside the hosted computer.
 
-Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **General** > **Agent** > **Execution on Local Computer**: ask every time, always allow, or never. Recommend **Never** unless a Bot has a specific reason to work on local files. Admins can cap the policy for the whole team with [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) on the Grok Bot page; a member's own setting still applies when it is stricter.
+Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **Computer** > **Execution on this computer** (or **Settings** > **General** > **Bot** > **Execution on Local Computer** until a desktop is listed under **Computer**): ask every time, always allow, or never. Recommend **Never** unless a Bot has a specific reason to work on local files. Admins can cap the policy for the whole team with [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) on the Grok Bot page; a member's own setting still applies when it is stricter.
 
 ## Hosting
 

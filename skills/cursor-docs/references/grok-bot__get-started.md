@@ -81,7 +81,7 @@ Before you let a Bot change external systems, read [Approvals and Auto Review](h
 
 The iPhone app (iOS 18 or later) connects to the same Bots, conversations, routines, and cloud computer as desktop. Install Grok Bot from the App Store and sign in with the same Cursor account; access from your plan or SuperGrok link carries over without a second purchase. From your phone you can message Bots, watch and take over the computer, approve actions, and pause or resume routines.
 
-Some flows stay on desktop: teaching a workflow by demonstration, editing a routine's schedule or instructions, viewing run history, testing or deleting routines, and updating the computer. See [Grok Bot on mobile](https://cursor.com/help/grok-bot/mobile.md) for setup details and [Subscribe from the mobile app](https://cursor.com/help/grok-bot/mobile-purchase.md) if your account doesn't include access.
+Some flows stay on desktop: teaching a workflow by demonstration, testing routines, and updating the computer. See [Grok Bot on mobile](https://cursor.com/help/grok-bot/mobile.md) for setup details and [Subscribe from the mobile app](https://cursor.com/help/grok-bot/mobile-purchase.md) if your account doesn't include access.
 
 ## If something doesn't work
 
