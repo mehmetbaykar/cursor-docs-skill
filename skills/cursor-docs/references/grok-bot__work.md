@@ -177,19 +177,19 @@ Ask the Bot that should own the recurring job:
 > contact customers. If the source data is unavailable, report the failure
 > instead of using old data.
 
-Confirm the owning Bot, the schedule and time zone, the input source, the expected result, the approval boundary, and what happens when a source is missing. Routines run in the cloud while your laptop is closed. A Bot can own up to 50 routines with the 20 most recent run records each; deleting a routine is immediate with no undo, and deleting a Bot removes its routines.
+Confirm the owning Bot, the schedule and time zone, the input source, the expected result, the approval boundary, and what happens when a source is missing. Routines run in the cloud while your laptop is closed. Deleting a routine stops its future runs and can't be undone.
 
 Cursor account integrations can also start a routine from an event, such as a Slack message or a GitHub notification; they're separate from the Slack or GitHub plugins. Define a narrow matching rule and a clear response, like "when a message in `#customer-escalations` contains a ticket link and the phrase 'needs repro', reproduce the issue in staging and post a repro pack in this conversation". Avoid broad listeners like "every new message", which create noise, consume usage, and act on irrelevant input.
 
 ### Test and manage routines
 
-Use **Test run** after creating or editing a routine, and review whether it selected current inputs, met the output format, kept a source trail, stopped at the intended approval point, and made failure states explicit.
+Use **Test** after creating or editing a routine, and review whether it selected current inputs, met the output format, kept a source trail, stopped at the intended approval point, and made failure states explicit.
 
 A test run performs real work. It can navigate websites, change files, and
 call connected tools. Use safe inputs and keep write actions behind
 approval.
 
-Open the Bot, choose **View conversation details**, then **Routines** to enable, pause, test, edit, inspect run history, or delete. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack listeners, webhooks, and why **Run history** can say **No runs yet**, see [Routines](https://cursor.com/help/grok-bot/routines.md).
+Create and change routines by asking the Bot in chat. To review them on desktop, click the Bot's name at the top of the chat, then choose **Tasks**. Open a routine to read its **Instruction** and **When to run**, and to **Pause**, **Resume**, **Test**, **Edit**, or delete it. On the phone, the Bot's profile lists its routines with **Run history**. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack triggers, and webhooks, see [Routines](https://cursor.com/help/grok-bot/routines.md).
 
 Routines earn trust the same way people do: automate preparation before execution, keep sending, purchasing, deleting, publishing, and production changes behind approval, report missing or stale sources instead of working around them, and re-test after a website, plugin, or source format changes.
 
