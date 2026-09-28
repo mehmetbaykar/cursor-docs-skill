@@ -131,6 +131,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `models__claude-opus-4-8` - [Models Claude Opus 4 8](https://cursor.com/docs/models/claude-opus-4-8)
 - `models__claude-opus-5-5` - [Models Claude Opus 5 5](https://cursor.com/docs/models/claude-opus-5-5)
 - `models__claude-opus-5` - [Models Claude Opus 5](https://cursor.com/docs/models/claude-opus-5)
+- `models__claude-sonnet-5-5` - [Models Claude Sonnet 5 5](https://cursor.com/docs/models/claude-sonnet-5-5)
 - `models__claude-sonnet-5` - [Models Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5)
 - `models__cursor-composer-1` - [Models Cursor Composer 1](https://cursor.com/docs/models/cursor-composer-1)
 - `models__cursor-composer-2-5` - [Models Cursor Composer 2 5](https://cursor.com/docs/models/cursor-composer-2-5)
