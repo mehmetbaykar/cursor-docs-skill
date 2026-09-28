@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-4-sonnet-1m
 path: /docs/models/claude-4-sonnet-1m
 ---
 
-We recommend using [Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5.md), which also supports up to 1M tokens of context.
+We recommend using [Claude Sonnet 5.5](https://cursor.com/docs/models/claude-sonnet-5-5.md), which also supports up to 1M tokens of context.
 
 ## Tools
 

@@ -25,7 +25,7 @@ individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription. See
 
 ## Your Bots share one computer
 
-All of your Bots use the same cloud computer, sharing its files, browser sessions, and app logins, which makes handoffs work without repeating setup. The computer belongs to your account, not to an individual Bot, so treat anything placed on it as available to every Bot you run; between users, isolation is strict. [The computer and apps](https://cursor.com/docs/grok-bot/work.md#the-computer-and-apps) covers the full model.
+All of your Bots use the same cloud computer, sharing its files, browser sessions, and app logins, which makes handoffs work without repeating setup. The computer belongs to your account, not to an individual Bot, so treat anything placed on it as available to every Bot you run; between users, isolation is strict. [The computer and apps](https://cursor.com/docs/grok-bot/work.md#the-computer-and-apps) covers the full model. When you chat with a teammate's [Team Bot](https://cursor.com/help/grok-bot/team-bots.md), it usually works on your computer too.
 
 ## A good first handoff
 

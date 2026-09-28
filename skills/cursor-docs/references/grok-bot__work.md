@@ -38,7 +38,7 @@ Update the description when you discover a durable preference, boundary, or resp
 
 ### Share a Bot
 
-Share a public link when someone else should start from the same Bot. The link exposes the shared configuration (identity, description, skills, and routines), so remove API keys, internal URLs, and customer data first. The recipient adds a copy to their own account; they never get your computer, logins, or conversation history, and adding a shared Bot accepts the third-party bot terms shown at that point.
+Share a public link when someone else should start from the same Bot. The link exposes the shared configuration (identity, description, skills, and routines), so remove API keys, internal URLs, and customer data first. The recipient adds a copy to their own account; they never get your computer, logins, or conversation history, and adding a shared Bot accepts the third-party bot terms shown at that point. To give your team one shared Bot to chat with instead of a copy each, publish a [Team Bot](https://cursor.com/help/grok-bot/team-bots.md).
 
 On the Teams plan and the Enterprise plan, admins control whether members can
 publish Bot templates publicly. See [template
@@ -123,7 +123,7 @@ For a supported connection that presents a secure secret request, enter the valu
 
 Plugins give Bots a structured way to work with services like Gmail, Notion, and Slack, and are more reliable than clicking through a website when one exists. Open **Plugins** in the sidebar or follow an in-chat **Connect** card, then finish the provider login in your browser; setup steps and known issues are in [Connect plugins](https://cursor.com/help/grok-bot/connect-plugins.md).
 
-- **Plugins are account-wide.** An installed plugin is available to every Bot you run.
+- **Plugins are account-wide.** An installed plugin is available to every Bot you run. A teammate's [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) asks before it uses your accounts.
 - **Plugin logins stay off the computer.** OAuth tokens are held on Cursor's connector backend, and the Bot invokes tools without receiving them.
 - **Team policy applies.** A plugin blocked by your team's connector policy shows **Disabled by team admin**. Blocking a plugin doesn't block that service's website. Closing that second path takes **Network Controls**, which is Enterprise only. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy).
 

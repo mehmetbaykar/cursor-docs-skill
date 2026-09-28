@@ -209,6 +209,20 @@ model: gpt-5.6-sol
 Analyze the architecture and recommend changes with detailed reasoning.
 ```
 
+## Parent model and usage pools
+
+The model picker, including Auto, applies to the parent agent. A subagent can run a different model:
+
+- Built-in subagents (Explore, Bash, Browser) pick a model for the subtask.
+- Custom subagents use `inherit` or the `model` field in frontmatter.
+- The parent agent can name a model when it launches a subagent.
+
+Each request bills at the list price of the model that ran. A named third-party model draws from the [Other Models](https://cursor.com/docs/models-and-pricing.md#other-models) pool, including when the parent chat is on Auto, Grok, or Composer. On Teams and Enterprise, third-party requests also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
+
+The subagent task card shows which model ran. The [usage dashboard](https://cursor.com/dashboard/usage) lists that model on the matching usage row.
+
+Team admins can block models for the team from [Team Settings > Models](https://cursor.com/dashboard/team-settings/models). See [model access control](https://cursor.com/docs/enterprise/model-and-integration-management.md#model-access-control).
+
 ## Using subagents
 
 ### Automatic delegation
@@ -466,6 +480,12 @@ Yes. Subagents inherit all tools from the parent, including MCP tools from confi
 
 Check the subagent's description and prompt. Ensure the instructions are specific and unambiguous. You can also test the subagent by invoking it explicitly with a simple task.
 
+### Can a subagent use Other Models when the parent is on Auto?
+
+Yes. Auto applies to the parent agent. Subagents can run a named third-party model, and that usage draws from the Other Models pool at that model's list price. The same happens when the parent is on Grok or Composer. See [parent model and usage pools](https://cursor.com/docs/subagents.md#parent-model-and-usage-pools).
+
 ### Why is my subagent using a different model?
 
-Cursor overrides the configured model when your team admin blocks it, your plan doesn't include it, or a legacy request-based plan requires [Max Mode](https://cursor.com/help/ai-features/max-mode.md) and you don't have it enabled. On legacy request-based plans without Max Mode, subagents run using Composer regardless of any `model` configuration. If your team admin has blocked Composer, subagents can run only when Max Mode is enabled. On usage-based plans and legacy request-based plans with Max Mode, subagents default to the parent model. See [model configuration](https://cursor.com/docs/subagents.md#model-configuration) for details.
+Subagents may run a different model from the parent picker. Built-in subagents pick a model for the subtask, and the parent can name a model when it launches a subagent. See [parent model and usage pools](https://cursor.com/docs/subagents.md#parent-model-and-usage-pools).
+
+Cursor also overrides a configured model when your team admin blocks it, your plan doesn't include it, or a legacy request-based plan requires [Max Mode](https://cursor.com/help/ai-features/max-mode.md) and you don't have it enabled. On legacy request-based plans without Max Mode, subagents run using Composer regardless of any `model` configuration. If your team admin has blocked Composer, subagents can run only when Max Mode is enabled. On usage-based plans and legacy request-based plans with Max Mode, subagents default to the parent model. See [model configuration](https://cursor.com/docs/subagents.md#model-configuration) for details.

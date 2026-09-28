@@ -17,7 +17,8 @@ memory, and virtual devices. One user cannot reach another user's
 computer. Within one user, every Bot shares that computer. Treat a login
 or file on the computer as available to every Bot that user runs. When a
 workload needs its own computer and credential set, give it its own
-Cursor user.
+Cursor user. A teammate's [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) usually
+works on a user's computer during that user's own chat with it.
 
 ### What can a Bot access?
 

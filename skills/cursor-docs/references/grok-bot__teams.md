@@ -66,6 +66,8 @@ Each user gets a dedicated computer with hardware-level separation, and one user
 
 Within one user, the boundary is different: all of that user's Bots share one computer, and Bots isolate personalities and workspaces, not compute. Treat a login or file on the computer as available to every Bot that user runs, sign the browser out of accounts a Bot no longer needs, and remove sensitive temporary files when work completes. When a workload needs its own computer and credential set, give it its own Cursor user.
 
+[Team Bots](https://cursor.com/help/grok-bot/team-bots.md) are the exception to one Bot per user. A member publishes a cloud-hosted Bot to the team, and every member can chat with it. Each member's chat is private, including from the owner. In a member's own chat, the Bot usually works on that member's computer, uses that member's connected accounts after asking, and uses that member's Grok Bot usage. In Slack channels, threads, and group chats, a Team Bot uses one computer of its own. Secrets, plugins, and files the owner adds to a Team Bot are available in every teammate's chat.
+
 ## Admin controls
 
 Most Grok Bot settings sit on the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot), which only admins see. A few live in Team Settings, your Team Marketplace, or your identity provider. Several controls are available only on the [Enterprise plan](https://cursor.com/docs/enterprise.md); the rest are available on Teams and Enterprise. Enterprise teams can also widen several of these controls for one cohort from a group's Grok Bot tab; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
@@ -98,6 +100,10 @@ Allows or blocks Bots delegating coding tasks to Cursor [Cloud Agents](https://c
 
 Controls whether members can publish Bot templates outside your team. Off keeps sharing team-only, and Cursor enforces the policy on its servers, including for templates that are already public. Enterprise teams start with public sharing off; other teams start with it allowed. For what a shared template contains, see [Share a Bot](https://cursor.com/docs/grok-bot/work.md#share-a-bot).
 
+#### Manage Team Bots
+
+Adds published [Team Bots](https://cursor.com/help/grok-bot/team-bots.md) to members' sidebars automatically. Find **Manage Team Bots** on the Grok Bot page and choose **Manage**. For each Team Bot, pick **All team**, one or more groups, or **None**. Members who get a Bot this way can't hide it from their sidebar. Groups are managed on the Members & Groups page.
+
 #### Connector policy
 
 Grok Bot inherits your team's Cursor connector policy. There is no separate Grok Bot connector list, and connectors appear as plugins in the app. Set which servers members can use from your Team Marketplace on the dashboard's [Plugins & MCPs page](https://cursor.com/dashboard/plugins), not on the Grok Bot page. The MCP allowlist is Enterprise only; see [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). Any permitted connector is available to every Bot a member runs, and a blocked one shows as **Disabled by team admin**. Pushing connectors to members, whether mandatory or default-on, is not available.
@@ -122,7 +128,7 @@ Rules that every member's Bots follow. Add them from the Grok Bot page and scope
 
 #### Enforce Auto-review
 
-Prevents members from turning Auto-review off. The switch is on the Grok Bot page and is off by default. When it is on, Bots always check risky actions before running them and ask for approval when needed. Turn it on before you rely on team Auto-review rules. A group can lift the lock for its own members with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
+Prevents members from turning Auto-review off. The switch is on the Grok Bot page and is off by default. When it is on, Bots always check risky actions before running them and ask for approval when needed. This includes Team Bots in chats where nobody can answer an approval, such as teammates' chats and Slack, which otherwise run without Auto-review. Turn it on before you rely on team Auto-review rules. A group can lift the lock for its own members with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 

@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 191,
+    "pages_fetched_successfully": 192,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 194
+    "total_pages_discovered": 195
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "ef28fd927a83eb617e970c9ab602214211209d742658cdea9e7d76e8ac4b53cb",
-      "last_updated": "2026-09-22T21:13:13+00:00",
+      "hash": "c77dee4ae8de9e45a57b216c15782bf115ae4220ca8d5c6caef6624901820e95",
+      "last_updated": "2026-09-28T21:12:16+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "bfbc35e6726a28b3d983a287a7c5700769f02e6cb47dee53bc1477db1425582a",
-      "last_updated": "2026-09-22T21:13:15+00:00",
+      "hash": "882d000d2f059d8fcab740d25f3dab4cdf39a460dbf903a37384aebe46019c2b",
+      "last_updated": "2026-09-28T21:12:18+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -561,8 +561,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "00a2281977c99c0d2787cc81b8a5291cd9e69751b1ab6b896f2401856d9c1fbd",
-      "last_updated": "2026-09-03T23:14:19+00:00",
+      "hash": "b635b6d56d6c704e8c5a4c09785acda2013546d15dd9665f33d4d616bd207945",
+      "last_updated": "2026-09-28T21:12:33+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -696,8 +696,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "7ee580f565cf0183e85244a34ca52175a96476a235cdc45a28ab9fb912266638",
-      "last_updated": "2026-09-22T21:13:12+00:00",
+      "hash": "99f160b9492e882fbcec908f3078d278d90bda7db3565dcde7dd6707c5d3a68d",
+      "last_updated": "2026-09-28T21:12:15+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -750,8 +750,8 @@
       "title": "Quickstart"
     },
     "grok-bot.md": {
-      "hash": "ce41b4a75561f697b8be6dfb9beda54f963110f7f6bc8a54f87640002a072c13",
-      "last_updated": "2026-09-26T04:48:29+00:00",
+      "hash": "e9b00d3eeef04ba8bfdb9b4d4b367479fb50379cd98577da1fb47004bd563170",
+      "last_updated": "2026-09-28T21:12:38+00:00",
       "original_url": "https://cursor.com/docs/grok-bot",
       "path": "/docs/grok-bot",
       "source_url": "https://cursor.com/docs/grok-bot",
@@ -777,8 +777,8 @@
       "title": "Deploy Grok Bot to your organization"
     },
     "grok-bot__get-started.md": {
-      "hash": "33875f08b4e971dbf0d1b7e3c022c5e570682fe4a5836aac0a9abc698d0f914c",
-      "last_updated": "2026-09-27T21:17:25+00:00",
+      "hash": "c5db029f65af9b4091755d8e6611c6b7817f2c5b59ba4700e570d4ed069aa1ae",
+      "last_updated": "2026-09-28T21:12:39+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/get-started",
       "path": "/docs/grok-bot/get-started",
       "source_url": "https://cursor.com/docs/grok-bot/get-started",
@@ -813,8 +813,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "88dcc77ad07ce7b11f276f2dd6459274d5a8c7b8846a3553f3528ee079cbbdb7",
-      "last_updated": "2026-09-17T04:45:05+00:00",
+      "hash": "e5f08b4849396c2c38c8a48964274a3f48c245694691dccb8920d4af5902cadc",
+      "last_updated": "2026-09-28T21:12:40+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -840,8 +840,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "d3f5d9831a76270054e2bc98e2fc45d2d391f0a53fcb00a420a0b8094aaa5490",
-      "last_updated": "2026-09-26T04:48:32+00:00",
+      "hash": "58f6bedb24e47b517fd725f5fc9828526d1a7ead3d72ccc90e0bcf91b19ba830",
+      "last_updated": "2026-09-28T21:12:41+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -858,8 +858,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "5c268170b5f94e8334a04301cab1dc2fcf18ad424b89b923963f01b89057554e",
-      "last_updated": "2026-09-27T21:17:28+00:00",
+      "hash": "4ae2a2f9ef874627010b5f2b44ee72d83982910bea41ff40c381103910f20cf2",
+      "last_updated": "2026-09-28T21:12:41+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -1002,8 +1002,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "1190d03fef37c218834ebf70ed5a15f613ef38fa49b5ef63796d78e68fcd584c",
-      "last_updated": "2026-09-22T16:50:54+00:00",
+      "hash": "312c24b2837d1f9b0cf421530b6710d69059100f098d7c3623cacfd6654f9a4b",
+      "last_updated": "2026-09-28T21:12:46+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1011,8 +1011,8 @@
       "title": "Models & Pricing"
     },
     "models__claude-4-5-haiku.md": {
-      "hash": "b45b3c1623f41134cbccdaa1edd5b26af452fd7027c819cd284fbf9a4b5bc052",
-      "last_updated": "2026-08-24T21:39:14+00:00",
+      "hash": "1eb1518c9bb73cbcb92947e7e4ef76b07a5f755e8f9982a693fea0fe154408d5",
+      "last_updated": "2026-09-28T21:12:46+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-haiku",
       "path": "/docs/models/claude-4-5-haiku",
       "source_url": "https://cursor.com/docs/models/claude-4-5-haiku",
@@ -1020,8 +1020,8 @@
       "title": "Models Claude 4 5 Haiku"
     },
     "models__claude-4-5-sonnet.md": {
-      "hash": "acabd9213ae08b1d7ce20c6ec1b1d2a6eb8d00b36e66e5c39ccd09271815ccdf",
-      "last_updated": "2026-08-24T21:39:14+00:00",
+      "hash": "cd53cb494a405761c249b25cecaa6514d088d091a5e9f13414e34058316b0cf7",
+      "last_updated": "2026-09-28T21:12:46+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
       "path": "/docs/models/claude-4-5-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
@@ -1029,8 +1029,8 @@
       "title": "Models Claude 4 5 Sonnet"
     },
     "models__claude-4-6-sonnet.md": {
-      "hash": "63f9a8703f69a88f120aa680e5d39b612da292748a708f948f9f357d0a2e2a41",
-      "last_updated": "2026-08-24T21:39:14+00:00",
+      "hash": "b1776394c3e9ed96aadb989240a77343205b36eb126f6d4cc730399942de1629",
+      "last_updated": "2026-09-28T21:12:47+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
       "path": "/docs/models/claude-4-6-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
@@ -1038,8 +1038,8 @@
       "title": "Models Claude 4 6 Sonnet"
     },
     "models__claude-4-sonnet-1m.md": {
-      "hash": "2a1f82ac49c6d934bc1ca0966fc00d5bb19f3cafe31b1a50a04cf6b0ddc66fd4",
-      "last_updated": "2026-08-24T21:39:15+00:00",
+      "hash": "3b7922f7c4a1f6c8fde79b53f2169075f5c3eec859d7ebb4ed1944ceb1591b0a",
+      "last_updated": "2026-09-28T21:12:47+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
       "path": "/docs/models/claude-4-sonnet-1m",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
@@ -1047,8 +1047,8 @@
       "title": "Models Claude 4 Sonnet 1m"
     },
     "models__claude-4-sonnet.md": {
-      "hash": "cc96f4004ec27a6898ba99594772f6817c7406b2730fdb07a7d12832bfe1c368",
-      "last_updated": "2026-08-24T21:39:14+00:00",
+      "hash": "004cae08ac51c3c28c06ca20ae01985a76a80fbbc958d5d27b65a4ff2d46935e",
+      "last_updated": "2026-09-28T21:12:47+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet",
       "path": "/docs/models/claude-4-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet",
@@ -1119,8 +1119,8 @@
       "title": "Models Claude Opus 4 8"
     },
     "models__claude-opus-5-5.md": {
-      "hash": "85e147c400117409905e116f8aa6cfabbc3afd4cc43f6ee07ebc14917b86e7e0",
-      "last_updated": "2026-09-22T21:13:48+00:00",
+      "hash": "fb22827f5f4280a077354043f20ea896692db389999d78d66bc4d69b05563a5e",
+      "last_updated": "2026-09-28T21:12:50+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5-5",
       "path": "/docs/models/claude-opus-5-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-5-5",
@@ -1136,9 +1136,18 @@
       "status": "live",
       "title": "Models Claude Opus 5"
     },
+    "models__claude-sonnet-5-5.md": {
+      "hash": "768c7bc7ea891643c024f53f87705a4686444a221a259d93d71bd8cfa7ae126f",
+      "last_updated": "2026-09-28T21:12:50+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-sonnet-5-5",
+      "path": "/docs/models/claude-sonnet-5-5",
+      "source_url": "https://cursor.com/docs/models/claude-sonnet-5-5",
+      "status": "live",
+      "title": "Models Claude Sonnet 5 5"
+    },
     "models__claude-sonnet-5.md": {
-      "hash": "8b08eaff1c652535aed4bdf0898433b681102af73a374c4753a0f6b6c2754264",
-      "last_updated": "2026-09-22T16:50:58+00:00",
+      "hash": "b4126fc0237cc61705406dc688f3475d317edfbe97a2fc892ef8a812dcc13008",
+      "last_updated": "2026-09-28T21:12:50+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5",
       "path": "/docs/models/claude-sonnet-5",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5",
@@ -1461,8 +1470,8 @@
       "title": "Models Muse Spark 1 3"
     },
     "origin.md": {
-      "hash": "a7c94fb3d41f030a288438ab43ac6c993582afe8ebf3d5491ff2e46d97392c3f",
-      "last_updated": "2026-09-28T05:14:54+00:00",
+      "hash": "29146867743223a71f5b0acc5dce9840bc5c5e43871148d791103d7ff0c9040a",
+      "last_updated": "2026-09-28T21:13:00+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "source_url": "https://cursor.com/docs/origin",
@@ -1722,8 +1731,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "f04d51955d4661a15c7fcb57ab23d81cc2d45d3c6162fbce6cc1f181836d6d4a",
-      "last_updated": "2026-08-31T20:47:54+00:00",
+      "hash": "15ff6069de9d62709650bbd707c7e3dd46c5031e696fbb82c5b0acd18cea0c16",
+      "last_updated": "2026-09-28T21:13:08+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents",
@@ -1744,7 +1753,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-28T05:15:04+00:00",
+  "last_updated": "2026-09-28T21:13:08+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

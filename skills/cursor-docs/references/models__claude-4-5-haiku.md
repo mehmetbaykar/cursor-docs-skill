@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-4-5-haiku
 path: /docs/models/claude-4-5-haiku
 ---
 
-For stronger results, consider [Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5.md) or [Gemini 3 Flash](https://cursor.com/docs/models/gemini-3-flash.md) for a fast, affordable alternative.
+For stronger results, consider [Claude Sonnet 5.5](https://cursor.com/docs/models/claude-sonnet-5-5.md) or [Gemini 3 Flash](https://cursor.com/docs/models/gemini-3-flash.md) for a fast, affordable alternative.
 
 ## Pricing
 
