@@ -17,7 +17,7 @@ Cursor provides multiple APIs for programmatic access to your team's data, AI-po
 | [AI Code Tracking API](https://cursor.com/docs/account/teams/ai-code-tracking-api.md) | Track AI-generated code contributions at commit and change levels for attribution and analytics.                     | Enterprise teams |
 | [Bugbot API](https://cursor.com/docs/bugbot.md#api)                                   | Trigger Bugbot reviews and retrieve per-review analytics.                                                            | Enterprise teams |
 | [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md)              | Programmatically create and manage AI-powered coding agents for automated workflows and code generation.             | Beta (All Plans) |
-| [Origin API](https://cursor.com/docs/api/origin/llms-full.txt)                        | Work with Origin repositories, commits, checks, pull requests, and app installations.                                | Early Beta       |
+| [Origin API](https://cursor.com/docs/api/origin.md)                                   | Work with Origin repositories, commits, checks, pull requests, and app installations.                                | Early Beta       |
 | [TypeScript SDK](https://cursor.com/docs/sdk/typescript.md)                           | Run Cursor agents from TypeScript with one interface for local and cloud runtimes.                                   | All users        |
 | [Python SDK](https://cursor.com/docs/sdk/python.md)                                   | Run Cursor agents from Python with sync and async clients for local and cloud runtimes.                              | All users        |
 | [SDK Bridge](https://cursor.com/docs/sdk/bridge.md)                                   | Build agent SDKs in other languages on the open bridge protocol and standalone binaries.                             | All users        |
@@ -79,7 +79,7 @@ API keys are tied to your organization and viewable by all admins. Keys are unaf
 
 #### Origin API
 
-For user-authenticated requests, sign in with the Origin CLI or provide it a personal user API key. The CLI exchanges the key for a short-lived access token before it calls Origin. Team Admin API keys with the `admin:*` scope do not authenticate to Origin. Apps use app JWTs and installation access tokens. See [Origin API authentication](https://cursor.com/docs/api/origin/llms-full.txt#authentication).
+For user-authenticated requests, sign in with the Origin CLI or provide it a personal user API key. The CLI exchanges the key for a short-lived access token before it calls Origin. Team Admin API keys with the `admin:*` scope do not authenticate to Origin. Apps use app JWTs and installation access tokens. See [Origin API authentication](https://cursor.com/docs/api/origin/reference/authentication.md).
 
 ## Rate Limits
 

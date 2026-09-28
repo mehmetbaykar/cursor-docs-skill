@@ -109,7 +109,7 @@ When a build starts without a commit, `BUILDKITE_COMMIT` is `HEAD`. The two `git
 
 ## GitHub Actions and other CI providers
 
-GitHub Actions and other CI systems mint their own tokens. You create an Origin App once, install it on the repositories you clone, and give each job the app's private key and two ids. The job signs a short-lived app JWT and exchanges it for an installation token. For the full field reference, see [App JWT](https://cursor.com/docs/api/origin/llms-full.txt#app-jwt) and [Create Installation Access Token](https://cursor.com/docs/api/origin/llms-full.txt#create-installation-access-token).
+GitHub Actions and other CI systems mint their own tokens. You create an Origin App once, install it on the repositories you clone, and give each job the app's private key and two ids. The job signs a short-lived app JWT and exchanges it for an installation token. For the full field reference, see [App JWT](https://cursor.com/docs/api/origin/reference/app-jwt.md) and [Create Installation Access Token](https://cursor.com/docs/api/origin/reference/create-installation-access-token.md).
 
 ### Create an Origin App
 
@@ -144,7 +144,7 @@ From the app's install page in the same settings, install the app on the owner t
 
 The installation id is in the URL of the installation's page, `/codebase/settings/apps/installations/{installationId}`. Installation ids start with `i_`.
 
-To read installation ids programmatically, call [List App Installations](https://cursor.com/docs/api/origin/llms-full.txt#list-app-installations) with an app JWT as the bearer. The response includes each installation's `id`, `target.slug`, `scopes`, and `repoSelectionMode`.
+To read installation ids programmatically, call [List App Installations](https://cursor.com/docs/api/origin/reference/list-app-installations.md) with an app JWT as the bearer. The response includes each installation's `id`, `target.slug`, `scopes`, and `repoSelectionMode`.
 
 #### Store the credentials
 
@@ -152,7 +152,7 @@ Store the private key as a secret in your CI system and expose it to the job as 
 
 #### Mint a token in the job
 
-The function below signs the app JWT and exchanges it for an installation token. The JWT uses `alg` `EdDSA`, sets `iss` and `kid` to the App ID and `aud` to `origin-apps`, and sets `exp` 15 minutes ahead. The [App JWT](https://cursor.com/docs/api/origin/llms-full.txt#app-jwt) reference suggests a lifetime of about five minutes; because an installation token never outlives the JWT that minted it, this recipe signs a 15-minute JWT so the token gets its full 15 minutes. The request asks for `repository:contents:read`, which covers clone, fetch, and pull. Push needs `repository:contents:write`, and the installation must have granted that scope. Add `"repositoryIds":[...]` to the request body to narrow the token to some of the installation's repositories.
+The function below signs the app JWT and exchanges it for an installation token. The JWT uses `alg` `EdDSA`, sets `iss` and `kid` to the App ID and `aud` to `origin-apps`, and sets `exp` 15 minutes ahead. The [App JWT](https://cursor.com/docs/api/origin/reference/app-jwt.md) reference suggests a lifetime of about five minutes; because an installation token never outlives the JWT that minted it, this recipe signs a 15-minute JWT so the token gets its full 15 minutes. The request asks for `repository:contents:read`, which covers clone, fetch, and pull. Push needs `repository:contents:write`, and the installation must have granted that scope. Add `"repositoryIds":[...]` to the request body to narrow the token to some of the installation's repositories.
 
 The private key reaches `openssl` through a file descriptor and the bearer header reaches `curl` through stdin, so neither appears on a command line, where other processes on the runner could read it. The function sets and exports `CURSOR_AUTH_TOKEN` directly, so the token never touches a file, and a failed mint stops the job under `set -e`. It needs bash, openssl 1.1.1 or later, curl 7.55 or later, and jq:
 
@@ -281,7 +281,7 @@ jobs:
 ```
 
 - **On `pull_request`, the workflow builds the pull request head.** `github.sha` is a merge commit that exists only on GitHub, so `BUILD_SHA` and `BUILD_BRANCH` use the pull request's head commit and branch instead.
-- **The sync request is [Sync Mirror](https://cursor.com/docs/api/origin/llms-full.txt#sync-mirror).** It accepts the installation token, needs `repository:contents:read`, and returns `200` with `"synced": true` or `202` with `"synced": false` after its wait budget of about two minutes. If Origin is the source of truth and GitHub is the mirror, delete the sync request: the commit is already on Origin, and Origin rejects sync requests for repositories that do not pull from an upstream source.
+- **The sync request is [Sync Mirror](https://cursor.com/docs/api/origin/reference/sync-mirror.md).** It accepts the installation token, needs `repository:contents:read`, and returns `200` with `"synced": true` or `202` with `"synced": false` after its wait budget of about two minutes. If Origin is the source of truth and GitHub is the mirror, delete the sync request: the commit is already on Origin, and Origin rejects sync requests for repositories that do not pull from an upstream source.
 - **Both credentials are masked.** `::add-mask::` hides the app JWT and the installation token in the job log.
 - **Later steps mint again.** A later step that needs Origin git access defines and calls the function again. The token is never written to `$GITHUB_ENV` or `$GITHUB_OUTPUT`, which are files on disk.
 - **Pull requests from forks are not mirrored.** Their head branch is not in your repository. Build those from GitHub.
