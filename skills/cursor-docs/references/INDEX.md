@@ -35,8 +35,11 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `agent__tools__search` - [Search](https://cursor.com/docs/agent/tools/search)
 - `agent__tools__terminal` - [Terminal](https://cursor.com/docs/agent/tools/terminal)
 - `api` - [Cursor APIs Overview](https://cursor.com/docs/api)
-- `api__origin__llms-full.txt` - [Origin API](https://cursor.com/docs/api/origin/llms-full.txt)
-- `api__origin__llms.txt` - [Cursor Origin API](https://cursor.com/docs/api/origin/llms.txt)
+- `api__origin` - [Cursor Origin API](https://cursor.com/docs/api/origin)
+- `api__origin__acting-as-users` - [Acting on behalf of users](https://cursor.com/docs/api/origin/acting-as-users)
+- `api__origin__changelog` - [Origin API Changelog](https://cursor.com/docs/api/origin/changelog)
+- `api__origin__grants-api` - [Origin Grants API](https://cursor.com/docs/api/origin/grants-api)
+- `api__origin__migrations` - [Origin Migration API](https://cursor.com/docs/api/origin/migrations)
 - `approval-agents` - [PR Routing & Approval](https://cursor.com/docs/approval-agents)
 - `bugbot` - [Bugbot](https://cursor.com/docs/bugbot)
 - `cli__acp` - [ACP](https://cursor.com/docs/cli/acp)
@@ -197,9 +200,6 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 
 ## Skipped Pages
 
-- `/docs/api/origin` - Non-markdown response (text/html)
-- `/docs/api/origin/acting-as-users` - Non-markdown response (text/html)
-- `/docs/api/origin/changelog` - Non-markdown response (text/html)
-- `/docs/api/origin/grants-api` - Non-markdown response (text/html)
-- `/docs/api/origin/migrations` - Non-markdown response (text/html)
-- `/docs/api/origin/openapi.yaml` - Non-markdown response (application/yaml)
+- `/docs/api/origin/llms-full.txt` - No markdown endpoint
+- `/docs/api/origin/llms.txt` - No markdown endpoint
+- `/docs/api/origin/openapi.yaml` - No markdown endpoint

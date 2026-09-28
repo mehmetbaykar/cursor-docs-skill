@@ -4,16 +4,16 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 188,
-    "pages_skipped": 6,
+    "pages_fetched_successfully": 191,
+    "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
     "total_pages_discovered": 194
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "6eaa5146b2d7c03236035300a6fefebd9089b467cc12880a15b21a076117ae43",
-      "last_updated": "2026-09-15T21:15:02+00:00",
+      "hash": "03be52a358bc2caa98b7a41e56e20246127f054f624bea1c38cee7cd13772ea4",
+      "last_updated": "2026-09-28T05:13:59+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "8a2c40b90fcc52780990a704fc60d878e5a3522b860c2a3102db03fbb74bb247",
-      "last_updated": "2026-09-25T17:04:22+00:00",
+      "hash": "f3341ffbf6780748a6804d6688b6ff6dd392d6f7a39f80b3114361a26341faa5",
+      "last_updated": "2026-09-28T05:14:00+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -48,8 +48,8 @@
       "title": "Admin API"
     },
     "account__teams__ai-code-tracking-api.md": {
-      "hash": "13eb006846ae59368203dbd993528c858e446a663ab922d40da1e23c23b25bbc",
-      "last_updated": "2026-08-07T17:11:42+00:00",
+      "hash": "30eed0fdab7f71e90054ee2cfb362ef06cce14cbdae177c65997824093ef82b2",
+      "last_updated": "2026-09-28T05:14:00+00:00",
       "original_url": "https://cursor.com/docs/account/teams/ai-code-tracking-api",
       "path": "/docs/account/teams/ai-code-tracking-api",
       "source_url": "https://cursor.com/docs/account/teams/ai-code-tracking-api",
@@ -57,8 +57,8 @@
       "title": "AI Code Tracking API"
     },
     "account__teams__analytics-api.md": {
-      "hash": "eca90141536932f6774f2f639cf3bf57458e9f54a433a149f4c716b8a697744f",
-      "last_updated": "2026-08-07T17:11:42+00:00",
+      "hash": "06cda2f4a54043159413ef6acdda13e37594b6eaf8bc8dadb09c46c552d9cd00",
+      "last_updated": "2026-09-28T05:14:01+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics-api",
       "path": "/docs/account/teams/analytics-api",
       "source_url": "https://cursor.com/docs/account/teams/analytics-api",
@@ -264,31 +264,58 @@
       "title": "Terminal"
     },
     "api.md": {
-      "hash": "e5203f41330356bd6c22f4e679e7fa7c73e25ad7fe594130a4908e6e61a06a15",
-      "last_updated": "2026-09-09T20:52:49+00:00",
+      "hash": "a9ca2a2430381a131e402a7effcbc1d21475ad1fd6e587f60b4700a374dc1f95",
+      "last_updated": "2026-09-28T05:14:08+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "source_url": "https://cursor.com/docs/api",
       "status": "live",
       "title": "Cursor APIs Overview"
     },
-    "api__origin__llms-full.txt.md": {
-      "hash": "ecf84441934fed1e4beef95fcc26313f74e9430d496c0c8d0ea63390bdee28f0",
-      "last_updated": "2026-09-26T21:03:08+00:00",
-      "original_url": "https://cursor.com/docs/api/origin/llms-full.txt",
-      "path": "/docs/api/origin/llms-full.txt",
-      "source_url": "https://cursor.com/docs/api/origin/llms-full.txt",
-      "status": "live",
-      "title": "Origin API"
-    },
-    "api__origin__llms.txt.md": {
-      "hash": "cded5e5ff47addb092ef093420448790087c2e2ec5a29836729ad79349160dcb",
-      "last_updated": "2026-09-26T21:03:09+00:00",
-      "original_url": "https://cursor.com/docs/api/origin/llms.txt",
-      "path": "/docs/api/origin/llms.txt",
-      "source_url": "https://cursor.com/docs/api/origin/llms.txt",
+    "api__origin.md": {
+      "hash": "07b4999ec31c1492ceb90fa15d97f3babef042d75e400a8ffb751dcdd975c60e",
+      "last_updated": "2026-09-28T05:14:09+00:00",
+      "original_url": "https://cursor.com/docs/api/origin",
+      "path": "/docs/api/origin",
+      "source_url": "https://cursor.com/docs/api/origin",
       "status": "live",
       "title": "Cursor Origin API"
+    },
+    "api__origin__acting-as-users.md": {
+      "hash": "03fa82f297bdc3faf4c05fe9e78dbbb2bd9a45af9e3de2a555b9034ea6df8ccc",
+      "last_updated": "2026-09-28T05:14:09+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/acting-as-users",
+      "path": "/docs/api/origin/acting-as-users",
+      "source_url": "https://cursor.com/docs/api/origin/acting-as-users",
+      "status": "live",
+      "title": "Acting on behalf of users"
+    },
+    "api__origin__changelog.md": {
+      "hash": "1ef44d9a61bc5771ae94912b34b82ada0ece6a2f57df1b9a181a34f7b088b588",
+      "last_updated": "2026-09-28T05:14:10+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/changelog",
+      "path": "/docs/api/origin/changelog",
+      "source_url": "https://cursor.com/docs/api/origin/changelog",
+      "status": "live",
+      "title": "Origin API Changelog"
+    },
+    "api__origin__grants-api.md": {
+      "hash": "38871a430f9a387c56f05860917704e54b18df7ec3823cfef2b6b2a9dc0c0eab",
+      "last_updated": "2026-09-28T05:14:10+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/grants-api",
+      "path": "/docs/api/origin/grants-api",
+      "source_url": "https://cursor.com/docs/api/origin/grants-api",
+      "status": "live",
+      "title": "Origin Grants API"
+    },
+    "api__origin__migrations.md": {
+      "hash": "a31238a117f332999329261b273de44342cbd7fed3f5cfb270ed4da64a11c12c",
+      "last_updated": "2026-09-28T05:14:11+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/migrations",
+      "path": "/docs/api/origin/migrations",
+      "source_url": "https://cursor.com/docs/api/origin/migrations",
+      "status": "live",
+      "title": "Origin Migration API"
     },
     "approval-agents.md": {
       "hash": "94c790ef686b8d26279978ce677c347a7d52b80ff53e68ce8cc0c8c7a3ab92a0",
@@ -300,8 +327,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "425e5e19ea426dd4874e1473a67d64bb4e374204459615e02fd23f10e10c4833",
-      "last_updated": "2026-09-16T16:45:46+00:00",
+      "hash": "3d68d6f8898c6b6820439189ca7078f8427f76467303e1ff2f108e1f29c610b0",
+      "last_updated": "2026-09-28T05:14:11+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -426,8 +453,8 @@
       "title": "Slash commands"
     },
     "cli__reference__terminal-setup.md": {
-      "hash": "d38de3495e1d42dd13c3265e77affe58c1a8906b8dbd8110d61e22e4d86856fa",
-      "last_updated": "2026-08-07T17:11:54+00:00",
+      "hash": "45caf88cc0e5424d483fea4139cce440c31b8f65e57bd5b8dbf361cd8feb09cf",
+      "last_updated": "2026-09-28T05:14:16+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/terminal-setup",
       "path": "/docs/cli/reference/terminal-setup",
       "source_url": "https://cursor.com/docs/cli/reference/terminal-setup",
@@ -462,8 +489,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "5177843fce33d76e3dcfb99fb0570940de70c90f1402fa6158cbab2bfcd31f75",
-      "last_updated": "2026-09-26T04:48:20+00:00",
+      "hash": "18137450bd14fa2afbef4742dc6bd37d0c2b372c83d8ee61b4afafab495415a5",
+      "last_updated": "2026-09-28T05:14:18+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1434,8 +1461,8 @@
       "title": "Models Muse Spark 1 3"
     },
     "origin.md": {
-      "hash": "36435c2935ed7cc2b61097c8caa94072e85da3e88a1e040702224d5c7ef6b6bd",
-      "last_updated": "2026-09-09T20:53:28+00:00",
+      "hash": "a7c94fb3d41f030a288438ab43ac6c993582afe8ebf3d5491ff2e46d97392c3f",
+      "last_updated": "2026-09-28T05:14:54+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "source_url": "https://cursor.com/docs/origin",
@@ -1461,8 +1488,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "265f8e58b717e06e0a964bef0a2716dd19f1b1b64dee331b584c9591ff474c14",
-      "last_updated": "2026-09-17T04:45:26+00:00",
+      "hash": "e6e2c298fa436e96b6d8e9b92d490e24c9382a0fb9dd1468db14ce50b8f78494",
+      "last_updated": "2026-09-28T05:14:55+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
@@ -1479,8 +1506,8 @@
       "title": "Pull request commands"
     },
     "origin__clonekit-ci.md": {
-      "hash": "ba6ece6451c5305d3723ced0499b01991f0147a537bc93dc55396d2cefa588b3",
-      "last_updated": "2026-09-17T16:53:04+00:00",
+      "hash": "f25455d9de5a959aef411cd0c524c9b4e0687a20ec4176c76d405562d5f7677c",
+      "last_updated": "2026-09-28T05:14:56+00:00",
       "original_url": "https://cursor.com/docs/origin/clonekit-ci",
       "path": "/docs/origin/clonekit-ci",
       "source_url": "https://cursor.com/docs/origin/clonekit-ci",
@@ -1488,8 +1515,8 @@
       "title": "Set up CloneKit in CI with `origin repo clone-fast`"
     },
     "origin__codebase-settings.md": {
-      "hash": "34eb0ba2ade6bcc88f8a2d3583053ed095b53bcb837c00e2f986348e410db960",
-      "last_updated": "2026-09-01T18:25:24+00:00",
+      "hash": "9bf70a541b1099edc493c834857cc769b8eda291581e2686f7f67f56214b5dea",
+      "last_updated": "2026-09-28T05:14:56+00:00",
       "original_url": "https://cursor.com/docs/origin/codebase-settings",
       "path": "/docs/origin/codebase-settings",
       "source_url": "https://cursor.com/docs/origin/codebase-settings",
@@ -1515,8 +1542,8 @@
       "title": "Clone, Push & Pull"
     },
     "origin__integrations.md": {
-      "hash": "0d656d9e6b298d850212b2f27a29c1ee83fcc1e651321e710db22644a6be1ee6",
-      "last_updated": "2026-09-18T16:20:08+00:00",
+      "hash": "eeb7d9023201e36dffa12916c4ac5142416a703ec2ffd3c7536a943b575882d1",
+      "last_updated": "2026-09-28T05:14:57+00:00",
       "original_url": "https://cursor.com/docs/origin/integrations",
       "path": "/docs/origin/integrations",
       "source_url": "https://cursor.com/docs/origin/integrations",
@@ -1717,36 +1744,21 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-27T21:18:01+00:00",
+  "last_updated": "2026-09-28T05:15:04+00:00",
   "skipped": [
     {
-      "path": "/docs/api/origin",
-      "reason": "Non-markdown response (text/html)",
-      "url": "https://cursor.com/docs/api/origin"
+      "path": "/docs/api/origin/llms-full.txt",
+      "reason": "No markdown endpoint",
+      "url": "https://cursor.com/docs/api/origin/llms-full.txt"
     },
     {
-      "path": "/docs/api/origin/acting-as-users",
-      "reason": "Non-markdown response (text/html)",
-      "url": "https://cursor.com/docs/api/origin/acting-as-users"
-    },
-    {
-      "path": "/docs/api/origin/changelog",
-      "reason": "Non-markdown response (text/html)",
-      "url": "https://cursor.com/docs/api/origin/changelog"
-    },
-    {
-      "path": "/docs/api/origin/grants-api",
-      "reason": "Non-markdown response (text/html)",
-      "url": "https://cursor.com/docs/api/origin/grants-api"
-    },
-    {
-      "path": "/docs/api/origin/migrations",
-      "reason": "Non-markdown response (text/html)",
-      "url": "https://cursor.com/docs/api/origin/migrations"
+      "path": "/docs/api/origin/llms.txt",
+      "reason": "No markdown endpoint",
+      "url": "https://cursor.com/docs/api/origin/llms.txt"
     },
     {
       "path": "/docs/api/origin/openapi.yaml",
-      "reason": "Non-markdown response (application/yaml)",
+      "reason": "No markdown endpoint",
       "url": "https://cursor.com/docs/api/origin/openapi.yaml"
     }
   ],
