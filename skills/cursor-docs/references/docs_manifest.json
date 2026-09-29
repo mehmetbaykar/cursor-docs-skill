@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 192,
+    "pages_fetched_successfully": 194,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 195
+    "total_pages_discovered": 197
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "c77dee4ae8de9e45a57b216c15782bf115ae4220ca8d5c6caef6624901820e95",
-      "last_updated": "2026-09-28T21:12:16+00:00",
+      "hash": "3b0dab0c418fd4a9325c07ebd43a7a2a5c129aa34c9e65b2e0b3c2cc6c3702f7",
+      "last_updated": "2026-09-29T01:00:01+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -66,8 +66,8 @@
       "title": "Analytics API"
     },
     "account__teams__analytics.md": {
-      "hash": "6091460063db42d77979ad1c47f0acf89aedbfe79b7049a6041c332d6425802e",
-      "last_updated": "2026-09-22T16:50:15+00:00",
+      "hash": "43c5d7cc6bfd1bed7f530b2291f447912b454f728e6caec1ee9103ef4041c3f6",
+      "last_updated": "2026-09-29T01:00:02+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics",
       "path": "/docs/account/teams/analytics",
       "source_url": "https://cursor.com/docs/account/teams/analytics",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "882d000d2f059d8fcab740d25f3dab4cdf39a460dbf903a37384aebe46019c2b",
-      "last_updated": "2026-09-28T21:12:18+00:00",
+      "hash": "064ff37d98eadf7781efaf711da30db2c4a02a0c8452761cb5406a59ca01f3c9",
+      "last_updated": "2026-09-29T01:00:03+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -489,8 +489,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "18137450bd14fa2afbef4742dc6bd37d0c2b372c83d8ee61b4afafab495415a5",
-      "last_updated": "2026-09-28T05:14:18+00:00",
+      "hash": "613c6cb3b14c5291b6b3823ae6d5458d1f7d2e11acc69c4cb06bd8327ec858dd",
+      "last_updated": "2026-09-29T01:00:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -579,8 +579,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__security-network.md": {
-      "hash": "621f1e2538f0188f00b0da1cb6b10d003f7eed38c0c3efeda5f5dde39d69cb87",
-      "last_updated": "2026-08-28T15:16:23+00:00",
+      "hash": "339e9648261e650be5daee0963d6ee1cefa391714710eb6c0a2c53334d56dc13",
+      "last_updated": "2026-09-29T01:00:21+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
@@ -633,8 +633,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "255ae52bcaeeefc8ce43587add722e08782b37703b1a498e5550001d37c3475a",
-      "last_updated": "2026-09-14T04:46:50+00:00",
+      "hash": "d1d97742facab36067b97c0fe32c10640b58644878fc13c0ce1a0c97cc9ee0f7",
+      "last_updated": "2026-09-29T01:00:22+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
@@ -642,8 +642,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "82df607ea7b9f6d62911b4e9ab761955326f37ab7abf6a0c7e7f4e9f0ee643cf",
-      "last_updated": "2026-09-26T04:48:26+00:00",
+      "hash": "3f047596a6bba4ca05db5f25bb3749d0d9ec520468d97022d2d5a7b9ca28bc13",
+      "last_updated": "2026-09-29T01:00:22+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -696,8 +696,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "99f160b9492e882fbcec908f3078d278d90bda7db3565dcde7dd6707c5d3a68d",
-      "last_updated": "2026-09-28T21:12:15+00:00",
+      "hash": "e6a2bf6c44e8c9820cb8197985af512c2c63e351373315b89621d41c50aa6179",
+      "last_updated": "2026-09-29T01:00:00+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -822,8 +822,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "a90425798a3baa406774cc0ca37874b42d2f546630fe959ad0a29212aae52300",
-      "last_updated": "2026-09-27T21:17:27+00:00",
+      "hash": "2bc370b5b3bc77888751a5faf0e6d5293a24697d99ac5f3f655be33bf7fc862e",
+      "last_updated": "2026-09-29T01:00:28+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -831,8 +831,8 @@
       "title": "Grok Bot security"
     },
     "grok-bot__settings.md": {
-      "hash": "3ef46125ceea1fa7fd650a2344787c2a5a15911756dd2fd1734e2602872366e2",
-      "last_updated": "2026-09-27T21:17:27+00:00",
+      "hash": "352d0771b824bd7b17659ca28c4b876ae5c3f48efb5962f132d20c8e200906bc",
+      "last_updated": "2026-09-29T01:00:29+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/settings",
       "path": "/docs/grok-bot/settings",
       "source_url": "https://cursor.com/docs/grok-bot/settings",
@@ -840,8 +840,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "58f6bedb24e47b517fd725f5fc9828526d1a7ead3d72ccc90e0bcf91b19ba830",
-      "last_updated": "2026-09-28T21:12:41+00:00",
+      "hash": "44c3756d94206d17df9b89db8f4c7626d6cbe596715ffee11a6bab5ed0223868",
+      "last_updated": "2026-09-29T01:00:29+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -858,8 +858,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "4ae2a2f9ef874627010b5f2b44ee72d83982910bea41ff40c381103910f20cf2",
-      "last_updated": "2026-09-28T21:12:41+00:00",
+      "hash": "4174ceae1e78a726a13618c4c9f9ef99454a8fe7a03105ea75a1b884af340b74",
+      "last_updated": "2026-09-29T01:00:30+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -885,8 +885,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "37809e7dd5c7a1cf99346274d268b1117986b34cdf8e08f20753ca5e85958e71",
-      "last_updated": "2026-08-07T17:12:05+00:00",
+      "hash": "d160a252760dbc4db87d1d18fce0e8b865091b13f25d6998d9685879477761e5",
+      "last_updated": "2026-09-29T01:00:31+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "source_url": "https://cursor.com/docs/integrations/bitbucket",
@@ -903,8 +903,8 @@
       "title": "Cursor Blame"
     },
     "integrations__github.md": {
-      "hash": "2f433dac8b781e8061be195056bc358427f5a45faf06ca7c74794e1888420780",
-      "last_updated": "2026-08-14T02:38:51+00:00",
+      "hash": "10ce12635a672551668972dc084f765e01ac83b77331fe40c4b94fd9a3224cf5",
+      "last_updated": "2026-09-29T01:00:31+00:00",
       "original_url": "https://cursor.com/docs/integrations/github",
       "path": "/docs/integrations/github",
       "source_url": "https://cursor.com/docs/integrations/github",
@@ -912,8 +912,8 @@
       "title": "GitHub"
     },
     "integrations__gitlab.md": {
-      "hash": "bc711e6befa8fbdf1348767caadfdecdaf712325b7e5f8b2bb88691206855269",
-      "last_updated": "2026-08-07T17:12:06+00:00",
+      "hash": "5a051dc508b58a99faea8aa7c1d76e3a00697f8ee03c424f96b495ac44f8dc3a",
+      "last_updated": "2026-09-29T01:00:32+00:00",
       "original_url": "https://cursor.com/docs/integrations/gitlab",
       "path": "/docs/integrations/gitlab",
       "source_url": "https://cursor.com/docs/integrations/gitlab",
@@ -966,8 +966,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "92657df4d54f162b179f205d63f4821e77d40ced4ec166392754aa865a8f7ef8",
-      "last_updated": "2026-09-26T04:48:36+00:00",
+      "hash": "d5b08f46d7a97e92bfde90bfce38041fcd7645c899d8aa35d54fee851cabe7c9",
+      "last_updated": "2026-09-29T01:00:33+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1002,8 +1002,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "312c24b2837d1f9b0cf421530b6710d69059100f098d7c3623cacfd6654f9a4b",
-      "last_updated": "2026-09-28T21:12:46+00:00",
+      "hash": "214ce015ed32ab581de7e0ebc701f809f6b2301948b62e6d6cb3810cdccebb88",
+      "last_updated": "2026-09-29T01:00:35+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1254,13 +1254,31 @@
       "title": "Models Gemini 3 Pro"
     },
     "models__glm-5-2.md": {
-      "hash": "605a8a5a7d93f72c69e6057dc0f8e9a66d52da969833f496890a9ca82258f4b0",
-      "last_updated": "2026-08-24T21:39:20+00:00",
+      "hash": "4b6555e63dd0dc8de9b505437a56248d7d1b0b9f476ad7ed47b22f4b01440a9c",
+      "last_updated": "2026-09-29T01:00:43+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-2",
       "path": "/docs/models/glm-5-2",
       "source_url": "https://cursor.com/docs/models/glm-5-2",
       "status": "live",
       "title": "Models Glm 5 2"
+    },
+    "models__glm-5-3-flash.md": {
+      "hash": "812fd762de63a72e89a4a6701348da72566ec1ad7a810c60dd65a20110fb82b0",
+      "last_updated": "2026-09-29T01:00:44+00:00",
+      "original_url": "https://cursor.com/docs/models/glm-5-3-flash",
+      "path": "/docs/models/glm-5-3-flash",
+      "source_url": "https://cursor.com/docs/models/glm-5-3-flash",
+      "status": "live",
+      "title": "Models Glm 5 3 Flash"
+    },
+    "models__glm-5-3.md": {
+      "hash": "a4d1176be25ff3059098196aefb8f235fc253af9947720eec32a8a6722457505",
+      "last_updated": "2026-09-29T01:00:43+00:00",
+      "original_url": "https://cursor.com/docs/models/glm-5-3",
+      "path": "/docs/models/glm-5-3",
+      "source_url": "https://cursor.com/docs/models/glm-5-3",
+      "status": "live",
+      "title": "Models Glm 5 3"
     },
     "models__gpt-5-1-codex-max.md": {
       "hash": "ec3793301a434af6f491d0da02ca77e08e6cbab8d672a7ae5d64f7b463dd4890",
@@ -1704,8 +1722,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "5bb970c38b4d1949623a85846f5d4f290b7575b615fff3c2472436cd8630d05b",
-      "last_updated": "2026-09-03T23:15:06+00:00",
+      "hash": "398a32020f5cad6f516350073a5832f42bfea9b951d5be0f02caf96e1a42d939",
+      "last_updated": "2026-09-29T01:00:59+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1753,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-28T21:13:08+00:00",
+  "last_updated": "2026-09-29T01:01:01+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

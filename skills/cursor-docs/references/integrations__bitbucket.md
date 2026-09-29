@@ -107,6 +107,27 @@ Add these Cursor IP addresses to your inbound allowlist:
 184.73.225.134
 3.209.66.12
 52.44.113.131
+100.63.97.141
+100.63.144.57
+18.210.232.136
+3.208.51.163
+3.224.130.48
+3.234.118.132
+34.197.19.148
+34.198.251.120
+34.199.187.247
+35.170.160.152
+44.215.226.85
+52.202.172.69
+54.81.109.217
+54.204.61.44
+54.236.99.119
+67.202.63.191
+184.193.125.229
+184.193.223.40
+184.194.140.210
+184.194.175.144
+184.194.208.56
 ```
 
 If Cursor should use a load balancer or API hostname that differs from the repository clone hostname, enter it as the external host during registration.
