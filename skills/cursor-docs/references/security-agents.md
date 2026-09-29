@@ -53,7 +53,7 @@ Use tools and MCPs to connect Security Agents to the systems where your team tra
 
 ### Environment Setup
 
-Security Agents run on Cloud Agents.
+Security Agents run on Cloud Agents. The exception is a team's Security Reviewer: when a pull request event triggers it, the review runs on Cursor-managed hosting instead of a Cloud Agent.
 
 You can use Cursor's cloud with no additional setup.
 
@@ -109,7 +109,7 @@ Each finding has two actions:
 
 Every agent run is tracked in Automations. Use the run history to see when an agent ran, which tools it used, its final status, and how long it took.
 
-Open a run to inspect the underlying Cloud Agent for more detail about what the agent did.
+Open a run to inspect the underlying Cloud Agent for more detail about what the agent did. A review that ran on Cursor-managed hosting has no Cloud Agent. Find it under **Recent Runs** on the Security Agents page, where it opens a read-only view of the review session.
 
 ![Security Agents run history in Automations](https://cursor.com/docs-static/images/security-review/recent-runs.png)
 

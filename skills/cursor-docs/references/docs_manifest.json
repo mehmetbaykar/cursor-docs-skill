@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "f7bf23331511663db1ef5ce99bfb6e058ac7f0c77fe42dc0305dc495870c4409",
-      "last_updated": "2026-09-29T15:24:13+00:00",
+      "hash": "dcc2dd67970acf25f3dd1738988a4c2db688586a5867774b1a4740dc56e605cc",
+      "last_updated": "2026-09-29T21:21:16+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -597,8 +597,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "504489212fad45c319b5a2370049d0d106232198764627143c9c5c703c9369ec",
-      "last_updated": "2026-09-23T21:27:01+00:00",
+      "hash": "c9fc31a3bbfe3c807d18761bced50176781388dabe4b557c9b5ed22f0d436f6b",
+      "last_updated": "2026-09-29T21:21:27+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -624,8 +624,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "5bcd5e2d430ca44d62a07c3ef24dd7d2b8488a7354e3fb655f6c02cea7cc2b69",
-      "last_updated": "2026-09-23T21:27:02+00:00",
+      "hash": "73670e19c60d4374229290e4279efe50e22e9830ec1c72b9c5ceaca6564f6064",
+      "last_updated": "2026-09-29T21:21:28+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
@@ -642,8 +642,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "3f047596a6bba4ca05db5f25bb3749d0d9ec520468d97022d2d5a7b9ca28bc13",
-      "last_updated": "2026-09-29T01:00:22+00:00",
+      "hash": "b494cd77000f1751c9a7709b6038ca8eb8b465be4ee5f5383457c294ff93652d",
+      "last_updated": "2026-09-29T21:21:29+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1677,8 +1677,8 @@
       "title": "Third Party Hooks"
     },
     "rollouts.md": {
-      "hash": "15b1814af862613c640d9aaac9866d2ffdf93a4bbe1ae6a61c58c5cbb4c70231",
-      "last_updated": "2026-09-25T17:05:24+00:00",
+      "hash": "56035345e2152b9f10f5f00ab84bdba86742bb7178e68a5df46ac0be65f7db45",
+      "last_updated": "2026-09-29T21:22:07+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1731,8 +1731,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "cc9d4179de18e4c1b4d9c5e107edf1233db0bc7e022e6d1215462b0646d1ae54",
-      "last_updated": "2026-09-24T21:28:11+00:00",
+      "hash": "4ec02486b67410b200d4aebfef264fe25e4ba2a79f49bfecefc6716b477a0fda",
+      "last_updated": "2026-09-29T21:22:09+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -1771,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-29T15:25:05+00:00",
+  "last_updated": "2026-09-29T21:22:10+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
