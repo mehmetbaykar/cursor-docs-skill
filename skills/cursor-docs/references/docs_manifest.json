@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "03be52a358bc2caa98b7a41e56e20246127f054f624bea1c38cee7cd13772ea4",
-      "last_updated": "2026-09-28T05:13:59+00:00",
+      "hash": "fc2cc2f49f972bcd96e887077d5b8af336e89fb7e7d24687fe0572dc7b82d254",
+      "last_updated": "2026-09-29T15:24:04+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -39,8 +39,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "f3341ffbf6780748a6804d6688b6ff6dd392d6f7a39f80b3114361a26341faa5",
-      "last_updated": "2026-09-28T05:14:00+00:00",
+      "hash": "83135631bd00620cb97dc79649f2cc8928fda889f7743331c0f48f8860c4f608",
+      "last_updated": "2026-09-29T15:24:04+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "d58282c7fb0606ba61708171398eba81b4e190bfa58d05a655b8c19074f39bd5",
-      "last_updated": "2026-09-29T06:39:05+00:00",
+      "hash": "378d8d6af5e2e97ae4ddf9bb033a3cfb9a86c1574f423dc720eac745f501d864",
+      "last_updated": "2026-09-29T15:24:13+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "b055deb902be0c1f5ae7e9c48d9f70f81c6bc6439a65b7fca14671533c8d4a55",
-      "last_updated": "2026-09-29T06:39:05+00:00",
+      "hash": "f7bf23331511663db1ef5ce99bfb6e058ac7f0c77fe42dc0305dc495870c4409",
+      "last_updated": "2026-09-29T15:24:13+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -1771,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-29T06:40:05+00:00",
+  "last_updated": "2026-09-29T15:25:05+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
