@@ -28,7 +28,7 @@ Rollouts checks a deploy when it happens, then again after 20 minutes, 1 hour, 1
 
 ### Regressions
 
-When Rollouts detects a regression, it names the change it suspects, opens an issue, and notifies the author. On the issue's page, select **Fix** to start a cloud agent on it, or **Close** it with a reason. Rollouts doesn't merge, revert, or roll back changes on its own.
+When Rollouts detects a regression, it names the change it suspects, opens an issue, and notifies the author. On the issue's page, select **Fix issue** to start a cloud agent on it, or **Close** it with a reason. The agent opens in a panel on the issue's page. After a fix starts, **View fix** takes the place of **Fix issue** and reopens that agent. Rollouts doesn't merge, revert, or roll back changes on its own.
 
 ### Track changes
 
@@ -64,6 +64,8 @@ Rollouts settings have four sections:
 - **Deployment events.** How your pipeline reports what gets deployed and where.
 - **Data sources.** The MCP connections Rollouts queries to verify deployed changes and detect regressions.
 - **Notifications.** How you hear about deployments and regressions on your changes.
+
+The switch at the top of Settings turns Rollouts on or off for your team. Its label reads **Enabled** or **Disabled**.
 
 ### Choose which changes to monitor
 
