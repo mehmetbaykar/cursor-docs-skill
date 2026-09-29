@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "07b4999ec31c1492ceb90fa15d97f3babef042d75e400a8ffb751dcdd975c60e",
-      "last_updated": "2026-09-28T05:14:09+00:00",
+      "hash": "d58282c7fb0606ba61708171398eba81b4e190bfa58d05a655b8c19074f39bd5",
+      "last_updated": "2026-09-29T06:39:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "1ef44d9a61bc5771ae94912b34b82ada0ece6a2f57df1b9a181a34f7b088b588",
-      "last_updated": "2026-09-28T05:14:10+00:00",
+      "hash": "b055deb902be0c1f5ae7e9c48d9f70f81c6bc6439a65b7fca14671533c8d4a55",
+      "last_updated": "2026-09-29T06:39:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -1771,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-29T01:01:01+00:00",
+  "last_updated": "2026-09-29T06:40:05+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
