@@ -48,8 +48,8 @@ Use **Marketplace** to discover plugins and packaged skills, and **Yours** to re
 The update controls live in the **Updates** pane of settings, and the Grok Bot app and Grok Bot's computer update separately:
 
 - **Check for Updates** and **Restart to Update** update the desktop app.
-- **Update Grok Bot's Computer**, in the **Grok Bot's Computer** section, rebuilds the cloud computer on the latest image while preserving durable state.
-- **Reset Grok Bot's Computer** is a last resort that returns the computer to its synced durable state; unsynced recent work doesn't come back.
+- **Update Grok Bot's Computer**, in the **Grok Bot's Computer** section, moves the cloud computer to the latest version. A software update only refreshes Grok Bot's software and keeps installed apps. A computer update rebuilds the computer, keeping files and logins but removing installed apps and packages. The text under **Update** says which kind is waiting.
+- **Reset Grok Bot's Computer** is a last resort that rebuilds the computer from your last saved data, the same as Recover; if the computer can't be reached to save first, very recent changes don't come back.
 
 ![The Grok Bot's Computer section in Grok Bot's Updates settings, with Update and Reset buttons](https://cursor.com/docs-static/images/grok-bot/settings-computer-light.png)
 

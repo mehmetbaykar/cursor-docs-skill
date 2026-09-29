@@ -4,6 +4,8 @@ source: https://cursor.com/docs/models/glm-5-2
 path: /docs/models/glm-5-2
 ---
 
+We recommend using [GLM 5.3](https://cursor.com/docs/models/glm-5-3.md). It is Z.ai's latest model at the same per-token price.
+
 ## Tools
 
 GLM 5.2 has access to all agent tools when used with Cursor including:

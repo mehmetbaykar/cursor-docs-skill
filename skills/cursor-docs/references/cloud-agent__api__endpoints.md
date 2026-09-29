@@ -76,11 +76,13 @@ Execution environment type. `cloud` uses Cursor-hosted VMs; `pool` and `machine`
 
 `env.name` string (optional)
 
-Named Cursor-hosted environment, pool, or machine name. For `env.type: "pool"`, this is the pool name (defaults to `default` when omitted). An unknown pool name returns `400` instead of queueing forever.
+Named Cursor-hosted environment, pool, or machine name. For `env.type: "pool"`, this is the pool name (defaults to `default` when omitted). An unknown pool name returns `400` instead of queueing forever. Name an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) to send more than one entry in `repos`.
 
 `repos` array (optional)
 
 Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. You can also omit `repos` when `env.type` is `pool` to target an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools). Maximum 20 repositories.
+
+On self-hosted targets, only a named any-repo pool takes more than one repository. `machine`, the `default` pool, and repo-backed pools take one; sending more returns `400 validation_error` with the message "My Machines and repo-bound pools accept one repo in repos. To start an agent with several repos, set env.name to an any-repo pool."
 
 `repos[0].url` string (required)
 
@@ -203,6 +205,34 @@ curl --request POST \
       "type": "pool",
       "name": "sandbox"
     }
+  }'
+```
+
+Any-repo pool with several repos:
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/agents \
+  -u YOUR_API_KEY: \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "prompt": {
+      "text": "Update the API client and the web app together"
+    },
+    "env": {
+      "type": "pool",
+      "name": "my-pool"
+    },
+    "repos": [
+      {
+        "url": "https://github.com/your-org/your-api",
+        "startingRef": "main"
+      },
+      {
+        "url": "https://github.com/your-org/your-web-app",
+        "startingRef": "main"
+      }
+    ]
   }'
 ```
 

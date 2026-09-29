@@ -94,6 +94,8 @@ agent worker \
 
 Each path must exist. For each root with a Git remote, the worker registers routing metadata so Cursor can match requests to the correct checkout.
 
+An agent you start on a machine with [`POST /v1/agents`](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent) (`env.type: "machine"`) gets one repo in `repos`. To start an agent with several repos, use an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools).
+
 ### Use an API key
 
 For devboxes or automation where browser login isn't practical, use a personal user API key from [Cursor Dashboard → API Keys](https://cursor.com/dashboard/api):

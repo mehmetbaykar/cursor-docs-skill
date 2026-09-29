@@ -114,7 +114,9 @@ On macOS, the first start installs the **Cursor Computer Use** helper app. Grant
 
 ## Register multiple repo roots
 
-Self-hosted multi-repo support is configured at worker startup by registering multiple workspace roots. Pass `--worker-dir` once for each local repo root. The first root is the primary repository for assignment identity and dashboard display. All roots are exposed to the agent runtime, and roots with valid git origins register repository routing metadata.
+Register several roots when a worker should serve checkouts you clone before it starts. Pass `--worker-dir` once for each local repo root. The first root is the primary repository for assignment identity and dashboard display. All roots are exposed to the agent runtime, and roots with valid git origins register repository routing metadata.
+
+Extra roots don't add repositories to a request. [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent) takes one repo for the `default` pool or a repo-backed pool. The agent can work in the other roots, but git there uses the credentials already on the worker. A minted GitHub token covers only the repos in the request. To start one agent with several repos, send them to an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) whose workers run with `--clone-git-repos`.
 
 `--worker-dir` is repeatable up to 20 paths. Each path must already exist and be a directory. If you don't pass `--worker-dir`, the CLI uses the current working directory.
 
@@ -218,7 +220,7 @@ To have the worker check out the claimed agent's repos on claim, pass `--clone-g
 agent worker --pool my-pool --clone-git-repos start
 ```
 
-`--clone-git-repos` implies `--mint-github-token`. Clones and fetches use that minted short-lived GitHub token. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
+`--clone-git-repos` implies `--mint-github-token`. Clones and fetches use that minted short-lived GitHub token, which covers every repository in the request. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
 
 Use this flag only on any-repo pool workers: a named `--pool` other than `default`, with no bound repository (`repo=`) and no bound machine (`name=`). The CLI exits with a clear error on a bound-repo worker, a named machine, the `default` pool, or a personal [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) worker.
 
@@ -240,7 +242,7 @@ If clone fails, the request stays in the queue. Operators see a generic clone fa
 
 `--clone-git-repos`, `--mint-github-token`, and `--sync-dashboard-secrets` assume one worker per container or OS user. Co-locating multiple credential-enabled workers under the same user is unsupported.
 
-Any-repo pools omit `repo=` routing labels. Start agents against them with `env.type: "pool"` and `env.name` set to the pool name, and omit `repos` (see [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent)). Pick the pool under **Any repo** on [cursor.com/agents](https://cursor.com/agents). In Slack, an any-repo pool set as the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) or a [channel default pool](https://cursor.com/docs/integrations/slack.md#channel-default-pool) lets `@Cursor` start an agent even when no repository resolves from the message or defaults.
+Any-repo pools omit `repo=` routing labels. Start agents against them with `env.type: "pool"` and `env.name` set to the pool name (see [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent)). Omit `repos`, or pass one or more repositories for the agent to work in. They don't narrow which worker claims the run. A worker started with `--clone-git-repos` checks out each of them. Pick the pool under **Any repo** on [cursor.com/agents](https://cursor.com/agents). In Slack, an any-repo pool set as the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) or a [channel default pool](https://cursor.com/docs/integrations/slack.md#channel-default-pool) lets `@Cursor` start an agent even when no repository resolves from the message or defaults.
 
 ## Manage pools
 
@@ -294,7 +296,7 @@ Pool workers handle:
 
 Use these options from integrations to start pool agents:
 
-- **Slack**: Mention `@Cursor` with `self_hosted=true`, `sh=1`, or `pool=<name>`. Team admins can set a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) with `@Cursor pool set <name>` so members run on it without an option in each mention. A [channel default pool](https://cursor.com/docs/integrations/slack.md#channel-default-pool), set with `@Cursor pool set <name> channel`, replaces the team default in that channel. Explicit `pool=`, `worker=`, `machine=`, or `self_hosted=false` override both defaults, and an any-repo default pool lets Slack launch without a resolved repository.
+- **Slack**: Mention `@Cursor` with `self_hosted=true`, `sh=1`, or `pool=<name>`. Team admins can set a [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) with `@Cursor pool set <name>` so members run on it without an option in each mention. Any team member can set a [channel default pool](https://cursor.com/docs/integrations/slack.md#channel-default-pool) with `@Cursor pool set <name> channel`, which replaces the team default in that channel. Explicit `pool=`, `worker=`, `machine=`, or `self_hosted=false` override both defaults, and an any-repo default pool lets Slack launch without a resolved repository.
 - **GitHub**: Comment `@cursoragent self_hosted=true ...`, `@cursoragent sh=1 ...`, or `@cursoragent pool=<name> ...` on an issue, pull request, or review comment.
 - **Linear**: Mention `@Cursor` in a comment with `self_hosted=true`, `sh=1`, `pool=<name>`, or `[pool=<name>]`. Cursor reads these options from that comment, not from the issue description. You can also use issue or project labels where the parent label is `pool` and the child label is the pool name. Labels are the only way to pick a pool when you [delegate an issue](https://cursor.com/docs/integrations/linear.md#delegating-issues) to Cursor, because there's no comment to read. A `pool=` in the comment wins over a pool label, and `self_hosted=false` skips pool labels.
 

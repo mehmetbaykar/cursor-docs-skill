@@ -281,7 +281,7 @@ switch. Self-serve Teams do not use that switch.
 
 ### Can I see what kind of work my team does with Grok Bot?
 
-Yes, on Enterprise teams where it has rolled out. The Conversation
+Yes, on all Enterprise teams. The Conversation
 Insights page of the Analytics dashboard has a **Grok Bot** source that
 groups Bot conversations by Type of Work and Level of Automation. See
 [Grok Bot Conversation Insights](https://cursor.com/docs/account/teams/analytics.md#grok-bot-conversation-insights).

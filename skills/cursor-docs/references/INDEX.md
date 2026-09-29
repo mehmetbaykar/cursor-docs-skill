@@ -145,6 +145,8 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `models__gemini-3-pro-image-preview` - [Models Gemini 3 Pro Image Preview](https://cursor.com/docs/models/gemini-3-pro-image-preview)
 - `models__gemini-3-pro` - [Models Gemini 3 Pro](https://cursor.com/docs/models/gemini-3-pro)
 - `models__glm-5-2` - [Models Glm 5 2](https://cursor.com/docs/models/glm-5-2)
+- `models__glm-5-3-flash` - [Models Glm 5 3 Flash](https://cursor.com/docs/models/glm-5-3-flash)
+- `models__glm-5-3` - [Models Glm 5 3](https://cursor.com/docs/models/glm-5-3)
 - `models__gpt-5-1-codex-max` - [Models Gpt 5 1 Codex Max](https://cursor.com/docs/models/gpt-5-1-codex-max)
 - `models__gpt-5-1-codex-mini` - [Models Gpt 5 1 Codex Mini](https://cursor.com/docs/models/gpt-5-1-codex-mini)
 - `models__gpt-5-1-codex` - [Models Gpt 5 1 Codex](https://cursor.com/docs/models/gpt-5-1-codex)

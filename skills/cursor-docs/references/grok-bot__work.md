@@ -138,10 +138,10 @@ The app and the computer update separately. When the computer is unreachable, wo
 1. Retry from the error state, or reopen the conversation.
 2. Restart the Grok Bot app and check for an app update.
 3. Choose **Recover Grok Bot's Computer** when the unreachable state offers it.
-4. Use **Update Grok Bot's Computer** to rebuild on the latest image.
+4. Use **Update Grok Bot's Computer** to move to the latest version.
 5. Use **Reset Grok Bot's Computer** only as a last resort.
 
-Recover and update preserve durable files and logins. Reset returns the computer to its synced durable state, and anything not yet synced doesn't come back. Conversations are stored outside the computer, so they survive even a reset. See [Grok Bot computer](https://cursor.com/help/grok-bot/computer-recovery.md).
+A software update only refreshes Grok Bot's software and keeps installed apps. A computer update rebuilds the computer, keeping files and logins but removing installed apps and packages. Recover and Reset both rebuild the computer from your last saved data; if the computer can't be reached to save first, very recent changes don't come back. Conversations are stored outside the computer, so they survive even a reset. See [Grok Bot computer](https://cursor.com/help/grok-bot/computer-recovery.md).
 
 ### Your local computer is separate
 
