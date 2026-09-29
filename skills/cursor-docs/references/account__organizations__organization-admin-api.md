@@ -30,14 +30,15 @@ Use a **Team API key** when calling endpoints under `/teams/*` (for example, `/t
 
 Every Organization API key carries exactly one scope. A route runs only when the key's scope covers it, and broader scopes include everything narrower scopes allow.
 
-| Scope          | Access                                                                                     | Example routes                                                                                                                                                                    |
-| -------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `members:read` | Read-only access to organization membership.                                               | `GET /organizations/members`                                                                                                                                                      |
-| `members:*`    | Read and write access to membership and groups. Includes everything `members:read` allows. | `GET /organizations/members`, `POST /organizations/team-memberships/sync`, all `/organizations/groups` routes                                                                     |
-| `usage:*`      | Read access to pooled usage and reporting.                                                 | `POST /organizations/pooled-usage`, `POST /organizations/filtered-usage-events`, `POST /organizations/daily-usage-data`, `POST /organizations/spend`                              |
-| `models:read`  | Read-only access to model-access configuration and provider inventories.                   | `GET /organizations/teams/model-access/configuration`, `GET /organizations/teams/{teamId}/model-access/configuration`, `GET /organizations/teams/{teamId}/model-access/providers` |
-| `models:*`     | Read and write access to model access. Includes everything `models:read` allows.           | All model-access routes, including bulk provider/model toggles and bulk configuration                                                                                             |
-| `admin:*`      | Full access to every organization route.                                                   | All of the above                                                                                                                                                                  |
+| Scope            | Access                                                                                     | Example routes                                                                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `members:read`   | Read-only access to organization membership.                                               | `GET /organizations/members`                                                                                                                                                      |
+| `members:*`      | Read and write access to membership and groups. Includes everything `members:read` allows. | `GET /organizations/members`, `POST /organizations/team-memberships/sync`, all `/organizations/groups` routes                                                                     |
+| `usage:*`        | Read access to pooled usage and reporting.                                                 | `POST /organizations/pooled-usage`, `POST /organizations/filtered-usage-events`, `POST /organizations/daily-usage-data`, `POST /organizations/spend`                              |
+| `models:read`    | Read-only access to model-access configuration and provider inventories.                   | `GET /organizations/teams/model-access/configuration`, `GET /organizations/teams/{teamId}/model-access/configuration`, `GET /organizations/teams/{teamId}/model-access/providers` |
+| `models:*`       | Read and write access to model access. Includes everything `models:read` allows.           | All model-access routes, including bulk provider/model toggles and bulk configuration                                                                                             |
+| `auditlogs:read` | Read-only access to the organization audit log feed.                                       | `GET /organizations/audit-logs`                                                                                                                                                   |
+| `admin:*`        | Full access to every organization route.                                                   | All of the above                                                                                                                                                                  |
 
 Pick the narrowest scope for the job. Use `members:read` for read-only integrations that list members but never change membership. Use `models:read` or `models:*` for model-access automation without granting full admin. You can select these scopes when you create an Organization API key in the dashboard.
 
@@ -1840,5 +1841,140 @@ curl -X POST https://api.cursor.com/organizations/groups/g_PDSPmvukpYgZEDXsoNirw
 ```json
 {
   "removedCount": 1
+}
+```
+
+## Audit logs
+
+The organization audit feed returns the same events as the team [`GET /teams/audit-logs`](https://cursor.com/docs/account/teams/admin-api.md#get-audit-logs) endpoint, across every team linked to the organization, plus organization-level events that have no team. Event types and `event_data` fields are listed in [Compliance and Monitoring](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#event-types).
+
+- **Availability**: Enterprise only
+- **Authentication**: Organization API key (Basic auth) with the **`auditlogs:read`** scope. Keys with **`admin:*`** also work.
+- **Rate limit**: 20 requests per minute per organization. See [rate limits](https://cursor.com/docs/api.md#rate-limits).
+
+### Get Audit Logs
+
+GET
+
+`/organizations/audit-logs`
+
+Retrieve audit log events for the organization attached to your API key. Pass `teamId` to narrow the feed to one linked team. Query parameters, defaults, and the response shape mirror the team endpoint, with one addition: each event carries `team_id`.
+
+#### Query parameters
+
+`startTime` string | number
+
+Start time (defaults to 7 days ago). Accepts the same [date formats](https://cursor.com/docs/account/teams/admin-api.md#date-formats) as the team endpoint.
+
+`endTime` string | number
+
+End time (defaults to now).
+
+`eventTypes` string
+
+Comma-separated `event_type` values to filter by.
+
+`search` string
+
+Case-insensitive substring match against `user_email`, `event_type`, and `event_id`. It does not search `event_data`.
+
+`users` string
+
+Comma-separated email addresses, numeric user IDs, or `user_` public IDs. Up to 100 values. Every user must be a member of the organization.
+
+`teamId` number
+
+Restrict the feed to one team. The team must be linked to the organization; otherwise the request returns `403`.
+
+`page` number
+
+Page number (1-indexed). Default: `1`
+
+`pageSize` number
+
+Results per page (1-500). Default: `100`
+
+Date range cannot exceed 30 days. Make multiple requests for longer periods. Events are returned oldest first.
+
+#### Response Fields
+
+`events` array
+
+Audit events, each containing:
+
+- `event_id` string - UUID of the event
+- `timestamp` string - ISO 8601 timestamp
+- `team_id` string - Team the event belongs to. Empty for organization-level events such as `organization_group` and `xai_credit_transfer`
+- `ip_address` string - Client IP of the request
+- `user_email` string - Actor. See the [log format](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#log-format) for `Api Key:`, `Bot:`, and `System` values
+- `event_type` string - Event type
+- `application_type` string - `cursor`, `grok_bot`, or empty when unknown
+- `event_data` object - Event-specific fields. `old_value` and `new_value` are parsed into JSON when the stored value is valid JSON
+
+`pagination` object
+
+Pagination metadata: `page`, `pageSize`, `totalCount`, `totalPages`, `hasNextPage`, and `hasPreviousPage`.
+
+`params` object
+
+Echo of the resolved query: `organizationId`, `teamId`, `startDate`, `endDate`, `eventTypes`, `search`, and `users`.
+
+```bash
+curl -X GET "https://api.cursor.com/organizations/audit-logs?startTime=7d&endTime=now&eventTypes=organization_group,add_user" \
+  -u YOUR_ORGANIZATION_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "events": [
+    {
+      "event_id": "c2d4e6f8-1a3b-4c5d-8e9f-0a1b2c3d4e5f",
+      "timestamp": "2026-09-14T09:02:11.000Z",
+      "team_id": "",
+      "ip_address": "203.0.113.42",
+      "user_email": "admin@company.com",
+      "event_type": "organization_group",
+      "application_type": "cursor",
+      "event_data": {
+        "action": "create",
+        "organization_group_id": "grp_7Hq2mKp9vRt4xLw1",
+        "organization_group_name": "Platform Engineering"
+      }
+    },
+    {
+      "event_id": "8a1f0f0e-0d1b-4c7e-9b3a-2f6e1c9d4a55",
+      "timestamp": "2026-09-14T18:30:45.123Z",
+      "team_id": "12345",
+      "ip_address": "203.0.113.42",
+      "user_email": "alice@company.com",
+      "event_type": "add_user",
+      "application_type": "cursor",
+      "event_data": {
+        "user_email": "bob@company.com",
+        "role": "member",
+        "source": "domain_join",
+        "team_id": "12345",
+        "invited_by_email": "",
+        "invited_by_user_id": "0",
+        "invite_id": ""
+      }
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "pageSize": 100,
+    "totalCount": 2,
+    "totalPages": 1,
+    "hasNextPage": false,
+    "hasPreviousPage": false
+  },
+  "params": {
+    "organizationId": "org_abc123",
+    "startDate": 1757232131000,
+    "endDate": 1757836931000,
+    "eventTypes": "organization_group,add_user"
+  }
 }
 ```
