@@ -534,8 +534,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "e8cbbf8d2b06cfa9e181f2bde2556abd53a364e8542df1000898745c28436598",
-      "last_updated": "2026-09-23T21:26:59+00:00",
+      "hash": "b7927499117311eded3d9e5f097a7cc53181b20acff7e3138c8c6916c69fe719",
+      "last_updated": "2026-09-30T21:22:00+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -1677,8 +1677,8 @@
       "title": "Third Party Hooks"
     },
     "rollouts.md": {
-      "hash": "dbef335d884d34511529ebffdbe97b36682d7986eb24f62faae49a609a5dbe67",
-      "last_updated": "2026-09-30T15:26:11+00:00",
+      "hash": "6d7a4fcf3830c41aff97533242f85a2ec8077710dbb444e4868b5fb3adaf1639",
+      "last_updated": "2026-09-30T21:22:38+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1771,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-30T18:28:31+00:00",
+  "last_updated": "2026-09-30T21:22:41+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

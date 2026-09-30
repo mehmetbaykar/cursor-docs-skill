@@ -36,6 +36,10 @@ The [Rollouts page](https://cursor.com/automations/rollouts) groups changes into
 
 A change sits in **Attention** while it has an open issue or a failed deploy. Once every issue on the change is closed, it counts as **Verified**. Reopening an issue moves it back to **Attention**.
 
+### Services
+
+Select **Services** at the top of the Rollouts page to see each service your deployment pipeline reports. To hide a service from that list, open it and select **Archive**. Its deployments stay in history. The service moves under **Archived**, where **Restore** brings it back.
+
 ## Set up Rollouts
 
 In [Automations](https://cursor.com/automations), select **Enable** on the Rollouts card under **From Cursor**. Setup has four steps:
