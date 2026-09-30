@@ -46,7 +46,7 @@ Choose the repositories to watch. Every pull request that ships from these repos
 
 ### Send deployment events to Rollouts
 
-Tell Rollouts when each production deploy starts and finishes, using a Cursor API key stored in your CI secrets. Choose **Manually** to add the calls to your pipeline yourself. Choose **With an agent** to have a setup agent open a pull request that adds them, then merge it to finish setup.
+Tell Rollouts when each production deploy starts and finishes. [Create an API key](https://cursor.com/docs/api.md#creating-api-keys) and store it as the `CURSOR_API_KEY` CI secret. You can either do this [manually](https://cursor.com/docs/rollouts.md#send-deployment-events) or with an agent. With an agent, a setup agent opens a pull request that adds the calls, then you merge it to finish setup.
 
 ### Telemetry
 
@@ -55,6 +55,50 @@ Connect your observability tools, such as Datadog, so each change is verified ag
 ### Notifications
 
 Choose how pull request authors get notified about their rollouts.
+
+## Send deployment events
+
+### Exchange the API key for a token
+
+At the top of the deploy job, exchange the `CURSOR_API_KEY` secret for a token. Every call below sends this token.
+
+```bash
+TOKEN=$(curl -s -X POST https://api2.cursor.sh/auth/exchange_user_api_key \
+  -H "Authorization: Bearer $CURSOR_API_KEY" -H "Content-Type: application/json" -d '{}' \
+  | jq -r .accessToken)
+```
+
+### Create each environment and service once
+
+Run this by hand, or as a bootstrap step before the deploy job. It creates the rows the calls below name, so run it before the first report.
+
+```bash
+curl -s -X POST https://api.cursor.com/factory.v1.DeploymentsService/CreateEnvironment -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -H "Connect-Protocol-Version: 1" \
+  -d '{"environmentId":"{env}","environment":{"displayName":"{env}"}}'
+curl -s -X POST https://api.cursor.com/factory.v1.DeploymentsService/CreateService -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -H "Connect-Protocol-Version: 1" \
+  -d '{"serviceId":"{service}","service":{"displayName":"{service}"}}'
+```
+
+### Create the deployment
+
+Run this right before you ship. `deployVersion` is the commit SHA being shipped.
+
+```bash
+DEPLOYMENT=$(curl -s -X POST https://api.cursor.com/factory.v1.DeploymentsService/CreateDeployment -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -H "Connect-Protocol-Version: 1" \
+  -d '{"deployment":{"deploySourceUri":"https://github.com/{owner}/{repo}","environment":"environments/{env}","service":"services/{service}","deployVersion":"'"$GIT_SHA"'"},"event":{"started":{},"actor":"'"$CI_JOB_URL"'"}}' \
+  | jq -r .deployment.name)
+```
+
+### Append the finished event
+
+Run this right after the outcome is known. A failed report must never fail the deploy.
+
+```bash
+curl -s -X POST https://api.cursor.com/factory.v1.DeploymentsService/AppendDeploymentEvent -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -H "Connect-Protocol-Version: 1" \
+  -d '{"name":"'"$DEPLOYMENT"'","event":{"completed":{"succeeded":{}},"actor":"'"$CI_JOB_URL"'"}}'
+# On failure:   "event":{"completed":{"failed":{"message":"<why>"}},"actor":...}
+# If cancelled: "event":{"aborted":{},"actor":...}
+```
 
 ## Settings
 

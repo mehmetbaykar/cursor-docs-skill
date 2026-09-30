@@ -1677,8 +1677,8 @@
       "title": "Third Party Hooks"
     },
     "rollouts.md": {
-      "hash": "56035345e2152b9f10f5f00ab84bdba86742bb7178e68a5df46ac0be65f7db45",
-      "last_updated": "2026-09-29T21:22:07+00:00",
+      "hash": "dbef335d884d34511529ebffdbe97b36682d7986eb24f62faae49a609a5dbe67",
+      "last_updated": "2026-09-30T15:26:11+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1771,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-29T21:22:10+00:00",
+  "last_updated": "2026-09-30T15:26:14+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
