@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "378d8d6af5e2e97ae4ddf9bb033a3cfb9a86c1574f423dc720eac745f501d864",
-      "last_updated": "2026-09-29T15:24:13+00:00",
+      "hash": "7c1aa3b9bead5c29b45df043d1241f91a3ce9e99adfea8a878e913e0e043cb25",
+      "last_updated": "2026-09-30T18:27:42+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "dcc2dd67970acf25f3dd1738988a4c2db688586a5867774b1a4740dc56e605cc",
-      "last_updated": "2026-09-29T21:21:16+00:00",
+      "hash": "b1de6600f1ec23226627ff8b6b12009c8923a015fa3518110936745be9973db7",
+      "last_updated": "2026-09-30T18:27:43+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -309,8 +309,8 @@
       "title": "Origin Grants API"
     },
     "api__origin__migrations.md": {
-      "hash": "a31238a117f332999329261b273de44342cbd7fed3f5cfb270ed4da64a11c12c",
-      "last_updated": "2026-09-28T05:14:11+00:00",
+      "hash": "6688804685b4e713979a5ae66c589e0e082db42184b78b94328f33d792fbfca9",
+      "last_updated": "2026-09-30T18:27:44+00:00",
       "original_url": "https://cursor.com/docs/api/origin/migrations",
       "path": "/docs/api/origin/migrations",
       "source_url": "https://cursor.com/docs/api/origin/migrations",
@@ -1771,7 +1771,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-30T15:26:14+00:00",
+  "last_updated": "2026-09-30T18:28:31+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
