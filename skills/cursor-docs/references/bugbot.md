@@ -94,6 +94,41 @@ Enterprise users can override settings for their own PRs:
 - Run **only once** per PR, skipping subsequent commits
 - **Enable reviews on draft PRs** to include draft pull requests in automatic reviews
 
+### Repository config file
+
+You can optionally configure Bugbot from a repo-level YAML file:
+
+```yaml
+# .cursor/config/bugbot.yaml
+version: 1
+
+triggers:
+  drafts: false
+  frequency: everyPush # everyPush | oncePerPr
+
+review:
+  effort: default # low | default | high | smart
+  smartPrompt: ""
+  incremental: true
+
+prSummary:
+  mode: comment # disabled | description | comment
+  riskScore: true
+
+autofix:
+  mode: disabled # disabled | newBranch | existingBranch
+```
+
+All fields are optional. If the file is missing, Bugbot uses the same behavior as before. If a field is missing or invalid, Bugbot ignores that field and falls back to the next setting in the precedence order.
+
+Bugbot reads `.cursor/config/bugbot.yaml` from the default branch at the repo root. It does not read the PR head version, so a PR cannot change how Bugbot reviews itself. Use code review and `CODEOWNERS` to control who can change this file.
+
+Precedence order, from highest to lowest:
+
+- The PR author's personal overrides, for their own PRs.
+- `.cursor/config/bugbot.yaml`.
+- Team and organization settings from the dashboard.
+
 ## Analytics
 
 Open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to view review activity and outcomes.

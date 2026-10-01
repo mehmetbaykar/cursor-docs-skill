@@ -36,6 +36,8 @@ POST
 
 Create a Cloud Agent and immediately enqueue its initial run. The response returns both the durable `agent` and the initial `run`.
 
+Repositories can come from any source control provider Cursor supports: GitHub (Cloud and Enterprise Server), GitLab (Cloud and Self-Hosted), Bitbucket Cloud, and Azure DevOps. Pass the repository URL as it appears on your provider, including a self-hosted host such as `gitlab.example.com`. See [Cloud Agents setup](https://cursor.com/docs/cloud-agent/setup.md) for connecting a provider.
+
 #### Request Body
 
 `prompt` object (required)
@@ -86,7 +88,7 @@ On self-hosted targets, only a named any-repo pool takes more than one repositor
 
 `repos[0].url` string (required)
 
-GitHub repository URL (for example, `https://github.com/your-org/your-repo`). Required on every repo entry, including when `prUrl` is provided.
+Repository URL on any connected source control provider (for example, `https://github.com/your-org/your-repo` or `https://gitlab.example.com/your-group/your-repo`). Required on every repo entry, including when `prUrl` is provided.
 
 `repos[0].startingRef` string (optional)
 
@@ -94,7 +96,7 @@ Branch name or commit SHA to use as the starting point. Ignored when `prUrl` is 
 
 `repos[0].prUrl` string (optional)
 
-GitHub pull request URL. When provided, the agent works on this PR's repository and branches; `startingRef` is ignored. `url` must still be set on the same `repos` entry.
+Pull request URL, called a merge request URL on GitLab. When provided, the agent works on that request's repository and branches; `startingRef` is ignored. `url` must still be set on the same `repos` entry.
 
 `workOnCurrentBranch` boolean (optional, default: false)
 
@@ -187,6 +189,26 @@ curl --request POST \
       }
     ],
     "autoCreatePR": true
+  }'
+```
+
+Self-hosted GitLab repository:
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/agents \
+  -u YOUR_API_KEY: \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "prompt": {
+      "text": "Add a README with setup instructions"
+    },
+    "repos": [
+      {
+        "url": "https://gitlab.example.com/your-group/your-repo",
+        "startingRef": "main"
+      }
+    ]
   }'
 ```
 
@@ -290,7 +312,7 @@ Pagination cursor from `nextCursor` on the previous response.
 
 `prUrl` string (optional)
 
-Filter agents by GitHub pull request URL.
+Filter agents by pull request URL, called a merge request URL on GitLab.
 
 `includeArchived` boolean (optional, default: true)
 
@@ -1837,6 +1859,8 @@ GET
 `/v1/repositories`
 
 List GitHub repositories accessible to the authenticated user through Cursor's GitHub App installation.
+
+This endpoint returns GitHub repositories only. Repositories on GitLab, Bitbucket Cloud, and Azure DevOps are not listed here, even though you can create agents against them with [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent).
 
 **This endpoint has very strict rate limits.**
 

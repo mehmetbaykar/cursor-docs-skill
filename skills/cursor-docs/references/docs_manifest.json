@@ -192,8 +192,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "597d21f0cfde8af0f7549bfa011dc308a584be515e7ae735a3b5a126b9be7afe",
-      "last_updated": "2026-09-16T04:42:05+00:00",
+      "hash": "b6550a53e54799d5b211fffab23b131e97e2e2062d0c1566ce72e084a8513194",
+      "last_updated": "2026-10-01T18:30:01+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "source_url": "https://cursor.com/docs/agent/projects",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "b1de6600f1ec23226627ff8b6b12009c8923a015fa3518110936745be9973db7",
-      "last_updated": "2026-09-30T18:27:43+00:00",
+      "hash": "e41ecd9c830f6ea0d9de5286987ea79737ffabfdc51f4137f4f70deb3a991285",
+      "last_updated": "2026-10-01T18:30:04+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -309,8 +309,8 @@
       "title": "Origin Grants API"
     },
     "api__origin__mcp.md": {
-      "hash": "fab1b58ce8dcb45a84583cf6c352b6607fe3b3ccb8378a8c74aa2a424964ae95",
-      "last_updated": "2026-10-01T01:09:30+00:00",
+      "hash": "681fc046e3229b087e8fabc8b224e778a474ec8ebf2dce51828f58f8acb85ca3",
+      "last_updated": "2026-10-01T18:30:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp",
       "path": "/docs/api/origin/mcp",
       "source_url": "https://cursor.com/docs/api/origin/mcp",
@@ -318,8 +318,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "453ba1fe02aaa55bf3d7c9923b3595c4b08225e85223c971cc41ac27d9eb7697",
-      "last_updated": "2026-10-01T01:09:30+00:00",
+      "hash": "f327792b09e90a75bbce96ea9396b206aca2402463da3b74f844b93303441997",
+      "last_updated": "2026-10-01T18:30:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -345,8 +345,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "3d68d6f8898c6b6820439189ca7078f8427f76467303e1ff2f108e1f29c610b0",
-      "last_updated": "2026-09-28T05:14:11+00:00",
+      "hash": "314ec28bc02280297ba56dd8b87d19911c562512f57c13d1abf13ddb91c5138d",
+      "last_updated": "2026-10-01T18:30:06+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "613c6cb3b14c5291b6b3823ae6d5458d1f7d2e11acc69c4cb06bd8327ec858dd",
-      "last_updated": "2026-09-29T01:00:17+00:00",
+      "hash": "6aa374b828189c0175fefac19990215ec74fbb794568bffa0e9886d25b647404",
+      "last_updated": "2026-10-01T18:30:11+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1789,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-01T01:10:14+00:00",
+  "last_updated": "2026-10-01T18:30:52+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
