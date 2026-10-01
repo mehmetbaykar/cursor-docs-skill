@@ -74,6 +74,35 @@ Workers come in two configurations:
 
 To run Team Pool workers on a third-party VM or sandbox, see [Integrations](https://cursor.com/docs/cloud-agent/self-hosted/integrations.md).
 
+## Environments on Self-Hosted Machines
+
+A [Cloud Agent environment](https://cursor.com/docs/cloud-agent/setup.md#what-is-a-cloud-agent-environment) is the saved setup a Cursor-hosted agent starts from: repositories, dependencies, secrets, startup commands, and network access. A self-hosted run uses only the environment's repositories. Pool workers that opt in to Secret sync also get team and user secrets. Every other environment setting applies only to Cursor-hosted Cloud Agents, so you set those up on the machine.
+
+**Repositories.** What the worker does with the environment's repositories depends on how you run it:
+
+- An [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) worker started with `--clone-git-repos` checks out every repository at the requested branch or commit.
+- A repo-backed pool worker or a My Machines worker uses the checkouts it already has, without switching branches or cloning. Your [`sessionStart` hook](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks) receives every repository in the request as `repo_urls` and `repos`, so it can clone the ones the worker doesn't have.
+
+**Secrets.** A pool worker started with `--sync-dashboard-secrets` gets secrets as environment variables once a team admin turns on **Secret sync** in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents):
+
+- Team and user secrets available to the run's repositories. Any-repo pools get only secrets that aren't limited to a repository.
+- `envVars` passed to [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent).
+
+Environment-scoped secrets and Build Secrets never reach a worker. My Machines workers get no dashboard secrets and use the machine's own credentials.
+
+**Everything else.** Replace each remaining setting with its self-hosted equivalent:
+
+| Environment setting                                                                               | Self-hosted equivalent                                                                                                                                                    |
+| :------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Install script and startup commands                                                               | A `sessionStart` hook in `.cursor/hooks.json`, [`--on-session-start`](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks) on pool workers, or the worker image |
+| Terminals and ports                                                                               | A hook or your own process manager                                                                                                                                        |
+| Dockerfile, image, snapshot, and user                                                             | The machine or worker image, running as the worker's OS user                                                                                                              |
+| [Builds](https://cursor.com/docs/cloud-agent/builds.md)                                           | A prepared worker image, or warm workers from the [worker controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#warm-pool)                                  |
+| [Network access settings](https://cursor.com/docs/cloud-agent/security-network.md#network-access) | The machine's firewall or HTTPS proxy                                                                                                                                     |
+| Environment-scoped secrets                                                                        | Secrets on the machine, or team and user secrets through Secret sync                                                                                                      |
+| MCP server limits in `environment.json`                                                           | Your team's [MCP servers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers), available to every run with no per-environment limit                      |
+| `.cursor/environment.json` in the repository                                                      | `.cursor/hooks.json` in the worker directory                                                                                                                              |
+
 ## Supported deployment patterns
 
 Run a worker anywhere you can install the Cursor CLI and its dependencies:

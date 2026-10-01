@@ -121,7 +121,7 @@ autofix:
 
 All fields are optional. If the file is missing, Bugbot uses the same behavior as before. If a field is missing or invalid, Bugbot ignores that field and falls back to the next setting in the precedence order.
 
-Bugbot reads `.cursor/config/bugbot.yaml` from the default branch at the repo root. It does not read the PR head version, so a PR cannot change how Bugbot reviews itself. Use code review and `CODEOWNERS` to control who can change this file.
+Bugbot reads `.cursor/config/bugbot.yaml` from the default branch at the repo root. The file must be committed and pushed to the repo, and its settings apply only to that repo. Bugbot does not read the PR head version, so a PR cannot change how Bugbot reviews itself. Use code review and `CODEOWNERS` to control who can change this file.
 
 Precedence order, from highest to lowest:
 

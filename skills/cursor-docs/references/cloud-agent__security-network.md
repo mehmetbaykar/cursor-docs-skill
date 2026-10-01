@@ -96,7 +96,7 @@ Switching back to **Indefinite** stops further conversation deletions but doesn'
 
 ## Network access
 
-Control which network resources your Cloud Agents can reach. These settings are available on the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents) for individual users, saved environments, and team admins.
+Control which network resources your Cloud Agents can reach. These settings are available on the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents) for individual users, saved environments, and team admins. They apply to Cursor-hosted Cloud Agents. Runs on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines) use the machine's own network, firewall, and proxy.
 
 ### Private network access
 
@@ -168,7 +168,7 @@ Enterprise team admins can lock the network access setting using the **Lock Netw
 - The team-level setting applies to every member, regardless of their individual preference.
 - Users cannot override the locked setting from their own dashboard.
 
-This gives admins full control over Cloud Agent network access across the organization.
+This gives admins full control over network access for Cursor-hosted Cloud Agents across the organization. A locked setting doesn't reach Self-Hosted Machines, including runs routed there by **Require Self-Hosted Machines**.
 
 ### Relationship to sandbox network policy
 
