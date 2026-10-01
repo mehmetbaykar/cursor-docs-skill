@@ -30,6 +30,8 @@ Cursor keeps pre-warmed copies of active Builds ready. This removes repository c
 
 If a new Build fails, agents continue to use the last successful Build. A broken dependency update, install command, or Dockerfile doesn't replace the active environment.
 
+Builds are for Cursor-hosted Cloud Agents. Runs on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines) start on your machine as is and never boot a Build.
+
 ## When Builds occur
 
 Cursor starts a Build for four reasons. The Builds tab labels each one with its trigger type.

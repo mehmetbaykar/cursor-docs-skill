@@ -55,6 +55,8 @@ Cursor resolves environment configuration by repository or repo group, using the
 
 This gives you predictable defaults at the team level while still letting individual users override with a personal environment when a repo-level `.cursor/environment.json` is not present. User overrides are also useful to allow testing out a new environment configuration before rolling it out to the entire team.
 
+Environment configuration applies to Cursor-hosted Cloud Agents. A run on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines) uses only the environment's repositories and never reads `.cursor/environment.json`.
+
 ### Agent-driven setup (recommended)
 
 Cursor can set up your dev environment in the cloud in less than 10 minutes. Start guided setup from the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#environments) or from the [Agents Window](https://cursor.com/docs/agent/agents-window.md) in the Cursor desktop app.
@@ -199,7 +201,7 @@ For more about the different types of secrets, see our [Secrets documentation](h
 
 Use environment-scoped secrets when a credential should only be available to agents that use one environment. This is useful for multi-repo environments, staging credentials, or repository groups with different access needs.
 
-Environment-scoped secrets apply to every repo in that environment. They are not available to other environments.
+Environment-scoped secrets apply to every repo in that environment. They are not available to other environments, and they never reach [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines).
 
 ### Sign-in credentials and 2FA
 

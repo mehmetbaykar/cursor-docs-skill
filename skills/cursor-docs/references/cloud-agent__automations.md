@@ -229,6 +229,8 @@ Source control triggers infer the repository from the pull request. For other tr
 
 Use a multi-repo environment when an automation needs to work across multiple repositories. Select multiple repos when you configure the environment, or choose an existing one from your [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#environments).
 
+On [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines), an automation uses only the environment's repositories. An any-repo pool worker started with `--clone-git-repos` checks out all of them. Other workers use the checkouts they already have.
+
 ## Share
 
 Team accounts set visibility and identity from **Share** on the automation detail header. Personal accounts do not have this menu.

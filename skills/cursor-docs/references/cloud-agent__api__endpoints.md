@@ -114,6 +114,8 @@ Whether to skip requesting the user as a reviewer when Cursor opens a PR. Only a
 
 Session-scoped environment variables for the cloud agent. Values are encrypted at rest, injected into the agent's shell, and deleted with the agent. Maximum 50 entries; names up to 255 bytes (can't start with `CURSOR_`), values up to 4096 bytes. Cannot be combined with a client-supplied `agentId`.
 
+On self-hosted targets, `envVars` reach only pool workers that run with `--sync-dashboard-secrets` while a team admin has **Secret sync** on. `machine` targets and other pool workers run without them. See [Environments on Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines).
+
 **Beta:** `envVars` is rolling out. If it isn't enabled for your account yet, the field is silently ignored on create rather than failing the request — verify the values are present by inspecting the agent shell on a first run before relying on them in production.
 
 `mcpServers` array (optional)
