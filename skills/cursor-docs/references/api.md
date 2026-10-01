@@ -94,6 +94,7 @@ All APIs implement rate limiting to ensure fair usage and system stability. Limi
 | **Admin API**            | `/teams/user-spend-limit`                                                 | 250 requests/minute                                   |
 | **Admin API**            | `/teams/user-spend-limits`                                                | 20 requests/minute                                    |
 | **Organization API**     | Most endpoints                                                            | 20 requests/minute per endpoint                       |
+| **Organization API**     | `GET /organizations/teams/{teamId}/grok-bot/operations/*`                 | 120 requests/minute per endpoint                      |
 | **Analytics API**        | Most team-level endpoints                                                 | 100 requests/minute                                   |
 | **Analytics API**        | `/analytics/team/conversation-insights`                                   | 20 requests/minute                                    |
 | **Analytics API**        | By-user endpoints                                                         | 50 requests/minute                                    |

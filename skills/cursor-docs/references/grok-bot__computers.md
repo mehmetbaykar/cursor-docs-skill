@@ -71,6 +71,12 @@ A finished operation lists a result for every member you selected.
 | **Failed**, VM scan incomplete                | Cursor couldn't confirm the state of the member's computer, so it made no change.                                                                                            | Run the operation again in a few minutes.                                                                                                                                                                                        |
 | **Failed**, Action could not be completed     | The recreate or terminate did not finish. For a recreate, a Bot on the member's computer may have been unable to pause in time, and the member keeps their current computer. | Run the operation again for the affected members, once their Bots are idle if you can. If it fails twice, [contact support](https://cursor.com/help/grok-bot/get-help.md) with the member's email and the time of the operation. |
 
+## Run operations through the API
+
+To roll out across many teams from a script, start the same operations with the [Organization API](https://cursor.com/docs/account/organizations/organization-admin-api.md#grok-bot-computers). You send a team, a list of members, and an action, then poll the operation for counts and a result for each member.
+
+The API and the dashboard share the limit of one operation per team. An operation started from either place blocks the other until it finishes.
+
 ## Terminate inactive computers automatically
 
 A hibernated computer stays around until someone terminates it, even when the member has moved on or stopped using Grok Bot. **Terminate Inactive Computers**, below **Grok Bot Computers** on the same dashboard page, does that cleanup for you. When a member's computer goes 30 days without use, Cursor terminates it. Using Grok Bot again restarts the count.

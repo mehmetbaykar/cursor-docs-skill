@@ -4,16 +4,16 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 194,
+    "pages_fetched_successfully": 196,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 197
+    "total_pages_discovered": 199
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "fc2cc2f49f972bcd96e887077d5b8af336e89fb7e7d24687fe0572dc7b82d254",
-      "last_updated": "2026-09-29T15:24:04+00:00",
+      "hash": "c19eee14fac9a3ca8535512b10f641220d79e2f498da2abe8e3bb334de10a48f",
+      "last_updated": "2026-10-01T01:09:21+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -219,8 +219,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "96f794627df4544f5000c402be00aa2edac3db1732517edeb96efa491d3c108e",
-      "last_updated": "2026-08-07T21:51:44+00:00",
+      "hash": "79a3a79af9d842183e25d93983eaa4e51a9f54eb7b6b7640ec47f73aa9149746",
+      "last_updated": "2026-10-01T01:09:27+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -264,8 +264,8 @@
       "title": "Terminal"
     },
     "api.md": {
-      "hash": "a9ca2a2430381a131e402a7effcbc1d21475ad1fd6e587f60b4700a374dc1f95",
-      "last_updated": "2026-09-28T05:14:08+00:00",
+      "hash": "f2fe894e5f3f5f6813d3bf613b9b9315b76b054335bd18ac9dedde29deea6b51",
+      "last_updated": "2026-10-01T01:09:28+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "source_url": "https://cursor.com/docs/api",
@@ -307,6 +307,24 @@
       "source_url": "https://cursor.com/docs/api/origin/grants-api",
       "status": "live",
       "title": "Origin Grants API"
+    },
+    "api__origin__mcp.md": {
+      "hash": "fab1b58ce8dcb45a84583cf6c352b6607fe3b3ccb8378a8c74aa2a424964ae95",
+      "last_updated": "2026-10-01T01:09:30+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/mcp",
+      "path": "/docs/api/origin/mcp",
+      "source_url": "https://cursor.com/docs/api/origin/mcp",
+      "status": "live",
+      "title": "Origin MCP"
+    },
+    "api__origin__mcp__tools.md": {
+      "hash": "453ba1fe02aaa55bf3d7c9923b3595c4b08225e85223c971cc41ac27d9eb7697",
+      "last_updated": "2026-10-01T01:09:30+00:00",
+      "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
+      "path": "/docs/api/origin/mcp/tools",
+      "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
+      "status": "live",
+      "title": "Origin MCP tool reference"
     },
     "api__origin__migrations.md": {
       "hash": "6688804685b4e713979a5ae66c589e0e082db42184b78b94328f33d792fbfca9",
@@ -759,8 +777,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "d9757b8d77806b29767c9c5b257b33eef50653bd905a06f31c200c7e529d0f7d",
-      "last_updated": "2026-09-22T21:13:37+00:00",
+      "hash": "eb54edfbc5d3ee62736dfbf89751722339d5161a0e6bf579788c30c8b69a74b4",
+      "last_updated": "2026-10-01T01:09:44+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
@@ -840,8 +858,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "44c3756d94206d17df9b89db8f4c7626d6cbe596715ffee11a6bab5ed0223868",
-      "last_updated": "2026-09-29T01:00:29+00:00",
+      "hash": "524be017a0ba34644d00c5a72c7aa22ce8ec92fa794a8bf528cd14807709f43b",
+      "last_updated": "2026-10-01T01:09:47+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1771,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-09-30T21:22:41+00:00",
+  "last_updated": "2026-10-01T01:10:14+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

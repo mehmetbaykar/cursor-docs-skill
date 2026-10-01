@@ -38,11 +38,11 @@ The classifier can make mistakes. It can allow a call you would have blocked, or
 
 ### Auto-review classifier requirements
 
-Auto-review's classifier runs on a small Cursor-managed model. Today that is [Claude 4.5 Haiku](https://cursor.com/docs/models/claude-4-5-haiku.md) or [GPT-5.4 Mini](https://cursor.com/docs/models/gpt-5-4-mini.md).
+Auto-review's classifier runs on small Cursor-managed models. Today it uses Gemini 3.5 Flash Lite, with [Claude 4.5 Haiku](https://cursor.com/docs/models/claude-4-5-haiku.md) as the fallback.
 
-Enterprise [model access controls](https://cursor.com/docs/enterprise/model-and-integration-management.md#model-access-control) apply. Auto-review is available when at least one of those models is allowed for the team. Blocking all of them disables Auto-review in **Settings > Agents > Approvals & Execution**, even when team Run Modes includes it. Members then use Allowlist instead.
+Enterprise [model access controls](https://cursor.com/docs/enterprise/model-and-integration-management.md#model-access-control) apply to both. Keep Claude 4.5 Haiku allowed for the team. Allowing it keeps Auto-review available in **Settings > Agents > Approvals & Execution**, and Auto-review uses it for every review when Gemini 3.5 Flash Lite is blocked. Blocking Claude 4.5 Haiku can disable Auto-review there, even when team Run Modes includes it. Members then use Allowlist instead.
 
-If Auto-review is grayed out, enable those models in [Team Settings → Models](https://cursor.com/dashboard/team-settings/models), fully quit and reopen Cursor, then check Approvals & Execution again.
+If Auto-review is grayed out, enable Claude 4.5 Haiku in [Team Settings → Models](https://cursor.com/dashboard/team-settings/models), fully quit and reopen Cursor, then check Approvals & Execution again.
 
 ### Configuring Auto-review
 
