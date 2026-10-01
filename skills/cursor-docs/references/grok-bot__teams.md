@@ -217,6 +217,8 @@ Group settings apply to groups your team owns, whether you manage membership by 
 
 Enable Grok Bot and manage capabilities, Enforce Auto-Review, group access, network policy, team rules, and setup scripts through the [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot). [Team Secrets](https://cursor.com/docs/grok-bot/teams.md#team-secrets) are managed from the dashboard only.
 
+To recreate, terminate, or delete members' computers from a script, use the [Organization API](https://cursor.com/docs/account/organizations/organization-admin-api.md#grok-bot-computers). It takes an Organization API key with the `admin:*` scope, because one computer serves every team a member belongs to.
+
 ## Security
 
 The security model, network policy, approvals and Auto Review, identity, logging, data handling, and certifications live on [Grok Bot security](https://cursor.com/docs/grok-bot/security.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).

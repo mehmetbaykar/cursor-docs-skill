@@ -39,6 +39,8 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `api__origin__acting-as-users` - [Acting on behalf of users](https://cursor.com/docs/api/origin/acting-as-users)
 - `api__origin__changelog` - [Origin API Changelog](https://cursor.com/docs/api/origin/changelog)
 - `api__origin__grants-api` - [Origin Grants API](https://cursor.com/docs/api/origin/grants-api)
+- `api__origin__mcp` - [Origin MCP](https://cursor.com/docs/api/origin/mcp)
+- `api__origin__mcp__tools` - [Origin MCP tool reference](https://cursor.com/docs/api/origin/mcp/tools)
 - `api__origin__migrations` - [Origin Migration API](https://cursor.com/docs/api/origin/migrations)
 - `approval-agents` - [PR Routing & Approval](https://cursor.com/docs/approval-agents)
 - `bugbot` - [Bugbot](https://cursor.com/docs/bugbot)
