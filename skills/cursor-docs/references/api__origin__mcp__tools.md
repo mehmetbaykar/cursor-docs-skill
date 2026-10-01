@@ -21,10 +21,11 @@ Every tool the Origin MCP server at `https://api.origin.cursor.com/mcp` lists, i
 | [`list_commits`](https://cursor.com/docs/api/origin/mcp/tools.md#list_commits)                                             | Read-only                       | List commits from a branch or starting ref in an Origin-hosted repository, optionally filtered by lists of exact git author or committer emails and by inclusive since and until bounds on committer time. |
 | [`commit_read`](https://cursor.com/docs/api/origin/mcp/tools.md#commit_read)                                               | Read-only                       | Read one commit in an Origin-hosted repository.                                                                                                                                                            |
 | [`compare_commits`](https://cursor.com/docs/api/origin/mcp/tools.md#compare_commits)                                       | Read-only                       | Compare two refs of an Origin-hosted repository relative to their merge base.                                                                                                                              |
-| [`list_pull_requests`](https://cursor.com/docs/api/origin/mcp/tools.md#list_pull_requests)                                 | Read-only                       | List pull requests in an Origin-hosted repository, filtered by state, head, author, base, or direction and sorted by creation or update time.                                                              |
+| [`list_pull_requests`](https://cursor.com/docs/api/origin/mcp/tools.md#list_pull_requests)                                 | Read-only                       | List pull requests in an Origin-hosted repository, filtered by state, head, author, base, or stackId and sorted by creation or update time in either direction.                                            |
 | [`pull_request_read`](https://cursor.com/docs/api/origin/mcp/tools.md#pull_request_read)                                   | Read-only                       | Read one Origin-hosted pull request through a single view: summary, files, commits, reviews, comments, or threads.                                                                                         |
 | [`create_pull_request`](https://cursor.com/docs/api/origin/mcp/tools.md#create_pull_request)                               | Writes                          | Create a pull request from an already-pushed branch.                                                                                                                                                       |
 | [`update_pull_request`](https://cursor.com/docs/api/origin/mcp/tools.md#update_pull_request)                               | Writes                          | Update a pull request's title, description, and lifecycle through the public fields.                                                                                                                       |
+| [`update_pull_request_base`](https://cursor.com/docs/api/origin/mcp/tools.md#update_pull_request_base)                     | Writes                          | Retarget a pull request's base branch, stack it on another pull request, or move it off its stack.                                                                                                         |
 | [`merge_pull_request`](https://cursor.com/docs/api/origin/mcp/tools.md#merge_pull_request)                                 | Destructive                     | Merge a pull request or its root-to-target stack prefix.                                                                                                                                                   |
 | [`create_pull_request_review`](https://cursor.com/docs/api/origin/mcp/tools.md#create_pull_request_review)                 | Writes content other people see | Submit a comment, approval, or request-changes review on a pull request.                                                                                                                                   |
 | [`update_pull_request_review`](https://cursor.com/docs/api/origin/mcp/tools.md#update_pull_request_review)                 | Writes content other people see | Correct the body of an existing pull request review.                                                                                                                                                       |
@@ -352,7 +353,7 @@ Compare two refs of an Origin-hosted repository relative to their merge base.
 
 ## `list_pull_requests`
 
-List pull requests in an Origin-hosted repository, filtered by state, head, author, base, or direction and sorted by creation or update time. Items are compact summaries (author, timestamps, merged/closedAt/mergedAt, and stack membership when the pull request is stacked); they omit body and diff stats—use pull\_request\_read for those. Continuation calls must resend those filters with pageToken.
+List pull requests in an Origin-hosted repository, filtered by state, head, author, base, or stackId and sorted by creation or update time in either direction. Items are compact summaries (author, timestamps, merged/closedAt/mergedAt, and stack membership when the pull request is stacked); they omit body and diff stats—use pull\_request\_read for those. With stackId, the items are that stack's members in the requested sort order, not stack order; rebuild the tree from each member's stack.parent, and pass state all because the default open state leaves merged members out. Continuation calls must resend those filters with pageToken.
 
 - **Access:** Read-only
 - **Asks for confirmation:** No
@@ -361,18 +362,19 @@ List pull requests in an Origin-hosted repository, filtered by state, head, auth
 
 ### Parameters
 
-| Name        | Type   | Required | Description                                                                                                                                                                       |
-| ----------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `owner`     | string | Yes      | Origin namespace (owner) slug, taken from list\_namespaces or an earlier Origin result. A GitHub owner or org name is not an Origin namespace unless list\_namespaces returns it. |
-| `name`      | string | Yes      | Origin repository name within that namespace                                                                                                                                      |
-| `state`     | string | No       | open (default), closed, or all                                                                                                                                                    |
-| `head`      | string | No       | Head branch                                                                                                                                                                       |
-| `author`    | string | No       | Actor id (user\_…, app\_…, or sa\_…)                                                                                                                                              |
-| `base`      | string | No       | Base branch, short name or refs/heads/…                                                                                                                                           |
-| `direction` | string | No       | desc (default) or asc                                                                                                                                                             |
-| `sortBy`    | string | No       | created (default) or updated                                                                                                                                                      |
-| `pageSize`  | number | No       |                                                                                                                                                                                   |
-| `pageToken` | string | No       |                                                                                                                                                                                   |
+| Name        | Type   | Required | Description                                                                                                                                                                                                                          |
+| ----------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `owner`     | string | Yes      | Origin namespace (owner) slug, taken from list\_namespaces or an earlier Origin result. A GitHub owner or org name is not an Origin namespace unless list\_namespaces returns it.                                                    |
+| `name`      | string | Yes      | Origin repository name within that namespace                                                                                                                                                                                         |
+| `state`     | string | No       | open (default), closed, or all                                                                                                                                                                                                       |
+| `head`      | string | No       | Head branch                                                                                                                                                                                                                          |
+| `author`    | string | No       | Actor id (user\_…, app\_…, or sa\_…)                                                                                                                                                                                                 |
+| `base`      | string | No       | Base branch, short name or refs/heads/…                                                                                                                                                                                              |
+| `stackId`   | string | No       | Stack id (stk\_…) from stack.id on a pull request. Lists only that stack's members, in the requested sort order rather than stack order; rebuild the tree from each member's stack.parent. Pass state all to include merged members. |
+| `direction` | string | No       | desc (default) or asc                                                                                                                                                                                                                |
+| `sortBy`    | string | No       | created (default) or updated                                                                                                                                                                                                         |
+| `pageSize`  | number | No       |                                                                                                                                                                                                                                      |
+| `pageToken` | string | No       |                                                                                                                                                                                                                                      |
 
 ### Limits
 
@@ -432,7 +434,7 @@ Set `view` to choose what comes back:
 
 ## `create_pull_request`
 
-Create a pull request from an already-pushed branch. Optionally stack it on a parent pull request.
+Create a pull request from an already-pushed branch. To stack it, pass parentPullNumber: the base becomes that pull request's head branch (any other base is rejected), and head must have been built on that branch, meaning the two share a commit beyond the parent's own base. A head built off trunk or from unrelated history is rejected with the rebase to run. A head that has since fallen behind the parent is accepted and the response carries needsRestack, because the pull request cannot land until it is restacked; this tool never restacks. stackParent is the stored parent's number, read back after the create.
 
 - **Access:** Writes
 - **Asks for confirmation:** No
@@ -447,14 +449,14 @@ Create a pull request from an already-pushed branch. Optionally stack it on a pa
 | `name`             | string  | Yes      | Origin repository name within that namespace                                                                                                                                      |
 | `title`            | string  | Yes      |                                                                                                                                                                                   |
 | `head`             | string  | Yes      | Already-pushed source branch                                                                                                                                                      |
-| `base`             | string  | Yes      | Target branch the pull request merges into                                                                                                                                        |
+| `base`             | string  | No       | Target branch the pull request merges into. Required without parentPullNumber; with it, omit this or name the parent's head branch.                                               |
 | `body`             | string  | No       |                                                                                                                                                                                   |
 | `draft`            | boolean | No       |                                                                                                                                                                                   |
-| `parentPullNumber` | number  | No       | Parent pull request to stack on. The response echoes this number as stackParent; an idempotently recovered pull request may have a different stored parent.                       |
+| `parentPullNumber` | number  | No       | Pull request to stack on, by number. Its head branch becomes the base, and head must have been built on that branch.                                                              |
 
 ### Returns
 
-`number`, `title`, `state`, `draft`, `head`, `base`, `stackParent`
+`number`, `title`, `state`, `draft`, `head`, `base`, `stackParent`, `needsRestack`
 
 ## `update_pull_request`
 
@@ -484,6 +486,29 @@ Update a pull request's title, description, and lifecycle through the public fie
 ### Returns
 
 `number`, `title`, `body`, `state`, `draft`
+
+## `update_pull_request_base`
+
+Retarget a pull request's base branch, stack it on another pull request, or move it off its stack. With parentPullNumber, the base becomes that pull request's head branch and the stack parent is set in the same update. With base, the pull request is retargeted to that branch: the head branch of an open pull request makes that pull request the parent, and the default branch or a branch with no open pull request moves it off its stack. Stacking is allowed only when this pull request's branch was built on the parent, meaning the two share a commit beyond the parent's own base; a branch built off trunk or from unrelated history is rejected with the rebase to run. A branch that has fallen behind the parent is accepted and the response carries needsRestack, because the pull request cannot land until it is restacked. This tool stacks and unstacks but never restacks: no commit is rebased or replayed. Returns the stored base and head refs, plus stackParent when stacked.
+
+- **Access:** Writes
+- **Asks for confirmation:** Yes
+- **On the read-only endpoint:** No
+- **Required scopes:** `repository:pull_requests:write`
+
+### Parameters
+
+| Name               | Type   | Required | Description                                                                                                                                                                       |
+| ------------------ | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `owner`            | string | Yes      | Origin namespace (owner) slug, taken from list\_namespaces or an earlier Origin result. A GitHub owner or org name is not an Origin namespace unless list\_namespaces returns it. |
+| `name`             | string | Yes      | Origin repository name within that namespace                                                                                                                                      |
+| `number`           | number | Yes      |                                                                                                                                                                                   |
+| `base`             | string | No       | Branch to retarget onto. The default branch or a branch with no open pull request unstacks; the head branch of an open pull request stacks on it. Send this or parentPullNumber.  |
+| `parentPullNumber` | number | No       | Pull request to stack on, by number. Its head branch becomes the base. Send this or base.                                                                                         |
+
+### Returns
+
+`number`, `base`, `head`, `stackParent`, `needsRestack`
 
 ## `merge_pull_request`
 
