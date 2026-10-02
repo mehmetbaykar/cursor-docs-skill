@@ -24,11 +24,15 @@ In the desktop application, go to **Settings > Agents > Approvals & Execution**.
 
 Auto-review applies to shell, MCP, and Fetch tool calls. Cursor checks each call in this order:
 
-![The execution lifecycle of agent actions on Auto-review mode. Allowlisted calls run immediately, other shell commands run in the sandbox when possible, and anything else goes to the classifier, which can allow the call, ask the agent to take a different approach, or ask you to approve.](https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/uploads/kreview-auto-review-light.svg)
+![The execution lifecycle of agent actions on Auto-review mode. On your local machine, allowlisted shell, Fetch, and MCP calls run outside the sandbox. Other shell commands run in the sandbox when they can. Shell commands that can't use the sandbox, sandboxed commands that fail, and other calls go to an LLM classifier on the Cursor backend. The classifier can run read-only ReadFile, Grep, Glob, and ListDir calls on your machine. Allowed calls run outside the sandbox. For blocked calls, the agent chooses a different approach or asks you to approve the action.](https://cursor.com/docs-static/images/agent/auto-review-lifecycle-light.svg)
 
-A shell command "can run in the sandbox" when it works under the sandbox's file and network limits. Commands that need full system access, like writes outside the workspace or privileged operations, can't be sandboxed, so they go to the classifier instead.
+A shell command "can run in the sandbox" when it works under the sandbox's file and network limits. Commands that need more access, like full network access, writes outside the workspace, or privileged operations, can't use the sandbox, so they go to the classifier instead.
+
+If a sandboxed command fails on a sandbox restriction, such as a permission error, the agent can rerun it outside the sandbox. The classifier reviews that rerun.
 
 Sandboxing is a layer on top of Run Modes for shell commands. It controls where a supported terminal command runs, not whether the mode uses the Auto-review classifier.
+
+The classifier runs on the Cursor backend. To judge a call, it can make read-only `ReadFile`, `Grep`, `Glob`, and `ListDir` calls on your machine, for example to read a script the command runs.
 
 When the classifier blocks a call, Cursor can try another approach. If the agent decides that the action makes sense despite what the classifier said, Cursor will show you an approval prompt.
 

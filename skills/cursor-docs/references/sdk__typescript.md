@@ -1761,16 +1761,17 @@ interface SDKToolAnnotations {
 
 interface SDKCustomToolContext {
   toolCallId?: string;
+  sessionId?: string;
 }
 ```
 
-| Field          | Description                                                                                                                                                                                 |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `description`  | Shown to the model so it knows when to call the tool. Defaults to an empty string.                                                                                                          |
-| `inputSchema`  | JSON Schema for the arguments. Defaults to an open object that accepts any properties.                                                                                                      |
-| `outputSchema` | JSON Schema for the tool's structured result, advertised to the model as the MCP `Tool.outputSchema`. Results are not validated against it.                                                 |
-| `annotations`  | MCP tool annotations (`title`, `readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) passed through to the model. Descriptive hints only; nothing in the SDK enforces them. |
-| `execute`      | Your callback. Receives the parsed `args` and a `context` with the `toolCallId`. Runs in your process, so it can reach anything your code can.                                              |
+| Field          | Description                                                                                                                                                                                                                                          |
+| :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `description`  | Shown to the model so it knows when to call the tool. Defaults to an empty string.                                                                                                                                                                   |
+| `inputSchema`  | JSON Schema for the arguments. Defaults to an open object that accepts any properties.                                                                                                                                                               |
+| `outputSchema` | JSON Schema for the tool's structured result, advertised to the model as the MCP `Tool.outputSchema`. Results are not validated against it.                                                                                                          |
+| `annotations`  | MCP tool annotations (`title`, `readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) passed through to the model. Descriptive hints only; nothing in the SDK enforces them.                                                          |
+| `execute`      | Your callback. Receives the parsed `args` and a `context` with the `toolCallId` and the `sessionId` of the local session that called the tool. Each subagent gets its own `sessionId`. Runs in your process, so it can reach anything your code can. |
 
 ### Tool results
 

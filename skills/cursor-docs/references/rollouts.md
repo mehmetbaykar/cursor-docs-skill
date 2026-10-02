@@ -28,11 +28,11 @@ Rollouts checks a deploy when it happens, then again after 20 minutes, 1 hour, 1
 
 ### Regressions
 
-When Rollouts detects a regression, it names the change it suspects, opens an issue, and notifies the author. On the issue's page, select **Fix issue** to start a cloud agent on it, or **Close** it with a reason. The agent opens in a panel on the issue's page. After a fix starts, **View fix** takes the place of **Fix issue** and reopens that agent. Rollouts doesn't merge, revert, or roll back changes on its own.
+When Rollouts detects a regression, it names the change it suspects, opens an issue, and notifies the author. It does the same when a change causes no regression but doesn't work as intended: the new code path ran, but its effect is missing, it errors, or its behavior is wrong. On the issue's page, select **Fix issue** to start a cloud agent on it, or **Close** it with a reason. The agent opens in a panel on the issue's page. After a fix starts, **View fix** takes the place of **Fix issue** and reopens that agent. Rollouts doesn't merge, revert, or roll back changes on its own.
 
 ### Track changes
 
-The [Rollouts page](https://cursor.com/automations/rollouts) groups changes into **Attention**, **Monitoring**, **Pending**, and **Verified**. Each environment a change deploys to shows its own status, such as **Deploying**, **Monitoring**, **Verified**, **Deploy failed**, or **Issues found**.
+The [Rollouts page](https://cursor.com/automations/rollouts) lists merged pull requests and groups them into **Attention**, **Monitoring**, **Pending**, and **Verified**. Each environment a change deploys to shows its own status, such as **Deploying**, **Monitoring**, **Verified**, **Deploy failed**, or **Issues found**.
 
 A change sits in **Attention** while it has an open issue or a failed deploy. Once every issue on the change is closed, it counts as **Verified**. Reopening an issue moves it back to **Attention**.
 
@@ -123,7 +123,7 @@ A pull request is skipped only when it clearly matches. When Rollouts skips a pu
 
 ### Notifications
 
-Turn on **Send Slack notifications to me** to hear about your changes in Slack. Under **Deliver to**, choose **Direct message** or **Channel**. For a channel, enter a public channel name or its ID, invite each app named under the field, then save. Slack Connect channels aren't supported.
+Turn on **Personal Slack Notifications** to hear about your changes in Slack. Under **Deliver to**, choose **Direct message** or **Channel**. For a channel, enter a public channel name or its ID, invite each app named under the field, then save. Slack Connect channels aren't supported.
 
 A team admin must add Rollouts to Slack first. Only team admins can change the team's notification defaults. Slack notifications aren't available in Privacy Mode.
 
