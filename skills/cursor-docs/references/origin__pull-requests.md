@@ -38,6 +38,8 @@ Open a pull request from the list to review it. Each pull request has four tabs:
 
 Along with the tabs, you can request reviewers, leave reviews, comment on the pull request or on individual lines, and merge once reviews and CI are satisfied. Origin surfaces merge conflicts so you can resolve them before merging.
 
+When the repository's [rules](https://cursor.com/docs/origin/settings.md#rules-and-protections) require reviews, a **Request Changes** review from someone with write access blocks merging. To unblock it, that reviewer approves, or someone with write access dismisses the review.
+
 ## Mirrored GitHub repositories
 
 On a repository [mirrored from GitHub](https://cursor.com/docs/origin/mirror-github.md), the **Pull Requests** tab shows GitHub pull requests. You can review them in Cursor. GitHub stays the source of truth.

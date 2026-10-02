@@ -91,6 +91,10 @@ For other connection options beyond IP whitelisting, see [Advanced networking](h
 7. Back on the Integrations tab, click **Manage** next to your GitLab connection and select **Sync Repos**
 8. Return to the dashboard to configure features on your repositories
 
+### Disconnect GitLab Self-Hosted
+
+Go to [Integrations in the dashboard](https://cursor.com/dashboard/integrations) → **Advanced** → **GitLab Self-Hosted**, open the registered instance's menu, and select **Delete Instance**. Cursor removes the instance's OAuth credentials, webhook secret, service account and user tokens, and the webhooks it created. Bugbot repository settings, team Bugbot settings, and learned rules are kept and return if you set up the same hostname again.
+
 ## Advanced networking
 
 Self-hosted instances support multiple connection methods beyond IP whitelisting.

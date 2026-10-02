@@ -119,15 +119,17 @@ autofix:
   mode: disabled # disabled | newBranch | existingBranch
 ```
 
-All fields are optional. If the file is missing, Bugbot uses the same behavior as before. If a field is missing or invalid, Bugbot ignores that field and falls back to the next setting in the precedence order.
+All fields are optional. If the file is missing, Bugbot uses the same behavior as before. If a field is missing or invalid, Bugbot ignores that field and falls back to the next setting in the precedence order. Bugbot ignores files larger than 64 KB.
 
-Bugbot reads `.cursor/config/bugbot.yaml` from the default branch at the repo root. The file must be committed and pushed to the repo, and its settings apply only to that repo. Bugbot does not read the PR head version, so a PR cannot change how Bugbot reviews itself. Use code review and `CODEOWNERS` to control who can change this file.
+Bugbot reads `.cursor/config/bugbot.yaml` at the repo root from the PR's base branch, the branch the PR merges into. The file must be committed and pushed to the repo, and its settings apply only to that repo. Bugbot does not read the PR head version, so a PR cannot change how Bugbot reviews itself. Use code review and `CODEOWNERS` to control who can change this file.
 
 Precedence order, from highest to lowest:
 
 - The PR author's personal overrides, for their own PRs.
 - `.cursor/config/bugbot.yaml`.
 - Team and organization settings from the dashboard.
+
+`autofix.mode` can lower the [Autofix](https://cursor.com/docs/bugbot.md#autofix) mode from your dashboard settings, but it can't raise it. For example, it can change **Commit to Existing Branch** to `newBranch` or `disabled`, but it can't turn Autofix on when the dashboard has it off.
 
 ## Analytics
 

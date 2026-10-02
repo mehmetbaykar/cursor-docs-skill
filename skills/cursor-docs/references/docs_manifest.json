@@ -84,8 +84,8 @@
       "title": "Dashboard"
     },
     "account__teams__members.md": {
-      "hash": "82f5dea62a6b65faa4da17a925fa93ecfa5c1869c4767fcda2090fdd455db5a4",
-      "last_updated": "2026-09-03T04:14:46+00:00",
+      "hash": "9c9b5ee9260961e8b4988d043b96eed0eab81a1601bd0ca7ee27f8c9e01edfdf",
+      "last_updated": "2026-10-02T18:28:26+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
       "source_url": "https://cursor.com/docs/account/teams/members",
@@ -219,8 +219,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "79a3a79af9d842183e25d93983eaa4e51a9f54eb7b6b7640ec47f73aa9149746",
-      "last_updated": "2026-10-01T01:09:27+00:00",
+      "hash": "84c2e117bfdd28188ae39378cb8676d36893a29ac9515acb84e92a0aa7aedbe9",
+      "last_updated": "2026-10-02T18:28:30+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -345,8 +345,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "eaf941ab67d6ea7ccfd3fa66ed48fc7a07fd382bcc0df82489cdc42a9280d828",
-      "last_updated": "2026-10-01T21:21:29+00:00",
+      "hash": "3125882f24ff425505054eed5cd4bcbbf0f8b343b8be7717dcd4ce8ef1b8a32e",
+      "last_updated": "2026-10-02T18:28:35+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -903,8 +903,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "d160a252760dbc4db87d1d18fce0e8b865091b13f25d6998d9685879477761e5",
-      "last_updated": "2026-09-29T01:00:31+00:00",
+      "hash": "876ae0ade387f8ae3b1d052a4d998eeb55e319a3a4dd29222b8150af0c8ffb4c",
+      "last_updated": "2026-10-02T18:28:52+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "source_url": "https://cursor.com/docs/integrations/bitbucket",
@@ -930,8 +930,8 @@
       "title": "GitHub"
     },
     "integrations__gitlab.md": {
-      "hash": "5a051dc508b58a99faea8aa7c1d76e3a00697f8ee03c424f96b495ac44f8dc3a",
-      "last_updated": "2026-09-29T01:00:32+00:00",
+      "hash": "5d52b43117e2dfdd54874e8b558ddd037e9f0f3a32b083f464a9db358ae5546f",
+      "last_updated": "2026-10-02T18:28:52+00:00",
       "original_url": "https://cursor.com/docs/integrations/gitlab",
       "path": "/docs/integrations/gitlab",
       "source_url": "https://cursor.com/docs/integrations/gitlab",
@@ -1605,8 +1605,8 @@
       "title": "Mirror a GitHub repository"
     },
     "origin__pull-requests.md": {
-      "hash": "06005a843597bdc08b8915456229a3e9662e9d68eee39a88e89d1dc8f85d2432",
-      "last_updated": "2026-09-09T16:33:40+00:00",
+      "hash": "45e123e1f05015a6fbd552ae1637ed99d4a34ec331852bd4d429bc4d74d8a61a",
+      "last_updated": "2026-10-02T18:29:13+00:00",
       "original_url": "https://cursor.com/docs/origin/pull-requests",
       "path": "/docs/origin/pull-requests",
       "source_url": "https://cursor.com/docs/origin/pull-requests",
@@ -1695,8 +1695,8 @@
       "title": "Third Party Hooks"
     },
     "rollouts.md": {
-      "hash": "6d7a4fcf3830c41aff97533242f85a2ec8077710dbb444e4868b5fb3adaf1639",
-      "last_updated": "2026-09-30T21:22:38+00:00",
+      "hash": "8d05ce18b60a79051db1851cb79c1958788de326d2b57a0be83c525cbdbeb9ef",
+      "last_updated": "2026-10-02T18:29:15+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1740,8 +1740,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "398a32020f5cad6f516350073a5832f42bfea9b951d5be0f02caf96e1a42d939",
-      "last_updated": "2026-09-29T01:00:59+00:00",
+      "hash": "98ed7e7c611a5c60eec2f2375d0c0a0bb7e0ae7520163f8b396d09b1bbebf81f",
+      "last_updated": "2026-10-02T18:29:17+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1749,8 +1749,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "4ec02486b67410b200d4aebfef264fe25e4ba2a79f49bfecefc6716b477a0fda",
-      "last_updated": "2026-09-29T21:22:09+00:00",
+      "hash": "3b49fde67774f9ddf90df23ee2463019a1b178e5fb2d6f9017fdf7522710bddd",
+      "last_updated": "2026-10-02T18:29:17+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -1789,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-01T21:22:22+00:00",
+  "last_updated": "2026-10-02T18:29:18+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

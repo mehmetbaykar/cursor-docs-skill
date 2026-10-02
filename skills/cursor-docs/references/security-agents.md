@@ -33,6 +33,8 @@ Open [Security Agents in Automations](https://cursor.com/automations/from-cursor
 
 ![Vulnerability Scanner cron trigger configuration](https://cursor.com/docs-static/images/security-review/vulnerability-scanner-triggers.png)
 
+Each Vulnerability Scanner has one schedule. To change when it runs, edit its existing trigger. To scan on another schedule, create a separate Vulnerability Scanner. A scan across more than 1,000 repositories can hit provider rate limits, so split large scopes into separate Vulnerability Scanners with smaller repository scopes.
+
 ### Security Checks
 
 Both agent types include built-in security checks. Enable or disable individual checks based on what you want each agent to review.

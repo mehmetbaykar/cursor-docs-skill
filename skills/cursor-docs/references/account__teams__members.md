@@ -123,6 +123,8 @@ Admins can change roles for other members by clicking the context menu and then 
 
 There must be at least one Admin, and one paid member on the team at all times.
 
+On a team that belongs to an [Organization](https://cursor.com/docs/enterprise/organizations.md), an org admin who is also on the team shows their team role, so you can change their role or remove them like any other member. Turn on **Show org admins** to also list org admins who aren't on the team. In that view, every org admin shows as a read-only **Org Admin**. Turn the switch off to edit their team role.
+
 ## Domain settings
 
 Admins can configure two domain-based controls in [team settings](https://cursor.com/dashboard/settings#domain-join). Both require at least one verified domain and are available on Team and Enterprise plans for teams not using SCIM provisioning.
