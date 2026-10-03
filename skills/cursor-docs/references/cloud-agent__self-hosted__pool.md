@@ -41,7 +41,7 @@ Self-Hosted Machines support up to 200 workers per user and 1000 per team. For l
 ## Prerequisites
 
 - A **Cursor Enterprise plan**
-- Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents):
+- Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted):
   - **Allow Self-Hosted Machines** lets users opt in to self-hosted runs.
   - **Require Self-Hosted Machines** routes every Cloud Agent run to self-hosted workers.
 - A [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md) for pool worker authentication

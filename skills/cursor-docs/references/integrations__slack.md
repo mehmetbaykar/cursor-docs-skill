@@ -248,7 +248,7 @@ Team admins can set one [Team Pool](https://cursor.com/docs/cloud-agent/self-hos
 
 Team Pools require an Enterprise plan. The team and channel defaults only
 apply while **Allow Self-Hosted Machines** is on in the [Cloud Agents
-dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents). If
+dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted). If
 an admin turns it off, Slack ignores both defaults and mentions run on
 Cursor's managed infrastructure.
 

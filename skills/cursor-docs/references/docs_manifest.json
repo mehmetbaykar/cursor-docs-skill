@@ -615,8 +615,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "8ee6e509a29457a05644864cd9a0dc5ee6d71988854a190e8e2f6dd58996b18d",
-      "last_updated": "2026-10-01T21:21:39+00:00",
+      "hash": "7744fbb80232d50f55260fe32b98437cb6d56425879fc32f824b1eb19c9c8531",
+      "last_updated": "2026-10-03T00:56:24+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -642,8 +642,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "73670e19c60d4374229290e4279efe50e22e9830ec1c72b9c5ceaca6564f6064",
-      "last_updated": "2026-09-29T21:21:28+00:00",
+      "hash": "20098b14d876640a6508b048efcb0324ec6ac80139bcefe8c8244c17181c0d4a",
+      "last_updated": "2026-10-03T00:56:25+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
@@ -660,8 +660,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "b15bb259cd26e5117a33302f7198ff3fc44f561fe68be769ad2571817806adcd",
-      "last_updated": "2026-10-01T21:21:41+00:00",
+      "hash": "b76e9d9eea0af16a4a0f08eea59b41bef325911693b2b789f40e33022b1651cf",
+      "last_updated": "2026-10-03T00:56:26+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -984,8 +984,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "d5b08f46d7a97e92bfde90bfce38041fcd7645c899d8aa35d54fee851cabe7c9",
-      "last_updated": "2026-09-29T01:00:33+00:00",
+      "hash": "aa067b6577369d77b6ec680a8d62de8b64724caaf4fc21d631e401a1ae4e9ec9",
+      "last_updated": "2026-10-03T00:56:37+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1789,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-02T18:29:18+00:00",
+  "last_updated": "2026-10-03T00:57:07+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

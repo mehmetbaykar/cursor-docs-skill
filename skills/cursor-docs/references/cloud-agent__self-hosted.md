@@ -83,7 +83,7 @@ A [Cloud Agent environment](https://cursor.com/docs/cloud-agent/setup.md#what-is
 - An [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) worker started with `--clone-git-repos` checks out every repository at the requested branch or commit.
 - A repo-backed pool worker or a My Machines worker uses the checkouts it already has, without switching branches or cloning. Your [`sessionStart` hook](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks) receives every repository in the request as `repo_urls` and `repos`, so it can clone the ones the worker doesn't have.
 
-**Secrets.** A pool worker started with `--sync-dashboard-secrets` gets secrets as environment variables once a team admin turns on **Secret sync** in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents):
+**Secrets.** A pool worker started with `--sync-dashboard-secrets` gets secrets as environment variables once a team admin turns on **Secret sync** in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted):
 
 - Team and user secrets available to the run's repositories. Any-repo pools get only secrets that aren't limited to a repository.
 - `envVars` passed to [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent).
@@ -145,7 +145,7 @@ curl https://cursor.com/install -fsS | bash
   export CURSOR_API_KEY="<team service-account API key>"
   ```
 
-- Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted-agents): **Allow Self-Hosted Machines** lets users opt in, and **Require Self-Hosted Machines** routes every Cloud Agent run to your workers.
+- Self-hosted settings configured by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted): **Allow Self-Hosted Machines** lets users opt in, and **Require Self-Hosted Machines** routes every Cloud Agent run to your workers.
 
 **Computer use** (optional)
 
