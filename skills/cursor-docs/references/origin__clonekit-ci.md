@@ -195,6 +195,10 @@ git checkout -q "$COMMIT_SHA"
 
 GitHub Actions uses the [Origin App](https://cursor.com/docs/origin/clonekit-ci.md#create-an-origin-app) path, with the private key in an Actions secret and the two ids in repository variables. Because GitHub fires the workflow, the repository lives on GitHub and Origin holds it as a [mirror](https://cursor.com/docs/origin/mirror-github.md). The workflow asks Origin to pull the build's commit, clones with `clone-fast` into the empty `$GITHUB_WORKSPACE`, then checks that commit out. It never calls GitHub, so it needs no `GITHUB_TOKEN` permissions and does not use `actions/checkout`.
 
+### Let the app sync the mirror
+
+The workflow calls Sync Mirror, which needs the **Sync mirrors from upstream** permission (`repository:mirror:sync`). Select it under **Permissions** on the app's page in Origin app settings. If the app is already installed, open the installation's page and select **Review & Update** to accept the new permission.
+
 ### Add the secret
 
 In your repository, select **Settings** > **Secrets and variables** > **Actions**, then add the secret `ORIGIN_APP_PRIVATE_KEY` with the full private key PEM.
@@ -257,7 +261,7 @@ jobs:
             echo "::add-mask::$app_jwt"
             CURSOR_AUTH_TOKEN=$(printf 'Authorization: Bearer %s\n' "$app_jwt" \
               | curl -fsS -X POST -H @- -H 'Content-Type: application/json' \
-                  --data '{"scopes":["repository:contents:read"]}' \
+                  --data '{"scopes":["repository:contents:read","repository:mirror:sync"]}' \
                   "https://api.cursor.com/v1/origin/app/installations/${ORIGIN_INSTALLATION_ID}/access_tokens" \
               | jq -er '.token')
             echo "::add-mask::$CURSOR_AUTH_TOKEN"
@@ -281,7 +285,7 @@ jobs:
 ```
 
 - **On `pull_request`, the workflow builds the pull request head.** `github.sha` is a merge commit that exists only on GitHub, so `BUILD_SHA` and `BUILD_BRANCH` use the pull request's head commit and branch instead.
-- **The sync request is [Sync Mirror](https://cursor.com/docs/api/origin/reference/sync-mirror.md).** It accepts the installation token, needs `repository:contents:read`, and returns `200` with `"synced": true` or `202` with `"synced": false` after its wait budget of about two minutes. If Origin is the source of truth and GitHub is the mirror, delete the sync request: the commit is already on Origin, and Origin rejects sync requests for repositories that do not pull from an upstream source.
+- **The sync request is [Sync Mirror](https://cursor.com/docs/api/origin/reference/sync-mirror.md).** It accepts the installation token, needs `repository:mirror:sync`, and returns `200` with `"synced": true` or `202` with `"synced": false` after its wait budget of about two minutes. If Origin is the source of truth and GitHub is the mirror, delete the sync request: the commit is already on Origin, and Origin rejects sync requests for repositories that do not pull from an upstream source.
 - **Both credentials are masked.** `::add-mask::` hides the app JWT and the installation token in the job log.
 - **Later steps mint again.** A later step that needs Origin git access defines and calls the function again. The token is never written to `$GITHUB_ENV` or `$GITHUB_OUTPUT`, which are files on disk.
 - **Pull requests from forks are not mirrored.** Their head branch is not in your repository. Build those from GitHub.
