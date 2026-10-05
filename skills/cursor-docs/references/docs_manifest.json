@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "6760e2360e9c5ae7b22ed001a12b19b9d52d537286d58d7dbe5cc0fb289eec19",
-      "last_updated": "2026-10-01T21:21:35+00:00",
+      "hash": "241a831ab31be596c984daeb15a3b0dd26276c225372042e6f4da465831f4332",
+      "last_updated": "2026-10-05T21:22:09+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -669,8 +669,8 @@
       "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
-      "hash": "9250c52f3a489a776b91df3b5f861d7173bffe274adaaf689de403f73b22e81f",
-      "last_updated": "2026-08-24T21:39:05+00:00",
+      "hash": "71e59be6a67e53525c49dadc0cd121555ead3eaf937cd2422909e3edcf948da0",
+      "last_updated": "2026-10-05T21:22:14+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "source_url": "https://cursor.com/docs/cloud-agent/settings",
@@ -840,8 +840,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "2bc370b5b3bc77888751a5faf0e6d5293a24697d99ac5f3f655be33bf7fc862e",
-      "last_updated": "2026-09-29T01:00:28+00:00",
+      "hash": "9b5e9015ac1c4b3ef64cbc95f29184339eaabdca462a6ffad87ce02f36d705e1",
+      "last_updated": "2026-10-05T21:22:18+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -1789,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-05T18:31:12+00:00",
+  "last_updated": "2026-10-05T21:22:48+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

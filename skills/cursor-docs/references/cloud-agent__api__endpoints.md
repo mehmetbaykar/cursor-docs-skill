@@ -11,7 +11,7 @@ path: /docs/cloud-agent/api/endpoints
 The Cloud Agents API v1 is in public beta. APIs may change before general
 availability.
 
-The Cloud Agents API lets you programmatically launch and manage cloud agents that work on your repositories.
+The Cloud Agents API lets you programmatically launch and manage cloud agents that work on your repositories, along with the [environments](https://cursor.com/docs/cloud-agent/api/endpoints.md#environments) they run in.
 
 - The Cloud Agents API accepts both [Basic and Bearer authentication](https://cursor.com/docs/api.md#authentication). Generate a user API key from [Cursor Dashboard → API Keys](https://cursor.com/dashboard/api), or use a [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md).
 - For details on authentication methods, rate limits, and best practices, see the [API Overview](https://cursor.com/docs/api.md).
@@ -978,6 +978,96 @@ curl --request DELETE \
 ```json
 {
   "id": "bc-00000000-0000-0000-0000-000000000001"
+}
+```
+
+## Environments
+
+Environments are the saved [Cloud Agent environments](https://cursor.com/docs/cloud-agent/setup.md) that agents run in: the repositories and `environment.json` configuration you manage in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#environments). Use these endpoints to script the same work.
+
+### Create An Environment
+
+POST
+
+`/v1/environments`
+
+Create a saved environment. It works like one you create in the dashboard, and agents can use it right away. A new environment has no [Builds](https://cursor.com/docs/cloud-agent/builds.md) until an agent starts on it.
+
+The response is `201` with the new environment.
+
+If the owner already has an environment with the same `name`, the request returns `409 environment_name_conflict`. The error's `environmentId` is the existing environment's ID, unless that environment isn't visible to your API key, such as a draft or a team environment with repositories you can't access.
+
+Cursor checks that it can reach each repository through your source control integration, and returns `400 repository_access`, naming the repository, when it can't. Service account API keys, and user-scoped tokens minted with them, also need each repository within the key's repository scope. A key limited to specific repositories can't create an environment without repositories: `"repos": []` returns `403 repository_access`.
+
+#### Request Body
+
+`owner` string (required)
+
+`personal` to create an environment for the API key's user, or `team` to create one for the team. Service account API keys can only create `team` environments, and an API key that isn't on a team can only create `personal` ones. Otherwise the request returns `400 validation_error`.
+
+`name` string (required)
+
+Display name, up to 255 characters. It must differ from the names of the owner's other environments.
+
+`repos` array (required)
+
+Repositories for the environment. Each entry has a `url` (for example, `https://github.com/your-org/your-repo`). Maximum 50 repositories. Send an empty array for an environment without repositories.
+
+`environmentJson` string (required)
+
+The environment's `environment.json`, as a JSON-encoded string. It uses the same [schema](https://cursor.com/docs/cloud-agent/setup.md#configuration-in-code-with-environmentjson) as a `.cursor/environment.json` file, and comments and trailing commas are allowed. An invalid configuration returns `400 validation_error`, naming the problem.
+
+#### Response Fields
+
+`id` string
+
+Environment ID.
+
+`name` string (optional)
+
+Display name. Omitted when the environment has no name.
+
+`owner` string
+
+`personal` for an environment that belongs to one user, or `team` for an environment shared with the team.
+
+`repos` array
+
+Repositories in the environment. Each entry has a `url`, an HTTPS URL without credentials.
+
+`createdAt`, `updatedAt` string
+
+When the environment was created and last updated (ISO 8601).
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/environments \
+  -u YOUR_API_KEY: \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "owner": "team",
+    "name": "Web app",
+    "repos": [
+      { "url": "https://github.com/your-org/your-web-app" },
+      { "url": "https://github.com/your-org/your-api" }
+    ],
+    "environmentJson": "{\"install\": \"pnpm install\", \"start\": \"sudo service docker start\"}"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "id": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c",
+  "name": "Web app",
+  "owner": "team",
+  "repos": [
+    { "url": "https://github.com/your-org/your-web-app" },
+    { "url": "https://github.com/your-org/your-api" }
+  ],
+  "createdAt": "2026-09-30T21:40:00.000Z",
+  "updatedAt": "2026-09-30T21:40:00.000Z"
 }
 ```
 

@@ -23,6 +23,8 @@ Open an environment to review:
 
 Use **Update with Agent** when you want Cursor to inspect the current environment and propose a new setup. Use **New Setup Run** when you want Cursor to start setting up the environment fresh. Use **Restore** from version history to make a prior environment version active again.
 
+To manage environments from a script, use the [environment endpoints](https://cursor.com/docs/cloud-agent/api/endpoints.md#environments) in the Cloud Agents API.
+
 The **Builds** tab shows the prepared environment versions available to Cloud Agents. You can inspect logs, trigger a Build, choose or pin the active Build, and start an agent from a specific Build. See [Cloud Agent Builds](https://cursor.com/docs/cloud-agent/builds.md) for details.
 
 ## Default settings
