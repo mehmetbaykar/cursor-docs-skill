@@ -16,6 +16,12 @@ Export, the MCP allowlist, and SCIM are also Enterprise only. Self-serve
 Teams do not see those settings. The full list is on
 [admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
 
+## Architecture
+
+The Grok Bot desktop and mobile apps send each request to Cursor's servers. From there, work runs on the member's hosted computer, prompts go to model providers, and tool calls reach third-party services through connected apps.
+
+A control sits on each of those paths. Each one links to its section on this page.
+
 ## Network policy
 
 **Network Controls is Enterprise only.** Admins set a Grok Bot network policy from the [Grok Bot page](https://cursor.com/dashboard/bot) of the Cursor dashboard. It controls which destinations team computers can reach. Self-serve Teams do not see this panel and cannot set a destination allowlist. Teams without a policy default to allow-all.
