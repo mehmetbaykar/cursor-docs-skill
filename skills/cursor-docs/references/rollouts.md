@@ -50,7 +50,7 @@ Choose the repositories to watch. Every pull request that ships from these repos
 
 ### Send deployment events to Rollouts
 
-Tell Rollouts when each production deploy starts and finishes. [Create an API key](https://cursor.com/docs/api.md#creating-api-keys) and store it as the `CURSOR_API_KEY` CI secret. You can either do this [manually](https://cursor.com/docs/rollouts.md#send-deployment-events) or with an agent. With an agent, a setup agent opens a pull request that adds the calls, then you merge it to finish setup.
+Tell Rollouts when each production deploy starts and finishes. [Create an API key](https://cursor.com/docs/api.md#creating-api-keys) and store it as the `CURSOR_API_KEY` CI secret. Use a user API key, a service account API key, or a team Admin API key with the `admin:*` scope. You can either do this [manually](https://cursor.com/docs/rollouts.md#send-deployment-events) or with an agent. With an agent, a setup agent opens a pull request that adds the calls, then you merge it to finish setup.
 
 ### Telemetry
 
@@ -123,9 +123,9 @@ A pull request is skipped only when it clearly matches. When Rollouts skips a pu
 
 ### Notifications
 
-Turn on **Personal Slack Notifications** to hear about your changes in Slack. Under **Deliver to**, choose **Direct message** or **Channel**. For a channel, enter a public channel name or its ID, invite each app named under the field, then save. Slack Connect channels aren't supported.
+Turn on **Personal Slack Notifications** to hear about your changes in Slack. It starts with **Issues found** messages only. To also hear when a deployment succeeds or fails, or when a check finds no issues, turn on **Deployment succeeded**, **Deployment failed**, or **Check clear**. Under **Deliver to**, choose **Direct message** or **Channel**. For a channel, enter a public channel name or its ID, invite each app named under the field, then save. Slack Connect channels aren't supported.
 
-A team admin must add Rollouts to Slack first. Only team admins can change the team's notification defaults. Slack notifications aren't available in Privacy Mode.
+A team admin must add Rollouts to Slack first. Only team admins can change the team's notification defaults. Turning on the team default sends members a Slack message when a check finds issues with their pull request, until they change their own settings. Slack notifications aren't available in Privacy Mode.
 
 ## Related pages
 

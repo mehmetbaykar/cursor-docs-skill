@@ -129,8 +129,8 @@
       "title": "SSO"
     },
     "account__update-access.md": {
-      "hash": "86fdafef291c95a9d6dd95e9336595e5404b6092215b04401bfecb285d82c9ec",
-      "last_updated": "2026-08-07T17:11:44+00:00",
+      "hash": "e594e0356d8bf847be409758a13d52cb74123e2bdc1bdb93904ac4ba7126aeea",
+      "last_updated": "2026-10-05T18:30:07+00:00",
       "original_url": "https://cursor.com/docs/account/update-access",
       "path": "/docs/account/update-access",
       "source_url": "https://cursor.com/docs/account/update-access",
@@ -1551,8 +1551,8 @@
       "title": "Pull request commands"
     },
     "origin__clonekit-ci.md": {
-      "hash": "f25455d9de5a959aef411cd0c524c9b4e0687a20ec4176c76d405562d5f7677c",
-      "last_updated": "2026-09-28T05:14:56+00:00",
+      "hash": "4aba43529f8c1590efb5c1551bd63696e50590a6adf0ca431d52b7e6eb1d64d7",
+      "last_updated": "2026-10-05T18:31:03+00:00",
       "original_url": "https://cursor.com/docs/origin/clonekit-ci",
       "path": "/docs/origin/clonekit-ci",
       "source_url": "https://cursor.com/docs/origin/clonekit-ci",
@@ -1695,8 +1695,8 @@
       "title": "Third Party Hooks"
     },
     "rollouts.md": {
-      "hash": "8d05ce18b60a79051db1851cb79c1958788de326d2b57a0be83c525cbdbeb9ef",
-      "last_updated": "2026-10-02T18:29:15+00:00",
+      "hash": "16d3790e46d1c7d23aa9e6158c646b175cc9c08caf8122188e62293a7067c24d",
+      "last_updated": "2026-10-05T18:31:09+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1789,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-03T00:57:07+00:00",
+  "last_updated": "2026-10-05T18:31:12+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
