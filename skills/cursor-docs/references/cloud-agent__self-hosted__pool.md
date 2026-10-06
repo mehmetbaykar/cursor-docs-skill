@@ -552,7 +552,7 @@ Once a worker is matched to a request, Cursor forwards all agent tool calls dire
 agent worker --pool my-pool --idle-release-timeout 600 start
 ```
 
-`--idle-release-timeout` (env var `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`) is the number of seconds the worker stays connected after a session ends, waiting for follow-up messages. If a follow-up arrives, the timer resets. When the timeout fires, the CLI exits with code 0 so a supervisor can recycle the machine. Pass `0` to disable idle-based release. [Releasing a claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim) is a separate API: it stops preferring that machine for the agent, and does not exit the worker CLI.
+`--idle-release-timeout` (env var `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`) is the number of seconds the worker stays connected after a session ends, waiting for follow-up messages. If a follow-up arrives, the timer resets. When the timeout fires, the CLI exits with code 0 so a supervisor can recycle the machine. Pass `0` to disable idle-based release. [Releasing a claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim) is a separate API: it frees the worker for another agent right away and tells the worker CLI to exit. Cursor refuses it while a turn is using the worker.
 
 Once a worker times out, Cursor marks it as freed. The machine can reset and re-enter the pool. If a user restarts a chat that has disconnected from its machine, the chat reconnects to a fresh machine from the pool. Workspace state from the original machine does not carry over unless the pool uses [hibernation](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hibernation).
 
@@ -726,13 +726,15 @@ See [Create A Session Token](https://cursor.com/docs/cloud-agent/api/endpoints.m
 
 ### Release a claim
 
-Drop the claim that binds an agent to a self-hosted worker. Cursor then stops preferring that machine for the agent:
+Free a worker from its agent so it can serve another one. Cursor clears the claim, returns a waiting follow-up to the queue, and tells the worker CLI to exit:
 
 ```bash
 curl --request POST \
   --url "https://api.cursor.com/v0/private-workers/claims/bc-00000000-0000-0000-0000-000000000002/release" \
   -u "$CURSOR_API_KEY:"
 ```
+
+While a turn is using the worker, release returns HTTP `400` with `Worker in use` and changes nothing. Retry after the turn ends.
 
 A second claim while a live claim exists is rejected; release first, then claim a new `workerId`. See [Release A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim).
 
