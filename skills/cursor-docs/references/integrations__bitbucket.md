@@ -149,6 +149,8 @@ Cursor uses the service account identity for Bugbot review comments, inline find
 
 Bugbot reviews pull requests automatically when they're opened or updated. Comment commands such as `bugbot run` and `cursor review` don't run on Bitbucket Data Center. Cursor replies to the comment to say so.
 
+[Bugbot Autofix](https://cursor.com/docs/bugbot.md#autofix) isn't supported on Bitbucket Data Center. If Autofix is on, Bugbot skips it and says so in its review.
+
 ### Disconnect Bitbucket Data Center
 
 Go to [Integrations in the dashboard](https://cursor.com/dashboard/integrations), open the Bitbucket Data Center configuration page, and delete the registered instance. Revoke the service account token in Bitbucket Data Center after removing the instance from Cursor.
