@@ -286,6 +286,11 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Save without linking Slack.** You can now save edits to a security agent without connecting your own Slack account, as long as its Send to Slack channels are unchanged.
 - **More reliable security reviews.** Security reviews keep results that finish right at the deadline, retry transient connection errors, and fall back to another model when the selected model is unavailable.
 
+### Models and Cursor Router
+
+- **New model: Claude Sonnet 5.5.** [Claude Sonnet 5.5](https://cursor.com/docs/models/claude-sonnet-5-5.md) is now available in Cursor.
+- **New models: GLM 5.3 and GLM 5.3 Flash.** [GLM 5.3](https://cursor.com/docs/models/glm-5-3.md) and [GLM 5.3 Flash](https://cursor.com/docs/models/glm-5-3-flash.md) from Z.ai are now available in Cursor. They're off by default; turn them on in Cursor Settings > Models.
+
 ## Week of Sep 28, 2026
 
 ### Repository settings
@@ -1374,6 +1379,8 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 ### Models and Cursor Router
 
+- **New model: Claude Fable 5.1.** [Claude Fable 5.1](https://cursor.com/docs/models/claude-fable-5-1.md) is now available in Cursor. With Privacy Mode on, or on an Enterprise plan, Anthropic's data retention terms must be accepted before it can be used.
+- **New model: Gemini 3.8 Flash.** [Gemini 3.8 Flash](https://cursor.com/docs/models/gemini-3-8-flash.md) is now available in Cursor.
 - **Fast mode in Max Mode for GPT-5.6.** You can now turn on Fast for [GPT-5.6 Sol](https://cursor.com/docs/models/gpt-5-6-sol.md), [GPT-5.6 Terra](https://cursor.com/docs/models/gpt-5-6-terra.md), and [GPT-5.6 Luna](https://cursor.com/docs/models/gpt-5-6-luna.md) in Max Mode. Previously, turning on Fast switched these models out of Max Mode's long context.
 
 ## Week of Aug 31, 2026

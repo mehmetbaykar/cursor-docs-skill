@@ -192,8 +192,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "b6550a53e54799d5b211fffab23b131e97e2e2062d0c1566ce72e084a8513194",
-      "last_updated": "2026-10-01T18:30:01+00:00",
+      "hash": "6e0fee9af58307464798bc582cfc9b8cb8103a998c8d562635ae457dc3e180d6",
+      "last_updated": "2026-10-06T18:27:50+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "source_url": "https://cursor.com/docs/agent/projects",
@@ -219,8 +219,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "84c2e117bfdd28188ae39378cb8676d36893a29ac9515acb84e92a0aa7aedbe9",
-      "last_updated": "2026-10-02T18:28:30+00:00",
+      "hash": "bf895a1f415df445ea5c00d8b62453897034bfb5d1fcb51579c3be19f00ffcda",
+      "last_updated": "2026-10-06T18:27:51+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -426,8 +426,8 @@
       "title": "Authentication"
     },
     "cli__reference__configuration.md": {
-      "hash": "16906128a8aea4607ce6430308f7640299edddb961705769c889d82c2e495897",
-      "last_updated": "2026-08-07T17:11:53+00:00",
+      "hash": "6814b3dcceca10f995f9d7bb24bdf846a7f6d559f5172370d393c7cb06d0b873",
+      "last_updated": "2026-10-06T18:27:58+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/configuration",
       "path": "/docs/cli/reference/configuration",
       "source_url": "https://cursor.com/docs/cli/reference/configuration",
@@ -903,8 +903,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "876ae0ade387f8ae3b1d052a4d998eeb55e319a3a4dd29222b8150af0c8ffb4c",
-      "last_updated": "2026-10-02T18:28:52+00:00",
+      "hash": "b573465c1b37e4bc9cd20bdafe0247fa76dd603776ed894dc55e4e4f3574b949",
+      "last_updated": "2026-10-06T18:28:14+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "source_url": "https://cursor.com/docs/integrations/bitbucket",
@@ -948,8 +948,8 @@
       "title": "JetBrains"
     },
     "integrations__jira.md": {
-      "hash": "9077ab279058bca571e02ba7ed2470545f721c0c8b809f526679ef9c182c5e0d",
-      "last_updated": "2026-09-23T04:37:57+00:00",
+      "hash": "2692944b0a082a7d9c8a2a36ad5f59f0ae64816c253a8f7b5f9e16837fdcc0fd",
+      "last_updated": "2026-10-06T18:28:15+00:00",
       "original_url": "https://cursor.com/docs/integrations/jira",
       "path": "/docs/integrations/jira",
       "source_url": "https://cursor.com/docs/integrations/jira",
@@ -1677,8 +1677,8 @@
       "title": "Plugins reference"
     },
     "reference__sandbox.md": {
-      "hash": "010d37d7c5d569ffe7e0a905be7b678ea30ca10761ab3e1973ce0924344673cd",
-      "last_updated": "2026-08-07T17:12:24+00:00",
+      "hash": "af90d1ed78b9bf64960de2845bc7184557170fffb57338bd6cb94ea0d9ad869d",
+      "last_updated": "2026-10-06T18:28:41+00:00",
       "original_url": "https://cursor.com/docs/reference/sandbox",
       "path": "/docs/reference/sandbox",
       "source_url": "https://cursor.com/docs/reference/sandbox",
@@ -1695,8 +1695,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "222e3efd9f5197306f7174183d545716f4c2c3eb9602c495f82834c509c9b794",
-      "last_updated": "2026-10-06T15:23:23+00:00",
+      "hash": "30594e0a0f010f2a27aaa540539005f5d1984b7311739f26115a247f2ab524a9",
+      "last_updated": "2026-10-06T18:28:42+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -1776,8 +1776,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "b9f35a1e63ff575b6128d4c42ee184aa0b811115b102b1df09f3e547a6486620",
-      "last_updated": "2026-10-06T15:23:26+00:00",
+      "hash": "d347814d7a5e9b74b585571a64536b51755b89307b7ce34c2a93398adf374e61",
+      "last_updated": "2026-10-06T18:28:44+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -1785,8 +1785,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "16d3790e46d1c7d23aa9e6158c646b175cc9c08caf8122188e62293a7067c24d",
-      "last_updated": "2026-10-05T18:31:09+00:00",
+      "hash": "d0121330b8a819aefde0a0aaa17737998549817d09055f4b1586276a1a794d0b",
+      "last_updated": "2026-10-06T18:28:45+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1870,7 +1870,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-06T15:23:29+00:00",
+  "last_updated": "2026-10-06T18:28:47+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

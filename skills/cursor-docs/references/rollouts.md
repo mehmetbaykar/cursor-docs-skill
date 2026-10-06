@@ -42,7 +42,7 @@ Select **Services** at the top of the Rollouts page to see each service your dep
 
 ## Set up Rollouts
 
-In [Automations](https://cursor.com/automations), select **Enable** on the Rollouts card under **From Cursor**. Setup has four steps:
+In [Automations](https://cursor.com/automations), open the **Team** tab and select **Enable** on the Rollouts card under **From Cursor**. Setup has four steps:
 
 ### Access to monitored repositories
 
