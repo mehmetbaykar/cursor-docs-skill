@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 196,
+    "pages_fetched_successfully": 205,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 199
+    "total_pages_discovered": 208
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "b5976514aa4499787b7a0dba8a03327f8fb183020e7194e8ffc175342b44a355",
-      "last_updated": "2026-10-01T21:21:26+00:00",
+      "hash": "735344c2158533b94a4ec9692e2df09de9ceb85d68aff2defc83be26f5088928",
+      "last_updated": "2026-10-06T15:22:30+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "2f93baa412de258f4626d69c03894e059384c1fbbe04dd190240642b7dd90fcb",
-      "last_updated": "2026-10-01T21:21:27+00:00",
+      "hash": "2c4640067de437ca44d5ba5e1964cb1a2b22d0d8361af3aa4466f16067a89647",
+      "last_updated": "2026-10-06T15:22:31+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -309,8 +309,8 @@
       "title": "Origin Grants API"
     },
     "api__origin__mcp.md": {
-      "hash": "681fc046e3229b087e8fabc8b224e778a474ec8ebf2dce51828f58f8acb85ca3",
-      "last_updated": "2026-10-01T18:30:05+00:00",
+      "hash": "6b83266a6f0f248601a683863c632f2cc554e2141d5f4283be9b5e8fbd799694",
+      "last_updated": "2026-10-06T15:22:32+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp",
       "path": "/docs/api/origin/mcp",
       "source_url": "https://cursor.com/docs/api/origin/mcp",
@@ -318,8 +318,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "f327792b09e90a75bbce96ea9396b206aca2402463da3b74f844b93303441997",
-      "last_updated": "2026-10-01T18:30:05+00:00",
+      "hash": "71242bb4d21b13c2f8d022e8ba524e71414c008727eab3ed46c1b10ba7d12b26",
+      "last_updated": "2026-10-06T15:22:32+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -327,8 +327,8 @@
       "title": "Origin MCP tool reference"
     },
     "api__origin__migrations.md": {
-      "hash": "6688804685b4e713979a5ae66c589e0e082db42184b78b94328f33d792fbfca9",
-      "last_updated": "2026-09-30T18:27:44+00:00",
+      "hash": "5c2319a5bb6caaec320186c55594b705ebf687e7c6c156e54bed0984cd68e6d6",
+      "last_updated": "2026-10-06T15:22:33+00:00",
       "original_url": "https://cursor.com/docs/api/origin/migrations",
       "path": "/docs/api/origin/migrations",
       "source_url": "https://cursor.com/docs/api/origin/migrations",
@@ -363,13 +363,13 @@
       "title": "ACP"
     },
     "cli__changelog.md": {
-      "hash": "3517cb1d917653b94482985baed5f302c3adaaa820c5b6ecf714643b06e3204e",
-      "last_updated": "2026-09-01T23:15:29+00:00",
+      "hash": "8a569562323913ebe4470ff570754df0cce86ab4c408364f81f4b94add45d869",
+      "last_updated": "2026-10-06T15:22:34+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
       "source_url": "https://cursor.com/docs/cli/changelog",
       "status": "live",
-      "title": "CLI Changelog"
+      "title": "Cursor CLI changelog"
     },
     "cli__github-actions.md": {
       "hash": "c1cc502705ec4b08d3daa53ed900d328b1aefa0a1f23087fb644e7eaebb242a6",
@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "f576db4f3dcdaaa01516e68e45394a7866c808562c3df49ef90adea89a76fbd3",
-      "last_updated": "2026-10-06T00:58:57+00:00",
+      "hash": "c8fe4a35d250ba3c9d3629d22022b1cc15d8507dcf664f046d616baaa754e09a",
+      "last_updated": "2026-10-06T15:22:40+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1694,6 +1694,96 @@
       "status": "live",
       "title": "Third Party Hooks"
     },
+    "release-notes.md": {
+      "hash": "222e3efd9f5197306f7174183d545716f4c2c3eb9602c495f82834c509c9b794",
+      "last_updated": "2026-10-06T15:23:23+00:00",
+      "original_url": "https://cursor.com/docs/release-notes",
+      "path": "/docs/release-notes",
+      "source_url": "https://cursor.com/docs/release-notes",
+      "status": "live",
+      "title": "Release notes"
+    },
+    "release-notes__agents-window.md": {
+      "hash": "44ef00c27b37b118ed9ddda8670d3817fc573701985c4f9191e21c0c05503111",
+      "last_updated": "2026-10-06T15:23:23+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/agents-window",
+      "path": "/docs/release-notes/agents-window",
+      "source_url": "https://cursor.com/docs/release-notes/agents-window",
+      "status": "live",
+      "title": "Agents Window release notes"
+    },
+    "release-notes__bugbot.md": {
+      "hash": "03805526dac05dac352ec62f9f7b7cd36f49bebc36cdae36bfe85ac231839aa2",
+      "last_updated": "2026-10-06T15:23:24+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/bugbot",
+      "path": "/docs/release-notes/bugbot",
+      "source_url": "https://cursor.com/docs/release-notes/bugbot",
+      "status": "live",
+      "title": "Bugbot release notes"
+    },
+    "release-notes__cloud-agents.md": {
+      "hash": "c04832298286fefba53253f97d789454ed7f7efcb519d5bb69ed9601a03b29bb",
+      "last_updated": "2026-10-06T15:23:24+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
+      "path": "/docs/release-notes/cloud-agents",
+      "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
+      "status": "live",
+      "title": "Cloud Agents release notes"
+    },
+    "release-notes__ide.md": {
+      "hash": "b62cd475750206f491cf75cc9de9ad059491815c8501694989ca56674bba1765",
+      "last_updated": "2026-10-06T15:23:24+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/ide",
+      "path": "/docs/release-notes/ide",
+      "source_url": "https://cursor.com/docs/release-notes/ide",
+      "status": "live",
+      "title": "Cursor IDE release notes"
+    },
+    "release-notes__mobile.md": {
+      "hash": "a7bc230f6b2296ef2f959f635adc81b3458f90556142fc354aac1074c719256c",
+      "last_updated": "2026-10-06T15:23:25+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/mobile",
+      "path": "/docs/release-notes/mobile",
+      "source_url": "https://cursor.com/docs/release-notes/mobile",
+      "status": "live",
+      "title": "Cursor mobile release notes"
+    },
+    "release-notes__origin-cli.md": {
+      "hash": "73b50188aba71d6d76b2ae0d6c7623fb1cf2647e0572d4bd375a712d44980f6c",
+      "last_updated": "2026-10-06T15:23:25+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/origin-cli",
+      "path": "/docs/release-notes/origin-cli",
+      "source_url": "https://cursor.com/docs/release-notes/origin-cli",
+      "status": "live",
+      "title": "Origin CLI release notes"
+    },
+    "release-notes__origin.md": {
+      "hash": "958a11426780c4d00741cd3c216ae3a5dbe6e8701f8a6a8250f6f2f2df1377f6",
+      "last_updated": "2026-10-06T15:23:25+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/origin",
+      "path": "/docs/release-notes/origin",
+      "source_url": "https://cursor.com/docs/release-notes/origin",
+      "status": "live",
+      "title": "Origin release notes"
+    },
+    "release-notes__sdk.md": {
+      "hash": "5892c54020e5cfd6ccd0d225b776b385be4bc0c9503772e66bfc4f4f9122588a",
+      "last_updated": "2026-10-06T15:23:26+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/sdk",
+      "path": "/docs/release-notes/sdk",
+      "source_url": "https://cursor.com/docs/release-notes/sdk",
+      "status": "live",
+      "title": "Cursor SDK release notes"
+    },
+    "release-notes__web.md": {
+      "hash": "b9f35a1e63ff575b6128d4c42ee184aa0b811115b102b1df09f3e547a6486620",
+      "last_updated": "2026-10-06T15:23:26+00:00",
+      "original_url": "https://cursor.com/docs/release-notes/web",
+      "path": "/docs/release-notes/web",
+      "source_url": "https://cursor.com/docs/release-notes/web",
+      "status": "live",
+      "title": "Cursor web release notes"
+    },
     "rollouts.md": {
       "hash": "16d3790e46d1c7d23aa9e6158c646b175cc9c08caf8122188e62293a7067c24d",
       "last_updated": "2026-10-05T18:31:09+00:00",
@@ -1713,22 +1803,13 @@
       "title": "Rules"
     },
     "sdk__bridge.md": {
-      "hash": "8020c411af233195fd7d6a9b837a769f634f731775a01722363082c9e9e726aa",
-      "last_updated": "2026-09-03T23:15:05+00:00",
+      "hash": "960e9e8506dd7d355357618c647f03ea3a6f189d4e9852cf905a9e322fa8abf3",
+      "last_updated": "2026-10-06T15:23:27+00:00",
       "original_url": "https://cursor.com/docs/sdk/bridge",
       "path": "/docs/sdk/bridge",
       "source_url": "https://cursor.com/docs/sdk/bridge",
       "status": "live",
       "title": "Cursor SDK Bridge"
-    },
-    "sdk__changelog.md": {
-      "hash": "aaf5f0b4f549d662298a2b78de23d03d6c745ba783b7dc6640cd12f92e84cee7",
-      "last_updated": "2026-09-03T23:15:05+00:00",
-      "original_url": "https://cursor.com/docs/sdk/changelog",
-      "path": "/docs/sdk/changelog",
-      "source_url": "https://cursor.com/docs/sdk/changelog",
-      "status": "live",
-      "title": "SDK Changelog"
     },
     "sdk__python.md": {
       "hash": "7924414f9719e89a7e985fbf8083b9d836e1474bd7ecf85d531a4708316db4c4",
@@ -1789,7 +1870,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-06T00:59:47+00:00",
+  "last_updated": "2026-10-06T15:23:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

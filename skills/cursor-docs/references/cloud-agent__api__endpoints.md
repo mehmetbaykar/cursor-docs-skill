@@ -1149,6 +1149,184 @@ curl --request DELETE \
 }
 ```
 
+### List Environment Builds
+
+GET
+
+`/v1/environments/{id}/builds`
+
+List an environment's [Builds](https://cursor.com/docs/cloud-agent/builds.md), newest first, up to 10 per page.
+
+#### Path Parameters
+
+`id` string
+
+Environment ID.
+
+#### Query Parameters
+
+`cursor` string (optional)
+
+Pagination cursor from `nextCursor` on the previous response.
+
+#### Response Fields
+
+`items` array
+
+Up to 10 Builds, newest first. Each has the fields [Get An Environment Build](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-an-environment-build) returns.
+
+`nextCursor` string (optional)
+
+Cursor for the next page. Omitted when there are no more Builds.
+
+```bash
+curl --request GET \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "items": [
+    {
+      "id": "bld-20260930-3c59dc04-8a1d-4b6e-9f2a-7e5d1c0b9a8f",
+      "environmentId": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c",
+      "status": "SUCCEEDED",
+      "trigger": "RECURRING",
+      "draft": false,
+      "createdAt": "2026-09-30T09:00:00.000Z",
+      "updatedAt": "2026-09-30T09:12:00.000Z",
+      "completedAt": "2026-09-30T09:12:00.000Z"
+    },
+    {
+      "id": "bld-20260929-a87ff679-a2f3-4e1c-8f5b-0c3d2e1f4a5b",
+      "environmentId": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c",
+      "status": "FAILED",
+      "trigger": "CONFIG_CHANGE",
+      "draft": false,
+      "failure": { "type": "TERMINAL_FAILURE", "code": "environment_json_invalid" },
+      "createdAt": "2026-09-29T21:05:00.000Z",
+      "updatedAt": "2026-09-29T21:06:00.000Z",
+      "completedAt": "2026-09-29T21:06:00.000Z"
+    }
+  ]
+}
+```
+
+### Get An Environment Build
+
+GET
+
+`/v1/environments/{id}/builds/{buildId}`
+
+Retrieve one of an environment's Builds. A build ID that isn't one of the environment's Builds returns `404 build_not_found`.
+
+#### Path Parameters
+
+`id` string
+
+Environment ID.
+
+`buildId` string
+
+Build ID (for example, `bld-20260930-3c59dc04-8a1d-4b6e-9f2a-7e5d1c0b9a8f`).
+
+#### Response Fields
+
+`id` string
+
+Build ID.
+
+`environmentId` string
+
+ID of the environment the Build belongs to.
+
+`status` string
+
+`IN_PROGRESS`, `SUCCEEDED`, `FAILED`, `CANCELLED`, or `SKIPPED`. A [skipped Build](https://cursor.com/docs/cloud-agent/builds.md#skipped-builds) found nothing to rebuild.
+
+`trigger` string
+
+What started the Build: `RECURRING` for a scheduled Build, `CONFIG_CHANGE` after a configuration or secrets change, or `MANUAL` for one started on request.
+
+`draft` boolean
+
+`true` for a draft Build. Agents don't start from a draft Build until it's activated.
+
+`failure` object (optional)
+
+Why a failed Build failed. `type` is `INSTALL_FAILED` when the `install` command failed, or `TERMINAL_FAILURE` for other failures. `code`, when present, is a machine-readable cause such as `environment_json_invalid`.
+
+`createdAt`, `updatedAt` string
+
+When the Build was created and last updated (ISO 8601).
+
+`completedAt` string (optional)
+
+When the Build finished (ISO 8601). Omitted while it's in progress.
+
+```bash
+curl --request GET \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds/bld-20260930-3c59dc04-8a1d-4b6e-9f2a-7e5d1c0b9a8f \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "id": "bld-20260930-3c59dc04-8a1d-4b6e-9f2a-7e5d1c0b9a8f",
+  "environmentId": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c",
+  "status": "SUCCEEDED",
+  "trigger": "RECURRING",
+  "draft": false,
+  "createdAt": "2026-09-30T09:00:00.000Z",
+  "updatedAt": "2026-09-30T09:12:00.000Z",
+  "completedAt": "2026-09-30T09:12:00.000Z"
+}
+```
+
+### Get The Active Build
+
+GET
+
+`/v1/environments/{id}/builds/active`
+
+Find out what an agent you start on this environment boots from: one of its Builds, or Cursor's default image.
+
+#### Path Parameters
+
+`id` string
+
+Environment ID.
+
+#### Response Fields
+
+`type` string
+
+`build` when the agent starts from a Build, or `universal_image` when it starts on Cursor's default image.
+
+`buildId` string (optional)
+
+ID of the Build the agent starts from. Set when `type` is `build`.
+
+```bash
+curl --request GET \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds/active \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "type": "build",
+  "buildId": "bld-20260930-3c59dc04-8a1d-4b6e-9f2a-7e5d1c0b9a8f"
+}
+```
+
 ## Worker Tokens
 
 ### Create A User-Scoped Worker Token

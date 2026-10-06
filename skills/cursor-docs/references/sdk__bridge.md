@@ -153,5 +153,5 @@ SDK runs follow the same pricing, request pools, and Privacy Mode rules as the I
 - [TypeScript SDK](https://cursor.com/docs/sdk/typescript.md)
 - [Python SDK](https://cursor.com/docs/sdk/python.md)
 - [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md)
-- [SDK changelog](https://cursor.com/docs/sdk/changelog.md)
+- [SDK release notes](https://cursor.com/docs/release-notes/sdk.md)
 - [`cursor/sdk-bridge` on GitHub](https://github.com/cursor/sdk-bridge)
