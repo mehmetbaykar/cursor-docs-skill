@@ -34,7 +34,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 - **Fixed Investigate Error in Chat taking over its shortcut.** Cmd+Shift+D now runs Investigate Error in Chat only when the cursor is on an error, warning, or AI lint. Elsewhere, the shortcut goes to its other binding.
 - **Fixed Apply writing blank files for very large cloud agent diffs.** When a cloud agent changes more files than can be shown, Review Changes now warns that file contents are not available instead of saying there are no changes, and Apply is blocked instead of writing empty files.
 - **Fixes to agent reliability.** Follow-up messages you queue while the agent works are no longer lost, and `/summarize` shows an error when it fails. Agent turns no longer hang when `.cursorignore` rules fail to load. MCP tools that require confirmation still ask for approval when Auto-review allows the call.
-- **Fixes to cloud agents.** Cloud agent chats reconnect after sleep or network drops and load older turns one page at a time without stalling. Follow-ups keep the model variant you picked.
+- **Fixes to cloud agents.** Cloud agent chats reconnect after sleep or network drops and load older turns one page at a time without stalling. Follow-ups are processed in send order and keep the model variant you picked.
 - **Fixes to the agent chat transcript.** Questions the agent asked in chat no longer reopen after you answer them, and large unsent drafts are no longer lost when the chat reloads.
 - **Fixes to MCP sign-in.** MCP servers that sign in with Microsoft Entra no longer ask for consent every time when an admin has approved the app.
 - **Fixes to Git.** On macOS, Cursor no longer hangs when the git on your PATH can't run, and falls back to the system or Homebrew git. Plugins load with git 2.26 and 2.27.
@@ -73,7 +73,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 
 ### Fixes
 
-- **Fixes to agent chat and the follow-up queue.** Queued follow-ups no longer vanish when a turn ends. The "Worked for" duration includes tools that ran after the final reply.
+- **Fixes to agent chat and the follow-up queue.** Queued follow-ups no longer vanish when a turn ends or disappear when a steer falls back to the queue. The "Worked for" duration includes tools that ran after the final reply.
 - **Agent context reads no longer hang after a failed startup scan.** If the first `.cursorignore` scan fails at startup, Cursor retries it instead of leaving agent context reads stuck for the rest of the session.
 - **Fixes to cloud agents.** Slash menus no longer show the previous team's managed skills after you switch accounts or teams, and cloud agents outside the current workspace no longer send false "Done" notifications.
 - **Fixes to the editor and workbench.** Cmd/Ctrl+Shift+B runs Run Build Task again, and unsaved backups of deleted files no longer reopen every time a window opens. Worktree fetches work on git versions older than 2.29. If the local extension host that connects Cursor to its servers hangs, Cursor restarts it so the window reconnects, unless a debugger may be attached, and it keeps restarting that host if it crashes repeatedly. Cancelled symbol and call hierarchy requests no longer leak memory.
@@ -90,6 +90,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 - **Agent responses start faster.** Cursor prepares the agent in the background when you focus a chat and again when you send a message, so the first response arrives sooner.
 - &#x20;**Team rules with file patterns apply only to matching files.** A team rule scoped to a pattern such as `*.py` used to be added to every agent conversation. Now the agent picks it up only when it reads a matching file or you add one to context. Team rules without a pattern still always apply. See [how Team Rules are applied](https://cursor.com/docs/rules.md#format-and-how-team-rules-are-applied).
 - **The @ menu no longer shows non-working Docs options.** The Docs category and Add New Custom Docs option had already stopped adding documentation to agent context, so they're gone from the @ mentions menu. Docs chips in older conversations still display.
+- **The steering prompt opens Settings.** The Steer New Messages? banner above the queue now opens Settings at New Messages instead of changing the setting for you.
 
 ### Editor
 
@@ -174,7 +175,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 
 - &#x20;**Fixed certificate errors on Windows corporate networks.** On Windows, MCP servers, MCP sign-in, and extensions trust certificates from the Intermediate store and from machine-wide, group policy, and enterprise CA stores. This fixes TLS errors such as `UNABLE_TO_VERIFY_LEAF_SIGNATURE` when IT deploys certificates to those stores.
 - **Fixes to subagents.** Tool calls inside subagents that need approval show the approval card instead of stalling. Cloud subagents no longer go missing from the agent list in runs with more than 100 of them.
-- **Fixes to cloud agent follow-ups.** Editing and resubmitting a cloud agent message uses the model you pick, and the first follow-up after starting a cloud agent is no longer lost.
+- **Fixes to queued and steering messages.** Queued messages keep the mode they were queued in and are no longer posted twice when the agent has an unanswered question. Editing and resubmitting a cloud agent message uses the model you pick, and the first follow-up after starting a cloud agent is no longer lost.
 - **Fixes to cloud agent status and streaming.** Cloud agents no longer get stuck on a stale status. Conversations keep streaming new output after an agent goes idle and resumes, and the first cloud agent follow-up after Cursor has been idle no longer fails with a "Canceled" error.
 - **Fixes to MCP sign-in.** Connecting to MCP servers that use OAuth dynamic client registration no longer fails with an invalid scope error, and signing in to the Stripe Link MCP server no longer fails with an invalid redirect error. The Authenticate button fetches a fresh sign-in link when the cached one is missing.
 - **Fixes to the agent chat transcript.** Chats no longer stay stuck on generating after a turn finishes, so queued messages send. Sharing a chat that is too large shows a clear error.

@@ -1704,8 +1704,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "44ef00c27b37b118ed9ddda8670d3817fc573701985c4f9191e21c0c05503111",
-      "last_updated": "2026-10-06T15:23:23+00:00",
+      "hash": "b1922d1e5da65f1942b49182089674a0c41585833daed548f1f87b9c4a63e3f0",
+      "last_updated": "2026-10-06T21:22:12+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -1713,8 +1713,8 @@
       "title": "Agents Window release notes"
     },
     "release-notes__bugbot.md": {
-      "hash": "03805526dac05dac352ec62f9f7b7cd36f49bebc36cdae36bfe85ac231839aa2",
-      "last_updated": "2026-10-06T15:23:24+00:00",
+      "hash": "5f4691f3b05916de838a23ccd75591a4ec0a6a1350061866a7b5840acd65b926",
+      "last_updated": "2026-10-06T21:22:12+00:00",
       "original_url": "https://cursor.com/docs/release-notes/bugbot",
       "path": "/docs/release-notes/bugbot",
       "source_url": "https://cursor.com/docs/release-notes/bugbot",
@@ -1722,8 +1722,8 @@
       "title": "Bugbot release notes"
     },
     "release-notes__cloud-agents.md": {
-      "hash": "c04832298286fefba53253f97d789454ed7f7efcb519d5bb69ed9601a03b29bb",
-      "last_updated": "2026-10-06T15:23:24+00:00",
+      "hash": "9d6565203420b9073f29a60887c26156d662d9daa18f635f769d1d071679db4a",
+      "last_updated": "2026-10-06T21:22:12+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
       "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
@@ -1731,8 +1731,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "b62cd475750206f491cf75cc9de9ad059491815c8501694989ca56674bba1765",
-      "last_updated": "2026-10-06T15:23:24+00:00",
+      "hash": "bc094378b182d836e42d79fd7ed4644fbc22402855bcee6e13a70ec078e2dcd9",
+      "last_updated": "2026-10-06T21:22:13+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "source_url": "https://cursor.com/docs/release-notes/ide",
@@ -1870,7 +1870,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-06T18:28:47+00:00",
+  "last_updated": "2026-10-06T21:22:18+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
