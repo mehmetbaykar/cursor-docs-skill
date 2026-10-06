@@ -62,7 +62,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Fixes to agent turn reliability.** Provider decode errors are now retried automatically.
 - **Fixes to MCP server sign-in.** Connecting to Microsoft Entra-backed MCP servers such as Azure DevOps no longer asks for consent on every sign-in, so tenants where an admin has already granted consent stop landing on "Approval required."
 - **Fixes for Windows, git, and non-QWERTY keyboards.** Plugins now load with git 2.26 and 2.27, and on Windows the minimize, maximize, and close buttons no longer disappear after you close a modal. On layouts like AZERTY and Dvorak, shortcuts on the physical Z and Y keys, such as Cmd+W, no longer trigger undo or redo.
-- **Fixes to git actions.** Pull requests the local agent opens from its shell are now detected.
+- **Fixes to branches and git actions.** The automation branch picker shows the default branch right away, and pull requests the local agent opens from its shell are now detected.
 - **Fixes to cloud agent git actions.** Fix Merge Conflicts stays in its loading state while the cloud agent works, and Checkout Branch and Fast Forward Branch no longer appear for cloud agents whose checkout can't be changed.
 - **Fixes to the sidebar and project picker.** Choosing Rename from an agent's right-click menu now reliably opens the rename field, and the sidebar footer shows your account name and avatar right away at startup. When every agent is pinned or in a project, a Chats header keeps the sidebar customize menu reachable, and the No Repo section no longer offers a Remove from Sidebar action that did nothing. In the project picker, long folder paths are shortened in the middle so the folder name stays visible, and row controls appear when you highlight a row with the keyboard.
 - **Unread badge matches the sidebar.** While the Agents Window is open, the Dock badge and menu bar unread count no longer count cloud agents that aren't in the sidebar.
@@ -104,6 +104,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Update notifications for Linux .deb and .rpm installs.** Cursor installed through apt or dnf now tells you when a new version is available instead of leaving updates turned off. Choosing Update shows the exact upgrade command with a Copy Command button, and Later snoozes that version.
 - **Opening a Rust project no longer pegs the CPU.** With language servers on, the Agents Window no longer starts rust-analyzer and a full cargo check just because a folder contains Rust. The server now starts when you open a Rust file, and language extensions you disabled stay off.
 - **The Agents Window recovers on its own when its extension host hangs or keeps crashing.** Previously, a frozen extension host could leave agent requests stuck with no error until you reloaded the window. If that extension host stops responding for 60 seconds, it is now restarted automatically and requests resume. If it keeps crashing, it keeps restarting with increasing delays instead of giving up after three crashes. The automatic restart after a hang is skipped while a debugger may be attached to the extension host.
+- **Find side chats in the command palette.** Searching in the command palette now finds side chats. Each one is labeled Side chat, shows its parent agent's name, and opens on its parent agent.
 
 ### Customization and settings
 
@@ -137,6 +138,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 
 - **A Save check mark while editing a queued message or goal.** When you edit a queued message or a goal, the send button becomes a Save check mark.
 - **Smoother scrolling while an agent streams.** While the chat follows a streaming reply, it now glides to new text and tool cards instead of jumping.
+- **The steering prompt opens Settings.** The Steer New Messages? banner above the queue now opens Settings at New Messages instead of changing the setting for you. The first time a message steers a running agent, a one-time notice says so and links to the setting.
 
 ### Projects
 
@@ -178,6 +180,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Fixes to workspace search and SSH workspaces.** Workspace search no longer hangs on cloud and remote workspaces. It shows a message while the workspace connects or reconnects, and ends with a clear message if the remote host stops responding. Adding an SSH workspace with several remote folders is also faster.
 - **Fixes to the model picker.** Saved MAX-only model variants, like 1M context, now reset only when you turn MAX off, not when you use the picker in a non-MAX chat. When your team lifts a "Restrict to Auto" model policy, the picker no longer keeps showing the restriction notice or hiding the search bar.
 - **Fixes to the browser.** Open in External Browser on a local HTML file opens your system browser, and when an admin blocks browser automation your saved browser mode is no longer reset to Off.
+- **`/subscribe` works with Origin repositories.** Cloud agents in a repository hosted on Cursor Origin now wait for its CI results and pull request activity with the Origin subscription tools instead of polling. The agent picks the tool that matches the pull request link, so an Origin link no longer goes to a GitHub tool and fails.
 - **Fixes to the agent panel.** The agent panel no longer gets replaced by a "Something went wrong" screen when a chat that is still open is unloaded in the background. The chat stays on screen.
 
 ## 3.20
@@ -196,11 +199,11 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 
 - **Answer subagent questions without leaving the parent chat.** When a subagent is waiting on a question, the parent chat's question tray now shows it under "Question from" and the subagent's name, and clicking Answer on a subagent row brings its question up there too, including for cloud subagents. You can also collapse the tray to a Questions pill that shows the count and reopens it, and file and web links in questions now open when clicked.
 - **Status pills above the prompt are easier to scan.** Pills above the prompt now list live status first (pending input, Changes, Agents, Terminals, Canvas, Queue), then quick actions, and status pills stay visible when a tray is open. The Terminals pill shows a spinner while an agent's command is running, and the branch-mismatch pill now reads Checkout Branch with the branch name in a tooltip.
-- **Scroll the chat with Page Up, Page Down, Home, and End.** When the agent chat is focused, Page Up and Page Down scroll by about a page, and Home and End jump to the top or bottom of the conversation. Pressing End while the agent is still replying keeps the view following new output.
+- **Scroll the chat with Page Up, Page Down, Home, and End.** Page Up and Page Down scroll by about a page, and Home and End jump to the top or bottom of the conversation. Pressing End while the agent is still replying keeps the view following new output.
 - **Cleaner links and code blocks in agent responses.** Long bare URLs in agent responses now show as the site's host plus a shortened path, so they no longer stretch across the conversation. Code blocks labeled with a file extension, like the file-referenced blocks agents use for `.rs` files, are now syntax highlighted instead of shown as plain text.
 - **More reliable file attachments in prompts.** You can now attach `.har` files from the + menu, the same way as JSON files. Documents you add show up as file mentions again and stay attached when you switch a new chat between local and cloud before sending. Removing a file's mention from a cloud agent prompt now stops that file from being uploaded.
 - **Live microphone meter while recording voice input.** While you dictate, the voice toolbar now shows a compact live meter next to the recording time, so you can see the mic is picking you up. Background noise settles into dots, and the bars rise only when you speak.
-- **Clearer diagrams in chat.** Diagrams the agent draws inline now open with a title, an optional short subtitle, and a legend, the same header charts use. Explanations stay in the chat reply instead of inside the figure, outlines are darker so shapes read at a glance, and diagrams size to the chat column, down to narrow widths.
+- **Clearer diagrams in chat.** Diagrams the agent draws inline now open with a title and an optional short subtitle, the same header charts use. Explanations stay in the chat reply instead of inside the figure, outlines are darker so shapes read at a glance, and diagrams size to the chat column, down to narrow widths.
 
 ### Projects
 
@@ -288,7 +291,9 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 ### Fixes
 
 - **Fixed certificate errors on Windows corporate networks.** On Windows, MCP servers (including MCP sign-in) and other network requests now trust certificates from the Intermediate store and from machine-wide and enterprise CA stores that IT deploys through group policy. This fixes errors like `UNABLE_TO_VERIFY_LEAF_SIGNATURE` when you connect through a corporate proxy or to an internal MCP server.
-- **Fixes to subagent Task cards and status.** Task cards for subagents settle as stopped or finished instead of spinning forever, and the subagent tray and agent list show accurate statuses without duplicate or lingering rows for finished subagents. Archiving an agent whose cloud subagents have finished no longer asks for confirmation.
+- **Fixes to subagent Task cards and status.** Task cards for subagents settle as stopped or finished instead of spinning forever, and the subagent tray and agent list show accurate statuses without duplicate or lingering rows for finished subagents. Archiving an agent whose cloud subagents have finished no longer asks for confirmation. A cloud subagent that fails before its first response no longer leaves its kickoff prompt in the New Chat input.
+- **Fixes to the subagent tray.** Subagent rows also show an environment icon only when the subagent runs somewhere different from its parent, with a desktop icon for self-hosted workers.
+- **Fixes to steering messages.** Steering messages a cloud agent can't take mid-run now move to the queue as editable follow-ups instead of looking sent, and steers no longer appear twice, pin to the top of the chat, or leave stray rows in the queue.
 - **Fixes to follow-ups.** A follow-up you start typing on a just-created cloud agent is no longer lost when you switch away and come back.
 - **Editing an earlier message in a cloud agent clears stale follow-ups.** Editing an earlier message in a cloud agent clears stale queued follow-ups and uses the model you picked.
 - **Fixes to agent questions.** Typing a follow-up while an agent is asking questions now closes the question tray right away and marks the question as skipped, and questions from finished runs no longer stay stuck as pending.

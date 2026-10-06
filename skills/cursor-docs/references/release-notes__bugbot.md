@@ -14,6 +14,10 @@ Weekly changes to [Bugbot](https://cursor.com/docs/bugbot.md). Each entry covers
 
 - **Configure Bugbot per repository.** On GitHub pull requests, Bugbot reads a `.cursor/config/bugbot.yaml` file to set its triggers, review effort, incremental review, PR summary, and risk score for that repository. Values in the file override team settings, and the file can lower Autofix but never turn it on. The Bugbot Settings section in the dashboard links to the docs for config files.
 
+### Autofix
+
+- **Autofix stays off your branch in New Branch mode.** When Autofix is set to New Branch, it now keeps its fixes on a separate branch and never commits to the pull request's own branch.
+
 ### Reviews and checks
 
 - **Bugbot checks no longer get stuck.** A Bugbot run that is cancelled or times out now completes its check as neutral instead of leaving it in progress. When the base branch gets new commits that don't change the pull request's merge base, Bugbot still posts its review, and a cancelled run's check says why it was cancelled.

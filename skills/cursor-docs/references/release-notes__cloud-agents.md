@@ -94,7 +94,7 @@ Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each e
 ### Projects
 
 - **Team admins' Projects setting now applies to Cloud Agents.** When a team admin turns off Projects, the team's Project agents no longer show up in Cloud Agent lists, and starting a new Project fails with "Projects are disabled for your team." Personal accounts, and teams that haven't changed the setting, keep Projects on.
-- **Fixes to Projects coordinator and worker agents.** Force-submitting a message to a worker no longer leaves the coordinator's call to it stuck as running. When a worker can't be created, the coordinator gets the real reason, such as hitting the nesting limit, instead of retrying a generic error.
+- **Fixes to Projects coordinator and worker agents.** Coordinators can now start workers after a Project's repository is published under a new name, and PR label edits, environment drafts, and shared links use the published name too. Force-submitting a message to a worker no longer leaves the coordinator's call to it stuck as running. When a worker can't be created, the coordinator gets the real reason, such as hitting the nesting limit, instead of retrying a generic error.
 - **Cloud workers share the Project's Context.** Cloud workers that a Project coordinator creates now use the coordinator's Context as their own, so files they save there are visible across the Project. Moving a worker out of the Project gives it its own Context again.
 
 ### Environments
@@ -115,6 +115,7 @@ Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each e
 ### MCP
 
 - **Cloud agents with many MCP tools no longer fail on model tool limits.** When your MCP servers expose more tools than a model accepts, cloud agents now cap the MCP tools they send, keeping browser and custom tools first, instead of failing the request.
+- **Clear error for empty Cursor-hosted repositories.** Starting a cloud agent or environment build on an empty repository hosted on Cursor now says the repository is empty and asks you to add an initial commit, instead of showing a generic failure.
 
 ### Dashboard
 
@@ -134,6 +135,7 @@ Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each e
 ### Pull requests
 
 - **Pull requests from mirrored repositories open in the right place.** When a repository is mirrored between GitHub and Origin, Cloud Agents now open the pull request on whichever side is the source of truth and tell you which one they used. If the agent can't create the pull request, it reports the reason instead of working around it with another tool. Pull request links for mirrored repositories now point to the GitHub, GitHub Enterprise, or Origin host where the pull request actually lives, and agents no longer target a commit SHA as the base branch.
+- **Merge approvals show the exact commit an agent will land.** When a Cloud Agent asks for approval to merge a pull request on an Origin repository, the request now shows the commit subject and message the agent chose, in both the mobile approval sheet and Slack. You approve the commit that actually lands in history, not just the pull request title.
 
 ### Subscriptions
 
