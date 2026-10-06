@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "241a831ab31be596c984daeb15a3b0dd26276c225372042e6f4da465831f4332",
-      "last_updated": "2026-10-05T21:22:09+00:00",
+      "hash": "f576db4f3dcdaaa01516e68e45394a7866c808562c3df49ef90adea89a76fbd3",
+      "last_updated": "2026-10-06T00:58:57+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -660,8 +660,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "b76e9d9eea0af16a4a0f08eea59b41bef325911693b2b789f40e33022b1651cf",
-      "last_updated": "2026-10-03T00:56:26+00:00",
+      "hash": "755bced780f408cad25143020ef23a98d37234d02002f722ad4f46c836233ccb",
+      "last_updated": "2026-10-06T00:59:03+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1789,7 +1789,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-05T21:22:48+00:00",
+  "last_updated": "2026-10-06T00:59:47+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

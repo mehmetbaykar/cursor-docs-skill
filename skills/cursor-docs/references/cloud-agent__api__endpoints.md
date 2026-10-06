@@ -991,19 +991,15 @@ POST
 
 `/v1/environments`
 
-Create a saved environment. It works like one you create in the dashboard, and agents can use it right away. A new environment has no [Builds](https://cursor.com/docs/cloud-agent/builds.md) until an agent starts on it.
+Create a saved environment. The response is `201` with the new environment.
 
-The response is `201` with the new environment.
-
-If the owner already has an environment with the same `name`, the request returns `409 environment_name_conflict`. The error's `environmentId` is the existing environment's ID, unless that environment isn't visible to your API key, such as a draft or a team environment with repositories you can't access.
-
-Cursor checks that it can reach each repository through your source control integration, and returns `400 repository_access`, naming the repository, when it can't. Service account API keys, and user-scoped tokens minted with them, also need each repository within the key's repository scope. A key limited to specific repositories can't create an environment without repositories: `"repos": []` returns `403 repository_access`.
+If the owner already has an environment with the same `name`, the request returns `409 environment_name_conflict`. The error can include the existing environment's ID in `environmentId`.
 
 #### Request Body
 
 `owner` string (required)
 
-`personal` to create an environment for the API key's user, or `team` to create one for the team. Service account API keys can only create `team` environments, and an API key that isn't on a team can only create `personal` ones. Otherwise the request returns `400 validation_error`.
+`personal` to create an environment for the API key's user, or `team` to create one for the team.
 
 `name` string (required)
 
@@ -1011,11 +1007,11 @@ Display name, up to 255 characters. It must differ from the names of the owner's
 
 `repos` array (required)
 
-Repositories for the environment. Each entry has a `url` (for example, `https://github.com/your-org/your-repo`). Maximum 50 repositories. Send an empty array for an environment without repositories.
+Repositories for the environment. Each entry has a `url` (for example, `https://github.com/your-org/your-repo`). Maximum 100 repositories. Send an empty array for an environment without repositories. A repository Cursor can't reach through your source control integration returns `400 repository_access`.
 
 `environmentJson` string (required)
 
-The environment's `environment.json`, as a JSON-encoded string. It uses the same [schema](https://cursor.com/docs/cloud-agent/setup.md#configuration-in-code-with-environmentjson) as a `.cursor/environment.json` file, and comments and trailing commas are allowed. An invalid configuration returns `400 validation_error`, naming the problem.
+The environment's `environment.json`, as a JSON-encoded string. It uses the same [schema](https://cursor.com/docs/cloud-agent/setup.md#configuration-in-code-with-environmentjson) as a `.cursor/environment.json` file. An invalid configuration returns `400 validation_error`.
 
 #### Response Fields
 
@@ -1023,9 +1019,9 @@ The environment's `environment.json`, as a JSON-encoded string. It uses the same
 
 Environment ID.
 
-`name` string (optional)
+`name` string
 
-Display name. Omitted when the environment has no name.
+Display name.
 
 `owner` string
 
@@ -1033,7 +1029,7 @@ Display name. Omitted when the environment has no name.
 
 `repos` array
 
-Repositories in the environment. Each entry has a `url`, an HTTPS URL without credentials.
+Repositories in the environment. Each entry has a `url`.
 
 `createdAt`, `updatedAt` string
 
@@ -1068,6 +1064,88 @@ curl --request POST \
   ],
   "createdAt": "2026-09-30T21:40:00.000Z",
   "updatedAt": "2026-09-30T21:40:00.000Z"
+}
+```
+
+### Get An Environment
+
+GET
+
+`/v1/environments/{id}`
+
+Retrieve a saved environment and its latest saved configuration.
+
+#### Path Parameters
+
+`id` string
+
+Environment ID (for example, `8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c`).
+
+#### Response Fields
+
+The fields [Create An Environment](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-environment) returns, plus:
+
+`repoFile` object (optional)
+
+Set when the environment reads its configuration from a file in a repository, and points at that file: the repository `url` and the file `path`.
+
+`environmentJson` string (optional)
+
+The environment's latest saved configuration, its `environment.json`, as a JSON-encoded string.
+
+`versionId` string (optional)
+
+ID of the latest saved environment version. Omitted when no version has been saved.
+
+```bash
+curl --request GET \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "id": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c",
+  "name": "Web app",
+  "owner": "team",
+  "repos": [
+    { "url": "https://github.com/your-org/your-web-app" },
+    { "url": "https://github.com/your-org/your-api" }
+  ],
+  "environmentJson": "{\"install\": \"pnpm install\", \"start\": \"sudo service docker start\"}",
+  "versionId": "c9f0f895-fb98-4b91-8f3e-2a1b0c9d8e7f",
+  "createdAt": "2026-09-01T16:20:00.000Z",
+  "updatedAt": "2026-09-29T21:05:00.000Z"
+}
+```
+
+### Delete An Environment
+
+DELETE
+
+`/v1/environments/{id}`
+
+Permanently delete a saved environment. This action is irreversible.
+
+#### Path Parameters
+
+`id` string
+
+Environment ID.
+
+```bash
+curl --request DELETE \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "id": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c"
 }
 ```
 
@@ -1761,13 +1839,15 @@ POST
 
 `/v0/private-workers/claims/{id}/release`
 
-Drop the long-term claim that binds an agent to a self-hosted worker. After release, Cursor stops preferring that machine for the agent.
+Release the claim that binds an agent to its self-hosted worker so the worker can serve another agent.
 
-The claim is a routing suggestion, not live process state. Release does not check whether the worker is connected. A waiting follow-up returns to the pool queue at the next scheduling point. A connected worker finishes its current turn undisturbed. A replacement worker can claim the same agent immediately after release.
+When no turn is using the worker, release frees it immediately. Cursor clears the claim and the agent's worker assignment together, returns a waiting follow-up to the pool queue as an unclaimed request, and tells the worker CLI to exit. The agent's next turn runs on another worker. A replacement worker can claim the agent as soon as release returns.
+
+While a turn is using the worker, release returns HTTP `400` and changes nothing. A turn is using the worker when the agent's [status](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-an-agent) is `ACTIVE`, the worker is connected, and the claim isn't waiting for a [hibernated](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hibernation) machine to wake. If Cursor can't read the worker's connection state, it counts the worker as connected. Retry after the turn ends, or [cancel the active run](https://cursor.com/docs/cloud-agent/api/endpoints.md#cancel-a-run) and release again.
 
 A second [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request) while a live claim exists is rejected. Release first, then claim a new `workerId`.
 
-`--idle-release-timeout` (env var `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`) makes the worker CLI exit after idle. This endpoint only drops the routing claim.
+`--idle-release-timeout` (env var `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`) makes the worker CLI exit on its own after idle.
 
 This endpoint requires a service account API key.
 
@@ -1789,6 +1869,14 @@ curl --request POST \
 {
   "id": "bc-00000000-0000-0000-0000-000000000002",
   "workerId": "pw_123"
+}
+```
+
+HTTP `400` means a turn is using the worker. Nothing changed. Retry after the turn ends:
+
+```json
+{
+  "error": "Worker in use: The agent is mid-turn on this worker; retry after the turn ends, or stop the agent to free the worker now"
 }
 ```
 
