@@ -8,8 +8,6 @@ path: /docs/origin/pull-requests
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
 
-Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
-
 Open a repository at [cursor.com/codebase](https://cursor.com/codebase) and select the **Pull Requests** tab to see open pull requests and open one to review it.
 
 ## Pull request list

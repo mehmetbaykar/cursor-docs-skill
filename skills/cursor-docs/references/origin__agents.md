@@ -1,14 +1,12 @@
 ---
-title: "Integrations"
-source: https://cursor.com/docs/origin/integrations
-path: /docs/origin/integrations
+title: "Agents and automations"
+source: https://cursor.com/docs/origin/agents
+path: /docs/origin/agents
 ---
 
-# Integrations
+# Agents and automations
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
-
-Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
 
 Origin works with Cursor Automations and cloud agents so agents can review, change, and push code on your Origin repos.
 

@@ -8,8 +8,6 @@ path: /docs/origin/mirror-github
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
 
-Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
-
 Mirroring copies a GitHub repository into Origin and keeps Origin updated as the GitHub repo changes. GitHub stays the source of truth. Use this when the code already lives on GitHub and you want Origin browse, search, and agent workflows on that history.
 
 ## Prerequisites
@@ -62,7 +60,7 @@ See [forge-local branches](https://cursor.com/docs/origin/git.md#forge-local-bra
 
 - Browse and search at [cursor.com/codebase](https://cursor.com/codebase)
 - Clone the Origin remote from the green **Code** button when you want a local checkout from Origin
-- Attach [cloud agents](https://cursor.com/docs/origin/integrations.md) to the Origin repo. On a mirrored repo, those agents open GitHub pull requests
+- Attach [cloud agents](https://cursor.com/docs/origin/agents.md) to the Origin repo. On a mirrored repo, those agents open GitHub pull requests
 - Review [GitHub pull requests](https://cursor.com/docs/origin/pull-requests.md#mirrored-github-repositories) in Cursor
 
 ## If GitHub is unreachable

@@ -8,8 +8,6 @@ path: /docs/origin/git
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
 
-Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
-
 Origin works with standard git. Open a repo at [cursor.com/codebase](https://cursor.com/codebase), select the green **Code** dropdown, and copy the clone URL.
 
 ## Clone with HTTPS
