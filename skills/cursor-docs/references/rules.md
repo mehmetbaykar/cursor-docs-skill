@@ -111,8 +111,8 @@ alwaysApply: false
   to internal functions
 - Return structured error objects with a `code` and `message` field,
   never throw raw strings
-- Add a `@service-template.ts` reference file when creating a new
-  service for the standard boilerplate
+- Read `@service-template.ts` for the standard boilerplate before
+  creating a new service
 ```
 
 ```md title="Manual — only via @-mention"
@@ -124,10 +124,13 @@ alwaysApply: false
   so it can be fully reversed
 - Never alter a column type in-place. Add a new column, backfill,
   then drop the old one in a separate migration
-- Reference the template for the expected file structure
-
-@migration-template.sql
+- Read `@migration-template.sql` for the expected file structure
+  before writing a migration
 ```
+
+### Referencing files from a rule
+
+Rule content reaches Agent as written. A file mention like `@migration-template.sql` tells Agent where to look, and Agent reads the file with its tools when it needs the content. The file's contents are not inlined into the prompt, and this is the same in the editor, the CLI, and Cloud Agents. Put anything that must always be in context directly in the rule body.
 
 ### Glob pattern examples
 
@@ -160,7 +163,7 @@ Good rules are focused, actionable, and scoped.
 - Provide concrete examples or referenced files
 - Avoid vague guidance. Write rules like clear internal docs
 - Reuse rules when repeating prompts in chat
-- Reference files instead of copying their contents—this keeps rules short and prevents them from becoming stale as code changes
+- Reference files instead of copying their contents. This keeps rules short and prevents them from becoming stale as code changes. Agent reads a referenced file when it needs it, so tell it what to look for there
 
 ### What to avoid in rules
 
@@ -212,23 +215,19 @@ In API directory:
 
 This rule provides a template for Express services:
 
-Use this template when creating Express service:
+When creating an Express service, read `@express-service-template.ts` and follow its structure:
 
 - Follow RESTful principles
 - Include error handling middleware
 - Set up proper logging
 
-@express-service-template.ts
-
 This rule defines React component structure:
 
-React components should follow this layout:
+React components should follow the layout in `@component-template.tsx`:
 
 - Props interface at top
 - Component as named export
 - Styles at bottom
-
-@component-template.tsx
 
 ### Automating development workflows and documentation generation
 
@@ -379,7 +378,7 @@ Check the rule type. For `Apply Intelligently`, ensure a description is defined.
 
 ### Can rules reference other rules or files?
 
-Yes. Use `@filename.ts` to include files in your rule's context. You can also @mention rules in chat to apply them manually.
+Yes. Mention a file by path, for example `@service-template.ts`, and Agent reads it with its tools when the rule applies and it needs the content. The file is not inlined into the prompt, so if something must always be in context, paste it into the rule body. See [Referencing files from a rule](https://cursor.com/docs/rules.md#referencing-files-from-a-rule). You can also @mention rules in chat to apply them manually.
 
 ### Can I create a rule from chat?
 
