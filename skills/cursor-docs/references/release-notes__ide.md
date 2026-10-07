@@ -12,7 +12,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 
 ### Plans and billing
 
-- &#x20;**Plan & Usage shows your plan and prepaid credits.** On Premium, Plus, Super, and Ultra plans, Cursor Settings > Plan & Usage shows your plan by name, your usage reset date, and, below Ultra, an upgrade button for the next tier. Individual accounts on these plans also get a Credits section with the prepaid balance, pending top-ups, and the auto top-up rule, plus buttons to add credits or change the rule.
+- &#x20;**Plan & Usage shows your plan and prepaid credits.** On Premium, Plus, Super, and Ultra plans, Cursor Settings > Plan & Usage shows your plan by name and your usage reset date. Individual accounts on these plans also get a Credits section with the prepaid balance, pending top-ups, and the auto top-up rule, plus buttons to add credits or change the rule.
 
 ### Agent and chat
 
@@ -26,6 +26,10 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 ### Editor
 
 - **AI features recover on their own when the extension host hangs.** If the extension host that powers Cursor's AI features stops responding for about a minute, Cursor restarts it automatically, so you no longer need to reload the window. It also keeps restarting a crashing host with increasing delays, and skips the automatic restart while you debug extensions.
+
+### Privacy and security
+
+- **Privacy mode now blocks automatic crash debugging uploads.** With privacy mode on, Cursor no longer uploads debugging data or emergency memory profiles on its own after a crash or out-of-memory event, even if you turned privacy mode on mid-session.
 
 ### Fixes
 

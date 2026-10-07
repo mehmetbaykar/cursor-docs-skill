@@ -26,6 +26,12 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Slack mentions are readable in cloud agent prompts.** When a cloud agent starts from Slack, people mentioned in the prompt now show as @Name instead of raw Slack user IDs. Clicking a mention opens that person in the Slack app if it's installed, or in Slack on the web otherwise, and Find matches the names as shown.
 - **New cloud agents use your repo's default environment.** When you pick Cloud for a new agent, by clicking it or cycling with Cmd+;, the agent now runs on the repo and Cursor picks its environment. Before, it could preselect another teammate's saved environment. If an agent starts with a warning, such as falling back to the default image without your environment's setup, the environment status row in the chat shows the warning, counts it, and opens on its own.
 - **Continue on Cloud shows saved environment names.** Continue on Cloud options now show each saved environment's name, so you can tell apart two environments on the same repo.
+- **Cloud Agent links open the right agent.** "Open in Cursor" links for Cloud Agents from cursor.com/agents, Slack, Linear, Teams, or Copy Deep Link now open that agent in the Agents Window, even if you haven't opened it before, and even when an editor window has focus. Previously the link could drop you on a new chat. If the agent can't be found or you don't have access, you now see an error.
+- **Side chats now work on cloud agents.** You can open a [side chat](https://cursor.com/docs/agent/overview.md#side-chats) from a cloud agent with `/side`, the + menu, or by selecting text and choosing Add to Side Chat, the same way as on local agents. The side chat runs as its own cloud agent, so you can ask a question without interrupting the main run. Side chats aren't offered inside Projects, which use threads instead.
+
+### Projects and workspaces
+
+- **Edit Workspace keeps your chats when you rename a project.** Renaming a multi-root project in Edit Workspace now moves its local chats and drafts to the renamed project instead of leaving them behind. You can also remove folders until only one remains.
 
 ### Files, changes, and pull requests
 
@@ -47,6 +53,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Fixed repository access rules for people on more than one team.** Admin repository allowlists and blocklists now come only from your active team, so another team's allowlist no longer blocks repositories you should be able to open. Switching teams applies the new team's rules right away.
 - **Turn Cursor Tab on or off from any file tab.** The "..." menu on a code file's tab now always includes a Cursor Tab switch, so you can turn Tab completions on or off without leaving the editor. Your keybinding style, such as Vim or Emacs, also stays selected in that menu instead of resetting to Default after an update.
 - **Settings now explain a missing menu bar icon on macOS.** If macOS has Cursor turned off under System Settings > Menu Bar > Allow in the Menu Bar, the Menu Bar Icon setting now says so and offers an Open Settings button to turn it back on. Cursor also restores the icon automatically when an older hidden-icon preference was keeping it out of view.
+- **Clearer explanation of a fixed on-demand limit.** With a personal fixed on-demand limit, Settings > Plan & Usage now explains that requests stop at the limit and that overage from requests already running isn't billed unless you raise the limit that billing cycle. It previously said usage past your limit would be billed later. Team-managed limits keep their existing wording.
 
 ### Fixes
 
@@ -68,6 +75,10 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Unread badge matches the sidebar.** While the Agents Window is open, the Dock badge and menu bar unread count no longer count cloud agents that aren't in the sidebar.
 - **Accessibility fixes.** Screen readers now announce the highlighted item and its position in composer menus like slash commands, name agent tiles "Panel 1", "Panel 2" with a "Panel actions" menu, and treat collapsible sidebar section headers as expandable buttons. Buttons in the chat transcript show a focus ring when you reach them by keyboard, and dialogs focus the primary button more reliably when they open, so Enter confirms.
 - **Fixes to sign-in, screenshots, and terminal links.** Enterprise members behind flaky corporate proxies are no longer signed out after a single failed team membership check. Agent screenshots of a hidden or minimized window time out after 5 seconds instead of hanging, and finished terminal commands no longer auto-open a browser for a server started in a different terminal.
+- **Fixes to voice chat.** An earlier spoken request that got no reply no longer stays open for the rest of the call once a later request finishes. When the agent is waiting on you, the voice explains once that it can't take a new request instead of repeating itself. Hiding the chat no longer hides the floating call controls, so Hang up stays on screen.
+- **Fixes to agent questions and tool calls.** Questions and plan approvals the agent asks after a dropped connection are no longer answered with an earlier reply. Built-in tool calls with slightly malformed arguments now run instead of failing, and a native code chunker that fails to load now only disables semantic search. The transcript also holds its position when you scroll past the bottom while new output streams in.
+- **Fixes to stability and local storage.** Switching between Private Inference and Cursor-managed models now stays switched after the restart that applies it. Opening the Agents Window while a previous instance is still closing no longer discards local state, and repeated out-of-memory crashes no longer fill the debugging-data folder with gigabytes of files. Okta FastPass sign-in works in the built-in browser again.
+- **Fixes to the Agents Window.** Pull request status for agents keeps showing the last known state when GitHub rate limits requests, instead of failing to load. The pinned Build card no longer shows content through it under translucent custom themes. Closing Settings returns straight to the same conversation with its transcript and composer intact.
 
 ## 3.22
 
