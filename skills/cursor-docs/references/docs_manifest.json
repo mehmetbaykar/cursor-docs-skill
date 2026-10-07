@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 206,
+    "pages_fetched_successfully": 205,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 209
+    "total_pages_discovered": 208
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -318,8 +318,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "71242bb4d21b13c2f8d022e8ba524e71414c008727eab3ed46c1b10ba7d12b26",
-      "last_updated": "2026-10-06T15:22:32+00:00",
+      "hash": "6c95485cd9cd34a0853adbc21a7289bc7bd7fcc4510cbb26caf515339c3736fb",
+      "last_updated": "2026-10-07T15:33:11+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -1514,15 +1514,6 @@
       "status": "live",
       "title": "Origin"
     },
-    "origin__apps__publish.md": {
-      "hash": "046568899bffe5b65ddc1c3e5b2e849d1c8a186547a3b239620953c5432be816",
-      "last_updated": "2026-10-07T01:02:06+00:00",
-      "original_url": "https://cursor.com/docs/origin/apps/publish",
-      "path": "/docs/origin/apps/publish",
-      "source_url": "https://cursor.com/docs/origin/apps/publish",
-      "status": "live",
-      "title": "Publish to the App Marketplace"
-    },
     "origin__browse.md": {
       "hash": "36b81809924140ecd76b2e716124a654ab7054892716ab37e809a88a03b8e32e",
       "last_updated": "2026-08-17T18:53:58+00:00",
@@ -1713,8 +1704,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "cabe63009ef3577ab3b3097e248f1216e88bd54b794cb22a29d7cb35937d7f85",
-      "last_updated": "2026-10-07T01:02:12+00:00",
+      "hash": "d6e17eebebd5c3cc8276e850f02a0b5aaaf91e8355c8e79e87b10da2fc477d49",
+      "last_updated": "2026-10-07T15:33:59+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -1803,8 +1794,8 @@
       "title": "Rollouts"
     },
     "rules.md": {
-      "hash": "70c90918e06b7ddd338dea81266497588f9967b0d2e54fdad951a770007128a3",
-      "last_updated": "2026-09-14T19:50:27+00:00",
+      "hash": "d10c841da7e8af7bc4a5848721fcf1e1118a09a3e950057abf96f21b42208276",
+      "last_updated": "2026-10-07T15:34:02+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
       "source_url": "https://cursor.com/docs/rules",
@@ -1821,8 +1812,8 @@
       "title": "Cursor SDK Bridge"
     },
     "sdk__python.md": {
-      "hash": "7924414f9719e89a7e985fbf8083b9d836e1474bd7ecf85d531a4708316db4c4",
-      "last_updated": "2026-09-03T23:15:06+00:00",
+      "hash": "20152e69260a8959015e89334015c2c7bab8fbeb3deb0d0914e6c7db3a614eb3",
+      "last_updated": "2026-10-07T15:34:03+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -1830,8 +1821,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "98ed7e7c611a5c60eec2f2375d0c0a0bb7e0ae7520163f8b396d09b1bbebf81f",
-      "last_updated": "2026-10-02T18:29:17+00:00",
+      "hash": "1724096772278d3e5f8a3b55d08a6792a037051c0c7b05ceab7fba18a8cfad1f",
+      "last_updated": "2026-10-07T15:34:03+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1879,7 +1870,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-07T01:02:17+00:00",
+  "last_updated": "2026-10-07T15:34:04+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
