@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 205,
+    "pages_fetched_successfully": 206,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 208
+    "total_pages_discovered": 209
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -1514,6 +1514,15 @@
       "status": "live",
       "title": "Origin"
     },
+    "origin__apps__publish.md": {
+      "hash": "046568899bffe5b65ddc1c3e5b2e849d1c8a186547a3b239620953c5432be816",
+      "last_updated": "2026-10-07T01:02:06+00:00",
+      "original_url": "https://cursor.com/docs/origin/apps/publish",
+      "path": "/docs/origin/apps/publish",
+      "source_url": "https://cursor.com/docs/origin/apps/publish",
+      "status": "live",
+      "title": "Publish to the App Marketplace"
+    },
     "origin__browse.md": {
       "hash": "36b81809924140ecd76b2e716124a654ab7054892716ab37e809a88a03b8e32e",
       "last_updated": "2026-08-17T18:53:58+00:00",
@@ -1695,8 +1704,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "30594e0a0f010f2a27aaa540539005f5d1984b7311739f26115a247f2ab524a9",
-      "last_updated": "2026-10-06T18:28:42+00:00",
+      "hash": "5cda3f6aab93b3a3ec1b1768bfdfab485642f68510f59a0d3115747d2e5a5823",
+      "last_updated": "2026-10-07T01:02:12+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -1704,8 +1713,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "b1922d1e5da65f1942b49182089674a0c41585833daed548f1f87b9c4a63e3f0",
-      "last_updated": "2026-10-06T21:22:12+00:00",
+      "hash": "cabe63009ef3577ab3b3097e248f1216e88bd54b794cb22a29d7cb35937d7f85",
+      "last_updated": "2026-10-07T01:02:12+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -1731,8 +1740,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "bc094378b182d836e42d79fd7ed4644fbc22402855bcee6e13a70ec078e2dcd9",
-      "last_updated": "2026-10-06T21:22:13+00:00",
+      "hash": "bc08a980b75069961613167efb15613a1f8b2e72ec50f90de700510ee9a58cc3",
+      "last_updated": "2026-10-07T01:02:13+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "source_url": "https://cursor.com/docs/release-notes/ide",
@@ -1776,8 +1785,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "d347814d7a5e9b74b585571a64536b51755b89307b7ce34c2a93398adf374e61",
-      "last_updated": "2026-10-06T18:28:44+00:00",
+      "hash": "2d3f94414a80b2096e707992feb8608f527094b66dffb9743e9a07444453cfc6",
+      "last_updated": "2026-10-07T01:02:14+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -1870,7 +1879,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-06T21:22:18+00:00",
+  "last_updated": "2026-10-07T01:02:17+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
