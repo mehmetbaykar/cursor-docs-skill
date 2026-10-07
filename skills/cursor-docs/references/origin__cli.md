@@ -8,8 +8,6 @@ path: /docs/origin/cli
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
 
-Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
-
 The Origin CLI (`origin`) is separate from the Cursor Agent CLI (`agent`) documented under [CLI](https://cursor.com/docs/cli/overview.md).
 
 ## macOS, Linux and Windows (WSL)
@@ -87,4 +85,4 @@ origin update
 - [Clone, Push & Pull](https://cursor.com/docs/origin/git.md)
 - [Mirror a GitHub repo](https://cursor.com/docs/origin/mirror-github.md)
 - [Browse & Search](https://cursor.com/docs/origin/browse.md)
-- [Integrations](https://cursor.com/docs/origin/integrations.md)
+- [Agents and automations](https://cursor.com/docs/origin/agents.md)

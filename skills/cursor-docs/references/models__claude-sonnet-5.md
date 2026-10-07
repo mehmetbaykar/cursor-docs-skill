@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-sonnet-5
 path: /docs/models/claude-sonnet-5
 ---
 
-We recommend using [Claude Sonnet 5.5](https://cursor.com/docs/models/claude-sonnet-5-5.md). It scores higher on CursorBench at the same per-token price.
+We recommend using [Claude Sonnet 5.5](https://cursor.com/docs/models/claude-sonnet-5-5.md). It scores higher on CursorBench at the same input and output price, with cache reads at half the cost.
 
 Claude Sonnet 5 is Anthropic's previous Sonnet model and replaces Sonnet 4.6. It pushes quality close to Opus while keeping Sonnet's lower per-token price. It supports thinking mode and context windows up to 1M tokens, making it a strong default for everyday coding when you want frontier reasoning without Opus pricing.
 

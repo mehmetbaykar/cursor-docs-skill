@@ -8,8 +8,6 @@ path: /docs/origin/create-repository
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
 
-Please submit any and all feedback to [hi@cursor.com](mailto:hi@cursor.com) to help us make the product better.
-
 Create an empty Origin repository from the web UI, or ask a Cursor agent to create one for you. Then clone it and push with git. If the code already lives on GitHub, [mirror the repository](https://cursor.com/docs/origin/mirror-github.md) instead.
 
 ## Create in the UI
@@ -30,7 +28,7 @@ To copy an existing GitHub repository into Origin, select **Sync from GitHub** o
 
 Cursor agents can create Origin repositories as part of a task. Ask the agent in Cursor to create a repo on Origin; it can install the [Origin CLI](https://cursor.com/docs/origin/cli.md), sign in, create the repo, set the remote, and push.
 
-Agents use the same permissions as your Cursor account. You need access to Origin code storage for the create to succeed. [Cloud agents](https://cursor.com/docs/origin/integrations.md) can work against existing Origin repositories: clone, branch, commit, and push. On a repo created on Origin they can open Origin pull requests; on a [mirrored GitHub repo](https://cursor.com/docs/origin/mirror-github.md) they open GitHub pull requests.
+Agents use the same permissions as your Cursor account. You need access to Origin code storage for the create to succeed. [Cloud agents](https://cursor.com/docs/origin/agents.md) can work against existing Origin repositories: clone, branch, commit, and push. On a repo created on Origin they can open Origin pull requests; on a [mirrored GitHub repo](https://cursor.com/docs/origin/mirror-github.md) they open GitHub pull requests.
 
 ## Name, visibility, and sharing
 
