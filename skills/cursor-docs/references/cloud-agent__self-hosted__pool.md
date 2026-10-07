@@ -738,6 +738,24 @@ While a turn is using the worker, release returns HTTP `400` with `Worker in use
 
 A second claim while a live claim exists is rejected; release first, then claim a new `workerId`. See [Release A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim).
 
+### Report a worker that can't start
+
+When your controller claims a request but can't start its worker, for example because the pool is out of quota, tell Cursor why. Otherwise the agent waits for a worker that never connects until the wait times out.
+
+```bash
+curl --request POST \
+  --url "https://api.cursor.com/v0/private-workers/claims/bc-00000000-0000-0000-0000-000000000002/fail" \
+  -u "$CURSOR_API_KEY:" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "message": "The gpu pool has reached its limit of 20 machines. Try again in a few minutes."
+  }'
+```
+
+The agent's turn ends with your message as its error. When the agent runs from Slack, the thread gets the message with a **Try Again** button. Cursor then frees the claim, so the agent's next turn returns to the queue. Write the message in plain text for the person who started the agent, in 500 characters or fewer.
+
+Failing a claim works only while a turn is waiting on it. It returns HTTP `400` and changes nothing when the agent isn't `ACTIVE`, where you [release the claim](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#release-a-claim) instead, or when the claimed worker is connected and serving the turn. See [Fail A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#fail-a-claim).
+
 ## Monitoring
 
 The management server exposes `GET /metrics`, `GET /healthz`, and `GET /readyz` when you start a worker with `--management-addr`:

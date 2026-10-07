@@ -1932,6 +1932,8 @@ export CURSOR_AGENT_WORKER_ID="pw_123"
 agent worker --pool gpu --worker-dir /workspace start
 ```
 
+If the worker can't start, [Fail A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#fail-a-claim) so the agent's turn ends with your reason instead of waiting.
+
 With a session token:
 
 ```bash
@@ -2059,6 +2061,81 @@ HTTP `400` means a turn is using the worker. Nothing changed. Retry after the tu
 ```
 
 HTTP `404` means there is no live claim: already released, expired, or adopted. Do not retry a 404.
+
+### Fail A Claim
+
+POST
+
+`/v0/private-workers/claims/{id}/fail`
+
+Report that you can't start the worker you claimed for an agent, for example because your infrastructure is out of quota or is missing a permission. Instead of waiting for a worker that won't connect, the agent's turn ends with your reason as its error the next time it checks for the worker.
+
+The person who started the agent sees `Your team's self-hosted pool couldn't start a worker for this agent:` followed by your message. When the agent runs from Slack, Cursor posts the same text in the thread with a **Try Again** button.
+
+Once the turn has ended, Cursor frees the claim. The agent's next turn, including a Try Again, returns to the pool queue as an unclaimed request that any worker can [claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request).
+
+You can fail a claim only while a turn is waiting on it: the agent's [status](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-an-agent) is `ACTIVE` and the claimed worker isn't connected. Otherwise the endpoint returns HTTP `400` and changes nothing. If Cursor can't read the worker's connection state, it counts the worker as connected. To free a claim when no turn is waiting, use [Release A Claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim).
+
+If the claimed worker connects, or the claim ends, before the turn picks up your report, Cursor discards the report.
+
+This endpoint requires an agent-scoped service account API key from the team that holds the claim. A repository-scoped key can fail claims only for agents on repositories in its scope.
+
+#### Path Parameters
+
+`id` string
+
+Agent id the claim is for. Same value as `id` on [Claim A Pending Request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request).
+
+#### Request Body
+
+`message` string (required)
+
+Plain-text reason shown to the agent's user. Cursor removes control characters other than newlines and tabs and trims surrounding whitespace. The result must be 1 to 500 characters. Other body fields are rejected.
+
+#### Response Fields
+
+`id`, `workerId` string
+
+The agent and the worker the failed claim was bound to.
+
+```bash
+curl --request POST \
+  --url "https://api.cursor.com/v0/private-workers/claims/bc-00000000-0000-0000-0000-000000000002/fail" \
+  -u "$CURSOR_API_KEY:" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "message": "The gpu pool has reached its limit of 20 machines. Try again in a few minutes."
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "id": "bc-00000000-0000-0000-0000-000000000002",
+  "workerId": "pw_123"
+}
+```
+
+HTTP `400` with `No turn waiting` means the agent isn't `ACTIVE`. Nothing changed. Release the claim instead:
+
+```json
+{
+  "error": "No turn waiting: The agent is not running, so no turn is waiting on this claim; release the claim instead"
+}
+```
+
+HTTP `400` with `Worker connected` means the claimed worker is connected and serving the turn. Nothing changed:
+
+```json
+{
+  "error": "Worker connected: The claimed worker is connected and serving the agent; stop the agent or release the claim after the turn ends"
+}
+```
+
+HTTP `400` with neither title means the body is invalid: `message` is missing, not a string, empty, or longer than 500 characters, or the body has other fields.
+
+HTTP `404` means the agent isn't a self-hosted agent on your team, or it holds no claim. Do not retry a 400 or 404. Retry a 5xx; reporting the same claim again is safe.
 
 ## Metadata Endpoints
 

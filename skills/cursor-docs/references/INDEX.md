@@ -126,6 +126,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `models__claude-4-sonnet` - [Models Claude 4 Sonnet](https://cursor.com/docs/models/claude-4-sonnet)
 - `models__claude-fable-5-1` - [Models Claude Fable 5 1](https://cursor.com/docs/models/claude-fable-5-1)
 - `models__claude-fable-5` - [Models Claude Fable 5](https://cursor.com/docs/models/claude-fable-5)
+- `models__claude-haiku-5-5` - [Models Claude Haiku 5 5](https://cursor.com/docs/models/claude-haiku-5-5)
 - `models__claude-opus-4-5` - [Models Claude Opus 4 5](https://cursor.com/docs/models/claude-opus-4-5)
 - `models__claude-opus-4-6` - [Models Claude Opus 4 6](https://cursor.com/docs/models/claude-opus-4-6)
 - `models__claude-opus-4-7-fast` - [Models Claude Opus 4 7 Fast](https://cursor.com/docs/models/claude-opus-4-7-fast)

@@ -8,7 +8,7 @@ path: /docs/security-agents
 
 Security Agents scan your code for security bugs, risky patterns, and vulnerabilities.
 
-Configure Security Agents in [Automations](https://cursor.com/automations/from-cursor/security).
+Configure Security Agents in Automations. Each agent type has its own page: [Security Reviewer](https://cursor.com/automations/from-cursor/security-reviewer) and [Vulnerability Scanner](https://cursor.com/automations/from-cursor/vulnerability-scanner).
 
 ## How it works
 
@@ -21,7 +21,22 @@ Both agent types run on the Automations platform and require Cloud Agents.
 
 ## Setup
 
-Open [Security Agents in Automations](https://cursor.com/automations/from-cursor/security) to configure an agent.
+Open the [Security Reviewer](https://cursor.com/automations/from-cursor/security-reviewer) or [Vulnerability Scanner](https://cursor.com/automations/from-cursor/vulnerability-scanner) page in Automations to configure that agent type.
+
+### Source control support
+
+Security Reviewer supports pull requests on Origin, GitHub, and GitLab. For pull request reviews on Bitbucket or Azure DevOps repositories, use [Bugbot](https://cursor.com/docs/bugbot.md).
+
+| Source control provider                                                          | Security Reviewer | Bugbot                                                                                                  |
+| :------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------ |
+| [Origin](https://cursor.com/docs/origin.md)                                      | Supported         | Supported                                                                                               |
+| [GitHub](https://cursor.com/docs/integrations/github.md)                         | Supported         | Supported                                                                                               |
+| [GitLab](https://cursor.com/docs/integrations/gitlab.md)                         | Supported         | Supported                                                                                               |
+| [Bitbucket Cloud](https://cursor.com/docs/integrations/bitbucket.md)             | Not supported     | Supported (public beta)                                                                                 |
+| [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md#setup) | Not supported     | Supported on Teams and Enterprise; automatic reviews only; no `bugbot run`, `cursor review`, or Autofix |
+| [Azure DevOps Services](https://cursor.com/docs/integrations/azure-devops.md)    | Not supported     | Supported (public beta)                                                                                 |
+
+Vulnerability Scanner also does not support Bitbucket Cloud or Bitbucket Data Center repositories.
 
 ### Triggers
 
@@ -90,7 +105,7 @@ To determine whether an issue was fixed, Cursor uses LLMs to review incremental 
 
 ## Flagged vulnerabilities
 
-Vulnerability Scanner findings appear in the **Flagged Vulnerabilities** list on the [Security Agents page in Automations](https://cursor.com/automations/from-cursor/security) and on each scanner's detail page. The list groups findings by repository. Filter them by scanner, status, feedback, and severity.
+Vulnerability Scanner findings appear in the **Flagged Vulnerabilities** list on the [Vulnerability Scanner page in Automations](https://cursor.com/automations/from-cursor/vulnerability-scanner) and on each scanner's detail page. The list groups findings by repository. Filter them by scanner, status, feedback, and severity.
 
 | Field           | Description                                                                                                                 |
 | :-------------- | :-------------------------------------------------------------------------------------------------------------------------- |
@@ -109,9 +124,9 @@ Each finding has two actions:
 
 ## Viewing Runs
 
-Every agent run is tracked in Automations. Use the run history to see when an agent ran, which tools it used, its final status, and how long it took.
+Every agent run is tracked in Automations. Each agent type's page lists **Recent Runs** for its own agents. Use the run history to see when an agent ran, which tools it used, its final status, and how long it took.
 
-Open a run to inspect the underlying Cloud Agent for more detail about what the agent did. A review that ran on Cursor-managed hosting has no Cloud Agent. Find it under **Recent Runs** on the Security Agents page, where it opens a read-only view of the review session.
+Open a run to inspect the underlying Cloud Agent for more detail about what the agent did. A review that ran on Cursor-managed hosting has no Cloud Agent. Find it under **Recent Runs** on the Security Reviewer page, where it opens a read-only view of the review session.
 
 ![Security Agents run history in Automations](https://cursor.com/docs-static/images/security-review/recent-runs.png)
 

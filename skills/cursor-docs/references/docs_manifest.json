@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 205,
+    "pages_fetched_successfully": 206,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 208
+    "total_pages_discovered": 209
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "3b0dab0c418fd4a9325c07ebd43a7a2a5c129aa34c9e65b2e0b3c2cc6c3702f7",
-      "last_updated": "2026-09-29T01:00:01+00:00",
+      "hash": "e017c56891a9d6ae101acbd4251ba6c602d70698323b9216a2d08eaf3fe987d0",
+      "last_updated": "2026-10-07T18:29:23+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "064ff37d98eadf7781efaf711da30db2c4a02a0c8452761cb5406a59ca01f3c9",
-      "last_updated": "2026-09-29T01:00:03+00:00",
+      "hash": "b582b12bc0865f375a840bec0af93bd5f5454937b796f7b562b71b43b65c0cad",
+      "last_updated": "2026-10-07T18:29:25+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -345,8 +345,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "3125882f24ff425505054eed5cd4bcbbf0f8b343b8be7717dcd4ce8ef1b8a32e",
-      "last_updated": "2026-10-02T18:28:35+00:00",
+      "hash": "bb7839525d49860b83ad4fef272c6ed27954e80233bcfe8a69857ff78bba4a2a",
+      "last_updated": "2026-10-07T18:29:33+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "c8fe4a35d250ba3c9d3629d22022b1cc15d8507dcf664f046d616baaa754e09a",
-      "last_updated": "2026-10-06T15:22:40+00:00",
+      "hash": "d84ae997cdb9368f3d4db1c3c0807edd3ad58c5a161884eabd23f2021fc3fb84",
+      "last_updated": "2026-10-07T18:29:39+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -660,8 +660,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "755bced780f408cad25143020ef23a98d37234d02002f722ad4f46c836233ccb",
-      "last_updated": "2026-10-06T00:59:03+00:00",
+      "hash": "537080d5fe32423e95f05baaecba962e955040846d83bdb0bed0a6140ec2cebc",
+      "last_updated": "2026-10-07T18:29:43+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -714,8 +714,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "e6a2bf6c44e8c9820cb8197985af512c2c63e351373315b89621d41c50aa6179",
-      "last_updated": "2026-09-29T01:00:00+00:00",
+      "hash": "25d966414de32a5c3995ddf9ec7e2d08193f4755dec00100897260eac27a1a4f",
+      "last_updated": "2026-10-07T18:29:22+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -831,8 +831,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "e5f08b4849396c2c38c8a48964274a3f48c245694691dccb8920d4af5902cadc",
-      "last_updated": "2026-09-28T21:12:40+00:00",
+      "hash": "666f1fb835d4018d9f61628d3e0cbfbc92a6a3d251a5887c999810b2666a0d16",
+      "last_updated": "2026-10-07T18:29:49+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -840,8 +840,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "9b5e9015ac1c4b3ef64cbc95f29184339eaabdca462a6ffad87ce02f36d705e1",
-      "last_updated": "2026-10-05T21:22:18+00:00",
+      "hash": "24b28caa4c8df9fb58c50be401f6c5b3b5c0395ec1a34d75d670ea5cf17997e3",
+      "last_updated": "2026-10-07T18:29:48+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -903,8 +903,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "b573465c1b37e4bc9cd20bdafe0247fa76dd603776ed894dc55e4e4f3574b949",
-      "last_updated": "2026-10-06T18:28:14+00:00",
+      "hash": "5a89e92a940d2c1f4d7ac2d48101cefc57a31c4580ea2993a1a632f8a9fd5cf9",
+      "last_updated": "2026-10-07T18:29:51+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "source_url": "https://cursor.com/docs/integrations/bitbucket",
@@ -1020,8 +1020,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "214ce015ed32ab581de7e0ebc701f809f6b2301948b62e6d6cb3810cdccebb88",
-      "last_updated": "2026-09-29T01:00:35+00:00",
+      "hash": "20dae73382ee6e12a213b7955d6baea24cec3aea1f3efb8491928a4afa437dfc",
+      "last_updated": "2026-10-07T18:29:54+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1029,8 +1029,8 @@
       "title": "Models & Pricing"
     },
     "models__claude-4-5-haiku.md": {
-      "hash": "1eb1518c9bb73cbcb92947e7e4ef76b07a5f755e8f9982a693fea0fe154408d5",
-      "last_updated": "2026-09-28T21:12:46+00:00",
+      "hash": "c5d7f380e7deb4c295780a5c06aaf97556e15f247e81029358131ade04bb179d",
+      "last_updated": "2026-10-07T18:29:55+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-haiku",
       "path": "/docs/models/claude-4-5-haiku",
       "source_url": "https://cursor.com/docs/models/claude-4-5-haiku",
@@ -1090,6 +1090,15 @@
       "source_url": "https://cursor.com/docs/models/claude-fable-5",
       "status": "live",
       "title": "Models Claude Fable 5"
+    },
+    "models__claude-haiku-5-5.md": {
+      "hash": "c16a0b935db61674339c38d8b4167cc9ed3f568e3aa8c762d674ae8e75a2bf6e",
+      "last_updated": "2026-10-07T18:29:57+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-haiku-5-5",
+      "path": "/docs/models/claude-haiku-5-5",
+      "source_url": "https://cursor.com/docs/models/claude-haiku-5-5",
+      "status": "live",
+      "title": "Models Claude Haiku 5 5"
     },
     "models__claude-opus-4-5.md": {
       "hash": "3907d20735bd75a98f83ee64798159fb932f5b83a3414c220bc993b4125d6d08",
@@ -1785,8 +1794,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "d0121330b8a819aefde0a0aaa17737998549817d09055f4b1586276a1a794d0b",
-      "last_updated": "2026-10-06T18:28:45+00:00",
+      "hash": "f08decb096c9b10b2c1581e1f6c5353d78bdaa6b177a7b54d04659db92c4d94f",
+      "last_updated": "2026-10-07T18:30:18+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1830,8 +1839,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "3b49fde67774f9ddf90df23ee2463019a1b178e5fb2d6f9017fdf7522710bddd",
-      "last_updated": "2026-10-02T18:29:17+00:00",
+      "hash": "a6ea3b79239f3f6756375a541003a8df18ecef2e85e22f07b0e4cf169c7c2e49",
+      "last_updated": "2026-10-07T18:30:20+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -1870,7 +1879,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-07T15:34:04+00:00",
+  "last_updated": "2026-10-07T18:30:20+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
