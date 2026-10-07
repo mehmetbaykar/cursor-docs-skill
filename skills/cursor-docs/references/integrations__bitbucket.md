@@ -8,6 +8,8 @@ path: /docs/integrations/bitbucket
 
 Connect Bitbucket Cloud repositories to [Cloud Agents](https://cursor.com/docs/cloud-agent.md) and [Bugbot](https://cursor.com/docs/bugbot.md). Connect Bitbucket Data Center repositories to Bugbot.
 
+[Security Reviewer and Vulnerability Scanner](https://cursor.com/docs/security-agents.md#source-control-support) do not support Bitbucket Cloud or Bitbucket Data Center repositories.
+
 ## Setup
 
 ### Bitbucket Cloud

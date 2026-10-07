@@ -26,6 +26,8 @@ Rollouts wakes on deploy events for the change's commit and runs the plan agains
 
 Rollouts checks a deploy when it happens, then again after 20 minutes, 1 hour, 1 day, and 3 days.
 
+If a merged change goes live without a recorded deployment, select **Run checks** next to **No deployment recorded?** on the change's page. Choose the environment and services, then start the checks. Rollouts treats the change's version as live in that environment and checks it on the same schedule.
+
 ### Regressions
 
 When Rollouts detects a regression, it names the change it suspects, opens an issue, and notifies the author. It does the same when a change causes no regression but doesn't work as intended: the new code path ran, but its effect is missing, it errors, or its behavior is wrong. On the issue's page, select **Fix issue** to start a cloud agent on it, or **Close** it with a reason. The agent opens in a panel on the issue's page. After a fix starts, **View fix** takes the place of **Fix issue** and reopens that agent. Rollouts doesn't merge, revert, or roll back changes on its own.
