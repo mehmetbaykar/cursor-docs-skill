@@ -57,8 +57,8 @@
       "title": "AI Code Tracking API"
     },
     "account__teams__analytics-api.md": {
-      "hash": "06cda2f4a54043159413ef6acdda13e37594b6eaf8bc8dadb09c46c552d9cd00",
-      "last_updated": "2026-09-28T05:14:01+00:00",
+      "hash": "d01434524849d15d7aa03bb5d34a5a0a75c68eeccc545a5b26da609dbde722ca",
+      "last_updated": "2026-10-08T18:28:49+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics-api",
       "path": "/docs/account/teams/analytics-api",
       "source_url": "https://cursor.com/docs/account/teams/analytics-api",
@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "08566944058934629e6637a406958b0e628d6d054744bbea9cd397cb894cd820",
-      "last_updated": "2026-10-08T15:24:03+00:00",
+      "hash": "e1f35a5c99e05445913e23d24ca40e048455faee75ac7ba37c136ffa2ebd1380",
+      "last_updated": "2026-10-08T18:29:03+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -660,8 +660,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "537080d5fe32423e95f05baaecba962e955040846d83bdb0bed0a6140ec2cebc",
-      "last_updated": "2026-10-07T18:29:43+00:00",
+      "hash": "f3c5741c5bed0c68670a8f21c3b11b7189337230a34b7bde80fa15c7c3e0acdf",
+      "last_updated": "2026-10-08T18:29:08+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -669,8 +669,8 @@
       "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
-      "hash": "71e59be6a67e53525c49dadc0cd121555ead3eaf937cd2422909e3edcf948da0",
-      "last_updated": "2026-10-05T21:22:14+00:00",
+      "hash": "35745d8fdc8eef33cefe830c7e27eec3fbe247433a0153bc7de92064979fda67",
+      "last_updated": "2026-10-08T18:29:08+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "source_url": "https://cursor.com/docs/cloud-agent/settings",
@@ -1578,8 +1578,8 @@
       "title": "Commands"
     },
     "origin__cli__reference__pull-requests.md": {
-      "hash": "d6c2c1a73e3c3f34c116bacb879ad5f1bc08846f5899a138f51523907dc35e86",
-      "last_updated": "2026-10-07T21:22:56+00:00",
+      "hash": "6d7370e69328d22e88fc68d9e51c40d1f5b9f7598800c54c570b11cc42278250",
+      "last_updated": "2026-10-08T18:29:38+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "path": "/docs/origin/cli/reference/pull-requests",
       "source_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
@@ -1632,8 +1632,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "1f3b2427e2812b8dc2c1994659e49c5ce37214fec8b63b51564bebbaccb0ddbf",
-      "last_updated": "2026-10-07T21:22:58+00:00",
+      "hash": "684d94fd5e238989ddef7d204feab837f7a52dbe9b304c5d2e224f64fce2600e",
+      "last_updated": "2026-10-08T18:29:39+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "source_url": "https://cursor.com/docs/origin/settings",
@@ -1803,8 +1803,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "f08decb096c9b10b2c1581e1f6c5353d78bdaa6b177a7b54d04659db92c4d94f",
-      "last_updated": "2026-10-07T18:30:18+00:00",
+      "hash": "b2d5add467e0465cc41616cee47d84759c05a8f232a87592a72ede2f89512e83",
+      "last_updated": "2026-10-08T18:29:45+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1848,8 +1848,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "a6ea3b79239f3f6756375a541003a8df18ecef2e85e22f07b0e4cf169c7c2e49",
-      "last_updated": "2026-10-07T18:30:20+00:00",
+      "hash": "ef126008e71a5f8fe8925e1c2d72fad47ac753bc79bf11214a98acf3fa2150ab",
+      "last_updated": "2026-10-08T18:29:46+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-08T15:24:48+00:00",
+  "last_updated": "2026-10-08T18:29:47+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

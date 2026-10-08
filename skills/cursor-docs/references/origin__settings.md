@@ -70,3 +70,9 @@ Team-level permissions control who can use Origin for your codebase: who can acc
 - Admins can disable Origin for the team at any time from the dashboard; teams on legacy privacy mode cannot enable Origin, so switch to [Privacy Mode](https://cursor.com/help/security-and-privacy/privacy.md#how-do-i-enable-privacy-mode) first if you want access
 
 Exact controls in the Permissions UI may change during early beta.
+
+### Notifications
+
+Use **Notifications** in codebase settings to choose which pull request events in the codebase's repos send you a Slack DM from `@Cursor`. If your [Slack](https://cursor.com/docs/integrations/slack.md) account isn't linked yet, connect it on the **Slack** row. Then turn on the events you want: **Review requested**, **Pull request merged**, **Review submitted**, and **Comment**. **Apps and bots** includes activity from apps and bots, and **Ignore drafts** skips draft pull requests. Each switch saves as soon as you change it.
+
+To open these settings from Slack, select **Manage notifications** in a DM's menu.

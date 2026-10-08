@@ -1047,6 +1047,8 @@ GET
 
 Get per-PR Bugbot review analytics for your team, including issue counts by severity and how many issues were resolved.
 
+The response lists a pull request when a successful Bugbot review of it started inside the date range, even if Bugbot first reviewed it earlier. `reviews` and `issues` cover only those in-range reviews, and `timestamp` is the earliest of them.
+
 For per-review data including billed cost and individual findings, use [Bugbot review analytics](https://cursor.com/docs/account/teams/analytics-api.md#bugbot-review-analytics).
 
 #### Parameters

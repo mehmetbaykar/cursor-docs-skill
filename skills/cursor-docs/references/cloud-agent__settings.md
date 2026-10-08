@@ -50,6 +50,7 @@ All security options require admin privileges.
 - **Display agent summary** – controls whether Cursor shows the agent's file-diff images and code snippets. Disable this if you prefer not to expose file paths or code in the sidebar.
 - **Display agent summary in external channels** – extends the previous toggle to Slack or any external channel you've connected.
 - **Team follow-ups** – controls whether team members can send follow-up messages to cloud agents created by other users on the team. See [team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups) below.
+- **Automatically allow Projects to place their work** – lets agents in a [Project](https://cursor.com/docs/agent/projects.md) start work on any [self-hosted](https://cursor.com/docs/cloud-agent/self-hosted.md) machine or pool the Project owner can reach, without asking first. When it's off, the agent asks for approval in the Project's chat before it uses a new machine or pool. It starts off for Enterprise teams and on for other teams.
 
 ## Team feature settings
 
