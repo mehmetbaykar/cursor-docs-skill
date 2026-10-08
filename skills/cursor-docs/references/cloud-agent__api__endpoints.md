@@ -1529,67 +1529,6 @@ curl --request GET \
 }
 ```
 
-## Worker Tokens
-
-### Create A User-Scoped Worker Token
-
-POST
-
-`/v1/sub-tokens`
-
-Create a one-hour user-scoped token for a worker to run as an active team member.
-
-Requires an agent-scoped team service account API key. User-scoped tokens can't mint other user-scoped tokens.
-
-The returned token expires after 1 hour and cannot refresh itself. Mint a new token with the service account API key when you need to refresh a running worker.
-
-#### Request Body
-
-Specify exactly one of the following to identify the target user:
-
-`forUserEmail` string (optional)
-
-Active team member email. Case-insensitive.
-
-`forUserId` integer (optional)
-
-Active team member's numeric Cursor user ID.
-
-By email:
-
-```bash
-curl --request POST \
-  --url https://api.cursor.com/v1/sub-tokens \
-  --header "Authorization: Bearer $CURSOR_SERVICE_ACCOUNT_API_KEY" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "forUserEmail": "alice@company.com"
-  }'
-```
-
-By user ID:
-
-```bash
-curl --request POST \
-  --url https://api.cursor.com/v1/sub-tokens \
-  --header "Authorization: Bearer $CURSOR_SERVICE_ACCOUNT_API_KEY" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "forUserId": 42
-  }'
-```
-
-**Response:**
-
-```json
-{
-  "accessToken": "eyJ...",
-  "expiresAt": "2026-04-24T19:00:00.000Z",
-  "userId": 42,
-  "teamId": 456
-}
-```
-
 ## Secrets
 
 Secrets are the environment variables Cursor gives cloud agents, the values you also manage in the **Secrets** tab of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). The secrets endpoints cover the secrets that belong to one environment and the secrets that belong to your team. To choose a type for a secret, see [Secret protection](https://cursor.com/docs/cloud-agent/security-network.md#secret-protection).
@@ -2071,6 +2010,67 @@ curl --request DELETE \
 ```json
 {
   "name": "NPM_TOKEN"
+}
+```
+
+## Worker Tokens
+
+### Create A User-Scoped Worker Token
+
+POST
+
+`/v1/sub-tokens`
+
+Create a one-hour user-scoped token for a worker to run as an active team member.
+
+Requires an agent-scoped team service account API key. User-scoped tokens can't mint other user-scoped tokens.
+
+The returned token expires after 1 hour and cannot refresh itself. Mint a new token with the service account API key when you need to refresh a running worker.
+
+#### Request Body
+
+Specify exactly one of the following to identify the target user:
+
+`forUserEmail` string (optional)
+
+Active team member email. Case-insensitive.
+
+`forUserId` integer (optional)
+
+Active team member's numeric Cursor user ID.
+
+By email:
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/sub-tokens \
+  --header "Authorization: Bearer $CURSOR_SERVICE_ACCOUNT_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "forUserEmail": "alice@company.com"
+  }'
+```
+
+By user ID:
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/sub-tokens \
+  --header "Authorization: Bearer $CURSOR_SERVICE_ACCOUNT_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "forUserId": 42
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "accessToken": "eyJ...",
+  "expiresAt": "2026-04-24T19:00:00.000Z",
+  "userId": 42,
+  "teamId": 456
 }
 ```
 
