@@ -1570,6 +1570,106 @@ When one name is set in several places, an agent gets the value from the most sp
 - **Changes reach agents that start afterward.** Running agents keep the values they started with. Agents that start from a [Build](https://cursor.com/docs/cloud-agent/builds.md) get the change once a newer Build of their environment finishes.
 - **Reads can lag behind writes.** Right after a change, a request can miss it. Leave a moment between writes to the same name, and pass `?id=` to pick a version.
 
+### List Secrets
+
+GET
+
+`/v1/secrets`
+
+List every Cloud Agents secret your API key can list in one paginated list. Each item is a [secret version](https://cursor.com/docs/cloud-agent/api/endpoints.md#secret-versions), with the `id` its owner's own list shows and an `owner`. No item includes a value.
+
+Without `scope` or `environmentId`, the list includes:
+
+- **The team's secrets**, as [List Team Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-team-secrets) lists them, for an API key with no repository limit.
+- **Your personal secrets**, for a user API key or user-scoped token with no repository limit.
+- **The secrets of your team's environments** and, with a user API key or user-scoped token, of your personal environments. An API key limited to certain repositories gets only environments whose repositories all sit inside its limit.
+- **Other members' secrets, for team admins.** A team admin using their own user API key without `repo` also gets the other members' personal secrets and their personal environments' secrets, without `repos`.
+
+Items aren't sorted by name, and other members' secrets come after the rest. A page can hold fewer than `limit` items, or none, and still have a `nextCursor`. Keep paging until it's `null`, and send the same filters with each `cursor`.
+
+#### Query Parameters
+
+`scope` string (optional)
+
+`team`, `user`, or `environment`. `team` lists only the team's secrets, refused as [List Team Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-team-secrets) refuses it. `user` lists only your personal secrets: a key that doesn't act for a user, such as a service account API key, gets `403 user_required`, and a key limited to certain repositories gets `403 repository_access`. `environment` lists only environment secrets.
+
+`environmentId` string (optional)
+
+List only this environment's secrets, refused as [List Environment Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-environment-secrets) refuses it. Can't be combined with `scope=team` or `scope=user`.
+
+`name` string (optional)
+
+Only versions with this name, ignoring case.
+
+`repo` string (optional)
+
+Only the versions an agent on this repository gets, such as `github.com/acme/api`: versions for that repository and versions for every repository.
+
+`limit` number (optional)
+
+Maximum items per page, from 1 to 100. Defaults to 100.
+
+`cursor` string (optional)
+
+`nextCursor` from the previous page.
+
+#### Response Fields
+
+`items` array
+
+[Secret versions](https://cursor.com/docs/cloud-agent/api/endpoints.md#secret-versions), each with an `owner`. Other members' versions have no `repos`.
+
+`items[].owner` object
+
+Who holds the version. `type` is `team`, `user`, or `environment`. An `environment` owner includes `environmentId`. A `user` owner and a personal environment include `user.email`, which is `null` when the user has no email on file.
+
+`nextCursor` string or null
+
+Cursor for the next page, or `null` on the last page.
+
+```bash
+curl --request GET \
+  --url 'https://api.cursor.com/v1/secrets?limit=100' \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "items": [
+    {
+      "id": "secv_Hn2kT8wQ5vC1xZ4mB7rP0g",
+      "name": "GITHUB_PACKAGES_TOKEN",
+      "type": "runtime_secret",
+      "repos": [],
+      "createdAt": "2026-09-28T10:12:34.000Z",
+      "owner": { "type": "team" }
+    },
+    {
+      "id": "secv_3qKx9mT2bV7nR1cW5yZ8aQ",
+      "name": "NPM_TOKEN",
+      "type": "runtime_secret",
+      "repos": ["github.com/acme/api"],
+      "createdAt": "2026-10-01T09:15:42.000Z",
+      "owner": {
+        "type": "environment",
+        "environmentId": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c"
+      }
+    },
+    {
+      "id": "secv_Tb4mK7qW2xN9pR5vC8sJ1e",
+      "name": "OPENAI_API_KEY",
+      "type": "runtime_secret",
+      "repos": [],
+      "createdAt": "2026-10-04T13:05:27.000Z",
+      "owner": { "type": "user", "user": { "email": "ada@acme.com" } }
+    }
+  ],
+  "nextCursor": null
+}
+```
+
 ### List Environment Secrets
 
 GET

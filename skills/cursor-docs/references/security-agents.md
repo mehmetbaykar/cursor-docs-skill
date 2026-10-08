@@ -95,7 +95,7 @@ Security Agents are billed at the team usage level:
 
 ## Analytics
 
-Security Agents track three key metrics across agent runs:
+Security Agents track three key metrics across agent runs. The [Security Reviewer page in Automations](https://cursor.com/automations/from-cursor/security-reviewer) shows them:
 
 - **Vulnerabilities found**: the number of security findings reported by agents.
 - **Issues fixed**: the number of findings that were resolved after they were reported.

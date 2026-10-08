@@ -26,7 +26,7 @@ Rollouts wakes on deploy events for the change's commit and runs the plan agains
 
 Rollouts checks a deploy when it happens, then again after 20 minutes, 1 hour, 1 day, and 3 days.
 
-If a merged change goes live without a recorded deployment, select **Run checks** next to **No deployment recorded?** on the change's page. Choose the environment and services, then start the checks. Rollouts treats the change's version as live in that environment and checks it on the same schedule.
+If a merged change goes live without a recorded deployment, select **Run checks** next to **No deployment recorded?** on the change's page. Once the change has checks, **Run checks** sits to the right of the environment tabs instead. Choose the environment and services, then start the checks. Rollouts treats the change's version as live in that environment and checks it on the same schedule.
 
 ### Regressions
 
