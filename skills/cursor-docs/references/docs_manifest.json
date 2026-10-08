@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "2c4640067de437ca44d5ba5e1964cb1a2b22d0d8361af3aa4466f16067a89647",
-      "last_updated": "2026-10-06T15:22:31+00:00",
+      "hash": "4cba88b0f853183c0fae6340559a89623d6c206ce4ea99c29cdc24de6e1f2921",
+      "last_updated": "2026-10-08T15:23:55+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -318,8 +318,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "6c95485cd9cd34a0853adbc21a7289bc7bd7fcc4510cbb26caf515339c3736fb",
-      "last_updated": "2026-10-07T15:33:11+00:00",
+      "hash": "db256ffd5e508fdb586ea532fe386ee0a564c20247bf196ed9404e0265a51404",
+      "last_updated": "2026-10-08T15:23:56+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "a661a2ab7e8842829c9d7fbf36892da8da58c1cd49b5018f2920eb17a00d263b",
-      "last_updated": "2026-10-08T01:01:17+00:00",
+      "hash": "08566944058934629e6637a406958b0e628d6d054744bbea9cd397cb894cd820",
+      "last_updated": "2026-10-08T15:24:03+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-08T01:02:03+00:00",
+  "last_updated": "2026-10-08T15:24:48+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
