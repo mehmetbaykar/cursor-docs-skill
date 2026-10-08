@@ -9,7 +9,8 @@ path: /docs/grok-bot/get-started
 This guide takes you from install to your first finished task. You'll set up the desktop app, create a Bot with a clear job, and review its work. For a shorter help-center checklist, follow [Onboarding](https://cursor.com/help/grok-bot/onboarding.md).
 
 Grok Bot access is included with every paid individual Cursor plan and with
-the Cursor Teams plan, or through an individual SuperGrok link. See [Plans and
+the Cursor Teams plan, through an individual SuperGrok link, or with a seat
+on a self-serve Grok Business plan. See [Plans and
 billing](https://cursor.com/help/grok-bot/plans.md). Grok Bot needs cloud data storage, so
 accounts on Privacy Mode (Legacy) are prompted to switch to Privacy Mode
 before starting.
