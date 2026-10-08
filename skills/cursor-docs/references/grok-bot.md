@@ -12,7 +12,8 @@ You work with a Bot by messaging it. Give it a task, the relevant context, and a
 
 Grok Bot runs on macOS, Windows, Linux, and iOS, and is included with
 every paid individual Cursor plan and with the Cursor Teams plan. You can also link an
-individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription. See
+individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription, or
+sign in with a seat on a self-serve Grok Business plan. See
 [Plans and billing](https://cursor.com/help/grok-bot/plans.md) for the full matrix.
 
 ## What makes Grok Bot different
@@ -75,7 +76,8 @@ The computers Bots work on run in Cursor's cloud.
 ### How much does Grok Bot cost?
 
 Access is included with every paid individual Cursor plan and with the
-Cursor Teams plan, or through an individual SuperGrok account link. Usage
+Cursor Teams plan, through an individual SuperGrok account link, or with
+a seat on a self-serve Grok Business plan. Usage
 resets weekly. See [Plans and billing](https://cursor.com/help/grok-bot/plans.md).
 
 ## Next steps

@@ -10,11 +10,11 @@ Grok Bot gives each person on your team standing Bots for everyday work: researc
 
 ## Availability
 
-| Plan        | Access                                                                                |
-| ----------- | ------------------------------------------------------------------------------------- |
-| Individuals | Included with every paid Cursor plan, or through an individual SuperGrok link         |
-| Teams       | Included; every member has access, and usage follows the seat's allowance             |
-| Enterprise  | Enable Grok Bot for your team from [your dashboard](https://cursor.com/dashboard/bot) |
+| Plan        | Access                                                                                                                        |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Individuals | Included with every paid Cursor plan, through an individual SuperGrok link, or with a seat on a self-serve Grok Business plan |
+| Teams       | Included; every member has access, and usage follows the seat's allowance                                                     |
+| Enterprise  | Enable Grok Bot for your team from [your dashboard](https://cursor.com/dashboard/bot)                                         |
 
 That table is product access, not the admin control list. Grok Bot is included on Teams. Several settings are **Enterprise only** and do not appear for self-serve Teams. [Admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls) marks each one.
 
@@ -58,7 +58,7 @@ The pieces fit together like this:
 3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It hands login, two-factor authentication, and payment steps to the member.
 4. **Plugins.** Your team's Cursor MCP (Model Context Protocol) policy applies in full, allowing or blocking each connector. OAuth tokens stay on Cursor's connector backend, and Bots invoke tools without receiving them.
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
-6. **Models and data.** Cursor manages model selection. With Privacy Mode enabled, customer data is not used for training; Cursor enforces this on its servers, and when the setting can't be verified, the system defaults to not training.
+6. **Models and data.** Grok Bot manages model selection. With Privacy Mode enabled, customer data is not used for training; Cursor enforces this on its servers, and when the setting can't be verified, the system defaults to not training.
 
 ### How users are isolated
 

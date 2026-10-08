@@ -125,7 +125,7 @@ No. The team model allowlist does not govern Grok Bot. It uses xAI
 first-party models and may use third-party models from providers on the
 [sub-processor list](https://trust.cursor.com/subprocessors) regardless
 of that setting. Teams with a model allowlist see this acknowledgement
-when they enable Grok Bot. Cursor manages model selection, and there is no
+when they enable Grok Bot. Grok Bot manages model selection, and there is no
 customer-facing model picker. If your contract restricts subprocessors,
 contact your account team. See
 [Which AI models power Grok Bot?](https://cursor.com/help/grok-bot/models.md).

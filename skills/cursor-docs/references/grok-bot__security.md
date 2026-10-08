@@ -110,7 +110,7 @@ Grok Bot computers run in the United States today. That is not the same as Curso
 
 ## Models and data
 
-Cursor manages model selection. There is no customer-facing model picker, and the serving mix can change over time with no fixed vendor set guaranteed. Each request goes to a first-party xAI model or a third-party model from a provider on the [sub-processor list](https://trust.cursor.com/subprocessors). Usage and spending views record this activity as Grok Bot usage rather than by model, and usage counts the same whichever model served the request. See [Which AI models power Grok Bot?](https://cursor.com/help/grok-bot/models.md).
+Grok Bot manages model selection. There is no customer-facing model picker, and the serving mix can change over time with no fixed vendor set guaranteed. Each request goes to a first-party xAI model or a third-party model from a provider on the [sub-processor list](https://trust.cursor.com/subprocessors). Usage and spending views record this activity as Grok Bot usage rather than by model. See [Which AI models power Grok Bot?](https://cursor.com/help/grok-bot/models.md).
 
 - **The team model allowlist does not govern Grok Bot.** Grok Bot uses xAI first-party models and may use third-party models regardless of your [model access control](https://cursor.com/docs/enterprise/model-and-integration-management.md#model-access-control) settings. Teams with a model allowlist see this acknowledgement when they enable Grok Bot. If your contract restricts subprocessors, contact your account team.
 - **Privacy Mode applies.** While a member is on your team, the team's privacy mode governs them, and with Privacy Mode enabled, customer data is not used for training.
