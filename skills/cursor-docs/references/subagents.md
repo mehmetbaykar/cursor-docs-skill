@@ -43,17 +43,16 @@ Subagents run in one of two modes:
 
 ## Built-in subagents
 
-Cursor includes three built-in subagents that handle context-heavy operations automatically. These subagents were designed based on analysis of agent conversations where context window limits were hit.
+Cursor includes two built-in subagents that handle context-heavy operations automatically. These subagents were designed based on analysis of agent conversations where context window limits were hit.
 
 | Subagent    | Purpose                         | Why it's a subagent                                                                                                                            |
 | :---------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Explore** | Searches and analyzes codebases | Codebase exploration generates large intermediate output that would bloat the main context. Uses a faster model to run many parallel searches. |
-| **Bash**    | Runs series of shell commands   | Command output is often verbose. Isolating it keeps the parent focused on decisions, not logs.                                                 |
 | **Browser** | Controls browser via MCP tools  | Browser interactions produce noisy DOM snapshots and screenshots. The subagent filters this down to relevant results.                          |
 
 ### Why these subagents exist
 
-These three operations share common traits: they generate noisy intermediate output, benefit from specialized prompts and tools, and can consume significant context. Running them as subagents solves several problems:
+These operations share common traits: they generate noisy intermediate output, benefit from specialized prompts and tools, and can consume significant context. Running them as subagents solves several problems:
 
 - **Context isolation** — Intermediate output stays in the subagent. The parent only sees the final summary.
 - **Model flexibility** — The explore subagent uses a faster model by default. This enables running 10 parallel searches in the time a single main-agent search would take.
@@ -213,7 +212,7 @@ Analyze the architecture and recommend changes with detailed reasoning.
 
 The model picker, including Auto, applies to the parent agent. A subagent can run a different model:
 
-- Built-in subagents (Explore, Bash, Browser) pick a model for the subtask.
+- Built-in subagents (Explore, Browser) pick a model for the subtask.
 - Custom subagents use `inherit` or the `model` field in frontmatter.
 - The parent agent can name a model when it launches a subagent.
 
@@ -457,7 +456,7 @@ Subagents have trade-offs. Understanding them helps you decide when to use them.
 
 ### What are the built-in subagents?
 
-Cursor includes three built-in subagents: `explore` for codebase search, `bash` for running shell commands, and `browser` for browser automation via MCP. These handle context-heavy operations automatically. You don't need to configure them.
+Cursor includes two built-in subagents: `explore` for codebase search and `browser` for browser automation via MCP. These handle context-heavy operations automatically. You don't need to configure them.
 
 ### Can subagents launch other subagents?
 
