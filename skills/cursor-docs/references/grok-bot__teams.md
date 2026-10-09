@@ -104,6 +104,10 @@ Controls whether members can publish Bot templates outside your team. Off keeps 
 
 Adds published [Team Bots](https://cursor.com/help/grok-bot/team-bots.md) to members' sidebars automatically. Find **Manage Team Bots** on the Grok Bot page and choose **Manage**. For each Team Bot, pick **All team**, one or more groups, or **None**. Members who get a Bot this way can't hide it from their sidebar. Groups are managed on the Members & Groups page.
 
+#### Agent Email
+
+Lets members claim a `mail.grokbot.com` address that their Bots can read and send mail from. The switch is under **Bot Capabilities** on the Grok Bot page and is off by default; members get no email tools until it is on. Bots send only when the member has asked them to and otherwise show the draft first, newsletters and first-contact emails include an unsubscribe link, and incoming mail acts only through routines the member sets up. Turning it off removes the Bots' email tools and stops email routines; existing addresses keep receiving mail. See [Give your Bot an email address](https://cursor.com/help/grok-bot/agent-email.md).
+
 #### Connector policy
 
 Grok Bot inherits your team's Cursor connector policy. There is no separate Grok Bot connector list, and connectors appear as plugins in the app. Set which servers members can use from your Team Marketplace on the dashboard's [Plugins & MCPs page](https://cursor.com/dashboard/plugins), not on the Grok Bot page. The MCP allowlist is Enterprise only; see [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management). Any permitted connector is available to every Bot a member runs, and a blocked one shows as **Disabled by team admin**. Pushing connectors to members, whether mandatory or default-on, is not available.

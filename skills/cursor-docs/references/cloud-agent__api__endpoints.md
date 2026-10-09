@@ -1583,7 +1583,7 @@ Without `scope` or `environmentId`, the list includes:
 - **The team's secrets**, as [List Team Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-team-secrets) lists them, for an API key with no repository limit.
 - **Your personal secrets**, for a user API key or user-scoped token with no repository limit.
 - **The secrets of your team's environments** and, with a user API key or user-scoped token, of your personal environments. An API key limited to certain repositories gets only environments whose repositories all sit inside its limit.
-- **Other members' secrets, for team admins.** A team admin using their own user API key without `repo` also gets the other members' personal secrets and their personal environments' secrets, without `repos`.
+- **Other members' secrets, for team admins.** A team admin using their own user API key without `repo` also gets the other members' personal secrets and their personal environments' secrets.
 
 Items aren't sorted by name, and other members' secrets come after the rest. A page can hold fewer than `limit` items, or none, and still have a `nextCursor`. Keep paging until it's `null`, and send the same filters with each `cursor`.
 
@@ -1591,11 +1591,11 @@ Items aren't sorted by name, and other members' secrets come after the rest. A p
 
 `scope` string (optional)
 
-`team`, `user`, or `environment`. `team` lists only the team's secrets, refused as [List Team Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-team-secrets) refuses it. `user` lists only your personal secrets: a key that doesn't act for a user, such as a service account API key, gets `403 user_required`, and a key limited to certain repositories gets `403 repository_access`. `environment` lists only environment secrets.
+`team`, `user`, `members`, or `environment`. `team` lists only the team's secrets, refused as [List Team Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-team-secrets) refuses it. `user` lists only your personal secrets: a key that doesn't act for a user, such as a service account API key, gets `403 user_required`, and a key limited to certain repositories gets `403 repository_access`. `members` lists your personal secrets and, for an explicit team admin using their own user API key or session, every other current member's personal secrets after them, but none of their personal environments' secrets. For everyone else, it returns the same response or refusal as `user`. `environment` lists only environment secrets.
 
 `environmentId` string (optional)
 
-List only this environment's secrets, refused as [List Environment Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-environment-secrets) refuses it. Can't be combined with `scope=team` or `scope=user`.
+List only this environment's secrets, refused as [List Environment Secrets](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-environment-secrets) refuses it. Can't be combined with `scope=team`, `scope=user`, or `scope=members`; those combinations return `400 validation_error`.
 
 `name` string (optional)
 
@@ -1603,7 +1603,7 @@ Only versions with this name, ignoring case.
 
 `repo` string (optional)
 
-Only the versions an agent on this repository gets, such as `github.com/acme/api`: versions for that repository and versions for every repository.
+Only the versions an agent on this repository gets, such as `github.com/acme/api`: versions for that repository and versions for every repository. Combining it with `scope=members` returns `400 validation_error`.
 
 `limit` number (optional)
 
@@ -1617,7 +1617,7 @@ Maximum items per page, from 1 to 100. Defaults to 100.
 
 `items` array
 
-[Secret versions](https://cursor.com/docs/cloud-agent/api/endpoints.md#secret-versions), each with an `owner`. Other members' versions have no `repos`.
+[Secret versions](https://cursor.com/docs/cloud-agent/api/endpoints.md#secret-versions), each with an `owner`. Every item has `repos`, including other members' versions, and `[]` means every repository gets the version. On another member's version, `repos` can name repositories you can't access.
 
 `items[].owner` object
 
