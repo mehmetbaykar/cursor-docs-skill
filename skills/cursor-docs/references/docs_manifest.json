@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "e1f35a5c99e05445913e23d24ca40e048455faee75ac7ba37c136ffa2ebd1380",
-      "last_updated": "2026-10-08T18:29:03+00:00",
+      "hash": "1b00db91e7f933860a35261135018cefb01ee278584be6fe7e319c1f711f1b3e",
+      "last_updated": "2026-10-09T18:27:48+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -858,8 +858,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "63fea411c97066072335cb44f3909ee4989aebd683d003110790d4b3737787b8",
-      "last_updated": "2026-10-08T01:01:29+00:00",
+      "hash": "0ca0460ca8228e38a67f28b14634027fa0bc5bffc3846ff439d63cda680aaf02",
+      "last_updated": "2026-10-09T18:27:59+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-09T15:23:38+00:00",
+  "last_updated": "2026-10-09T18:28:34+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
