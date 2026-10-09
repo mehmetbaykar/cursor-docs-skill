@@ -525,8 +525,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__automations.md": {
-      "hash": "fdcb7a302764d888ad7dbed1ec233be620c1dc1ab9064cc4bf46eabd5b7c4705",
-      "last_updated": "2026-10-01T21:21:36+00:00",
+      "hash": "f7c78bf73ebf4af51e69dce0cfdb4830ae8022db8749541240a80fa645030e3d",
+      "last_updated": "2026-10-09T21:21:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
@@ -552,8 +552,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "b7927499117311eded3d9e5f097a7cc53181b20acff7e3138c8c6916c69fe719",
-      "last_updated": "2026-09-30T21:22:00+00:00",
+      "hash": "d481597a3a4b6878cc570e448d54f4b0a822be46ffd48c8117e33ab233c70673",
+      "last_updated": "2026-10-09T21:21:18+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -984,8 +984,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "aa067b6577369d77b6ec680a8d62de8b64724caaf4fc21d631e401a1ae4e9ec9",
-      "last_updated": "2026-10-03T00:56:37+00:00",
+      "hash": "ee913477497debcb965ec61083d6fdb65d68226d1f55765ac55fac754797c2e3",
+      "last_updated": "2026-10-09T21:21:32+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1551,8 +1551,8 @@
       "title": "Build an Origin App"
     },
     "origin__browse.md": {
-      "hash": "9287f9e8187f8f94a39ba588830074b831c67eae1dd15c99297bc06e163970d2",
-      "last_updated": "2026-10-07T21:22:55+00:00",
+      "hash": "f7cae4ce9d1936c8785c7a70f9bd2276ce47fd98b4891a65f13faedadf2cc63f",
+      "last_updated": "2026-10-09T21:21:52+00:00",
       "original_url": "https://cursor.com/docs/origin/browse",
       "path": "/docs/origin/browse",
       "source_url": "https://cursor.com/docs/origin/browse",
@@ -1632,8 +1632,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "684d94fd5e238989ddef7d204feab837f7a52dbe9b304c5d2e224f64fce2600e",
-      "last_updated": "2026-10-08T18:29:39+00:00",
+      "hash": "fe4919d56f259d3b5284c4a14333690dc1e782038bf56c2322a0291177d56ad2",
+      "last_updated": "2026-10-09T21:21:54+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "source_url": "https://cursor.com/docs/origin/settings",
@@ -1803,8 +1803,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "b2d5add467e0465cc41616cee47d84759c05a8f232a87592a72ede2f89512e83",
-      "last_updated": "2026-10-08T18:29:45+00:00",
+      "hash": "c1af3dfea84f81f48a82f04b5ea1ee0155c92e83d4d2bedb053076cd720da0ff",
+      "last_updated": "2026-10-09T21:22:00+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1866,8 +1866,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "15ff6069de9d62709650bbd707c7e3dd46c5031e696fbb82c5b0acd18cea0c16",
-      "last_updated": "2026-09-28T21:13:08+00:00",
+      "hash": "1d64718044e8dc9cffadcbb38e2d5cc5b3b019c47bbd30ac37995c824037f5c3",
+      "last_updated": "2026-10-09T21:22:03+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-09T18:28:34+00:00",
+  "last_updated": "2026-10-09T21:22:03+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

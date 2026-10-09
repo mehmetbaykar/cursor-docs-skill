@@ -147,6 +147,7 @@ Agents can subscribe to events from these integrations:
 - Subscriptions belong to a single agent conversation. Events wake that agent as follow-up messages.
 - Bursts coalesce. Several events arriving close together can wake the agent once, and the agent re-reads the source (the PR, thread, or issue) before acting.
 - A subscription lasts at most 180 days. Agents also unsubscribe on their own when the wait is over.
+- Subscriptions need an agent that a person owns. Agents owned by a [service account](https://cursor.com/docs/account/enterprise/service-accounts.md), including automations set to [Run as: Service account](https://cursor.com/docs/cloud-agent/automations.md#run-as), don't get the `/subscribe` skill or the subscription tools.
 
 ### GitHub CI subscriptions
 

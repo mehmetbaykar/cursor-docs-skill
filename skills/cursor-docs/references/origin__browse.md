@@ -24,7 +24,7 @@ Use **Go to file** (shortcut `T`) or the search field in the repository header t
 
 ## Branch history and commits
 
-From **Code**, open commit history for the current branch. Select a commit to see its message, metadata, and changed files. Use the branch control to move between branches before opening history.
+From **Code**, open commit history for the current branch. Select a commit to see its message, metadata, and changed files. Use the branch control to move between branches before opening history. To see one person's commits, pick them from **All authors** next to the branch control, or enter an email. The author filter isn't offered on the history of a single file or folder.
 
 ## Related
 

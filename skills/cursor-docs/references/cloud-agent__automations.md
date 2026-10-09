@@ -123,7 +123,7 @@ To retrieve the webhook URL, you must save the automation first, which will then
 Linear triggers respond to events from the [Cursor Linear integration](https://cursor.com/docs/integrations/linear.md).
 
 - **Issue created** - When a new issue is created.
-- **Status changed** - When an issue's status changes.
+- **Status changed** - When an issue's status changes. Pick one or more statuses after **to** to run only when an issue moves into one of them, or keep **Any status**.
 - **End of cycle** - When a Linear cycle completes.
 
 ### Sentry triggers
