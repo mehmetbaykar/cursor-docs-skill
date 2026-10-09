@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "735344c2158533b94a4ec9692e2df09de9ceb85d68aff2defc83be26f5088928",
-      "last_updated": "2026-10-06T15:22:30+00:00",
+      "hash": "ef148ad50810a7f2800ca0961a2ef44722845b3c86cf1b5619367533b3e41606",
+      "last_updated": "2026-10-09T15:22:35+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "4cba88b0f853183c0fae6340559a89623d6c206ce4ea99c29cdc24de6e1f2921",
-      "last_updated": "2026-10-08T15:23:55+00:00",
+      "hash": "0ed1bcd5967ab7f47b3db640f65f36d04e2449a5ca3cf87e00c75803a5ffc93d",
+      "last_updated": "2026-10-09T15:22:35+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -318,8 +318,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "db256ffd5e508fdb586ea532fe386ee0a564c20247bf196ed9404e0265a51404",
-      "last_updated": "2026-10-08T15:23:56+00:00",
+      "hash": "9b7a80880272bec65044ca211b5cc64913e92a018e048c80882cf030c741626b",
+      "last_updated": "2026-10-09T15:22:37+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-08T18:29:47+00:00",
+  "last_updated": "2026-10-09T15:23:38+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
