@@ -8,6 +8,48 @@ path: /docs/release-notes/ide
 
 New features, improvements, and fixes in the Cursor IDE. Each entry covers one minor version, including the patch releases that follow it. Changes to the [Agents Window](https://cursor.com/docs/release-notes/agents-window.md) have their own page.
 
+## 3.24
+
+### Agent and chat
+
+- **Auto-review stops risky deletes for your approval.** [Auto-review](https://cursor.com/docs/agent/security/run-modes.md) now asks before running a recursive, force, wildcard, or mirror delete whose target could resolve differently than written, such as an unquoted path with spaces, an unset variable, or a relative path after a directory change that can fail. Commands that match one of your block instructions now always show the approval card. With Run Everything on, agents now run without the sandbox unless your permissions.json restricts that mode.
+- **Copied tables keep their formatting in docs and chat apps.** Copy Table in the right-click menu of an agent response table now pastes as a real table in rich editors like Google Docs, Notion, and Slack. Plain-text destinations still get Markdown.
+- **Smoother scrolling while an agent streams.** When the agent chat follows a streaming reply, it now glides smoothly to new output instead of moving in uneven steps.
+- **Agent Review fixes and better Fix in Cursor prompts.** Fix in Cursor from a Bugbot report now drafts a prompt that lists the affected files and line ranges, even when code selections can't be attached. Agent Review tabs stay open when you open or close the chat Review tab or revert a plan checkpoint, and Agent Review shows again for users who had turned on the removed Beta "Hide Agent Review" setting.
+
+### Cloud agents
+
+- **Cloud Agent links from the editor open in the Agents Window.** Clicking an "Open in Cursor" link for a Cloud Agent while an editor window has focus now opens that agent in the Agents Window. Previously the editor tried to match the agent's repository and could show an "Incorrect Repository" dialog instead of opening the agent.
+- **Cloud agents recognize out-of-memory kills.** When a shell command in a cloud agent started from Cursor is killed because the machine ran out of memory, the agent is now told so, along with the memory limit, so it can explain the failure and retry using less memory instead of guessing.
+
+### MCP
+
+- **More reliable MCP server sign-in.** MCP servers whose OAuth apps reject redirect URLs that point to your own computer can now sign in through a Cursor-hosted callback page. Sign-in also completes when another Cursor window or app holds the local callback port, and no longer fails on large browser request headers.
+
+### Customization and settings
+
+- **Easier hook correlation for shell and MCP calls.** Shell and MCP execution [hooks](https://cursor.com/docs/hooks.md) now receive a `tool_use_id` that matches the `preToolUse` event, so one script can follow a tool call from start to finish. Every hook now gets the `.jsonl` transcript in `transcript_path` when one exists, and `CURSOR_TRANSCRIPT_PATH` always matches it.
+- **Claude Opus 5.5 and Sonnet 5.5 on AWS Bedrock.** If you [connect your own AWS Bedrock account](https://cursor.com/docs/customizing/aws-bedrock.md), you can now pick Claude Opus 5.5 and Claude Sonnet 5.5 from the Bedrock model list in Cursor Settings.
+
+### Privacy and security
+
+- &#x20;**Admins can restrict Agent to approved remote workspaces.** A new managed policy, AgentRemoteWorkspaceAuthorities, turns off Agent in local Cursor windows and allows it only in remote workspaces. You can optionally limit it to remote authorities that match a comma-separated list of patterns, with `*` wildcards. If a user starts Agent in a local window or an unapproved remote workspace, they see a message that their administrator has disabled it.
+- &#x20;**Fixes to Private Inference.** Switching between Private Inference and Cursor-managed models now stays switched after a restart. If your private inference gateway doesn't respond at startup, Cursor keeps retrying for up to five minutes and fills in the model picker once the gateway answers. New chats no longer start on a model you turned off in Settings > Models, and private inference chats now get automatic names.
+
+### Git
+
+- **Clear error when Origin rejects a push for a file over 100 MB.** When Source Control pushes to an Origin repository and the push is rejected because a file exceeds the 100 MB limit, the error now names the oversized file or files instead of telling you to pull first. It also explains how to fix it: track the file with Git LFS and remove it from every commit in the push.
+
+### Fixes
+
+- &#x20;**Okta FastPass sign-in works in the built-in browser again.** Signing in with Okta FastPass in the built-in browser no longer stops at "Okta FastPass requires network permission". The browser now grants the local network permission Okta Verify needs.
+- **Fixes to agent tools.** Agent edits to very large files no longer cut off the rest of the file, loose one-line replacements no longer splice the wrong text, and reads right after an edit or Shell command in the same step return the updated file. The agent no longer hangs on unknown tool calls, and background shells survive idle chats. Also fixes a shell injection risk from crafted branch names when the agent gathers git diffs or looks up a branch's pull request.
+- **Fixes to long-conversation summarization.** Agent chats that hit the context limit now compact and continue instead of failing repeatedly at the limit, and summaries no longer drop facts from early in the conversation. The agent also keeps your latest request word for word after summarization, and near the limit it reuses a summary started in the previous turn instead of starting over every turn.
+- &#x20;**Fixes to MCP sign-in and tools.** MCP servers blocked by a Google Workspace or Microsoft Entra admin policy now say so instead of looping on sign-in prompts, and servers like Slack, Supabase, Make, and HubSpot with an expired login ask you to reconnect instead of failing over and over. Connecting a Microsoft MCP server now shows the account picker, and edits to a project MCP server config show up in settings right away.
+- **Fixes to remote connections and file watching.** Connecting to an SSH, container, or tunnel remote no longer hangs when the connection drops during the handshake, and remote windows opened without a folder finish connecting. The explorer and editors keep picking up remote file changes after a reconnect, and absolute watcher exclude paths are now honored. The agent's branch display shows the new branch on the first refresh after a checkout.
+- **Fixes to the built-in browser, settings, storage, and crash handling.** New browser tabs no longer flash white, switching tabs no longer shows the previous page, and the Cursor Settings sidebar stays pinned with its bottom items reachable. Opening Cursor while a previous instance is still closing no longer discards local state, and sandboxed agent commands on Linux with AppArmor 4 can reach the network again. Repeated out-of-memory crashes no longer fill the disk with debugging data.
+- **Fixes to Tab, Customize, and the Debug Console.** Multi-line Tab suggestions now display correctly in files with Windows (CRLF) line endings. The "Use your skills with Cloud Agents" banner in Customize renders with its proper styling, and the Debug Console no longer throws an error when styles change before a debug session has been focused.
+
 ## 3.23
 
 ### Plans and billing

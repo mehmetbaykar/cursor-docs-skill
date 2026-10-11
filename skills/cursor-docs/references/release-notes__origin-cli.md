@@ -8,6 +8,41 @@ path: /docs/release-notes/origin-cli
 
 New features, improvements, and fixes in the [Origin CLI](https://cursor.com/docs/origin/cli.md). Each entry covers one release and is labeled with its release date. Changes to Origin on the web and in the API are in the [Origin release notes](https://cursor.com/docs/release-notes/origin.md).
 
+## October 6, 2026 release
+
+### Pull requests
+
+- **See what a pull request still needs to merge.** `origin pr requirements` lists required gates and their status at head, needed approvals, human-only paths, the Code Review Gate, and blockers in the stack. Add `--json` for scripts.
+- **Safer merges and merge-when-ready status.** `origin pr merge --expect-head <number>=<sha>` refuses to merge if a listed pull request has moved, and `--auto --downstack` turns on merge-when-ready for every open pull request below this one. `origin pr view`, `status`, and `requirements` show a `Merge-when-ready` line, and `--json mergeWhenReady` returns it.
+- **Manage reviewers and labels from the CLI.** `origin pr reviewer list`, `request`, and `remove` manage review requests for users, teams (`org/team`), and service accounts. `origin pr create` takes `--label` and `--reviewer`, and checks both before creating the pull request.
+- **Wait on more than CI, and filter checks.** `origin pr watch --until` can wait for `merged`, `head:<sha>`, or `comment:<regex>`, and `--json` returns one result object. `origin pr checks --name <pattern>` limits output and the exit code to matching checks, and the output names the commit the checks ran on.
+- **Edit and delete comments, and view one review thread.** `origin pr comment edit` and `origin pr comment delete` change or remove a comment you wrote, and `--edit-last` or `--delete-last` act on your newest one. `origin pr thread view <thread-id>` prints a single review thread, and comment JSON now includes a `url`.
+- **Limit `origin pr diff` to specific paths.** List files, directories, or globs after `--`, as in `origin pr diff 123 -- src/ '*.md'`. In pathspecs and `--exclude`, `**` now matches any depth, including the top level.
+- **See a pull request's cloud agents.** `origin pr view <number> --agents` lists the cloud agents attached to a pull request, and `--json agents` returns them for scripts.
+- **More GitHub search syntax in `origin pr search`.** Negated qualifiers such as `-label:bug`, `has:` qualifiers, `OR` between scopes, and `mentions:` now work. `origin pr search --help` lists every supported qualifier.
+
+### Stacks
+
+- **Server-side restacks.** `origin stack restack --server` has Origin rebase your stack and move its branches in one atomic step, so your clone force-pushes nothing. Add `--dry-run` to preview first.
+
+### Scripting
+
+- **More `gh` JSON fields, and `--json help`.** `origin pr view` and `origin pr list` accept more `gh` field names, such as `body`, `state`, `headRefName`, and `isDraft`. Pass `--json help` to `origin pr view` or `origin pr list` to list the fields they accept.
+- **Set a default repository with `ORIGIN_REPO`.** Commands that take `-R, --repo` fall back to the `ORIGIN_REPO` environment variable, then your clone's `origin` remote.
+- **Find the Origin copy of a GitHub repository.** `origin repo from-github owner/repo` shows the Origin repository that mirrors a github.com repository, with its clone URL and source of truth, using your `gh` login.
+
+### Reliability
+
+- **Requests no longer hang.** Origin requests time out after 60 seconds by default; set `ORIGIN_TIMEOUT_MS` to change it, or `0` for no limit. `origin pr merge --match-head-commit <sha>` refuses the merge if the head has moved, and common server refusals print a suggested fix.
+- **Shorter, clearer errors.** A mistyped command prints the error and a pointer to `--help` instead of the full help text. In a cloud agent VM, `origin api` stops with guidance instead of failing with a bare HTTP 401.
+- **`origin auth login` shows who you signed in as.** After a successful login, including with `--api-key`, it prints the email of the account you signed in to.
+
+### Fixes
+
+- **Fixed stack navigation and restacking.** `origin stack up`, `down`, `top`, and `bottom` now work in single-branch and shallow clones when the target branch exists only on the remote. After a parent squash-lands, `origin stack restack` no longer replays trunk commits a child had merged in.
+- **Fixed `--remote` handling.** Commands that take `--remote` now fail clearly when it is repeated or malformed, and a remote name starting with `-` is no longer read by git as an option.
+- **Fixed pull request diffs and repo arguments.** `origin pr diff` shows real file modes and applies cleanly with `git apply`. Repo arguments ending in `.git` or `/` resolve correctly, and `origin pr list --mine` gives working steps in token sessions.
+
 ## October 1, 2026 release
 
 ### Pull requests

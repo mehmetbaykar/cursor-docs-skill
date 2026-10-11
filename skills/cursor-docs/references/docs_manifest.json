@@ -363,8 +363,8 @@
       "title": "ACP"
     },
     "cli__changelog.md": {
-      "hash": "8a569562323913ebe4470ff570754df0cce86ab4c408364f81f4b94add45d869",
-      "last_updated": "2026-10-06T15:22:34+00:00",
+      "hash": "287b4dc149b65de26fc0e1cacdd9b675d04038e1f41871458d9e2d972dfef935",
+      "last_updated": "2026-10-11T01:06:24+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
       "source_url": "https://cursor.com/docs/cli/changelog",
@@ -1722,8 +1722,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "d6e17eebebd5c3cc8276e850f02a0b5aaaf91e8355c8e79e87b10da2fc477d49",
-      "last_updated": "2026-10-07T15:33:59+00:00",
+      "hash": "303f851fa55ee1ae08a5659c50b1574fc37c478735b302e03cbb0c186623b908",
+      "last_updated": "2026-10-11T01:07:16+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -1749,8 +1749,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "bc08a980b75069961613167efb15613a1f8b2e72ec50f90de700510ee9a58cc3",
-      "last_updated": "2026-10-07T01:02:13+00:00",
+      "hash": "7924d336ed61afa911398e5ab1369cf31bb48f4c6b096ddbdce24c6c63937865",
+      "last_updated": "2026-10-11T01:07:17+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "source_url": "https://cursor.com/docs/release-notes/ide",
@@ -1767,8 +1767,8 @@
       "title": "Cursor mobile release notes"
     },
     "release-notes__origin-cli.md": {
-      "hash": "73b50188aba71d6d76b2ae0d6c7623fb1cf2647e0572d4bd375a712d44980f6c",
-      "last_updated": "2026-10-06T15:23:25+00:00",
+      "hash": "c63414d6cfd1f27d984ab729b43631ccf057f8e1063628c1f8bdb207a7d77144",
+      "last_updated": "2026-10-11T01:07:18+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin-cli",
       "path": "/docs/release-notes/origin-cli",
       "source_url": "https://cursor.com/docs/release-notes/origin-cli",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-09T21:22:03+00:00",
+  "last_updated": "2026-10-11T01:07:22+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
