@@ -58,10 +58,11 @@ effective for everyone. The organization-wide enable switch is also
 Enterprise only and applies to the whole organization. Cloud Agents, Team
 Rules, and public template sharing apply to the whole team on Teams and
 Enterprise. Enforce Auto-review and Auto-review rules are Enterprise only
-and also apply to the whole team. Allow Local Egress is Enterprise only
-and applies to the whole team. On Enterprise, a group's Grok Bot tab can
-widen Cloud Agents, local execution, local egress, Auto-review, rules,
-and setup scripts for that group's members, never tighten them. See
+and also apply to the whole team. Allow Local Egress Routing is
+Enterprise only and applies to the whole team. On Enterprise, a group's
+Grok Bot tab can widen Cloud Agents, agent email, local execution, local
+egress, Auto-review, rules, and setup scripts for that group's members,
+never tighten them. See
 [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 ### Why do some websites block Bots?
@@ -81,7 +82,7 @@ your account team.
 Yes. A member can route a Grok Bot computer's web traffic through their
 desktop, using its network and IP address. Enterprise teams can also
 install a networking client on every hosted computer through **Team
-Setup**. See
+Setup Scripts**. See
 [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ### Grok Bot hangs at computer setup from our network. Why?
@@ -146,7 +147,7 @@ deployment are not supported today.
 
 ### Can we install our own security tooling on team computers?
 
-**Team Setup is Enterprise only.** Those admins can install their own
+**Team Setup Scripts** is Enterprise only. Those admins can install their own
 tooling on every team computer. Grok Bot doesn't ship a built-in
 customer-facing EDR feed.
 

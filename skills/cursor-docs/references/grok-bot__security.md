@@ -9,9 +9,10 @@ path: /docs/grok-bot/security
 Use these controls and deployment details to decide whether Grok Bot is allowed in, and to limit what Bots can access, change, and retain. Rollout steps and the dashboard settings list live on [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).
 
 **Enterprise only** on the Grok Bot dashboard: the organization-wide enable
-switch, **Network Controls**, **Team Setup**, **Team Secrets**, **Action Recording**,
-**Allow Local Egress**, **Enforce Auto-review** with its team rules, and
-computer management for organization admins. Audit logs, OpenTelemetry
+switch, **Network Controls**, **Team Setup Scripts**, **Team Secrets**, **Action Recording**,
+**Allow Local Egress Routing**, **Allow Sudo on Bot Computers**, **Enforce
+Auto-review** with its team rules, and computer management for organization
+admins. Audit logs, OpenTelemetry
 Export, the MCP allowlist, and SCIM are also Enterprise only. Self-serve
 Teams do not see those settings. The full list is on
 [admin controls](https://cursor.com/docs/grok-bot/teams.md#admin-controls).
@@ -24,14 +25,13 @@ A control sits on each of those paths. Each one links to its section on this pag
 
 ## Network policy
 
-**Network Controls is Enterprise only.** Admins set a Grok Bot network policy from the [Grok Bot page](https://cursor.com/dashboard/bot) of the Cursor dashboard. It controls which destinations team computers can reach. Self-serve Teams do not see this panel and cannot set a destination allowlist. Teams without a policy default to allow-all.
+**Network Controls is Enterprise only.** Admins set a Grok Bot network policy under **Network** on the [Grok Bot page](https://cursor.com/dashboard/bot) of the Cursor dashboard, in **Grok Bot Network Access**. It controls which destinations team computers can reach. Self-serve Teams do not see this panel and cannot set a destination allowlist. Teams without a policy default to allow-all.
 
-| Mode                         | Effect                                                             |
-| ---------------------------- | ------------------------------------------------------------------ |
-| No policy                    | Allow all (the default for teams without a policy)                 |
-| Allow all network access     | Explicitly allow all destinations                                  |
-| Defaults plus team allowlist | Cursor's default destinations plus your list                       |
-| Team allowlist only          | Only your list, plus the destinations a computer needs to function |
+| Mode                          | Effect                                                             |
+| ----------------------------- | ------------------------------------------------------------------ |
+| **Allow All Network Access**  | All destinations. Teams without a policy get this.                 |
+| **Defaults + Team Allowlist** | Cursor's default destinations plus your list                       |
+| **Team Allowlist Only**       | Only your list, plus the destinations a computer needs to function |
 
 - **Destinations** cover web domains as well as IP ranges with ports for raw connections, with no cap on the number of entries.
 - **Directory groups. Enterprise only, inside Network Controls.** Groups can set their own network policy, which replaces the team's for their members, and a lock makes the team policy effective for everyone.
@@ -46,7 +46,7 @@ Hosted computers reach the internet through shared static egress IP addresses by
 
 If member devices sit behind Zscaler or another TLS-inspecting gateway, allow Cursor's domains and exempt them from inspection on every profile, including off-network. See [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
 
-Members can route traffic through their desktop to use its network and IP address. **Team Setup is Enterprise only.** Those teams can also install their own networking client on every team computer. Both paths are separate from the shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+Members can route traffic through their desktop to use its network and IP address. **Team Setup Scripts** is Enterprise only. Those teams can also install their own networking client on every team computer. Both paths are separate from the shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ## Approvals and Auto Review
 
@@ -62,7 +62,7 @@ Auto Review is the review layer behind those prompts: an independent review mode
 
 - **Team admins can enforce Auto-review. Enterprise only.** The switch lives on the Grok Bot page of the Cursor dashboard. When it is on, members can't turn Auto-review off, unless a group they belong to lifts the lock with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 - **Admins can add team Auto-review rules. Enterprise only.** These live on the Grok Bot page too. They apply to every member's Bots, show up as locked rows in the member settings table, and save automatically when an admin adds, edits, or deletes a rule. If admins turn enforcement off, the team rules stop applying and members go back to their own rules only.
-- **Members can add personal rules** under **Settings** > **General** > **Auto-review**. **Ask first** rules always stop matching actions, and **Allow automatically** rules let matching actions proceed only when the reviewer finds no other reason to stop. Members can add personal rules on top of team rules, but they only make behavior stricter; **Ask first** wins when rules conflict. Keep rules narrow and tied to a known action, like "ask first before sending any external email" or "allow automatically when running `git status` in `/workspace/reports`". Avoid broad rules like "allow everything in the browser". Personal rules are stored on the current desktop and synced to its Grok Bot computer, so another desktop installation needs its own.
+- **Members can add personal rules** under **Settings** > **General** > **Auto-review**, in **Custom Rules**. **Ask first** rules always stop matching actions, and **Allow automatically** rules let matching actions proceed only when the reviewer finds no other reason to stop. Members can add personal rules on top of team rules, but they only make behavior stricter; **Ask first** wins when rules conflict. Keep rules narrow and tied to a known action, like "ask first before sending any external email" or "allow automatically when running `git status` in `/workspace/reports`". Avoid broad rules like "allow everything in the browser". Personal rules are saved to the member's account, so they apply from every desktop and the mobile app.
 - **It doesn't review every side effect.** Memory writes and most settings changes are examples. Treat it as a complement to explicit boundaries and least privilege, working alongside controls that don't depend on a model's judgment: per-action approvals, the network policy, and per-user isolation.
 
 ## Identity and sign-ins
@@ -90,7 +90,7 @@ Audit Logs and Action Recording use separate pipelines. Audit Logs cover adminis
 
 ## Endpoint tooling
 
-Grok Bot doesn't ship a built-in customer-facing telemetry or EDR feed. The computers are Cursor-operated infrastructure that Cursor monitors for operational health and abuse, and that telemetry deliberately excludes customer data. **Team Setup is Enterprise only.** Those admins can install their own tooling on every team computer.
+Grok Bot doesn't ship a built-in customer-facing telemetry or EDR feed. The computers are Cursor-operated infrastructure that Cursor monitors for operational health and abuse, and that telemetry deliberately excludes customer data. **Team Setup Scripts** is Enterprise only. Those admins can install their own tooling on every team computer.
 
 ## Data retention and deletion
 
@@ -120,11 +120,11 @@ Grok Bot manages model selection. There is no customer-facing model picker, and 
 
 Bots can act on a member's own machine through the desktop app: run commands, read files, and move files between the cloud computer and the local machine. This is separate from work in the hosted computer, with its own control, and it's distinct from Auto Review, which governs work inside the hosted computer.
 
-Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **Computer** > **Execution on this computer** (or **Settings** > **General** > **Bot** > **Execution on Local Computer** until a desktop is listed under **Computer**): ask every time, always allow, or never. Recommend **Never** unless a Bot has a specific reason to work on local files. Admins can cap the policy for the whole team with [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) on the Grok Bot page; a member's own setting still applies when it is stricter.
+Per-command approval is the default, and the approval card shows the exact command. Members choose the policy under **Settings** > **Computer** > **Your computer**, in **Execution on this computer** (**Execution on Local Computer** until the desktop is listed): **Ask every time**, **Always allow**, or **Never allow**. Recommend **Never allow** unless a Bot has a specific reason to work on local files. Admins can cap the policy for the whole team with [Execution on Local Computer](https://cursor.com/docs/grok-bot/teams.md#execution-on-local-computer) on the Grok Bot page; a member's own setting still applies when it is stricter.
 
 ## Hosting
 
-Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today. Hosted computers use shared static egress by default. Members can route traffic through their desktop, and Enterprise teams can install a networking client with **Team Setup**. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, deployment inside your own perimeter, and bring-your-own-image deployment are not supported today. Hosted computers use shared static egress by default. Members can route traffic through their desktop, and Enterprise teams can install a networking client with **Team Setup Scripts**. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ## Prompt injection
 

@@ -6,9 +6,9 @@ path: /docs/grok-bot/private-networks
 
 # Connect to private networks
 
-Grok Bot computers run in Cursor's cloud and reach the internet through [shared static egress IP addresses](https://cursor.com/docs/grok-bot/security.md#static-egress-ips). If the systems your Bots need live on a private network, route traffic through a member's desktop or install your organization's networking client on every team computer through **Team Setup**.
+Grok Bot computers run in Cursor's cloud and reach the internet through [shared static egress IP addresses](https://cursor.com/docs/grok-bot/security.md#static-egress-ips). If the systems your Bots need live on a private network, route traffic through a member's desktop or install your organization's networking client on every team computer through **Team Setup Scripts**.
 
-**Team Setup is Enterprise only.** It does not appear on other plans.
+**Team Setup Scripts** is Enterprise only. It does not appear on other plans.
 **Network Controls is also Enterprise only.** That
 [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) is a separate layer
 that still applies; private network reach doesn't replace your destination
@@ -30,24 +30,24 @@ allowlist.
 
 ### Route through a member's desktop
 
-In the Grok Bot desktop app, open **Settings** > **Computer** and, in the **Network** section, turn on **Route traffic through this computer**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress**.
+In the Grok Bot desktop app, open **Settings** > **Computer** and, under **Your computer**, turn on **Route traffic through this computer**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress Routing**.
 
 Each member controls their own desktop route. Enterprise admins can remove this option for the whole team from [Grok Bot in the Cursor dashboard](https://cursor.com/dashboard/bot). See [Route traffic through your desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop).
 
 ### Install a networking client with Team Setup
 
-This is a pattern you run, not a Cursor-managed network mode. Cursor provides the hook: Team Setup runs your install scripts on every team computer. You own the rest: installing the client, configuring it, authenticating computers, maintaining access rules, and keeping up with your vendor's changes. Cursor installs nothing by default, doesn't operate or monitor your network client, and the dashboard shows no client status. Your vendor's documentation is the source of truth for installing and configuring their software; this page covers the Cursor side.
+This is a pattern you run, not a Cursor-managed network mode. Cursor provides the hook: Team Setup Scripts runs your install scripts on every team computer. You own the rest: installing the client, configuring it, authenticating computers, maintaining access rules, and keeping up with your vendor's changes. Cursor installs nothing by default, doesn't operate or monitor your network client, and the dashboard shows no client status. Your vendor's documentation is the source of truth for installing and configuring their software; this page covers the Cursor side.
 
 ## Before you start
 
-- You're a team admin on the Enterprise plan. **Team Setup is Enterprise only** and doesn't appear on other plans.
+- You're a team admin on the Enterprise plan. **Team Setup Scripts** is Enterprise only and doesn't appear on other plans.
 - Your networking client runs on Debian-based Linux and can be installed and started from a shell script. Team computers run Linux, and scripts run as the computer user with `sudo` available.
 - Your network has a way in for that client: a gateway, exit node, or tunnel connector inside the VPC or intranet you want to reach, per your vendor's architecture.
 - You've decided how computers will authenticate to your network. Keep credentials out of setup scripts; if a script needs one, store it as a [Team Secret](https://cursor.com/docs/grok-bot/teams.md#team-secrets).
 
 ## How Team Setup runs your scripts
 
-Team Setup lives on the **Grok Bot** page of the [Cursor dashboard](https://cursor.com/dashboard/bot): manifests of install scripts that run on every team computer. Each manifest holds one or more script entries, and each entry has an **ID**, a **Setup Script**, and an optional **Check Script**. To run a manifest on one cohort's computers only, add it under the group's Grok Bot tab instead; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings). Group manifests follow the same rules as the ones below.
+**Team Setup Scripts** lives under **Bot Computers** on the **Grok Bot** page of the [Cursor dashboard](https://cursor.com/dashboard/bot): manifests of install scripts that run on every team computer. Each manifest holds one or more script entries, and each entry has an **ID**, a **Setup Script**, and an optional **Check Script**. To run a manifest on one cohort's computers only, add it under the group's Grok Bot tab instead; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings). Group manifests follow the same rules as the ones below.
 
 - Scripts run **as the computer user** on every team computer; use `sudo` for privileged installs.
 - They run when a computer starts, and on a periodic refresh, roughly daily, while it runs.
@@ -57,10 +57,10 @@ Team Setup lives on the **Grok Bot** page of the [Cursor dashboard](https://curs
 
 ## Create the manifest
 
-### Open Team Setup
+### Open Team Setup Scripts
 
 Go to [Grok Bot in the Cursor dashboard](https://cursor.com/dashboard/bot)
-and open **Team Setup**.
+and find **Team Setup Scripts** under **Bot Computers**.
 
 ### Create a manifest
 
@@ -225,9 +225,9 @@ No. Those recipes are specific to Cloud Agent VMs; Tailscale there
 requires userspace networking and proxy variables. Grok Bot computers use
 Team Setup and your own gateway or connector, as described on this page.
 
-### Which plans include Team Setup?
+### Which plans include Team Setup Scripts?
 
-**Team Setup is Enterprise only.** Team admins manage manifests. If you
+**Team Setup Scripts** is Enterprise only. Team admins manage manifests. If you
 don't see it on the Grok Bot page of the dashboard, you are not on
 Enterprise, or you need your account team to enable Grok Bot for the
 organization.

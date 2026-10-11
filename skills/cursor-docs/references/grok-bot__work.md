@@ -19,18 +19,20 @@ A Bot is a durable AI teammate with a name, a job, its own conversation, and wor
 
 ### Create a Bot
 
-1. Choose **New** in the sidebar, or press Cmd+N, then select **Create new Bot**.
-2. Click the Bot's name at the top of the chat, then choose **Bot settings** to set the name, label, and description. Click the Bot's picture in the same panel to change its avatar. See [Change a Bot's name, picture, and description](https://cursor.com/help/grok-bot/edit-bot.md).
-3. Send a real first task with a clear finish line; see [use cases](https://cursor.com/docs/grok-bot/use-cases.md) for starter prompts.
+1. Choose **New chat** (the **+** button) in the sidebar, or press Cmd+N, then select **Create new Bot**.
+2. In your first message, give the Bot its job, sources, and approval boundaries, and ask it to remember them. Send a real first task with a clear finish line; see [use cases](https://cursor.com/docs/grok-bot/use-cases.md) for starter prompts.
+3. To rename the Bot, add a label, or change its picture, click the Bot's name at the top of the chat to open its details. See [Change a Bot's name, picture, and what it does](https://cursor.com/help/grok-bot/edit-bot.md).
 
 Your existing Bots can also suggest or create a focused Bot when a job should have a long-lived owner.
 
 ### Edit a Bot
 
-Update the description when you discover a durable preference, boundary, or responsibility that should shape future work. Use the conversation for task-specific instructions, and the description for rules that should remain true:
+When you discover a durable preference, boundary, or responsibility that should shape future work, tell the Bot and ask it to remember. Use ordinary messages for task-specific instructions:
 
-- **Description.** "Never send external messages without approval."
-- **Message.** "Draft follow-ups for these twelve accounts."
+- **Lasting rule.** "From now on, never send external messages without approval."
+- **Task.** "Draft follow-ups for these twelve accounts."
+
+A [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) also has a description, which its owner edits under **About** in the Bot's details.
 
 ### Organize your roster
 
@@ -50,7 +52,7 @@ Deleting a Bot removes its profile, conversation, and routines. Files and sign-i
 
 ### What a Bot remembers
 
-A Bot retains stable preferences, important facts, and summaries from its work, which lets it keep a role over time without replaying every prior message. Memory is not a substitute for an authoritative source: keep changing facts in the source system, ask the Bot to cite or reopen current data for consequential decisions, correct stale assumptions directly, and put safety boundaries in the description rather than in memory.
+A Bot retains stable preferences, important facts, and summaries from its work, which lets it keep a role over time without replaying every prior message. Memory is not a substitute for an authoritative source: keep changing facts in the source system, ask the Bot to cite or reopen current data for consequential decisions, correct stale assumptions directly, and back safety boundaries with approvals and [Auto-review rules](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) rather than memory alone.
 
 ## Messaging and collaboration
 
@@ -83,7 +85,7 @@ Paste a link when the Bot can reach the page from its computer or a plugin; if t
 
 ### Group chats
 
-Use a group when several Bots need one shared outcome and visible handoffs. Choose **New**, select two to six Bots, and describe the outcome and who owns the next step. Write normally to let the Bots decide who responds, type `@` to hand the request to one teammate, and save `@everyone` for group-wide updates. A useful kickoff assigns one owner per stage:
+Use a group when several Bots need one shared outcome and visible handoffs. Choose **New chat**, select two to six Bots, and describe the outcome and who owns the next step. Write normally to let the Bots decide who responds, type `@` to hand the request to one teammate, and save `@everyone` for group-wide updates. A useful kickoff assigns one owner per stage:
 
 > @Researcher gather the source material and link every claim. @Writer turn
 > the findings into a launch draft. @Reviewer check the draft against the
@@ -121,7 +123,7 @@ For a supported connection that presents a secure secret request, enter the valu
 
 ### Connect plugins
 
-Plugins give Bots a structured way to work with services like Gmail, Notion, and Slack, and are more reliable than clicking through a website when one exists. Open **Plugins** in the sidebar or follow an in-chat **Connect** card, then finish the provider login in your browser; setup steps and known issues are in [Connect plugins](https://cursor.com/help/grok-bot/connect-plugins.md).
+Plugins give Bots a structured way to work with services like Gmail, Notion, and Slack, and are more reliable than clicking through a website when one exists. Open **Connect apps** in the sidebar or follow an in-chat **Connect** card, then finish the provider login in your browser; setup steps and known issues are in [Connect plugins](https://cursor.com/help/grok-bot/connect-plugins.md).
 
 - **Plugins are account-wide.** An installed plugin is available to every Bot you run. A teammate's [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) asks before it uses your accounts.
 - **Plugin logins stay off the computer.** OAuth tokens are held on Cursor's connector backend, and the Bot invokes tools without receiving them.
@@ -138,8 +140,8 @@ The app and the computer update separately. When the computer is unreachable, wo
 1. Retry from the error state, or reopen the conversation.
 2. Restart the Grok Bot app and check for an app update.
 3. Choose **Recover Grok Bot's Computer** when the unreachable state offers it.
-4. Use **Update Grok Bot's Computer** to move to the latest version.
-5. Use **Reset Grok Bot's Computer** only as a last resort.
+4. In **Settings** > **Computer**, use **Update Bot's Computer** to move to the latest version.
+5. Use **Reset Bot's Computer** in the same section only as a last resort.
 
 A software update only refreshes Grok Bot's software and keeps installed apps. A computer update rebuilds the computer, keeping files and logins but removing installed apps and packages. Recover and Reset both rebuild the computer from your last saved data; if the computer can't be reached to save first, very recent changes don't come back. Conversations are stored outside the computer, so they survive even a reset. See [Grok Bot computer](https://cursor.com/help/grok-bot/computer-recovery.md).
 
@@ -159,7 +161,7 @@ Skills capture steps, decision rules, expected output, and safety boundaries, an
 > health". Include the source systems, risk definitions, output format, and
 > the rule that customer contact always requires approval.
 
-A useful skill states when to use it, the required inputs and access, the sequence of work, how to validate the result, what to return, and what requires approval. Type `/` in the composer to reference a skill. If a private skill doesn't appear in the `/` menu, enable it for the current Bot under **Settings** > **Plugins** > **Yours**.
+A useful skill states when to use it, the required inputs and access, the sequence of work, how to validate the result, what to return, and what requires approval. Type `/` in the composer to reference a skill. If a private skill doesn't appear in the `/` menu, open **Connect apps** in the sidebar, select the connected count next to the title, and enable it for the current Bot under **Private skills**.
 
 ### Teach a workflow by demonstration
 
@@ -189,7 +191,7 @@ A test run performs real work. It can navigate websites, change files, and
 call connected tools. Use safe inputs and keep write actions behind
 approval.
 
-Create and change routines by asking the Bot in chat. To review them on desktop, click the Bot's name at the top of the chat, then choose **Tasks**. Open a routine to read its **Instruction** and **When to run**, and to **Pause**, **Resume**, **Test**, **Edit**, or delete it. On the phone, the Bot's profile lists its routines with **Run history**. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack triggers, and webhooks, see [Routines](https://cursor.com/help/grok-bot/routines.md).
+Create and change routines by asking the Bot in chat. To review them on desktop, click the Bot's name at the top of the chat to open its details. Routines are on the **Details** tab. Open a routine to read its **Instruction** and **When to run**, and to **Pause**, **Resume**, **Test**, **Edit**, or delete it. On the phone, the Bot's profile lists its routines with **Run history**. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack triggers, and webhooks, see [Routines](https://cursor.com/help/grok-bot/routines.md).
 
 Routines earn trust the same way people do: automate preparation before execution, keep sending, purchasing, deleting, publishing, and production changes behind approval, report missing or stale sources instead of working around them, and re-test after a website, plugin, or source format changes.
 
