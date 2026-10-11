@@ -8,6 +8,41 @@ path: /docs/cli/changelog
 
 The latest features, improvements, and fixes shipping to Cursor CLI. Run `agent --version` to check your installed version, and `agent update` to upgrade in place.
 
+## v2026.10.08
+
+### Auto-review
+
+- **Auto-review is stricter about risky deletes.** Auto-review now asks for approval before recursive, force, wildcard, or mirror deletes whose target could resolve differently than written, such as an unset variable or a stray space in a path. See [Configuring Auto-review](https://cursor.com/docs/agent/security/run-modes.md#configuring-auto-review).
+
+### Models
+
+- **Claude Opus 5.5 and Sonnet 5.5 on Bedrock.** If you set up [AWS Bedrock](https://cursor.com/docs/customizing/aws-bedrock.md) with `agent bedrock`, you can now pick Claude Opus 5.5 and Sonnet 5.5 from the bring-your-own-key model list.
+
+### Skills
+
+- **`/skills` flags skills that break the Agent Skills limits.** Skills that load but exceed the spec's limits now show a yellow warning count in `/skills`, and selecting one lists what to fix under it. Warnings cover a name over 64 characters or not in lowercase-hyphen form, a frontmatter `name` that doesn't match the folder, a description over 1,024 characters, and a body over about 5,000 tokens. See the [SKILL.md format](https://cursor.com/docs/skills.md#skillmd-file-format).
+
+### ACP
+
+- **ACP clients now get wakeups from watched background shells.** In [ACP](https://cursor.com/docs/cli/acp.md) mode, when the agent starts a background shell that watches for output, the prompt now stays open and the agent wakes up and responds whenever the output matches. Previously the agent said it would be notified, but the wakeup never arrived. While the prompt waits, the client shows an in-progress `Watching: <reason>` tool call. Cancelling the prompt or sending a new one ends the wait without stopping the shell.
+
+### Self-hosted workers
+
+- **Any-repo pool agents now work inside the repo they claimed.** On a worker started with [`--clone-git-repos`](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools), an agent's tools, shells, rules, skills, and subagents now run in the checkout cloned or reused for its claim, then go back to the worker directory when the claim ends. The worker also clones fresh instead of reusing a checkout that has untracked rules, skills, or `AGENTS.md` files an earlier agent may have left there, and the worker log lists the files that blocked reuse.
+- **Self-hosted workers stop when they register too many repositories.** When Cursor refuses an `agent worker` because it registers more repositories than a worker allows, the worker now exits with a message giving the count, the limit, and how many repository folders to remove before starting it again, instead of reconnecting endlessly.
+
+### Cloud Agents
+
+- **`agent env deploy` accepts comments and trailing commas.** Environment files passed to `agent env deploy` can now include comments and trailing commas, so you can annotate your Cloud Agent setup in place. Invalid files fail with a syntax error that points to where parsing stopped.
+
+### Fixes
+
+- **MCP OAuth no longer sends unfilled client ID placeholders.** When an MCP server's OAuth config still has an unresolved `${VAR}` client ID, the CLI now treats the client ID as unset. It no longer sends the literal placeholder to the authorization server, so login no longer fails with a confusing client error.
+- **Fixes to agent tools.** The agent no longer hangs when the model calls an unknown tool, and sessions no longer end on out-of-range Shell or Grep arguments. Edits to large files fail safely instead of truncating them, loose one-line replacements no longer splice the wrong text, and a Read right after an edit or a file-creating shell command returns the new content. Glob now finds empty and binary files and skips `.git`, and generated images are saved with the right file extension.
+- **Fixes to MCP tools.** MCP sign-in no longer fails when another Cursor app is already using the login callback port. The agent now refreshes a server's tool list when a tool seems to be missing. When a tool doesn't exist, the error now lists the tools the agent can call.
+- **Fixes to self-hosted workers.** Workers no longer drop their connection while uploading large messages on slow links, report themselves ready before the server accepts them, or delete git credentials another worker pushed on the same machine. Existing checkouts are no longer refused because of system or global git config, and stopping a worker now prints the reason. Agent stores you removed stay removed after a restart, and a store that hangs while closing reopens on the next claim.
+- **Fixes to long sessions and summarization.** Sessions that hit the context limit now summarize and continue instead of getting stuck, and your latest request is kept word for word after summarization. Debug mode no longer fails a turn after the conversation is summarized, and images attached to a message queued during an interrupted turn are now sent on the next turn.
+
 ## v2026.09.28
 
 ### Fixes

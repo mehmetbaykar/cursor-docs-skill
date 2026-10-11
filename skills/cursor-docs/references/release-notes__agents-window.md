@@ -8,6 +8,63 @@ path: /docs/release-notes/agents-window
 
 New features, improvements, and fixes in the [Agents Window](https://cursor.com/docs/agent/agents-window.md). The Agents Window ships with the Cursor app, so each entry covers one minor version, including the patch releases that follow it. Editor changes are in the [Cursor IDE release notes](https://cursor.com/docs/release-notes/ide.md).
 
+## 3.24
+
+### Chat and composer
+
+- **Goal, queue, debug, canvas, and browser panels now open from pills above the prompt.** Your conversation goal, queued follow-ups, Debug mode reproduction steps, canvas preview, and local dev server preview each have a pill above the prompt (Goal, Queued, Debug, Canvas, and Open Browser) that opens or minimizes its panel. Each panel opens by itself when there is something new, such as a new goal, your first queued message, or a ready repro step, and closing it keeps the pill.
+- **Expand and copy Markdown tables in one click.** Hover a Markdown table in an agent's reply or a Markdown file to show Expand table and Copy table buttons beside it. Expand table opens the table in a full-size view with wrapped columns and working links, and Copy table pastes as a real table into docs and chat apps, or as Markdown into plain text.
+- **Download files from chat links.** Right-click a file link in an agent's chat and choose Download File to save a local copy, with \~/Downloads as the default. It also works for files a cloud agent built in its workspace.
+- **Mute toggle for video players.** Inline and fullscreen videos in the Agents Window now have a Mute/Unmute button, and each new video starts muted or unmuted the way you left the last one.
+- **Editing an earlier message keeps the agent's memory of the turns above it.** Fixed an issue where editing an earlier message in a reopened or synced Agents Window conversation restarted the model from an empty history. The edit now resumes from that turn's state, and if that state can't be found, the edit fails and leaves your transcript intact.
+- **Queued messages wait for Debug mode reproduction steps.** When a Debug mode turn ends with reproduction steps, a follow-up you queued no longer sends right away and hides the steps. The Debug pill stays next to the queue until you click Proceed or Mark Fixed, or switch out of Debug mode.
+
+### Cloud agents
+
+- **Fixes to cloud agent connections.** Cloud agents reconnect on their own after your computer wakes from sleep instead of failing, and conversations and the agent list keep updating through network drops, proxy errors, and server deploys. A cloud agent whose machine went away reconnects its workspace when you send a new message.
+
+### Navigation and layout
+
+- **Closing and reopening tabs takes you back where you were.** Cmd+W on a tab now returns you to the tab you were on before, even across split panes, and closing a split tile or pane puts focus back on the one you last used instead of the first or an empty one. Cmd+Shift+T reopens whatever you closed most recently, chat or app tab, including Agent, Environment, Changes, Desktop, Machine, and voice call transcript tabs.
+- **Chat tabs that fit their titles, with agent details on hover.** Chat tabs in the Agents Window now size to their titles and the tab strip scrolls when they don't fit. Hovering a chat tab, a standalone chat's title, or a tile header shows the same agent card as the sidebar, and moving between tabs moves the card without waiting again. Standalone chats and tiles now use the same tab strip as other panes, so you can double-click a tab to rename it, and with the sidebar hidden, holding Cmd (Ctrl on Windows and Linux) shows each agent's shortcut on its tab.
+- **Drag tiles between splits.** In a split, drag a tile's main chat tab onto another tile to move the tile there. A chat hidden from the sidebar also keeps its own name in its tile header.
+- **Subagents and side chats open as tabs on their parent agent.** Opening a subagent or side chat from a link, the command palette, or another agent now opens its parent agent with the subagent or side chat as a tab beside it, so you keep the parent conversation in view. Every agent shows a tab strip with a + button for opening its subagents as tabs, and the strip shows up right away while the agent loads. Back goes to where you were before the subagent opened, not to the parent agent. Subagents of automation runs still open on their own.
+- **Reach every side chat from the side rail and new-tab menu.** The side rail now lists your five most recently updated side chats, with the rest behind an "N more" menu, and when the rail is collapsed to icons a single Side chats button opens all of them. The new-tab menu's Side Chats and Plans submenus now list every entry instead of stopping at 10, and add a search box once there are more than 10.
+- **Fixes to unread agents in the menu bar and Dock.** Agents you mark as unread, or that finish while you're viewing another agent, now show in the menu bar and Dock menus without a restart. Unread agents take the first spots in the menu, with an "N more unread" entry when they don't all fit, and the badge counts only what the menu shows. A Project's row now lights up when one of its threads is unread.
+
+### Projects and workspaces
+
+- **Start from scratch works when your team doesn't use Origin.** Choosing Start from scratch in the Create Project dialog now starts a cloud project without a repository when your team has Origin turned off or has no Origin namespace, instead of showing an error. Create waits until availability has loaded, and Create Project is only offered when your plan includes cloud agents, so it no longer fails when the project starts.
+- **Clone a repo to run it on your machine.** If a repository isn't cloned on your machine yet, its local row in the Run on menu now says "Not cloned". Pick that row to clone the repo. A notification shows progress while it clones.
+
+### Files, changes, and pull requests
+
+- **Clearer pull request stacks and PR tab actions.** In the PRs tray and the PR tab's stack navigator, closed PRs in a stack now fold into an "N closed" row, and a stack stays grouped even when only some of its PRs belong to the Project, with rows like "1 PR not in this project" marking the gaps. Merging an Origin PR that lands its open downstack now reads "Merge N PRs" and notes that it lands as one commit. The PR tab menu adds View on Web, follow-up pills such as Fix CI name the pull request they act on, and Fix with Agent on a Bugbot finding no longer clears your draft or resends the Bugbot report with your next message.
+- **Open in Browser works for HTML files on remote and cloud machines.** Right-click an HTML file in the file tree on a Remote SSH machine, cloud agent, or self-hosted worker and choose Open in Browser to preview a local copy. If it can't open, a message explains why, for example when the remote machine isn't connected or the file is too large.
+
+### Customization and settings
+
+- **Adjustable chat width.** A new Chat Width slider in Settings > Appearance > Agent Conversations sets how wide agent conversations can grow, from Narrow to Wide (600 to 1600px). Widen it to give tables and code more room, or narrow it for easier reading.
+- **Fixed the translucent window tint on macOS when switching themes.** On macOS, the Agents Window's translucent background tint now updates every time you switch between light and dark themes. Before, it could keep the previous theme's tint.
+
+### Plans and billing
+
+- &#x20;**Clearer credit prompts and automatic top-up in the Buy Credits dialog.** When a model needs credits to run, the usage notice now explains why and puts Buy Credits first if there's no plan to upgrade to. The Buy Credits dialog also has a Set Up row for automatic top-up, so you can save a top-up rule or turn it off without leaving the dialog. This applies to plans with a weekly usage allowance.
+- &#x20;**Fixes to the Enterprise usage chart.** On Enterprise plans, the Cumulative Spend chart in Settings > Plan & Usage now stays readable at large totals, with short axis labels like $1.5M, and a spend limit far above current spend shows in the legend instead of squashing the plot. Cached usage and chart data appear right away instead of a loading state, and an error or stale-data banner from a previous team or user no longer shows for the current one.
+
+### Fixes
+
+- **Fixes to Computer Use on macOS.** The Enable Computer Use permissions window no longer keeps reopening while permissions are missing. Computer Use also no longer gets stuck saying another Cursor window is installing it after a window quit or crashed mid-install.
+- **Fixes to trays and pills above the follow-up input.** Opening trays, pills, or prompts above the input no longer shifts the conversation, and interrupted tray animations no longer jump. Approval, error, and branch mismatch prompts can no longer be dismissed by accident with Escape, the environment setup popout keeps your edits when another tray covers it, and pills stay visible and show as selected only while their tray is open. Answering an agent's questions in the fullscreen editor no longer crashes the view.
+- **Fixes to switching between agents.** Switching back to a recent agent no longer reloads the chat, loses your scroll position, or flashes while it loads, and a hidden chat no longer captures your typing. A chat pop-out for a Project worker now stays open, and closes when its agent is archived or deleted.
+- **Fixes to the sidebar and composer.** Typing while an editor panel is fullscreen now goes to the prompt, the New Agent button no longer disappears from grouped sidebars, and long agent titles fade out instead of hiding the peer count. If starting a cloud agent from a sidebar draft fails, your prompt comes back instead of being lost. Stopping a new agent's first message keeps the browser panel and its tabs.
+- **Fixes to file search, file tabs, and the Changes panel.** File search and Quick Open stay responsive while you type, and pressing Enter opens the top result for what you actually typed. File tabs open faster on remote workspaces and refresh when a cloud agent edits the file. The Changes panel updates sooner after outside git commands, and a refresh no longer undoes a stage or unstage.
+- **Fixes for errors when no editor is open.** The Agents Window no longer throws errors when you open a file link, switch into the agent layout, or have unsaved files change while no editor is open. Changing the sidebar position and viewing a transcript for a conversation that is no longer loaded also no longer fail.
+- **Fixes to cloud agent status and history.** Cloud agents no longer get stuck on an outdated status, flicker back to running, or flip back to unread when a stale update arrives, and loading earlier messages reliably loads the previous page. Re-recorded videos and retaken screenshots show the new content, Project worker headers update right away, and only the coordinator's turn plays the finished chime. A cloud agent started on a picked self-hosted machine keeps that machine after refreshes and forks, and retrying a failed start from a saved environment keeps its repo configuration.
+- **Fixes to agent transcript scrolling and loading.** Scrolling long agent transcripts no longer makes messages jump or shows a blank band at the top. Opened agents appear sooner and show mid-turn messages right away. The transcript no longer shifts when a turn finishes, and the turn footer stays hidden while subagents are still running.
+- **Fixes to the @ mention menu.** The @ menu no longer stays stuck loading when one source hangs, and the Branch row and past chats appear right away. For cloud agents, file mentions load as soon as you focus the input, typing stays responsive in large repos, and the slash command menu no longer goes empty while the cloud workspace starts. Editing a sent message now lists the same past chats as the follow-up input.
+- **Fixes to agent chats.** Charts in agent replies no longer clip tooltips or cut off long labels, Windows file path links open the file, and Copy Link on a PR chip no longer opens the PR. Cancelling a commit in Review Changes no longer goes on to open a pull request, and the new-agent model picker keeps the model and reasoning effort you just sent.
+
 ## 3.23
 
 ### Chat and composer
