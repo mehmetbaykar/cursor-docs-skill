@@ -17,7 +17,7 @@ Your IT team installs the Grok Bot desktop app on member devices with the tools 
 | Android app     | Android 9 or later                                                              | Google Play                                                           |
 | Hosted computer | Cursor's cloud, one per member                                                  | Cursor                                                                |
 
-The apps are clients for chat, review, and approvals. Bots do their work on the member's hosted computer. Your device management tool reaches the apps on member devices and stops there: the hosted computer runs Linux in Cursor's cloud and isn't enrolled in MDM. To put your own tooling on hosted computers, Enterprise teams use [Team Setup](https://cursor.com/docs/grok-bot/private-networks.md#install-a-networking-client-with-team-setup).
+The apps are clients for chat, review, and approvals. Bots do their work on the member's hosted computer. Your device management tool reaches the apps on member devices and stops there: the hosted computer runs Linux in Cursor's cloud and isn't enrolled in MDM. To put your own tooling on hosted computers, Enterprise teams use [Team Setup Scripts](https://cursor.com/docs/grok-bot/private-networks.md#install-a-networking-client-with-team-setup).
 
 ## Get the installers
 
@@ -86,7 +86,7 @@ Members sign in with their Cursor account through your normal SSO flow. Grok Bot
 
 - **Pin the version you tested.** Download that release's installer and keep it in your own software repository or MDM package store. Deploy from your copy so every new device gets the same build. Cursor doesn't publish how long older installers stay available for download, and a pinned build works only until Cursor stops supporting it. See [How desktop updates work](https://cursor.com/docs/grok-bot/deployment.md#how-desktop-updates-work).
 - **Save the full Linux URL.** Linux package URLs include the release's `commitSha`, so record the URL along with the version.
-- **Check what a device runs.** In the app, open the account menu and choose **About**. The dialog shows **Version**, and **Copy version info** copies the version, release track, and operating system.
+- **Check what a device runs.** In the app, open the account menu, choose **Support**, then **About**. The dialog shows **Version**, and **Copy version info** copies the version, release track, and operating system.
 
 ### How desktop updates work
 
@@ -114,11 +114,11 @@ Either way, upgrade before the installed version loses support. A held package s
 
 Cursor maintains the hosted computer's image, so there is no image for you to pin or supply. A computer moves to a newer image in one of three ways:
 
-| Trigger                        | What happens                                                                                                                                                                                                       | Who starts it                                                                                               |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| New image                      | Cursor recreates idle computers on the new image in the background, gradually and without a fixed schedule. Until then, a computer stays on its current image. Member files carry over, and Team Setup runs again. | Cursor, in the background                                                                                   |
-| **Update Grok Bot's Computer** | Rebuilds the member's computer on the latest image. Scheduling it for a later time isn't available to every account yet.                                                                                           | The member, from the **Updates** section of the desktop app's settings                                      |
-| **Recreate VMs**               | Rebuilds the selected members' computers on the latest image and Team Setup                                                                                                                                        | Organization admins on Enterprise, from [Grok Bot Computers](https://cursor.com/docs/grok-bot/computers.md) |
+| Trigger                   | What happens                                                                                                                                                                                                       | Who starts it                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| New image                 | Cursor recreates idle computers on the new image in the background, gradually and without a fixed schedule. Until then, a computer stays on its current image. Member files carry over, and Team Setup runs again. | Cursor, in the background                                                                                     |
+| **Update Bot's Computer** | Rebuilds the member's computer on the latest image. Scheduling it for a later time isn't available to every account yet.                                                                                           | The member, from **Settings** > **Computer** > **Bot's computer** in the desktop app                          |
+| **Recreate VMs**          | Rebuilds the selected members' computers on the latest image and Team Setup Scripts                                                                                                                                | Organization admins on Enterprise, from [Manage Bot Computers](https://cursor.com/docs/grok-bot/computers.md) |
 
 Running computers pick up Team Setup manifest changes roughly once a day. To apply a change sooner, recreate the computers. On Enterprise, [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs) record computer updates, resets, recreates, and terminations as `grok_bot_vm` events, and operations across many members as `grok_bot_vm_bulk`.
 
@@ -190,7 +190,7 @@ Windows, and a `.deb`, `.rpm`, or AppImage for Linux. Wrap the `.dmg` or
 
 No. The hosted computer runs Linux in Cursor's cloud and isn't enrolled in
 MDM. Enterprise teams install their own tooling on it with [Team
-Setup](https://cursor.com/docs/grok-bot/private-networks.md). If your identity provider
+Setup Scripts](https://cursor.com/docs/grok-bot/private-networks.md). If your identity provider
 requires a managed device, see [Allow sign-in to IdP apps from the
 computer](https://cursor.com/docs/grok-bot/identity.md#allow-sign-in-to-idp-apps-from-the-computer).
 
@@ -198,7 +198,7 @@ computer](https://cursor.com/docs/grok-bot/identity.md#allow-sign-in-to-idp-apps
 
 No. Cursor maintains the image and moves computers to new images in the
 background. Enterprise organization admins can recreate computers at a
-time they choose from [Grok Bot Computers](https://cursor.com/docs/grok-bot/computers.md).
+time they choose from [Manage Bot Computers](https://cursor.com/docs/grok-bot/computers.md).
 
 ### Can members install Grok Bot without IT?
 

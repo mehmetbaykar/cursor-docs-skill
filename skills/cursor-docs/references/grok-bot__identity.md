@@ -68,7 +68,7 @@ Don't turn FastPass or device compliance off for the whole company. Add a higher
 These sign-in methods work in the computer browser:
 
 - **Password plus a second factor that works in a remote browser**, such as Okta Verify push or an authenticator app.
-- **Passkeys stored in a password manager on the computer**, installed with a [Team Setup script](https://cursor.com/docs/grok-bot/teams.md#admin-controls). Team Setup is Enterprise only.
+- **Passkeys stored in a password manager on the computer**, installed with [Team Setup Scripts](https://cursor.com/docs/grok-bot/teams.md#team-setup-scripts). Team Setup Scripts is Enterprise only.
 
 Requiring managed devices for Grok Bot sign-in itself still works. Grok Bot
 uses your Cursor SSO, so a device-aware sign-in policy in your identity
