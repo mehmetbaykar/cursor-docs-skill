@@ -136,7 +136,7 @@ Sentry triggers run when error and issue events occur in your Sentry project. Us
 
 ### PagerDuty triggers
 
-PagerDuty triggers run on incident events and can be helpful to automatically triage or even resolve incidents.
+PagerDuty triggers run on incident events and can be helpful to automatically triage or even resolve incidents. Only team admins can connect or disconnect a team's PagerDuty integration.
 
 - **Incident triggered** - When a new incident is created.
 - **Incident acknowledged** - When an incident is acknowledged.

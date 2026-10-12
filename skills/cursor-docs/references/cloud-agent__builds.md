@@ -49,9 +49,9 @@ Cursor regularly checks each environment and rebuilds it when something changed.
 
 ### Skipped Builds
 
-A recurring check skips the Build when nothing changed since the last completed one: no new commits on the default branch of any repository in the environment, and no configuration or secret changes. The Builds tab records these checks with a **Skipped** status. They complete in seconds, run no install commands, and leave the active Build in place.
+A recurring check skips the Build when nothing changed since the last completed one: no new commits on the default branch of any repository in the environment, and no configuration or secret changes. A skipped check runs no install commands and leaves the active Build in place. It doesn't appear in the Builds tab.
 
-A steady stream of Recurring entries mixing Skipped and Success statuses is the expected state for a healthy environment. Quiet repositories produce mostly Skipped entries. Active repositories rebuild more often.
+Quiet repositories show few Recurring Builds. Active repositories rebuild more often.
 
 Cursor only skips recurring Builds. Manual, agent-requested, and configuration-change Builds always run.
 
@@ -129,7 +129,7 @@ You can also start an agent from a specific Build when testing or debugging.
 
 ### What happens before the first successful Build?
 
-Agents use the standard environment startup flow until the first Build completes successfully. A failed Build doesn't interrupt existing agent workflows.
+Until an environment has a successful Build, agents start on Cursor's default image without the environment's setup, such as its snapshot, Dockerfile, or `install` command. A failed Build doesn't interrupt existing agent workflows.
 
 ### How fresh is the source code?
 
