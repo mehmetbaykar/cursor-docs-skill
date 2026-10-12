@@ -345,8 +345,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "bb7839525d49860b83ad4fef272c6ed27954e80233bcfe8a69857ff78bba4a2a",
-      "last_updated": "2026-10-07T18:29:33+00:00",
+      "hash": "fe3ba906aa29e9bf0090aa308589bcbf9e5e37d74a421f87f0d395d4739cf43b",
+      "last_updated": "2026-10-12T18:29:15+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -525,8 +525,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__automations.md": {
-      "hash": "f7c78bf73ebf4af51e69dce0cfdb4830ae8022db8749541240a80fa645030e3d",
-      "last_updated": "2026-10-09T21:21:17+00:00",
+      "hash": "0a3b80ab3024853602fd4c9bb5ea298de42703e2b25aa3da4efa15eb21af3de2",
+      "last_updated": "2026-10-12T18:29:22+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
@@ -543,8 +543,8 @@
       "title": "Best Practices"
     },
     "cloud-agent__builds.md": {
-      "hash": "40e05579bf1d3aac3554e8cec957ddbf9a10864603c210898c1b2a440d867881",
-      "last_updated": "2026-10-01T21:21:37+00:00",
+      "hash": "90d76f8841776502882077af2bd77246e0ea020a97dd0b92cefa03710e06e473",
+      "last_updated": "2026-10-12T18:29:22+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
@@ -1803,8 +1803,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "c1af3dfea84f81f48a82f04b5ea1ee0155c92e83d4d2bedb053076cd720da0ff",
-      "last_updated": "2026-10-09T21:22:00+00:00",
+      "hash": "37aa5c8d1fa3b2da8d740ba1b57a3bf6c5f39d88eb50debf95281a9822bbe4bd",
+      "last_updated": "2026-10-12T18:30:12+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "source_url": "https://cursor.com/docs/rollouts",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-12T15:26:01+00:00",
+  "last_updated": "2026-10-12T18:30:15+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

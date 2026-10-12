@@ -674,6 +674,8 @@ curl -X POST https://api.cursor.com/bugbot/repo/update \
 
 The Automations UI may take a moment to reflect changes made through the API due to caching. The API response shows the current state in the database.
 
+For Azure DevOps repositories, turn Bugbot on or off in [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot). This endpoint returns `400` for repository URLs on `dev.azure.com` or `*.visualstudio.com`.
+
 ### Listing repositories
 
 Use the `/bugbot/repos` endpoint to list all repositories with their Bugbot settings for your team:

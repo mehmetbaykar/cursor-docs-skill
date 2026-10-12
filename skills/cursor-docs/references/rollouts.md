@@ -127,7 +127,7 @@ A pull request is skipped only when it clearly matches. When Rollouts skips a pu
 
 Turn on **Personal Slack Notifications** to hear about your changes in Slack. It starts with **Issues found** messages only. To also hear when a deployment succeeds or fails, or when a check finds no issues, turn on **Deployment succeeded**, **Deployment failed**, or **Check clear**. Under **Deliver to**, choose **Direct message** or **Channel**. For a channel, enter a public channel name or its ID, invite each app named under the field, then save. Slack Connect channels aren't supported.
 
-A team admin must add Rollouts to Slack first. Only team admins can change the team's notification defaults. Turning on the team default sends members a Slack message when a check finds issues with their pull request, until they change their own settings. Slack notifications aren't available in Privacy Mode.
+A team admin must add Rollouts to Slack first. Only team admins can change the team's notification defaults. Turning on the team default sends members a Slack message when a check finds issues with their pull request, until they change their own settings. Enabling Rollouts switches **Slack notifications for the team** on for **Issues found** messages, unless the team already has notification defaults. Slack notifications aren't available in Privacy Mode.
 
 ## Related pages
 
