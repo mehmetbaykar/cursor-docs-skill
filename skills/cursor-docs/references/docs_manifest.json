@@ -219,8 +219,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "bf895a1f415df445ea5c00d8b62453897034bfb5d1fcb51579c3be19f00ffcda",
-      "last_updated": "2026-10-06T18:27:51+00:00",
+      "hash": "beac6ac93b75db324d144a13c443256232ccce1043e1d1347aa8fcc347f4c09f",
+      "last_updated": "2026-10-12T21:20:03+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -282,8 +282,8 @@
       "title": "Cursor Origin API"
     },
     "api__origin__acting-as-users.md": {
-      "hash": "03fa82f297bdc3faf4c05fe9e78dbbb2bd9a45af9e3de2a555b9034ea6df8ccc",
-      "last_updated": "2026-09-28T05:14:09+00:00",
+      "hash": "fabd5b8d2cb324abf8ca80473b8aea22268accf294142c9116df094aaf5cd0e6",
+      "last_updated": "2026-10-12T21:20:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin/acting-as-users",
       "path": "/docs/api/origin/acting-as-users",
       "source_url": "https://cursor.com/docs/api/origin/acting-as-users",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "71468e9ada19c5e1d4dfe23cca4863f84b772d829abd30a1ebcbb65290dcca48",
-      "last_updated": "2026-10-12T15:24:59+00:00",
+      "hash": "a855546a64d3422d654e040c46ab2620e286d99e095bfc4c1eeadc18fc079128",
+      "last_updated": "2026-10-12T21:20:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -858,8 +858,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "bb4441f634c6163c91f05cbecc449659defdbf11a4f970bf205c52fb7dbc9226",
-      "last_updated": "2026-10-11T09:24:09+00:00",
+      "hash": "01b6efc0e5bc3fa6187c0430ad8b83558058b46790ceff4c84288125e22b0726",
+      "last_updated": "2026-10-12T21:20:25+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -876,8 +876,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "1a8b93343ea37571d6a9d671051ef7bde17783ac73aa06c71c0abf80e4a3eb51",
-      "last_updated": "2026-10-11T09:24:09+00:00",
+      "hash": "7a821bef2732a4712a3349d90deed737768d4ca0b8cb8206f018dcf3718a8737",
+      "last_updated": "2026-10-12T21:20:26+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -1713,8 +1713,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "5cda3f6aab93b3a3ec1b1768bfdfab485642f68510f59a0d3115747d2e5a5823",
-      "last_updated": "2026-10-07T01:02:12+00:00",
+      "hash": "8b7849f0ef324a21efe734bcb4ffc8a4bf1f41cd733f52bf78eb044a7bd0a15d",
+      "last_updated": "2026-10-12T21:20:55+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-12T18:30:15+00:00",
+  "last_updated": "2026-10-12T21:21:01+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
