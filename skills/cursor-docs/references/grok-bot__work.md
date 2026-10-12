@@ -97,6 +97,8 @@ Your messages in a group can include attachments. Bot-to-group handoff messages 
 
 A Bot can send an asynchronous message to another Bot, which wakes, handles the request, and can reply later; you see the handoff in the conversation. Handoffs work well when one Bot owns a source system and another owns the deliverable, or when a long-running job should continue without you coordinating every step. Ask for a single owner at each stage; parallel handoffs create duplicate work and noisy updates.
 
+A handoff needs a Bot acting for one person. From the app or your own Slack DM, any Bot can hand off work. From a Slack channel thread, only a [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) can, on behalf of the person who mentioned it. See [Can a Bot message other Bots from Slack?](https://cursor.com/help/grok-bot/group-chats.md#can-a-bot-message-other-bots-from-slack)
+
 ### Ask for reviewable results
 
 Specify the artifact and its acceptance criteria: a document with source links, a spreadsheet with defined columns, a folder of screenshots and logs, or a draft that hasn't been sent. For consequential work, ask the Bot to separate facts found in source systems, assumptions, actions already completed, actions waiting for approval, and unresolved questions.

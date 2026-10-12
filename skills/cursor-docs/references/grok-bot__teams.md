@@ -106,7 +106,7 @@ Adds published [Team Bots](https://cursor.com/help/grok-bot/team-bots.md) to mem
 
 #### Agent Email
 
-Lets members claim a `mail.grokbot.com` address that their Bots can read and send mail from. The switch is under **Bot Capabilities** on the Grok Bot page and is off by default; members get no email tools until it is on. Bots send only when the member has asked them to and otherwise show the draft first, newsletters and first-contact emails include an unsubscribe link, and incoming mail acts only through routines the member sets up. Turning it off removes the Bots' email tools and stops email routines; existing addresses keep receiving mail. See [Give your Bot an email address](https://cursor.com/help/grok-bot/agent-email.md).
+Lets members claim a `mail.grokbot.com` address that their Bots can read and send mail from. The switch is under **Bot Capabilities** on the Grok Bot page and is off by default; members get no email tools until it is on. Every outbound email waits as a draft until the member presses **Send**, including mail from routines and replies. Newsletters and first-contact emails include an unsubscribe link, and incoming mail acts only through routines the member sets up. Turning it off removes the Bots' email tools and stops email routines; existing addresses keep receiving mail. See [Give your Bot an email address](https://cursor.com/help/grok-bot/agent-email.md).
 
 #### Connector policy
 

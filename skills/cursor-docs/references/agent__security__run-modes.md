@@ -48,6 +48,8 @@ Enterprise [model access controls](https://cursor.com/docs/enterprise/model-and-
 
 If Auto-review is grayed out, enable Claude 4.5 Haiku in [Team Settings → Models](https://cursor.com/dashboard/team-settings/models), fully quit and reopen Cursor, then check Approvals & Execution again.
 
+Gemini 3.5 Flash Lite is only available in Cursor as a model for Auto-review. For that reason, enabling it for an organization will not make it available for coding agents.
+
 ### Configuring Auto-review
 
 Configuration is not required for Auto-review to work well. If there are specific actions you always want to review manually, describe them in plain English.
