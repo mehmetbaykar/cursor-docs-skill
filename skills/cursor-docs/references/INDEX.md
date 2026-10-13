@@ -177,6 +177,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `origin__agents` - [Agents and automations](https://cursor.com/docs/origin/agents)
 - `origin__apps` - [Origin Apps](https://cursor.com/docs/origin/apps)
 - `origin__apps__build-app` - [Build an Origin App](https://cursor.com/docs/origin/apps/build-app)
+- `origin__apps__publish` - [Publish to the App Marketplace](https://cursor.com/docs/origin/apps/publish)
 - `origin__browse` - [Browse & Search](https://cursor.com/docs/origin/browse)
 - `origin__cli` - [Install the CLI](https://cursor.com/docs/origin/cli)
 - `origin__cli__reference__commands` - [Commands](https://cursor.com/docs/origin/cli/reference/commands)

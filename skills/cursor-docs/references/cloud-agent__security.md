@@ -33,7 +33,7 @@ Cloud Agents reach your code through the Cursor GitHub or GitLab App, not throug
 - **Users connect their own account.** Once the app is installed, each user who wants to start an agent connects their own Git account. This is a second, per-user layer on top of the org-level install.
 - **Access is inherited, never widened.** A Cloud Agent can only reach repositories the triggering user could already reach. Starting an agent never grants access to a repository the user didn't already have.
 
-Team admins can go further and lock a Git organization to your Cursor organization with [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes), so only your teams can start Cloud Agents on its repositories. You can also keep sensitive repositories out entirely with a [repository blocklist](https://cursor.com/docs/enterprise/model-and-integration-management.md#git-repository-blocklist).
+Team admins can go further and lock a Git organization to your Cursor organization with [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes), so only your teams can start Cloud Agents on its repositories.
 
 Cursor employees do not have access to the code inside Cloud Agent VMs. Access attempts are monitored by Cursor's security team.
 
@@ -131,7 +131,7 @@ No. Access is gated by the triggering developer's Git access. A Cloud Agent can'
 
 ### Can we restrict which repositories Cloud Agents reach?
 
-Yes. Cloud Agents can only reach repositories you authorize through your Git provider connection. You control which repositories are available, and admins can lock scopes with [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes) or exclude repositories with a [blocklist](https://cursor.com/docs/enterprise/model-and-integration-management.md#git-repository-blocklist).
+Yes. Cloud Agents can only reach repositories you authorize through your Git provider connection. You control which repositories are available, and admins can lock scopes with [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes).
 
 ### Can a Cloud Agent read secrets and credentials?
 
