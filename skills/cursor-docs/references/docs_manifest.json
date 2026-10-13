@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "10606793ae0f1f548a5ff50b57f33396bdb094ce56ccd4775f82d42d33cff7bd",
-      "last_updated": "2026-10-13T18:30:48+00:00",
+      "hash": "15a959827734a6b9b20018b35d8f5a7133fed3ad7f305d0ec372029c132d345a",
+      "last_updated": "2026-10-13T21:20:13+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "1b00db91e7f933860a35261135018cefb01ee278584be6fe7e319c1f711f1b3e",
-      "last_updated": "2026-10-09T18:27:48+00:00",
+      "hash": "1974529ec72bea49d22c813a50fa12cb21b97d11ad83197d0897f60489764de7",
+      "last_updated": "2026-10-13T21:20:30+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -561,8 +561,8 @@
       "title": "Capabilities"
     },
     "cloud-agent__identity.md": {
-      "hash": "6722c6cf420e869a1eb26e88c5888b1aacba9d11da067cca0d7a1b0b975ce036",
-      "last_updated": "2026-09-14T04:46:47+00:00",
+      "hash": "44452aaf791984ad99a4708ac2a9d1c39359f4ef33027af41230daad5e46f206",
+      "last_updated": "2026-10-13T21:20:32+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
@@ -597,8 +597,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__security-network.md": {
-      "hash": "6abb30a3779ddbc74e5067a3b0be98edcaddd78b03ca9333779b7cde9f8cb64c",
-      "last_updated": "2026-10-01T21:21:39+00:00",
+      "hash": "dc6895a4c33919edcc7977776c11b63e2f9091ea7f11b1e712890189fe6e1f7c",
+      "last_updated": "2026-10-13T21:20:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
@@ -606,8 +606,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "a821690c891389ac907e017e20721f7620b483a9c61c5a816cc7b9171e7fc470",
-      "last_updated": "2026-10-13T15:25:30+00:00",
+      "hash": "4ab7703fd72063625d222692e2e6f5fee09f26d53feae625b3a586e878c1fff1",
+      "last_updated": "2026-10-13T21:20:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "source_url": "https://cursor.com/docs/cloud-agent/security",
@@ -651,8 +651,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "77a426dfd16e5d189ce75c123639ad2861ea9094692c158d5ab7d00c6d77f60b",
-      "last_updated": "2026-10-01T21:21:41+00:00",
+      "hash": "feddf5489fa8e3d1816feb4a1cccf6e8ab45a40ecdfd4a1877a933b159a20c12",
+      "last_updated": "2026-10-13T21:20:36+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
@@ -660,8 +660,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "f3c5741c5bed0c68670a8f21c3b11b7189337230a34b7bde80fa15c7c3e0acdf",
-      "last_updated": "2026-10-08T18:29:08+00:00",
+      "hash": "97563ee5980b587813eab4e33ae5ff7b37594cda3cfaf76bddfad10a6a504cdb",
+      "last_updated": "2026-10-13T21:20:36+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1020,8 +1020,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "2be3e98fb0b427abc4d86d3b626b175edc4e91c980cda94d68fc4e953bbbb2de",
-      "last_updated": "2026-10-13T18:31:24+00:00",
+      "hash": "f0c9da1d31d006512ba75cce71afdcf2bce2792576d7478cd6f730cfa3350c86",
+      "last_updated": "2026-10-13T21:20:50+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1245,8 +1245,8 @@
       "title": "Models Gemini 3 6 Flash"
     },
     "models__gemini-3-7-flash.md": {
-      "hash": "5c84db4ebdb02cb829794edbc62baca47c245f3405c8af2db043faf6a9b3c0d7",
-      "last_updated": "2026-09-02T20:58:55+00:00",
+      "hash": "dfe89dba5360c970b990355fd83368d47bb3eacb27c7287aa6fec5a32dd88964",
+      "last_updated": "2026-10-13T21:20:58+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-7-flash",
       "path": "/docs/models/gemini-3-7-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-7-flash",
@@ -1254,8 +1254,8 @@
       "title": "Models Gemini 3 7 Flash"
     },
     "models__gemini-3-8-flash.md": {
-      "hash": "369a0e9968c0d9b32d045bb165f0c22e844f7baee9de080771ae964cfa6ba3ef",
-      "last_updated": "2026-09-02T20:58:55+00:00",
+      "hash": "d80091f526d6a1b93e643e87cbe67e37198fcea0b3d7c5347c3b09e4573aa014",
+      "last_updated": "2026-10-13T21:20:59+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-8-flash",
       "path": "/docs/models/gemini-3-8-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-8-flash",
@@ -1915,7 +1915,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-13T18:31:58+00:00",
+  "last_updated": "2026-10-13T21:21:24+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

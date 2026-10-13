@@ -60,11 +60,11 @@ A Cloud Agent touches four kinds of data. Each is stored in a different place an
 | Data                   | What it holds                                                                                          | Where it lives                                            | Retention                                                                                           |
 | :--------------------- | :----------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
 | **Runtime workspace**  | The checked-out repository, build artifacts, and tool-execution context for a live run                 | The isolated Cloud Agent VM                               | Recycled automatically after the run goes idle; the timer refreshes when you send follow-up prompts |
-| **VM snapshots**       | Point-in-time copies of the VM disk (including cloned code) used to start and resume without recloning | Snapshot and cache layer outside the active VM, encrypted | Rolling 90 days of inactivity; each start or resume extends it, then automatic deletion             |
+| **VM snapshots**       | Point-in-time copies of the VM disk (including cloned code) used to start and resume without recloning | Snapshot and cache layer outside the active VM, encrypted | Rolling 30 days of inactivity; each start or resume extends it, then automatic deletion             |
 | **Conversation state** | Prompts, model responses, tool calls, diff context, and demo artifacts that make up the transcript     | Cursor backend, encrypted with per-agent keys             | Kept indefinitely by default so you can revisit and resume runs; deletable on demand                |
 | **Secrets and tokens** | Cloud Agent secrets, OAuth tokens, and API credentials you configure                                   | Encrypted credential stores in Cursor's backend           | Kept until you delete or remove them                                                                |
 
-The [Delete Agent API](https://cursor.com/docs/cloud-agent/api/endpoints.md#delete-an-agent-permanently) removes an agent's conversation transcript and artifacts on demand. Snapshots can't be deleted on demand; they follow the 90-day inactivity window above. Enterprise teams can also cap conversation retention with [retention policies](https://cursor.com/docs/cloud-agent/security-network.md#cloud-agent-retention-policies). For the full detail on retention and deletion, see [Data retention](https://cursor.com/docs/cloud-agent/security-network.md#data-retention).
+The [Delete Agent API](https://cursor.com/docs/cloud-agent/api/endpoints.md#delete-an-agent-permanently) removes an agent's conversation transcript and artifacts on demand. Snapshots can't be deleted on demand; they follow the 30-day inactivity window above. Enterprise teams can also cap conversation retention with [retention policies](https://cursor.com/docs/cloud-agent/security-network.md#cloud-agent-retention-policies). For the full detail on retention and deletion, see [Data retention](https://cursor.com/docs/cloud-agent/security-network.md#data-retention).
 
 ## Privacy and model data
 
@@ -111,7 +111,7 @@ Cloud Agent activity is logged and attributable.
 | :-------------------------------- | :----------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
 | **Archive**                       | Hides an agent from the dashboard                | Archive from the [dashboard](https://cursor.com/dashboard/cloud-agents)                                      |
 | **Delete Agent API**              | An agent's conversation transcript and artifacts | [Delete Agent API](https://cursor.com/docs/cloud-agent/api/endpoints.md#delete-an-agent-permanently)         |
-| **Snapshot expiry**               | VM snapshots and cached code                     | Automatic after 90 days of inactivity                                                                        |
+| **Snapshot expiry**               | VM snapshots and cached code                     | Automatic after 30 days of inactivity                                                                        |
 | **Retention policy (Enterprise)** | Conversations older than your chosen window      | [Retention policies](https://cursor.com/docs/cloud-agent/security-network.md#cloud-agent-retention-policies) |
 | **Account deletion**              | The account and its associated data              | [Delete account](https://cursor.com/help/account-and-billing/delete-account.md)                              |
 
@@ -123,7 +123,7 @@ They carry a different risk profile, not a worse one. Running an agent unattende
 
 ### Does Cursor store an entire repository permanently?
 
-No. Cursor clones the repository to run the agent, and that clone can live in VM snapshots to speed up future starts, but it isn't kept indefinitely. Snapshots are deleted after 90 days of inactivity.
+No. Cursor clones the repository to run the agent, and that clone can live in VM snapshots to speed up future starts, but it isn't kept indefinitely. Snapshots are deleted after 30 days of inactivity.
 
 ### Can a Cloud Agent access repositories the developer can't?
 

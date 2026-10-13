@@ -707,6 +707,8 @@ Then start the worker with the same id (`CURSOR_AGENT_WORKER_ID=pw_123`). See [C
 
 To keep the service account key off the worker, add `"sessionToken": true` to the body. The response then also carries a [session token](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#session-tokens) in `token`, with its expiry in `expiresAt`. Write the token to a file and start the worker with `--auth-token-file` instead of the key.
 
+To confirm which agent and owner a claim is for before you start the machine, add `"identityToken": { "audience": "<your audience>" }`. The response then carries a 5-minute OIDC JWT in `identityToken.token` that your own services can verify. See [Claim tokens](https://cursor.com/docs/cloud-agent/identity.md#claim-tokens).
+
 ### Mint a session token
 
 Get a fresh session token for a claim your team already holds, for example to revive a hibernated machine:
