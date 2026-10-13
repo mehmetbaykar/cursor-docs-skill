@@ -345,8 +345,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "fe3ba906aa29e9bf0090aa308589bcbf9e5e37d74a421f87f0d395d4739cf43b",
-      "last_updated": "2026-10-12T18:29:15+00:00",
+      "hash": "60c5cbd136e5808ec656581ab6d1f4a2c8785468ba5d0995d00cea4021a2a701",
+      "last_updated": "2026-10-13T01:04:23+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -1888,7 +1888,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-12T21:21:01+00:00",
+  "last_updated": "2026-10-13T01:05:09+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

@@ -61,6 +61,8 @@ Enable or disable Bugbot per repository from your installations list. Bugbot run
 - Run **only when mentioned** by commenting `cursor review` or `bugbot run`
 - Run **only once** per PR, skipping subsequent commits
 
+Turn learning on or off per organization from the organization's page in [Bugbot](https://cursor.com/automations/from-cursor/bugbot). Open **Organizations**, select an organization, and use the **Automatically Learn Rules** switch. **Manage learning** on the [repository rules](https://cursor.com/dashboard/bugbot/repository-rules) page opens the same switch. [Azure DevOps](https://cursor.com/docs/integrations/azure-devops.md#differences-from-other-providers) does not have this switch.
+
 ### Team
 
 ### Repository settings
@@ -452,7 +454,7 @@ Cursor [project rules](https://cursor.com/docs/rules.md) (`*.mdc` files in `.cur
 
 #### Learned rules
 
-In [Bugbot repository rules](https://cursor.com/dashboard/bugbot/repository-rules), enable learning for your organizations and repositories.
+Turn learning on or off per organization with the **Automatically Learn Rules** switch on the organization's page in [Bugbot](https://cursor.com/automations/from-cursor/bugbot). Open **Organizations** and select an organization, or use **Manage learning** on the [repository rules](https://cursor.com/dashboard/bugbot/repository-rules) page. Where that switch exists, manual rules apply only while learning is on, so turning learning off also stops manual rules from applying. [Azure DevOps](https://cursor.com/docs/integrations/azure-devops.md#differences-from-other-providers) does not have **Automatically Learn Rules**. Repository rules you write by hand still apply there.
 
 Rules are generated automatically from your team's activity on GitHub for that repository or by manually backfilling from the history of the repository.
 
@@ -468,7 +470,7 @@ Cursor will automatically enable or disable rules as it learns more about your t
 
 #### Manual rules
 
-In [Bugbot repository rules](https://cursor.com/dashboard/bugbot/repository-rules), you can create manual rules for individual repositories. Like learned rules, manual rules apply only when learning is enabled for the organization and the repository.
+In [Bugbot repository rules](https://cursor.com/dashboard/bugbot/repository-rules), you can create manual rules for individual repositories. Like learned rules, manual rules apply only when learning is enabled for the organization and the repository. [Azure DevOps](https://cursor.com/docs/integrations/azure-devops.md#differences-from-other-providers) does not have that switch, so repository rules you write by hand still apply there.
 
 | Field            | Description                                                                                                    |
 | :--------------- | :------------------------------------------------------------------------------------------------------------- |
