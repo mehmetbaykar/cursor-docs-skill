@@ -23,7 +23,7 @@ openssl pkey -in origin-app-private.pem -pubout -out origin-app-public.pem
 
 ### Create the app and add the public key
 
-In [Origin app settings](https://cursor.com/codebase/settings/apps), create the app and add the contents of `origin-app-public.pem` as a signing key. An app holds up to 10 active signing keys.
+In [Origin app settings](https://cursor.com/codebase/settings/apps), create the app and add the contents of `origin-app-public.pem` as a signing key. An app holds up to 10 active signing keys. Apps are private until you [publish them](https://cursor.com/docs/origin/apps/publish.md).
 
 ### Copy the App ID
 

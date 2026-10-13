@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 207,
+    "pages_fetched_successfully": 208,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 210
+    "total_pages_discovered": 211
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -273,8 +273,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "ef148ad50810a7f2800ca0961a2ef44722845b3c86cf1b5619367533b3e41606",
-      "last_updated": "2026-10-09T15:22:35+00:00",
+      "hash": "1d9c24ae1113ff08bbc8a4dce6e093d403a28c425b6d9363d7f88433dae6198e",
+      "last_updated": "2026-10-13T15:25:20+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -291,8 +291,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "a855546a64d3422d654e040c46ab2620e286d99e095bfc4c1eeadc18fc079128",
-      "last_updated": "2026-10-12T21:20:05+00:00",
+      "hash": "b61c510bb229be98a11205edcd6e2fc76aa13fdb63b96ae8857cb5de9b115d68",
+      "last_updated": "2026-10-13T15:25:21+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -318,8 +318,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "9b7a80880272bec65044ca211b5cc64913e92a018e048c80882cf030c741626b",
-      "last_updated": "2026-10-09T15:22:37+00:00",
+      "hash": "1c68e5ed332d18bd40267f7ec871ee0f946092f0f904ceba5debd17ac237b4b6",
+      "last_updated": "2026-10-13T15:25:22+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -606,8 +606,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "c704890bc3d8d29d4ca52158f2e2c7f1577a9ef7ccb90976ee67606450024b7b",
-      "last_updated": "2026-08-08T02:14:42+00:00",
+      "hash": "a821690c891389ac907e017e20721f7620b483a9c61c5a816cc7b9171e7fc470",
+      "last_updated": "2026-10-13T15:25:30+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "source_url": "https://cursor.com/docs/cloud-agent/security",
@@ -1533,8 +1533,8 @@
       "title": "Agents and automations"
     },
     "origin__apps.md": {
-      "hash": "e3979a8377366e5c37605b464bb7e353f45d0adc98f854a36b80ee4014405ce5",
-      "last_updated": "2026-10-07T21:22:54+00:00",
+      "hash": "df00164975ea997deddd41679d6f46a5a0742c75cdb455c2f833d3d0fe5e993e",
+      "last_updated": "2026-10-13T15:25:59+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
       "source_url": "https://cursor.com/docs/origin/apps",
@@ -1542,13 +1542,22 @@
       "title": "Origin Apps"
     },
     "origin__apps__build-app.md": {
-      "hash": "7e1116b54f9fc307b663ef299549200393a96c8e3cd1226802c0538ab80045de",
-      "last_updated": "2026-10-07T21:22:55+00:00",
+      "hash": "f785fa182edc260e9b31e5abf7964256eedb6cf31116305a9fb4ba71d01bb8fc",
+      "last_updated": "2026-10-13T15:25:59+00:00",
       "original_url": "https://cursor.com/docs/origin/apps/build-app",
       "path": "/docs/origin/apps/build-app",
       "source_url": "https://cursor.com/docs/origin/apps/build-app",
       "status": "live",
       "title": "Build an Origin App"
+    },
+    "origin__apps__publish.md": {
+      "hash": "da1df2a69baf40febacbc589cc07e9f0f286e8b09cad2778f24c3bc917f972d6",
+      "last_updated": "2026-10-13T15:25:59+00:00",
+      "original_url": "https://cursor.com/docs/origin/apps/publish",
+      "path": "/docs/origin/apps/publish",
+      "source_url": "https://cursor.com/docs/origin/apps/publish",
+      "status": "live",
+      "title": "Publish to the App Marketplace"
     },
     "origin__browse.md": {
       "hash": "f7cae4ce9d1936c8785c7a70f9bd2276ce47fd98b4891a65f13faedadf2cc63f",
@@ -1888,7 +1897,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-13T01:05:09+00:00",
+  "last_updated": "2026-10-13T15:26:09+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
