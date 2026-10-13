@@ -8,7 +8,7 @@ Gemini 3.8 Flash is Google's latest speed-tier model. It pairs strong agentic co
 
 ## Strengths
 
-- $0.75 per million input tokens and $3.50 per million output tokens.
+- $0.75 per million input tokens and $3.75 per million output tokens.
 - 90% discount on cached input tokens ($0.075/1M). Useful for repeated context such as large codebases.
 - 1M token context window. Fits substantial portions of a repository in a single request.
 - Three effort levels: high (the default), medium, and low. Drop to medium or low for faster responses on simpler tasks.

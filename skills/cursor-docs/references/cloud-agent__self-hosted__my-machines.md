@@ -156,7 +156,7 @@ Start the machine with [`--name`](https://cursor.com/docs/cloud-agent/self-hoste
 
 - In Slack, use `@Cursor worker=my-devbox fix the flaky test` or `@Cursor machine=my-devbox fix the flaky test`.
 - In GitHub, comment `@cursoragent worker=my-devbox fix the flaky test` or `@cursoragent machine=my-devbox fix the flaky test`. You must be a trusted repo commenter, and the target machine must belong to the Cursor user linked to your GitHub account.
-- In Linear, add `worker=my-devbox` or `machine=my-devbox` to the issue body. You can also use a parent label named `worker` or `machine` with a child label named `my-devbox`.
+- In Linear, mention `@Cursor` in a comment to start the run. Cursor honors `worker=my-devbox` or `machine=my-devbox` in the issue body only when that comment triggers the run. Cursor honors a parent label named `worker` or `machine` with a child label named `my-devbox` only for that same trigger. Assigning or delegating the issue to Cursor ignores the issue body and those labels.
 
 ### How Cursor picks your machine
 
