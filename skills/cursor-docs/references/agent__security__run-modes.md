@@ -42,7 +42,7 @@ The classifier can make mistakes. It can allow a call you would have blocked, or
 
 ### Auto-review classifier requirements
 
-Auto-review's classifier runs on small Cursor-managed models. Today it uses Gemini 3.5 Flash Lite, with [Claude 4.5 Haiku](https://cursor.com/docs/models/claude-4-5-haiku.md) as the fallback.
+Auto-review's classifier runs on small Cursor-managed models. Today it uses [Gemini 3.5 Flash Lite](https://cursor.com/docs/models/gemini-3-5-flash-lite.md), with [Claude 4.5 Haiku](https://cursor.com/docs/models/claude-4-5-haiku.md) as the fallback.
 
 Enterprise [model access controls](https://cursor.com/docs/enterprise/model-and-integration-management.md#model-access-control) apply to both. Keep Claude 4.5 Haiku allowed for the team. Allowing it keeps Auto-review available in **Settings > Agents > Approvals & Execution**, and Auto-review uses it for every review when Gemini 3.5 Flash Lite is blocked. Blocking Claude 4.5 Haiku can disable Auto-review there, even when team Run Modes includes it. Members then use Allowlist instead.
 

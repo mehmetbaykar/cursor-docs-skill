@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 208,
+    "pages_fetched_successfully": 210,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 211
+    "total_pages_discovered": 213
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "acab8d56cb7c40157b6d23e0a7208f1d03cb73012e07a34c02caf8abe374ebac",
-      "last_updated": "2026-10-07T21:21:54+00:00",
+      "hash": "af935c083d79f3b37eb9e528c05f336fcac384f484d86181211c9d66aa787472",
+      "last_updated": "2026-10-13T18:30:45+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
@@ -93,8 +93,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "85d33f4739376af81f3c4ded0822392142f6132a2b2bf6c804903c3c7ca3596c",
-      "last_updated": "2026-10-07T21:21:57+00:00",
+      "hash": "10606793ae0f1f548a5ff50b57f33396bdb094ce56ccd4775f82d42d33cff7bd",
+      "last_updated": "2026-10-13T18:30:48+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -219,8 +219,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "beac6ac93b75db324d144a13c443256232ccce1043e1d1347aa8fcc347f4c09f",
-      "last_updated": "2026-10-12T21:20:03+00:00",
+      "hash": "b27fe105dd9072c494bb340a81edc297f95be5f8f4b1f9ab905dfe571e2b8807",
+      "last_updated": "2026-10-13T18:30:53+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -678,8 +678,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "4e87517f3c141c14a7fadfaa1be4f29e6453b4d4773ed12ba0e8647a3717da77",
-      "last_updated": "2026-10-01T21:21:42+00:00",
+      "hash": "50ee417a5df2d0c10418f3e186bf19f7eced772ab70e62079d04ae4cd222e27d",
+      "last_updated": "2026-10-13T18:31:11+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -714,8 +714,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "d05588e3beff048c1d728bceca1731606de8e2d94c02fc30c3c099ce10eadfdd",
-      "last_updated": "2026-10-07T21:21:53+00:00",
+      "hash": "e618c523c9d8d148f46122d9d48bfe5fed00f593bb94dc93c41170740516f36d",
+      "last_updated": "2026-10-13T18:30:45+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "source_url": "https://cursor.com/docs",
@@ -1020,8 +1020,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "0d0aabbc894eef694782a567f9cb286951ace7ef3573a9e6ddb92bd048c79c59",
-      "last_updated": "2026-10-07T21:22:34+00:00",
+      "hash": "2be3e98fb0b427abc4d86d3b626b175edc4e91c980cda94d68fc4e953bbbb2de",
+      "last_updated": "2026-10-13T18:31:24+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1217,6 +1217,15 @@
       "status": "live",
       "title": "Models Gemini 3 1 Pro"
     },
+    "models__gemini-3-5-flash-lite.md": {
+      "hash": "ed497d23938b54bdfd06bd12dc42f457d502aed5bf067a1775699fff8486c715",
+      "last_updated": "2026-10-13T18:31:32+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-3-5-flash-lite",
+      "path": "/docs/models/gemini-3-5-flash-lite",
+      "source_url": "https://cursor.com/docs/models/gemini-3-5-flash-lite",
+      "status": "live",
+      "title": "Models Gemini 3 5 Flash Lite"
+    },
     "models__gemini-3-5-flash.md": {
       "hash": "24009e496fd0c2c670ff866dd180807ad0f2c69161ea24d5f8e28260c28d3ce9",
       "last_updated": "2026-09-02T20:58:54+00:00",
@@ -1279,6 +1288,15 @@
       "source_url": "https://cursor.com/docs/models/gemini-3-pro",
       "status": "live",
       "title": "Models Gemini 3 Pro"
+    },
+    "models__gemini-4-argon.md": {
+      "hash": "b4e07533bc6095564173178d99d71f806bcfed2e2da31c2136ccc33e49b97ff9",
+      "last_updated": "2026-10-13T18:31:34+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-4-argon",
+      "path": "/docs/models/gemini-4-argon",
+      "source_url": "https://cursor.com/docs/models/gemini-4-argon",
+      "status": "live",
+      "title": "Models Gemini 4 Argon"
     },
     "models__glm-5-2.md": {
       "hash": "4b6555e63dd0dc8de9b505437a56248d7d1b0b9f476ad7ed47b22f4b01440a9c",
@@ -1578,8 +1596,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "a9f8e226b51628e4514571986466a0e50d493cb9cfafbbeb6e6e894e17d41bb6",
-      "last_updated": "2026-10-07T21:22:56+00:00",
+      "hash": "ba77bd4e37a494285ec996ee006b18358d52b1e81fc440672f91c323ba2ce9f3",
+      "last_updated": "2026-10-13T18:31:46+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
@@ -1587,8 +1605,8 @@
       "title": "Commands"
     },
     "origin__cli__reference__pull-requests.md": {
-      "hash": "6d7370e69328d22e88fc68d9e51c40d1f5b9f7598800c54c570b11cc42278250",
-      "last_updated": "2026-10-08T18:29:38+00:00",
+      "hash": "5c7bde560440094f8a8d9a5e1fbbf93530281a0b113c40dba4abd8dc072ab4ad",
+      "last_updated": "2026-10-13T18:31:46+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "path": "/docs/origin/cli/reference/pull-requests",
       "source_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
@@ -1641,8 +1659,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "fe4919d56f259d3b5284c4a14333690dc1e782038bf56c2322a0291177d56ad2",
-      "last_updated": "2026-10-09T21:21:54+00:00",
+      "hash": "0f193294f3b47aae088e28ff6ec9740e270883ee92ed85b60eb6ddc3c1edb347",
+      "last_updated": "2026-10-13T18:31:48+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "source_url": "https://cursor.com/docs/origin/settings",
@@ -1731,8 +1749,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "303f851fa55ee1ae08a5659c50b1574fc37c478735b302e03cbb0c186623b908",
-      "last_updated": "2026-10-11T01:07:16+00:00",
+      "hash": "68c70ab57fbf64d2088548379b670f61b4221edb42e8eb94f7b64e4c85dcd85a",
+      "last_updated": "2026-10-13T18:31:52+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -1740,8 +1758,8 @@
       "title": "Agents Window release notes"
     },
     "release-notes__bugbot.md": {
-      "hash": "5f4691f3b05916de838a23ccd75591a4ec0a6a1350061866a7b5840acd65b926",
-      "last_updated": "2026-10-06T21:22:12+00:00",
+      "hash": "6efcf52030591fa9ee4815783fe71ca5d06e757098c4023ffdfac0e08d0413b4",
+      "last_updated": "2026-10-13T18:31:52+00:00",
       "original_url": "https://cursor.com/docs/release-notes/bugbot",
       "path": "/docs/release-notes/bugbot",
       "source_url": "https://cursor.com/docs/release-notes/bugbot",
@@ -1749,8 +1767,8 @@
       "title": "Bugbot release notes"
     },
     "release-notes__cloud-agents.md": {
-      "hash": "9d6565203420b9073f29a60887c26156d662d9daa18f635f769d1d071679db4a",
-      "last_updated": "2026-10-06T21:22:12+00:00",
+      "hash": "4985985dcaa717dbecdf4f231e08460a3bdb83c6c6cf0c5bdc74b3ce2f5d4965",
+      "last_updated": "2026-10-13T18:31:53+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
       "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
@@ -1758,8 +1776,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "7924d336ed61afa911398e5ab1369cf31bb48f4c6b096ddbdce24c6c63937865",
-      "last_updated": "2026-10-11T01:07:17+00:00",
+      "hash": "288ef52b88fc3f2359e59f01092e1b306d07b92f00c6bb5c772f987db744f033",
+      "last_updated": "2026-10-13T18:31:53+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "source_url": "https://cursor.com/docs/release-notes/ide",
@@ -1897,7 +1915,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-13T15:26:09+00:00",
+  "last_updated": "2026-10-13T18:31:58+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

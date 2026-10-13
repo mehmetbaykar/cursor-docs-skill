@@ -8,6 +8,46 @@ path: /docs/release-notes/cloud-agents
 
 Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each entry covers one week of changes and is labeled with the Monday that starts it.
 
+## Week of Oct 5, 2026
+
+### Projects
+
+- **Agents can message and read agents you @-mention.** When you @-mention another agent to a [Project](https://cursor.com/docs/agent/projects.md) coordinator, the coordinator can read that agent's transcript and send it messages. It can also message its own parent coordinator, and the agent that receives a message can reply directly. Access follows yours: the coordinator reaches only agents you mention and can still open.
+
+### Agents
+
+- **Subagent progress shows up live in the parent agent.** When a Cloud Agent hands work to a [subagent](https://cursor.com/docs/subagents.md), the subagent's tool calls and messages now stream in under the parent's task as they happen, instead of appearing only after the subagent finishes.
+- **Service status alerts no longer crowd the follow-up box.** When Cursor has an active outage or status notice, open agents now show it as a dismissible popup in the bottom-right corner instead of inline above the follow-up composer. The popup stays out of the way on small screens and when the right panel is fullscreen.
+- **Agent links in summaries now open the right page.** When a cloud agent's summary links to another agent, the link in Slack, GitHub, GitLab, and Bitbucket now opens that agent's page on cursor.com instead of breaking. On the web project board, agent links in coordinator files now open the linked agent, including its Changes tab when the link points there.
+
+### Environments
+
+- **Comments and trailing commas in `environment.json` work everywhere.** Cloud Agents now fully support `//` and block comments and trailing commas in [`.cursor/environment.json`](https://cursor.com/docs/cloud-agent/setup.md), wherever the file is read. Repos with a commented environment file no longer get the "set up your environment" prompt, and their snapshot and network settings now apply instead of being silently ignored.
+- **Faster first turns in environments with many repos.** Environment builds now convert each repository's SSH remote to HTTPS ahead of time, so Cloud Agents started from the build begin their first turn sooner. This is now available to everyone.
+
+### MCP
+
+- **Cloud Agents handle MCP rate limits without retry loops.** When an MCP server rate-limits a tool, the agent pauses that tool for as long as the server asks, keeps using the server's other tools, and is told when it can retry. Repeated Slack rate limits now cap the wait at about a minute.
+
+### Self-Hosted Machines
+
+- **Project workers on a named Self-Hosted Machine use that machine's repository.** When a Project coordinator starts a worker on one specific Self-Hosted Machine, the worker now works in the repository or folder registered on that machine instead of the Project's repository. Coordinators without a repository of their own can now place workers on a named machine too. Targeting a pool instead of one machine returns an error asking you to name a machine.
+
+### Slack
+
+- &#x20;**Choose which team your Slack agents run under.** If you belong to more than one paid team, you can now pick the Cursor team that agents you start from Slack run and bill under. Choose it when you link Slack, or change it later with the [Team for Slack agents](https://cursor.com/docs/integrations/slack.md#team-for-slack-agents) setting in Cloud Agents settings. Follow-ups in a Slack thread keep running under the agent's original team, and a team pinned by your Slack workspace takes precedence.
+- **Slack previews for agent artifact links.** Links to a cloud agent's artifacts, including public artifact shares, now unfurl in Slack with the file name and type, plus the length for videos. Previews only appear when the person who shared the link has access to the artifact, and are skipped in channels shared outside your workspace.
+
+### Fixes
+
+- **Fixes to agent runs and follow-ups.** A message sent after pressing Stop now runs instead of staying queued, and answered questions stay answered after a reload. A run no longer shows a PR from another branch as its PR link.
+- **Fixes to repository access and tokens.** Cloud Agents refresh GitHub tokens during long runs instead of hitting expired tokens mid-run. Repository access errors at start now name the specific repository that is empty, denied, or needs connecting.
+- **Fixes to the Cloud Agents web app.** Keys like Ctrl+K and Ctrl+F in the agent terminal now go to the shell instead of triggering page shortcuts. The Connect GitHub card names the repository an agent needs access to.
+- **Fixes to MCP tool calls.** MCP tool calls recover after a server restart instead of failing, and invalid-argument errors now show the specific reason. Google Calendar time-range searches return only events in that range, and Gmail searches of Spam and of very recent mail no longer come back empty.
+- **Fixes to Self-Hosted Machines.** Agents on any-repo pools no longer pick up untracked rules or instructions left in a checkout by an earlier run. When no worker matches, the error now lists the requested labels, or says the targeted machine is offline instead of reporting a label mismatch.
+- **Fixes to Slack launches.** Changing or resetting your default model and settings from Slack now works for accounts linked under a migrated Slack workspace. When an agent started from Slack fails, the ⏳ reaction is now replaced by ❌ instead of staying next to it.
+- &#x20;**Fixes to Remote Control.** When [Remote Control](https://cursor.com/docs/cloud-agent/mobile.md#remote-control) is turned off, your phone now shows it as disabled instead of a generic unavailable error. Members of enterprise teams that aren't linked to an organization can no longer turn on Remote Control until an organization admin allows it.
+
 ## Week of Sep 28, 2026
 
 ### Environments

@@ -298,7 +298,9 @@ Here is a sample `.cursor/environment.json` referencing a `.cursor/Dockerfile` (
 
 ### Important path behavior
 
-The `dockerfile` and `context` paths in `build` are relative to `.cursor`. When
+The `dockerfile` and `context` paths in `build` are relative to the repository's
+`.cursor` folder, wherever the environment file lives. A path that already
+starts with `.cursor`, such as `.cursor/Dockerfile`, is used as written. When
 you omit `context`, it defaults to `.cursor`. The values `.`, `./`, and `..` are
 special-cased to mean the repository root rather than `.cursor`, so to `COPY`
 files that live in `.cursor` with bare filenames, omit `context`. The `install`

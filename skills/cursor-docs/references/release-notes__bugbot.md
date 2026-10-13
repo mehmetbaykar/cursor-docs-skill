@@ -8,6 +8,27 @@ path: /docs/release-notes/bugbot
 
 Weekly changes to [Bugbot](https://cursor.com/docs/bugbot.md). Each entry covers one week of changes and is labeled with the Monday that starts it.
 
+## Week of Oct 5, 2026
+
+### Bitbucket
+
+- &#x20;**Clearer Bitbucket Data Center support.** The Bugbot dashboard now names Bitbucket Data Center organizations by their server hostname and labels them Bitbucket Data Center instead of bitbucket.org. Bugbot no longer offers Autofix on Bitbucket Data Center, and its review footnote no longer suggests switching to direct push there. [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md) requires a Teams or Enterprise plan.
+
+### Reviews
+
+- **Local reviews say what they skipped.** When you [run Bugbot from your agent](https://cursor.com/docs/bugbot.md#run-in-your-agent) or run a security review on local changes and the diff is too large to review in full, the result now says how many changed files were covered and lists the ones that were not reviewed, so you can review them next. Findings in those skipped files are no longer discarded as unrelated. If every reported finding is filtered out, Bugbot says the review was not clean instead of reporting no bugs.
+- &#x20;**Manual Only stops automatic learning from merged pull requests.** With Bugbot set to Manual Only for a repository or in your personal settings, it no longer [learns rules](https://cursor.com/docs/bugbot.md#learned-rules) automatically when a pull request is merged or closed, and that learning no longer counts toward your Bugbot usage. `@cursor remember` comments still teach it rules.
+
+### Dashboard
+
+- &#x20;**Consistent daily counts in Bugbot analytics.** The [Bugbot analytics](https://cursor.com/docs/bugbot.md#analytics) dashboard now counts pull requests reviewed per UTC day, so a day's numbers no longer change when you move the date range. The PRs reviewed total counts each pull request once for the whole range, and the date picker is labeled UTC. The review analytics API now counts only reviews inside the requested range, so it matches the dashboard when you request all PR states.
+
+### Fixes
+
+- &#x20;**Fixes to reviews and Autofix.** With run-once enabled, a commit pushed while a review is still running now gets reviewed instead of skipped, and incremental reviews keep your BUGBOT.md rules even when the new push has no diff. Review comments no longer say a cloud agent was started to fix issues when it wasn't; they say the agent failed to start or that no issue met your Autofix severity threshold. Reviews on repositories granted to an Enterprise team now run under that team instead of the installation owner.
+- **Fixes to PR summaries.** If a PR summary hangs or fails, Bugbot no longer leaves a stale "generating a summary" placeholder in your PR description or comment. It removes it or shows "Unable to generate summary." Images, videos, and files you paste under the summary are no longer wiped when Bugbot refreshes it.
+- **Fixes to the Bugbot dashboard and integrations.** Connecting a self-hosted GitLab instance from the Bugbot dashboard now links it to the right team, and the repository picker during app install now shrinks to fit the window, so its search field no longer opens off-screen. Turning on Bugbot for an Azure DevOps repository after the enterprise app was re-consented now recovers automatically instead of failing. Per-repository Bugbot settings are cleaned up when a GitHub App is uninstalled or repositories are removed.
+
 ## Week of Sep 28, 2026
 
 ### Repository settings
