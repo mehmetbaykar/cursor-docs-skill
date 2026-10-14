@@ -617,7 +617,7 @@ Autofix uses your **Default agent model** from [Settings → Models](https://cur
 
 Autofix requires:
 
-- [On-demand usage](https://cursor.com/docs/models-and-pricing.md) pricing enabled
+- Additional usage available: [prepaid credit](https://cursor.com/docs/models-and-pricing.md#top-ups-and-spending-caps) on The X Subscription, or [on-demand usage](https://cursor.com/docs/account/pricing/legacy-cursor-plans.md#on-demand-usage-on-legacy-plans) enabled on a legacy Cursor plan
 - Storage enabled (not in Legacy Privacy Mode)
 
 ### Billing
@@ -781,7 +781,7 @@ Bugbot includes:
 - Access to Bugbot rules
 - The ability to set the effort level Bugbot uses for reviews
 
-Bugbot first consumes your included usage, then bills additional reviews through on-demand spend. See the [pricing page](https://cursor.com/pricing#bugbot) for current rates.
+Bugbot first consumes your included usage, then bills additional reviews from your prepaid credit, or from on-demand spend on a legacy Cursor plan. See the [pricing page](https://cursor.com/pricing#bugbot) for current rates.
 
 ### Getting started
 
@@ -798,7 +798,7 @@ Bugbot Teams includes:
 - The ability to set the effort level Bugbot uses for reviews
 - Advanced rules and settings
 
-Bugbot Teams bills from on-demand spend. See the [pricing page](https://cursor.com/pricing#bugbot) for current rates.
+Bugbot Teams bills from the team's prepaid credit, or from on-demand spend on a legacy Teams plan. See the [pricing page](https://cursor.com/pricing#bugbot) for current rates.
 
 ### Getting started
 
@@ -830,7 +830,7 @@ Yes, Bugbot follows the same privacy compliance as Cursor and processes data ide
 
 ### What happens when I use all included Bugbot usage?
 
-When you use all included Bugbot usage, additional Bugbot reviews bill from on-demand spend.
+When you use all included Bugbot usage, additional Bugbot reviews bill from your prepaid credit, or from on-demand spend on a legacy Cursor plan.
 
 ### How do I give Bugbot access to a self-hosted source control instance?
 

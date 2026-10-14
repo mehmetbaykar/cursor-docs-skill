@@ -31,7 +31,7 @@ Sharing a canvas gives teammates a link to a live snapshot of the view: same lay
 
 The **Shared Canvases** page on the [dashboard](https://cursor.com/dashboard/shared-canvases) lists the canvases you published yourself, so you can reopen, copy, or delete your own shares. It does not list canvases published by teammates. To open a teammate's canvas, ask them for its share link.
 
-Shared canvases are available on paid plans (Pro, Teams, and Enterprise). Free accounts cannot create shares. Because only members of your team can open a share, you need to be on a team; Pro users on a team can share too. Sharing also requires a privacy mode that allows data storage (Legacy Privacy Mode blocks it).
+Shared canvases are available on paid plans (Premium and higher, Teams, Enterprise, and legacy Pro, Pro+, and Ultra). Free accounts cannot create shares. Because only members of your team can open a share, you need to be on a team; members on an individual paid plan who also belong to a team can share too. Sharing also requires a privacy mode that allows data storage (Legacy Privacy Mode blocks it).
 
 Team admins can turn shared canvases off for the organization from [team settings](https://cursor.com/dashboard/settings#shared-canvases) under **Shared Canvases**.
 

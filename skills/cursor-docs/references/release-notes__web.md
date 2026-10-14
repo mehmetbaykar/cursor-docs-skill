@@ -8,6 +8,100 @@ path: /docs/release-notes/web
 
 Weekly changes to Cursor on the web, from integrations and admin settings to automations, the APIs, security and approval agents, and models. Each entry covers one week and is labeled with the Monday that starts it. [Cloud Agents](https://cursor.com/docs/release-notes/cloud-agents.md) and [Bugbot](https://cursor.com/docs/release-notes/bugbot.md) have their own pages.
 
+## Week of Oct 5, 2026
+
+### Dashboard and admin
+
+#### Plugins and MCP
+
+- &#x20;**Control which MCP and plugin tools your team can use.** Admins can turn Team list enforcement on or off from the Plugins page and limit a URL MCP server's or plugin's tools from its detail dialog, picking allowed tools from a live preview. The MCPs tab has an Allowlist rules editor that marks rules that apply only while Team list is on, and each server shows its access status, such as Read-only or Cloud only, with a tooltip that explains why the IDE and CLI block it. See [MCP server trust management](https://cursor.com/docs/enterprise/model-and-integration-management.md#mcp-server-trust-management).
+- &#x20;**Browse and add plugins and MCP servers from one list.** The Plugins & MCPs page shows installed plugins and MCP servers together in one searchable table, with an Add button for the selected scope. Clicking a plugin opens its details in a dialog instead of a separate page. Now available to everyone.
+
+#### Members and groups
+
+- &#x20;**Set soft or hard spend limits for a group's members.** In organization group settings, admins can set a member's monthly spending limit to No limit, Soft limit, or Hard limit. A soft limit doesn't block members and can be paired with pace alerts. A hard limit blocks members once their monthly spend reaches the amount. See [group spend limits](https://cursor.com/docs/enterprise/organization-groups.md#spend-limits).
+- &#x20;**Groups show their slugs, label synced groups correctly, and all appear on large teams.** Team and organization group lists and group pages show each group's slug under its name. On the team Groups tab, groups synced from your identity provider are labeled Synced instead of Manual, and Move member no longer offers synced groups as destinations. Teams with more than 200 groups now see all of them on the Groups tab, in the Move member list, and in the invite group picker.
+- &#x20;**Pending invites close when someone joins your team.** When someone joins your team in any way, such as SSO, domain join, SCIM, or a direct add, their other pending email invites to it close automatically, and an old invite link still takes them to the team. When someone joins through a copied invite link, the audit log records the member who copied the link as the inviter.
+
+#### SSO and SCIM
+
+- &#x20;**Turn on SSO auto-enrollment from either SSO page.** The SSO auto-enrollment switch now also appears on the older team SSO settings page, and both SSO pages show a newly finished SSO setup as soon as you return to the tab. When your identity provider marks a SCIM user inactive, Cursor removes their team seat but keeps their SSO membership, so reactivating them doesn't require adding them again. See [SCIM user management](https://cursor.com/docs/account/teams/scim.md#user-management).
+
+#### Agent settings
+
+- &#x20;**Control where Project agents can run.** The new **Automatically allow Projects to place their work** switch in Cloud Agents security settings decides whether a Project's agents can start work on any machine, environment, or repository the Project owner can reach without asking first. When it's off, agents ask for approval before they use a new one. It starts off for Enterprise teams and on for other teams. See [Cloud Agents security settings](https://cursor.com/docs/cloud-agent/settings.md#security-settings).
+- **Choose which team your Slack agents run under.** If you belong to more than one paid team, the **Team for Slack agents** setting in Cloud Agents settings picks the team that agents you start from Slack run, bill, and use settings under. The setting is locked when your Slack workspace is restricted to one team. See [Team for Slack Agents](https://cursor.com/docs/integrations/slack.md#team-for-slack-agents).
+
+#### Automations
+
+- **Mine, Team, and Explore tabs on the Automations page.** Mine lists the automations you own, Team shows your team's automations alongside agents from Cursor, and Explore holds the template gallery. Team admins open on Team by default, and everyone else opens on Mine.
+- &#x20;**Security Reviewer and Vulnerability Scanner have their own pages.** The From Cursor automations list shows separate Security Reviewer and Vulnerability Scanner cards in place of the single Security card. Each page lists only its own agents and recent runs, its New button creates that type directly, and flagged vulnerabilities appear on the Vulnerability Scanner page. Old Security links redirect to Security Reviewer. See [Security Agents](https://cursor.com/docs/security-agents.md).
+- **Start Rollouts checks yourself when a deploy isn't recorded.** If a merged change goes live without a recorded deployment, select **Run checks** on the change's page in Rollouts, pick the environment and services, and Rollouts starts checking it. Deferred checks show as **Deferred** with the reason, and closing an issue now asks for a reason, such as **Fixed** or **Duplicate**. See [Rollouts](https://cursor.com/docs/rollouts.md#deploy-tracking).
+
+#### Usage and integrations
+
+- &#x20;**Filter usage by SDK.** The Usage pages for teams and organizations have an SDK option in the client filter, so you can see spend and requests from agents run through the Cursor SDK on their own. Now available to everyone.
+- &#x20;**Connect SharePoint for your whole team.** Admins can connect SharePoint from the Integrations page: choose delegated or application permissions, enter your Microsoft tenant, grant admin consent, and optionally allow write access. If setup stops partway, members who add the SharePoint plugin are told to ask an admin, and admins get a link back to Integrations to finish.
+
+#### Security and privacy
+
+- &#x20;**Bitbucket connection changes in the audit log.** The audit log records when a Bitbucket Cloud or Bitbucket Server connection is connected, disconnected, registered, or deleted, and when its token is set or cleared, with the provider and host. Filter for them with the new Source Control Connection event type. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- &#x20;**Clearer privacy mode names.** Privacy settings now read "Privacy Mode (no training)" and "Legacy (no storage)". When you invite teammates from a personal plan, a new "Share Cursor Analytics" checkbox sets the new team's privacy setting, and Privacy Mode stays on unless you check it.
+- &#x20;**Control Grok dictation and private chats.** Team admins can turn dictation on or off for their members from the Grok tab. Organization admins also get a Features section there with switches that turn off dictation or private (temporary) chats for every team in the organization, so all chats are kept for compliance exports.
+- **Delete accounts merged with Grok.** If your Cursor account is merged with a Grok account, you can delete it from Profile settings. The dialog states that both accounts and their data are permanently deleted, and you type DELETE to confirm. A live Grok subscription is canceled first.
+
+#### Fixes
+
+- **Fixes to dashboard layout and display.** Team settings opens on the first click, and plan reset and billing cycle dates show in your local time zone instead of UTC. The Usage page shows how far you are over your monthly limit instead of $0 remaining, and the Overview setup checklist shows the steps that loaded instead of failing the whole card. Long names and emails truncate with the full text on hover, and pages no longer flash stale content or jump while loading.
+- **Fixes to the dashboard on phones.** The navigation drawer can be swiped left to close, the Members table and Usage filters fit the screen, and the Usage date picker no longer widens the page. The team name editor wraps and stops at 200 characters, and the invite email field no longer autocapitalizes or autocorrects.
+- **Fixes to the Automations page layout.** The Automations list no longer leaves a gap between each automation's title and author, the "Showing N" count is the right size with proper spacing, the filter tabs line up with the page title, and shared GitHub and GitLab triggers use a generic git icon.
+- **Fixes to Rollouts settings.** Clicking Authenticate on an MCP tool no longer wipes an existing shared connection, and already-connected servers refresh instead of opening a sign-in window. The data sources list shows every row instead of a small scrolling box, and notification help text wraps on mobile.
+- **Fixes to environments and secrets.** An environment's page shows history for that environment only. Double-clicking Duplicate creates one copy instead of two, and choosing All repositories in the Edit Secret dialog saves the secret for every repository.
+- &#x20;**Fixes to integrations and MCP authentication.** Registering a GitHub Enterprise Server app attaches it to the team you selected, and the existing-apps list shows that team's apps. Authenticating an MCP server for a service account returns you to the settings page you started from, and the private inference assignee picker loads groups from every linked team. Paging through the Origin repositories card no longer hides the card or shows the wrong page when a page change fails.
+- &#x20;**Fixes to account sessions and deletion.** When an account's email changes to a different address through your identity provider, SSO, or directory sync, existing Cursor sessions on that account are signed out. Deleting an account that was previously merged with another account no longer fails.
+
+### Automations
+
+#### Automations page
+
+- **Mine, Team, and Explore tabs on the Automations page.** The Automations page now opens on Mine, which lists the automations you own across your personal account and teams, alongside popular templates. Team shows your team's automations, and Explore holds the full template gallery. Now available to everyone. Team admins land on Team, and users without a team see Mine and Explore.
+- **See each automation's tools at a glance.** The Tools column on the Automations page shows each tool as a pill with its icon and name. When a row has more tools than fit, a +N pill shows how many more there are.
+
+#### Triggers
+
+- **Microsoft Teams automations now fire on every channel post.** Automations that listen to a Microsoft Teams channel now run on regular posts in that channel, not only on posts that @mention Cursor.
+- **Failed Slack-triggered runs are marked on the trigger message.** When an automation started from a [Slack message](https://cursor.com/docs/cloud-agent/automations.md#slack-triggers) fails, that message now gets a red X reaction in place of the hourglass. Before, the hourglass disappeared and nothing showed that the run had failed. The channel still gets no failure post.
+
+#### Security agents
+
+- **Vulnerability Scanner follows your custom instructions and files follow-ups.** Team Vulnerability Scanner automations now use your [custom instructions](https://cursor.com/docs/security-agents.md#custom-instructions) to shape what they scan. After a scan, they carry out the follow-up actions those instructions ask for, like filing a ticket for each new finding, through the automation's MCP servers, and link what they filed in the finding's Slack report.
+
+#### Automation runs
+
+- **Git, CI, and scheduled runs use your saved model settings.** Automations started by git events, CI completion, or a schedule now run with the [model](https://cursor.com/docs/cloud-agent/automations.md#model), effort, context, Max Mode, and Fast settings saved in the automation, instead of the model's defaults. Automations using Grok 4.7 can also be saved and run on teams that block its Fast variant, instead of failing with "Model is not allowed".
+- **Clearer reasons when a run fails.** Run history now tells you whether to retry or contact your admin when your organization's policy check blocks a model request or is unavailable. Runs that fail because no self-hosted worker matches their labels now name those labels.
+
+#### Fixes
+
+- **Fixes to automation runs.** Runs that fail to launch or are cancelled before the agent starts now show as failed instead of stuck running, and launches no longer fail when GitHub rate-limits the repository access check. A run that opens a PR keeps that PR as its link, and when a repository isn't reachable through your team's own GitHub installation, Recent Runs shows a failed run explaining how to reconnect it.
+- **Fixes to the Vulnerability Scanner.** Findings recorded by the [Vulnerability Scanner](https://cursor.com/docs/security-agents.md) show up again instead of appearing empty. Repositories listed as host/owner/name without https\:// now scan instead of failing. Teams that turn Security off in their managed automation settings no longer get scheduled scanner runs.
+- **Fixes to Change Monitor setup.** Turning off Change Monitor now stops its agents, and asks you to try again if they don't stop. Saving repositories the installation can't see, or that are missing a webhook, now shows the specific setup error instead of a generic one. Nested GitLab paths now ask for the full `gitlab.com/<group>/<project>` form, and fully qualified GitLab projects are watched correctly.
+- &#x20;**Fixes to the automation editor and integrations.** Your GitHub or GitLab connection no longer shows as disconnected when you belong to several teams or use self-hosted GitHub Enterprise or GitLab. The editor's MCP server options now list the selected team's servers. Disconnecting a team's PagerDuty integration now removes the team's connection, and "Configure here" links in Security Reviewer comments and Slack messages open that agent's page under From Cursor.
+- **Fixes to the Automations page layout on web and mobile.** On narrow screens, the Automations list now scrolls sideways instead of cutting off columns, and the row actions stay pinned on the right. Spacing and alignment across the page header, tabs, toolbar, and list rows are fixed.
+
+### Security and approval agents
+
+#### Security agents
+
+- &#x20;**Separate Security Reviewer and Vulnerability Scanner pages.** Under From Cursor in the dashboard, the Security card is now two cards, Security Reviewer and Vulnerability Scanner. Each opens a page that lists only that type of [security agent](https://cursor.com/docs/security-agents.md) and its recent runs, with a New button that creates that type and an icon that shows whether it's enabled. Old Security links redirect to Security Reviewer.
+- **Incomplete reviews no longer auto-approve.** When part of a security review fails, Security Reviewer no longer treats the result as clean, so it doesn't auto-approve the PR. If no reviewer finishes, it posts no findings and leaves existing threads alone. Earlier findings stay open when their follow-up check times out or fails.
+- **Accepted findings aren't posted again on every push.** If you resolve a finding without fixing it, for example to accept the risk, a later push that finds the same issue no longer opens a new comment. A different issue on the same lines still gets its own comment, and a fixed issue that comes back is reported again.
+- **Failed large reviews finish sooner.** When every reviewer on a very large security review fails, the review now stops early instead of retrying until its budget runs out.
+
+#### Approval agents
+
+- **Clearer approval requirements on pull requests.** [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) checks, comments, and the reviewer hovercard now say exactly what clears review, such as "Needs 1 approval from any human reviewer" with suggested reviewers, one approval from any of a set of owners, or approvals from all named owners. Auto-approved low-risk pull requests no longer show a leftover approval requirement.
+
 ## Week of Sep 28, 2026
 
 ### Integrations

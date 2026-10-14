@@ -12,7 +12,7 @@ Mirroring copies a GitHub repository into Origin and keeps Origin updated as the
 
 ## Prerequisites
 
-- A Cursor account with Origin access on a Pro, Teams, or Enterprise plan
+- A Cursor account with [Origin access](https://cursor.com/docs/origin.md#who-can-access) on Premium or higher, Teams, Enterprise, or a legacy paid Cursor plan
 - The [Cursor GitHub app](https://cursor.com/docs/integrations/github.md) connected to the org or account that owns the repo
 - GitHub admin access on the repository you want to sync (required to enable the mirror)
 

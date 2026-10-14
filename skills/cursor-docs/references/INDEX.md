@@ -7,6 +7,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 ## Topics
 
 - `account__organizations__organization-admin-api` - [Organization API](https://cursor.com/docs/account/organizations/organization-admin-api)
+- `account__pricing__legacy-cursor-plans` - [Legacy Cursor plans](https://cursor.com/docs/account/pricing/legacy-cursor-plans)
 - `account__pricing__request-based-legacy` - [Request-Based Pricing (Legacy)](https://cursor.com/docs/account/pricing/request-based-legacy)
 - `account__regions` - [Regions](https://cursor.com/docs/account/regions)
 - `account__teams__admin-api` - [Admin API](https://cursor.com/docs/account/teams/admin-api)
