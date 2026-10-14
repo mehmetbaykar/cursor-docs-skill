@@ -32,7 +32,9 @@ Connect your repositories through the Cursor dashboard to start using Bugbot.
 - **Bitbucket** (including Bitbucket Data Center): See the [Bitbucket integration page](https://cursor.com/docs/integrations/bitbucket.md)
 - **Azure DevOps** (Azure DevOps Services): See the [Azure DevOps integration page](https://cursor.com/docs/integrations/azure-devops.md#set-up-bugbot)
 
-After connecting, open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to enable it on specific repositories.
+After connecting, open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to manage which repositories Bugbot reviews.
+
+On GitHub, connecting turns Bugbot on for the repositories you grant access to. Repositories stay off when someone who isn't a team admin connects an enterprise team, or a team that already has Bugbot on. On GitLab, Bitbucket, Azure DevOps, and Origin, turn Bugbot on per repository.
 
 For a comparison with Security Reviewer, see [Security Agents source control support](https://cursor.com/docs/security-agents.md#source-control-support).
 
