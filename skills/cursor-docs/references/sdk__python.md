@@ -1196,9 +1196,9 @@ for run in usage.runs:
 ```python
 @dataclass(frozen=True)
 class AgentUsage:
-    usage: TokenUsage              # summed across `runs`
+    usage: TokenUsage              # total for the agent
     runs: Sequence[RunUsage] = ()
-    cost: UsageCost | None = None  # summed across `runs`
+    cost: UsageCost | None = None  # total for the agent
 
 @dataclass(frozen=True)
 class RunUsage:
@@ -1211,6 +1211,8 @@ class UsageCost:
     raw_cost_cents: float  # undiscounted model token cost; 0 for request-priced usage
     charged_cents: float   # amount charged, discounts and the Cursor Token Fee included
 ```
+
+For a cloud agent called without `run_id`, `usage` and `cost` also count the agent's Task subagents and side chats, so they can be larger than the sum of `runs`.
 
 Cost includes discounts and can take a moment to settle after a run ends; `cost` is `None` until it does. `charged_cents` is `0.0` for plan-included, BYOK, and credit-grant usage.
 

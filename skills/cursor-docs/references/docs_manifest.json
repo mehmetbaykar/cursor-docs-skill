@@ -507,8 +507,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "1974529ec72bea49d22c813a50fa12cb21b97d11ad83197d0897f60489764de7",
-      "last_updated": "2026-10-13T21:20:30+00:00",
+      "hash": "b700afde3f52567d8c0839d7d159cca0addeb4077e23ac27ec3e6fc5ddc49408",
+      "last_updated": "2026-10-14T18:27:38+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -543,8 +543,8 @@
       "title": "Best Practices"
     },
     "cloud-agent__builds.md": {
-      "hash": "90d76f8841776502882077af2bd77246e0ea020a97dd0b92cefa03710e06e473",
-      "last_updated": "2026-10-12T18:29:22+00:00",
+      "hash": "2aa4d3bb0dd8a3c6ce959e1b89f66f1309c334d1feefdb3811f611884a038c49",
+      "last_updated": "2026-10-14T18:27:39+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
@@ -660,8 +660,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "97563ee5980b587813eab4e33ae5ff7b37594cda3cfaf76bddfad10a6a504cdb",
-      "last_updated": "2026-10-13T21:20:36+00:00",
+      "hash": "f9d18e3e5500e4cd487714ce52418f3937d76ecc0c0e4089166a40903f7384cc",
+      "last_updated": "2026-10-14T18:27:44+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1857,8 +1857,8 @@
       "title": "Cursor SDK Bridge"
     },
     "sdk__python.md": {
-      "hash": "20152e69260a8959015e89334015c2c7bab8fbeb3deb0d0914e6c7db3a614eb3",
-      "last_updated": "2026-10-07T15:34:03+00:00",
+      "hash": "a57ef8a5ee27fa079407781d54763d89207f9e428b0ec0f5000ea5fb48d07d91",
+      "last_updated": "2026-10-14T18:28:31+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -1866,8 +1866,8 @@
       "title": "Cursor Python SDK"
     },
     "sdk__typescript.md": {
-      "hash": "1724096772278d3e5f8a3b55d08a6792a037051c0c7b05ceab7fba18a8cfad1f",
-      "last_updated": "2026-10-07T15:34:03+00:00",
+      "hash": "05c9ff1ce6e0a471ea1e04906052d56965d42b23e2a39cae7c757faee2ed7d18",
+      "last_updated": "2026-10-14T18:28:31+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
       "source_url": "https://cursor.com/docs/sdk/typescript",
@@ -1915,7 +1915,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-14T09:25:55+00:00",
+  "last_updated": "2026-10-14T18:28:32+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
