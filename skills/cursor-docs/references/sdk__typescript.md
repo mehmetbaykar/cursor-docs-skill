@@ -1249,8 +1249,8 @@ interface GetUsageOptions {
 }
 
 interface AgentUsage {
-  usage: TokenUsage;   // summed across `runs`
-  cost?: UsageCost;    // summed across `runs`
+  usage: TokenUsage;   // total for the agent
+  cost?: UsageCost;    // total for the agent
   runs: RunUsage[];
 }
 
@@ -1277,6 +1277,8 @@ for (const run of runs) {
   console.log(run.runId, run.usage.totalTokens, run.cost?.chargedCents);
 }
 ```
+
+For a cloud agent called without `runId`, `usage` and `cost` also count the agent's Task subagents and side chats, so they can be larger than the sum of `runs`.
 
 Cost includes discounts and can take a moment to settle after a run ends; `cost` is absent until it does. `chargedCents` is `0` for plan-included, BYOK, and credit-grant usage.
 
