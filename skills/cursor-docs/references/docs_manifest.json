@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 210,
+    "pages_fetched_successfully": 211,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 213
+    "total_pages_discovered": 214
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -19,6 +19,15 @@
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "status": "live",
       "title": "Organization API"
+    },
+    "account__pricing__legacy-cursor-plans.md": {
+      "hash": "02d3071115d35d94561ec94d3c5dba940698afcc8939f54a8bdaa284c7849634",
+      "last_updated": "2026-10-14T21:18:56+00:00",
+      "original_url": "https://cursor.com/docs/account/pricing/legacy-cursor-plans",
+      "path": "/docs/account/pricing/legacy-cursor-plans",
+      "source_url": "https://cursor.com/docs/account/pricing/legacy-cursor-plans",
+      "status": "live",
+      "title": "Legacy Cursor plans"
     },
     "account__pricing__request-based-legacy.md": {
       "hash": "af935c083d79f3b37eb9e528c05f336fcac384f484d86181211c9d66aa787472",
@@ -84,8 +93,8 @@
       "title": "Dashboard"
     },
     "account__teams__members.md": {
-      "hash": "9c9b5ee9260961e8b4988d043b96eed0eab81a1601bd0ca7ee27f8c9e01edfdf",
-      "last_updated": "2026-10-02T18:28:26+00:00",
+      "hash": "a043a39623052283844b102c64d9ac0dc4e41e7bacd8a7d0904db3a9caa25fb3",
+      "last_updated": "2026-10-14T21:18:59+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
       "source_url": "https://cursor.com/docs/account/teams/members",
@@ -93,8 +102,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "15a959827734a6b9b20018b35d8f5a7133fed3ad7f305d0ec372029c132d345a",
-      "last_updated": "2026-10-13T21:20:13+00:00",
+      "hash": "7fa7cd6ba2a16c3f2bb6df58e799091a1292e5dd0ef9c792ff93ca253ead3d85",
+      "last_updated": "2026-10-14T21:19:00+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -192,8 +201,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "6e0fee9af58307464798bc582cfc9b8cb8103a998c8d562635ae457dc3e180d6",
-      "last_updated": "2026-10-06T18:27:50+00:00",
+      "hash": "97f3330c7ac67c36c60775dcc85d37ce31cc4f4bac6fa31a92ff0a9f4b8927dc",
+      "last_updated": "2026-10-14T21:19:04+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "source_url": "https://cursor.com/docs/agent/projects",
@@ -237,8 +246,8 @@
       "title": "Browser"
     },
     "agent__tools__canvas.md": {
-      "hash": "27b1318560bfaa4b4e68a87bf46617da88bdfab20104599efe271869e1aef5bf",
-      "last_updated": "2026-09-13T11:41:21+00:00",
+      "hash": "5b485fc3523d62deda2627e6b9ce0765cb54b3ffcb39dfc2365f4e3005bf279e",
+      "last_updated": "2026-10-14T21:19:05+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/canvas",
       "path": "/docs/agent/tools/canvas",
       "source_url": "https://cursor.com/docs/agent/tools/canvas",
@@ -345,8 +354,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "7f1905fcb51d8feda8284ce6e180c6fe297163be3fdd22f8093d5da79619b450",
-      "last_updated": "2026-10-14T09:25:09+00:00",
+      "hash": "948569f15a93fd587dfb037479eb7838c4195cd6f8df7a27a49a94fa2b160918",
+      "last_updated": "2026-10-14T21:19:10+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -579,8 +588,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "b635b6d56d6c704e8c5a4c09785acda2013546d15dd9665f33d4d616bd207945",
-      "last_updated": "2026-09-28T21:12:33+00:00",
+      "hash": "3e1a6f81c550ae9579a11b226230750f25e7a7f99e39d21e242e0528dc47e175",
+      "last_updated": "2026-10-14T21:19:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
@@ -1020,8 +1029,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "f0c9da1d31d006512ba75cce71afdcf2bce2792576d7478cd6f730cfa3350c86",
-      "last_updated": "2026-10-13T21:20:50+00:00",
+      "hash": "7b1dfd59446aa9a6609ba325f99f7a231365484a0da80d376fa34f28f3af2144",
+      "last_updated": "2026-10-14T21:19:36+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1029,8 +1038,8 @@
       "title": "Models & Pricing"
     },
     "models__claude-4-5-haiku.md": {
-      "hash": "c5d7f380e7deb4c295780a5c06aaf97556e15f247e81029358131ade04bb179d",
-      "last_updated": "2026-10-07T18:29:55+00:00",
+      "hash": "94ffc923725e96be818d23f799c4cd9e9d96f9b29b67c34d81d964e9ca5a4a60",
+      "last_updated": "2026-10-14T21:19:36+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-haiku",
       "path": "/docs/models/claude-4-5-haiku",
       "source_url": "https://cursor.com/docs/models/claude-4-5-haiku",
@@ -1038,8 +1047,8 @@
       "title": "Models Claude 4 5 Haiku"
     },
     "models__claude-4-5-sonnet.md": {
-      "hash": "cd53cb494a405761c249b25cecaa6514d088d091a5e9f13414e34058316b0cf7",
-      "last_updated": "2026-09-28T21:12:46+00:00",
+      "hash": "0c3795f9f32709802cc3a631424bf665db8cbbd6d90f45a899080a85799e134e",
+      "last_updated": "2026-10-14T21:19:36+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
       "path": "/docs/models/claude-4-5-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
@@ -1047,8 +1056,8 @@
       "title": "Models Claude 4 5 Sonnet"
     },
     "models__claude-4-6-sonnet.md": {
-      "hash": "b1776394c3e9ed96aadb989240a77343205b36eb126f6d4cc730399942de1629",
-      "last_updated": "2026-09-28T21:12:47+00:00",
+      "hash": "f84e386b693d1782fadcbaeb129ef53c1424a8a6ac7a0db2bf15b9777553505f",
+      "last_updated": "2026-10-14T21:19:37+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
       "path": "/docs/models/claude-4-6-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
@@ -1056,8 +1065,8 @@
       "title": "Models Claude 4 6 Sonnet"
     },
     "models__claude-4-sonnet-1m.md": {
-      "hash": "3b7922f7c4a1f6c8fde79b53f2169075f5c3eec859d7ebb4ed1944ceb1591b0a",
-      "last_updated": "2026-09-28T21:12:47+00:00",
+      "hash": "b26dc26c10a45d111c57cd974c55a5864f410858fb83504ec9b2220ec1806bf7",
+      "last_updated": "2026-10-14T21:19:37+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
       "path": "/docs/models/claude-4-sonnet-1m",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
@@ -1065,8 +1074,8 @@
       "title": "Models Claude 4 Sonnet 1m"
     },
     "models__claude-4-sonnet.md": {
-      "hash": "004cae08ac51c3c28c06ca20ae01985a76a80fbbc958d5d27b65a4ff2d46935e",
-      "last_updated": "2026-09-28T21:12:47+00:00",
+      "hash": "24206f35d894988b126e1a0633357a514fc9e094b2b66d2a087027da97a06534",
+      "last_updated": "2026-10-14T21:19:37+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet",
       "path": "/docs/models/claude-4-sonnet",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet",
@@ -1074,8 +1083,8 @@
       "title": "Models Claude 4 Sonnet"
     },
     "models__claude-fable-5-1.md": {
-      "hash": "a8c99e74e05576d4568c1bb2318bd72de18b584214b7b8c6bb5d36745aae10ec",
-      "last_updated": "2026-09-22T16:50:56+00:00",
+      "hash": "cba1365e07f186c1206caf9422f980f931cfd2fc52eaa8b1d4cc47fb8707fb5e",
+      "last_updated": "2026-10-14T21:19:38+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5-1",
       "path": "/docs/models/claude-fable-5-1",
       "source_url": "https://cursor.com/docs/models/claude-fable-5-1",
@@ -1083,8 +1092,8 @@
       "title": "Models Claude Fable 5 1"
     },
     "models__claude-fable-5.md": {
-      "hash": "0b0d6db11f5f541f4b387c51c5b17b15954bf05ef8874f2ea9a9cf3d95707775",
-      "last_updated": "2026-09-01T18:25:08+00:00",
+      "hash": "454a51b56aca2d30ded2e0221fb0b6329318a08324572247700736cd8e115546",
+      "last_updated": "2026-10-14T21:19:38+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5",
       "path": "/docs/models/claude-fable-5",
       "source_url": "https://cursor.com/docs/models/claude-fable-5",
@@ -1092,8 +1101,8 @@
       "title": "Models Claude Fable 5"
     },
     "models__claude-haiku-5-5.md": {
-      "hash": "c16a0b935db61674339c38d8b4167cc9ed3f568e3aa8c762d674ae8e75a2bf6e",
-      "last_updated": "2026-10-07T18:29:57+00:00",
+      "hash": "c46c9c84186cdb8214bcdc201d282cb992853691b29f516ee6f68fa02d8bf4e5",
+      "last_updated": "2026-10-14T21:19:38+00:00",
       "original_url": "https://cursor.com/docs/models/claude-haiku-5-5",
       "path": "/docs/models/claude-haiku-5-5",
       "source_url": "https://cursor.com/docs/models/claude-haiku-5-5",
@@ -1101,8 +1110,8 @@
       "title": "Models Claude Haiku 5 5"
     },
     "models__claude-opus-4-5.md": {
-      "hash": "3907d20735bd75a98f83ee64798159fb932f5b83a3414c220bc993b4125d6d08",
-      "last_updated": "2026-09-22T16:50:56+00:00",
+      "hash": "10c09bb54c27a2b6adac80476dc970c20396c401bc05e091fab1e1a9601df453",
+      "last_updated": "2026-10-14T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-5",
       "path": "/docs/models/claude-opus-4-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-5",
@@ -1110,8 +1119,8 @@
       "title": "Models Claude Opus 4 5"
     },
     "models__claude-opus-4-6.md": {
-      "hash": "6ef2511e70532f7fef05bb9493ccd73f2531072ae000dcfa7dd8b8ea36a0ccc4",
-      "last_updated": "2026-09-22T16:50:57+00:00",
+      "hash": "55ea08e13c93070a57b6e250586acd79d12abf7e6bd2e76ff5762b63cde9c8f0",
+      "last_updated": "2026-10-14T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-6",
       "path": "/docs/models/claude-opus-4-6",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-6",
@@ -1119,8 +1128,8 @@
       "title": "Models Claude Opus 4 6"
     },
     "models__claude-opus-4-7-fast.md": {
-      "hash": "0ec57c834dc7f229bab697d73500d2128e9e5fc103709e1aa08b6c5e481caf2f",
-      "last_updated": "2026-08-24T21:39:16+00:00",
+      "hash": "88f6708b71c0fbc1f305878ca480f6b58e683ecdfba7488d1f707092ca0ec9f6",
+      "last_updated": "2026-10-14T21:19:40+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-7-fast",
       "path": "/docs/models/claude-opus-4-7-fast",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-7-fast",
@@ -1128,8 +1137,8 @@
       "title": "Models Claude Opus 4 7 Fast"
     },
     "models__claude-opus-4-7.md": {
-      "hash": "3f6b0d81e4620afafe594d6da50c20145c36cd6f87bf03d742762d8084f5e05a",
-      "last_updated": "2026-09-22T16:50:57+00:00",
+      "hash": "9d90398a26d8bc6091b06a434a474c34d700dcd7c0156e849be101663c711058",
+      "last_updated": "2026-10-14T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-7",
       "path": "/docs/models/claude-opus-4-7",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-7",
@@ -1137,8 +1146,8 @@
       "title": "Models Claude Opus 4 7"
     },
     "models__claude-opus-4-8.md": {
-      "hash": "0b4608562a186d03fe3116ee982309de418b7466edbc258787ee1b3e1be799fc",
-      "last_updated": "2026-09-22T16:50:58+00:00",
+      "hash": "fa7b9b9f046600fcf8dcbfec91018f6d47644dd169c7ca13e05116f447adf491",
+      "last_updated": "2026-10-14T21:19:40+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-8",
       "path": "/docs/models/claude-opus-4-8",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-8",
@@ -1146,8 +1155,8 @@
       "title": "Models Claude Opus 4 8"
     },
     "models__claude-opus-5-5.md": {
-      "hash": "fb22827f5f4280a077354043f20ea896692db389999d78d66bc4d69b05563a5e",
-      "last_updated": "2026-09-28T21:12:50+00:00",
+      "hash": "e27c19574a31b0d91704ab124206a254511f4bbab1b3ceea0c26d7050a1039df",
+      "last_updated": "2026-10-14T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5-5",
       "path": "/docs/models/claude-opus-5-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-5-5",
@@ -1155,8 +1164,8 @@
       "title": "Models Claude Opus 5 5"
     },
     "models__claude-opus-5.md": {
-      "hash": "599260cbaddd017d49ce3bbca77b5c50b87a6a1eec6ff1c3fa53ff321e1ee662",
-      "last_updated": "2026-09-22T16:50:58+00:00",
+      "hash": "6d983a99fc81bd15843aef9f7965ff42456fe3b1d9fee0e7afed6ab2d39df419",
+      "last_updated": "2026-10-14T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5",
       "path": "/docs/models/claude-opus-5",
       "source_url": "https://cursor.com/docs/models/claude-opus-5",
@@ -1164,8 +1173,8 @@
       "title": "Models Claude Opus 5"
     },
     "models__claude-sonnet-5-5.md": {
-      "hash": "b2d13aa6f3317e6f296e99654d0917459e56ca6d2d977dbfa500e07bec33e69b",
-      "last_updated": "2026-10-07T21:22:41+00:00",
+      "hash": "9318ce64c8cbc5edd76b2a06f66ee7c8c0707dd272180526ee3055b4dea8ab59",
+      "last_updated": "2026-10-14T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5-5",
       "path": "/docs/models/claude-sonnet-5-5",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5-5",
@@ -1173,8 +1182,8 @@
       "title": "Models Claude Sonnet 5 5"
     },
     "models__claude-sonnet-5.md": {
-      "hash": "23434a9531d0832838949c61511d93946f120ddd72465ae636d333c6c660a6ec",
-      "last_updated": "2026-10-07T21:22:40+00:00",
+      "hash": "3d8436cfe9463f991225000090bf8b0186a7c8854b63cb27c4e0d757e1093ef1",
+      "last_updated": "2026-10-14T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5",
       "path": "/docs/models/claude-sonnet-5",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5",
@@ -1182,8 +1191,8 @@
       "title": "Models Claude Sonnet 5"
     },
     "models__cursor-composer-1.md": {
-      "hash": "9a91d4d4d2662ecd645b448e07153436e0ea1de168a068bd1790dc225b9c675c",
-      "last_updated": "2026-08-24T21:39:17+00:00",
+      "hash": "fb0b871d4102b837ecde957abc6cc6ce437cdf1028cac00e7716f292791a1c9c",
+      "last_updated": "2026-10-14T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/models/cursor-composer-1",
       "path": "/docs/models/cursor-composer-1",
       "source_url": "https://cursor.com/docs/models/cursor-composer-1",
@@ -1191,8 +1200,8 @@
       "title": "Models Cursor Composer 1"
     },
     "models__cursor-composer-2-5.md": {
-      "hash": "9eefa39d4b49afc09e4ea790f3c20c17dd52d2006f18294839f252d0c98ce911",
-      "last_updated": "2026-09-21T19:57:49+00:00",
+      "hash": "974406addbabd0cb92dee952e6ddb80fd912a9aeb168956c588b13f7353877fe",
+      "last_updated": "2026-10-14T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/models/cursor-composer-2-5",
       "path": "/docs/models/cursor-composer-2-5",
       "source_url": "https://cursor.com/docs/models/cursor-composer-2-5",
@@ -1200,8 +1209,8 @@
       "title": "Models Cursor Composer 2 5"
     },
     "models__gemini-2-5-flash.md": {
-      "hash": "dad3cfcba1b1658be66ebef11e78aa151aeb6209bc70ed8114a31035d9a5d650",
-      "last_updated": "2026-09-02T20:58:54+00:00",
+      "hash": "2a97fe626278d417ede4446e2bcf8c2dc4fafec6e5a03f2b9ba6ac37548ad802",
+      "last_updated": "2026-10-14T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-2-5-flash",
       "path": "/docs/models/gemini-2-5-flash",
       "source_url": "https://cursor.com/docs/models/gemini-2-5-flash",
@@ -1209,8 +1218,8 @@
       "title": "Models Gemini 2 5 Flash"
     },
     "models__gemini-3-1-pro.md": {
-      "hash": "0aaeda576f8f7c5b87416c9542ef64ddbc7d523c58f505aee710225f193018f1",
-      "last_updated": "2026-08-24T21:39:18+00:00",
+      "hash": "85a58252ba754f7d7c8f101614196ad75b137cbbe94a00c5307028dd1742c200",
+      "last_updated": "2026-10-14T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-1-pro",
       "path": "/docs/models/gemini-3-1-pro",
       "source_url": "https://cursor.com/docs/models/gemini-3-1-pro",
@@ -1227,8 +1236,8 @@
       "title": "Models Gemini 3 5 Flash Lite"
     },
     "models__gemini-3-5-flash.md": {
-      "hash": "24009e496fd0c2c670ff866dd180807ad0f2c69161ea24d5f8e28260c28d3ce9",
-      "last_updated": "2026-09-02T20:58:54+00:00",
+      "hash": "3b7cfce28f12c998a3cab372429aa254c2546fbbcb9e218100ecc6c6c019d3b0",
+      "last_updated": "2026-10-14T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-5-flash",
       "path": "/docs/models/gemini-3-5-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-5-flash",
@@ -1236,8 +1245,8 @@
       "title": "Models Gemini 3 5 Flash"
     },
     "models__gemini-3-6-flash.md": {
-      "hash": "68ee65bf01739dab93be18ed509efc1a2e4f3963b9c1024af37d1bf801dc78ac",
-      "last_updated": "2026-09-02T20:58:55+00:00",
+      "hash": "503ef5e6c85a6961c79aabbcd158767f29d4b9274efaeda179ff4e897f93a283",
+      "last_updated": "2026-10-14T21:19:44+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-6-flash",
       "path": "/docs/models/gemini-3-6-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-6-flash",
@@ -1245,8 +1254,8 @@
       "title": "Models Gemini 3 6 Flash"
     },
     "models__gemini-3-7-flash.md": {
-      "hash": "dfe89dba5360c970b990355fd83368d47bb3eacb27c7287aa6fec5a32dd88964",
-      "last_updated": "2026-10-13T21:20:58+00:00",
+      "hash": "680710c5966e4c3ee518cda3cb30bbf296a4fab612b43396e8ac4ee14dcc2ced",
+      "last_updated": "2026-10-14T21:19:44+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-7-flash",
       "path": "/docs/models/gemini-3-7-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-7-flash",
@@ -1254,8 +1263,8 @@
       "title": "Models Gemini 3 7 Flash"
     },
     "models__gemini-3-8-flash.md": {
-      "hash": "d80091f526d6a1b93e643e87cbe67e37198fcea0b3d7c5347c3b09e4573aa014",
-      "last_updated": "2026-10-13T21:20:59+00:00",
+      "hash": "f8c4908a66bdc8ee3e2ff55e4bb2ee53b450bfb23ddf690719b9216ff76406d2",
+      "last_updated": "2026-10-14T21:19:45+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-8-flash",
       "path": "/docs/models/gemini-3-8-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-8-flash",
@@ -1263,8 +1272,8 @@
       "title": "Models Gemini 3 8 Flash"
     },
     "models__gemini-3-flash.md": {
-      "hash": "0f8fe3dc4784748273436a4fe877cf268de514d63835adcec325e62a5930fd5e",
-      "last_updated": "2026-08-24T21:39:19+00:00",
+      "hash": "17364249ffef13cd4b817cd5c6e12636e9edce24ee1564e4ed244405d6bc4d77",
+      "last_updated": "2026-10-14T21:19:45+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-flash",
       "path": "/docs/models/gemini-3-flash",
       "source_url": "https://cursor.com/docs/models/gemini-3-flash",
@@ -1281,8 +1290,8 @@
       "title": "Models Gemini 3 Pro Image Preview"
     },
     "models__gemini-3-pro.md": {
-      "hash": "d543cbb9c15851d3cc006bab9297c433e4091b459b1151a4d8b6c878fa1b81ed",
-      "last_updated": "2026-08-24T21:39:20+00:00",
+      "hash": "ffb3861367f2072851188ca61d5a711b2ef6f4d45aed9f0d4d7bf240a51c850a",
+      "last_updated": "2026-10-14T21:19:45+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-pro",
       "path": "/docs/models/gemini-3-pro",
       "source_url": "https://cursor.com/docs/models/gemini-3-pro",
@@ -1290,8 +1299,8 @@
       "title": "Models Gemini 3 Pro"
     },
     "models__gemini-4-argon.md": {
-      "hash": "b4e07533bc6095564173178d99d71f806bcfed2e2da31c2136ccc33e49b97ff9",
-      "last_updated": "2026-10-13T18:31:34+00:00",
+      "hash": "b57b14ab999981cfb726c13be38a7fc268db6aa1d6000cec6669a7c188be0f07",
+      "last_updated": "2026-10-14T21:19:46+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-4-argon",
       "path": "/docs/models/gemini-4-argon",
       "source_url": "https://cursor.com/docs/models/gemini-4-argon",
@@ -1299,8 +1308,8 @@
       "title": "Models Gemini 4 Argon"
     },
     "models__glm-5-2.md": {
-      "hash": "4b6555e63dd0dc8de9b505437a56248d7d1b0b9f476ad7ed47b22f4b01440a9c",
-      "last_updated": "2026-09-29T01:00:43+00:00",
+      "hash": "24cbc264997ff7f707f2c1a3769d77f01f570ba4013c3edd8838a726e7cd72bb",
+      "last_updated": "2026-10-14T21:19:46+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-2",
       "path": "/docs/models/glm-5-2",
       "source_url": "https://cursor.com/docs/models/glm-5-2",
@@ -1308,8 +1317,8 @@
       "title": "Models Glm 5 2"
     },
     "models__glm-5-3-flash.md": {
-      "hash": "812fd762de63a72e89a4a6701348da72566ec1ad7a810c60dd65a20110fb82b0",
-      "last_updated": "2026-09-29T01:00:44+00:00",
+      "hash": "72ceaa01f11fb6c5a07b77297ce6ef1e5aa7ebd664b018fbb3e5787f65d1d4dc",
+      "last_updated": "2026-10-14T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-3-flash",
       "path": "/docs/models/glm-5-3-flash",
       "source_url": "https://cursor.com/docs/models/glm-5-3-flash",
@@ -1317,8 +1326,8 @@
       "title": "Models Glm 5 3 Flash"
     },
     "models__glm-5-3.md": {
-      "hash": "a4d1176be25ff3059098196aefb8f235fc253af9947720eec32a8a6722457505",
-      "last_updated": "2026-09-29T01:00:43+00:00",
+      "hash": "529b785b7807bd868e30a003586ce4e251f287907f9dbd3cc05e4b21c6c37015",
+      "last_updated": "2026-10-14T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-3",
       "path": "/docs/models/glm-5-3",
       "source_url": "https://cursor.com/docs/models/glm-5-3",
@@ -1326,8 +1335,8 @@
       "title": "Models Glm 5 3"
     },
     "models__gpt-5-1-codex-max.md": {
-      "hash": "ec3793301a434af6f491d0da02ca77e08e6cbab8d672a7ae5d64f7b463dd4890",
-      "last_updated": "2026-08-24T21:39:21+00:00",
+      "hash": "2347088735f6397a4ebf5abd8fcad4df68df0a96198de64788f90662dd103617",
+      "last_updated": "2026-10-14T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-1-codex-max",
       "path": "/docs/models/gpt-5-1-codex-max",
       "source_url": "https://cursor.com/docs/models/gpt-5-1-codex-max",
@@ -1335,8 +1344,8 @@
       "title": "Models Gpt 5 1 Codex Max"
     },
     "models__gpt-5-1-codex-mini.md": {
-      "hash": "5aebedda7a7ebc9acd49a0cf0cbee01b87ec380bc9eca9d70c49aa9d81483976",
-      "last_updated": "2026-08-24T21:39:21+00:00",
+      "hash": "1e7b1b95903f47994a561ec92424c6685d62025568e471d282ad0b8fcd1fa16d",
+      "last_updated": "2026-10-14T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-1-codex-mini",
       "path": "/docs/models/gpt-5-1-codex-mini",
       "source_url": "https://cursor.com/docs/models/gpt-5-1-codex-mini",
@@ -1344,8 +1353,8 @@
       "title": "Models Gpt 5 1 Codex Mini"
     },
     "models__gpt-5-1-codex.md": {
-      "hash": "d536e7ea362995741ab2809e63ebf29cf7759563ac37938ef8b12fe9cacbda45",
-      "last_updated": "2026-08-24T21:39:21+00:00",
+      "hash": "a28585c2585c5c4ba78015a1faf19b3db83bf969e0246986ae4d218f11f3b8fa",
+      "last_updated": "2026-10-14T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-1-codex",
       "path": "/docs/models/gpt-5-1-codex",
       "source_url": "https://cursor.com/docs/models/gpt-5-1-codex",
@@ -1353,8 +1362,8 @@
       "title": "Models Gpt 5 1 Codex"
     },
     "models__gpt-5-2-codex.md": {
-      "hash": "214db219adad66c847c29c7627a40fb95757ae9d5b493a258380aaa22b58f832",
-      "last_updated": "2026-08-24T21:39:22+00:00",
+      "hash": "2b502aa9cd0bba5c418cffc6b9b0a109324e15c098dfc138ef182e2073c236db",
+      "last_updated": "2026-10-14T21:19:49+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-2-codex",
       "path": "/docs/models/gpt-5-2-codex",
       "source_url": "https://cursor.com/docs/models/gpt-5-2-codex",
@@ -1362,8 +1371,8 @@
       "title": "Models Gpt 5 2 Codex"
     },
     "models__gpt-5-2.md": {
-      "hash": "71380d8905945819b84c5dbf5456c2a84d55595ad4ece73a83f1b674c741720a",
-      "last_updated": "2026-08-24T21:39:22+00:00",
+      "hash": "3d033b51ce27311cdf558b828f741485a15f12cec0c9f82ec8673fd95684a6d4",
+      "last_updated": "2026-10-14T21:19:49+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-2",
       "path": "/docs/models/gpt-5-2",
       "source_url": "https://cursor.com/docs/models/gpt-5-2",
@@ -1371,8 +1380,8 @@
       "title": "Models Gpt 5 2"
     },
     "models__gpt-5-3-codex.md": {
-      "hash": "4503c510fb8ec0397b1a8300950f3e52ee49e8fad7a207e72000663521475238",
-      "last_updated": "2026-08-24T21:39:22+00:00",
+      "hash": "08cb539587c6c6e7de1f5bc2c3b40df779d8762796a43205dfadce63639b147d",
+      "last_updated": "2026-10-14T21:19:49+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-3-codex",
       "path": "/docs/models/gpt-5-3-codex",
       "source_url": "https://cursor.com/docs/models/gpt-5-3-codex",
@@ -1380,8 +1389,8 @@
       "title": "Models Gpt 5 3 Codex"
     },
     "models__gpt-5-4-mini.md": {
-      "hash": "bf658cb8d88c5b0d8c36c6b8d79334e388d5f5bab26811ff7422f066ab1faadd",
-      "last_updated": "2026-08-24T21:39:23+00:00",
+      "hash": "ead1d913c16e2c99232358d8993bdc1d3e87720e635c26af07b76e4a7d494557",
+      "last_updated": "2026-10-14T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-4-mini",
       "path": "/docs/models/gpt-5-4-mini",
       "source_url": "https://cursor.com/docs/models/gpt-5-4-mini",
@@ -1389,8 +1398,8 @@
       "title": "Models Gpt 5 4 Mini"
     },
     "models__gpt-5-4-nano.md": {
-      "hash": "eceaf600539be08d3276b55414e60f3573dd23a264be5b61a5511586e6d6718e",
-      "last_updated": "2026-08-24T21:39:23+00:00",
+      "hash": "e6d750357110709d81ba9811f819426537609a9d9c5faec5711f4c994da322ac",
+      "last_updated": "2026-10-14T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-4-nano",
       "path": "/docs/models/gpt-5-4-nano",
       "source_url": "https://cursor.com/docs/models/gpt-5-4-nano",
@@ -1398,8 +1407,8 @@
       "title": "Models Gpt 5 4 Nano"
     },
     "models__gpt-5-4.md": {
-      "hash": "54461dd7fb30e0ea2ea82d043474bc06560e11572814d042e52df05b85e7a40b",
-      "last_updated": "2026-08-24T21:39:22+00:00",
+      "hash": "6fce1d1657f211ba24fe5b1c97562f1f8cb4fb2330ec6d1e0725a41a57dbdc9c",
+      "last_updated": "2026-10-14T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-4",
       "path": "/docs/models/gpt-5-4",
       "source_url": "https://cursor.com/docs/models/gpt-5-4",
@@ -1407,8 +1416,8 @@
       "title": "Models Gpt 5 4"
     },
     "models__gpt-5-5.md": {
-      "hash": "7850ef2914e253765db82d1a5985b8281392d4d93e220b3dba3a0ab53f9200da",
-      "last_updated": "2026-08-24T21:39:23+00:00",
+      "hash": "64211cd1c0e040eeb1e5aad1ac3c614c21bdf2ba7b4397831faf0e84aaf22092",
+      "last_updated": "2026-10-14T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-5",
       "path": "/docs/models/gpt-5-5",
       "source_url": "https://cursor.com/docs/models/gpt-5-5",
@@ -1416,8 +1425,8 @@
       "title": "Models Gpt 5 5"
     },
     "models__gpt-5-6-luna.md": {
-      "hash": "f38959f8f1ff0d09baf01ac279ad11c09d3feebc0f130c436ef014639f593323",
-      "last_updated": "2026-09-04T20:43:23+00:00",
+      "hash": "419fff86537e971ee66b17095bcb907dffa835dc4e414c8bed4c868ee60ed325",
+      "last_updated": "2026-10-14T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-luna",
       "path": "/docs/models/gpt-5-6-luna",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-luna",
@@ -1425,8 +1434,8 @@
       "title": "Models Gpt 5 6 Luna"
     },
     "models__gpt-5-6-sol.md": {
-      "hash": "38050d35cd52ecd0836b1c7b876278451d2494d24ee37ec28ff6242d95fb083c",
-      "last_updated": "2026-09-04T20:43:23+00:00",
+      "hash": "cd2d9124c8d26cffc1088b51b6757f27828078d33c94a88b04a0c94145e6a7df",
+      "last_updated": "2026-10-14T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-sol",
       "path": "/docs/models/gpt-5-6-sol",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-sol",
@@ -1434,8 +1443,8 @@
       "title": "Models Gpt 5 6 Sol"
     },
     "models__gpt-5-6-terra.md": {
-      "hash": "124bfbe985386aef0a714d76510da5723600cc06d951a81f89e138904c302dee",
-      "last_updated": "2026-09-04T20:43:23+00:00",
+      "hash": "4c06df315344aad1d241bab54219f032e85130d85d10499a497f742fdc05ebe1",
+      "last_updated": "2026-10-14T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-terra",
       "path": "/docs/models/gpt-5-6-terra",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-terra",
@@ -1443,8 +1452,8 @@
       "title": "Models Gpt 5 6 Terra"
     },
     "models__gpt-5-codex.md": {
-      "hash": "9c9714872164f8ad0e391d66ee4df06071746d3bd9b3bf82a32428832318c1f5",
-      "last_updated": "2026-08-24T21:39:24+00:00",
+      "hash": "019cba1745498fd208af0b9a50c34edbccf094645b9a1c3afe61e40fb814102a",
+      "last_updated": "2026-10-14T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-codex",
       "path": "/docs/models/gpt-5-codex",
       "source_url": "https://cursor.com/docs/models/gpt-5-codex",
@@ -1452,8 +1461,8 @@
       "title": "Models Gpt 5 Codex"
     },
     "models__gpt-5-fast.md": {
-      "hash": "30cb94af64ca59ab437e00177b19a106286f867a9cddd5b7a5aa54699bb45f86",
-      "last_updated": "2026-08-24T21:39:25+00:00",
+      "hash": "eeafcc0becc73e4c534bed0b3f21d2cf2f7d5843c9ee5a24ff5d33e54eadffcb",
+      "last_updated": "2026-10-14T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-fast",
       "path": "/docs/models/gpt-5-fast",
       "source_url": "https://cursor.com/docs/models/gpt-5-fast",
@@ -1461,8 +1470,8 @@
       "title": "Models Gpt 5 Fast"
     },
     "models__gpt-5-mini.md": {
-      "hash": "c3ccd588301a242c8d1ad45c7dd899b037740da09f3198a3416d5e6c53cc22c5",
-      "last_updated": "2026-08-24T21:39:25+00:00",
+      "hash": "0706f1c7f4b81de7bd265755a7c91eee4e38364d9ac865cbd58bae9dca141df2",
+      "last_updated": "2026-10-14T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-mini",
       "path": "/docs/models/gpt-5-mini",
       "source_url": "https://cursor.com/docs/models/gpt-5-mini",
@@ -1470,8 +1479,8 @@
       "title": "Models Gpt 5 Mini"
     },
     "models__gpt-5.md": {
-      "hash": "c8cbaadb6ca4c42f424d6784d442081b387e0b8f704b9ecf23aaf61cff05f4a3",
-      "last_updated": "2026-08-24T21:39:20+00:00",
+      "hash": "b55d68d44a7da7508da5df7bfab55f5b414c4c4ae162612d8b755d584fe668b1",
+      "last_updated": "2026-10-14T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5",
       "path": "/docs/models/gpt-5",
       "source_url": "https://cursor.com/docs/models/gpt-5",
@@ -1479,8 +1488,8 @@
       "title": "Models Gpt 5"
     },
     "models__grok-4-5.md": {
-      "hash": "43bc3e77b35a36ee5064a47586ea96d0ddd9e8bc2424045404e2dd65707b9026",
-      "last_updated": "2026-09-21T19:57:58+00:00",
+      "hash": "81762d1a0f76ab668306810a9730e426ec783ba569ca497e1efb5751947fca98",
+      "last_updated": "2026-10-14T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-5",
       "path": "/docs/models/grok-4-5",
       "source_url": "https://cursor.com/docs/models/grok-4-5",
@@ -1488,8 +1497,8 @@
       "title": "Models Grok 4 5"
     },
     "models__grok-4-6.md": {
-      "hash": "31c931cbaa383570bf4a9e266c347a3e4c23afa98738421ca2860d1c378a388b",
-      "last_updated": "2026-09-21T19:57:58+00:00",
+      "hash": "fea28e7f961b666c35e80a40e656fd97dd7e5b0f20948402cdac7a83df983f54",
+      "last_updated": "2026-10-14T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-6",
       "path": "/docs/models/grok-4-6",
       "source_url": "https://cursor.com/docs/models/grok-4-6",
@@ -1497,8 +1506,8 @@
       "title": "Models Grok 4 6"
     },
     "models__grok-4-7.md": {
-      "hash": "8d5aa96487bed2af1355941c3852258248f253dbee95145c387984d6c27fc708",
-      "last_updated": "2026-09-21T19:57:59+00:00",
+      "hash": "617ef66c8938d4860756e0431c9d61b5aa3929a89b221a36b0b90aed92b406af",
+      "last_updated": "2026-10-14T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-7",
       "path": "/docs/models/grok-4-7",
       "source_url": "https://cursor.com/docs/models/grok-4-7",
@@ -1506,8 +1515,8 @@
       "title": "Models Grok 4 7"
     },
     "models__kimi-k2-7-code.md": {
-      "hash": "8511b64d870618a8abec9d7678b55d087424b29c76769280d28d4d2a217cfe83",
-      "last_updated": "2026-08-24T21:39:26+00:00",
+      "hash": "9d5bad9af945f99f8e0fdbe97d07fc4f054949a00698d6de00c4a5a961460320",
+      "last_updated": "2026-10-14T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/models/kimi-k2-7-code",
       "path": "/docs/models/kimi-k2-7-code",
       "source_url": "https://cursor.com/docs/models/kimi-k2-7-code",
@@ -1515,8 +1524,8 @@
       "title": "Models Kimi K2 7 Code"
     },
     "models__kimi-k3.md": {
-      "hash": "5479ebf3712370da864a486205fadc4d750cb2ba308f6a6cffebde855848c297",
-      "last_updated": "2026-08-24T21:39:26+00:00",
+      "hash": "b25acad0e53f7a2c75008912a602849dcf2dd6d0d94ae1f028d43b974839cfc1",
+      "last_updated": "2026-10-14T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/models/kimi-k3",
       "path": "/docs/models/kimi-k3",
       "source_url": "https://cursor.com/docs/models/kimi-k3",
@@ -1524,8 +1533,8 @@
       "title": "Models Kimi K3"
     },
     "models__muse-spark-1-3.md": {
-      "hash": "763b0c74db38c2b01bee05e7fc58fa96f93e27ee40dae6e244b476a67de7fa85",
-      "last_updated": "2026-09-08T21:05:30+00:00",
+      "hash": "fdb3c9952c86e2d360b1446ff0cd58a7d4bdcc5b9d898f9c2dc2dc659582e380",
+      "last_updated": "2026-10-14T21:19:55+00:00",
       "original_url": "https://cursor.com/docs/models/muse-spark-1-3",
       "path": "/docs/models/muse-spark-1-3",
       "source_url": "https://cursor.com/docs/models/muse-spark-1-3",
@@ -1533,8 +1542,8 @@
       "title": "Models Muse Spark 1 3"
     },
     "origin.md": {
-      "hash": "d7282892afbd89e7474c235d12abe26ddd5515e4929ff43168531c823aba5449",
-      "last_updated": "2026-10-07T21:22:54+00:00",
+      "hash": "eb7d14cf4b8b5880048552c1a0401f093e13d1644aee122580168573398f1f27",
+      "last_updated": "2026-10-14T21:19:55+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "source_url": "https://cursor.com/docs/origin",
@@ -1641,8 +1650,8 @@
       "title": "Clone, Push & Pull"
     },
     "origin__mirror-github.md": {
-      "hash": "0c008be762196554d665b251901d7bfd78ee4cc3dfa7563ca8db45924012b7ea",
-      "last_updated": "2026-10-07T21:22:57+00:00",
+      "hash": "fd14acdd81439ee44dd3e72839434a8925de257e94f5ac7525988a9544b5dabf",
+      "last_updated": "2026-10-14T21:19:59+00:00",
       "original_url": "https://cursor.com/docs/origin/mirror-github",
       "path": "/docs/origin/mirror-github",
       "source_url": "https://cursor.com/docs/origin/mirror-github",
@@ -1740,8 +1749,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "8b7849f0ef324a21efe734bcb4ffc8a4bf1f41cd733f52bf78eb044a7bd0a15d",
-      "last_updated": "2026-10-12T21:20:55+00:00",
+      "hash": "72bee5076c6b196cbff9d478f7b3e671129c133ca3d81482b191916d0da787b9",
+      "last_updated": "2026-10-14T21:20:03+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -1821,8 +1830,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "2d3f94414a80b2096e707992feb8608f527094b66dffb9743e9a07444453cfc6",
-      "last_updated": "2026-10-07T01:02:14+00:00",
+      "hash": "3431cba373d7a7cc6a5f4d3e4dd6064c4f70af6c4a168c7b262a8a09e4e2b9d0",
+      "last_updated": "2026-10-14T21:20:06+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -1893,8 +1902,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "1d64718044e8dc9cffadcbb38e2d5cc5b3b019c47bbd30ac37995c824037f5c3",
-      "last_updated": "2026-10-09T21:22:03+00:00",
+      "hash": "d416f9751ad9d6d962def164c12072c8fe68cba6ce04f7b3082c1fcceb197f8e",
+      "last_updated": "2026-10-14T21:20:09+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents",
@@ -1915,7 +1924,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-14T18:28:32+00:00",
+  "last_updated": "2026-10-14T21:20:10+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

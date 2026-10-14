@@ -6,22 +6,41 @@ path: /docs/models-and-pricing
 
 # Models & Pricing
 
-Cursor supports frontier models from OpenAI, Anthropic, Google, SpaceXAI, and more. Pro, Pro Plus, and Ultra include two usage pools so you can pick the right balance of intelligence, speed, and cost. Start, our plan for developers in India, covers the Cursor Models pool.
+Cursor supports frontier models from OpenAI, Anthropic, Google, SpaceXSI, and more. Cursor is sold as part of [The X Subscription](https://cursor.com/help/the-x-subscription/overview.md), one subscription for Grok, Cursor, and X. Paid plans include a weekly pool of usage for Cursor models, shared across Grok and Cursor. Third-party models aren't included; on Premium and above you can use them at API list price, paid from prepaid credit.
 
-## Usage pools
+On Pro, Pro+, Ultra, Start, or a Teams Standard or Premium seat? Those are [legacy Cursor plans](https://cursor.com/docs/account/pricing/legacy-cursor-plans.md). They keep working as they are, with two monthly usage pools and on-demand usage.
 
-There are two separate usage pools, each resetting with your monthly billing cycle:
+## Plans
 
-- **Cursor Models**: Significantly more included usage for Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5.
-- **Other Models**: The pool for third-party models, charged at the model's API price. Pro, Pro Plus, and Ultra include this pool, with the option to pay for additional usage as needed. The Start plan does not include this pool.
+| Plan           | Price                          | Included usage          | Third-party models                                                                                           |
+| :------------- | :----------------------------- | :---------------------- | :----------------------------------------------------------------------------------------------------------- |
+| **Free**       | $0                             | Limited                 | Not available                                                                                                |
+| **Plus**       | $8/mo                          | Base                    | Not available                                                                                                |
+| **Premium**    | $30/mo                         | 4x Plus                 | API list price, from prepaid credit                                                                          |
+| **Super**      | $100/mo                        | 15x Plus                | API list price, from prepaid credit                                                                          |
+| **Ultra**      | $200/mo                        | 50x Plus                | API list price, from prepaid credit                                                                          |
+| **Teams**      | $30, $100, or $200 per seat/mo | Matches the seat's tier | API list price plus the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate) |
+| **Enterprise** | Custom                         | Pooled                  | API list price plus the Cursor Token Rate                                                                    |
 
-Both pools are visible in your editor settings and on your [usage dashboard](https://cursor.com/dashboard/usage).
+Annual billing is available at $80/yr for Plus, $300/yr for Premium, $1,000/yr for Super, and $2,000/yr for Ultra. Prices exclude tax.
 
-## Cursor Models
+- **Free.** Agent and Chat with limited usage.
+- **Plus.** Agent with Cursor's own models (Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5) at fixed settings: Fast is off, effort is medium, and Grok 4.7 uses the 256k context window. Also Grok Chat, Voice, Imagine, Build, and Grok API access. No Auto, Cloud Agents, Automations, Bugbot, Origin, third-party models, or your own API keys.
+- **Premium.** Everything in Plus, with 4x the usage. Adds Cloud Agents and Automations, code hosting on [Origin](https://cursor.com/docs/origin.md), code review with [Bugbot](https://cursor.com/docs/bugbot.md), third-party models at API list price, and Grok Bot.
+- **Super.** Everything in Premium, with 15x Plus usage and priority model access at peak times.
+- **Ultra.** Everything in Super, with 50x Plus usage and earliest access to new products and models.
 
-The Cursor Models pool includes Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5.
+Premium suits new Agent users, Super suits daily Agent users, and Ultra suits power users running several agents or Automations. See [cursor.com/pricing](https://cursor.com/pricing) for the full feature comparison, including Grok and X benefits.
 
-On Teams and Enterprise plans, [Cursor Router](https://cursor.com/docs/cursor-router.md) picks the model for each Auto request based on your optimization mode.
+## Included usage
+
+Each paid plan includes one pool of usage for Cursor models. The pool is shared across everything on your subscription: Agent in the editor, CLI, Cloud Agents, Grok Bot, and the Grok apps. It refreshes weekly, so one heavy day doesn't use up your month.
+
+Different models draw from the pool at different rates. Your remaining usage and next reset date are shown in your editor settings and under **Usage** at [grok.com/dashboard](https://grok.com/dashboard).
+
+### Cursor models
+
+The pool covers Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5. On Teams and Enterprise plans, [Cursor Router](https://cursor.com/docs/cursor-router.md) picks among Cursor models and third-party models for each Balance or Intelligence request based on your optimization mode; a third-party route bills as [third-party usage](https://cursor.com/docs/models-and-pricing.md#third-party-models).
 
 | Model                                                       | Provider | Input | Cache write | Cache read | Output | Notes                                                                                                                                                                                                                         |
 | ----------------------------------------------------------- | -------- | ----- | ----------- | ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,9 +55,11 @@ On Teams and Enterprise plans, [Cursor Router](https://cursor.com/docs/cursor-ro
 | [Composer 2.5](https://cursor.com/blog/composer-2-5)        | Cursor   | $0.5  | -           | $0.2       | $2.5   | -                                                                                                                                                                                                                             |
 | [Composer 2.5 (Fast)](https://cursor.com/blog/composer-2-5) | Cursor   | $3    | -           | $0.5       | $15    | -                                                                                                                                                                                                                             |
 
-## Other Models
+These rates apply when you buy additional usage beyond the weekly pool.
 
-When you select a specific third-party model, usage is drawn from the **Other Models** pool at that model's API rate.
+## Third-party models
+
+Third-party models like Claude, GPT, and Gemini aren't part of the included pool. On Premium and above, they're available in Cursor at the model's API list price from the first request, paid from your [prepaid credit](https://cursor.com/docs/models-and-pricing.md#top-ups-and-spending-caps). Plus and Free don't include third-party models.
 
 ### Model pricing
 
@@ -100,66 +121,48 @@ All prices are per million tokens:
 
 Opting in to regional data residency incurs a 10% uplift on Model pricing for eligible Models. See [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md) for details on supported regions, Models, functions and data residency policies.
 
-## Plans
+## Top-ups and spending caps
 
-Pro, Pro Plus, and Ultra include unlimited tab completions, extended agent usage limits on all models, access to Bugbot, and access to Cloud Agents. Start is a lower-priced plan for developers in India that covers the Cursor Models pool and Cloud Agents.
+Top-ups add prepaid credit to your subscription. Credit pays for two kinds of additional usage:
 
-| Plan                   | Price                  | Cursor Models | Other Models |
-| :--------------------- | :--------------------- | :------------ | :----------- |
-| **Start** (India only) | ₹649/mo, tax inclusive | Included      | Not included |
-| **Pro**                | $20/mo                 | Included      | Included     |
-| **Pro Plus**           | $60/mo                 | Included      | Included     |
-| **Ultra**              | $200/mo                | Included      | Included     |
+- **Third-party models** in Cursor, from the first request, at API list price.
+- **Cursor models beyond your weekly pool**, at the rates in the table above.
 
-Since different models have different API costs, your model selection affects how quickly your included usage is consumed.
-
-### Start (India only)
-
-Start is available to developers in India. It costs ₹649 per month, tax inclusive, billed monthly in INR with UPI, credit card, or debit card. Every other individual plan displays its price before tax.
-
-Start includes generous usage of the Cursor Models pool, so you can run Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5 for daily building. On Start, these models run in non-fast mode, and Grok 4.7, Grok 4.6, and Grok 4.5 use a fixed medium effort level. You cannot change effort levels or enable Fast mode on Start. Upgrade to Pro or higher to choose effort levels and Fast mode.
-
-Start also includes [Cloud Agents](https://cursor.com/docs/cloud-agent.md), [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md), and plugins, MCP servers, hooks, and skills.
-
-Start does not include the Other Models pool, on-demand usage, Bugbot, Auto, Automations, or the Cursor SDK. Upgrade to Pro for those. Read the [Cursor Start announcement](https://cursor.com/blog/cursor-start-india) for more detail.
-
-### How much usage do I need?
-
-- **Daily Tab users**: Typically stay within included usage
-- **Limited Agent users**: Often stay within included usage
-- **Daily Agent users**: Typically $60–$100/mo total usage
-- **Power users (multiple agents/automation)**: Often $200+/mo total usage
+Buy credit when you choose, or turn on **Auto Top-up** to refill when your balance drops below a threshold you set. A **monthly additional usage limit** caps how much paid additional usage you can consume each month, regardless of how much credit you hold. Manage all three under **Additional usage credits** at [grok.com/dashboard/billing](https://grok.com/dashboard/billing). On Teams, admins manage a shared prepaid balance and one cap for the whole team.
 
 ### What happens when I reach my limit?
 
-When you exceed your included monthly usage, you can either:
+When your weekly pool runs out, you can:
 
-- **Add on-demand usage**: Continue at the same API rates with pay-as-you-go billing
-- **Upgrade your plan**: Move to a higher tier for more included usage
+- **Wait for the reset.** Your pool refreshes weekly.
+- **Use prepaid credit.** Keep working at the same per-model rates with top-ups or Auto Top-up.
+- **Upgrade your plan.** Move to a higher tier for a larger weekly pool.
 
-On-demand usage is billed monthly at the same rates. Requests are never downgraded in quality or speed.
+Requests are never downgraded in quality or speed. See [Usage and limits](https://cursor.com/help/models-and-usage/usage-limits.md) for how to check usage and what the limit notification means.
 
-### Teams
+## Teams
 
-There are two business plans: Teams and Enterprise (Custom). Teams offers two seat types: Standard ($40/user/mo) and Premium ($120/user/mo), where Premium adds 5x the Standard limits on Agent.
+Teams are priced per seat. Each member gets a Premium, Super, or Ultra seat at the same price and with the same weekly usage as the matching individual plan, and you can mix seat tiers on one team. Plus isn't available for teams.
 
-Team plans provide additional features like centralized team billing and administration, a team marketplace for internal rules, skills, and plugins, agentic code reviews with Bugbot, cloud agents and automations with shared team context, usage analytics, team-wide privacy mode enforcement, and SAML/OIDC SSO.
+Team plans add centralized billing and administration, a team marketplace for internal rules, skills, and plugins, usage analytics, team-wide privacy mode enforcement, custom Chat data retention, and SAML/OIDC SSO. Enterprise adds pooled usage across Grok and Cursor, invoicing, SCIM, granular spend controls, and advanced security controls.
 
-We recommend Teams for any customer that is happy self-serving. We recommend [Enterprise](https://cursor.com/contact-sales?source=docs-models-pricing) for customers that need priority support, pooled usage, invoicing, SCIM, or advanced security controls.
-
-Learn more about [Teams pricing](https://cursor.com/docs/account/teams/pricing.md).
+We recommend Teams for any customer that is happy self-serving and [Enterprise](https://cursor.com/contact-sales?source=docs-models-pricing) for customers that need priority support, pooled usage, invoicing, SCIM, or advanced security controls. Learn more about [Team pricing](https://cursor.com/docs/account/teams/pricing.md).
 
 ## Cursor Token Rate
 
-On Teams and Enterprise plans, third-party model requests include a Cursor Token Rate of $0.25 per million tokens. This rate applies on top of model API pricing for included usage, on-demand usage, and BYOK usage.
+On Teams and Enterprise plans, third-party model requests include a Cursor Token Rate of $0.25 per million tokens. This rate applies on top of model API pricing for additional usage and BYOK usage. Individual plans don't pay it.
 
-The Cursor Token Rate applies when you select a third-party model directly, and when Auto routes to a third-party model. First-party Cursor models, including Grok and Composer, are exempt from the Cursor Token Rate.
+The Cursor Token Rate applies when you select a third-party model directly, and when Cursor Router (Balance or Intelligence) routes to a third-party model. Cost mode requests are exempt, and so are Cursor models, including Grok and Composer.
 
 ## Auto modes
 
 Auto has three modes: Cost, Balance, and Intelligence. See [Cursor Router](https://cursor.com/docs/cursor-router.md) for how these modes work.
 
-All Auto modes bill at the list price of the model each request is routed to. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates. Third-party models also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
+Cost mode (classic Auto) bills as a Cursor-model request and draws from your weekly pool whatever model serves it. On Teams and Enterprise with Cursor Router on, Balance and Intelligence bill at the routed model's list price: a route to a Cursor model draws from the weekly pool, and a route to a third-party model is third-party usage paid from prepaid credit. Individual plans have Cost mode only. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates. Third-party routes also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate) on Teams and Enterprise.
+
+## Legacy Cursor plans
+
+Hobby, Start, Pro, Pro+, Ultra, and Teams Standard and Premium seats continue for existing customers. They include two monthly usage pools, Cursor Models and Other Models, and use on-demand usage instead of top-ups. See [Legacy Cursor plans](https://cursor.com/docs/account/pricing/legacy-cursor-plans.md) for how they work and how they map to The X Subscription.
 
 ## Legacy request-based pricing
 
@@ -168,6 +171,14 @@ All Auto modes bill at the list price of the model each request is routed to. Se
 Max Mode is available only on legacy request-based plans. It extends a model's context window beyond the default limit and is billed at the model's API rate plus 20%. See [Max Mode on legacy plans](https://cursor.com/help/ai-features/max-mode.md) for details.
 
 ## FAQ
+
+### Is my weekly pool shared with Grok?
+
+Yes. Grok Chat, Imagine, Voice, Grok Bot, and Cursor all draw from the same weekly pool for Cursor models. Usage rates vary by product. The Grok API is billed separately and doesn't draw from the pool.
+
+### Can I use third-party models on Plus?
+
+No. Plus includes Cursor's own models only (Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5), at fixed settings. Upgrade to Premium or higher to use third-party models, billed at API list price from prepaid credit, and to choose Fast mode and effort levels.
 
 ### Where are models hosted?
 

@@ -6,7 +6,7 @@ path: /docs/account/teams/pricing
 
 # Team Pricing
 
-There are two business plans: Teams and Enterprise (Custom). Teams offers two types of seats: Standard ($40/user/mo) and Premium (5x usage at $120/user/mo).
+There are two business plans: Teams and Enterprise (Custom). On [The X Subscription](https://cursor.com/docs/models-and-pricing.md), Teams is priced per seat, and each seat is Premium ($30/user/mo), Super ($100/user/mo), or Ultra ($200/user/mo), the same prices and weekly usage as the matching individual plans.
 
 Team plans provide additional features like:
 
@@ -15,55 +15,51 @@ Team plans provide additional features like:
 - Agentic code reviews with Bugbot
 - Cloud agents and automations with shared team context
 - Usage analytics to understand team behavior
-- Team-wide privacy mode enforcement
+- Team-wide privacy mode enforcement and custom Chat data retention
 - SAML/OIDC SSO
 
 We recommend Teams for any customer that is happy self-serving. We recommend [Enterprise](https://cursor.com/docs/enterprise.md) for customers that need priority support, pooled usage, invoicing, SCIM, or advanced security controls. [Contact sales](https://cursor.com/contact-sales?source=docs-teams-pricing) to get started.
 
+Teams created before The X Subscription use Standard ($40/user/mo) and Premium ($120/user/mo) seats with two monthly usage pools and on-demand usage. Those teams keep working as they are. See [Legacy Teams seats](https://cursor.com/docs/account/teams/pricing.md#legacy-teams-seats).
+
 ## How pricing works
 
-Teams pricing is based on paid seats and usage. Each paid seat includes monthly usage, and you can continue using Cursor beyond that with on-demand usage.
+Teams pricing is based on paid seats and usage. Each paid seat includes weekly usage for Cursor models, and the team shares a prepaid balance for usage beyond that.
 
-### Seat types
+### Seat tiers
 
-Teams has two paid seat types and one free admin-only seat type:
+Teams has three paid seat tiers and one free seat:
 
-- **Standard**: $40/user/mo with the standard Teams usage allowance
-- **Premium**: $120/user/mo with 5x the usage of a Standard seat
-- **Free**: $0/user/mo for Unpaid Admins who manage the team without Cursor access
+- **Premium**: $30/user/mo with the Premium weekly usage pool
+- **Super**: $100/user/mo with the Super weekly usage pool, 3.75x Premium
+- **Ultra**: $200/user/mo with the Ultra weekly usage pool, 12.5x Premium
+- **Free**: $0/user/mo. Any Member or Admin can hold a Free seat. It has no team usage allowance; the member's usage draws from their own personal plan, or the small free allowance if they have none. Free seats are assigned through email invites or the Seat menu, not invite links
 
-Seat type is separate from role. Members and Admins can have either a Standard or Premium seat. Unpaid Admins don't use a paid seat.
+Seat tier is separate from role. Members and Admins can have any seat tier, and one team can mix tiers, for example three Premium seats and one Super seat. Plus isn't available for teams.
 
 ### Included usage
 
-Each paid seat comes with included usage across two pools:
+Each paid seat has its own weekly pool for Cursor models (Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5), shared across Cursor and Grok for that person. Seats don't share weekly pools with each other, and usage doesn't transfer between team members. The pool refreshes weekly.
 
-- Cursor Models (Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5)
-- Other Models (third-party models)
+Third-party models aren't included. They're billed at public list API prices plus the Cursor Token Rate, paid from the team's prepaid balance from the first request. This includes when Cursor Router (Balance or Intelligence) routes to a third-party model. Cost mode requests and Cursor models, including Grok and Composer, are exempt from the Cursor Token Rate.
 
-Usage is allocated per user based on seat type, does not transfer between team members, and resets at the start of each billing cycle. Third-party Other Models usage is charged at public list API prices plus the Cursor Token Rate. This includes when Auto routes to a third-party model. Cursor Models, including Grok and Composer, are exempt from the Cursor Token Rate.
-
-The [usage dashboard](https://cursor.com/dashboard/usage) tracks included usage separately for:
-
-- Cursor Models
-- Other Models (third-party models)
+Admins can see team usage under **Usage** at [grok.com/dashboard](https://grok.com/dashboard) and per-member spend through the [Admin API](https://cursor.com/docs/account/teams/admin-api.md).
 
 Our [Enterprise plan](https://cursor.com/docs/enterprise.md) offers pooled usage shared between all users in a team. [Get in touch](https://cursor.com/contact-sales?source=docs-teams-pricing) with our team to learn more.
 
-### On-demand usage
+### Additional usage and top-ups
 
-On-demand usage allows you to continue using models after included usage is consumed, billed in arrears.
+Additional usage is any third-party model usage, plus any Cursor model usage after a seat's weekly pool runs out. It's paid from a prepaid balance the whole team shares.
 
-When a team member consumes all of their included third-party Other Models usage, Cursor switches them to the Cursor Models pool. If they continue using third-party Other Models, or if they fully consume their Cursor Models pool usage, they continue with **on-demand usage** if it is enabled.
-
-- Third-party models are billed monthly at public list API prices plus the Cursor Token Rate
-- First-party Cursor models, including Grok and Composer, are billed monthly at their token rates with no Cursor Token Rate
-- All Auto modes bill at the list price of the model each request is routed to. Third-party models also incur the Cursor Token Rate
+- Admins buy credit with one-time top-ups, or turn on **Auto Top-up** to refill the balance when it drops below a threshold
+- Third-party models are billed at public list API prices plus the Cursor Token Rate
+- Cursor models beyond the weekly pool are billed at their token rates with no Cursor Token Rate
+- Cost mode (classic Auto) bills as a Cursor-model request. With Cursor Router on, Balance and Intelligence bill at the routed model's list price, and a third-party route also incurs the Cursor Token Rate
 - No interruption in service or quality
 - Tracked per user in your admin dashboard (see [spending data API](https://cursor.com/docs/account/teams/admin-api.md#get-spending-data))
-- Can be controlled with spending limits
+- Capped with a monthly additional usage limit
 
-On-demand usage is enabled by default for the Teams plan.
+Additional usage stops when the prepaid balance is empty or the team's monthly additional usage limit is reached, whichever comes first. Manage the balance, Auto Top-up, and the limit under **Additional usage credits** at [grok.com/dashboard/billing](https://grok.com/dashboard/billing). Only admins can change these settings.
 
 ### Cursor Token Rate
 
@@ -72,28 +68,34 @@ The Cursor Token Rate is $0.25 per million tokens and is charged on third-party 
 - Custom model execution (Tab, Apply, etc.)
 - Infrastructure and processing costs
 
-The Cursor Token Rate applies to input tokens, output tokens, and cached tokens on eligible third-party model requests. This includes when Auto routes to a third-party model. This applies to [BYOK](https://cursor.com/help/models-and-usage/api-keys.md) as well. First-party Cursor models, including Grok and Composer, are exempt.
+The Cursor Token Rate applies to input tokens, output tokens, and cached tokens on eligible third-party model requests. This includes when Cursor Router (Balance or Intelligence) routes to a third-party model. This applies to [BYOK](https://cursor.com/help/models-and-usage/api-keys.md) as well. Cost mode requests are exempt, and so are Cursor models, including Grok and Composer.
 
 See [Auto modes](https://cursor.com/docs/models-and-pricing.md#auto-modes) for Auto pricing.
 
 ## Active seats
 
-Cursor bills per active paid seat, not pre-allocated seats. Add, remove, upgrade, or downgrade users anytime and billing will adjust based on seat type.
+Cursor bills per active paid seat, not pre-allocated seats. Add, remove, upgrade, or downgrade users anytime and billing will adjust based on seat tier.
 
-- Adding a member mid-cycle creates a pro-rated charge
-- Removing a member who used credits keeps the seat occupied until the cycle ends
-- Billing adjustments appear as account credit on a future invoice when applicable
+- Adding a member mid-cycle creates a pro-rated charge for the rest of the billing period
+- Upgrading a seat applies right away and charges the pro-rated difference; downgrading applies at the end of the billing period
+- Removing a member frees their seat for the next person who joins. Reduce seats in billing to stop paying for it at the end of the period
 - Your renewal date stays the same
 
 ## Spending controls
 
-Teams can configure monthly team-wide spending limits. You can manage these limits through the dashboard. Per-member spend limits are available on [Enterprise](https://cursor.com/docs/enterprise.md) plans.
+Admins set one monthly additional usage limit for the whole team (no limit or a fixed amount), plus a default monthly limit per member and per-member overrides from the Members page. When the team limit is reached, paid additional usage pauses until next month or until an admin raises it, even if prepaid credit remains.
 
 Contact `enterprise@cursor.com` for volume discounts on larger teams.
 
+## Legacy Teams seats
+
+Teams created before The X Subscription have two paid seat types, Standard ($40/user/mo) and Premium ($120/user/mo, with 5x the Standard allowance), plus a free Unpaid Admin seat. Each paid seat includes monthly usage across two pools, Cursor Models and Other Models, and keeps working with on-demand usage after included usage is consumed. On-demand usage is on by default, billed in arrears, and capped with a team-wide spend limit.
+
+Existing teams can keep adding seats and changing seat types without switching. A team owner or admin can move the team to The X Subscription at [cursor.com/unify/team](https://cursor.com/unify/team). See [Legacy Cursor plans](https://cursor.com/docs/account/pricing/legacy-cursor-plans.md) for the full comparison and [Team plans on The X Subscription](https://cursor.com/help/the-x-subscription/overview.md) for what happens when a team switches.
+
 ## Model Pricing
 
-All prices are per million tokens. Teams are charged at public list API prices plus [Cursor Token Rate](https://cursor.com/docs/account/teams/pricing.md#cursor-token-rate) for third-party model requests, including when Auto routes to a third-party model.
+All prices are per million tokens. Teams are charged at public list API prices plus [Cursor Token Rate](https://cursor.com/docs/account/teams/pricing.md#cursor-token-rate) for third-party model requests, including when Cursor Router (Balance or Intelligence) routes to a third-party model.
 
 | Model                                                                                         | Provider  | Input | Cache write | Cache read | Output | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --------------------------------------------------------------------------------------------- | --------- | ----- | ----------- | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
