@@ -570,8 +570,8 @@
       "title": "Capabilities"
     },
     "cloud-agent__identity.md": {
-      "hash": "44452aaf791984ad99a4708ac2a9d1c39359f4ef33027af41230daad5e46f206",
-      "last_updated": "2026-10-13T21:20:32+00:00",
+      "hash": "8bb4bfc42d5d1ec597d38dccaa17d950ed138e502221ba4012848323f836f04e",
+      "last_updated": "2026-10-15T00:50:33+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
@@ -669,8 +669,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "f9d18e3e5500e4cd487714ce52418f3937d76ecc0c0e4089166a40903f7384cc",
-      "last_updated": "2026-10-14T18:27:44+00:00",
+      "hash": "2a18b3647cf70033b34ebcaeaae49fc0b443b155e9fde9259190a28df97b3d63",
+      "last_updated": "2026-10-15T00:50:37+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1924,7 +1924,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-14T21:20:10+00:00",
+  "last_updated": "2026-10-15T00:51:19+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

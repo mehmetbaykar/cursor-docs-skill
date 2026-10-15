@@ -174,7 +174,7 @@ Header: `alg=RS256`, `typ=JWT`, plus `kid`.
 
 ## Claim tokens
 
-A [Team Pool controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#build-your-own-controller) can get a token when it [claims a pending request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request), before any worker starts. The token tells your systems which agent and owner the claim is for, so you can check both before you create the machine or give it credentials. The controller requests it with its service account API key. No socket is involved.
+A [Team Pool controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#build-your-own-controller) can get a token when it [claims a pending request](https://cursor.com/docs/cloud-agent/api/endpoints.md#claim-a-pending-request), before any worker starts. The token tells your systems which agent and owner the claim is for, so you can check both before you create the machine or give it credentials. The controller requests it with its service account API key. No socket is involved. The built-in controller requests one on every claim with [`--identity-audience`](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#identity-tokens).
 
 ### Request a claim token
 
