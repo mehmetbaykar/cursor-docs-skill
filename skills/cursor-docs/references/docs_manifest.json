@@ -228,8 +228,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "b27fe105dd9072c494bb340a81edc297f95be5f8f4b1f9ab905dfe571e2b8807",
-      "last_updated": "2026-10-13T18:30:53+00:00",
+      "hash": "5ee37bd50fd4c825ebecd4a3595a212b94a2fe46adb20fa83fedd0664102a6c4",
+      "last_updated": "2026-10-15T21:20:09+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
@@ -1924,7 +1924,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-15T00:51:19+00:00",
+  "last_updated": "2026-10-15T21:21:01+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
