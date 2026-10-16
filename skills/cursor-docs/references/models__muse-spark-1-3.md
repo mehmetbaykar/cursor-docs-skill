@@ -4,12 +4,14 @@ source: https://cursor.com/docs/models/muse-spark-1-3
 path: /docs/models/muse-spark-1-3
 ---
 
+We recommend using [Muse Wonder](https://cursor.com/docs/models/muse-wonder.md). It's Meta's latest flagship model.
+
 Meta is a new model provider in Cursor. Teams and Enterprise admins who
 configured [model access](https://cursor.com/docs/enterprise/model-and-integration-management.md#model-access-control)
 before Meta was available need to enable the Meta provider before Muse Spark
 1.3 appears for their members.
 
-Muse Spark 1.3 is Meta's flagship model and the first Meta model available in Cursor. It is built for agentic coding: long tool-use chains, multi-step debugging, and large-repository work.
+Muse Spark 1.3 is Meta's previous flagship model and the first Meta model available in Cursor. It is built for agentic coding: long tool-use chains, multi-step debugging, and large-repository work.
 
 ## Strengths
 
