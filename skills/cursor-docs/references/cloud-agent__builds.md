@@ -32,7 +32,7 @@ If a new Build fails, agents continue to use the last successful Build. A broken
 
 Builds are for Cursor-hosted Cloud Agents. Runs on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines) start on your machine as is and never boot a Build.
 
-Builds are turned off for teams that [require Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents), because Builds run on Cursor-hosted machines. Cursor doesn't build the team's environments or the personal environments of its members. The Builds tab says environment builds are turned off and doesn't offer **Trigger build**.
+Builds are turned off for teams that [require Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents), because Builds run on Cursor-hosted machines. Cursor doesn't build the team's environments or the personal environments of its members. The Builds tab says environment builds are turned off and doesn't offer **Trigger build**. Saving an environment snapshot is refused for the same teams and members, and from any run on a Self-Hosted Machine.
 
 ## When Builds occur
 

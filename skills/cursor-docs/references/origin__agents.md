@@ -18,6 +18,7 @@ Common triggers for Origin repos:
 
 - **Push to branch** — for example push to `main` or `master`
 - **Pull request opened**, **Pull request pushed**, and related PR events
+- **Label change**, when a label is added to or removed from a pull request
 
 Create automations from [cursor.com/automations](https://cursor.com/automations), the Agents Window, or the `/automate` skill. Choose the Origin repository (or a multi-repo environment that includes it), set the trigger and prompt, then save and activate.
 

@@ -1278,7 +1278,7 @@ for (const run of runs) {
 }
 ```
 
-For a cloud agent called without `runId`, `usage` and `cost` also count the agent's Task subagents and side chats, so they can be larger than the sum of `runs`.
+For a cloud agent called without `runId`, `usage` and `cost` also count the agent's Task subagents and side chats, so they can be larger than the sum of `runs`. With `runId`, `usage`, `cost`, and the run's entry also count subagent and side chat usage from when the run started until the agent's next run started, as described in [Get Agent Usage](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-agent-usage).
 
 Cost includes discounts and can take a moment to settle after a run ends; `cost` is absent until it does. `chargedCents` is `0` for plan-included, BYOK, and credit-grant usage.
 
