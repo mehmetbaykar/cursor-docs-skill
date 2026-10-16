@@ -281,7 +281,7 @@ From the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents), pi
 
 Use pool triggers when you want a Cloud Agent to run on your team's shared worker fleet. Pool workers are the right target for centrally managed capacity, autoscaling, CI-like runners, and repo-scoped infrastructure.
 
-Team admins control self-hosted routing from the Self-Hosted section of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). **Allow Self-Hosted Machines** lets users opt in per request. Without opt-in, runs use Cursor's managed infrastructure. **Require Self-Hosted Machines** routes Cloud Agent runs to self-hosted workers.
+Team admins control self-hosted routing from the Self-Hosted section of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). **Allow Self-Hosted Machines** lets users opt in per request. Without opt-in, runs use Cursor's managed infrastructure. **Require Self-Hosted Machines** routes Cloud Agent runs to self-hosted workers. An agent that started on Cursor's managed infrastructure before the setting was turned on can't get a new managed machine afterward. When a follow-up needs one, the run fails and asks you to start a new agent on a self-hosted worker.
 
 When Cursor starts a pool agent, it matches workers with labels. Pool requests for a repository include a `repo=<owner/repo>` label; requests to an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) without a repository omit it. Requests for a named pool also include `pool=<name>`.
 
@@ -291,6 +291,8 @@ Pool workers handle:
 - Requests with `self_hosted=true` or its short form, `sh=1`
 - Requests with `pool=<name>`, which also selects that named pool
 - Self-hosted requests with repository selection from the trigger surface, such as `repo=<owner/repo>` where supported
+
+When a run covered by **Require Self-Hosted Machines** names no pool or machine and no pool worker can take it, Cursor runs it on one of your own connected [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) workers instead. A teammate's machine is never used.
 
 `repo=` selects the repository for the run. For Team Pool runs, that repository becomes the `repo=<owner/repo>` worker label. It does not target a personal machine.
 

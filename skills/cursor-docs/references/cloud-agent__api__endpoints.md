@@ -749,7 +749,7 @@ Scope the response to a single run (for example, `run-00000000-0000-0000-0000-00
 
 `totalUsage` object
 
-Token usage for the request. Without `runId`, it also counts usage from the agent's Task subagents and side chats, and usage not tied to a run, so it can be larger than the sum of `runs`. With `runId`, it covers that run alone. Contains the same fields as each run's `usage` object.
+Token usage for the request. Without `runId`, it also counts usage from the agent's Task subagents and side chats, and usage not tied to a run, so it can be larger than the sum of `runs`. With `runId`, it covers that run, plus the Task subagent, side chat, and other usage not tied to a run from when the run started until the agent's next run started. The first run to start also gets such usage from before it started, and a run that never started gets none. The run's entry in `runs` includes the same usage. Contains the same fields as each run's `usage` object.
 
 `runs` array
 
