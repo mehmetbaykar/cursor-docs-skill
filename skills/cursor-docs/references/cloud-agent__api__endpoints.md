@@ -82,7 +82,7 @@ Named Cursor-hosted environment, pool, or machine name. For `env.type: "pool"`, 
 
 `repos` array (optional)
 
-Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. You can also omit `repos` when `env.type` is `pool` to target an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools). Maximum 300 repositories.
+Repository configuration. Mutually exclusive with a named cloud environment. Omit both `repos` and `env` to start a no-repo agent. You can also omit `repos` when `env.type` is `pool` to target an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools). Maximum 500 repositories.
 
 On self-hosted targets, only a named any-repo pool takes more than one repository. `machine`, the `default` pool, and repo-backed pools take one; sending more returns `400 validation_error` with the message "My Machines and repo-bound pools accept one repo in repos. To start an agent with several repos, set env.name to an any-repo pool."
 
@@ -1007,7 +1007,7 @@ Display name, up to 255 characters. It must differ from the names of the owner's
 
 `repos` array (required)
 
-Repositories for the environment. Each entry has a `url` (for example, `https://github.com/your-org/your-repo`). Maximum 300 repositories. Send an empty array for an environment without repositories. A repository Cursor can't reach through your source control integration returns `400 repository_access`.
+Repositories for the environment. Each entry has a `url` (for example, `https://github.com/your-org/your-repo`). Maximum 500 repositories. Send an empty array for an environment without repositories. A repository Cursor can't reach through your source control integration returns `400 repository_access`.
 
 `environmentJson` string (required)
 
