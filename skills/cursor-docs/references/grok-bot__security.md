@@ -38,7 +38,7 @@ A control sits on each of those paths. Each one links to its section on this pag
 - **The policy is separate from Cloud Agent network settings.** Running computers apply changes automatically within about a minute. Sleeping computers apply changes when they next wake. You don't need to recreate the computer.
 - **Restricting egress limits where data can be sent.** Dedicated data loss prevention hooks are not available.
 
-Blocking a plugin doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.
+Blocking an app doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.
 
 ## Static egress IPs
 
@@ -58,7 +58,7 @@ Approvals keep consequential actions under the member's control. The strongest b
 
 When an action needs approval, the conversation shows the proposed operation and its inputs. **Allow once** lets the Bot continue with that action, **Always allow** can save a matching rule, and **Deny** blocks it. The controls are the same on iPhone. An approval controls the proposed action, not work already completed, and nobody should approve an action whose target or effect they can't identify.
 
-Auto Review is the review layer behind those prompts: an independent review model that evaluates risky Bot actions before they run, covering shell commands, plugin calls, computer use, automation writes (changes to routines and event triggers), and delegation such as Cloud Agent and subagent launches. It can let an action proceed, require approval, or deny it.
+Auto Review is the review layer behind those prompts: an independent review model that evaluates risky Bot actions before they run, covering shell commands, app calls, computer use, automation writes (changes to routines and event triggers), and delegation such as Cloud Agent and subagent launches. It can let an action proceed, require approval, or deny it.
 
 - **Team admins can enforce Auto-review. Enterprise only.** The switch lives on the Grok Bot page of the Cursor dashboard. When it is on, members can't turn Auto-review off, unless a group they belong to lifts the lock with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 - **Admins can add team Auto-review rules. Enterprise only.** These live on the Grok Bot page too. They apply to every member's Bots, show up as locked rows in the member settings table, and save automatically when an admin adds, edits, or deletes a rule. If admins turn enforcement off, the team rules stop applying and members go back to their own rules only.
@@ -79,7 +79,7 @@ A Bot has no identity or credentials of its own:
 
 To end a member's current work, an organization admin terminates the member's computer from the dashboard; see [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md). That control is Enterprise only. It stops running Bots, keeps the durable disk, and the member's next session starts a fresh computer. It does not remove access. To remove access, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. Application sessions persist only on the member's computer.
 
-When a project or login should no longer be available, members clean up directly: pause or delete related routines, sign out of websites on the computer, uninstall plugins and revoke their authorization in the source service, and remove sensitive files from `/workspace`. Deleting a Bot doesn't remove computer files or browser sessions.
+When a project or login should no longer be available, members clean up directly: pause or delete related routines, sign out of websites on the computer, remove connected apps and revoke their authorization in the source service, and remove sensitive files from `/workspace`. Deleting a Bot doesn't remove computer files or browser sessions.
 
 ## Logging and audit
 
@@ -128,7 +128,7 @@ Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, dep
 
 ## Prompt injection
 
-Content a Bot reads from the outside world, like web pages, plugin results, and command output, can try to steer it. Grok Bot layers defenses: Auto Review checks Bot actions against the member's request when enforcement is on, and beneath it sit controls that don't depend on any model's judgment, including the network policy, per-action approvals, and per-user isolation. Outside content is marked as untrusted data when presented to the model. These controls reduce, but don't eliminate, risk from malicious content, which is another reason to keep consequential actions behind approval.
+Content a Bot reads from the outside world, like web pages, app results, and command output, can try to steer it. Grok Bot layers defenses: Auto Review checks Bot actions against the member's request when enforcement is on, and beneath it sit controls that don't depend on any model's judgment, including the network policy, per-action approvals, and per-user isolation. Outside content is marked as untrusted data when presented to the model. These controls reduce, but don't eliminate, risk from malicious content, which is another reason to keep consequential actions behind approval.
 
 ## Certifications
 

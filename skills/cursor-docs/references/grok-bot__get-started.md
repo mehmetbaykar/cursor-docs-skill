@@ -39,9 +39,10 @@ For sign-in problems, see [Sign in to Grok Bot](https://cursor.com/help/grok-bot
 After you sign in, click through a short intro. Grok Bot then sets up
 your first Bot, named **Grok Bot**, and opens a chat with it.
 
-To add more Bots, choose **New chat** (the **+** button) in the sidebar,
-then **Create new Bot**. On a Cursor team, **Create new Team Bot** makes a
-Bot your whole team can chat with; see [Team Bots](https://cursor.com/help/grok-bot/team-bots.md).
+To add more Bots, choose **New Bot** (the **+** button) in the sidebar,
+name the Bot, and choose **Create**. On a Cursor team, open the command
+palette and choose **Create new Team Bot** to make a Bot your teammates
+can chat with; see [Team Bots](https://cursor.com/help/grok-bot/team-bots.md).
 Give each Bot one primary job in its first message and ask it to remember
 how it should work. To rename it, click its name at the top of the chat to
 open its details. A focused Bot builds more useful context than one
@@ -68,8 +69,8 @@ When the Bot reaches an app that requires authentication, it hands you
 the computer. Click **Open computer**, take over, enter the password or
 two-factor code yourself, and return control. The Bot doesn't see your
 password, and the signed-in session persists on your computer for future
-tasks. For supported services, you can also [connect a
-plugin](https://cursor.com/docs/grok-bot/work.md#connect-plugins) instead.
+tasks. For supported services, you can also [connect an
+app](https://cursor.com/docs/grok-bot/work.md#connect-apps) instead.
 
 ### Review the result and make it stick
 
@@ -87,7 +88,7 @@ Some flows stay on desktop: teaching a workflow by demonstration, testing routin
 
 ## If something doesn't work
 
-Most setup problems clear after you fully quit and reopen the app. For symptom-by-symptom help with computers, routines, plugins, and startup, see [Grok Bot How Tos](https://cursor.com/help/grok-bot/how-to.md#how-do-i-troubleshoot-grok-bot-computer-routine-connector-and-startup-problems) in the help center, or [contact support](https://cursor.com/help/grok-bot/get-help.md).
+Most setup problems clear after you fully quit and reopen the app. For symptom-by-symptom help with computers, routines, connected apps, and startup, see [Grok Bot How Tos](https://cursor.com/help/grok-bot/how-to.md#how-do-i-troubleshoot-grok-bot-computer-routine-connector-and-startup-problems) in the help center, or [contact support](https://cursor.com/help/grok-bot/get-help.md).
 
 ## Related pages
 

@@ -35,9 +35,9 @@ The setting applies to one desktop. If your Enterprise admin turns off **Allow L
 
 For private network options and their tradeoffs, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
-## Plugins
+## Connected apps
 
-Plugins aren't in settings. Open **Connect apps** in the sidebar to find plugins and packaged skills. Select the connected count next to the title to manage installed plugins and private skills. An installed plugin may still need browser authentication, and individual plugin tools can be enabled or disabled. On the Teams plan and the Enterprise plan, team-provided plugins may be required or restricted by an admin. See [Connect plugins](https://cursor.com/help/grok-bot/connect-plugins.md).
+Apps aren't in settings. Open **Connect apps** in the sidebar to find apps and packaged skills. Select the connected count next to the title to manage installed apps and private skills. An installed app may still need browser authentication, and individual app tools can be enabled or disabled. On the Teams plan and the Enterprise plan, an admin may restrict which apps members can use. See [Connect apps](https://cursor.com/help/grok-bot/connect-apps.md).
 
 ## Usage and billing
 

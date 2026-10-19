@@ -128,6 +128,8 @@ In **Configuration**, choose which signals the agent should use:
 
 Use these signals to decide whether the agent should rely on AI reviewer output, security findings, and risk thresholds before approving.
 
+**Mode**, the first option in **Configuration**, sets how the agent trades speed for cost. **Default** is faster. **Low** costs less and runs slower.
+
 ### Customize approval rules
 
 Use the **Custom Prompt** to add approval criteria for your team. You can describe local review expectations, examples of PRs that are safe to approve, or cases that require human review.

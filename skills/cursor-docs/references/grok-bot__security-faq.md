@@ -22,15 +22,15 @@ works on a user's computer during that user's own chat with it.
 
 ### What can a Bot access?
 
-Only accounts and plugins the member or team grants. A Bot has no
+Only accounts and connected apps the member or team grants. A Bot has no
 identity of its own and cannot hold more access than the signed-in
 member. Connector tokens stay on Cursor's backend. Login, two-factor,
 and payment steps are handed to the member. See
 [identity and sign-ins](https://cursor.com/docs/grok-bot/security.md#identity-and-sign-ins).
 
-### If we block a plugin, can a Bot still reach that service in the browser?
+### If we block an app, can a Bot still reach that service in the browser?
 
-Yes. Blocking a plugin doesn't block that service's website. The
+Yes. Blocking an app doesn't block that service's website. The
 connector policy and the [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy)
 are separate layers. Closing the website path takes **Network Controls**,
 which is Enterprise only.
@@ -98,7 +98,7 @@ inspection, and apply the change to off-network profiles too. See
 
 ### What does Auto Review check?
 
-With enforcement on, Auto Review evaluates shell commands, plugin calls,
+With enforcement on, Auto Review evaluates shell commands, app calls,
 computer use, automation writes, and delegation such as Cloud Agent and
 subagent launches. It can let an action proceed, require approval, or
 deny it. On Enterprise, team admins can enforce Auto-review from the Grok
