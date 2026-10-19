@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "d9ade7f6c015c1709662d26975998156009ef3e9f18a8f0ebc29b566f0bed003",
-      "last_updated": "2026-10-11T09:23:35+00:00",
+      "hash": "0626bc34bffae77d7cf7fb5fd6e478647ca51d8060677d5755a746d15166a04b",
+      "last_updated": "2026-10-19T18:27:19+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -687,8 +687,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "afb8ca2536e74b2165a2016409438e26152774e99e8036e2d8b6e2a68d332674",
-      "last_updated": "2026-10-19T00:56:45+00:00",
+      "hash": "7792c9dbd64205962a51268edceb0f29dfb9b8ec65669c7a60d0eb3dfce0583e",
+      "last_updated": "2026-10-19T18:27:41+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -786,8 +786,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "5cb0cf500fcc6f9d85fb2caffffa215080183f08df927baa75b0b45f7b91d274",
-      "last_updated": "2026-10-11T09:24:06+00:00",
+      "hash": "a666e2a66ab35eebedaaa22a8a5a27045249f4c721aa58923bdf45ecb2e42f56",
+      "last_updated": "2026-10-19T18:27:44+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
@@ -795,8 +795,8 @@
       "title": "Manage Grok Bot computers"
     },
     "grok-bot__deployment.md": {
-      "hash": "5874e1b84d5f428cdbf0450e9b9d3bd63a59f36e718bd8799daf4dd2f28e8056",
-      "last_updated": "2026-10-11T09:24:06+00:00",
+      "hash": "3206b924e1471fb68d0f36f96e79fc7c46797f4e00ec5cef6a3061713988d3a9",
+      "last_updated": "2026-10-19T18:27:44+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/deployment",
       "path": "/docs/grok-bot/deployment",
       "source_url": "https://cursor.com/docs/grok-bot/deployment",
@@ -1933,7 +1933,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-19T00:57:23+00:00",
+  "last_updated": "2026-10-19T18:28:20+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
