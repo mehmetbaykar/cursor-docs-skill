@@ -55,7 +55,9 @@ Cursor resolves environment configuration by repository or repo group, using the
 
 This gives you predictable defaults at the team level while still letting individual users override with a personal environment. User overrides are also useful to allow testing out a new environment configuration before rolling it out to the entire team.
 
-A saved environment runs with the configuration saved in it. It reads `.cursor/environment.json` from a repository only when its **environment.json location** points at that file. New environments start with the location set to **None (skip environment.json)**. To use a committed file, pick its repository when you create the environment.
+A saved environment runs with the configuration saved in it. It reads `.cursor/environment.json` from a repository only when its **environment.json location** points at that file. Environments you create start with the location set to **None (skip environment.json)**. To use a committed file, pick its repository when you create the environment.
+
+When a cloud agent start creates a saved environment for a single repository that doesn't have one yet, it checks that repository for a committed `.cursor/environment.json`. If the file is valid, the new environment's **environment.json location** points at it, so that agent, later agents, and Builds all use the file.
 
 Environment configuration applies to Cursor-hosted Cloud Agents. A run on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines) uses only the environment's repositories and never reads `.cursor/environment.json`.
 

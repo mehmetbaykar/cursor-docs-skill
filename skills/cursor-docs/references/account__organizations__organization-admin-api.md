@@ -1985,9 +1985,9 @@ curl -X GET "https://api.cursor.com/organizations/audit-logs?startTime=7d&endTim
 
 ## Grok Bot computers
 
-Recreate, terminate, or delete the hosted computers that run Grok Bot for a team's members, then follow the operation until every member has a result. These routes run the same operations as **Manage Bot Computers** in the dashboard. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md) for what each action does to a member's computer and what the member sees.
+Recreate, terminate, or delete the hosted computers that run Grok Bot for a team's members, or delete all of their Grok Bot data, then follow the operation until every member has a result. These routes run the same operations as **Manage Member Computers and Data** in the dashboard. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md) for what each action does to a member's computer and what the member sees.
 
-- **Availability**: Enterprise only. Access is turned on per team; contact your account team to turn it on. Until then, every route returns `403` for that team.
+- **Availability**: Enterprise only.
 - **Authentication**: Organization API key (Basic auth) with the **`admin:*`** scope. Keys with any other scope return `401`. These routes take an Organization API key rather than a Team API key because one computer serves every team a member belongs to.
 - **Team**: `teamId` in the path must be a team linked to your organization. Any other team returns `404`.
 - **One operation per team**: A team runs one operation at a time. Starting another while one runs returns `409` with the running operation's ID.
@@ -1999,7 +1999,6 @@ Operation routes share these error responses:
 | ------ | ----------------------------------------------------------------------------------------------------------------------- |
 | `400`  | Malformed body or query, an unknown body field, a `userId` that isn't a current member of the team, or too many members |
 | `401`  | Invalid API key, or the key is missing the `admin:*` scope                                                              |
-| `403`  | Grok Bot computer operations aren't turned on for the team                                                              |
 | `404`  | The team isn't linked to your organization, or the operation doesn't exist or is no longer available                    |
 | `409`  | Another operation is running for the team (start only)                                                                  |
 | `429`  | Rate limit exceeded. The response includes a `Retry-After: 60` header                                                   |
@@ -2028,10 +2027,11 @@ What to do to each member's computer:
 - `recreate_vm` - Build a replacement computer on the latest image and run Team Setup. Bots, files, and logins carry over, and a Bot that is mid-turn pauses and resumes on the new computer.
 - `terminate_vm` - Delete the member's current computer and keep the durable disk. The member's next message starts a fresh computer.
 - `delete_vm_and_data` - Delete the computer and its durable data, so the member starts from empty. This can't be undone.
+- `delete_grok_bot_data` - Delete all of the member's [Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). This can't be undone.
 
 `userIds` number\[] Required
 
-Numeric user IDs of the members to change. To collect them, call [List Organization Members](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-members) with `teamId`. Send at least 1 and at most 25,000 IDs, or at most 1,000 for `delete_vm_and_data`. Duplicates are ignored. Every ID must belong to a current member of the team who has signed in to Cursor; if one doesn't, the request returns `400` and nothing starts. Members without a computer are skipped for recreate and terminate. `delete_vm_and_data` still deletes durable data.
+Numeric user IDs of the members to change. To collect them, call [List Organization Members](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-members) with `teamId`. Send at least 1 and at most 25,000 IDs, at most 1,000 for `delete_vm_and_data`, or at most 100 for `delete_grok_bot_data`. Duplicates are ignored. Every ID must belong to a current member of the team who has signed in to Cursor; if one doesn't, the request returns `400` and nothing starts. Members without a computer are skipped for recreate and terminate. `delete_vm_and_data` and `delete_grok_bot_data` still delete the member's data.
 
 `operationId` string Required
 
@@ -2085,15 +2085,6 @@ curl -X POST https://api.cursor.com/organizations/teams/7/grok-bot/operations \
 }
 ```
 
-**403: operations aren't turned on for the team:**
-
-```json
-{
-  "code": "error",
-  "message": "Bot fleet admin API access is not enabled for this team"
-}
-```
-
 ### Get Grok Bot Computer Operation
 
 GET
@@ -2130,7 +2121,7 @@ The operation's ID.
 
 `action` string
 
-`recreate_vm`, `terminate_vm`, or `delete_vm_and_data`.
+`recreate_vm`, `terminate_vm`, `delete_vm_and_data`, or `delete_grok_bot_data`.
 
 `state` string
 
@@ -2138,7 +2129,7 @@ The operation's ID.
 
 `counts` object
 
-Member counts across the whole operation: `total`, `queued`, `running`, `succeeded`, `skipped`, and `failed`. `noVmSkipped` is the part of `skipped` made up of members who had no computer. It's always `0` for `delete_vm_and_data`, which deletes durable data whether or not a computer is running.
+Member counts across the whole operation: `total`, `queued`, `running`, `succeeded`, `skipped`, and `failed`. `noVmSkipped` is the part of `skipped` made up of members who had no computer. It's always `0` for `delete_vm_and_data` and `delete_grok_bot_data`, which delete the member's data whether or not a computer is running.
 
 `items` array | null
 
@@ -2166,6 +2157,8 @@ The `reason` values you're most likely to see:
 | `team-member-not-found`        | `skipped` | The member left the team while the operation was queued                                                          |
 | `member-identity-changed`      | `skipped` | The member's account changed while the operation was queued                                                      |
 | `recreate-already-in-progress` | `failed`  | The member's computer was already being recreated. Start a new operation for this member once it finishes        |
+| `delete-already-in-progress`   | `failed`  | The member's Grok Bot data was already being deleted                                                             |
+| `delete-failed`                | `failed`  | The deletion didn't finish, or the member is on legal hold                                                       |
 | `authorization-revoked`        | `failed`  | The API key that started the operation was revoked, expired, or lost `admin:*` before Cursor reached this member |
 
 Any other `reason` on a failed member means the action didn't finish. Start a new operation for those members. See [Skipped and failed members](https://cursor.com/docs/grok-bot/computers.md#skipped-and-failed-members) for what to do next.

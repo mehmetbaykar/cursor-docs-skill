@@ -114,11 +114,11 @@ Either way, upgrade before the installed version loses support. A held package s
 
 Cursor maintains the hosted computer's image, so there is no image for you to pin or supply. A computer moves to a newer image in one of three ways:
 
-| Trigger                   | What happens                                                                                                                                                                                                       | Who starts it                                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| New image                 | Cursor recreates idle computers on the new image in the background, gradually and without a fixed schedule. Until then, a computer stays on its current image. Member files carry over, and Team Setup runs again. | Cursor, in the background                                                                                     |
-| **Update Bot's Computer** | Rebuilds the member's computer on the latest image. Scheduling it for a later time isn't available to every account yet.                                                                                           | The member, from **Settings** > **Computer** > **Bot's computer** in the desktop app                          |
-| **Recreate VMs**          | Rebuilds the selected members' computers on the latest image and Team Setup Scripts                                                                                                                                | Organization admins on Enterprise, from [Manage Bot Computers](https://cursor.com/docs/grok-bot/computers.md) |
+| Trigger                   | What happens                                                                                                                                                                                                       | Who starts it                                                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| New image                 | Cursor recreates idle computers on the new image in the background, gradually and without a fixed schedule. Until then, a computer stays on its current image. Member files carry over, and Team Setup runs again. | Cursor, in the background                                                                                                 |
+| **Update Bot's Computer** | Rebuilds the member's computer on the latest image. Scheduling it for a later time isn't available to every account yet.                                                                                           | The member, from **Settings** > **Computer** > **Bot's computer** in the desktop app                                      |
+| **Recreate VMs**          | Rebuilds the selected members' computers on the latest image and Team Setup Scripts                                                                                                                                | Organization admins on Enterprise, from [Manage Member Computers and Data](https://cursor.com/docs/grok-bot/computers.md) |
 
 Running computers pick up Team Setup manifest changes roughly once a day. To apply a change sooner, recreate the computers. On Enterprise, [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs) record computer updates, resets, recreates, and terminations as `grok_bot_vm` events, and operations across many members as `grok_bot_vm_bulk`.
 
@@ -198,7 +198,7 @@ computer](https://cursor.com/docs/grok-bot/identity.md#allow-sign-in-to-idp-apps
 
 No. Cursor maintains the image and moves computers to new images in the
 background. Enterprise organization admins can recreate computers at a
-time they choose from [Manage Bot Computers](https://cursor.com/docs/grok-bot/computers.md).
+time they choose from [Manage Member Computers and Data](https://cursor.com/docs/grok-bot/computers.md).
 
 ### Can members install Grok Bot without IT?
 
