@@ -1650,8 +1650,8 @@
       "title": "Create an Origin repository"
     },
     "origin__git.md": {
-      "hash": "ea9c0589af8fa9459f09efb46dc1a181c23119f6d78c98b9c7b4c10a54957b4a",
-      "last_updated": "2026-10-07T21:22:57+00:00",
+      "hash": "a1c364e6a0fd4da5e3557f071de160615f3c492d76b5ede7faec41ec715904bc",
+      "last_updated": "2026-10-19T21:20:19+00:00",
       "original_url": "https://cursor.com/docs/origin/git",
       "path": "/docs/origin/git",
       "source_url": "https://cursor.com/docs/origin/git",
@@ -1933,7 +1933,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-19T18:28:20+00:00",
+  "last_updated": "2026-10-19T21:20:29+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

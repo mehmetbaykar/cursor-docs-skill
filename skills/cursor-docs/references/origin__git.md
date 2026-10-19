@@ -24,6 +24,53 @@ Example:
 git clone https://origin.cursor.com/acme/checkout.git
 ```
 
+## Clone with SSH
+
+The **SSH** tab shows the SSH clone URL:
+
+```text
+git@origin.cursor.com:{owner}/{repo}.git
+```
+
+Example:
+
+```bash
+git clone git@origin.cursor.com:acme/checkout.git
+```
+
+SSH authenticates with a public key registered on your Origin account. Add one with the [Origin CLI](https://cursor.com/docs/origin/cli/reference/commands.md#ssh-keys):
+
+```bash
+origin ssh-key add ~/.ssh/id_ed25519.pub -t work-laptop
+```
+
+The first connection to `origin.cursor.com` prints the server's host key fingerprint and asks whether to continue. Compare it with [Origin's SSH host key fingerprints](https://cursor.com/docs/origin/git.md#ssh-host-key-fingerprints) before you type `yes`.
+
+## SSH host key fingerprints
+
+Your SSH client shows a prompt like this the first time it connects to Origin:
+
+```text
+The authenticity of host 'origin.cursor.com (...)' can't be established.
+ED25519 key fingerprint is SHA256:EgIVKsf8fXGd7oj12nE0juHrGGPU8QLVfpGM3ymunGM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Origin serves one host key, ED25519. Check the fingerprint in the prompt against these before you answer `yes`:
+
+- `SHA256:EgIVKsf8fXGd7oj12nE0juHrGGPU8QLVfpGM3ymunGM` (ED25519)
+- `MD5:15:84:8d:05:5f:4f:cd:3b:37:19:3b:19:c5:02:30:6f` (ED25519)
+
+OpenSSH prints the SHA256 form by default. Older clients, and `ssh -o FingerprintHash=md5`, print the MD5 form. If the prompt shows a fingerprint not listed here, answer `no`. The connection isn't reaching Origin.
+
+To skip the prompt, add Origin's public host key to `~/.ssh/known_hosts`. The same line works in the `known_hosts` file of a CI runner:
+
+```text
+origin.cursor.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFaMKo6HCtmngBwlSH2ATs8+A6eTr+cCON5RKZX/3/MO
+```
+
+Cursor announces host key rotations ahead of time in the [Origin release notes](https://cursor.com/docs/release-notes/origin.md) and updates this page when a key changes. A `REMOTE HOST IDENTIFICATION HAS CHANGED` warning from your SSH client with no announced rotation means the connection is not reaching Origin; stop and don't update `known_hosts`.
+
 ## Clone with the Origin CLI
 
 The same menu has an **Origin CLI** tab with CLI-oriented setup. Install and sign in first:
@@ -37,13 +84,13 @@ See [Install the Origin CLI](https://cursor.com/docs/origin/cli.md).
 
 ## Authenticate
 
-Sign in with the Origin CLI before the first git operation if you have not already:
+Sign in with the Origin CLI before the first git operation over HTTPS if you have not already:
 
 ```bash
 origin auth login
 ```
 
-Then clone, fetch, pull, or push with git.
+Then clone, fetch, pull, or push with git. Over SSH, the key registered on your account authenticates instead.
 
 ## Add a remote to an existing repo
 
@@ -149,6 +196,8 @@ git pull origin main
 
 ## Troubleshooting
 
-If clone or push fails, confirm you are signed in with `origin auth login`. See [Install the Origin CLI](https://cursor.com/docs/origin/cli.md).
+If clone or push fails over HTTPS, confirm you are signed in with `origin auth login`. See [Install the Origin CLI](https://cursor.com/docs/origin/cli.md).
+
+If clone or push fails over SSH, confirm the key you're using is on your account with `origin ssh-key list`, and check the [host key fingerprint](https://cursor.com/docs/origin/git.md#ssh-host-key-fingerprints) if the connection was refused at the host key prompt.
 
 If your shell says `command not found: origin` after install, add `~/.local/bin` to your `PATH` (for zsh: append `export PATH="$HOME/.local/bin:$PATH"` to `~/.zshrc`, then `source ~/.zshrc`). Details are on the CLI page.
