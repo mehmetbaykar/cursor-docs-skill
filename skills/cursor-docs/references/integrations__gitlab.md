@@ -35,6 +35,7 @@ GitLab Self-Hosted requires a [Teams](https://cursor.com/docs/account/teams/pric
 ### Networking
 
 - GitLab self-hosted requires secure inbound access from Cursor and outbound access for webhook notifications.
+- Your instance's OAuth token endpoint (`/oauth/token`) and token check (`/api/v4/personal_access_tokens/self`) can redirect only within the same scheme, host, and port, for up to 5 redirects. Cursor refuses any other redirect, and the request fails.
 - You need admin privileges on your GitLab instance to create the application.
 
 #### IP whitelisting (recommended)

@@ -18,7 +18,7 @@ sign in with a seat on a self-serve Grok Business plan. See
 
 ## What makes Grok Bot different
 
-- **Each Bot has a computer.** Your Bots run on a persistent cloud computer with a browser, filesystem, and terminal. They use [plugins](https://cursor.com/docs/grok-bot/work.md#connect-plugins) where available and computer use for everything else, and work continues while your laptop is closed.
+- **Each Bot has a computer.** Your Bots run on a persistent cloud computer with a browser, filesystem, and terminal. They use [connected apps](https://cursor.com/docs/grok-bot/work.md#connect-apps) where available and computer use for everything else, and work continues while your laptop is closed.
 - **Setup is a message, not a workflow builder.** Create a Bot, describe the job, and grant access as it asks. The same Bot is reachable from the desktop app and iOS.
 - **Bots coordinate with each other.** Your Bots can run in parallel, message each other, share context in [group chats](https://cursor.com/docs/grok-bot/work.md#group-chats), and pass ownership of a task, so you aren't the router between tools.
 - **Bots learn workflows from demonstration.** Walk a Bot through a multi-step path once, and it can save the path as a [skill](https://cursor.com/docs/grok-bot/work.md#skills-and-routines) and rerun it on a schedule.
@@ -48,7 +48,7 @@ phone doesn't stop a background turn or a routine.
 
 ### Can several Bots work at the same time?
 
-Yes. Bots can reason, use plugins, work with files, and coordinate in
+Yes. Bots can reason, use connected apps, work with files, and coordinate in
 parallel. Each Bot gets its own screen on the shared computer, and one
 Bot runs one computer-use task on its screen at a time.
 
@@ -63,7 +63,7 @@ memory.
 ### Can a Bot use any website?
 
 Bots can use many browser-based tools, including services without a
-plugin. A site can still block automation, expire a session, or require a
+connected app. A site can still block automation, expire a session, or require a
 human step. The Bot hands those steps to you rather than working around
 them.
 

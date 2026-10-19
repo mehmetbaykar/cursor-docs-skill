@@ -107,6 +107,18 @@ After setting marketplace access, choose how each plugin is distributed to that 
 - **Default On**: The plugin is installed by default, but developers can opt out.
 - **Required**: The plugin is always installed and cannot be uninstalled.
 
+### Add a plugin from its Marketplace page
+
+Team admins can add a plugin to a team marketplace from the plugin's page in the [Cursor Marketplace](https://cursor.com/marketplace):
+
+1. Open the plugin's page and click **Add to Cursor**.
+2. Select **Add to Team**.
+3. Under **Available Marketplaces**, select the team marketplaces to add it to.
+4. Under **Access Settings**, set **Plugin Installation** to **Default Off**, **Default On**, or **Required**.
+5. Click **Add Plugin**.
+
+**Add to Team** appears only when your team has at least one team marketplace. Members who aren't team admins can add the plugin for themselves only.
+
 ### Allow members to publish
 
 On the **Default** marketplace, admins control whether members can publish personal skills:

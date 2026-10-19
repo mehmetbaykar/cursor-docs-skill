@@ -21,7 +21,7 @@ You'll make two changes, and they do different jobs:
 - **Assign the Cursor app** so users outside your engineering organization can access Grok Bot through your Cursor team.
 - **Add an authentication rule** so users can sign in to IdP-provisioned apps from the Bot's computer, which runs Linux and doesn't run device-trust agents.
 
-Only the first change controls Grok Bot sign-in. The second never blocks it, and it doesn't apply to plugin sign-in, because plugin authentication doesn't go through the computer.
+Only the first change controls Grok Bot sign-in. The second never blocks it, and it doesn't apply to connected-app sign-in, because connecting an app doesn't go through the computer.
 
 ## Before you start
 
@@ -63,7 +63,7 @@ The assignment works when:
 
 Inside the hosted computer, members sign in to applications through your own identity provider in the browser, so your session policies govern those sessions. The computer runs Linux and isn't enrolled in MDM, and device-trust agents like Okta FastPass don't run on it. Any rule that requires FastPass, a registered or managed device, a compliant device, or a phishing-resistant factor only FastPass can satisfy fails in the computer browser.
 
-Don't turn FastPass or device compliance off for the whole company. Add a higher-priority rule scoped to this unmanaged Linux session. This change covers only the IdP-provisioned apps the Bot opens in the computer browser; it isn't required for Grok Bot sign-in or for plugin sign-in.
+Don't turn FastPass or device compliance off for the whole company. Add a higher-priority rule scoped to this unmanaged Linux session. This change covers only the IdP-provisioned apps the Bot opens in the computer browser; it isn't required for Grok Bot sign-in or for connected-app sign-in.
 
 These sign-in methods work in the computer browser:
 
@@ -103,7 +103,7 @@ Entra ID has no FastPass. The grants that block the computer browser are a compl
 
 For phishing resistance without a managed device, use an authentication strength a synced passkey can satisfy, and test sign-in from the computer before enforcing it.
 
-The change works when a user can sign in to IdP-provisioned apps from the Bot's computer without a FastPass or device-compliance error, plugin sign-in works as before, and laptop sign-ins are unchanged.
+The change works when a user can sign in to IdP-provisioned apps from the Bot's computer without a FastPass or device-compliance error, connected-app sign-in works as before, and laptop sign-ins are unchanged.
 
 Revocation stays with you either way: revoking the user in your identity provider ends their in-computer application sessions, and an organization admin can [terminate the member's computer](https://cursor.com/docs/grok-bot/security.md#identity-and-sign-ins) at any time.
 
@@ -121,9 +121,9 @@ No. Grok Bot sign-in uses the Cursor account, so your existing Cursor app
 controls access. Widen assignment on that app instead of creating a new
 one.
 
-### Does the device-trust change affect plugin sign-in?
+### Does the device-trust change affect connected-app sign-in?
 
-No. Plugin authentication doesn't go through the computer, so
+No. Connecting an app doesn't go through the computer, so
 authentication rules for the computer browser don't apply to it.
 
 ### Will these changes weaken sign-in on employee laptops?

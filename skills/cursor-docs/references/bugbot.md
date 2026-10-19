@@ -828,6 +828,10 @@ Comment `bugbot run verbose=true` or `cursor review verbose=true` on the pull re
 
 Yes, Bugbot follows the same privacy compliance as Cursor and processes data identically to other Cursor requests.
 
+### Does Bugbot read credential files?
+
+Bugbot doesn't read the contents of files whose path looks like a credential file, such as `.env`, key files like `id_rsa` or `*.pem`, `credentials.json`, `*.tfvars`, and Terraform state. Templates such as `.env.example` are reviewed normally. Other files are reviewed as usual, including source code that hardcodes a key.
+
 ### What happens when I use all included Bugbot usage?
 
 When you use all included Bugbot usage, additional Bugbot reviews bill from your prepaid credit, or from on-demand spend on a legacy Cursor plan.
