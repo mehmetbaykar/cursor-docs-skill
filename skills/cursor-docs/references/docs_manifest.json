@@ -1569,8 +1569,8 @@
       "title": "Agents and automations"
     },
     "origin__apps.md": {
-      "hash": "91a711c10b0f3f085c3ebe5994ce53bb6b99ee9c2acc60e96b268384462cf9f5",
-      "last_updated": "2026-10-20T00:52:54+00:00",
+      "hash": "0cb4d717a7e84ddeaefdec41e28f63ad08dde5f310950d109151be13ff211520",
+      "last_updated": "2026-10-20T06:35:31+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
       "source_url": "https://cursor.com/docs/origin/apps",
@@ -1942,7 +1942,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-20T00:53:05+00:00",
+  "last_updated": "2026-10-20T06:35:42+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

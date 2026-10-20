@@ -8,17 +8,13 @@ path: /docs/origin/apps
 
 Origin is currently released in early beta. You can create repos, push and pull with git, mirror from GitHub, browse and search code, open and merge pull requests, and share with your Cursor team.
 
-**Apps** under [codebase settings](https://cursor.com/docs/origin/settings.md#codebase-settings) (also at [cursor.com/codebase/settings/apps](https://cursor.com/codebase/settings/apps)) is where you install and manage apps for your codebase:
+Add third-party apps to your codebase from the [Origin App Marketplace](https://cursor.com/codebase/apps), or build a private app that calls the [Origin API](https://cursor.com/docs/api/origin.md).
 
-- **Third-party apps** from the [Origin App Marketplace](https://cursor.com/codebase/apps): install them here, then see which apps are active on a given repository from that repository's **Apps** tab in [Repository settings](https://cursor.com/docs/origin/settings.md#apps)
-- **Private apps** for API access: [create an app](https://cursor.com/docs/origin/apps/build-app.md) for your team, then use the app credentials and installation flow to call the Origin API
-- **Marketplace apps**: make your app public and submit it for review to list it in the Origin App Marketplace for every Origin team. See [Publish to the Marketplace](https://cursor.com/docs/origin/apps/publish.md).
-
-Apps authenticate with app JWTs and installation access tokens. For base URL, authentication, scopes, webhooks, and endpoint reference, see the [Origin API](https://cursor.com/docs/api/origin.md).
+You install and manage apps on the **Apps** page in [codebase settings](https://cursor.com/docs/origin/settings.md#codebase-settings), at [cursor.com/codebase/settings/apps](https://cursor.com/codebase/settings/apps). To see which apps are installed on a repository, open the **Apps** tab in its [repository settings](https://cursor.com/docs/origin/settings.md#apps).
 
 ## Third-party apps
 
-The [Origin App Marketplace](https://cursor.com/codebase/apps) lists these apps. Sign in to Cursor to browse it, or open an app's listing page directly from the links below to install it on your codebase.
+The [Origin App Marketplace](https://cursor.com/codebase/apps) includes these apps. To install one on your codebase, sign in to Cursor and open the app's listing page.
 
 | Category           | Apps                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,6 +25,10 @@ The [Origin App Marketplace](https://cursor.com/codebase/apps) lists these apps.
 | Monitoring         | [Sentry](https://cursor.com/codebase/apps/public/sentry)                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Project management | [Linear](https://cursor.com/codebase/apps/public/linear)                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-The marketplace is open to submissions, so this list grows as partners [publish apps](https://cursor.com/docs/origin/apps/publish.md).
+Origin apps work only on Origin-hosted repositories, not on repositories [mirrored from GitHub](https://cursor.com/docs/origin/mirror-github.md). Mirrored repositories keep their CI and integrations on GitHub.
 
-Origin apps work on **Origin-hosted repositories only**, not on repos [mirrored from GitHub](https://cursor.com/docs/origin/mirror-github.md). Mirrored repos keep their CI and integrations on GitHub.
+## Build your own app
+
+To call the Origin API, [build a private app](https://cursor.com/docs/origin/apps/build-app.md) for your team. Apps authenticate with app JWTs and installation access tokens. The [Origin API reference](https://cursor.com/docs/api/origin.md) covers the base URL, authentication, scopes, webhooks, and endpoints.
+
+The marketplace is open to submissions. To list your app for every Origin team, make it public and [submit it for review](https://cursor.com/docs/origin/apps/publish.md).
