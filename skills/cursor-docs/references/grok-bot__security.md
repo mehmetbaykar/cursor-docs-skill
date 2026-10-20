@@ -40,6 +40,15 @@ A control sits on each of those paths. Each one links to its section on this pag
 
 Blocking an app doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.
 
+### MCP servers and the network policy
+
+The network policy governs where team computers send traffic. Connected apps (MCP servers) are different: Bots reach remote MCP servers from Cursor's servers, so an allowlist mode doesn't cover them on its own. To hold them to the same list, turn on **Apply to MCP servers**. The switch sits below **Allowed destinations** (Allowed Destinations on the older settings page) and above **Lock for all groups** (Lock for All Groups) in **Grok Bot Network Access**, and it appears only while **Default, plus the allowlist** (Defaults + Team Allowlist) or **Allowlist only** (Team Allowlist Only) is selected.
+
+- **Off, the default for every team.** Bots can connect to any MCP server your connector policy permits, whatever the network policy says.
+- **On.** A remote MCP server must also match an entry in **Allowed destinations**. A server that doesn't match is refused when a Bot tries to use it, and the member sees which destination to ask an admin to add. Command servers that run on the computer are unaffected; the network policy already applies to them.
+
+Turn the switch on before you rely on it: an allowlist mode by itself doesn't restrict MCP servers. The switch is a team setting. Directory groups inherit it and can't turn it off, and a locked team policy includes it. Saving it doesn't restart computers; it applies to the next MCP connection. It's separate from the settings under **MCP Configuration** in Team Settings, which govern Cursor in the editor; changing one doesn't change the other. The switch reaches teams gradually. If it isn't on your Grok Bot page yet, contact your account team.
+
 ## Static egress IPs
 
 Hosted computers reach the internet through shared static egress IP addresses by default. The ranges are shared across Grok Bot customers, and dedicated per-customer IPs are not available, so treat the ranges as identifying Grok Bot traffic rather than your team alone. Current ranges are available from your account team, and the product control is the destination allowlist rather than a source IP editor.

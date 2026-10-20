@@ -516,8 +516,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "778732e9551955a3a3222a79c68dc42e69e426d9ff8fa91e6c6c066045fd0724",
-      "last_updated": "2026-10-18T18:22:40+00:00",
+      "hash": "88a68c80c52da42d4049bf3a9b3a3a41a52a0490acc435a31b82f82a00cc590c",
+      "last_updated": "2026-10-20T21:21:02+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -858,8 +858,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "439027db668217b278aef330c41da2a53316e591264b115531205cb62d9af38a",
-      "last_updated": "2026-10-20T18:26:40+00:00",
+      "hash": "ff44f80702bf1c863717c5ad3f4d8750df6d7a8a22cc379ae27a2f22ab0213d8",
+      "last_updated": "2026-10-20T21:21:14+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -876,8 +876,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "13abf99c2b65ca32e6d19133defea28893468d7df502ec37676105c6f57a8db3",
-      "last_updated": "2026-10-20T18:26:41+00:00",
+      "hash": "9dbd093f52b949dbf2154cdaaa5bf44aa687720738dfb49860bab75039941d2e",
+      "last_updated": "2026-10-20T21:21:15+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1578,8 +1578,8 @@
       "title": "Agents and automations"
     },
     "origin__apps.md": {
-      "hash": "901ba7dca625d630a29fd33b759cac4b1d051b7e281c9fcc11d372274d386f26",
-      "last_updated": "2026-10-20T15:22:46+00:00",
+      "hash": "0cb4d717a7e84ddeaefdec41e28f63ad08dde5f310950d109151be13ff211520",
+      "last_updated": "2026-10-20T21:21:38+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
       "source_url": "https://cursor.com/docs/origin/apps",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-20T18:27:17+00:00",
+  "last_updated": "2026-10-20T21:21:50+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
