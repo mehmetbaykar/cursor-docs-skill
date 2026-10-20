@@ -32,7 +32,7 @@ Open a pull request from the list to review it. Each pull request has four tabs:
 - **Activity** — opens, comments, reviews, status changes, and other activity in order
 - **Commits** — commits in the pull request; open one to inspect its diff
 - **Checks** — check runs and status for the branch; results appear as checks report for the head commit
-- **Files Changed** — the file diff; comment on lines and leave reviews from the diff
+- **Changes** — the file diff; comment on lines and leave reviews from the diff, or switch to **Tour** for a guided walkthrough with [Code Tours](https://cursor.com/docs/origin/code-tours.md)
 
 Along with the tabs, you can request reviewers, leave reviews, comment on the pull request or on individual lines, and merge once reviews and CI are satisfied. Origin surfaces merge conflicts so you can resolve them before merging.
 

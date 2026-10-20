@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 212,
+    "pages_fetched_successfully": 213,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 215
+    "total_pages_discovered": 216
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -300,8 +300,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "b61c510bb229be98a11205edcd6e2fc76aa13fdb63b96ae8857cb5de9b115d68",
-      "last_updated": "2026-10-13T15:25:21+00:00",
+      "hash": "66c0b2ad8a78c25b127174aa4e5f9e7b694a569491a799669f322fa1f5e3c350",
+      "last_updated": "2026-10-20T00:52:16+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -624,8 +624,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "e627db67d72de24f45b34438ef76ff3ea1672eb72f23828239ba9ad5204d5df4",
-      "last_updated": "2026-10-19T00:56:43+00:00",
+      "hash": "3979dadcc1aeee456775839c3294192d75944975b58a24cde4f84d386473e1fd",
+      "last_updated": "2026-10-20T00:52:26+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -660,8 +660,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "d985353e24263bb72c3ec18b9a05bdd5908cd72c52d4ec94440c635bc3a5b309",
-      "last_updated": "2026-10-19T00:56:44+00:00",
+      "hash": "647e03ad71b8e3789d97e2eadf3111d0d32ea4baf81d29f781c63f04e9da292c",
+      "last_updated": "2026-10-20T00:52:27+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
@@ -669,8 +669,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "45d11f5812beefb73fe2d10e20f1b8c93b04641c6a785949e2208f281f79bddf",
-      "last_updated": "2026-10-19T00:56:44+00:00",
+      "hash": "431324d3c459f650c039c18d5732f1a62bb906f115b523db128225695be31499",
+      "last_updated": "2026-10-20T00:52:28+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -1551,8 +1551,8 @@
       "title": "Models Muse Wonder"
     },
     "origin.md": {
-      "hash": "eb7d14cf4b8b5880048552c1a0401f093e13d1644aee122580168573398f1f27",
-      "last_updated": "2026-10-14T21:19:55+00:00",
+      "hash": "ede98422641eb7045fb100d7218516ff29bcce6c174f275124f51d6639a11000",
+      "last_updated": "2026-10-20T00:52:54+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "source_url": "https://cursor.com/docs/origin",
@@ -1569,8 +1569,8 @@
       "title": "Agents and automations"
     },
     "origin__apps.md": {
-      "hash": "df00164975ea997deddd41679d6f46a5a0742c75cdb455c2f833d3d0fe5e993e",
-      "last_updated": "2026-10-13T15:25:59+00:00",
+      "hash": "91a711c10b0f3f085c3ebe5994ce53bb6b99ee9c2acc60e96b268384462cf9f5",
+      "last_updated": "2026-10-20T00:52:54+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
       "source_url": "https://cursor.com/docs/origin/apps",
@@ -1640,6 +1640,15 @@
       "status": "live",
       "title": "Set up CloneKit in CI with `origin repo clone-fast`"
     },
+    "origin__code-tours.md": {
+      "hash": "a187655ce2f9e32a2fcef52bd7b34769b95a10a106e1b1de1f263ff379f8d78e",
+      "last_updated": "2026-10-20T00:52:56+00:00",
+      "original_url": "https://cursor.com/docs/origin/code-tours",
+      "path": "/docs/origin/code-tours",
+      "source_url": "https://cursor.com/docs/origin/code-tours",
+      "status": "live",
+      "title": "Code Tours"
+    },
     "origin__create-repository.md": {
       "hash": "f1b5c4b2a03f090c9f016c096af102e73fd03fac4e6d4c15c22994918ead047f",
       "last_updated": "2026-10-07T21:22:57+00:00",
@@ -1668,8 +1677,8 @@
       "title": "Mirror a GitHub repository"
     },
     "origin__pull-requests.md": {
-      "hash": "314d1e91f517e479e0207c9097536230a544ffde5dc2e4f39d7fdc3b49182125",
-      "last_updated": "2026-10-07T21:22:58+00:00",
+      "hash": "9d3e999dbae8ebf177272dfd7a95220c8bc29f320530892c87a8b19526bd3302",
+      "last_updated": "2026-10-20T00:52:58+00:00",
       "original_url": "https://cursor.com/docs/origin/pull-requests",
       "path": "/docs/origin/pull-requests",
       "source_url": "https://cursor.com/docs/origin/pull-requests",
@@ -1933,7 +1942,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-19T21:20:29+00:00",
+  "last_updated": "2026-10-20T00:53:05+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

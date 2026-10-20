@@ -148,6 +148,14 @@ agent worker --computer-use --name "my-mac" start
 
 On macOS, the first start installs the **Cursor Computer Use** helper app. Grant it **Accessibility** and **Screen Recording** in System Settings → Privacy & Security, then test with a task that takes a screenshot. On Linux, install the desktop packages first. See [Computer use and desktop sharing](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md) for the macOS permission steps, MDM guidance, and the Linux display options.
 
+### Open the live workspace
+
+On a Linux machine, pass `--connect-workspace` before `start` to open an agent's files, changes, terminal, and forwarded ports from the Cursor desktop app. It needs Cursor 3.25 or later and runs as your OS user. See [Live workspace](https://cursor.com/docs/cloud-agent/self-hosted.md#live-workspace) for who can open it and how to turn it off.
+
+```bash
+agent worker --connect-workspace start
+```
+
 ## Trigger this machine from a chat surface
 
 Use `worker=` or `machine=` when you want Slack, GitHub, or Linear requests to run on one of your named machines. These are the only trigger options that target My Machines.
@@ -207,6 +215,7 @@ Workers need outbound HTTPS access to:
 - `api2.cursor.sh` and `api2direct.cursor.sh` for the agent session
 - `downloads.cursor.com` for CLI updates and the first-time [Cursor Computer Use](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md#macos) install on macOS
 - `agent-stores.s3.us-east-1.amazonaws.com` and `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` for [artifact](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#artifacts) uploads
+- `cursor.blob.core.windows.net` for the [live workspace](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#open-the-live-workspace) server download, only on workers started with `--connect-workspace`
 
 If your firewall can only match wildcards, `*.s3.us-east-1.amazonaws.com` covers both artifact hosts, but also opens every other bucket in the region. Prefer an exact-host rule when the firewall supports it.
 
@@ -219,6 +228,7 @@ No inbound ports, public IPs, or VPN tunnels are required. If you use a proxy, s
 | `api2.cursor.sh` or `api2direct.cursor.sh`                                                       | The worker can't start or continue an agent session.                                                                                                                          |
 | `downloads.cursor.com`                                                                           | CLI updates and the first-time Cursor Computer Use install on macOS fail. A worker that already has both installed keeps running.                                             |
 | `agent-stores.s3.us-east-1.amazonaws.com` and `cloud-agent-artifacts.s3.us-east-1.amazonaws.com` | Artifact uploads fail. PR embeds, dashboard previews, and notification attachments that depend on artifacts are missing. The agent session and other tool calls keep working. |
+| `cursor.blob.core.windows.net`                                                                   | On workers started with `--connect-workspace`, the live workspace can't start. The agent keeps running.                                                                       |
 | An outbound host a specific tool or integration needs                                            | Only that tool or integration fails. The agent continues.                                                                                                                     |
 
 ## MCP servers
@@ -248,6 +258,8 @@ If the machine does not appear in the picker:
 - Confirm the Cursor app and CLI use the same account.
 - Check that the worker directory has the expected Git remote.
 - Check outbound access to the hosts listed in [Networking](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md#networking).
+
+If the live workspace doesn't open in the desktop app, see [Troubleshoot the live workspace](https://cursor.com/docs/cloud-agent/self-hosted.md#troubleshoot-the-live-workspace).
 
 If computer use fails on a Mac, the report confirms whether **Cursor Computer Use** is installed but not whether its permissions are granted. Grant **Accessibility** and **Screen Recording** to Cursor Computer Use in System Settings → Privacy & Security, then retry a screenshot task. See [macOS](https://cursor.com/docs/cloud-agent/self-hosted/computer-use.md#macos).
 

@@ -187,6 +187,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `origin__cli__reference__commands` - [Commands](https://cursor.com/docs/origin/cli/reference/commands)
 - `origin__cli__reference__pull-requests` - [Pull request commands](https://cursor.com/docs/origin/cli/reference/pull-requests)
 - `origin__clonekit-ci` - [Set up CloneKit in CI with `origin repo clone-fast`](https://cursor.com/docs/origin/clonekit-ci)
+- `origin__code-tours` - [Code Tours](https://cursor.com/docs/origin/code-tours)
 - `origin__create-repository` - [Create an Origin repository](https://cursor.com/docs/origin/create-repository)
 - `origin__git` - [Clone, Push & Pull](https://cursor.com/docs/origin/git)
 - `origin__mirror-github` - [Mirror a GitHub repository](https://cursor.com/docs/origin/mirror-github)
