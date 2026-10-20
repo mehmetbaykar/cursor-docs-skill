@@ -95,6 +95,24 @@ The proxy should allow authenticated GitHub API requests from Cursor without blo
 6. The app will appear under your available GitHub Apps in your GHES instance
 7. Return to the dashboard to configure features on your repositories
 
+## Share an installation with another team
+
+A team in an [Organization](https://cursor.com/docs/enterprise/organizations.md) can share its GitHub installation with other teams in the same Organization. Those teams use the installation's repositories with Cloud Agents, automations, and Bugbot without installing the GitHub app again. Sharing works for GitHub.com and GitHub Enterprise Server installations.
+
+### Open the share dialog
+
+As an admin of the team that owns the installation, go to [Integrations in the dashboard](https://cursor.com/dashboard/integrations) and select **Share with another team** on the **GitHub** or **GitHub Enterprise** row.
+
+### Grant access
+
+In **Share GitHub installation**, choose the **GitHub account** and the **Team**, then click **Grant access**.
+
+The receiving team can use every repository on the installation, and its usage is billed to that team. Its GitHub row on the Integrations page names the team that owns the installation.
+
+Only one of the teams sharing an installation can turn on Bugbot for a given repository. If another team already has Bugbot on for it, an admin of that team has to turn it off first.
+
+To remove access, open **Share with another team** again and select **Revoke** next to the team under **Already shared with**. Revoking also deletes that team's Bugbot settings for the installation's repositories.
+
 ## IP allow list configuration
 
 If your organization uses GitHub's IP allow list feature to restrict access to your repositories, Cursor can be configured to use a hosted egress proxy with a narrow set of IPs.

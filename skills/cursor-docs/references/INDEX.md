@@ -96,6 +96,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `grok-bot__deployment` - [Deploy Grok Bot to your organization](https://cursor.com/docs/grok-bot/deployment)
 - `grok-bot__get-started` - [Get started with Grok Bot](https://cursor.com/docs/grok-bot/get-started)
 - `grok-bot__identity` - [Configure identity and access](https://cursor.com/docs/grok-bot/identity)
+- `grok-bot__inference-hooks` - [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks)
 - `grok-bot__private-networks` - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks)
 - `grok-bot__proxies` - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies)
 - `grok-bot__security-faq` - [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq)

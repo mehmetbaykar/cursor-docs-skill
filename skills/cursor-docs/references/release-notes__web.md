@@ -89,6 +89,10 @@ Weekly changes to Cursor on the web, from integrations and admin settings to aut
 - &#x20;**Fixes to the automation editor and integrations.** Your GitHub or GitLab connection no longer shows as disconnected when you belong to several teams or use self-hosted GitHub Enterprise or GitLab. The editor's MCP server options now list the selected team's servers. Disconnecting a team's PagerDuty integration now removes the team's connection, and "Configure here" links in Security Reviewer comments and Slack messages open that agent's page under From Cursor.
 - **Fixes to the Automations page layout on web and mobile.** On narrow screens, the Automations list now scrolls sideways instead of cutting off columns, and the row actions stay pinned on the right. Spacing and alignment across the page header, tabs, toolbar, and list rows are fixed.
 
+### APIs
+
+- &#x20;**Clearer error for Azure DevOps repos in the Bugbot repo update endpoint.** [`POST /bugbot/repo/update`](https://cursor.com/docs/bugbot.md#enabling-or-disabling-repositories) now returns a 400 for `dev.azure.com` and `visualstudio.com` repo URLs, explaining that Azure DevOps repo settings are managed from the Cursor dashboard, instead of telling you to install the Cursor GitHub or GitLab app.
+
 ### Security and approval agents
 
 #### Security agents
@@ -101,6 +105,12 @@ Weekly changes to Cursor on the web, from integrations and admin settings to aut
 #### Approval agents
 
 - **Clearer approval requirements on pull requests.** [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) checks, comments, and the reviewer hovercard now say exactly what clears review, such as "Needs 1 approval from any human reviewer" with suggested reviewers, one approval from any of a set of owners, or approvals from all named owners. Auto-approved low-risk pull requests no longer show a leftover approval requirement.
+
+### Models and Cursor Router
+
+- **New model: Claude Haiku 5.5.** [Claude Haiku 5.5](https://cursor.com/docs/models/claude-haiku-5-5.md) is now available in Cursor as an opt-in model. Turn it on in Cursor Settings > Models.
+- **Fixes for Mistral models.** Mistral requests that failed with a validation error now complete, and the model's reasoning shows up as thinking, separate from its answer.
+- **Vendor names for Alibaba and Mistral models.** The model list now labels these models with their vendor.
 
 ## Week of Sep 28, 2026
 

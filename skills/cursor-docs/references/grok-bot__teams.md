@@ -124,7 +124,7 @@ Let members route Grok Bot's web traffic through their own computer. Off disable
 
 ### Rules and approvals
 
-Guidance Bots follow, and the review layer that stops actions.
+Guidance Bots follow, and the review layers that stop actions and model requests.
 
 #### Team Rules
 
@@ -139,6 +139,12 @@ Prevents members from turning Auto-review off. The switch is on the Grok Bot pag
 #### Auto-review rules
 
 Team-wide "Ask first" and "Allow automatically" rules that apply to every member's Bots on top of their own rules. Add them with "Configure Rules" on the Grok Bot page; changes save automatically. Members see the team rules under "Settings" > "General" > "Auto-review" but can't edit or delete them, and "Ask first" wins when rules conflict. Turning enforcement off stops applying the team rules. See [approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review).
+
+*Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
+
+#### Inference Hooks
+
+Sends each Grok Bot model request, signed, to an AI security server your organization runs or uses through a security vendor. Your server allows or denies the request before the model runs. Open [Inference Hooks](https://cursor.com/dashboard/bot/inference-hooks) from **Security & Compliance** on the Grok Bot page. New configurations start in Shadow mode, which records denials in the audit log without blocking members. Inference hooks are in beta; contact your account manager to enable them for your team. See [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -231,7 +237,7 @@ To recreate, terminate, or delete members' computers from a script, use the [Org
 
 ## Security
 
-The security model, network policy, approvals and Auto Review, identity, logging, data handling, and certifications live on [Grok Bot security](https://cursor.com/docs/grok-bot/security.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md).
+The security model, network policy, approvals and Auto Review, identity, logging, data handling, and certifications live on [Grok Bot security](https://cursor.com/docs/grok-bot/security.md). Common review questions are on [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md). To have your own AI security server check each model request, see [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
 
 ## Recommended configuration
 
@@ -305,6 +311,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 - [Deploy Grok Bot to your organization](https://cursor.com/docs/grok-bot/deployment.md)
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md)
+- [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
 - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)

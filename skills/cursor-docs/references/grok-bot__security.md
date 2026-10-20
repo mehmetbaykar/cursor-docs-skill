@@ -11,7 +11,7 @@ Use these controls and deployment details to decide whether Grok Bot is allowed 
 **Enterprise only** on the Grok Bot dashboard: the organization-wide enable
 switch, **Network Controls**, **Team Setup Scripts**, **Team Secrets**, **Action Recording**,
 **Allow Local Egress Routing**, **Allow Sudo on Bot Computers**, **Enforce
-Auto-review** with its team rules, and computer management for organization
+Auto-review** with its team rules, **Inference Hooks**, and computer management for organization
 admins. Audit logs, OpenTelemetry
 Export, the MCP allowlist, and SCIM are also Enterprise only. Self-serve
 Teams do not see those settings. The full list is on
@@ -36,7 +36,7 @@ A control sits on each of those paths. Each one links to its section on this pag
 - **Destinations** cover web domains as well as IP ranges with ports for raw connections, with no cap on the number of entries.
 - **Directory groups. Enterprise only, inside Network Controls.** Groups can set their own network policy, which replaces the team's for their members, and a lock makes the team policy effective for everyone.
 - **The policy is separate from Cloud Agent network settings.** Running computers apply changes automatically within about a minute. Sleeping computers apply changes when they next wake. You don't need to recreate the computer.
-- **Restricting egress limits where data can be sent.** Dedicated data loss prevention hooks are not available.
+- **Restricting egress limits where data can be sent.** To check what reaches the model against your own data loss prevention policy, use [inference hooks](https://cursor.com/docs/grok-bot/security.md#inference-hooks).
 
 Blocking an app doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.
 
@@ -64,6 +64,15 @@ Auto Review is the review layer behind those prompts: an independent review mode
 - **Admins can add team Auto-review rules. Enterprise only.** These live on the Grok Bot page too. They apply to every member's Bots, show up as locked rows in the member settings table, and save automatically when an admin adds, edits, or deletes a rule. If admins turn enforcement off, the team rules stop applying and members go back to their own rules only.
 - **Members can add personal rules** under **Settings** > **General** > **Auto-review**, in **Custom Rules**. **Ask first** rules always stop matching actions, and **Allow automatically** rules let matching actions proceed only when the reviewer finds no other reason to stop. Members can add personal rules on top of team rules, but they only make behavior stricter; **Ask first** wins when rules conflict. Keep rules narrow and tied to a known action, like "ask first before sending any external email" or "allow automatically when running `git status` in `/workspace/reports`". Avoid broad rules like "allow everything in the browser". Personal rules are saved to the member's account, so they apply from every desktop and the mobile app.
 - **It doesn't review every side effect.** Memory writes and most settings changes are examples. Treat it as a complement to explicit boundaries and least privilege, working alongside controls that don't depend on a model's judgment: per-action approvals, the network policy, and per-user isolation.
+
+## Inference hooks
+
+Inference hooks send each Grok Bot model request, signed, to an AI security server your organization runs or uses through a security vendor. Your server allows or denies the request before the model runs, so your own policy checks prompts and the content Grok Bot gathers, such as web pages and app results. New configurations start in Shadow mode, which records denials in the audit log without blocking anything.
+
+Inference hooks check model inputs, not actions as they run. Keep the network policy and Auto Review in place to control what Bots do. Setup, modes, the request format, and audit events are on [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
+
+Inference hooks are in beta for Enterprise teams. Contact your account manager
+to enable them for your team.
 
 ## Identity and sign-ins
 
@@ -128,7 +137,7 @@ Grok Bot runs only on Cursor-hosted cloud computers. On-premises deployment, dep
 
 ## Prompt injection
 
-Content a Bot reads from the outside world, like web pages, app results, and command output, can try to steer it. Grok Bot layers defenses: Auto Review checks Bot actions against the member's request when enforcement is on, and beneath it sit controls that don't depend on any model's judgment, including the network policy, per-action approvals, and per-user isolation. Outside content is marked as untrusted data when presented to the model. These controls reduce, but don't eliminate, risk from malicious content, which is another reason to keep consequential actions behind approval.
+Content a Bot reads from the outside world, like web pages, app results, and command output, can try to steer it. Grok Bot layers defenses: Auto Review checks Bot actions against the member's request when enforcement is on, and beneath it sit controls that don't depend on any model's judgment, including the network policy, per-action approvals, and per-user isolation. Outside content is marked as untrusted data when presented to the model. With [inference hooks](https://cursor.com/docs/grok-bot/security.md#inference-hooks), your own security server can also screen that content before the next model call. These controls reduce, but don't eliminate, risk from malicious content, which is another reason to keep consequential actions behind approval.
 
 ## Certifications
 
@@ -138,6 +147,7 @@ Anysphere, the company behind Cursor, holds ISO/IEC 27001 and ISO/IEC 42001 cert
 
 - [Grok Bot security FAQ](https://cursor.com/docs/grok-bot/security-faq.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
+- [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
 - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
