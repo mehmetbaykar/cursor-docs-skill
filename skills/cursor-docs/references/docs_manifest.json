@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 213,
+    "pages_fetched_successfully": 214,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 216
+    "total_pages_discovered": 217
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -821,6 +821,15 @@
       "status": "live",
       "title": "Configure identity and access"
     },
+    "grok-bot__inference-hooks.md": {
+      "hash": "9d0de69cebd41556d1bdafa30551dc09c62f0705c0c168663164c98c67cd8af9",
+      "last_updated": "2026-10-20T18:26:40+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/inference-hooks",
+      "path": "/docs/grok-bot/inference-hooks",
+      "source_url": "https://cursor.com/docs/grok-bot/inference-hooks",
+      "status": "live",
+      "title": "Grok Bot inference hooks"
+    },
     "grok-bot__private-networks.md": {
       "hash": "5de3515b0980ee574a6ad7a83aceba4fc3a1fa1eabce95b54d592c367f48af62",
       "last_updated": "2026-10-11T09:24:07+00:00",
@@ -840,8 +849,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "e8b75fb4b1066b7d6a2c8cfda361121571f1be66195b4556675d51b4e29edf90",
-      "last_updated": "2026-10-19T00:56:50+00:00",
+      "hash": "8623e004a4ee07b6579e1e55e989a1e8b3674a438081fb0e18b4b2a8ceb9fd86",
+      "last_updated": "2026-10-20T18:26:41+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -849,8 +858,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "cd8aab9261827c8647426959c0ca9efb490e62488af03b4ffa41988af5a11ff6",
-      "last_updated": "2026-10-19T00:56:50+00:00",
+      "hash": "439027db668217b278aef330c41da2a53316e591264b115531205cb62d9af38a",
+      "last_updated": "2026-10-20T18:26:40+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -867,8 +876,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "b1b6de2994b7e7a5a349ff7b688d0cb3001920d33ec6b23da203cd9decf19c8c",
-      "last_updated": "2026-10-19T00:56:50+00:00",
+      "hash": "13abf99c2b65ca32e6d19133defea28893468d7df502ec37676105c6f57a8db3",
+      "last_updated": "2026-10-20T18:26:41+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -930,8 +939,8 @@
       "title": "Cursor Blame"
     },
     "integrations__github.md": {
-      "hash": "10ce12635a672551668972dc084f765e01ac83b77331fe40c4b94fd9a3224cf5",
-      "last_updated": "2026-09-29T01:00:31+00:00",
+      "hash": "48fc680842f9ef1eade1883e7c004aa77c8e88ceb3dd36c64116a9fb543350ee",
+      "last_updated": "2026-10-20T18:26:43+00:00",
       "original_url": "https://cursor.com/docs/integrations/github",
       "path": "/docs/integrations/github",
       "source_url": "https://cursor.com/docs/integrations/github",
@@ -1083,8 +1092,8 @@
       "title": "Models Claude 4 Sonnet"
     },
     "models__claude-fable-5-1.md": {
-      "hash": "cba1365e07f186c1206caf9422f980f931cfd2fc52eaa8b1d4cc47fb8707fb5e",
-      "last_updated": "2026-10-14T21:19:38+00:00",
+      "hash": "e26ed5d45e610a838ba512815f39b3cfe9977f201ff11ce2c2a6b5ac1b1ced88",
+      "last_updated": "2026-10-20T18:26:49+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5-1",
       "path": "/docs/models/claude-fable-5-1",
       "source_url": "https://cursor.com/docs/models/claude-fable-5-1",
@@ -1092,8 +1101,8 @@
       "title": "Models Claude Fable 5 1"
     },
     "models__claude-fable-5.md": {
-      "hash": "454a51b56aca2d30ded2e0221fb0b6329318a08324572247700736cd8e115546",
-      "last_updated": "2026-10-14T21:19:38+00:00",
+      "hash": "e4c372a1690c3f5b9a1be5cd82099366c52817f5cb4fe4bae11009274892dc13",
+      "last_updated": "2026-10-20T18:26:48+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5",
       "path": "/docs/models/claude-fable-5",
       "source_url": "https://cursor.com/docs/models/claude-fable-5",
@@ -1767,8 +1776,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "72bee5076c6b196cbff9d478f7b3e671129c133ca3d81482b191916d0da787b9",
-      "last_updated": "2026-10-14T21:20:03+00:00",
+      "hash": "9c94529383b69b7893a77a5b288cfee3e55a3f73aa58c7c4609a8bb5a9a0c78e",
+      "last_updated": "2026-10-20T18:27:11+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -1848,8 +1857,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "3431cba373d7a7cc6a5f4d3e4dd6064c4f70af6c4a168c7b262a8a09e4e2b9d0",
-      "last_updated": "2026-10-14T21:20:06+00:00",
+      "hash": "407459bbfef036c40f3bdced1276f6142137ee7096602630dbdde89ec12a8b01",
+      "last_updated": "2026-10-20T18:27:14+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -1942,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-20T15:22:58+00:00",
+  "last_updated": "2026-10-20T18:27:17+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

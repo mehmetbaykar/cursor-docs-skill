@@ -108,6 +108,15 @@ conflict. If an admin turns enforcement off, members go back to their
 own rules only. It doesn't review every side effect, such as memory
 writes and most settings changes.
 
+### Can our own security tooling check what Grok Bot sends to models?
+
+Yes, with inference hooks, an Enterprise beta. Cursor sends each Grok Bot
+model request, signed, to an AI security server your organization runs or
+uses through a security vendor, and your server allows or denies it before
+the model runs. Hooks check model inputs, not actions as they run. Contact
+your account manager to enable them. See
+[Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
+
 ### Can I see what Bots did on behalf of my team?
 
 Spend and usage are on the dashboard usage page, broken down by product.
@@ -175,6 +184,7 @@ and reports are available at [trust.cursor.com](https://trust.cursor.com).
 
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
+- [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md)
 - [Configure identity and access](https://cursor.com/docs/grok-bot/identity.md)
 - [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md)
 - [Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance.md)
