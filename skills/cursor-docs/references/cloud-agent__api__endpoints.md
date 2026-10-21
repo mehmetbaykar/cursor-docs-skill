@@ -1411,7 +1411,7 @@ GET
 
 `/v1/environments/{id}/builds`
 
-List an environment's [Builds](https://cursor.com/docs/cloud-agent/builds.md), newest first, up to 10 per page.
+List an environment's [Builds](https://cursor.com/docs/cloud-agent/builds.md), newest first. Filter them by status or creation time.
 
 #### Path Parameters
 
@@ -1421,15 +1421,31 @@ Environment ID.
 
 #### Query Parameters
 
+`status` string (optional)
+
+Only Builds with this status: `IN_PROGRESS`, `SUCCEEDED`, `FAILED`, `CANCELLED`, or `SKIPPED`.
+
+`createdAfter` string (optional)
+
+Only Builds created at or after this time. Use an ISO 8601 timestamp with `Z` or a UTC offset and at most millisecond precision, such as `2026-09-29T00:00:00Z`.
+
+`createdBefore` string (optional)
+
+Only Builds created before this time, in the same format. It must be later than `createdAfter`.
+
+`limit` number (optional)
+
+Number of Builds to return. Default: 10, Max: 100.
+
 `cursor` string (optional)
 
-Pagination cursor from `nextCursor` on the previous response.
+Pagination cursor from `nextCursor` on the previous response. Send the same filters with it.
 
 #### Response Fields
 
 `items` array
 
-Up to 10 Builds, newest first. Each has the fields [Get An Environment Build](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-an-environment-build) returns.
+Up to `limit` Builds, newest first. Each has the fields [Get An Environment Build](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-an-environment-build) returns.
 
 `nextCursor` string (optional)
 
@@ -1437,7 +1453,7 @@ Cursor for the next page. Omitted when there are no more Builds.
 
 ```bash
 curl --request GET \
-  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds \
+  --url 'https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds?createdAfter=2026-09-29T00:00:00Z&limit=2' \
   -u YOUR_API_KEY:
 ```
 
