@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "0626bc34bffae77d7cf7fb5fd6e478647ca51d8060677d5755a746d15166a04b",
-      "last_updated": "2026-10-19T18:27:19+00:00",
+      "hash": "64587110b0882bc21a82a4ebbac3ced21ea798dbdd779e021d3898a562016eb9",
+      "last_updated": "2026-10-21T12:31:48+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -21,8 +21,8 @@
       "title": "Organization API"
     },
     "account__pricing__legacy-cursor-plans.md": {
-      "hash": "02d3071115d35d94561ec94d3c5dba940698afcc8939f54a8bdaa284c7849634",
-      "last_updated": "2026-10-14T21:18:56+00:00",
+      "hash": "d7b0369b64cbae60485c4d6ee8fa7130193784ac424ba0db42796428ff98cafa",
+      "last_updated": "2026-10-21T12:31:48+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/legacy-cursor-plans",
       "path": "/docs/account/pricing/legacy-cursor-plans",
       "source_url": "https://cursor.com/docs/account/pricing/legacy-cursor-plans",
@@ -102,8 +102,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "f12bfb111f2c010a750696e7080dbf07c8cfcd170fc857f3c2f74dfc67599f08",
-      "last_updated": "2026-10-16T00:50:03+00:00",
+      "hash": "ab318a4c5c730d3f1b19a177061b0fe8568a895ee724fc970f0b7b1389b5f069",
+      "last_updated": "2026-10-21T12:31:51+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
@@ -714,8 +714,8 @@
       "title": "Worktrees"
     },
     "cursor-router.md": {
-      "hash": "6fa447ed2068860dad0a70e50a5fe125a8ad7e330494bb45e2f19529b25804e9",
-      "last_updated": "2026-09-21T19:57:32+00:00",
+      "hash": "4ecce52d5117065942f1ae0c123a202a88d1918cf063736baea02c25d0cadff3",
+      "last_updated": "2026-10-21T12:32:14+00:00",
       "original_url": "https://cursor.com/docs/cursor-router",
       "path": "/docs/cursor-router",
       "source_url": "https://cursor.com/docs/cursor-router",
@@ -786,8 +786,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "a666e2a66ab35eebedaaa22a8a5a27045249f4c721aa58923bdf45ecb2e42f56",
-      "last_updated": "2026-10-19T18:27:44+00:00",
+      "hash": "0ede5e36e436f717102e171b1bca3d25cd5213f22c5057b84486c570ec65346b",
+      "last_updated": "2026-10-21T12:32:16+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
@@ -795,8 +795,8 @@
       "title": "Manage Grok Bot computers"
     },
     "grok-bot__deployment.md": {
-      "hash": "3206b924e1471fb68d0f36f96e79fc7c46797f4e00ec5cef6a3061713988d3a9",
-      "last_updated": "2026-10-19T18:27:44+00:00",
+      "hash": "c6add4ca21044f9315c145b3d58c2f959a5742bc8fa2565864b55f547463c928",
+      "last_updated": "2026-10-21T12:32:16+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/deployment",
       "path": "/docs/grok-bot/deployment",
       "source_url": "https://cursor.com/docs/grok-bot/deployment",
@@ -831,8 +831,8 @@
       "title": "Grok Bot inference hooks"
     },
     "grok-bot__private-networks.md": {
-      "hash": "5de3515b0980ee574a6ad7a83aceba4fc3a1fa1eabce95b54d592c367f48af62",
-      "last_updated": "2026-10-11T09:24:07+00:00",
+      "hash": "4038bf494d3e093930846a8cfde1e72f3d394c517e2efe9601d17977919bb6bc",
+      "last_updated": "2026-10-21T12:32:18+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
       "source_url": "https://cursor.com/docs/grok-bot/private-networks",
@@ -849,8 +849,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "8623e004a4ee07b6579e1e55e989a1e8b3674a438081fb0e18b4b2a8ceb9fd86",
-      "last_updated": "2026-10-20T18:26:41+00:00",
+      "hash": "84b12e70303046d90a032adb32d6defecdbaf6f057415f47f238184aaae2344d",
+      "last_updated": "2026-10-21T12:32:19+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -876,8 +876,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "9dbd093f52b949dbf2154cdaaa5bf44aa687720738dfb49860bab75039941d2e",
-      "last_updated": "2026-10-20T21:21:15+00:00",
+      "hash": "aa18c6275f7e609a087a0d9716d46c8543bfa8c84d4981783cc0e1dc14980a8b",
+      "last_updated": "2026-10-21T12:32:19+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1038,8 +1038,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "c4841491cba0a216ac98058eceb0401f7b6520e7539255630521bbd2b7592a18",
-      "last_updated": "2026-10-16T00:50:31+00:00",
+      "hash": "f6d05c33c2c21a41ce02afc435816110bdbdece2440eba5230d0f9528c7b138d",
+      "last_updated": "2026-10-21T12:32:25+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "source_url": "https://cursor.com/docs/models-and-pricing",
@@ -1929,8 +1929,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "d416f9751ad9d6d962def164c12072c8fe68cba6ce04f7b3082c1fcceb197f8e",
-      "last_updated": "2026-10-14T21:20:09+00:00",
+      "hash": "2cdc769de1e14460d34b8d50efa1431302d901d712c2179e0d6787f7a0f115b0",
+      "last_updated": "2026-10-21T12:32:57+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "source_url": "https://cursor.com/docs/subagents",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-21T00:52:55+00:00",
+  "last_updated": "2026-10-21T12:32:57+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

@@ -169,8 +169,8 @@ apply.
 
 ### What happens to data when an admin terminates a computer?
 
-Computer management is Enterprise only, and only organization admins can
-terminate a member's computer. The durable disk is kept, and the member's
+Computer management is Enterprise only. Organization admins and Enterprise
+team admins can terminate a member's computer. The durable disk is kept, and the member's
 next session starts a fresh computer on that disk. Terminating a computer
 is separate from the Enterprise only enable switch.
 

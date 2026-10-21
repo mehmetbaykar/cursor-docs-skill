@@ -54,7 +54,7 @@ The security model rests on four principles:
 The pieces fit together like this:
 
 1. **Local machine.** Chat, review, and approvals happen on the member's device. Work runs in the hosted computer. Optional [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution) requires per-command approval by default and can be turned off.
-2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup Scripts, Team Secrets, Allow Local Egress Routing, Allow Sudo on Bot Computers, Action Recording, Enforce Auto-review, Auto-review rules, and computer management for organization admins. Members never see this page.
+2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup Scripts, Team Secrets, Allow Local Egress Routing, Allow Sudo on Bot Computers, Action Recording, Enforce Auto-review, Auto-review rules, and computer management. Members never see this page.
 3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It hands login, two-factor authentication, and payment steps to the member.
 4. **Connected apps.** Your team's Cursor MCP (Model Context Protocol) policy applies in full, allowing or blocking each connector. OAuth tokens stay on Cursor's connector backend, and Bots invoke tools without receiving them.
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
@@ -188,9 +188,9 @@ Lets Bots run commands as root on their own computer. The switch is under **Bot 
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
-#### Manage Bot Computers
+#### Manage Member Computers and Data
 
-Lets organization admins recreate, terminate, or permanently delete the computers of many members at once, with a result for each member. Find it under **Bot Computers** on the Grok Bot page. Team admin rights aren't enough, because one computer spans every team the member belongs to. Recreate moves members to the latest image and Team Setup Scripts while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. Delete removes the computer and its stored files, and the member's next session starts an empty computer. **Terminate Inactive Computers**, above it, does the terminate for you when a computer goes 30 days without use. It is off by default. None of these remove access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
+Lets admins recreate, terminate, or permanently delete the computers of many members at once, or delete all of their Grok Bot data, with a result for each member. Find it under **Security & Compliance** on the Grok Bot page. Recreate moves members to the latest image and Team Setup Scripts while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. Delete removes the computer and its stored files, and the member's next session starts an empty computer. **Terminate Inactive Computers**, under **Bot Computers**, does the terminate for you when a computer goes 30 days without use. It is off by default. None of these remove access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -235,7 +235,7 @@ Group settings apply to groups your team owns, whether you manage membership by 
 
 Enable Grok Bot and manage capabilities, Enforce Auto-Review, group access, network policy, team rules, and setup scripts through the [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot). [Team Secrets](https://cursor.com/docs/grok-bot/teams.md#team-secrets) are managed from the dashboard only.
 
-To recreate, terminate, or delete members' computers from a script, use the [Organization API](https://cursor.com/docs/account/organizations/organization-admin-api.md#grok-bot-computers). It takes an Organization API key with the `admin:*` scope, because one computer serves every team a member belongs to.
+To recreate, terminate, or delete members' computers, or delete all of their Grok Bot data, from a script, use the [Organization API](https://cursor.com/docs/account/organizations/organization-admin-api.md#grok-bot-computers). It takes an Organization API key with the `admin:*` scope, because one computer serves every team a member belongs to.
 
 ## Security
 

@@ -6,12 +6,10 @@ path: /docs/grok-bot/computers
 
 # Manage Grok Bot computers
 
-Each member of your team gets one hosted computer where every Bot they run does its work. **Manage Member Computers and Data**, under **Security & Compliance** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot), lets organization admins recreate or terminate computers across many members at once, or [delete all of a member's Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). **Terminate Inactive Computers**, under **Bot Computers**, turns on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for computers that go 30 days without use. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
+Each member of your team gets one hosted computer where every Bot they run does its work. **Manage Member Computers and Data**, under **Security & Compliance** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot), lets admins recreate or terminate computers across many members at once, or [delete all of a member's Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). **Terminate Inactive Computers**, under **Bot Computers**, turns on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for computers that go 30 days without use. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
 
-**Manage Member Computers and Data is Enterprise only**, and it appears only
-for organization admins. Team admin rights aren't enough, because one
-computer spans every team the member belongs to. Members never see this
-control.
+**Manage Member Computers and Data is Enterprise only.** Organization admins
+and Enterprise team admins can use it. Members never see this control.
 
 ## Recreate or terminate
 
@@ -26,7 +24,7 @@ Both actions keep the member's durable disk, so their synced Bots, files, and lo
 
 **Delete All Grok Bot Data** permanently deletes a member's Bots, conversations, memory, routines, and computer across every team they belong to. Their Cursor account stays.
 
-- **At most 100 members** per operation. Members on legal hold aren't deleted.
+- **At most 100 members** per operation.
 - **It can't be undone.** Each operation is recorded in the [Audit Log](https://cursor.com/dashboard/audit-log).
 
 ## Run an operation
@@ -80,7 +78,7 @@ A finished operation lists a result for every member you selected.
 | **Failed**, Another recreation is in progress  | The member's computer is already being recreated, by an update or another admin.                                                                                             | Wait for it to finish, then run again for this member.                                                                                                                                                                           |
 | **Failed**, VM scan incomplete                 | Cursor couldn't confirm the state of the member's computer, so it made no change.                                                                                            | Run the operation again in a few minutes.                                                                                                                                                                                        |
 | **Failed**, Another deletion is in progress    | This member's Grok Bot data is already being deleted.                                                                                                                        | Wait for it to finish.                                                                                                                                                                                                           |
-| **Failed**, Grok Bot data could not be deleted | The deletion didn't finish, or the member is on legal hold.                                                                                                                  | Run the operation again. If it fails twice, [contact support](https://cursor.com/help/grok-bot/get-help.md).                                                                                                                     |
+| **Failed**, Grok Bot data could not be deleted | The deletion didn't finish.                                                                                                                                                  | Run the operation again. If it fails twice, [contact support](https://cursor.com/help/grok-bot/get-help.md).                                                                                                                     |
 | **Failed**, Action could not be completed      | The recreate or terminate did not finish. For a recreate, a Bot on the member's computer may have been unable to pause in time, and the member keeps their current computer. | Run the operation again for the affected members, once their Bots are idle if you can. If it fails twice, [contact support](https://cursor.com/help/grok-bot/get-help.md) with the member's email and the time of the operation. |
 
 ## Run operations through the API
