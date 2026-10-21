@@ -143,6 +143,8 @@ Azure DevOps uses an organization, project, and repository hierarchy. Cursor sho
 
 If your organization still uses a `*.visualstudio.com` URL, open the repository in Azure DevOps and copy the `dev.azure.com` URL before adding it to Cursor.
 
+When you start a Cloud Agent from a local checkout whose Git remote is an Azure DevOps SSH remote (`ssh.dev.azure.com` or `vs-ssh.visualstudio.com`) or a `*.visualstudio.com` URL, Cursor converts the remote to the `dev.azure.com` format.
+
 ## Permissions
 
 Cursor connects to Azure DevOps through Microsoft Entra OAuth. The connection lets Cursor:

@@ -93,8 +93,8 @@
       "title": "Dashboard"
     },
     "account__teams__members.md": {
-      "hash": "a043a39623052283844b102c64d9ac0dc4e41e7bacd8a7d0904db3a9caa25fb3",
-      "last_updated": "2026-10-14T21:18:59+00:00",
+      "hash": "dc74e201c3d5f7376b132b348f1f8cb6d429238d6f36738858a1b964445d5853",
+      "last_updated": "2026-10-21T18:26:20+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
       "source_url": "https://cursor.com/docs/account/teams/members",
@@ -516,8 +516,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "dac94d41d7a683a848153737e877883304790301bfec50e9bd7311cd47f7ad3a",
-      "last_updated": "2026-10-21T00:52:01+00:00",
+      "hash": "23a569726189620a071904fcd48bb7f852b35a14c7beeeef9855dc765b31d890",
+      "last_updated": "2026-10-21T18:26:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -552,8 +552,8 @@
       "title": "Best Practices"
     },
     "cloud-agent__builds.md": {
-      "hash": "37fb9df94a89d2e8a5aa5550ad0d71197d26ce8c7de94ec7fb4c73e33f3d0161",
-      "last_updated": "2026-10-16T18:25:06+00:00",
+      "hash": "fb29ca6659fbe32d952291690064a032d0bcb311d3266f97d1b633a083a929a1",
+      "last_updated": "2026-10-21T18:26:35+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
@@ -912,8 +912,8 @@
       "title": "Hooks"
     },
     "integrations__azure-devops.md": {
-      "hash": "5950ada4e85015bc7d5ab4c6960a2e2a12a99d24e6fd9328c6f3940cbc114eee",
-      "last_updated": "2026-09-04T20:43:06+00:00",
+      "hash": "4fa0255e816132a2bfcf0bdf34a54f3ac564a117344fd9e586df697540d1939d",
+      "last_updated": "2026-10-21T18:26:46+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
       "source_url": "https://cursor.com/docs/integrations/azure-devops",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-21T15:23:02+00:00",
+  "last_updated": "2026-10-21T18:27:17+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

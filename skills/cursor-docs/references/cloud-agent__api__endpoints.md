@@ -1487,6 +1487,79 @@ curl --request GET \
 }
 ```
 
+### Start An Environment Build
+
+POST
+
+`/v1/environments/{id}/builds`
+
+Start a [Build](https://cursor.com/docs/cloud-agent/builds.md) of an environment, like **Trigger build** in the dashboard. The response is `202` with the new Build's `id`. Reading the Build right away can briefly return `404`.
+
+Access follows [Update An Environment](https://cursor.com/docs/cloud-agent/api/endpoints.md#update-an-environment), with two differences:
+
+- **A draft Build on a team environment needs only read access.** When a team limits environment edits to admins, members can still start drafts, but only admins can start non-draft Builds. Other members get `403 team_admin_required`.
+- **Service account API keys get `403 key_not_supported`.** A user-scoped token minted by an API key limited to certain repositories gets `404 environment_not_found` when the environment has no repositories or any repository outside the limit. Otherwise it gets `403 key_not_supported`.
+
+Too many requests, or too many Builds already in progress for the environment, return `429 rate_limit_exceeded`. A `503 upstream_error` means Cursor couldn't confirm whether the Build started. Don't retry automatically, because another request can start a second Build. Check [List Environment Builds](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-environment-builds) before deciding what to do.
+
+#### Path Parameters
+
+`id` string
+
+Environment ID.
+
+#### Request Body
+
+Optional. Send no body, or `{}`, for a non-draft Build of every repository's default branch.
+
+`draft` boolean (optional)
+
+`true` for a draft Build, which agents don't start from until it's activated. Default: `false`, a Build that agents start from once it succeeds.
+
+`refs` array (optional)
+
+Branches to build instead of the default branches. Each entry has a `repoUrl`, one of the environment's repositories, and a `ref`, the branch name. Repositories without an entry build their default branch, and a `ref` that names the default branch counts as no entry. Any other branch requires `draft: true`. Without it, and for a repository that isn't in the environment or a second `ref` for the same repository, the request returns `400 validation_error`. Cursor doesn't check that the branch exists, so a missing branch fails the Build, not the request.
+
+#### Response Fields
+
+`id` string
+
+ID of the new Build.
+
+`environmentId` string
+
+Environment ID.
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds \
+  -u YOUR_API_KEY:
+```
+
+**Response:** `202`
+
+```json
+{
+  "id": "bld-20261020-0f2a6c1e-3b7d-4e59-9a41-8c2d7e6f5a10",
+  "environmentId": "8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c"
+}
+```
+
+Start a draft Build of a feature branch:
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/environments/8f14e45f-ceea-4e6b-9c3a-1d2e3f4a5b6c/builds \
+  -u YOUR_API_KEY: \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "draft": true,
+    "refs": [
+      { "repoUrl": "https://github.com/your-org/your-web-app", "ref": "feature/new-checkout" }
+    ]
+  }'
+```
+
 ### Get An Environment Build
 
 GET
