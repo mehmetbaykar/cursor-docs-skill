@@ -148,6 +148,8 @@ http://localhost:8787/callback
 
 When configuring the MCP provider's OAuth app, register both URLs as allowed redirect URIs if users authenticate from both web and desktop. The server is identified via the OAuth `state` parameter, so these redirect URLs work for all MCP servers.
 
+With dynamic client registration, the desktop app registers both URLs and can send the provider the web callback. That page then hands the sign-in back to the desktop app. To keep an OAuth app that allows only the desktop app's redirect URL, set a static `CLIENT_ID` in `auth`. The desktop app then sends the provider only that URL.
+
 #### Combining with config interpolation
 
 `auth` values support the same interpolation as other fields:
@@ -362,6 +364,13 @@ View MCP logs by:
 3. Check for connection errors, authentication issues, or server crashes
 
 The logs show server initialization, tool calls, and error messages.
+
+### Why is my MCP sign-in different in Cloud Agents?
+
+Cloud Agents keep their own MCP sign-ins on Cursor's servers, separate from
+the sign-ins on your machine. Signing out locally doesn't sign out Cloud
+Agents. To sign out for Cloud Agents, open **Customize** and log out on the
+server's **Cloud** row, labeled **Cursor's servers** for some servers.
 
 ### Can I temporarily disable an MCP server?
 

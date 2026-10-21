@@ -17,10 +17,16 @@ Configure Bugbot in [Automations](https://cursor.com/automations/from-cursor/bug
 Bugbot analyzes PR diffs and leaves comments with explanations and fix suggestions. It runs automatically on each PR update or manually when triggered.
 
 - Runs **automatic reviews** on every PR update
-- **Manual trigger** by commenting `cursor review` or `bugbot run` on any PR
+- **Manual trigger** by commenting `cursor review` or `bugbot run` on any PR. Bugbot ignores these commands when a bot account or GitHub App posts them.
 - **Uses existing PR comments as context**: reads connected PR comments (top-level and inline) to avoid duplicate suggestions and build on prior feedback
 - **Fix in Cursor** links open issues directly in Cursor
 - **Fix in Web** links open issues directly in [cursor.com/agents](https://cursor.com/agents)
+
+### Limits
+
+- **PR size**: Bugbot skips PRs that change more than 100,000 lines or 3,000,000 characters of diff, and posts a comment asking you to split the change. Skipped reviews aren't billed.
+- **Generated files**: Bugbot leaves out files marked `linguist-generated` in `.gitattributes`. They don't count toward the PR size limit.
+- **Bot-authored PRs**: Bugbot reviews up to 1,000 PRs opened by bot accounts per team each day. The count resets at 00:00 UTC.
 
 ## Setup
 
@@ -413,7 +419,7 @@ Choose from these effort levels:
 - **Low**: Optimizes for cost, with quality close to Default. Reviews are cheaper and take longer.
 - **Default**: Optimizes for efficiency and speed. Reviews are less expensive, but Bugbot may find fewer bugs.
 - **High**: Spends more time reasoning. Reviews are more expensive and take longer, but Bugbot may find more bugs.
-- **Smart**: Lets you describe when Bugbot should use Low, Default, or High. Cursor dynamically sets effort levels based on your instructions.
+- **Smart**: Lets you describe when Bugbot should use Low, Default, or High. Cursor dynamically sets effort levels based on your instructions. When Smart picks Default or High and the review finds issues, the review comment names the effort level it used.
 
 Effort levels are available only for usage-based Bugbot plans.
 
@@ -429,7 +435,7 @@ When Team Rules, repository rules, and project rule files all apply, Bugbot merg
 
 ### Rule limits
 
-Each rule is truncated at 30,000 characters when included in a review. The combined rules Bugbot includes for a review are capped at 100,000 characters. If you exceed that combined cap, some rules may be omitted. Required team rules are prioritized over non-required rules.
+Each rule is truncated at 30,000 characters when included in a review. Every `.md` or `.mdc` file linked from a `.cursor/BUGBOT.md` file counts as its own rule with its own 30,000-character limit, and Bugbot loads each linked path once. The combined rules Bugbot includes for a review are capped at 100,000 characters. If you exceed that combined cap, some rules may be omitted. Required team rules are prioritized over non-required rules.
 
 ### See which rules a review used
 
@@ -611,6 +617,8 @@ Available autofix modes depend on your repository provider:
 
 Installation settings offer only the modes your provider supports. If your personal setting picks a mode your provider doesn't support, Bugbot skips the autofix run for that PR.
 
+On a stacked PR, where the base branch isn't the repository's default branch, **Commit to Existing Branch** doesn't push to your branch. On GitHub and Origin, Autofix delivers the fix on a new branch instead; apply it by commenting `@cursor push <sha>` on the PR. On GitLab and Bitbucket, Autofix skips stacked PRs.
+
 Autofix uses your **Default agent model** from [Settings → Models](https://cursor.com/dashboard/settings). If you haven't set a personal model preference, autofix falls back to your team's default model (if you're on a team) or the system default.
 
 ### Requirements
@@ -770,6 +778,8 @@ Bugbot uses usage-based billing.
 Bugbot pricing changed with the May 2026 pricing update. See the [announcement blog post](https://cursor.com/blog/may-2026-bugbot-changes) for background. If you're still on the old seat-based plan, see [legacy Bugbot pricing](https://cursor.com/docs/bugbot/legacy-pricing.md).
 
 ### Billing
+
+Each review is billed once, to the team or personal account that has Bugbot turned on for the repository. The team the PR author belongs to doesn't change who's billed.
 
 ### Individuals
 

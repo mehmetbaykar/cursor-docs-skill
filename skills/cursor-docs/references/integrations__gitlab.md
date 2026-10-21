@@ -120,6 +120,10 @@ Available for Enterprise customers. Use Cloudflare Tunnel when AWS PrivateLink i
 
 **Drawbacks:** Requires running and maintaining `cloudflared` in your environment.
 
+## Commit author
+
+Cloud Agents commit as the bot user of the project access token Cursor creates for each project, so their commits pass push rules that require the commit author to be a GitLab user. Creating that token needs Maintainer access to the project. If a project has no Cursor project access token, agents fall back to `Cursor Agent <cursoragent@cursor.com>`, and those push rules reject the commits.
+
 ## Protected Git Scopes
 
 Lock your GitLab group or namespace to your Cursor organization so only your teams can use its repositories with Cloud Agents, automations, and Bugbot. Protecting a scope requires the GitLab Owner role. See [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes).

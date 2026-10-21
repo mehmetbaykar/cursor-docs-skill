@@ -10,6 +10,8 @@ Cursor-hosted Cloud Agents run each agent in an isolated cloud VM with managed l
 
 [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) runs tool calls on hardware you control through [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) or [Team Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md). The agent loop still runs in Cursor's cloud.
 
+Cursor-hosted VMs run on x86\_64 (amd64). For arm64, run a self-hosted worker on arm64 hardware with My Machines or a Team Pool.
+
 ## Self-hosted or Cursor-hosted: which is right for you?
 
 Cursor-hosted Cloud Agents cover the requirements of over 80% of our customers. Use this decision tree to evaluate what works best for your organization.

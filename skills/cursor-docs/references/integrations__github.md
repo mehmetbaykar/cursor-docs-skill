@@ -95,6 +95,8 @@ The proxy should allow authenticated GitHub API requests from Cursor without blo
 6. The app will appear under your available GitHub Apps in your GHES instance
 7. Return to the dashboard to configure features on your repositories
 
+For GitHub Enterprise Cloud with data residency (`*.ghe.com`), use these registration steps with `https://<subdomain>.ghe.com` as the base URL.
+
 ## Share an installation with another team
 
 A team in an [Organization](https://cursor.com/docs/enterprise/organizations.md) can share its GitHub installation with other teams in the same Organization. Those teams use the installation's repositories with Cloud Agents, automations, and Bugbot without installing the GitHub app again. Sharing works for GitHub.com and GitHub Enterprise Server installations.
@@ -117,7 +119,7 @@ To remove access, open **Share with another team** again and select **Revoke** n
 
 If your organization uses GitHub's IP allow list feature to restrict access to your repositories, Cursor can be configured to use a hosted egress proxy with a narrow set of IPs.
 
-The recommended GitHub Apps setting is configured in GitHub. You do not need Cursor to enable it. If you add the git egress proxy IPs yourself instead, contact [hi@cursor.com](mailto:hi@cursor.com) so we can enable git egress proxy for your team. Otherwise git traffic may not come from those addresses.
+Cloud Agents send git traffic through the egress proxy only after Cursor enables it for your team, whichever allowlist option you choose below. [Contact support](https://cursor.com/help.md) with your team ID to enable it. The proxy is available for teams, not individual accounts. Other GitHub calls from the agent's VM, such as `gh` or GitHub API requests, don't use the proxy. If your agents make those calls, also allowlist the [Cloud Agent egress ranges](https://cursor.com/docs/cloud-agent/security-network.md#egress-ip-ranges).
 
 ### Enable IP allow list configuration for installed GitHub Apps (recommended)
 

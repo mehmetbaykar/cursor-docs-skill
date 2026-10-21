@@ -803,6 +803,8 @@ Cloud distribution provides:
 - Operating system targeting for platform-specific hooks
 - Centralized management through the dashboard
 
+Each dashboard hook runs one script or one prompt on one hook step. Dashboard hooks don't take per-hook options such as `failClosed` or `matcher`, so a failing dashboard hook fails open. For a hook that must block the action when it fails, distribute a `hooks.json` with `failClosed: true` through [MDM](https://cursor.com/docs/hooks.md#mdm-distribution).
+
 Enterprise administrators can create, edit, and manage team hooks from the dashboard without requiring access to individual machines.
 
 [Contact sales](https://cursor.com/contact-sales?source=docs-hooks-cloud) to get Enterprise cloud hook distribution.

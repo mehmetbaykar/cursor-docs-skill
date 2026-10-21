@@ -56,6 +56,10 @@ This works automatically for all Cloud Agents. No setup is required.
 
 If your repository enforces branch protection rules that require signed commits, Cloud Agent PRs satisfy those rules without extra configuration.
 
+### Commit author
+
+On GitHub, Cloud Agents author commits as `Cursor Agent <cursoragent@cursor.com>`, not as the person who started the agent. On GitLab, they commit as the project access token's bot user. See [GitLab commit author](https://cursor.com/docs/integrations/gitlab.md#commit-author).
+
 ## Protected Git Scopes
 
 Team admins can lock a Git organization to your Cursor organization so only your teams can start Cloud Agents on its repositories. See [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes).
@@ -227,7 +231,7 @@ If your organization uses firewall rules or IP allowlists to control network acc
 
 ### Git egress proxy and IP allow list
 
-Cursor supports a similar but distinct feature to [use a git egress proxy for IP allow lists](https://cursor.com/docs/integrations/github.md#ip-allow-list-configuration). This proxy routes all git traffic through a narrower set of IPs and works across all git hosts, including GitHub, GitLab, Azure DevOps, and Bitbucket.
+Cursor supports a similar but distinct feature to [use a git egress proxy for IP allow lists](https://cursor.com/docs/integrations/github.md#ip-allow-list-configuration). This proxy routes all git traffic through a narrower set of IPs and works across all git hosts, including GitHub, GitLab, Azure DevOps, and Bitbucket. Only git traffic uses the proxy. Other requests from the agent, including GitHub API calls and `gh`, come from the [Cloud Agent ranges](https://cursor.com/docs/cloud-agent/security-network.md#api-endpoint).
 
 For git hosts specifically, we recommend the IP allow list configuration described in the link above, as it integrates directly with the Cursor GitHub app.
 
