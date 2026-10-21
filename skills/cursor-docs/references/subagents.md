@@ -216,7 +216,7 @@ The model picker, including Auto, applies to the parent agent. A subagent can ru
 - Custom subagents use `inherit` or the `model` field in frontmatter.
 - The parent agent can name a model when it launches a subagent.
 
-Each request bills at the list price of the model that ran. A named third-party model bills as [third-party usage](https://cursor.com/docs/models-and-pricing.md#third-party-models), from prepaid credit on The X Subscription or from the Other Models pool on legacy Cursor plans, including when the parent chat is on Auto, Grok, or Composer. On Teams and Enterprise, third-party requests also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
+Each request bills at the list price of the model that ran. A named third-party model bills as [third-party usage](https://cursor.com/docs/models-and-pricing.md#third-party-models), from prepaid credit on The X Subscription or from the Other Models pool on legacy Cursor plans, including when the parent chat is on Auto, Grok, or Composer. On Teams and Enterprise, eligible third-party requests also incur the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate). The third-party models listed there are excluded.
 
 The subagent task card shows which model ran. The [usage dashboard](https://cursor.com/dashboard/usage) lists that model on the matching usage row.
 

@@ -168,7 +168,7 @@ Other clients that install and run on Debian-based Linux follow the same Team Se
 
 - **New computers** apply manifests when they start.
 - **Running computers** pick up manifest changes on a periodic refresh, roughly daily.
-- **To apply a manifest change immediately,** recreate the computer or have the member reset it from the desktop app. Organization admins can recreate or terminate a member's computer from the dashboard. The durable disk is kept, and the next computer applies current manifests when it starts.
+- **To apply a manifest change immediately,** recreate the computer or have the member reset it from the desktop app. On Enterprise, admins can recreate or terminate a member's computer from the dashboard. The durable disk is kept, and the next computer applies current manifests when it starts.
 - **Image updates** recreate computers automatically, and your scripts re-apply. Sign-in sessions, including your network client's login, may need to be re-established after a computer is recreated.
 
 ## Work with the network policy

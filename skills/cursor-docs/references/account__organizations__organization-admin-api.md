@@ -2158,7 +2158,7 @@ The `reason` values you're most likely to see:
 | `member-identity-changed`      | `skipped` | The member's account changed while the operation was queued                                                      |
 | `recreate-already-in-progress` | `failed`  | The member's computer was already being recreated. Start a new operation for this member once it finishes        |
 | `delete-already-in-progress`   | `failed`  | The member's Grok Bot data was already being deleted                                                             |
-| `delete-failed`                | `failed`  | The deletion didn't finish, or the member is on legal hold                                                       |
+| `delete-failed`                | `failed`  | The deletion didn't finish                                                                                       |
 | `authorization-revoked`        | `failed`  | The API key that started the operation was revoked, expired, or lost `admin:*` before Cursor reached this member |
 
 Any other `reason` on a failed member means the action didn't finish. Start a new operation for those members. See [Skipped and failed members](https://cursor.com/docs/grok-bot/computers.md#skipped-and-failed-members) for what to do next.
