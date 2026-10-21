@@ -858,8 +858,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "ff44f80702bf1c863717c5ad3f4d8750df6d7a8a22cc379ae27a2f22ab0213d8",
-      "last_updated": "2026-10-20T21:21:14+00:00",
+      "hash": "98e344519c331f6c8841fa58db4f9b51a2bc9ad60af4af01b5e970b4cc2c5f2c",
+      "last_updated": "2026-10-21T15:22:21+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -876,8 +876,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "aa18c6275f7e609a087a0d9716d46c8543bfa8c84d4981783cc0e1dc14980a8b",
-      "last_updated": "2026-10-21T12:32:19+00:00",
+      "hash": "9ad127028de4ae9f80468734ca1a4a3d017c1a70f68c2079d627100ce94e0c44",
+      "last_updated": "2026-10-21T15:22:22+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1578,8 +1578,8 @@
       "title": "Agents and automations"
     },
     "origin__apps.md": {
-      "hash": "0cb4d717a7e84ddeaefdec41e28f63ad08dde5f310950d109151be13ff211520",
-      "last_updated": "2026-10-20T21:21:38+00:00",
+      "hash": "710c1cc8144334e2a0da34059df2b2717344007f7f0c54ace19b312113b819f7",
+      "last_updated": "2026-10-21T15:22:48+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
       "source_url": "https://cursor.com/docs/origin/apps",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-21T12:32:57+00:00",
+  "last_updated": "2026-10-21T15:23:02+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

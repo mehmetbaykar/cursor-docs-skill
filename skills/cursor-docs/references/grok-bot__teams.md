@@ -156,7 +156,7 @@ How team computers are set up, what they can reach, and how you recreate or term
 
 Restricts which destinations team computers can reach. Find it under **Network** on the Grok Bot page as **Grok Bot Network Access**. Pick **Allow All Network Access**, **Defaults + Team Allowlist**, or **Team Allowlist Only**, and list domains and IP ranges for the allowlist modes. Directory groups can carry their own policy, and a lock makes the team policy apply to everyone. Teams without a policy default to allow-all. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) for the modes and how a new policy reaches running computers.
 
-In an allowlist mode, the **Apply to MCP servers** switch appears below the destination list. It's off by default. When it's on, remote MCP servers must also match an allowed destination, and a Bot's connection to a server that doesn't match is refused. Command servers are unaffected. See [MCP servers and the network policy](https://cursor.com/docs/grok-bot/security.md#mcp-servers-and-the-network-policy).
+In an allowlist mode, the **Apply to MCP servers** switch appears below the destination list. It's off by default. When it's on, every connected app, including built-in connectors such as GitHub, X, and Origin, must match an allowed destination by the hosts it sends requests to, and a Bot's connection to one that doesn't match is refused. Command servers are unaffected. See [MCP servers and the network policy](https://cursor.com/docs/grok-bot/security.md#mcp-servers-and-the-network-policy) for the hosts each built-in connector needs.
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
@@ -247,7 +247,7 @@ For security-sensitive deployments, this is the recommended baseline.
 
 For administrators:
 
-1. **Configure Network Controls. Enterprise only.** Teams without a policy default to allow-all. Self-serve Teams cannot set this. If you pick an allowlist mode and want it to cover remote MCP servers too, also turn on **Apply to MCP servers**; it's off until you do. See [Grok Bot security](https://cursor.com/docs/grok-bot/security.md#network-policy).
+1. **Configure Network Controls. Enterprise only.** Teams without a policy default to allow-all. Self-serve Teams cannot set this. If you pick an allowlist mode and want it to cover connected apps too, add the hosts your connectors use (for example `api.github.com`, `api.x.com`, `api.origin.cursor.com`) to the list, then turn on **Apply to MCP servers**; it's off until you do. See [Grok Bot security](https://cursor.com/docs/grok-bot/security.md#network-policy).
 2. **Audit connector policy in Teams Marketplace before enabling Grok Bot.** Any permitted connector is available to every Bot a member runs.
 3. **Turn on Enforce Auto-review before you rely on team rules. Enterprise only.** Members can add stricter personal rules on top, and "Ask first" wins when rules conflict.
 4. **Set Execution on Local Computer to Never allow** unless Bots need to act on member machines. The default leaves the choice to each member.
