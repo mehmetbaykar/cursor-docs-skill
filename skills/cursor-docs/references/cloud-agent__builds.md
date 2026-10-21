@@ -104,6 +104,7 @@ Open an environment's **Builds** tab to:
 - Cancel an in-progress Build
 - Start an agent from a specific Build
 - Configure **Update stale builds** and the **Staleness threshold**
+- Set the **Install timeout**, how many minutes `install` can run before the Build fails. Enter a whole number from 5 to 300, or leave it blank to use the default of 90 minutes
 
 Every agent run records the Build it started from. Use this provenance to compare environment behavior with the exact configuration and repository commits in the Build.
 
