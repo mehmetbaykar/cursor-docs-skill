@@ -37,6 +37,12 @@ The Project opens as a chat with its coordinator. Describe what you want built, 
 
 Projects work best on work that outlives a single chat: a feature with several PRs, a migration, or a job you want handled while you're away.
 
+## Add and remove chats
+
+Drag a chat from the sidebar onto a Project row to add it to that Project. You can also open the chat's menu and choose **Add to Project**. The chat then appears under the Project row and in the **Agents** list above the Project's chat input.
+
+To take a chat out, open its menu in the **Agents** list and choose **Remove from Project**.
+
 ## Cloud by default, local when needed
 
 A Project runs on its own computer in the cloud, so closing your laptop doesn't stop it. Running in the cloud also lets a Project run more agents in parallel than your laptop could support.

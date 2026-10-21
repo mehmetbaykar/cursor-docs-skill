@@ -289,7 +289,9 @@ Synced skills stay private to you. They are not shared with your team.
 
 1. Open **Settings → Agents**.
 2. Under **Context and Tools**, turn on **Sync Skills for Cloud Agents**.
-3. Confirm. Cursor copies the contents of `~/.cursor/skills/` so your Cloud Agents can use them.
+3. Confirm. Cursor moves the contents of `~/.cursor/skills/` into synced storage so your Cloud Agents can use them.
+
+After that, Cursor uploads skill changes shortly after you save while Cursor is running. Cloud Agents use the latest synced copy.
 
 You can also start a sync from **Customize → Skills**.
 

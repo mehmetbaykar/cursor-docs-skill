@@ -242,6 +242,8 @@ MCP servers are routed by transport type:
 
 If your MCP server needs to reach endpoints on your private network, use the command (stdio) transport. The process runs directly on your machine and shares its network. For HTTP-based MCP servers, Cursor manages the connection from its backend.
 
+**Authenticate** (browser sign-in) works only for HTTP servers. Give a command server its credentials as environment variables in the server's [`env`](https://cursor.com/docs/mcp.md#stdio-server-configuration) config.
+
 ## Troubleshooting
 
 Run a preflight debug report:

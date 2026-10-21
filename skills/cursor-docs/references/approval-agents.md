@@ -41,6 +41,8 @@ PR Routing & Approval can use findings from other Cursor review systems:
 
 When these contexts are enabled, the agent waits for the relevant agentic reviewer checks to finish and uses their findings as approval signals.
 
+The agent waits up to about 8 minutes. If a check still hasn't finished by then, the agent doesn't approve the PR. With the **PR pushed / updated** trigger on, the next push runs the agent again.
+
 If Bugbot or Security Agents report findings that need human review, PR Routing & Approval will not approve the PR.
 
 Security Agents require a team or enterprise plan.

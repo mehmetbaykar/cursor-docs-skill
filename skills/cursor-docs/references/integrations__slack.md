@@ -26,6 +26,8 @@ With Cursor's integration for Slack, you can use [Cloud Agents](https://cursor.c
 
 5. Start using Cloud Agents in Slack by mentioning `@cursor`
 
+To unlink your Slack account, go to [Dashboard → Cloud Agents](https://www.cursor.com/dashboard/cloud-agents) and click **Unlink Slack** next to **Slack integration**. You'll need to link it again before you can start Cloud Agents from Slack.
+
 ## How to use
 
 Mention `@cursor` and give your prompt. Cursor tries to detect a repository, model, base branch, or named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md) from your message. It also uses your recent agent activity when selecting a repository.
@@ -149,12 +151,12 @@ Manage Cloud Agents using the context menu by clicking the three dots (⋯) on a
 Available options:
 
 - **Add follow-up**: Add instructions to an existing agent
-- **Switch repository**: Relaunch the same request against a different repository or [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md)
+- **Switch repository**: Start a new agent with the same request on a different repository or [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md), from that target's default branch. The first agent's changes don't carry over; its branch and pull request stay as they are
 - **Delete**: Stop and archive the Cloud Agent
 - **View request ID**: View unique request ID for troubleshooting (include when contacting support)
 - **Give feedback**: Provide feedback about agent performance
 
-If the agent needs a repository or environment outside the current one, Slack also shows **Switch repository** on the launch message. Choose the new target and Cursor continues from there.
+If the agent needs a repository or environment outside the current one, Slack also shows **Switch repository** on the launch message. Choosing a new target starts a new agent the same way.
 
 ## Configuration
 

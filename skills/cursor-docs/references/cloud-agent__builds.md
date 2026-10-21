@@ -71,7 +71,10 @@ Make `install` complete and idempotent. It can run repeatedly and may run on top
 
 Builds preserve disk state only. Running processes, shell exports, and
 in-memory caches stop when Cursor snapshots the machine. Put services and
-other session-specific work in `start` or `terminals`.
+other session-specific work in `start` or `terminals`. Disk state includes
+the repository checkout and Docker's data directory (`/var/lib/docker`), so
+images and stopped containers persist. Start the Docker daemon again in
+`start`.
 
 Your existing environment inputs still apply. Builds use saved snapshots, `.cursor/environment.json`, Dockerfiles, install and startup commands, secrets, and network settings.
 
@@ -105,6 +108,8 @@ Open an environment's **Builds** tab to:
 - Start an agent from a specific Build
 - Configure **Update stale builds** and the **Staleness threshold**
 - Set the **Install timeout**, how many minutes `install` can run before the Build fails. Enter a whole number from 5 to 300, or leave it blank to use the default of 90 minutes
+
+**Trigger build** runs as the person who selects it. Their connected GitHub account needs Write access or higher on every repository in the environment.
 
 Every agent run records the Build it started from. Use this provenance to compare environment behavior with the exact configuration and repository commits in the Build.
 

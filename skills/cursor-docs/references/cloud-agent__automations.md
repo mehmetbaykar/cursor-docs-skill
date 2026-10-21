@@ -81,7 +81,7 @@ GitHub is the reference provider and supports every source control trigger. Alon
 - **PR review comment** - When an inline comment is left on a pull request diff.
 - **PR review submitted** - When a review is submitted as approved, changes requested, or commented.
 - **Review thread updated** - When a review thread on a pull request is marked resolved or unresolved.
-- **Workflow run completed** - When a GitHub Actions workflow run finishes on a pull request or branch.
+- **Workflow run completed** - When a GitHub Actions workflow run started by a `push` event finishes. Runs started by `pull_request`, `workflow_dispatch`, or `schedule` don't match; use **CI completed** for pull request checks. The **Workflow** filter matches the workflow file name, such as `deploy.yml`.
 
 The [Cursor Marketplace](https://cursor.com/marketplace/automations) includes templates for [triaging failed GitHub Actions](https://cursor.com/marketplace/automations/triage-github-workflow-failures) and [fixing pull request review comments](https://cursor.com/marketplace/automations/autofix-pr-review-comments).
 

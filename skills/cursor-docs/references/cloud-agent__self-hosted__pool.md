@@ -61,6 +61,8 @@ curl https://cursor.com/install -fsS | bash
 irm 'https://cursor.com/install?win32=true' | iex
 ```
 
+Windows workers need [Git for Windows](https://git-scm.com/download/win), including Git Bash. Without it, the worker doesn't start.
+
 Confirm the CLI is available:
 
 ```bash
@@ -228,7 +230,7 @@ To have the worker check out the claimed agent's repos on claim, pass `--clone-g
 agent worker --pool my-pool --clone-git-repos start
 ```
 
-`--clone-git-repos` implies `--mint-github-token`. Clones and fetches use that minted short-lived GitHub token, which covers every repository in the request. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
+`--clone-git-repos` implies `--mint-github-token`. Clones and fetches use that minted short-lived GitHub token, which covers every repository in the request. A run started with only a pool selected names no repository, so no token is minted. Select the repository too. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
 
 Use this flag only on any-repo pool workers: a named `--pool` other than `default`, with no bound repository (`repo=`) and no bound machine (`name=`). The CLI exits with a clear error on a bound-repo worker, a named machine, the `default` pool, or a personal [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) worker.
 
@@ -283,7 +285,7 @@ agent worker --pool start
 
 Multi-use workers (started without `--pool`) don't belong to a pool.
 
-From the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents), pick a pool in the worker selector when starting a session or editing an automation. You can also include `pool=<name>` in a Slack, GitHub, or Linear trigger. Sessions route only to workers registered with that pool name.
+From the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents), pick a pool in the worker selector when starting a session or editing an automation. In the automation editor, the pool selector appears after you choose a specific environment or repository. You can also include `pool=<name>` in a Slack, GitHub, or Linear trigger. Sessions route only to workers registered with that pool name.
 
 ## Triggering pool agents
 

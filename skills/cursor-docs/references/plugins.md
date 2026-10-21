@@ -61,6 +61,8 @@ marketplace.
 - Teams plan: up to 1 team marketplace
 - Enterprise plan: unlimited team marketplaces
 
+On the Teams plan, the [Default marketplace](https://cursor.com/docs/plugins.md#default-team-marketplace) counts toward this limit, so a team that has it can't import another marketplace.
+
 [Contact sales](https://cursor.com/contact-sales?source=docs-plugins) for unlimited team marketplaces and Enterprise admin controls.
 
 Open **Dashboard -> Plugins & MCPs** to manage Team Marketplaces.
@@ -71,6 +73,8 @@ On Enterprise plans, only admins can add team marketplaces from **Dashboard
 ### Default team marketplace
 
 The **Default** team marketplace connects shared plugins and MCP servers across Cursor. Admins can add Team MCP servers that are already available to Cloud Agents, then make the same servers available for teammates to install and configure in the Agent Window, IDE, and CLI.
+
+The Default marketplace keeps its role if you rename it, and it can't be deleted.
 
 Adding a Team MCP server to the Default marketplace does not install or enable it for every developer. Admins still control marketplace access and plugin installation modes. Each developer may also need to authenticate with the MCP provider.
 
@@ -159,6 +163,8 @@ Plugins are indexed when you first import the repository. You can refresh them i
 
 - **Automatically**: On GitHub imports, turn on **Enable Auto Refresh** to update plugins whenever changes are pushed to the branch the marketplace tracks. This requires the [Cursor GitHub App](https://cursor.com/docs/integrations/github.md) installed on the repository. Cursor re-indexes a marketplace at most once every 10 minutes, batching rapid pushes to the latest commit.
 - **Manually**: Click **Refresh** to update from the repository.
+
+A running Cloud Agent, including each agent in a [Project](https://cursor.com/docs/agent/projects.md), keeps the plugin versions it started with. Start a new agent to pick up an update.
 
 For marketplaces created with "Import from Repo", Auto Refresh re-reads the full manifest on each push, so new plugins added to the repository are picked up automatically.
 
@@ -325,9 +331,11 @@ Before you publish, put either plugin format in `~/.cursor/plugins/local`:
 After a reload, Cursor discovers plugins in this folder if local plugin
 imports are allowed.
 
-On Teams and Enterprise, admins control this with **Allow Local Plugin
-Imports** under **Dashboard -> Settings -> Security & Identity ->
-Marketplace and Plugins**. The setting is off by default on Enterprise. If a
+On Enterprise, admins control this with **Allow Local Plugin Imports** under
+**Dashboard -> Settings -> Security & Identity -> Marketplace and Plugins**.
+The setting is off by default on Enterprise, and it also controls **Import
+from Disk** in **Customize**. The first-party plugin allowlist lives in the
+same Enterprise-only section. If a
 marketplace plugin with the same name is already installed, that install
 takes precedence over the local copy.
 
