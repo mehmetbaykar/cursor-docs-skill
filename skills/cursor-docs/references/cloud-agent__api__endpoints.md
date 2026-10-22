@@ -1073,7 +1073,7 @@ GET
 
 `/v1/environments`
 
-List the saved environments your API key can access, most recently updated first: your personal environments and your team's environments. Team admins don't see members' personal environments in the list.
+List the saved environments your API key can access, most recently updated first. Without `userId`, the list includes your personal environments and your team's environments. Team admins can list another current member's personal environments only by passing that member's `userId`.
 
 Team admins and service account API keys see every team environment. Other callers see a team environment only when they can access all of its repositories. A service account API key limited to specific repositories, and user-scoped tokens minted with it, only list environments that have repositories, all within that limit. Drafts and deleted environments aren't included.
 
@@ -1097,6 +1097,10 @@ Only environments whose name contains this text, ignoring case. 1 to 255 charact
 
 Only environments that include this repository, such as `github.com/acme/api`. Repeat it, up to 100 times, to list environments that include any of the repositories.
 
+`userId` string (optional)
+
+Only one user's personal environments. Pass the numeric `userId` from [API Key Info](https://cursor.com/docs/cloud-agent/api/endpoints.md#api-key-info), or the `user_` ID from the Admin API's [team members list](https://cursor.com/docs/account/teams/admin-api.md#get-team-members). Your own ID lists your personal environments. A team admin's user API key can also pass a current team member's ID, and gets that member's personal environments that have at least one repository, all of which the admin can read. A valid ID for a user you aren't allowed to list returns `items: []` with no `nextCursor`, not an error. Combining `userId` with `owner=team` returns `400 validation_error`.
+
 `limit` number (optional)
 
 Number of environments to return. Default: 20, Max: 100.
@@ -1115,7 +1119,7 @@ Environments, with the same fields as [Get An Environment](https://cursor.com/do
 
 Cursor for the next page. Omitted when there are no more pages.
 
-A page can come back with fewer items than `limit`. Keep requesting pages until `nextCursor` is absent. It's **omitted** from the response, not returned as `null`, when there are no more pages.
+A page can come back with fewer items than `limit`, or with none when `userId` names another member. Keep requesting pages until `nextCursor` is absent. It's **omitted** from the response, not returned as `null`, when there are no more pages.
 
 Callers other than team admins and service account API keys see team environments only after Cursor checks their access to the repositories, and those checks can run out of time. A response can then leave out team environments it hasn't verified yet, or stop before the end of the list. Those environments show up in later requests.
 
