@@ -285,6 +285,8 @@ Personal skills in `~/.cursor/skills/` run on your local machine. Turn on **Sync
 
 Synced skills stay private to you. They are not shared with your team.
 
+Synced skills load in Cloud Agents you start yourself. [Automation](https://cursor.com/docs/cloud-agent/automations.md) runs don't load them, including automations set to [Run as **Me**](https://cursor.com/docs/cloud-agent/automations.md#run-as). To give an automation a skill, add it to the repository's `.cursor/skills/` folder.
+
 ### Sync your skills
 
 1. Open **Settings → Agents**.

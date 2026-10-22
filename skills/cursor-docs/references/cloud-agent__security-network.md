@@ -50,15 +50,17 @@ For cloud roles and internal APIs, prefer short-lived [OIDC tokens](https://curs
 
 ## Signed commits
 
-Cloud Agents sign every commit with a HSM-backed Ed25519 key. On GitHub and GitLab, these commits display a "Verified" badge so your team can confirm the commit came from Cursor.
+Cloud Agents sign every commit with a HSM-backed Ed25519 key. On GitHub, these commits display a "Verified" badge so your team can confirm the commit came from Cursor.
 
 This works automatically for all Cloud Agents. No setup is required.
 
-If your repository enforces branch protection rules that require signed commits, Cloud Agent PRs satisfy those rules without extra configuration.
+If your GitHub repository enforces branch protection rules that require signed commits, Cloud Agent PRs satisfy those rules without extra configuration.
 
 ### Commit author
 
-On GitHub, Cloud Agents author commits as `Cursor Agent <cursoragent@cursor.com>`, not as the person who started the agent. On GitLab, they commit as the project access token's bot user. See [GitLab commit author](https://cursor.com/docs/integrations/gitlab.md#commit-author).
+On GitHub, Cloud Agents author and commit as `Cursor Agent <cursoragent@cursor.com>`, not as the person who started the agent. On GitLab, they commit as the project access token's bot user. See [GitLab commit author](https://cursor.com/docs/integrations/gitlab.md#commit-author).
+
+When Cursor can look up the person who started the agent, it adds them to each commit as a `Co-authored-by` trailer. Agents started by service accounts, such as automations, don't get that trailer.
 
 ## Protected Git Scopes
 

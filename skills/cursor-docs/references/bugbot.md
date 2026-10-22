@@ -24,9 +24,9 @@ Bugbot analyzes PR diffs and leaves comments with explanations and fix suggestio
 
 ### Limits
 
-- **PR size**: Bugbot skips PRs that change more than 100,000 lines or 3,000,000 characters of diff, and posts a comment asking you to split the change. Skipped reviews aren't billed.
+- **PR size**: Bugbot skips PRs larger than its default review-size limit, measured in changed lines and diff characters, and posts a comment asking you to split the change. A skipped run records no review usage.
 - **Generated files**: Bugbot leaves out files marked `linguist-generated` in `.gitattributes`. They don't count toward the PR size limit.
-- **Bot-authored PRs**: Bugbot reviews up to 1,000 PRs opened by bot accounts per team each day. The count resets at 00:00 UTC.
+- **Bot-authored PRs**: Bugbot caps how many reviews it runs on PRs opened by bot accounts, per team. Every review counts, including repeat reviews of the same PR. The cap is a default, and your team's cap can differ.
 
 ## Setup
 
@@ -41,6 +41,8 @@ Connect your repositories through the Cursor dashboard to start using Bugbot.
 After connecting, open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to manage which repositories Bugbot reviews.
 
 On GitHub, connecting turns Bugbot on for the repositories you grant access to. Repositories stay off when someone who isn't a team admin connects an enterprise team, or a team that already has Bugbot on. On GitLab, Bitbucket, Azure DevOps, and Origin, turn Bugbot on per repository.
+
+On a team, members who can't change an installation's settings see **Request access** instead of the switch on a repository where Bugbot is off. Requesting emails your team admins a one-click link to turn Bugbot on for that repository, and the button changes to **Requested**. The repository stays off until an admin turns it on.
 
 For a comparison with Security Reviewer, see [Security Agents source control support](https://cursor.com/docs/security-agents.md#source-control-support).
 
@@ -419,7 +421,7 @@ Choose from these effort levels:
 - **Low**: Optimizes for cost, with quality close to Default. Reviews are cheaper and take longer.
 - **Default**: Optimizes for efficiency and speed. Reviews are less expensive, but Bugbot may find fewer bugs.
 - **High**: Spends more time reasoning. Reviews are more expensive and take longer, but Bugbot may find more bugs.
-- **Smart**: Lets you describe when Bugbot should use Low, Default, or High. Cursor dynamically sets effort levels based on your instructions. When Smart picks Default or High and the review finds issues, the review comment names the effort level it used.
+- **Smart**: Lets you describe when Bugbot should use Low, Default, or High. Cursor dynamically sets effort levels based on your instructions. To choose, Smart reads your instructions with the PR's title, author, repository name, and diff (trimmed on large PRs). It doesn't read the PR description, labels, or `BUGBOT.md`. Smart uses Low only when your instructions ask for it, and uses Default when they don't clearly call for another level. When Smart picks Default or High and the review finds issues, the review comment names the effort level it used.
 
 Effort levels are available only for usage-based Bugbot plans.
 
@@ -465,6 +467,8 @@ Cursor [project rules](https://cursor.com/docs/rules.md) (`*.mdc` files in `.cur
 Turn learning on or off per organization with the **Automatically Learn Rules** switch on the organization's page in [Bugbot](https://cursor.com/automations/from-cursor/bugbot). Open **Organizations** and select an organization, or use **Manage learning** on the [repository rules](https://cursor.com/dashboard/bugbot/repository-rules) page. Where that switch exists, manual rules apply only while learning is on, so turning learning off also stops manual rules from applying. [Azure DevOps](https://cursor.com/docs/integrations/azure-devops.md#differences-from-other-providers) does not have **Automatically Learn Rules**. Repository rules you write by hand still apply there.
 
 Rules are generated automatically from your team's activity on GitHub for that repository or by manually backfilling from the history of the repository.
+
+Bugbot learns from a pull request when it's merged or closed. It posts nothing on the pull request, and each learning run counts toward Bugbot usage like a review. Learning doesn't run on a repository set to manual-only or, on an individual account, when your personal settings run Bugbot **only when mentioned**. Turning off **Automatically Learn Rules** stops it for that organization.
 
 You can also teach Bugbot new rules inline by commenting `@cursor remember [fact]` on any PR. Bugbot saves the fact as a learned rule and applies it to future reviews.
 

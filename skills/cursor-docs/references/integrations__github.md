@@ -23,6 +23,10 @@ Requires Cursor admin access and GitHub org admin access.
 
 To disconnect your GitHub account, return to the integrations dashboard and click **Disconnect Account**.
 
+The first time a Cursor account connects GitHub, **Connect** signs in with GitHub to link your GitHub account without installing the app. You can connect a second Cursor account to a GitHub account that already has the Cursor app installed: that first Connect doesn't move or change the existing installation.
+
+Each GitHub App installation belongs to one Cursor account or team. If another Cursor account or team already owns an installation, connecting it from yours fails with "GitHub installation is already connected to another Cursor target." and the installation stays with its owner. One exception: when a team admin connects an organization installation that a member of the same team connected personally, Cursor moves that installation to the team. GitHub Enterprise Server installations don't show this error.
+
 ### GitHub Enterprise Server
 
 ### Prerequisites

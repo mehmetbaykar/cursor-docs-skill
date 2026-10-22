@@ -117,7 +117,7 @@ Viewing is read-only. To let teammates send follow-up messages and continue the 
 
 ## Billing
 
-Cloud Agents are charged at API pricing for the selected [model](https://cursor.com/docs/models-and-pricing.md#model-pricing). You can select the context window size, and a larger context window can increase token usage and costs. You'll be asked to set a spend limit when you first start using them.
+Cloud Agents use your plan's usage like other agent work, at the selected model's [rate](https://cursor.com/docs/models-and-pricing.md#model-pricing). On [legacy request-based plans](https://cursor.com/docs/account/pricing/request-based-legacy.md), they're priced at API rates plus the [Max Mode](https://cursor.com/help/ai-features/max-mode.md) upcharge against your included requests. You can select the context window size, and a larger context window can increase token usage and costs. You'll be asked to set a spend limit when you first start using them.
 
 ## Troubleshooting
 
@@ -125,7 +125,7 @@ Cloud Agents are charged at API pricing for the selected [model](https://cursor.
 
 - Ensure you're logged in and have connected your GitHub, GitLab, Azure DevOps, or Bitbucket account.
 - Check that you have the necessary repository permissions.
-- You need to be on a paid Cursor plan.
+- You need a plan that includes Cloud Agents: Premium and higher, Teams, Enterprise, or a legacy paid plan. Free and Plus don't include them.
 
 ### My secrets aren't available to the cloud agent
 

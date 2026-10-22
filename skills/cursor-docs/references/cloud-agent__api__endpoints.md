@@ -1661,7 +1661,15 @@ Where the Build was started from: `SYSTEM` (Cursor on its own), `WEBSITE` (the d
 
 `failure` object (optional)
 
-Why a failed Build failed. `type` is `INSTALL_FAILED` when the `install` command failed, or `TERMINAL_FAILURE` for other failures. `code`, when present, is a machine-readable cause such as `environment_json_invalid`.
+Why a failed Build failed. `type` is `INSTALL_FAILED` when the `install` command failed, or `TERMINAL_FAILURE` for other failures. `code`, when present, is a machine-readable cause such as `environment_json_invalid`. Other codes include:
+
+- `bitbucket_server_not_enabled` - The environment includes a Bitbucket Server repository, which Cloud Agents can't use on this team.
+- `origin_not_enabled` - The environment includes an [Origin](https://cursor.com/docs/origin.md) repository, which Cloud Agents can't use on this team.
+- `repo_url_invalid` - A repository URL in the environment isn't in a supported format.
+- `snapshot_installation_missing` - Cursor couldn't find the source control app installation that grants access to the environment's repository.
+- `dockerfile_contents_not_enabled` - The environment sets `build.dockerfileContents`, which isn't available for your team.
+
+Cursor can add codes over time. Treat a code you don't recognize as a generic failure.
 
 `requestedRefs` array
 
