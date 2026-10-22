@@ -8,7 +8,7 @@ path: /docs/cloud-agent/private-connectivity
 
 Cursor supports private network connectivity for Enterprise teams that need Cursor to work with systems that are not reachable from the public internet. This includes self-hosted GitHub Enterprise Server, GitLab Enterprise, Bitbucket Data Center, Artifactory, Nexus, private source control APIs, and webhook traffic from those systems back to Cursor.
 
-The same private connectivity setup is used across Cursor services that need access to your source control system, including [Cloud Agents](https://cursor.com/docs/cloud-agent.md), [Bugbot](https://cursor.com/docs/bugbot.md), and Cursor backend services.
+The same private connectivity setup is used across Cursor services that need access to your source control system, including [Cloud Agents](https://cursor.com/docs/cloud-agent.md), [Bugbot](https://cursor.com/docs/bugbot.md), [Security Agents](https://cursor.com/docs/security-agents.md), and Cursor backend services.
 
 To set up private connectivity, contact [hi@cursor.com](mailto:hi@cursor.com) or your Cursor sales representative.
 
@@ -218,7 +218,7 @@ After private networking is configured, complete the source control setup in Cur
 - Use the same hostname that is covered by your TLS certificate and private DNS configuration.
 - If a proxy sits in front of your Git provider, make sure it allows the authenticated API traffic described in [Prerequisites](https://cursor.com/docs/cloud-agent/private-connectivity.md#prerequisites).
 
-Cursor uses the connected source control integration for Cloud Agents, Bugbot, and other Cursor services that need repository access.
+Cursor uses the connected source control integration for Cloud Agents, Bugbot, Security Agents, and other Cursor services that need repository access.
 
 ### Check the private webhook path
 
