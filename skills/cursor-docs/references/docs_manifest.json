@@ -516,8 +516,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "36481b07975ba08e94079d81751028bdd3d974ba77935f48a88a761278b47a0f",
-      "last_updated": "2026-10-21T21:19:35+00:00",
+      "hash": "4bb4004ab9ddc7dae4212bc541da4ae4683ae91d79befa6da4004618c083169f",
+      "last_updated": "2026-10-22T00:51:20+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-21T21:20:19+00:00",
+  "last_updated": "2026-10-22T00:52:05+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
