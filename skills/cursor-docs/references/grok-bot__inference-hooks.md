@@ -10,8 +10,8 @@ Inference hooks send every governed Grok Bot model request to an AI security ser
 
 ### Beta
 
-Inference hooks are in beta for Enterprise teams. Contact your account manager
-to enable them for your team. They cover Grok Bot only. See
+Inference hooks are in beta and available to all Enterprise teams. Team admins
+can set them up from the dashboard. They cover Grok Bot only. See
 [Coverage](https://cursor.com/docs/grok-bot/inference-hooks.md#coverage).
 
 ## How it works
@@ -23,7 +23,7 @@ to enable them for your team. They cover Grok Bot only. See
 
 ## Set up inference hooks
 
-You need to be a team admin on an Enterprise team that has inference hooks turned on.
+You need to be a team admin on an Enterprise team.
 
 ### Prepare your security server
 
@@ -331,8 +331,8 @@ Cursor keeps only what it needs to run the feature and show you what happened:
 
 ### Why don't I see Inference Hooks on the Grok Bot page?
 
-The page appears for team admins on Enterprise teams that have inference
-hooks turned on, and it shows the team selected in the dashboard. Check that
+The page appears for team admins on Enterprise teams, and it shows the team
+selected in the dashboard. Check that
 the right team is selected. If the page says "Inference hooks aren't
 available yet," contact your account manager.
 

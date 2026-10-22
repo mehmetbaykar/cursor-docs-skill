@@ -144,7 +144,7 @@ Team-wide "Ask first" and "Allow automatically" rules that apply to every member
 
 #### Inference Hooks
 
-Sends each Grok Bot model request, signed, to an AI security server your organization runs or uses through a security vendor. Your server allows or denies the request before the model runs. Open [Inference Hooks](https://cursor.com/dashboard/bot/inference-hooks) from **Security & Compliance** on the Grok Bot page. New configurations start in Shadow mode, which records denials in the audit log without blocking members. Inference hooks are in beta; contact your account manager to enable them for your team. See [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
+Sends each Grok Bot model request, signed, to an AI security server your organization runs or uses through a security vendor. Your server allows or denies the request before the model runs. Open [Inference Hooks](https://cursor.com/dashboard/bot/inference-hooks) from **Security & Compliance** on the Grok Bot page. New configurations start in Shadow mode, which records denials in the audit log without blocking members. Inference hooks are in beta and available to all Enterprise teams. See [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
