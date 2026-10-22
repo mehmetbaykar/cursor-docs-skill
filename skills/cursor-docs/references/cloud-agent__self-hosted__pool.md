@@ -324,6 +324,45 @@ To target one of your own machines by name, use [My Machines](https://cursor.com
 
 The Cloud Agent API uses the same resolver with `usePrivateWorker` and `labels` fields. See the [Cloud Agent API docs](https://cursor.com/docs/cloud-agent/api/endpoints.md) for endpoint details.
 
+### Default pool
+
+Team admins can send self-hosted runs that don't name a pool to one team pool. Set **Default pool** in the Self-Hosted section of the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#self-hosted). It appears once **Allow Self-Hosted Machines** is on. The picker lists your team's pools, minus pools with no worker connected in the last 30 days and repo-bound pools whose repository you can't access. A saved default stays listed. Choose **None** to turn it off. Without a default, routing works as before.
+
+The default applies to self-hosted runs that name no pool or machine, whether they opted in or **Require Self-Hosted Machines** sent them there. Cursor routes each run in this order:
+
+1. **A pool or machine named in the request.** `pool=<name>`, `worker=`, and `machine=` always win.
+2. **The default pool, when it serves the run's repository,** even if another pool serves it too.
+3. **Another team pool that serves the repository,** if one of its workers connected in the last 30 days.
+4. **The default pool, when it's an [any-repo](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) pool.** It takes runs for any other repository and runs with no repository.
+5. **No match.** The run routes as if no default were set.
+
+```mermaid
+flowchart TD
+    named("Names a pool or machine?")
+    defRepo("Default pool serves the repo?")
+    otherRepo("Another pool with a worker in the last 30 days serves the repo?")
+    defAny("Default pool is any-repo?")
+    toNamed["Named pool or machine"]
+    toDefault1["Default pool"]
+    toOther["That pool"]
+    toDefault2["Default pool"]
+    asBefore["Routes as if no default"]
+    named -->|yes| toNamed
+    named -->|no| defRepo
+    defRepo -->|yes| toDefault1
+    defRepo -->|no| otherRepo
+    otherRepo -->|yes| toOther
+    otherRepo -->|no| defAny
+    defAny -->|yes| toDefault2
+    defAny -->|no| asBefore
+```
+
+A run the default takes waits a limited time for that pool's workers, then fails if none connects. It never falls back to your own My Machines workers. A pool named `default` qualifies only when it serves a repository, because workers started with `--pool` and no name join it too.
+
+The default changes where a run goes, not who can start it: repository access checks, such as an API key's repository scope, still apply to the repository the request names.
+
+Slack's [team](https://cursor.com/docs/integrations/slack.md#team-default-pool) and [channel](https://cursor.com/docs/integrations/slack.md#channel-default-pool) default pools are separate settings and win for `@Cursor` mentions. When a Slack default doesn't serve the mention's repository, Slack refuses the mention instead of falling back to this setting.
+
 ## Hooks
 
 Self-Hosted Machines workers run command-based [hooks](https://cursor.com/docs/hooks.md) during Cloud Agent sessions. They load configuration from the workspace the worker serves.

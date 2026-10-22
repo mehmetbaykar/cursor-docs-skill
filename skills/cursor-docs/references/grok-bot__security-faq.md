@@ -113,8 +113,8 @@ writes and most settings changes.
 Yes, with inference hooks, an Enterprise beta. Cursor sends each Grok Bot
 model request, signed, to an AI security server your organization runs or
 uses through a security vendor, and your server allows or denies it before
-the model runs. Hooks check model inputs, not actions as they run. Contact
-your account manager to enable them. See
+the model runs. Hooks check model inputs, not actions as they run. Team
+admins on any Enterprise team can set them up from the dashboard. See
 [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
 
 ### Can I see what Bots did on behalf of my team?

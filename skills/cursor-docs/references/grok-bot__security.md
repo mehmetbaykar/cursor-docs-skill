@@ -105,8 +105,7 @@ Inference hooks send each Grok Bot model request, signed, to an AI security serv
 
 Inference hooks check model inputs, not actions as they run. Keep the network policy and Auto Review in place to control what Bots do. Setup, modes, the request format, and audit events are on [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
 
-Inference hooks are in beta for Enterprise teams. Contact your account manager
-to enable them for your team.
+Inference hooks are in beta and available to all Enterprise teams.
 
 ## Identity and sign-ins
 
