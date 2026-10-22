@@ -60,7 +60,7 @@ Team admins can enable or disable these features for their team:
 
 Changes save instantly and affect new agents immediately.
 
-For long-running work, use [`/goal`](https://cursor.com/docs/agent/overview.md#goals-with-goal) in the composer.
+For long-running work, use [`/goal`](https://cursor.com/docs/agent/overview.md#goals-with-goal) in the composer. In the Cursor app, `/goal` needs a recent version.
 
 ### Team follow-ups
 

@@ -122,7 +122,7 @@ Self-serve custom resource configuration is coming soon.
 
 You can start a cloud agent without a repository or a connected source control provider. Select **Start from scratch** in the repository picker at [cursor.com/agents](https://cursor.com/agents) or in the [Agents Window](https://cursor.com/docs/agent/agents-window.md), then send your prompt. Cursor creates a draft [Origin](https://cursor.com/docs/origin.md) repository for the agent in the background, and the agent works in it from the first turn.
 
-Start from scratch needs a paid plan and Origin. If your team hasn't set up Origin yet, Cursor points you to [Origin setup](https://cursor.com/docs/origin.md#enable-origin) first. If an admin has turned Origin off for your team, the agent starts without a repository.
+Start from scratch needs a plan that includes Cloud Agents and Origin (not Free or Plus). If your team hasn't set up Origin yet, Cursor points you to [Origin setup](https://cursor.com/docs/origin.md#enable-origin) first. If an admin has turned Origin off for your team, the agent starts without a repository.
 
 ### Save the work to a repository
 

@@ -39,7 +39,7 @@ Projects work best on work that outlives a single chat: a feature with several P
 
 ## Add and remove chats
 
-Drag a chat from the sidebar onto a Project row to add it to that Project. You can also open the chat's menu and choose **Add to Project**. The chat then appears under the Project row and in the **Agents** list above the Project's chat input.
+Drag an eligible top-level Cloud Agent chat from the sidebar onto a Project row to add it. You can also open the chat's sidebar menu and choose **Add to Project**. If the action is available for a local chat, Cursor converts it to Remote Control before adding it. The chat then appears under the Project row and in the **Agents** list above the Project's chat input.
 
 To take a chat out, open its menu in the **Agents** list and choose **Remove from Project**.
 

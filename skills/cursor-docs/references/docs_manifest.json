@@ -201,8 +201,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "b09dab8cd052b921f084fc7debf472ac12389a2edaeb01c42172336b38d78651",
-      "last_updated": "2026-10-21T21:19:25+00:00",
+      "hash": "6df7e8d61cbb30d15a5714ff7381b82e8219832633424c8a8d54fb342be6f778",
+      "last_updated": "2026-10-22T15:23:04+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "source_url": "https://cursor.com/docs/agent/projects",
@@ -273,8 +273,8 @@
       "title": "Terminal"
     },
     "api.md": {
-      "hash": "f2fe894e5f3f5f6813d3bf613b9b9315b76b054335bd18ac9dedde29deea6b51",
-      "last_updated": "2026-10-01T01:09:28+00:00",
+      "hash": "d4afc3e6dea4af5dd8be5f92471b27fcfae9959814544b68207280b256e8f600",
+      "last_updated": "2026-10-22T15:23:06+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "source_url": "https://cursor.com/docs/api",
@@ -345,8 +345,8 @@
       "title": "Origin Migration API"
     },
     "approval-agents.md": {
-      "hash": "ef111f7d94810f450497fa2add8ea909920c09b310a02b33df666f57b9adc01b",
-      "last_updated": "2026-10-21T21:19:30+00:00",
+      "hash": "70c7ac4c5342255e72df509df90db3850ce3264a39e58fcdb4ce37da7d9cf45d",
+      "last_updated": "2026-10-22T15:23:08+00:00",
       "original_url": "https://cursor.com/docs/approval-agents",
       "path": "/docs/approval-agents",
       "source_url": "https://cursor.com/docs/approval-agents",
@@ -354,8 +354,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "2e32b9ceb67dbe7c844eea126ee6f5ce869a6c5f30b759a727427ad9010244ee",
-      "last_updated": "2026-10-21T21:19:30+00:00",
+      "hash": "fb9f4e0ba61e13f2a128f9d28724e714b647b60efc718f84d68a6bb59752caa4",
+      "last_updated": "2026-10-22T15:23:09+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -507,8 +507,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "d121b84dfaa7a3dc5146207c2d992baf6628c07365312fb30d43c9f790bc89d3",
-      "last_updated": "2026-09-24T21:27:31+00:00",
+      "hash": "f2dad3150445c6bb51de9ea10c8abb0e2391460245960bfa5c85d2fff2cd9fd1",
+      "last_updated": "2026-10-22T15:23:13+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "source_url": "https://cursor.com/docs/cloud-agent",
@@ -516,8 +516,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "4bb4004ab9ddc7dae4212bc541da4ae4683ae91d79befa6da4004618c083169f",
-      "last_updated": "2026-10-22T00:51:20+00:00",
+      "hash": "1189436db1b584f77d78140d344479136a4cc5249d61f99d84b25b95cf758538",
+      "last_updated": "2026-10-22T15:23:14+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -534,8 +534,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__automations.md": {
-      "hash": "b3bd1df00c721592037f63a966ff22487dae6aef10fb243d38054325b9948111",
-      "last_updated": "2026-10-21T21:19:35+00:00",
+      "hash": "0932c6ab07c15aadc8206bfa79aa88cf4716c06fef842391a8e4f7dfdb82799a",
+      "last_updated": "2026-10-22T15:23:14+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
@@ -552,8 +552,8 @@
       "title": "Best Practices"
     },
     "cloud-agent__builds.md": {
-      "hash": "363479401c2ddf80343f7bad950cd91d5eb11617cfad60e29233ac19d688f325",
-      "last_updated": "2026-10-21T21:19:36+00:00",
+      "hash": "3e48383e8225cf3e50327dd2879a2ac39755ebed96c34d687ea2d1e8284c1fbe",
+      "last_updated": "2026-10-22T15:23:15+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
@@ -561,8 +561,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "d481597a3a4b6878cc570e448d54f4b0a822be46ffd48c8117e33ab233c70673",
-      "last_updated": "2026-10-09T21:21:18+00:00",
+      "hash": "b20148f9aca3a9c41c9bd2234e405c2e9643c4af0e3a545e8e0c30b4798e1d02",
+      "last_updated": "2026-10-22T15:23:15+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -606,8 +606,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__security-network.md": {
-      "hash": "8f95cd6b0cfd2984bffb2eb0a379120ad80af3392afbd62d11fcf70ebbd6f89e",
-      "last_updated": "2026-10-21T21:19:38+00:00",
+      "hash": "a3561cb2c61260593bc408a539c80d46d3ce1990c70480801dd31b587d8a7d47",
+      "last_updated": "2026-10-22T15:23:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
@@ -615,8 +615,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "4ab7703fd72063625d222692e2e6f5fee09f26d53feae625b3a586e878c1fff1",
-      "last_updated": "2026-10-13T21:20:34+00:00",
+      "hash": "c126465fedc5be35205d1d4f9391e3254a811809acb9a81bdb27ad1160dd3e02",
+      "last_updated": "2026-10-22T15:23:16+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "source_url": "https://cursor.com/docs/cloud-agent/security",
@@ -660,8 +660,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "8619c65a5c31abc9af8f7ebd1b57cd061ca4ecca22e3ccb24e953557830c81d0",
-      "last_updated": "2026-10-21T21:19:39+00:00",
+      "hash": "21bd2637562a1b2a55619c38f4125bc48ba578a43edd41bdaa06126965fc3e9c",
+      "last_updated": "2026-10-22T15:23:18+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
@@ -669,8 +669,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "f8c002fd93e24525a5fa0af6715b13e795e19c351e13876a39eb1560dfe26909",
-      "last_updated": "2026-10-21T21:19:40+00:00",
+      "hash": "326b57d3818047e5bc193d883cc4cb522f0a524a53a2f30a1737556691923e30",
+      "last_updated": "2026-10-22T15:23:18+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
@@ -678,8 +678,8 @@
       "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
-      "hash": "ed8b5a0fa88cde104213a416dd91a27e0bd2b49f00cc5ea2a38f039341e9d985",
-      "last_updated": "2026-10-21T21:19:40+00:00",
+      "hash": "bc8ff6538aa36ee35c1967d11438817057a4a487b5a8a7eea9080179c31e48ac",
+      "last_updated": "2026-10-22T15:23:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "source_url": "https://cursor.com/docs/cloud-agent/settings",
@@ -687,8 +687,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "7792c9dbd64205962a51268edceb0f29dfb9b8ec65669c7a60d0eb3dfce0583e",
-      "last_updated": "2026-10-19T18:27:41+00:00",
+      "hash": "42be1012687235d3f2a7bbb5f0729d05ac14281c119f1126a9ff74d2b7a59493",
+      "last_updated": "2026-10-22T15:23:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
@@ -903,8 +903,8 @@
       "title": "Work with Grok Bot"
     },
     "hooks.md": {
-      "hash": "8bbabea84e88aa99ac0a766952fbd4bcf4012476e12928c204015edf3d00e6d5",
-      "last_updated": "2026-10-21T21:19:46+00:00",
+      "hash": "893fb15669f188ce21735e7238b585229ed3ea970182d131263fb2b226264a50",
+      "last_updated": "2026-10-22T15:23:25+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks",
@@ -939,8 +939,8 @@
       "title": "Cursor Blame"
     },
     "integrations__github.md": {
-      "hash": "6b38e608c70e5f7740920c424e59e61af7e9e5a1e16d1e0f95f59ca76c4f4776",
-      "last_updated": "2026-10-21T21:19:47+00:00",
+      "hash": "8055c358cf6e6018c6a54aa44c507dba462d4edc769092a4280fc38b7a6a6f9f",
+      "last_updated": "2026-10-22T15:23:26+00:00",
       "original_url": "https://cursor.com/docs/integrations/github",
       "path": "/docs/integrations/github",
       "source_url": "https://cursor.com/docs/integrations/github",
@@ -948,8 +948,8 @@
       "title": "GitHub"
     },
     "integrations__gitlab.md": {
-      "hash": "bdb9ecb10f554fafe670427cd04a8608f4830a5985881221d73fbee57f8980fb",
-      "last_updated": "2026-10-21T21:19:48+00:00",
+      "hash": "3fd7ffc956c8833863c96f1f80a56b6b2cd0da77c713ca32692a1de5a9f53058",
+      "last_updated": "2026-10-22T15:23:27+00:00",
       "original_url": "https://cursor.com/docs/integrations/gitlab",
       "path": "/docs/integrations/gitlab",
       "source_url": "https://cursor.com/docs/integrations/gitlab",
@@ -966,8 +966,8 @@
       "title": "JetBrains"
     },
     "integrations__jira.md": {
-      "hash": "e9b06b846ae99ef272b4024e3c25d1f7f8a01b69aec2e29192e99c763219e81b",
-      "last_updated": "2026-10-21T21:19:48+00:00",
+      "hash": "9d23f2e3302204aa1638d0f122fb52c52d5c0476d5c449b0aef73a549f4e0099",
+      "last_updated": "2026-10-22T15:23:27+00:00",
       "original_url": "https://cursor.com/docs/integrations/jira",
       "path": "/docs/integrations/jira",
       "source_url": "https://cursor.com/docs/integrations/jira",
@@ -1002,8 +1002,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "a63daa5a8d632a90e9f3f42dd9179206aef22b4b1f3c82189a9ab5910e934116",
-      "last_updated": "2026-10-21T21:19:49+00:00",
+      "hash": "2947aa34ad10949df1a6398b2bb6eaef7ab1f15c1316ba93bac57cf035758832",
+      "last_updated": "2026-10-22T15:23:28+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "source_url": "https://cursor.com/docs/integrations/slack",
@@ -1020,8 +1020,8 @@
       "title": "Xcode"
     },
     "mcp.md": {
-      "hash": "4770067c28e94d6f68197f54390b3c208b35187bcdb143dd9246fec03ad70094",
-      "last_updated": "2026-10-21T21:19:50+00:00",
+      "hash": "1367681e4e03d0150351c1785cf049686baed5c421d4e1c58932aa73962166fd",
+      "last_updated": "2026-10-22T15:23:29+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "source_url": "https://cursor.com/docs/mcp",
@@ -1704,8 +1704,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "ad2cdf00b2491d89c2a0fa4203f09a5a5176b2fbf4f2b59a010b7280b5a48490",
-      "last_updated": "2026-10-21T21:20:12+00:00",
+      "hash": "0abed2299d8df6eb9c84b61baeb651752d2f8d588dc91f740833d24cd298a23f",
+      "last_updated": "2026-10-22T15:23:49+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "source_url": "https://cursor.com/docs/plugins",
@@ -1749,8 +1749,8 @@
       "title": "permissions.json reference"
     },
     "reference__plugins.md": {
-      "hash": "5404e509b87637b60b75b36b0612be261389d6ec7096c62be976409ce5fc741d",
-      "last_updated": "2026-09-14T19:50:25+00:00",
+      "hash": "83d14a8e14fbbb66a3a4c578eb9d66c768d3419409aa8996197420795b91b279",
+      "last_updated": "2026-10-22T15:23:51+00:00",
       "original_url": "https://cursor.com/docs/reference/plugins",
       "path": "/docs/reference/plugins",
       "source_url": "https://cursor.com/docs/reference/plugins",
@@ -1920,8 +1920,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "468eeba946ea59ef33938e677638fe008bf5e44c3137f872d4683a7682700f11",
-      "last_updated": "2026-10-21T21:20:18+00:00",
+      "hash": "a44a2d9d7dcea7892b12fd6834f380a5def6bfbbb736e8901aa863ac35142bd3",
+      "last_updated": "2026-10-22T15:23:56+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-22T00:52:05+00:00",
+  "last_updated": "2026-10-22T15:23:56+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

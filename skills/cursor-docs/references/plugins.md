@@ -61,7 +61,7 @@ marketplace.
 - Teams plan: up to 1 team marketplace
 - Enterprise plan: unlimited team marketplaces
 
-On the Teams plan, the [Default marketplace](https://cursor.com/docs/plugins.md#default-team-marketplace) counts toward this limit, so a team that has it can't import another marketplace.
+On the Teams plan, the [Default marketplace](https://cursor.com/docs/plugins.md#default-team-marketplace) doesn't count toward the imported marketplace limit, so a team can also import one team marketplace.
 
 [Contact sales](https://cursor.com/contact-sales?source=docs-plugins) for unlimited team marketplaces and Enterprise admin controls.
 
@@ -74,7 +74,7 @@ On Enterprise plans, only admins can add team marketplaces from **Dashboard
 
 The **Default** team marketplace connects shared plugins and MCP servers across Cursor. Admins can add Team MCP servers that are already available to Cloud Agents, then make the same servers available for teammates to install and configure in the Agent Window, IDE, and CLI.
 
-The Default marketplace keeps its role if you rename it, and it can't be deleted.
+The Default marketplace can't be renamed or deleted. If a legacy Default marketplace has a different name, it still keeps the Default role.
 
 Adding a Team MCP server to the Default marketplace does not install or enable it for every developer. Admins still control marketplace access and plugin installation modes. Each developer may also need to authenticate with the MCP provider.
 
@@ -194,7 +194,7 @@ Cursor packs the skill into a plugin, stores a copy in a repository hosted for y
 After you publish:
 
 - **Installs are opt-in.** Teammates find the skill in the team marketplace and install it themselves. Publishing does not install it for anyone else. The author gets it automatically.
-- **Authors stay in control.** Use **Sync changes** to push updates, or **Unpublish** to return the skill to your machine.
+- **Authors stay in control.** Publishing moves the skill out of `~/.cursor/skills/` into the plugin's install folder on your machine. To update it, open the skill from **Customize → Skills**, edit it there, then choose **Sync changes** from the skill's menu or **Sync** from the **Published** menu on the open `SKILL.md`. **Unpublish** returns the skill to your machine.
 - **One skill, one plugin.** The plugin is named after the skill. Publishing does not bundle other skills the published skill references.
 
 Access follows your existing [marketplace access](https://cursor.com/docs/plugins.md#marketplace-access) settings. Admins can turn member publishing off with [Allow Members to Publish](https://cursor.com/docs/plugins.md#allow-members-to-publish).

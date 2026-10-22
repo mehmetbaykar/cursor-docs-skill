@@ -230,7 +230,7 @@ To have the worker check out the claimed agent's repos on claim, pass `--clone-g
 agent worker --pool my-pool --clone-git-repos start
 ```
 
-`--clone-git-repos` implies `--mint-github-token`. Clones and fetches use that minted short-lived GitHub token, which covers every repository in the request. A run started with only a pool selected names no repository, so no token is minted. Select the repository too. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
+`--clone-git-repos` implies `--mint-github-token`. Clones and fetches use that minted short-lived GitHub token, which covers every repository in the request. A team admin must enable GitHub token minting for Team Pool workers, and `git` must be on `PATH`.
 
 Use this flag only on any-repo pool workers: a named `--pool` other than `default`, with no bound repository (`repo=`) and no bound machine (`name=`). The CLI exits with a clear error on a bound-repo worker, a named machine, the `default` pool, or a personal [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) worker.
 
@@ -413,6 +413,8 @@ MCP servers on self-hosted workers are routed by transport type:
 
 If your MCP server needs to access private-network endpoints, use the command (stdio) transport. The process runs directly on the worker and shares its network. For HTTP-based MCP servers, Cursor manages the connection from its backend, handling OAuth and session caching.
 
+Cursor doesn't connect to an HTTP server whose URL still contains an unfilled variable, so agents don't get its tools. Fill in the variable, or configure the server as a command server if it should run on the worker. Adding a server to the [MCP Allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) approves it but doesn't distribute it to agents.
+
 ## Artifacts
 
 Artifact behavior is identical on self-hosted workers and Cursor-hosted agents. The agent produces the artifact inside the worker and the worker uploads it to Cursor-managed storage over HTTPS. Everything downstream (PR embeds, dashboard previews, notification attachments) is handled by Cursor's backend and doesn't depend on where the worker runs.
@@ -587,6 +589,8 @@ agent worker --pool my-pool --idle-release-timeout 600 start
 ```
 
 `--idle-release-timeout` (env var `CURSOR_WORKER_IDLE_RELEASE_TIMEOUT`) is the number of seconds the worker stays connected after a session ends, waiting for follow-up messages. If a follow-up arrives, the timer resets. When the timeout fires, the CLI exits with code 0 so a supervisor can recycle the machine. Pass `0` to disable idle-based release. [Releasing a claim](https://cursor.com/docs/cloud-agent/api/endpoints.md#release-a-claim) is a separate API: it frees the worker for another agent right away and tells the worker CLI to exit. Cursor refuses it while a turn is using the worker.
+
+A pool worker process serves one agent. While it waits for follow-ups it refuses claims from other agents, and it exits instead of taking a new agent when its claim is released or reset, for example after it reconnects holding a claim Cursor already ended.
 
 Once a worker times out, Cursor marks it as freed. The machine can reset and re-enter the pool. If a user restarts a chat that has disconnected from its machine, the chat reconnects to a fresh machine from the pool. Workspace state from the original machine does not carry over unless the pool uses [hibernation](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hibernation).
 

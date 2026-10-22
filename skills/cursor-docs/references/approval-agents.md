@@ -43,6 +43,8 @@ When these contexts are enabled, the agent waits for the relevant agentic review
 
 The agent waits up to about 8 minutes. If a check still hasn't finished by then, the agent doesn't approve the PR. With the **PR pushed / updated** trigger on, the next push runs the agent again.
 
+The agent only waits for checks on the PR's latest commit. If a reviewer hasn't started a check there, or skipped it, the agent decides without that reviewer's findings. Bugbot skips draft PRs unless reviews on draft PRs are enabled, and when it's set to run only once per PR, it skips commits after its first review. See [Bugbot configuration](https://cursor.com/docs/bugbot.md#configuration).
+
 If Bugbot or Security Agents report findings that need human review, PR Routing & Approval will not approve the PR.
 
 Security Agents require a team or enterprise plan.
@@ -113,7 +115,7 @@ PR Routing & Approval supports GitHub and [Origin](https://cursor.com/docs/origi
 
 Triggers decide when the agent runs. PR Routing & Approval supports pull request events such as:
 
-- **PR opened** runs the agent when a pull request is created.
+- **PR opened** runs the agent when a non-draft pull request is created or a draft is marked ready for review.
 - **PR pushed / updated** runs the agent when new commits are pushed to an existing PR.
 - **PR commented** runs the agent when a comment matching a regex is posted on an existing PR.
 

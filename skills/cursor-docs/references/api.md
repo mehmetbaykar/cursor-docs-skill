@@ -10,17 +10,17 @@ Cursor provides multiple APIs for programmatic access to your team's data, AI-po
 
 ## Available APIs
 
-| API                                                                                   | Description                                                                                                          | Availability     |
-| ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| [Admin API](https://cursor.com/docs/account/teams/admin-api.md)                       | Manage team members, settings, usage data, spending, and model access. Build custom dashboards and monitoring tools. | Enterprise teams |
-| [Analytics API](https://cursor.com/docs/account/teams/analytics-api.md)               | Comprehensive insights into team's Cursor usage, AI metrics, active users, and model usage.                          | Enterprise teams |
-| [AI Code Tracking API](https://cursor.com/docs/account/teams/ai-code-tracking-api.md) | Track AI-generated code contributions at commit and change levels for attribution and analytics.                     | Enterprise teams |
-| [Bugbot API](https://cursor.com/docs/bugbot.md#api)                                   | Trigger Bugbot reviews and retrieve per-review analytics.                                                            | Enterprise teams |
-| [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md)              | Programmatically create and manage AI-powered coding agents for automated workflows and code generation.             | Beta (All Plans) |
-| [Origin API](https://cursor.com/docs/api/origin.md)                                   | Work with Origin repositories, commits, checks, pull requests, and app installations.                                | Early Beta       |
-| [TypeScript SDK](https://cursor.com/docs/sdk/typescript.md)                           | Run Cursor agents from TypeScript with one interface for local and cloud runtimes.                                   | All users        |
-| [Python SDK](https://cursor.com/docs/sdk/python.md)                                   | Run Cursor agents from Python with sync and async clients for local and cloud runtimes.                              | All users        |
-| [SDK Bridge](https://cursor.com/docs/sdk/bridge.md)                                   | Build agent SDKs in other languages on the open bridge protocol and standalone binaries.                             | All users        |
+| API                                                                                   | Description                                                                                                          | Availability                   |
+| ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| [Admin API](https://cursor.com/docs/account/teams/admin-api.md)                       | Manage team members, settings, usage data, spending, and model access. Build custom dashboards and monitoring tools. | Enterprise teams               |
+| [Analytics API](https://cursor.com/docs/account/teams/analytics-api.md)               | Comprehensive insights into team's Cursor usage, AI metrics, active users, and model usage.                          | Enterprise teams               |
+| [AI Code Tracking API](https://cursor.com/docs/account/teams/ai-code-tracking-api.md) | Track AI-generated code contributions at commit and change levels for attribution and analytics.                     | Enterprise teams               |
+| [Bugbot API](https://cursor.com/docs/bugbot.md#api)                                   | Trigger Bugbot reviews and retrieve per-review analytics.                                                            | Enterprise teams               |
+| [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md)              | Programmatically create and manage AI-powered coding agents for automated workflows and code generation.             | Beta (plans with Cloud Agents) |
+| [Origin API](https://cursor.com/docs/api/origin.md)                                   | Work with Origin repositories, commits, checks, pull requests, and app installations.                                | Early Beta                     |
+| [TypeScript SDK](https://cursor.com/docs/sdk/typescript.md)                           | Run Cursor agents from TypeScript with one interface for local and cloud runtimes.                                   | All users                      |
+| [Python SDK](https://cursor.com/docs/sdk/python.md)                                   | Run Cursor agents from Python with sync and async clients for local and cloud runtimes.                              | All users                      |
+| [SDK Bridge](https://cursor.com/docs/sdk/bridge.md)                                   | Build agent SDKs in other languages on the open bridge protocol and standalone binaries.                             | All users                      |
 
 The Cloud Agents API and SDKs run Cursor agent workflows (workspace context, tools, commands, and edits). They are not a standalone model-inference or chat-completions API. [Cursor Router](https://cursor.com/docs/cursor-router.md) selects models for those agent runs when you use Auto / `auto-smart`; see [Router in the TypeScript SDK](https://cursor.com/docs/sdk/typescript.md#cursor-router) or [Python SDK](https://cursor.com/docs/sdk/python.md#cursor-router).
 
