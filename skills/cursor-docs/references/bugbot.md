@@ -81,7 +81,7 @@ Team users and admins can enable Bugbot per repository, configure allow/deny lis
 
 - Run **only once** per PR per installation, skipping subsequent commits
 
-Bugbot runs for all contributors to enabled repositories, regardless of team membership.
+Bugbot runs for all contributors to enabled private repositories, regardless of team membership. On public repositories, the **Public repositories** switch in Bugbot's **Team** settings decides whether automatic reviews cover pull requests from people outside the team and from bots. If no admin has changed it, it's on for teams created before October 22, 2026 and off for teams created since. The switch doesn't affect manual reviews started with `cursor review` or `bugbot run`.
 
 ### Personal settings
 
@@ -99,7 +99,7 @@ Enterprise admins can enable Bugbot per repository, configure allow/deny lists f
 
 - Run **only once** per PR per installation, skipping subsequent commits
 
-Bugbot runs for all contributors to enabled repositories, regardless of team membership.
+Bugbot runs for all contributors to enabled private repositories, regardless of team membership. On public repositories, the **Public repositories** switch in Bugbot's **Team** settings decides whether automatic reviews cover pull requests from people outside the team and from bots. If no admin has changed it, it's on for teams created before October 22, 2026 and off for teams created since. The switch doesn't affect manual reviews started with `cursor review` or `bugbot run`.
 
 ### Personal settings
 

@@ -8,6 +8,34 @@ path: /docs/release-notes/bugbot
 
 Weekly changes to [Bugbot](https://cursor.com/docs/bugbot.md). Each entry covers one week of changes and is labeled with the Monday that starts it.
 
+## Week of Oct 12, 2026
+
+### Teams and installations
+
+- &#x20;**Bugbot runs under the right team on shared GitHub installations.** When a GitHub installation is shared across Cursor teams, Bugbot reviews on a repository run under the team it was granted to, using that team's settings and plan, instead of the installation owner's or the PR author's. The Bugbot repository list shows an "Enabled by" badge naming the team on repositories another team already runs Bugbot on, and explains why you can't enable them there.
+- &#x20;**Manage Bugbot on GitHub installations shared with your team.** If another team in your organization shares its GitHub installation with your team, you can change per-repository Bugbot settings from the dashboard without taking over the installation. The installation details page marks these installations as Shared and names the owning team, which still manages installation-level settings.
+
+### Reviews
+
+- **Local reviews work in Mercurial repositories.** When you [run Bugbot from your agent](https://cursor.com/docs/bugbot.md#run-in-your-agent) or run a security review on local changes, it now reviews Mercurial checkouts as well as git repositories, without running the repository's hooks. If a folder has neither, the review says so and names the path. If your Mercurial client is too old to skip hooks safely, it asks you to upgrade.
+- **Rule violations are no longer dropped when a pull request calls them intentional.** Bugbot now keeps a finding that correctly flags a violation of one of your team, project, or manual [rules](https://cursor.com/docs/bugbot.md#rules), even if the pull request description says the change was deliberate. Findings that cite a rule the diff doesn't break are still filtered out.
+- **Long local reviews finish with results.** When you [run Bugbot from your agent](https://cursor.com/docs/bugbot.md#run-in-your-agent) and a review runs unusually long, Bugbot stops investigating at a set limit and replies with the bugs it has already verified, instead of running on or ending without an answer.
+
+### Settings and access
+
+- &#x20;**Restrict Access works with pull requests from Cursor agents.** When a Cursor agent opens a pull request, the team's Restrict Access allowlist or blocklist now checks the GitHub account of the person who launched the agent, not the bot. When Restrict Access blocks a review, Bugbot's "couldn't run" comment says which list blocked it and how an admin can fix it, instead of suggesting a seat limit increase.
+- **Manual Only holds when your GitLab or Bitbucket account is linked to several Cursor accounts.** Fixed an issue where Bugbot could still review your merge requests and pull requests automatically on GitLab and Bitbucket in that case. If Manual Only is on in any of the linked accounts, Bugbot now waits for you to trigger it.
+
+### Dashboard
+
+- &#x20;**Clearer account list in the Bugbot dashboard.** The coverage table now labels its first column Account, shows the GitHub account name for each installation, and marks personal accounts with a Personal badge. Accounts you manage are listed first, then organizations, then personal accounts. Bugbot's installation pages and MCP tools also open correctly from the Automations and Custom Agents pages.
+- &#x20;**Sign in to team MCP servers from the Bugbot dashboard.** When a team [MCP server](https://cursor.com/docs/bugbot.md#mcp-support) in Bugbot's MCP tools settings needs authentication, its status shows a **Needs Auth — Sign in** button that opens the server's sign-in page. Each click gets a fresh sign-in link, so a stale or used link no longer blocks the connection.
+- **Open Settings from Bugbot pages with a keyboard shortcut.** Press Cmd+, on macOS or Ctrl+, on Windows and Linux on Bugbot pages to open your Settings, the same shortcut the Cursor desktop app uses. It works on non-Latin keyboard layouts and does nothing while you're typing in a text field.
+
+### Fixes
+
+- **Fixes to review reliability.** Bugbot still posts its review when the Autofix pre-check fails, and skips Autofix for that run. On GitLab, a manual Bugbot command that hits a temporary user lookup failure now gets a reply explaining what happened instead of being dropped. Bugbot also handles its own outdated inline comments again, such as minimizing previous comments.
+
 ## Week of Oct 5, 2026
 
 ### Bitbucket

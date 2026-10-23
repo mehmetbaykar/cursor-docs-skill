@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "64587110b0882bc21a82a4ebbac3ced21ea798dbdd779e021d3898a562016eb9",
-      "last_updated": "2026-10-21T12:31:48+00:00",
+      "hash": "466b8f0e28c744aae71f1f8fc5df5c0af57228a1dc7e37477ae3a7d477730f27",
+      "last_updated": "2026-10-23T18:26:03+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -48,8 +48,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "83135631bd00620cb97dc79649f2cc8928fda889f7743331c0f48f8860c4f608",
-      "last_updated": "2026-09-29T15:24:04+00:00",
+      "hash": "96bf8bd388d20c28428eb6b204f3d7e72874e515859d85b1f3ff737b953dbb80",
+      "last_updated": "2026-10-23T18:26:05+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -354,8 +354,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "fb9f4e0ba61e13f2a128f9d28724e714b647b60efc718f84d68a6bb59752caa4",
-      "last_updated": "2026-10-22T15:23:09+00:00",
+      "hash": "42c8a2b308df759297f55e04f63c202cfbdd8b9d7354dc599eb10ef5caa02e1c",
+      "last_updated": "2026-10-23T18:26:17+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -372,8 +372,8 @@
       "title": "ACP"
     },
     "cli__changelog.md": {
-      "hash": "287b4dc149b65de26fc0e1cacdd9b675d04038e1f41871458d9e2d972dfef935",
-      "last_updated": "2026-10-11T01:06:24+00:00",
+      "hash": "0caa5d07e40822ccc9afbe9442e87af984254bf2bfafd6096927e64e6be9f6ad",
+      "last_updated": "2026-10-23T18:26:17+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
       "source_url": "https://cursor.com/docs/cli/changelog",
@@ -921,8 +921,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "5a89e92a940d2c1f4d7ac2d48101cefc57a31c4580ea2993a1a632f8a9fd5cf9",
-      "last_updated": "2026-10-07T18:29:51+00:00",
+      "hash": "3a3e71d80dd78b5d703d7f4e76d496d186fba8f167e34b7b5c3eb413b30a1827",
+      "last_updated": "2026-10-23T18:26:37+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "source_url": "https://cursor.com/docs/integrations/bitbucket",
@@ -1695,8 +1695,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "b36d9fcd95b95a1b42ca942076cd467cc69bdce62a5ee8d7192168fe28c150d9",
-      "last_updated": "2026-10-19T00:57:15+00:00",
+      "hash": "f5ef2b55bf72d6869c3d1be4a2a5feac158fe25c66a1dadfaf35aabe5e610577",
+      "last_updated": "2026-10-23T18:27:06+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "source_url": "https://cursor.com/docs/origin/settings",
@@ -1785,8 +1785,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "68c70ab57fbf64d2088548379b670f61b4221edb42e8eb94f7b64e4c85dcd85a",
-      "last_updated": "2026-10-13T18:31:52+00:00",
+      "hash": "28ed3fcb4cff0b7d7fa0d7cfd6765b2d6a90acca6d42897d8f85d9584146b3ea",
+      "last_updated": "2026-10-23T18:27:10+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -1794,8 +1794,8 @@
       "title": "Agents Window release notes"
     },
     "release-notes__bugbot.md": {
-      "hash": "6efcf52030591fa9ee4815783fe71ca5d06e757098c4023ffdfac0e08d0413b4",
-      "last_updated": "2026-10-13T18:31:52+00:00",
+      "hash": "e250dde4491746a1785c660bf935e124f4570f89cfe0e694ae93017c57728be5",
+      "last_updated": "2026-10-23T18:27:10+00:00",
       "original_url": "https://cursor.com/docs/release-notes/bugbot",
       "path": "/docs/release-notes/bugbot",
       "source_url": "https://cursor.com/docs/release-notes/bugbot",
@@ -1803,8 +1803,8 @@
       "title": "Bugbot release notes"
     },
     "release-notes__cloud-agents.md": {
-      "hash": "4985985dcaa717dbecdf4f231e08460a3bdb83c6c6cf0c5bdc74b3ce2f5d4965",
-      "last_updated": "2026-10-13T18:31:53+00:00",
+      "hash": "ea5bb7140f82df9346a33085416bc7c8ffe7cb6078df20f8193bd82c0200b1b1",
+      "last_updated": "2026-10-23T18:27:10+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
       "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
@@ -1812,8 +1812,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "288ef52b88fc3f2359e59f01092e1b306d07b92f00c6bb5c772f987db744f033",
-      "last_updated": "2026-10-13T18:31:53+00:00",
+      "hash": "f262b88ac4c493b6774a205228f86c22ca7d1abf15fb4d81ae6bc68f9a16d123",
+      "last_updated": "2026-10-23T18:27:11+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "source_url": "https://cursor.com/docs/release-notes/ide",
@@ -1821,8 +1821,8 @@
       "title": "Cursor IDE release notes"
     },
     "release-notes__mobile.md": {
-      "hash": "a7bc230f6b2296ef2f959f635adc81b3458f90556142fc354aac1074c719256c",
-      "last_updated": "2026-10-06T15:23:25+00:00",
+      "hash": "41849037e8ded36adfbb071b33a510e28544dc26cdd44ed3d32e160373fba194",
+      "last_updated": "2026-10-23T18:27:11+00:00",
       "original_url": "https://cursor.com/docs/release-notes/mobile",
       "path": "/docs/release-notes/mobile",
       "source_url": "https://cursor.com/docs/release-notes/mobile",
@@ -1839,8 +1839,8 @@
       "title": "Origin CLI release notes"
     },
     "release-notes__origin.md": {
-      "hash": "958a11426780c4d00741cd3c216ae3a5dbe6e8701f8a6a8250f6f2f2df1377f6",
-      "last_updated": "2026-10-06T15:23:25+00:00",
+      "hash": "22424c689a439c5cb52222ad532896be9510c2e5b1b0b86f14943c4f48044114",
+      "last_updated": "2026-10-23T18:27:12+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin",
       "path": "/docs/release-notes/origin",
       "source_url": "https://cursor.com/docs/release-notes/origin",
@@ -1848,8 +1848,8 @@
       "title": "Origin release notes"
     },
     "release-notes__sdk.md": {
-      "hash": "5892c54020e5cfd6ccd0d225b776b385be4bc0c9503772e66bfc4f4f9122588a",
-      "last_updated": "2026-10-06T15:23:26+00:00",
+      "hash": "7ee6a415eac49080dd7b3874f8f77bf1aaefe5867cee4d61802c8bc6ccda7404",
+      "last_updated": "2026-10-23T18:27:13+00:00",
       "original_url": "https://cursor.com/docs/release-notes/sdk",
       "path": "/docs/release-notes/sdk",
       "source_url": "https://cursor.com/docs/release-notes/sdk",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-23T06:36:46+00:00",
+  "last_updated": "2026-10-23T18:27:16+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

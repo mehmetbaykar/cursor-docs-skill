@@ -29,7 +29,7 @@ Retrieve all team members and their details.
 
 Array of team member objects, each containing:
 
-- `id` string - Encoded user ID for the team member (e.g., `user_PDSPmvukpYgZEDXsoNirw3CFhy`). OpenTelemetry Export carries the same value as the optional [`cursor.user.account_id`](https://cursor.com/docs/enterprise/opentelemetry-export/wire.md#resource-attributes) resource attribute.
+- `id` string - Encoded user ID for the team member (e.g., `user_PDSPmvukpYgZEDXsoNirw3CFhy`). This route always returns the `user_…` form. It encodes the same user that the Organization API's [`GET /organizations/members`](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-members) returns as a plain number. OpenTelemetry Export carries the same value as the optional [`cursor.user.account_id`](https://cursor.com/docs/enterprise/opentelemetry-export/wire.md#resource-attributes) resource attribute.
 - `email` string - Email address of the team member
 - `name` string - Display name of the team member
 - `role` string - Role in the team (e.g., `member`, `owner`)
@@ -127,6 +127,8 @@ The `users` parameter accepts multiple formats, comma-separated:
 - **Encoded user IDs**: `user_PDSPmvukpYgZEDXsoNirw3CFhy,user_kljUvI0ASZORvSEXf9hV0ydcso`
 
 You can mix formats: `developer@company.com,12345,user_PDSPmvukpYgZEDXsoNirw3CFhy`
+
+Email values match `user_email` exactly and are case-sensitive. `user_email` is recorded when the event is written, so see the [log format](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#log-format) before you use it as a user key.
 
 Maximum number of users per request equals `pageSize`.
 
