@@ -8,6 +8,28 @@ path: /docs/release-notes/sdk
 
 The latest features, improvements, and fixes shipping to the Cursor SDK, covering `@cursor/sdk` on npm and `cursor-sdk` on PyPI.
 
+## 1.0.40
+
+- &#x20;**Choose which team an SDK agent runs under.** If your login belongs to more than one team, pass `teamId` in `Agent.create(...)` options to run the agent under that team. The same option works on `Agent.list`, `Agent.get`, archive and delete calls, and on `Cursor.me`, `Cursor.models.list`, and `Cursor.repositories.list`. It isn't saved, so pass it again on `Agent.resume` and later calls. TypeScript only.
+- **Claude Code hooks that deny a tool call now block it in local agents.** Fixed a bug where a `PreToolUse` hook from a Claude Code `settings.json` returned `permissionDecision: "deny"` under `hookSpecificOutput`, but the local SDK agent still ran the tool call. Local agents now treat that [nested response](https://cursor.com/docs/reference/third-party-hooks.md#response-format-compatibility) as a deny.
+- **Local runs keep their output when the local agent store can't be opened.** If the local database can't be opened partway through a run, a turn that already streamed text now finishes with that text as its result instead of ending as an error. The run keeps going in memory, and the stream emits a `status` message warning that the run's checkpoint may not be available after the process exits.
+
+## 1.0.39
+
+- **Python runs report why they failed.** When a run fails after it starts, `run.wait()` in the Python SDK now returns `error_code` and `error_message` on the `RunResult`, and stream result events carry the same fields. Before, Python only saw an error status.
+- **Fixes to local MCP servers and transcripts.** Passing `mcpServers` on an individual send in a local run no longer drops MCP servers loaded from `settingSources`. Local agents also keep writing transcripts when the home directory is missing or read-only, using `CURSOR_DATA_DIR` when set or a private temporary directory otherwise.
+
+## 1.0.38
+
+- **Fixed local agents failing on models that only run in max mode.** Local agents created with a model variant that requires max mode, such as a 500k-context selection, now send max mode automatically instead of failing with invalid parameters, and keep it across later sends and resumes. `Cursor.models.list()` marks those variants with `isMaxMode`, and `ModelSelection` accepts an optional `maxMode`.
+- **Computer use tool calls show up in run events.** When an agent uses computer use, tool call events now carry a typed `computerUse` call instead of dropping it. `args.actions` lists each action (`click`, `type`, `scroll`, `key`, `drag`, `screenshot`, and more), and `result` reports the action count, duration, screen settle time, and an optional screenshot path or error message.
+- **`zod` is now a peer dependency.** `@cursor/sdk` now uses the `zod` you install yourself (3.25 or later in the 3.x line, or 4.x), so your schemas and the SDK's share one copy. The exported schemas are built with the `zod/v3` API, which both supported versions include. Add `zod` to your dependencies if your project doesn't already have it.
+- **Slow-starting stdio MCP servers can take longer to connect.** Local agents now honor `startupTimeoutSec` on a stdio server in your MCP config, so a server that is slow to start no longer fails at the fixed 60-second connect limit. You can set up to 5 minutes; servers without the setting still default to 60 seconds.
+- **Brief server outages no longer fail one-off SDK requests.** When the server reports a temporary outage that is safe to retry, the SDK resends a one-off request once, after a short random delay of up to 1 second, instead of failing right away. Streaming calls such as agent runs are never replayed.
+- **Background subagents keep running after the tool call that started them.** When a local agent starts a subagent in the background, the subagent no longer gets cancelled as soon as the launching tool call returns.
+- **Fixed sandboxed runs failing on a non-executable sandbox helper.** The SDK's platform packages now install the sandbox helper with execute permission.
+- **Fixed Python cloud launches with a named cloud environment.** Launching a cloud agent from the Python SDK with a named cloud environment and no repos no longer fails validation.
+
 ## 1.0.35
 
 - **Custom tools know which session called them.** The `execute` callback of a `local.customTools` entry now receives `context.sessionId`, the local session that invoked the tool. Subagents started with `Task` pass their own id, so a host can keep separate state for each child agent. TypeScript only; unset when the runtime has no session id.

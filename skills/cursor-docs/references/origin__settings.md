@@ -73,7 +73,7 @@ Exact controls in the Permissions UI may change during early beta.
 
 ### Notifications
 
-Use **Notifications** in codebase settings to choose which pull request events in the codebase's repos send you a Slack DM from `@Cursor`. If your [Slack](https://cursor.com/docs/integrations/slack.md) account isn't linked yet, connect it on the **Slack** row. Then turn on the events you want: **Review requested**, **Pull request merged**, **Review submitted**, and **Comment**. **Apps and bots** includes activity from apps and bots, and **Ignore drafts** skips draft pull requests. Each switch saves as soon as you change it.
+Use **Notifications** in codebase settings to choose which pull request events in the codebase's repos send you a Slack DM from `@Cursor`. If your [Slack](https://cursor.com/docs/integrations/slack.md) account isn't linked yet, connect it on the **Slack** row. Then turn on the events you want: **Review requested**, **Pull request merged**, **Review submitted**, **Comment**, and **Mention**. **Apps and bots** includes activity from apps and bots, and **Ignore drafts** skips draft pull requests. Each switch saves as soon as you change it.
 
 To open these settings from Slack, select **Manage notifications** in a DM's menu.
 

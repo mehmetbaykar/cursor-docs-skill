@@ -84,6 +84,12 @@ Disconnecting Bitbucket Cloud has two separate effects:
 
 To fully stop app events from the workspace, uninstall the Cursor app from Bitbucket workspace settings.
 
+### Switch Bitbucket workspaces
+
+A Cursor team uses one Bitbucket workspace at a time. To move your team to another workspace, a Cursor team admin opens the Bitbucket manage menu in [Integrations in the dashboard](https://cursor.com/dashboard/integrations) and selects **Switch workspace**. Switching disconnects the Cursor app from the current workspace, so Cursor stops listing its repositories and Bugbot stops commenting there. The app stays installed in Bitbucket.
+
+Then finish connecting the new workspace. In its Bitbucket workspace settings, under **Forge Apps**, select **Cursor**, click **Connect to Cursor**, and choose your Cursor team. If the Cursor app isn't installed in that workspace yet, install it first.
+
 ### Bitbucket Data Center
 
 Bitbucket Data Center requires a [Teams](https://cursor.com/docs/account/teams/pricing.md) or [Enterprise](https://cursor.com/docs/enterprise.md) plan. It supports Bugbot. Cloud Agents are not supported.

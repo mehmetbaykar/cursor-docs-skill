@@ -8,6 +8,157 @@ path: /docs/release-notes/agents-window
 
 New features, improvements, and fixes in the [Agents Window](https://cursor.com/docs/agent/agents-window.md). The Agents Window ships with the Cursor app, so each entry covers one minor version, including the patch releases that follow it. Editor changes are in the [Cursor IDE release notes](https://cursor.com/docs/release-notes/ide.md).
 
+## 3.27
+
+### Projects
+
+- **Project split panes keep your focus and come back after a reload.** In a [Project](https://cursor.com/docs/agent/projects.md)'s split panes, the pane you focused stays focused when panes return or the window reloads, and the editor panel follows whichever pane you focus, including chats dropped in from outside the Project. A chat you opened in another Project's split reopens in that split after a reload or Back/Forward, and the Project's own chat tab stays pinned first in its tab strip.
+- **Calmer start for new Projects.** While a new [Project](https://cursor.com/docs/agent/projects.md) sets up, its conversation now shows a single "Setting up project" row until the agent's first output, instead of reflowing through environment setup steps. A new Project starts with its apps panel closed, and the Project app opens on its own once the first task appears.
+
+### Chat and composer
+
+- **Project messages collapse into one line in the chat.** When a [Project](https://cursor.com/docs/agent/projects.md) sends messages to an agent, they now collapse into one centered line, such as "Messages from Hare, Tortoise", instead of filling the conversation. Click an agent's name to open the Project's chat at that message, or expand an "Update from" entry to read the update.
+- **Fixes to prompt attachments.** Attached images and videos in sent messages are labeled with their file name, and images with very long file names attach instead of failing to save. Adding a HEIC or HEIF image on Windows or Linux now explains that those images need macOS, and slow HEIC conversions get more time and a clear timeout message. Pasted documents with no local file attach to cloud agent prompts, and videos or documents that can't be attached show a warning instead of disappearing.
+- **More reliable queued messages and action buttons.** Action buttons that send a message, such as git actions, now follow your queue or steer behavior and keep your typed draft and attached context. Send Now on a queued message you just edited sends your saved edit from any composer, and shows an error instead of sending stale text if the save fails. Delivered messages from other agents no longer linger in the queue.
+
+### Navigation and layout
+
+- **Tabs keep your place across agent switches and restarts.** Tabs in the Agents Window now return to where you left them after you hide the panel, switch agents, or restart. Files reopen at the same PDF page and zoom, image zoom and pan, CSV scroll, and code scroll and cursor; the Changes tab keeps its scope, branch, and picked commits; canvases keep their Rendered or Source view; and expanded folders, open find bars, and agent-opened tabs like Agent Changes and Desktop come back too.
+- **The sidebar remembers which sections you collapsed or expanded.** Collapsing the Pinned section or the Repositories, Workspaces, or Chats header now sticks across reloads and restarts, and sections you expanded with More keep showing the same number of rows. A repository or workspace section you expand stays open after a reload, even if its agents are idle, until one of them has new activity. Starting a new chat also unfolds a collapsed Repositories or Workspaces header so the chat is visible.
+- **Edit > Undo and Redo now act on what you were working in.** Undo and Redo from the menu bar apply to the prompt, editor, terminal, or browser that had focus before you opened the menu. They undo window actions like archiving an agent only when nothing editable has focus, so typing in the prompt and then archiving from the sidebar no longer sends Undo to the prompt.
+
+### Files, changes, and pull requests
+
+- **Clearer merge actions on pull request tabs.** The merge button on a pull request tab now shows how many pull requests the merge will land, and hovering Remove from Queue shows the pull request's position in the merge queue. Pull request links in chat show a status icon right away, and the header no longer shifts when live changes replace the cached diff.
+
+### Customization and settings
+
+- **Hide the unread count next to the menu bar icon.** On macOS, the menu bar menu has a new Show Count option. Turn it off to keep the menu bar icon without the unread agent number beside it. It's on by default and persists across restarts.
+
+### Fixes
+
+- **Fixes to sidebar keyboard navigation.** Arrow keys, Home, and End now move through every reachable row and button in the sidebar, skip hidden groups and hover-only buttons, and no longer open a preview card on each row. Keyboard focus stays in place when you pin, unpin, move, archive, or collapse agents, or press More. Screen readers also stop announcing repository headers as keyboard-reorderable.
+- **Fixes to cloud agent chats.** Scrolling up in a long cloud agent chat keeps loading older messages instead of stalling or skipping ranges, and reopening a chat keeps the history you had scrolled to. Replies no longer lose text or thinking already shown when a turn finishes, and subagent rows that failed to load now retry and load.
+- **Fixes to loading agents and Project workers.** Opening a finished cloud subagent from a link or by id no longer fails because it was unloaded first. Agents hidden from the sidebar now load their tiles instead of waiting indefinitely, and a Project no longer shows as running because of workers that already finished.
+- **Fixes to transcript and prompt styling.** Steer messages and Send now interrupts no longer appear grayed out while they wait for the agent to pick them up. Time markers in the transcript now show as a label between two lines, lined up with message bubbles.
+- **Fixes to voice calls.** Voice calls in the Agents Window no longer error out when the agent you're talking to is closed, unloaded, or hasn't loaded its conversation yet.
+- **Fixes to Computer Use control.** Computer Use now keeps control with the turn that's running. A late end from an earlier turn or a subagent no longer releases control held by a newer turn or another agent, and a turn whose end was lost no longer keeps control. A subagent finishing also no longer resets a phone layout the parent agent is still using on a browser tab.
+- **Fixes to agent reliability.** On Windows, hooks now get clean UTF-8 payloads, and screen readers announce the Restore Checkpoint control in chat.
+
+## 3.26
+
+### Projects
+
+- **Search, sort, and browse a Project's Library files.** In a [Project](https://cursor.com/docs/agent/projects.md)'s Library, All Files is now a table with Name, Kind, Modified, and Size columns. You can search files, filter by kind, folder, or modified date, sort by any column, limit the list to Project or User files, or switch to a grid of preview cards grouped by folder, and your choices are saved for each Project. Recents now update within seconds of agents writing files, and you can move through the Library with the keyboard.
+- **Mention a Project's tasks from the @ menu.** In a [Project](https://cursor.com/docs/agent/projects.md) chat, the @ menu now has a Tasks folder that lists the Project's tasks grouped by status, in the same order as the task list in the right panel. Type a task ID (or just its number) or words from its title to find it, and pick it to add a task chip with its status icon. Mentions of Project members now show as plain @Name chips, and the coordinator's @ menu no longer offers a Branch row it can't use.
+- **Faster first replies from a Project's coordinator.** When you message a [Project](https://cursor.com/docs/agent/projects.md), its coordinator now replies right away with a short answer, or a quick acknowledgement and its first step, before it starts reading files or launching workers.
+- **Choose which machines a cloud Project can use.** In a cloud [Project](https://cursor.com/docs/agent/projects.md)'s chat, the Run on menu below the chat input now lists your machines and pools, so you can search and check the ones the coordinator may place workers on without asking first.
+- **Add a local folder to a Project's allowed machines.** In a cloud [Project](https://cursor.com/docs/agent/projects.md)'s Allowed machines menu, the Machines submenu now has an Add folder on This Mac row. Pick a folder and the Agents Window starts a worker for it and allows it for the Project, showing Starting and Allowing progress, with an error message if it fails.
+- **Better keyboard and screen reader support for Project tasks.** In a Project's task List and Board, each task's title is now the control that opens it, so Tab moves cleanly between tasks and focused Board cards scroll fully into view. Screen readers now announce each task's status, the task a status button changes, and PR counts by state such as "3 PRs: 2 open, 1 merged". Focus also follows a task when you change its status, and returns to where you were when you close find in Project notes.
+
+### Chat and composer
+
+- **Voice calls speak the agent's own updates.** On a voice call, the agent now chooses what to say: short progress notes while it works, a brief spoken answer when it's done, and a quick update when workers it started report back, instead of the call reading its chat replies aloud. Calls also show a reconnecting state with the clock running when the line drops, acknowledge tasks right away, and say so when a task can't reach the agent within 20 seconds.
+- **Fixed mode slash commands dropping the prompt you typed after them.** Typing a mode command followed by a prompt, such as `/ask explain this file` or `/plan fix the tests`, and pressing Enter no longer clears the input and sends nothing. The Agents Window now switches to that mode and sends your prompt.
+- **Long messages you send to a Project collapse with Show more.** In [Project](https://cursor.com/docs/agent/projects.md) chats, long messages you send now show up to 30 lines with a fade and a Show more button that expands the full message, instead of a small scrolling box. Show less collapses it again.
+- **Right-click links in Markdown files for the same actions as agent replies.** Right-clicking a link in a Markdown file now shows the same menu you get on links in an agent's reply, with Open, copy, and file actions. File links open relative to the document, and links to a heading in the same file offer Copy only.
+
+### Navigation and layout
+
+- **Split panes keep their own controls and survive reloads.** When you split conversations into panes, each pane now has its own "…" chat actions menu and Project members for the chat it shows, and a tile's title bar is trimmed to just its actions menu and the show-panel button. Splits, the pane you had focused, and each tile's selected agent now come back after a reload, even when a conversation loads late or is hidden from the sidebar. A Project's own chat tab stays pinned at the front of its pane, and drag-and-drop, narrow tiles, keyboard focus, and cycling between panes behave more reliably.
+- **Undo an archive with Cmd+Z, and get a warning before archiving agents with running processes.** After you archive an agent or a group, press Cmd+Z (Ctrl+Z on Windows and Linux) or use Edit > Undo while no text field is focused to bring it back, and Cmd+Shift+Z to archive it again. Archiving an agent that still has background processes running now asks for confirmation first, including Archive All on a sidebar group.
+- **Drop files onto an agent in the sidebar.** Drag files from your desktop onto an agent or Project in the sidebar to open that chat with the files attached to its prompt. The row highlights while you drag so you can see where the files will go.
+
+### Files, changes, and pull requests
+
+- **Easier pull request review in the PR tab.** The PR tab now remembers whether you were on Changes, Description, Commits, Checks, or Reviews when you switch agents or restart, and Cmd+click (Ctrl+click on Windows and Linux) on a diff line opens that line on GitHub or Origin. Generated files start collapsed with a Generated badge, the Merge button stays disabled while an Origin rule blocks the merge, and merges that bypassed rules now show in the timeline. Pull request chips in prompts and messages show the PR's current status, such as merged or closed.
+
+### Cloud agents
+
+- &#x20;**Open the live workspace for agents on self-hosted workers.** Cloud agents running on a Linux [self-hosted worker](https://cursor.com/docs/cloud-agent/self-hosted/private-workers.md) now show the Changes panel, file tree, terminal, and forwarded ports in the Agents Window, as Cursor-hosted cloud agents do. Start the worker with `agent worker --connect-workspace start` to turn it on. If the worker restarts or goes offline, the workspace reconnects when the worker is back, and an outdated worker shows a message asking you to update it.
+- **Clearer status for cloud agents on self-hosted workers.** When a cloud agent's self-hosted worker disconnects, the editor panel shows Worker offline and reconnects automatically once the worker is back.
+- **Point environment setup at any environment.json in your repos.** The [environment setup](https://cursor.com/docs/cloud-agent/setup.md) dialog no longer waits to detect `.cursor/environment.json`. Under environment.json location, it starts on Start from scratch and lists every repo in the setup. Pick a repo to load an existing file, and enter its path, which starts filled in as `.cursor/environment.json`.
+
+### Browser and design mode
+
+- **Edit CSS on an element you annotate in Design Mode.** When you leave a note on a single element in [Design Mode](https://cursor.com/docs/agent/design-mode.md), you can open a CSS inspector to filter, edit, and live-preview its properties, then send those edits to the agent with your note. You can pin the inspector to a corner of the page while you work. Leaving Design Mode also gives the page its own cursor back right away.
+- **Simpler built-in browser toolbar.** The built-in browser no longer has a bookmarks bar, a favorites and history sidebar, or the Cmd+D bookmark shortcut. Your browsing history is still available from the address bar suggestions and the new tab menu.
+
+### Account
+
+- &#x20;**Switch models when you hit the weekly limit.** When you reach the weekly usage limit on a model your allowance does not cover, the notice can now offer a Switch Model button next to Buy Credits to move to a covered model. On Enterprise plans, the Personal Usage chart in Plan & Usage settings also opens instantly from your last saved data and shows the right spend type if you belong to more than one team.
+
+### Accessibility
+
+- **More accessibility and reduced motion fixes.** Screen readers now announce the chat transcript as a "Chat transcript" region, and announce the branch menu, project selector, font picker, and automation trigger pickers as busy while they load. With reduce motion on, dialogs fade in place instead of scaling or sliding.
+
+### Fixes
+
+- **Steadier agent transcripts.** Reopening a recent agent restores its transcript layout instead of jumping while rows re-measure. After a cloud agent reconnects, output written while you were disconnected now appears in the conversation.
+- **Fixes to the subagent tray.** Tray rows and breadcrumbs keep their task names and status in long chats, rows no longer get stuck loading behind one that keeps failing, and a shared Project no longer appears as its own subagent. Tracked task chips show the agent's real name instead of "Agent", and opening a finished cloud subagent reliably loads it.
+- **Fixes to the prompt box and chat switching.** Switching chats keeps your cursor where you left it in each prompt, and the composer glides into place instead of jumping. The fullscreen prompt now shows attached videos, stays visible but read-only when follow-ups are unavailable (for example after a failed worktree setup), and a locked prompt no longer accepts dropped or pasted files. Signing out now clears the remembered conversation, and a failed or cancelled agent creation returns you to your draft.
+- **Fixes to the sidebar.** Local chats open faster from the sidebar, and the window loads only your most recent chats at startup. Collapsed Pinned sections and stale sections you re-expand now stay that way across reloads, and sidebar rows no longer show stale labels while animating. Cloud agents without a repo no longer show "Cloud" twice in their tooltip, and Projects no longer appear as running when only finished workers remain.
+- **Fixes to panels, menus, and the project picker.** The Changes view now names nested repositories correctly and refreshes diffs when you switch repos. Opening a file that isn't on the agent's machine shows a clear message instead of a raw error, Cmd+A in the Files tree selects tree rows, and Chat actions menu picks keep focus in the dialog they open. The project picker keeps the multi-repo Save button visible while searching and stays responsive with very large repo lists.
+- **Fixes to cloud Projects.** In a cloud Project, a child agent's forwarded ports menu shows that child's ports, and the coordinator only plays the finished chime when it actually messages you.
+
+## 3.25
+
+### Browser and design mode
+
+- **Edit CSS in Design Mode more like browser DevTools.** The CSS inspector in Design Mode notes now works like browser DevTools. Use the Up and Down arrows to step a value (hold Shift for steps of 10), drag a number to scrub it, or type a bare number like `8` to get `8px`. Color and length rows suggest the page's own CSS variables, and the values shown now come from the browser's real cascade, including nested rules, adopted stylesheets, and cross-origin stylesheets.
+- **Pick parent elements with the arrow keys in Design Mode.** While hovering in [Design Mode](https://cursor.com/docs/agent/design-mode.md), press Up to move the highlight to the parent element and Down to go back, then click to select it. The hint bar shows the shortcut, and the selection ring around a picked text element now sits slightly off the text instead of hugging the letters.
+- **Browser tabs reload on their own when your dev server comes back up.** A browser tab pointed at a local port that had stopped responding now reloads when a terminal command or an agent's background shell starts serving that port again, so you no longer have to refresh by hand after restarting a dev server. A new Reload Browser Tab command (Cmd/Ctrl+R) reloads the active tab.
+
+### Navigation and layout
+
+- **A cleaner, faster command palette.** The Cmd+K palette now offers Select Model, Archive, and New Side Chat. Paste a pull request URL or type a pull request number to jump straight to that pull request. Rows fit on one line, shortcuts shown next to commands match what runs them, and the palette opens and searches faster when you have many agents. Ctrl+Tab now opens the recent agents switcher, which uses the same look as the palette, even while the palette is open.
+- **Back reopens tabs you just closed.** After closing a tab in the Agents Window, such as a file, terminal, browser, Changes, Output, or a side chat, press Back to bring it back where it was, with its navigation history intact. Cmd+Shift+T focuses a tab that Back already restored instead of opening a duplicate. Mouse side buttons pressed in a chat pop-out window also no longer navigate the main window.
+
+### Files, changes, and pull requests
+
+- **Play audio files and scroll through whole PDFs in file tabs.** Opening an audio file such as .mp3, .wav, .ogg, .aac, or .opus in a file tab now shows a built-in player instead of a binary placeholder, and it pauses when you switch away. PDFs now scroll continuously through every page, the toolbar shows the current page with buttons to jump between pages, and zooming keeps your place. The CSV preview's row-number column also no longer lets scrolled cells show through.
+
+### Cloud agents
+
+- **Agents on Self-Hosted Machines are grouped by machine in the sidebar.** The sidebar now groups agents running on [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) into one section per machine or pool, labeled with the machine name even before a worker picks up the run. Agents keep the machine you picked across refreshes, forks, and other windows, and for workers that can't serve live changes, the Changes tab explains why instead of spinning.
+- **Add a folder to a Project's allowed machines.** In a Project's Allowed machines menu, the Machines list now ends with an Add folder row for this computer. Pick a folder and the Agents Window starts a worker for it and allows it on the Project, showing Starting and then Allowing until it's done.
+- **More reliable forwarded ports for cloud agents.** In the editor panel's forwarded ports menu, a cloud agent port that can't be reached now shows a red dot and the error, such as a timed-out connection, until a connection succeeds. Opening a second cloud workspace no longer breaks port forwarding for the first, and turning off Auto-Forward Ports now closes ports that were forwarded automatically and keeps them from being forwarded again.
+- **Fixed wrong Dockerfile path errors in cloud environment config.** Editing `environment.json` now checks `build.dockerfile` and `build.context` against the paths the cloud build uses, resolved from the repository's `.cursor` folder. False missing-Dockerfile errors go away, a missing build context folder is flagged, and agents setting up an environment write paths that build correctly.
+
+### Customization and settings
+
+- &#x20;**Claude Opus 5.5 and Sonnet 5.5 on AWS Bedrock.** Teams that route models through [AWS Bedrock](https://cursor.com/docs/customizing/aws-bedrock.md) can now pick Claude Opus 5.5 and Claude Sonnet 5.5 in the Agents Window's model settings.
+
+### Privacy and security
+
+- **Safer handling of branch names in git and GitHub commands.** Fixed an issue where a branch name or commit ref containing shell characters could run unintended commands during pull request lookup, CI reruns, or the branch diff. Unsafe names now skip the GitHub CLI lookup, and the diff falls back to comparing against origin/main.
+
+### Agent and chat
+
+- **Add links and media from the transcript to chat.** Right-click a pull request, agent, project task, canvas, file, folder, or line-range link in a conversation and choose Add to Chat to insert it as a chip, or as a plain link for other URLs. Images, videos, and text artifact cards also offer Add to Chat alongside Download, Copy Image, or Copy Text, and web search results, terminal citations, and thinking blocks now open the same link menus.
+- **Links added to chat become compact chips.** Using Add to Chat on a GitHub issue, commit, Linear issue, or web link in an agent reply now inserts a short labeled chip with an icon instead of the raw URL. The full URL is still sent to the agent and shown on hover, and clicking the chip opens the link.
+- **Inline code formatting in the prompt.** Text you type or paste between single backticks in the prompt now shows as inline code, and is sent with its backticks. Press Backspace right after the conversion to get the plain backticks back.
+- **Find any pull request from the `#` menu by number.** In the prompt box's `#` menu, typing a pull request number that isn't in the list now looks it up and adds it, with a loading status while it searches and "No matching pull requests" when nothing matches. Pull requests you opened moments ago on Origin also show up in the menu within seconds.
+- **Clearer live status while agents work.** When a subagent needs your approval or an answer, the main conversation's status line now says "Waiting for approval" or "Waiting for response" and shows what it's asking for. Each finished turn shows how long the agent worked, the transcript stops jumping when a turn ends, and messages sent by another agent name the agent that sent them.
+- **Cmd/Ctrl+F works inside canvases.** Pressing Cmd/Ctrl+F in a canvas opens its find bar, or puts focus back in the bar if it is already open, without losing your current match.
+
+### Fixes
+
+- **Fixes to Annotate.** Escape now exits Annotate (or dismisses a model warning) without collapsing the apps panel or dropping your note, and dictation goes into a focused note. Element and region screenshots frame the right area on zoomed tabs, scrolling a note or the CSS inspector no longer scrolls the page, and pin hover cards no longer block picking elements beneath them. Notes no longer jitter as they resize, the annotate cursor no longer lingers after you leave, and clicking a saved note while drafting a comment opens it after asking whether to discard your draft.
+- **Fixes to switching between agents and keyboard focus.** Going Back to a subagent no longer clears Forward history, and Cmd-N reliably puts the cursor in the agent's prompt without jumping mid-typing. Shortcuts no longer reach hidden agents, the hidden chat behind fullscreen Apps, or the main window from a chat pop-out. Files and pull requests opened right after starting a New Agent now stay open.
+- **Fixes to trays above and below the prompt.** Notices on the new-agent screen now show one at a time without shifting the composer, and pressing Escape on a blocking tray no longer opens the Browser pane. Trays in short agent tiles stay inside the tile instead of overlapping the tabs, focus returns to the prompt when a tray you were typing in gets covered, and trays you opened or closed stay that way when you switch agents.
+- **Fixes to files and the editor panel.** Opening a file path that doesn't exist yet from the command line now opens a new editor that saves to that path, instead of a tab that fails to load. On macOS, background file watching and scans no longer reach into protected folders like Desktop, Documents, and Downloads when your workspace contains them, so you stop getting access prompts. While a workspace connects, the editor panel shows a small spinner: hover it to see the status, or click it to view the remote connection output.
+- **Fixes to window appearance.** On macOS, the window's translucent background tint now updates when you switch between light and dark themes. The collapsed apps rail beside a conversation is no longer faded out when you scroll the transcript.
+- **Fixes to outage notices.** The sidebar status card now shows the real incident name and latest update from the Cursor status page, and says when the incident is resolved. The Cloud option in the Run on picker only reflects Cloud Agents incidents, without the extra warning text.
+- **Fixes to the Cloud Desktop tab.** The Cloud Desktop tab draws screen updates more efficiently and stops streaming while another tab is selected. When you switch back, it reconnects reliably with a fresh connection instead of one that may have expired.
+- **Fixes to voice calls.** Voice call transcripts with cloud agents now sync while the call is live, so other devices show turns mid-call. Call cards for calls on another device no longer flash an inflated duration, and the return bar in other agents shows the called agent's current title after a rename. Closing a window while voice was starting no longer crashes the voice service.
+- **Fixes to agent transcripts.** Messages sent from another device no longer remount or land out of place in the transcript. Cloud agent output written while disconnected now appears after reconnecting instead of going missing.
+- **Fixes to the prompt box menus.** The / menu no longer lags when many commands match, and typing after choosing /add-plugin no longer freezes the input. Arrow keys now wrap around in the @ and + menus, right-clicking inside an open menu no longer opens a second menu, and tiny attached images now preview at a readable size.
+- **Fixes to the @ mention menu.** Late-arriving results no longer move the row you've highlighted, rows no longer flash while results load, and slow sources still show up. For cloud agents, the menu shows the agent's last known files right away, refreshes on its own when the file list loads, and only suggests folders the agent's machine has.
+- **Fixes to File Blame in multi-folder workspaces.** File Blame now reads history from the repository that owns the file when the workspace has several folders, instead of always using the first one.
+- **Fixes to reviewing changes.** Opening a large GitHub pull request for review no longer freezes the window. Reviewing an agent's changes on long chats that touched many or large files uses less memory and stays responsive.
+- **Fixes to blocked pull request merges.** The merge button in the diff header now says why a merge is blocked, showing "Needs restack" when the branch must be restacked onto its base, or "Checking for conflicts…" while the conflict check is still running.
+
 ## 3.24
 
 ### Chat and composer
@@ -18,19 +169,24 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Mute toggle for video players.** Inline and fullscreen videos in the Agents Window now have a Mute/Unmute button, and each new video starts muted or unmuted the way you left the last one.
 - **Editing an earlier message keeps the agent's memory of the turns above it.** Fixed an issue where editing an earlier message in a reopened or synced Agents Window conversation restarted the model from an empty history. The edit now resumes from that turn's state, and if that state can't be found, the edit fails and leaves your transcript intact.
 - **Queued messages wait for Debug mode reproduction steps.** When a Debug mode turn ends with reproduction steps, a follow-up you queued no longer sends right away and hides the steps. The Debug pill stays next to the queue until you click Proceed or Mark Fixed, or switch out of Debug mode.
+- **Cloud agents can build canvases.** [Canvases](https://cursor.com/docs/agent/tools/canvas.md) a cloud agent creates are saved to the cloud and open as read-only previews in a Canvas tab, including from links in the agent's chat. For cloud agents, Canvas also shows up in the New Tab menu.
+- **Pick the right element in Design Mode with the arrow keys.** In [Design Mode](https://cursor.com/docs/agent/design-mode.md), you can now select a container even when a small child element sits on top: press ↑ to move the hover highlight to the parent element and ↓ to move back down, then click to select it.
 
 ### Cloud agents
 
 - **Fixes to cloud agent connections.** Cloud agents reconnect on their own after your computer wakes from sleep instead of failing, and conversations and the agent list keep updating through network drops, proxy errors, and server deploys. A cloud agent whose machine went away reconnects its workspace when you send a new message.
+- **Move a cloud agent into a local worktree.** If a cloud agent works on a single repository you also have cloned locally, the environment picker in the status bar now lets you continue the agent in one of that repo's existing Cursor [worktrees](https://cursor.com/docs/configuration/worktrees.md) or in a new one, without touching your main checkout.
 
 ### Navigation and layout
 
 - **Closing and reopening tabs takes you back where you were.** Cmd+W on a tab now returns you to the tab you were on before, even across split panes, and closing a split tile or pane puts focus back on the one you last used instead of the first or an empty one. Cmd+Shift+T reopens whatever you closed most recently, chat or app tab, including Agent, Environment, Changes, Desktop, Machine, and voice call transcript tabs.
 - **Chat tabs that fit their titles, with agent details on hover.** Chat tabs in the Agents Window now size to their titles and the tab strip scrolls when they don't fit. Hovering a chat tab, a standalone chat's title, or a tile header shows the same agent card as the sidebar, and moving between tabs moves the card without waiting again. Standalone chats and tiles now use the same tab strip as other panes, so you can double-click a tab to rename it, and with the sidebar hidden, holding Cmd (Ctrl on Windows and Linux) shows each agent's shortcut on its tab.
 - **Drag tiles between splits.** In a split, drag a tile's main chat tab onto another tile to move the tile there. A chat hidden from the sidebar also keeps its own name in its tile header.
-- **Subagents and side chats open as tabs on their parent agent.** Opening a subagent or side chat from a link, the command palette, or another agent now opens its parent agent with the subagent or side chat as a tab beside it, so you keep the parent conversation in view. Every agent shows a tab strip with a + button for opening its subagents as tabs, and the strip shows up right away while the agent loads. Back goes to where you were before the subagent opened, not to the parent agent. Subagents of automation runs still open on their own.
+- **Subagents and side chats open as tabs on their parent agent.** Opening a subagent or side chat from a link, the command palette, or another agent now opens its parent agent with the subagent or side chat as a tab beside it, so you keep the parent conversation in view. A + button on the agent's tab strip opens its subagents as tabs. Back goes to where you were before the subagent opened, not to the parent agent. Subagents of automation runs still open on their own.
 - **Reach every side chat from the side rail and new-tab menu.** The side rail now lists your five most recently updated side chats, with the rest behind an "N more" menu, and when the rail is collapsed to icons a single Side chats button opens all of them. The new-tab menu's Side Chats and Plans submenus now list every entry instead of stopping at 10, and add a search box once there are more than 10.
 - **Fixes to unread agents in the menu bar and Dock.** Agents you mark as unread, or that finish while you're viewing another agent, now show in the menu bar and Dock menus without a restart. Unread agents take the first spots in the menu, with an "N more unread" entry when they don't all fit, and the badge counts only what the menu shows. A Project's row now lights up when one of its threads is unread.
+- **Browser tabs reload when your dev server comes back up.** A [browser](https://cursor.com/docs/agent/tools/browser.md) tab pointed at a local port that wasn't serving now reloads by itself when a terminal command or an agent's background shell starts a dev server on that port, so you don't have to refresh it by hand. You can also reload a tab with the new Reload Browser Tab command in the Command Palette or with Cmd/Ctrl+R.
+- **File links in agent replies open faster.** Hovering or focusing a file link in an agent's reply starts loading the file tab in the background, so the file is ready when you click.
 
 ### Projects and workspaces
 

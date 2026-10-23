@@ -8,6 +8,16 @@ path: /docs/release-notes/mobile
 
 New features, improvements, and fixes in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md). Each entry covers one app version.
 
+## 1.13.0
+
+### Review
+
+- **Source and base branches in Review.** The pull request Review screen in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md) shows the source branch and the branch it merges into under the title, and the base branch follows the pull request's current target. VoiceOver reads full branch names even when long names are cut off on screen.
+
+### Fixes
+
+- **Chat and review display.** Text references from cloud agents show as cards instead of raw markup when their tags span multiple lines. When a cloud agent's diff is too large to show, the Review screen says it has too many files or some files are too large. Visualizations that can't render on mobile tell you to open them in the Cursor desktop app.
+
 ## 1.12.0
 
 ### Projects

@@ -8,6 +8,85 @@ path: /docs/release-notes/ide
 
 New features, improvements, and fixes in the Cursor IDE. Each entry covers one minor version, including the patch releases that follow it. Changes to the [Agents Window](https://cursor.com/docs/release-notes/agents-window.md) have their own page.
 
+## 3.27
+
+### Editor and app
+
+- **Reduce Motion now covers Cursor's own UI, and drop overlays snap into place.** With `workbench.reduceMotion` on, Cursor's spinners, loading bars, menus, and dialogs pulse or fade instead of spinning or scaling, even when your OS preference is off. When you drag an editor or terminal to split it, the drop overlay snaps straight to each target instead of sliding.
+- **Expand, zoom, and copy Mermaid diagrams in markdown preview.** Mermaid diagrams in markdown preview now have the same controls as diagrams in chat. Open one in a larger view to zoom around it, or copy its source.
+- **Cursor opens its first window faster.** Cursor now waits until the first window is open before it loads error reporting, so that work no longer delays a cold start.
+
+### Fixes
+
+- **Fixes to agent links and tool rows in chat.** Links to cloud agents in chat now show the agent's name as soon as its details load, instead of waiting on an unrelated update. When an agent that manages other agents changes their tags, the chat now shows a clear "Updating tags" or "Updated tags" row.
+- **Fixes to MCP.** When an [MCP server](https://cursor.com/docs/mcp.md) asks for input, the form in the agent chat now scrolls so its Submit and Cancel buttons sit above the prompt box, and the buttons are reliably clickable. MCP sign-ins whose OAuth refresh token has expired now ask you to reconnect instead of failing over and over.
+- **Clearer Add to Chat buttons.** The Add to Chat button in the Review Changes file list and on Bugbot diff comments now uses a chat bubble with a plus icon.
+
+## 3.26
+
+### Agent and chat
+
+- **Agents stopped by an extension host crash can be resumed.** If the extension host running a local agent exits mid-run, for example after running out of memory, the chat now shows an "Extension host stopped unexpectedly" error with a Resume option instead of looking like you stopped it. Affected chats are marked unread, and if Cursor is not focused, one system notification covers all agents that stopped.
+- **Fixed skills not showing up when you edit an earlier message.** When you edit an earlier message in agent chat, typing / now opens the skill and command picker instead of an empty list, so you can add a skill before you resubmit. The list updates when your skills, commands, or subagents change.
+- **Cleaner @, #, and + menus in chat.** The empty @ menu no longer lists Branch or Browser (type to find them), and a # query that matches no pull request now hides the menu, like / and @. The + menu's file item is now called Attach, Summarize appears in the / menu as soon as a chat has a message, and tooltips in menus like the mode picker no longer cover menu items.
+- **Review changes with Bugbot in Mercurial repositories.** Reviewing changes with Bugbot from the editor now works in Mercurial checkouts, with file paths resolved from the Mercurial root even when it sits inside a git repo or you open a subfolder.
+
+### Customization and settings
+
+- &#x20;**Always Run on terminal approvals now sticks when permissions.json manages your allowlist.** When your own `~/.cursor/permissions.json` sets the terminal allowlist, choosing Always Run on an agent's terminal approval now adds the command to that file's `terminalAllowlist`, so the same command stops prompting every time. When your team's admin settings control the allowlist, the approval card no longer offers Always Run, since that choice would be ignored. See [permissions](https://cursor.com/docs/reference/permissions.md).
+- **Clearer MCP server status and fewer connection mix-ups.** In Customize, [MCP servers](https://cursor.com/docs/mcp.md) that are still reconnecting show "Connecting…" instead of "0 tools" or a sign-in warning, and a local server your Cursor account already has offers "Use the account version". Editing a project's mcp.json while a server connects now uses the new config, and local MCP sign-ins with OAuth now give you up to 15 minutes to finish in the browser.
+- **Agent no longer gets duplicate project instructions.** When `CLAUDE.md` is a symlink, hard link, or identical copy of `AGENTS.md`, the agent now receives those instructions once instead of twice. On Windows, [rules](https://cursor.com/docs/rules.md), nested `AGENTS.md` files, and skills now apply even when paths differ only in drive-letter case.
+
+### Fixes
+
+- **Fixes to agent reliability.** Agent chats that contain large numbers now save correctly. Grep and Glob searches that time out keep the matches found so far, notebook edits keep fields the agent didn't touch, and on Windows hooks receive non-ASCII text correctly.
+- **Fixes to agent chat and the prompt.** Images attached in the chat prompt are no longer lost if the prompt closes while they save, and pressing send twice no longer sends a duplicate request. Questions from the agent are no longer skipped after you reopen a chat, typing in a chat moved to a separate window no longer reverses or drops characters, and Undo in the chat's file list now reverts files on Windows.
+- **Fixes to the editor, terminal, and source control.** Terminals you have already typed in are no longer reset when extension environment variables change, closing a terminal right after opening it no longer leaves a stray shell behind, and zsh shell integration now sets up on the first terminal. Search results group hits from the same file under one entry again, the References view now appears after Find All References, and remotes from partial clones and push-only remotes are now recognized. On macOS, an update that stalls while installing is now detected and retried.
+- **Fixes to the built-in browser.** PDFs opened in the built-in browser now show their pages instead of an empty viewer. Agent browser actions no longer fail right after a tab opens or moves between windows, and they stop immediately instead of hanging when the page navigates away or the browser closes.
+
+## 3.25
+
+### Cloud agents
+
+- **Cloud agents on Self-Hosted Machines stay on the machine you picked.** Cloud agents started on a specific Self-Hosted Machine keep that machine after the agent list refreshes and when you fork them, so follow-ups run on the same machine.
+- **More reliable forwarded ports for cloud agents and remote windows.** Connections to a cloud agent's forwarded ports that get no answer now close after 20 seconds instead of hanging and blocking other ports, and opening a second cloud workspace no longer breaks port forwarding for the first. With `remote.autoForwardPorts` off, ports that were forwarded automatically are no longer restored when you reopen a remote window.
+- **Fixed wrong Dockerfile path errors in cloud agent environment files.** Editing `.cursor/environment.json` now checks `build.dockerfile` and `build.context` against the same paths the cloud build uses, resolved from the repository's `.cursor` folder. False "Dockerfile does not exist" errors go away, a missing build context folder is now flagged, and hover text explains the path rules. See [cloud agent setup](https://cursor.com/docs/cloud-agent/setup.md).
+
+### Customization and settings
+
+- **Agent Store sync keeps working after you switch teams.** Your local Agent Store no longer stops syncing when you change your active team, as long as you're still a member of the team the store was created under. When sync is briefly refused, Cursor now waits the suggested interval before retrying.
+- **Skill warnings and clearer skill menus.** Customize > Skills now shows a warning icon on skills whose name, description, or body go past the Agent Skills limits; hover to read what to fix, or click to copy it. Skills that share a name show as separate rows in the / menu instead of collapsing into one, skills appear there sooner after you open a window, and /skill mentions stay highlighted in sent messages.
+- **Delete Old Chats reclaims disk space.** After you run **Developer: Delete Old Chats**, Cursor offers **Rewrite Now** to give freed space in its local database back to your disk. Cleanup also removes leftover message data from deleted chats without freezing the editor, and deleted chats, including ones moved from a cloud agent to local, no longer reappear in the chat list.
+- **YAML keys stand out in the Cursor Dark themes.** In Cursor Dark, Cursor Dark High Contrast, and Cursor Dark Colorblind, YAML keys now have their own color instead of matching their values. Booleans and `null` now use the regular text color, so `paused: false` no longer looks like a string.
+- **View in Cursor opens the plugin you were looking at.** Clicking View in Cursor on a plugin's marketplace page now opens that plugin's page in Customize, instead of the general plugins settings.
+
+### Agent and chat
+
+- **New installs steer the running agent by default.** On a fresh install, messages sent while the agent is running, including ones sent manually from the queue, now steer it instead of queuing or interrupting, and Steer is listed first in Settings. Existing installs keep their current behavior.
+- **Add file links from chat back into the composer.** Right-click a file link in an agent reply and choose Add to Chat to attach that file to your current message. File and link menus now also work in thinking blocks and on file chips in your own messages, and clicking a chat mention in a sent message opens that chat.
+- **Inline code formatting in the agent prompt.** Text you type or paste between single backticks in the agent input now shows as inline code, and is sent with its backticks. Press Backspace right after the conversion to get the plain backticks back.
+- **Clearer live status in agent chat.** When a subagent needs your approval or an answer, the main chat's status line now says "Waiting for approval" or "Waiting for response" instead of "Waiting for subagent". The transcript also stops jumping when a response finishes, and messages sent by another agent name the agent that sent them.
+- **Background shells keep running between turns, and archiving a chat stops them.** Dev servers and other background shells an agent starts keep running after the turn ends and when the chat's workspace folders or worktree change, so they still answer in the next turn. Archiving the chat stops them instead of leaving them running.
+- **A cleaner, more compact agents sidebar.** Agent rows in the agents sidebar now take up a single line, so more agents fit at a glance, and they can show when each agent was last updated. A new Search row opens the chat history picker in place of the inline search box, and keyboard shortcuts for rows appear only when you hover.
+
+### Privacy and security
+
+- &#x20;**Subagents respect your Private Inference model choices.** With Private Inference, subagents no longer run on models you turned off in Settings > Models. Custom subagents pinned to a turned-off model run on the parent agent's model instead.
+- &#x20;**Security hardening for git diffs, links, and repository blocklists.** Viewing diffs, blame, or history no longer runs a repository's configured external diff or textconv command, so opening an untrusted repo can't execute code. Wildcard trusted domains in link protection no longer match lookalike hosts, and agent shell commands that list directories now respect admin repository blocklists, including `**` globs.
+
+### Fixes
+
+- **Accessibility fixes.** Images in chat can be reached with Tab and opened with Enter or Space, and screen readers now name the agent status icon, the plan Build options menu, and the built-in browser by its page title. In Cursor Settings, the Partial Accepts tooltip shows the actual keybinding, the Open and Invite buttons have names, and Tab reaches a model's switch before Remove.
+- **Smoother Cloud Desktop viewer.** The Cloud Desktop viewer for cloud agents decodes screen updates more efficiently, using less CPU.
+- **Fixes to agent chat scrolling and rendering.** Long agent chats no longer jump while you scroll, and loading a large cloud agent conversation no longer blocks the editor. Streamed messages stay in one bubble, user messages no longer show internal automation tags, and code blocks, lists, and equations no longer add extra gaps between messages.
+- **Fixes to agent tools.** Agent sessions no longer end when the model sends an out-of-range value to Shell, Grep, or Read, and long todo lists no longer crash the agent. Glob now finds empty and binary files, edits no longer change only the first of several overlapping matches, and web search and mode switch calls show up in chat before they ask for approval.
+- **Fixes to the agent chat input menus.** The / menu no longer lags when many commands match, and typing after choosing /add-plugin no longer freezes the input. Arrow keys now wrap around in the @ and + menus, closing the + menu returns focus to the + button, and tiny images in the image preview are enlarged so they're readable.
+- **Fixes to the @ mention menu in chat.** Late-arriving results no longer move the row you've highlighted, rows no longer flash while results load, and slow sources still show up. For cloud agents, including when editing a sent message, the menu shows the last known files right away, refreshes once the file list loads, and only suggests folders the agent's machine has.
+- **Fixes to Review Changes.** Opening a large GitHub pull request in Review Changes no longer freezes the editor. Review Changes also uses less memory and stays responsive on long agent chats that touched many or large files.
+- **Fixes to loading local media files.** Local video and audio files now play and seek correctly in the editor. AVIF, ICO, WebM, and M4V files from anywhere on disk now load in previews, and files under a symlinked home or extensions folder are no longer refused.
+- **Fixes to saving Markdown files from the preview.** Saving a Markdown file from the Markdown preview editor without editing it no longer rewrites its formatting. Edits made in the preview no longer remove the file's final newline or add a blank line after a trailing list, code block, table, or heading.
+- **Fixes to model settings.** The Explore Subagent Model help in Settings no longer shows two tooltips at once, and the model picker no longer shifts sideways when you change the selection.
+
 ## 3.24
 
 ### Agent and chat
@@ -34,7 +113,6 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 ### Privacy and security
 
 - &#x20;**Admins can restrict Agent to approved remote workspaces.** A new managed policy, AgentRemoteWorkspaceAuthorities, turns off Agent in local Cursor windows and allows it only in remote workspaces. You can optionally limit it to remote authorities that match a comma-separated list of patterns, with `*` wildcards. If a user starts Agent in a local window or an unapproved remote workspace, they see a message that their administrator has disabled it.
-- &#x20;**Fixes to Private Inference.** Switching between Private Inference and Cursor-managed models now stays switched after a restart. If your private inference gateway doesn't respond at startup, Cursor keeps retrying for up to five minutes and fills in the model picker once the gateway answers. New chats no longer start on a model you turned off in Settings > Models, and private inference chats now get automatic names.
 
 ### Git
 
@@ -45,11 +123,13 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 - &#x20;**Okta FastPass sign-in works in the built-in browser again.** Signing in with Okta FastPass in the built-in browser no longer stops at "Okta FastPass requires network permission". The browser now grants the local network permission Okta Verify needs.
 - **Fixes to agent tools.** Agent edits to very large files no longer cut off the rest of the file, loose one-line replacements no longer splice the wrong text, and reads right after an edit in the same step return the updated file. The agent no longer hangs on unknown tool calls, and background shells survive idle chats. Also fixes a shell injection risk from crafted branch names when the agent gathers git diffs or looks up a branch's pull request.
 - **Fixes to long-conversation summarization.** Agent chats that hit the context limit now compact and continue instead of failing repeatedly at the limit, and summaries no longer drop facts from early in the conversation. The agent also keeps your latest request word for word after summarization, and near the limit it reuses a summary started in the previous turn instead of starting over every turn.
-- &#x20;**Fixes to MCP sign-in and tools.** MCP servers blocked by a Google Workspace or Microsoft Entra admin policy now say so instead of looping on sign-in prompts, and servers like Slack, Supabase, Make, and HubSpot with an expired login ask you to reconnect instead of failing over and over. Connecting a Microsoft MCP server now shows the account picker, and edits to a project MCP server config show up in settings right away.
+- **Fixes to MCP sign-in and settings.** Connecting a Microsoft MCP server now shows the account picker, and edits to a project MCP server config show up in settings right away.
 - **Fixes to remote connections and file watching.** Connecting to an SSH, container, or tunnel remote no longer hangs when the connection drops during the handshake, and remote windows opened without a folder finish connecting. The explorer and editors keep picking up remote file changes after a reconnect, and absolute watcher exclude paths are now honored. The agent's branch display shows the new branch on the first refresh after a checkout.
 - **Fixes to the built-in browser, settings, storage, and crash handling.** New browser tabs no longer flash white, switching tabs no longer shows the previous page, and the Cursor Settings sidebar stays pinned with its bottom items reachable. Opening Cursor while a previous instance is still closing no longer discards local state, and sandboxed agent commands on Linux with AppArmor 4 can reach the network again. Repeated out-of-memory crashes no longer fill the disk with debugging data.
 - **Fixes to Tab, Customize, and the Debug Console.** Multi-line Tab suggestions now display correctly in files with Windows (CRLF) line endings. The "Use your skills with Cloud Agents" banner in Customize renders with its proper styling, and the Debug Console no longer throws an error when styles change before a debug session has been focused.
 - **macOS no longer asks for Music or Photos access.** On macOS, opening a folder that contains your Music, Movies, or Pictures folders no longer triggers Apple Music, Photos, or other access prompts. File watching and file search, including the @ menu, now skip those folders.
+- &#x20;**Fixed Always Run on terminal approvals when your allowlist is managed.** When a team policy or [permissions.json](https://cursor.com/docs/reference/permissions.md) sets your terminal allowlist, the agent's terminal approval card no longer offers Always Run. Before, choosing it had no effect, so the same command kept asking for approval.
+- **Smaller local state files.** Cursor now reclaims unused space in its local state databases when you quit, so they shrink over time instead of only growing. Cursor limits how long the cleanup runs, so quitting stays fast.
 
 ## 3.23
 

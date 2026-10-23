@@ -89,13 +89,17 @@ Number of members per page. Capped at 200; values above 200 are clamped to 200.
 
 Return only members of this team. A team that isn't linked to the organization returns an empty page.
 
+`userId` number | string
+
+Return only this user. Accepts the numeric user ID (for example `12345`) or the encoded `user_…` ID that [`GET /teams/members`](https://cursor.com/docs/account/teams/admin-api.md#get-team-members) returns.
+
 #### Response Fields
 
 `members` array
 
 Array of organization member objects, each containing:
 
-- `id` number - Numeric user ID of the member, matching the `id` returned by the team [`GET /teams/members`](https://cursor.com/docs/account/teams/admin-api.md#get-team-members) endpoint
+- `id` number - Numeric user ID of the member, such as `12345`. The team [`GET /teams/members`](https://cursor.com/docs/account/teams/admin-api.md#get-team-members) endpoint returns the same user as an encoded `user_…` ID, so the two values don't match as strings. To join the two lists, pass either form to the `userId` filter, or match on `email`.
 - `email` string - Email address of the member
 - `name` string - Display name of the member
 - `organizationRole` string - Organization-level role, either `admin` or `member`. This is distinct from each team assignment's `teamRole`: a user can be an org `admin` while holding a `member` role on a specific team, or vice versa.
@@ -171,7 +175,7 @@ Public organization ID (for example `org_abc123`). Must match the organization f
 
 Non-empty list of entries (at most 500 per request). Each element is an object with a user ID and exactly one team field (`teamIds` or `destinationTeamId`):
 
-- `userId` number | string: ID of the user to sync. Accepts either an integer numeric ID (for example `12345`) or a string ID (for example `"user_abc123"`).
+- `userId` number | string: ID of the user to sync. Accepts either the numeric user ID as a JSON integer (for example `12345`) or the encoded `user_…` ID as a string (for example `"user_abc123"`). A numeric string such as `"12345"` is rejected.
 - `teamIds` number\[]: The complete set of org-linked team IDs the user should belong to after the sync. Memberships are reconciled to exactly this set. Any team not listed is removed. Include the user's current teams to keep them (for example `[7, 8]`). At most 100 teams per entry.
 - `destinationTeamId` number: Field for syncing to a single team. Setting `destinationTeamId: NNN` is the same as sending `teamIds: [NNN]`. The user's teams are set to exactly that one team. Must be a team linked to the organization.
 
@@ -1378,7 +1382,7 @@ Organization groups organize members across teams linked to the same organizatio
 
 - **Availability**: Enterprise only
 - **Authentication**: Organization API key (Basic auth). Every group route, read or write, requires the **`members:*`** scope. Keys with **`admin:*`** also work because admin implies members.
-- **Group IDs**: Each group has two IDs. `id` (`g_` prefix) is the Organization API group ID; use it wherever a route takes `:groupId`. `publicId` (`grp_` prefix) is the group's public ID.
+- **Group IDs**: Each group has two IDs. `id` (`g_` prefix) is the Organization API group ID; use it wherever a route takes `:groupId`. `publicId` (`grp_` prefix) is the group's public ID. Origin [access grants](https://cursor.com/docs/api/origin/grants-api.md) refer to groups by `publicId`. To list the members of a `grp_…` grantee, find the group whose `publicId` matches in [List Organization Groups](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-groups), then call [List Organization Group Members](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-group-members) with that group's `g_…` `id`.
 - **Name lookup**: To find a group's IDs from its name, call [List Organization Groups](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-groups) with the `name` query parameter. No route accepts a name in place of `:groupId`.
 - **Pagination**: List routes accept `page` and `pageSize`. Both values must be positive integers.
 - **Rate limit**: Each route allows 20 requests per minute per organization. See [rate limits and best practices](https://cursor.com/docs/api.md#rate-limits).
@@ -1884,7 +1888,7 @@ Case-insensitive substring match against `user_email`, `event_type`, and `event_
 
 `users` string
 
-Comma-separated email addresses, numeric user IDs, or `user_` public IDs. Up to 100 values. Every user must be a member of the organization.
+Comma-separated email addresses, numeric user IDs, or `user_` public IDs. Up to 100 values. Every user must be a member of the organization. Email values match `user_email` exactly and are case-sensitive.
 
 `teamId` number
 
@@ -1910,7 +1914,7 @@ Audit events, each containing:
 - `timestamp` string - ISO 8601 timestamp
 - `team_id` string - Team the event belongs to. Empty for organization-level events such as `organization_group` and `xai_credit_transfer`
 - `ip_address` string - Client IP of the request
-- `user_email` string - Actor. See the [log format](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#log-format) for `Api Key:`, `Bot:`, and `System` values
+- `user_email` string - Actor, as recorded when the event was written. See the [log format](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#log-format) for `Api Key:`, `Bot:`, and `System` values, and for why this isn't a stable user key
 - `event_type` string - Event type
 - `application_type` string - `cursor`, `grok_bot`, or empty when unknown
 - `event_data` object - Event-specific fields. `old_value` and `new_value` are parsed into JSON when the stored value is valid JSON
