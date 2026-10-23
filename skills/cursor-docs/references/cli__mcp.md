@@ -50,7 +50,7 @@ This displays:
 - Required and optional parameters
 - Parameter types and constraints
 
-### Login to MCP server
+### Log in to MCP server
 
 Authenticate with an MCP server configured in your `mcp.json`:
 

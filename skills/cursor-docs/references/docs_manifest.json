@@ -408,8 +408,8 @@
       "title": "Installation"
     },
     "cli__mcp.md": {
-      "hash": "6ee4dd1f8a6fa2caf6f32eb3b31d21da5c200c659920a3288e3a6744e99f5bf3",
-      "last_updated": "2026-08-07T17:11:52+00:00",
+      "hash": "b999751bd5c18c1039ec3e68c5208045c79430a3040972ed75566ba25058abd3",
+      "last_updated": "2026-10-23T06:35:50+00:00",
       "original_url": "https://cursor.com/docs/cli/mcp",
       "path": "/docs/cli/mcp",
       "source_url": "https://cursor.com/docs/cli/mcp",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-22T21:20:53+00:00",
+  "last_updated": "2026-10-23T06:36:46+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
