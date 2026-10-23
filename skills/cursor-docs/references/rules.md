@@ -388,11 +388,6 @@ Yes, you can ask the agent to create a new rule for you.
 
 No. Rules do not impact Cursor Tab or other AI features.
 
-### Do User Rules apply to Inline Edit (Cmd/Ctrl+K)?
-
-No. User Rules are not applied to Inline Edit (Cmd/Ctrl+K). They are only
-used by Agent (Chat).
-
 ## Related
 
 - [Rules help](https://cursor.com/help/customization/rules.md)

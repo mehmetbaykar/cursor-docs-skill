@@ -42,12 +42,12 @@ Use voice input and drawing together to describe a change.
 
 ## Keyboard shortcuts
 
-| Action               | Shortcut        |
-| :------------------- | :-------------- |
-| Toggle Design Mode   | Cmd + Shift + D |
-| Select an area       | Shift + drag    |
-| Add element to chat  | Cmd + L         |
-| Add element to input | Option + click  |
+| Action               | Shortcut           |
+| :------------------- | :----------------- |
+| Toggle Design Mode   | Cmd + Shift + D    |
+| Select an area       | Shift + drag       |
+| Add element to chat  | Cmd + L or Cmd + K |
+| Add element to input | Option + click     |
 
 ## What the agent sees
 

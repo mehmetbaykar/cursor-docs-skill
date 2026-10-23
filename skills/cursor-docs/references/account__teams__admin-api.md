@@ -1109,13 +1109,13 @@ These routes are a different API from [billing groups](https://cursor.com/docs/a
 | Groups                | Path                      | ID                                                                                                                                                                        |
 | --------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Organization Groups   | `/organizations/groups`   | `id` uses the `g_` prefix. Responses also return `publicId` with the `grp_` prefix. See [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md). |
-| Team directory groups | `/teams/directory-groups` | Public id uses the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`.                                                                                |
+| Team directory groups | `/teams/directory-groups` | `id` uses the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`. Responses also return `publicId` with the `grp_` prefix.                            |
 | Billing Groups        | `/teams/groups`           | `group_…`                                                                                                                                                                 |
 
-`:groupId` is the team's directory-group public id. It uses the `team_group_…` prefix. Do not pass Organization Group `g_` or `grp_` ids, or Billing Group `group_…` ids.
+`:groupId` is the team directory group's `id`, with the `team_group_…` prefix. The get and list-members routes also accept the group's `publicId`, with the `grp_` prefix. `publicId` is the id that Origin access grants use for the group, so use it to match a grant to a team directory group. Do not pass Organization Group `g_` ids or Billing Group `group_…` ids.
 
 - **Authentication**: Team API key (Basic auth). Reads require **`read:*`**. Writes require **`admin:*`**. Keys with **`admin:*`** work for both. A write with a `read:*` key returns `401`.
-- **Group IDs**: Every `:groupId` is the group's public id with the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`. Organization Groups use `g_` and `grp_`. Billing Groups use `group_…`.
+- **Group IDs**: Every `:groupId` takes the group's `id` with the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`. [Get Team directory group](https://cursor.com/docs/account/teams/admin-api.md#get-team-directory-group) and [List Team directory group members](https://cursor.com/docs/account/teams/admin-api.md#list-team-directory-group-members) also take the group's `publicId` with the `grp_` prefix. Write routes take only the `team_group_…` id. Organization Groups use `g_`. Billing Groups use `group_…`.
 - **Pagination**: List routes accept `page` and `pageSize`. Both values must be positive integers.
 - **Rate limit**: Each route allows 20 requests per minute per team. See [rate limits and best practices](https://cursor.com/docs/api.md#rate-limits).
 - **SCIM-synced groups**: Manage membership in your identity provider. Member add and remove requests return `400` for SCIM-synced groups.
@@ -1151,7 +1151,8 @@ Number of groups per page. Defaults to `50`. Capped at 200; values above 200 are
 
 Each object in `groups` contains:
 
-- `id` string - Group public id with the `team_group_…` prefix. Use this value as `:groupId` on the other routes.
+- `id` string - Group id with the `team_group_…` prefix. Use this value as `:groupId` on the other routes.
+- `publicId` string - Group public id with the `grp_` prefix. Origin access grants use this id for the group.
 - `name` string - Group name
 - `memberCount` number - Number of members in the group
 - `monthlySpendingLimitDollars` number | null - Monthly spending limit in whole dollars for each group member. `null` means the group has no limit.
@@ -1174,6 +1175,7 @@ curl -X GET "https://api.cursor.com/teams/directory-groups?page=1&pageSize=50" \
   "groups": [
     {
       "id": "team_group_01k2ja2000e0080000000000n2",
+      "publicId": "grp_01k2ja2000e0080000000000n2",
       "name": "Engineering",
       "memberCount": 12,
       "monthlySpendingLimitDollars": 500,
@@ -1182,6 +1184,7 @@ curl -X GET "https://api.cursor.com/teams/directory-groups?page=1&pageSize=50" \
     },
     {
       "id": "team_group_01k2jb4000e0080000000000p7",
+      "publicId": "grp_01k2jb4000e0080000000000p7",
       "name": "Design",
       "memberCount": 8,
       "monthlySpendingLimitDollars": null,
@@ -1212,11 +1215,11 @@ Retrieve one Team directory group.
 
 `groupId` string Required
 
-The group's public id with the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`. Organization Group `g_` or `grp_` ids and Billing Group `group_…` ids return `400` or `404`.
+The group's `id` with the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`, or its `publicId` with the `grp_` prefix. A `grp_` id that is not a directory group on this team returns `404`. Organization Group `g_` ids and Billing Group `group_…` ids return `400`.
 
 #### Response Fields
 
-The `group` object contains `id`, `name`, `memberCount`, `monthlySpendingLimitDollars`, `createdAt`, and `updatedAt`. These fields match the [List Team directory groups](https://cursor.com/docs/account/teams/admin-api.md#list-team-directory-groups) response.
+The `group` object contains `id`, `publicId`, `name`, `memberCount`, `monthlySpendingLimitDollars`, `createdAt`, and `updatedAt`. These fields match the [List Team directory groups](https://cursor.com/docs/account/teams/admin-api.md#list-team-directory-groups) response.
 
 ```bash
 curl -X GET https://api.cursor.com/teams/directory-groups/team_group_01k2ja2000e0080000000000n2 \
@@ -1229,6 +1232,7 @@ curl -X GET https://api.cursor.com/teams/directory-groups/team_group_01k2ja2000e
 {
   "group": {
     "id": "team_group_01k2ja2000e0080000000000n2",
+    "publicId": "grp_01k2ja2000e0080000000000n2",
     "name": "Engineering",
     "memberCount": 12,
     "monthlySpendingLimitDollars": 500,
@@ -1254,7 +1258,7 @@ Group name. Must be unique among the team's active directory groups. Cursor remo
 
 #### Response Fields
 
-Returns `201 Created` with the new `group` object. The object contains `id`, `name`, `memberCount`, `monthlySpendingLimitDollars`, `createdAt`, and `updatedAt`. The `id` is the group's public id with the `team_group_…` prefix.
+Returns `201 Created` with the new `group` object. The object contains `id`, `publicId`, `name`, `memberCount`, `monthlySpendingLimitDollars`, `createdAt`, and `updatedAt`. The `id` uses the `team_group_…` prefix, and `publicId` uses the `grp_` prefix.
 
 #### Errors
 
@@ -1275,6 +1279,7 @@ curl -X POST https://api.cursor.com/teams/directory-groups \
 {
   "group": {
     "id": "team_group_01k2ja2000e0080000000000n2",
+    "publicId": "grp_01k2ja2000e0080000000000n2",
     "name": "Engineering",
     "memberCount": 0,
     "monthlySpendingLimitDollars": null,
@@ -1314,7 +1319,7 @@ Set to `true` to remove the group spending limit. Do not include `monthlySpendin
 
 #### Response Fields
 
-Returns the updated `group` object with `id`, `name`, `memberCount`, `monthlySpendingLimitDollars`, `createdAt`, and `updatedAt`.
+Returns the updated `group` object with `id`, `publicId`, `name`, `memberCount`, `monthlySpendingLimitDollars`, `createdAt`, and `updatedAt`.
 
 #### Errors
 
@@ -1336,6 +1341,7 @@ curl -X PATCH https://api.cursor.com/teams/directory-groups/team_group_01k2ja200
 {
   "group": {
     "id": "team_group_01k2ja2000e0080000000000n2",
+    "publicId": "grp_01k2ja2000e0080000000000n2",
     "name": "Platform Engineering",
     "memberCount": 12,
     "monthlySpendingLimitDollars": 500,
@@ -1390,7 +1396,7 @@ Retrieve members in a Team directory group.
 
 `groupId` string Required
 
-The group's public id with the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`.
+The group's `id` with the `team_group_…` prefix, such as `team_group_01k2ja2000e0080000000000n2`, or its `publicId` with the `grp_` prefix. A `grp_` id that is not a directory group on this team returns `404`.
 
 #### Query parameters
 

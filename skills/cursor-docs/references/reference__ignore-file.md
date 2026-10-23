@@ -10,7 +10,7 @@ Cursor reads your project's codebase to power its features. Control which direct
 
 Cursor blocks access to files listed in `.cursorignore` from:
 
-- Code accessible by [Agent](https://cursor.com/docs/agent/overview.md), Tab, and Inline Edit
+- Code accessible by [Agent](https://cursor.com/docs/agent/overview.md) and Tab
 - Code accessible via [@ mention references](https://cursor.com/docs/agent/prompting.md)
 
 The terminal and MCP server tools used by Agent cannot block access to code
