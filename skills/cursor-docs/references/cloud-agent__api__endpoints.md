@@ -413,9 +413,9 @@ POST
 
 `/v1/agents/{id}/runs`
 
-Send a follow-up prompt to an existing active agent. The new run uses the agent's current conversation and workspace state.
+Send a follow-up prompt to an existing active agent. Without `delivery`, the prompt starts a new run that uses the agent's current conversation and workspace state.
 
-Only one run can be active per agent. Calling this while another run is `CREATING` or `RUNNING` returns `409 agent_busy`. Wait for the existing run to terminate, or cancel it.
+Only one run can be active per agent. Without `delivery`, calling this while another run is `CREATING`, `RUNNING`, or `WAITING_FOR_BACKGROUND_WORK` returns `409 agent_busy`. To add the prompt to the running agent instead, [steer](https://cursor.com/docs/cloud-agent/api/endpoints.md#steering) it with `delivery: "steer"`. Otherwise, wait for the existing run to terminate, or cancel it.
 
 #### Path Parameters
 
@@ -444,6 +444,23 @@ Inline MCP server definitions for this follow-up run. When provided, these repla
 `mode` string (optional)
 
 Conversation mode override for this follow-up run: `agent` or `plan`. Omit to keep the conversation's current mode from prior runs.
+
+`delivery` string (optional)
+
+`steer` sends the prompt into the agent's running turn instead of starting a new run. A steer requires `prompt` and `delivery: "steer"` and accepts no other top-level fields, so sending `model`, `mcpServers`, `envVars`, or `mode` with it returns `400 validation_error`. Omit `delivery` for an ordinary follow-up. See [Steering](https://cursor.com/docs/cloud-agent/api/endpoints.md#steering).
+
+#### Steering
+
+A steer adds a prompt to an agent while it works, instead of being refused with `409 agent_busy`. You can send one whether or not a run is active. The response is `202` with a `delivery` field:
+
+- `steered` — The agent's running turn accepted the prompt and takes it at its next safe step. If that turn ends first, the prompt starts the agent's next run instead.
+- `queued` — No running turn could take the prompt, so it becomes the agent's next follow-up.
+
+Neither response includes a run ID, and runs don't carry the prompt or any request ID, so you can't match a steer to a run. [List Runs](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-runs) shows the agent's runs as they happen.
+
+A steer body with any top-level field besides `prompt` and `delivery`, or a `delivery` other than `steer`, returns `400 validation_error`. Cursor checks the body first, so this happens even when steering isn't available for your account. A steer that Cursor refuses also returns `400 validation_error`. If steering isn't available for your account, a valid steer returns `403 feature_unavailable`.
+
+A steer that fails with a server or network error may still have reached the agent. Cursor treats a retry as a new prompt, so retrying can deliver the prompt twice.
 
 ```bash
 curl --request POST \
@@ -475,6 +492,37 @@ curl --request POST \
     "createdAt": "2026-04-13T18:50:00.000Z",
     "updatedAt": "2026-04-13T18:50:00.000Z"
   }
+}
+```
+
+Steer a running agent:
+
+```bash
+curl --request POST \
+  --url https://api.cursor.com/v1/agents/bc-00000000-0000-0000-0000-000000000001/runs \
+  -u YOUR_API_KEY: \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "prompt": {
+      "text": "Also cover the error path"
+    },
+    "delivery": "steer"
+  }'
+```
+
+**Response:** `202`
+
+```json
+{
+  "delivery": "steered"
+}
+```
+
+If no running turn can take the prompt, the same request returns:
+
+```json
+{
+  "delivery": "queued"
 }
 ```
 

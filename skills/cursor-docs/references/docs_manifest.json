@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "466b8f0e28c744aae71f1f8fc5df5c0af57228a1dc7e37477ae3a7d477730f27",
-      "last_updated": "2026-10-23T18:26:03+00:00",
+      "hash": "350d3759900a22cff6afec9682de906ce22cb622c9180ed6421e839e76810802",
+      "last_updated": "2026-10-23T21:19:29+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -48,8 +48,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "96bf8bd388d20c28428eb6b204f3d7e72874e515859d85b1f3ff737b953dbb80",
-      "last_updated": "2026-10-23T18:26:05+00:00",
+      "hash": "ccec23c3a225bd48d6e9508be1d6b86f3fb879facad55134375b88a3e206b274",
+      "last_updated": "2026-10-23T21:19:30+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
@@ -174,8 +174,8 @@
       "title": "Debug Mode"
     },
     "agent__design-mode.md": {
-      "hash": "8b90e98c875f9dcfebcf7dbbce13e73edbcaabbcc68d3eea9b02e0986caed953",
-      "last_updated": "2026-08-07T17:11:46+00:00",
+      "hash": "7fa42d61a19a26a2d9224b2ca49d7a6e1a982007be65e6bbcf1dfbe6285854fc",
+      "last_updated": "2026-10-23T21:19:35+00:00",
       "original_url": "https://cursor.com/docs/agent/design-mode",
       "path": "/docs/agent/design-mode",
       "source_url": "https://cursor.com/docs/agent/design-mode",
@@ -516,8 +516,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "1189436db1b584f77d78140d344479136a4cc5249d61f99d84b25b95cf758538",
-      "last_updated": "2026-10-22T15:23:14+00:00",
+      "hash": "cee17f690b54f13aa86b3e325e54fcf93fb4c4c805642ae7641b5eb53afbec4f",
+      "last_updated": "2026-10-23T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -903,8 +903,8 @@
       "title": "Work with Grok Bot"
     },
     "hooks.md": {
-      "hash": "893fb15669f188ce21735e7238b585229ed3ea970182d131263fb2b226264a50",
-      "last_updated": "2026-10-22T15:23:25+00:00",
+      "hash": "3c81291c1a64f3625597042b60d77972b6f2f610ba656ae1975fe445f8292c56",
+      "last_updated": "2026-10-23T21:20:04+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "source_url": "https://cursor.com/docs/hooks",
@@ -1722,8 +1722,8 @@
       "title": "Deeplinks"
     },
     "reference__ignore-file.md": {
-      "hash": "4a359d188ce0ff661303b406641245e0c93efeb18f53cf28734246f48a3dc460",
-      "last_updated": "2026-09-16T16:46:25+00:00",
+      "hash": "5f077a6e05c3cbe00754acc71df8cddf96d29565b54356434b01fd49c2c7b005",
+      "last_updated": "2026-10-23T21:20:35+00:00",
       "original_url": "https://cursor.com/docs/reference/ignore-file",
       "path": "/docs/reference/ignore-file",
       "source_url": "https://cursor.com/docs/reference/ignore-file",
@@ -1731,8 +1731,8 @@
       "title": "Ignore file"
     },
     "reference__keyboard-shortcuts.md": {
-      "hash": "18f3f09e627e0fd819be819e7a41d437067ec8edafee071c9e71e4b276fb1c5a",
-      "last_updated": "2026-09-16T16:46:25+00:00",
+      "hash": "7a8735a13c577e75625b9b9294b0e01843ccf7be0f01f878ea7028a6879a0c85",
+      "last_updated": "2026-10-23T21:20:35+00:00",
       "original_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
       "path": "/docs/reference/keyboard-shortcuts",
       "source_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
@@ -1875,8 +1875,8 @@
       "title": "Rollouts"
     },
     "rules.md": {
-      "hash": "d10c841da7e8af7bc4a5848721fcf1e1118a09a3e950057abf96f21b42208276",
-      "last_updated": "2026-10-07T15:34:02+00:00",
+      "hash": "63e14d5df34ff6cef56f1e9d3006566528db0ec3c1d62d1b9a972adaf24c545c",
+      "last_updated": "2026-10-23T21:20:41+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
       "source_url": "https://cursor.com/docs/rules",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-23T18:27:16+00:00",
+  "last_updated": "2026-10-23T21:20:44+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

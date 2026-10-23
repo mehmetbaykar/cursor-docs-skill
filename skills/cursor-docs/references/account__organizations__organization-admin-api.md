@@ -1378,7 +1378,7 @@ Bulk org routes (`PUT .../providers/:provider`, `PUT .../providers/:provider/mod
 
 ## Organization Groups
 
-Organization groups organize members across teams linked to the same organization. For dashboard setup and group-level controls, see [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md). Team directory groups use the Team Admin API at [`/teams/directory-groups`](https://cursor.com/docs/account/teams/admin-api.md#team-directory-groups) and `team_group_…` ids. Those routes do not accept Organization Group `id` (`g_`) or `publicId` (`grp_`) values.
+Organization groups organize members across teams linked to the same organization. For dashboard setup and group-level controls, see [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md). Team directory groups use the Team Admin API at [`/teams/directory-groups`](https://cursor.com/docs/account/teams/admin-api.md#team-directory-groups) and `team_group_…` ids. Those routes do not accept Organization Group `id` (`g_`) values. Team directory groups also have a `publicId` with the `grp_` prefix, which their get and list-members routes accept.
 
 - **Availability**: Enterprise only
 - **Authentication**: Organization API key (Basic auth). Every group route, read or write, requires the **`members:*`** scope. Keys with **`admin:*`** also work because admin implies members.
