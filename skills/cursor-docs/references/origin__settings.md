@@ -77,7 +77,7 @@ Use **Notifications** in codebase settings to choose which pull request events i
 
 To open these settings from Slack, select **Manage notifications** in a DM's menu.
 
-**Scheduled personal reminders** send you a Slack DM digest of open review requests on a recurring schedule. Select **Add reminder**, then choose the **Days** (**Weekdays**, **Every day**, or **Custom**), **Times**, **Time zone**, and **Repositories**. Turn on **All open pull requests** to list every open pull request in those repos instead of only your review requests. **Ignore drafts**, **Ignore approved pull requests**, and **Labels** narrow the digest. Use a reminder's switch to pause it.
+**Scheduled personal reminders** send you a Slack DM digest of open review requests on a recurring schedule. Select **Add reminder**, then choose the **Days** (**Weekdays**, **Every day**, or **Custom**), **Times**, **Time zone**, and **Repositories**. Turn on **All open pull requests** to list every open pull request in those repos instead of only your review requests. **Ignore drafts**, **Ignore approved pull requests**, and **Labels** narrow the digest. To stop a reminder, select **Remove** on its row, then confirm with **Remove reminder**. You can add it again later.
 
 **Channel subscriptions** post pull request activity from the codebase's repos in a Slack channel. Invite `@Cursor` to the channel first. Only members of a channel can manage its subscriptions. Select **Add subscription**, choose the channel and a repository, then pick the events to post: **Pull requests**, **Reviews**, or **Comments**. Add **Labels** to post only when a pull request has every label. For a private or internal repo, anyone in the channel, including people added later, sees its activity.
 

@@ -16,11 +16,16 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 - **Expand, zoom, and copy Mermaid diagrams in markdown preview.** Mermaid diagrams in markdown preview now have the same controls as diagrams in chat. Open one in a larger view to zoom around it, or copy its source.
 - **Cursor opens its first window faster.** Cursor now waits until the first window is open before it loads error reporting, so that work no longer delays a cold start.
 
+### Agent and chat
+
+- **Agent no longer garbles non-UTF-8 and non-ASCII text.** Agent terminal output no longer garbles non-ASCII characters split across output chunks, and file reads and edits keep the original bytes when a file has some invalid characters. Codebase indexing now reads Latin-1, Windows code page, and legacy CJK files as text, so semantic search finds matches in them.
+- **Hooks can tell which agent spawned a subagent.** [Hook](https://cursor.com/docs/hooks.md) scripts now receive `parent_agent_id`, the conversation ID of the agent that spawned the subagent, on `subagentStart` and `subagentStop`, so scripts no longer have to rebuild the agent tree from earlier events.
+
 ### Fixes
 
 - **Fixes to agent links and tool rows in chat.** Links to cloud agents in chat now show the agent's name as soon as its details load, instead of waiting on an unrelated update. When an agent that manages other agents changes their tags, the chat now shows a clear "Updating tags" or "Updated tags" row.
 - **Fixes to MCP.** When an [MCP server](https://cursor.com/docs/mcp.md) asks for input, the form in the agent chat now scrolls so its Submit and Cancel buttons sit above the prompt box, and the buttons are reliably clickable. MCP sign-ins whose OAuth refresh token has expired now ask you to reconnect instead of failing over and over.
-- **Clearer Add to Chat buttons.** The Add to Chat button in the Review Changes file list and on Bugbot diff comments now uses a chat bubble with a plus icon.
+- **Clearer Add to Chat button in Review Changes.** The Add to Chat button in the Review Changes file list now uses a chat bubble with a plus icon.
 
 ## 3.26
 

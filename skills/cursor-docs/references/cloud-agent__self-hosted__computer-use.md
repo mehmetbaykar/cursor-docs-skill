@@ -32,6 +32,8 @@ agent worker --pool gpu --computer-use start
 
 What happens next depends on the operating system. On macOS, the worker drives the signed-in desktop session through a helper app called **Cursor Computer Use**, and you grant it two macOS privacy permissions. On Linux, the worker uses an X11 display and needs desktop packages installed first.
 
+On Enterprise teams, an admin can turn computer use off with the **Computer Use** switch under **MCP Configuration** in [team settings](https://cursor.com/dashboard/settings). The switch is on by default. While it's off, or while all MCP servers are disabled for the team, agents on your workers start without computer use, even when the worker runs with `--computer-use`.
+
 ## macOS
 
 On macOS, computer use runs through **Cursor Computer Use**, a small helper app the CLI manages for you. It clicks, types, and captures the screen of the desktop session the worker runs in. The Cursor desktop app is not required on the worker.
