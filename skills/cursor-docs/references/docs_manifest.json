@@ -282,8 +282,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "1d9c24ae1113ff08bbc8a4dce6e093d403a28c425b6d9363d7f88433dae6198e",
-      "last_updated": "2026-10-13T15:25:20+00:00",
+      "hash": "dd5fe97858afc92d8059f3101baa2526080658d6a69a5e359508c19e04e8b8cf",
+      "last_updated": "2026-10-24T00:50:08+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "source_url": "https://cursor.com/docs/api/origin",
@@ -300,8 +300,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "66c0b2ad8a78c25b127174aa4e5f9e7b694a569491a799669f322fa1f5e3c350",
-      "last_updated": "2026-10-20T00:52:16+00:00",
+      "hash": "c998e891a4be970cbe01397dc593dcbc52c96f68e4665e894ee113cca3accad8",
+      "last_updated": "2026-10-24T00:50:09+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -318,8 +318,8 @@
       "title": "Origin Grants API"
     },
     "api__origin__mcp.md": {
-      "hash": "6b83266a6f0f248601a683863c632f2cc554e2141d5f4283be9b5e8fbd799694",
-      "last_updated": "2026-10-06T15:22:32+00:00",
+      "hash": "0780d448d3739aaed171b0067e54b6b40643bafb0d24c7df2a7433d85f40d4ae",
+      "last_updated": "2026-10-24T00:50:09+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp",
       "path": "/docs/api/origin/mcp",
       "source_url": "https://cursor.com/docs/api/origin/mcp",
@@ -327,8 +327,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "1c68e5ed332d18bd40267f7ec871ee0f946092f0f904ceba5debd17ac237b4b6",
-      "last_updated": "2026-10-13T15:25:22+00:00",
+      "hash": "acffc86f75ae8f838a58ab75067617e9977e0c9564af4dfb15df560748db6599",
+      "last_updated": "2026-10-24T00:50:10+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-23T21:20:44+00:00",
+  "last_updated": "2026-10-24T00:50:58+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
