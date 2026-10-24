@@ -19,7 +19,7 @@ A Bot is a durable AI teammate with a name, a job, its own conversation, and wor
 
 ### Create a Bot
 
-1. Choose **New chat** (the **+** button) in the sidebar, or press Cmd+N, then select **Create new Bot**.
+1. Choose **New Bot** (the **+** button) in the sidebar, or press Cmd+N. On a team, the **+** button opens a menu; choose **Create a Bot**. Name the Bot, pick a shape and color, and choose **Create**.
 2. In your first message, give the Bot its job, sources, and approval boundaries, and ask it to remember them. Send a real first task with a clear finish line; see [use cases](https://cursor.com/docs/grok-bot/use-cases.md) for starter prompts.
 3. To rename the Bot, add a label, or change its picture, click the Bot's name at the top of the chat to open its details. See [Change a Bot's name, picture, and what it does](https://cursor.com/help/grok-bot/edit-bot.md).
 
@@ -60,7 +60,7 @@ Grok Bot is designed to feel like messaging a teammate. Keep requests natural, b
 
 ### Message a Bot
 
-In a conversation you can paste text, links, and images, attach files, reference a saved [skill](https://cursor.com/docs/grok-bot/work.md#skills-and-routines) with `/`, mention a Bot, group, routine, or app with `@`, reply to or react to a message, and send another instruction while work is in progress. The transcript shows tool activity, computer use, created files, questions, and approval requests alongside normal messages.
+In a conversation you can paste text, links, and images, attach files, ask for a saved [skill](https://cursor.com/docs/grok-bot/work.md#skills-and-routines) by name, mention a Bot, group, routine, or app with `@`, reply to or react to a message, and send another instruction while work is in progress. The transcript shows tool activity, computer use, created files, questions, and approval requests alongside normal messages.
 
 A direct message from you takes priority over background work and can redirect the current turn. Send "Stop now" when work should end immediately; stopping doesn't undo actions the Bot already completed.
 
@@ -68,11 +68,12 @@ A direct message from you takes priority over background work and can redirect t
 
 Supported inputs include images, audio, video, PDFs, Office documents, CSV, JSON, YAML, source code, HTML, email files, and notebooks. Large, encrypted, damaged, or unusual files may not be readable; export an unusual format as PDF, CSV, plain text, or an image.
 
-| Limit                             | Value      |
-| --------------------------------- | ---------- |
-| Attachments per message (desktop) | 6          |
-| Documents, images, and audio      | 25 MB each |
-| Video                             | 200 MB     |
+| Limit                             | Value                                |
+| --------------------------------- | ------------------------------------ |
+| Attachments per message (desktop) | 20                                   |
+| Images                            | 25 MB each, 200 MB total per message |
+| Documents, audio, and other files | 250 MB each                          |
+| Video                             | 1 GB each                            |
 
 Tell the Bot what each attachment is and how to use it:
 
@@ -119,9 +120,11 @@ Click the computer preview in the right-hand panel of a conversation to open the
 
 ### Take over for sensitive steps
 
-The Bot hands you the computer for passwords, passkeys, two-factor codes, CAPTCHAs, payment or identity checks, and sites that require a human. Take control, complete only the blocked step, and tell the Bot to continue. The Bot doesn't type credentials and doesn't see your password, and the signed-in session persists for future tasks, shared across your Bots. Some sites expire sessions or re-verify; ask the Bot to pause and notify you rather than work around the check.
+To sign in, the Bot uses a login saved in [Vault](https://cursor.com/help/grok-bot/secrets.md#what-is-vault) first, then a connected password manager such as 1Password, then asks you with a Secure Form. Values from Vault and the Secure Form are filled into the page without the Bot seeing them. When a site emails a one-time code, the Bot can read it from a connected Gmail or Outlook account or from its own inbox. At checkout, it can use a card saved in Vault, a card you enter in a Secure Form, or a connected wallet such as Link or X Money.
 
-For a supported connection that presents a secure secret request, enter the value there: the field is masked, excluded from the transcript, and not shown to the model. Never paste passwords or one-time codes into ordinary chat. See [Store secrets securely](https://cursor.com/help/grok-bot/secrets.md).
+The Bot hands you the computer when a form can't do the step: single sign-on, a passkey, a CAPTCHA it couldn't get past, an approval on another device, a QR code, or a bank card verification. Take control, complete only the blocked step, and tell the Bot to continue. The signed-in session persists for future tasks, shared across your Bots. Some sites expire sessions or re-verify; ask the Bot to pause and notify you rather than work around the check.
+
+For an API key or other secret, enter it in the secure secret card when the Bot asks: the field is masked, and the value isn't written into the chat or shown to the Bot. Never paste passwords or one-time codes into ordinary chat. See [Store secrets securely](https://cursor.com/help/grok-bot/secrets.md).
 
 ### Connect apps
 
@@ -163,7 +166,7 @@ Skills capture steps, decision rules, expected output, and safety boundaries, an
 > health". Include the source systems, risk definitions, output format, and
 > the rule that customer contact always requires approval.
 
-A useful skill states when to use it, the required inputs and access, the sequence of work, how to validate the result, what to return, and what requires approval. Type `/` in the composer to reference a skill. If a private skill doesn't appear in the `/` menu, open **Connect apps** in the sidebar, select the connected count next to the title, and enable it for the current Bot under **Private skills**.
+A useful skill states when to use it, the required inputs and access, the sequence of work, how to validate the result, what to return, and what requires approval. To use a skill, ask the Bot for it by name. If the Bot can't find a private skill, open **Connect apps** in the sidebar, select the connected count next to the title, and enable it for the current Bot under **Private skills**.
 
 ### Teach a workflow by demonstration
 
@@ -193,7 +196,7 @@ A test run performs real work. It can navigate websites, change files, and
 call connected tools. Use safe inputs and keep write actions behind
 approval.
 
-Create and change routines by asking the Bot in chat. To review them on desktop, click the Bot's name at the top of the chat to open its details. Routines are on the **Details** tab. Open a routine to read its **Instruction** and **When to run**, and to **Pause**, **Resume**, **Test**, **Edit**, or delete it. On the phone, the Bot's profile lists its routines with **Run history**. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack triggers, and webhooks, see [Routines](https://cursor.com/help/grok-bot/routines.md).
+Create and change routines by asking the Bot in chat. To review them on desktop, click the Bot's name at the top of the chat to open its details. Routines are on the **Details** tab. Open a routine to read its **Instruction** and **When to run**. Right-click a routine to **Pause** or **Resume** it, **Test** it, **Edit** it in chat, or **Delete** it. Webhook routines also show **Webhook** there. On the phone, the Bot's profile lists its routines with **Run history**. After a long period away, Grok Bot may ask whether to keep routines running and pause them if you don't respond. For schedules, Slack triggers, and webhooks, see [Routines](https://cursor.com/help/grok-bot/routines.md).
 
 Routines earn trust the same way people do: automate preparation before execution, keep sending, purchasing, deleting, publishing, and production changes behind approval, report missing or stale sources instead of working around them, and re-test after a website, app, or source format changes.
 

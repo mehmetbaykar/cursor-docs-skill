@@ -24,8 +24,10 @@ works on a user's computer during that user's own chat with it.
 
 Only accounts and connected apps the member or team grants. A Bot has no
 identity of its own and cannot hold more access than the signed-in
-member. Connector tokens stay on Cursor's backend. Login, two-factor,
-and payment steps are handed to the member. See
+member. Connector tokens stay on Cursor's backend. Logins and cards
+saved in Vault, and values entered in a Secure Form, are filled without
+the model seeing them. Steps a form can't handle, such as single sign-on
+or a passkey, are handed to the member. See
 [identity and sign-ins](https://cursor.com/docs/grok-bot/security.md#identity-and-sign-ins).
 
 ### If we block an app, can a Bot still reach that service in the browser?
@@ -80,7 +82,9 @@ your account team.
 ### Can traffic run through our own network?
 
 Yes. A member can route a Grok Bot computer's web traffic through their
-desktop, using its network and IP address. Enterprise teams can also
+desktop, using its network and IP address. On that route, sites that
+resolve to a private or VPN address are blocked unless they've been
+allowed for your organization. Enterprise teams can also
 install a networking client on every hosted computer through **Team
 Setup Scripts**. See
 [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).

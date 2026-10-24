@@ -90,12 +90,12 @@ Members sign in with their Cursor account through your normal SSO flow. Grok Bot
 
 ### How desktop updates work
 
-| Install                                            | How updates arrive                                                                                                                                                                                                      |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| macOS `.dmg`, Windows Setup `.exe`, Linux AppImage | The app checks for updates automatically and offers each new version to the member. **Restart to Update**, in the **Updates** section of [settings](https://cursor.com/docs/grok-bot/settings.md#updates), installs it. |
-| Linux `.deb` or `.rpm`                             | The app doesn't install updates. New versions arrive through your package manager.                                                                                                                                      |
+| Install                                            | How updates arrive                                                                                                                                                                                                                                                                                                                      |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| macOS `.dmg`, Windows Setup `.exe`, Linux AppImage | The app checks for updates automatically and offers each new version to the member. **Restart to Update**, in the **Updates** section of [settings](https://cursor.com/docs/grok-bot/settings.md#updates), installs it. With **Automatic Updates** on, the default, the app also installs a downloaded update while the member is away. |
+| Linux `.deb` or `.rpm`                             | The app doesn't install updates. New versions arrive through your package manager.                                                                                                                                                                                                                                                      |
 
-For macOS, Windows, and AppImage installs, no device policy, installer option, or dashboard setting turns off desktop app updates. Pinning decides which version you install; the app still offers newer ones afterward.
+For macOS, Windows, and AppImage installs, no device policy, installer option, or dashboard setting turns off desktop app updates. Members can turn off **Automatic Updates** so updates wait for **Restart to Update**, but the app still checks for and offers new versions. Pinning decides which version you install; the app still offers newer ones afterward.
 
 Old builds stop working. When Cursor stops supporting a build, the app covers its whole window with **Update required** until the member updates. A build loses support when it falls below Cursor's minimum version, or when it passes a maximum age and a newer release is available. This applies to every install, including Linux `.deb` and `.rpm` packages. Cursor sets both limits remotely and doesn't publish them, so plan a regular cadence for moving devices to the current release.
 
@@ -176,7 +176,10 @@ ship.
 ### Can I turn off automatic updates for the desktop app?
 
 On macOS, Windows, and AppImage installs, no. The app checks for updates
-and offers them to members. Linux `.deb` and `.rpm` installs don't update
+and offers them to members. Each member can turn off
+**Automatic Updates** so an update installs only when they choose
+**Restart to Update**, but there's no admin control. Linux `.deb` and
+`.rpm` installs don't update
 themselves, so you control them with your package manager. See [How
 desktop updates work](https://cursor.com/docs/grok-bot/deployment.md#how-desktop-updates-work).
 

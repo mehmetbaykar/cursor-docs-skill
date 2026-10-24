@@ -55,7 +55,7 @@ The pieces fit together like this:
 
 1. **Local machine.** Chat, review, and approvals happen on the member's device. Work runs in the hosted computer. Optional [local execution](https://cursor.com/docs/grok-bot/security.md#local-execution) requires per-command approval by default and can be turned off.
 2. **Environment.** One persistent Firecracker microVM per user. Every Bot that user runs shares that computer. Admins manage Grok Bot from the Grok Bot page of the [Cursor dashboard](https://cursor.com/dashboard/bot). Team Rules, Cloud Agent delegation, public template sharing, and Execution on Local Computer are available to team admins. **Enterprise only** on that page: the organization-wide enable switch, Network Controls, Team Setup Scripts, Team Secrets, Allow Local Egress Routing, Allow Sudo on Bot Computers, Action Recording, Enforce Auto-review, Auto-review rules, and computer management. Members never see this page.
-3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It hands login, two-factor authentication, and payment steps to the member.
+3. **The Bot.** Shell, browser, and computer use inside the hosted computer. A Bot has no access by default and acts only with accounts the member signs it into. It fills logins and cards from the member's Vault, a connected password manager, or a Secure Form without seeing the values, and hands steps such as single sign-on and passkeys to the member.
 4. **Connected apps.** Your team's Cursor MCP (Model Context Protocol) policy applies in full, allowing or blocking each connector. OAuth tokens stay on Cursor's connector backend, and Bots invoke tools without receiving them.
 5. **Cloud Agents.** Grok Bot can delegate coding tasks to separate computers under your existing [Cloud Agent](https://cursor.com/docs/cloud-agent.md) controls. Admins can disable spawning.
 6. **Models and data.** Grok Bot manages model selection. With Privacy Mode enabled, customer data is not used for training; Cursor enforces this on its servers, and when the setting can't be verified, the system defaults to not training.
@@ -88,6 +88,10 @@ SCIM 2.0 provisioning and deprovisioning through your identity provider. Members
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 
+#### Team icon
+
+The image Grok Bot shows for your whole team, such as when a member shares a Bot or a Team Bot with everyone. Admins upload, change, or remove it from the Team Profile section of Team Settings. Use a PNG, JPEG, or WebP up to 2 MB.
+
 ### Agent capabilities
 
 What Bots may do on behalf of members. Each control applies to every member's Bots.
@@ -104,9 +108,13 @@ Controls whether members can publish Bot templates outside your team. Off keeps 
 
 Controls who can use each [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) and adds Team Bots to members' sidebars automatically. Open **Manage Team Bots** under **Team Bots** on the Grok Bot page. The **Access** column shows who can use each Team Bot, such as the whole team, certain people or groups, or only its owner. Click it to change who has access. In a Team Bot's **Auto-add** column, pick **All team** or one or more groups, or clear it. Auto-add only applies to groups that have access. Members who get a Bot this way can't hide it from their sidebar. Admins can also delete a Team Bot here. Deleting it removes it for everyone on the team, removes its Slack app, and can't be undone. Groups are managed on the Members & Groups page.
 
+#### Page sharing
+
+Controls how members can share [Pages](https://cursor.com/help/grok-bot/pages.md) inside your team. Find **Page sharing** under **Sharing** on the Grok Bot page and pick **Anyone on the team**, **Specific teammates**, or **Off**. **Anyone on the team** is the default. Pages already shared stay shared when you tighten it. The control appears as Pages reach your team.
+
 #### Agent Email
 
-Lets members claim a `mail.grokbot.com` address that their Bots can read and send mail from. The switch is under **Bot Capabilities** on the Grok Bot page and is off by default; members get no email tools until it is on. Every outbound email waits as a draft until the member presses **Send**, including mail from routines and replies. Newsletters and first-contact emails include an unsubscribe link, and incoming mail acts only through routines the member sets up. Turning it off removes the Bots' email tools and stops email routines; existing addresses keep receiving mail. See [Give your Bot an email address](https://cursor.com/help/grok-bot/agent-email.md).
+Lets members claim a `mail.grokbot.com` address that their Bots can read and send mail from. The switch is under **Bot Capabilities** on the Grok Bot page and is off by default; members get no email tools until it is on. When a member asks for an email in chat, it sends once Auto-review allows it or the member approves it. Email the Bot writes on its own, including from routines, waits as a draft until the member presses **Send**. Newsletters and first-contact emails include an unsubscribe link, and incoming mail acts only through routines the member sets up. Turning it off removes the Bots' email tools and stops email routines; existing addresses keep receiving mail. See [Give your Bot an email address](https://cursor.com/help/grok-bot/agent-email.md).
 
 #### Connector policy
 

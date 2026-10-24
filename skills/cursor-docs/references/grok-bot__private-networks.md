@@ -16,21 +16,23 @@ allowlist.
 
 ## What you can do
 
-- **Route one member's traffic through their desktop**, so Bots can reach services available from that device and destinations see its IP address.
+- **Route one member's traffic through their desktop**, so destinations see that device's IP address. Sites that resolve to a private or VPN address stay blocked unless they've been allowed for your organization.
 - **Install your networking client on every team computer automatically**, from one admin-managed manifest, with no per-computer setup.
 - **Let Bots reach services on your private network** without exposing those services to the internet or adding shared egress IPs to your allowlists.
 - **Keep control on your side.** Your network, your access rules, your identity provider. You can revoke a computer from your own admin console at any time.
 
 ## Choose a connection method
 
-| Method                                      | Use it when                                                                   |
-| ------------------------------------------- | ----------------------------------------------------------------------------- |
-| Route traffic through a desktop             | One member needs access through a network already available from their device |
-| Install a networking client with Team Setup | Your Enterprise team needs a consistent connection on every hosted computer   |
+| Method                                      | Use it when                                                                                               |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Route traffic through a desktop             | One member needs public sites to see their device's IP address, such as a site that allowlists office IPs |
+| Install a networking client with Team Setup | Your Enterprise team needs a consistent connection on every hosted computer                               |
 
 ### Route through a member's desktop
 
 In the Grok Bot desktop app, open **Settings** > **Computer** and, under **Your computer**, turn on **Route traffic through this computer**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress Routing**.
+
+The route doesn't open your private network to the Bot. Sites that resolve to a private or VPN address are blocked unless they've been allowed for your organization, and the setting shows how many sites were blocked this session. To reach private services, [install a networking client with Team Setup](https://cursor.com/docs/grok-bot/private-networks.md#install-a-networking-client-with-team-setup).
 
 Each member controls their own desktop route. Enterprise admins can remove this option for the whole team from [Grok Bot in the Cursor dashboard](https://cursor.com/dashboard/bot). See [Route traffic through your desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop).
 

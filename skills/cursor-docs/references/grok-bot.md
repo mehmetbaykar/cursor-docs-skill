@@ -10,7 +10,7 @@ Grok Bot gives you Bots you can keep around: AI teammates with names, jobs, and 
 
 You work with a Bot by messaging it. Give it a task, the relevant context, and access to the tools it needs. It takes on multi-step work across apps and websites, keeps you updated in the conversation, and comes back when something needs your approval.
 
-Grok Bot runs on macOS, Windows, Linux, and iOS, and is included with
+Grok Bot runs on macOS, Windows, Linux, iOS, and Android, and is included with
 every paid individual Cursor plan and with the Cursor Teams plan. You can also link an
 individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription, or
 sign in with a seat on a self-serve Grok Business plan. See
@@ -19,7 +19,7 @@ sign in with a seat on a self-serve Grok Business plan. See
 ## What makes Grok Bot different
 
 - **Each Bot has a computer.** Your Bots run on a persistent cloud computer with a browser, filesystem, and terminal. They use [connected apps](https://cursor.com/docs/grok-bot/work.md#connect-apps) where available and computer use for everything else, and work continues while your laptop is closed.
-- **Setup is a message, not a workflow builder.** Create a Bot, describe the job, and grant access as it asks. The same Bot is reachable from the desktop app and iOS.
+- **Setup is a message, not a workflow builder.** Create a Bot, describe the job, and grant access as it asks. The same Bot is reachable from the desktop app and the iPhone and Android apps.
 - **Bots coordinate with each other.** Your Bots can run in parallel, message each other, share context in [group chats](https://cursor.com/docs/grok-bot/work.md#group-chats), and pass ownership of a task, so you aren't the router between tools.
 - **Bots learn workflows from demonstration.** Walk a Bot through a multi-step path once, and it can save the path as a [skill](https://cursor.com/docs/grok-bot/work.md#skills-and-routines) and rerun it on a schedule.
 - **Context compounds.** A named Bot keeps its memory, files, browser sessions, and preferences across sessions instead of resetting on every task.
@@ -70,7 +70,8 @@ them.
 ### Which platforms are supported?
 
 The desktop app runs on macOS (Apple silicon and Intel), Windows (x64
-and Arm64), and Linux (x64 and Arm64), and the mobile app runs on iPhone.
+and Arm64), and Linux (x64 and Arm64), and the mobile app runs on iPhone
+and Android.
 The computers Bots work on run in Cursor's cloud.
 
 ### How much does Grok Bot cost?

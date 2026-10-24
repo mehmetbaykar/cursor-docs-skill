@@ -29,7 +29,7 @@ Auto-review rules shape which actions stop for your approval. When your admin en
 
 ### Route traffic through your desktop
 
-Under **Your computer**, turn on **Route traffic through this computer** to send your Grok Bot computer's web traffic through the current desktop. The route applies to new connections. Destinations see your desktop's IP address, and the Bot can reach networks available from that device.
+Under **Your computer**, turn on **Route traffic through this computer** to send your Grok Bot computer's web traffic through the current desktop. The route applies to new connections. Destinations see your desktop's IP address. Sites that resolve to a private or VPN address are blocked unless they've been allowed for your organization, and the setting shows how many were blocked this session.
 
 The setting applies to one desktop. If your Enterprise admin turns off **Allow Local Egress Routing**, the toggle turns off and locks with `Disabled by your admin. You can't turn this on.` Any active route stops within five minutes. Your choice is preserved and takes effect again if the admin re-allows local egress.
 
@@ -52,6 +52,7 @@ Apps aren't in settings. Open **Connect apps** in the sidebar to find apps and p
 The Grok Bot app and Grok Bot's computer update separately:
 
 - **Check for Updates** and **Restart to Update**, in the **Updates** pane, update the desktop app.
+- **Automatic Updates**, in the same pane, is on by default. When it's on, a downloaded update installs and the app restarts while you're away: your screen is locked or the screensaver is on, the computer has been idle for at least 10 minutes, and Grok Bot isn't busy. Turn it off to install only when you choose **Restart to Update**. Linux `.deb` and `.rpm` installs don't show it.
 - **Update Bot's Computer**, in **Settings** > **Computer** under **Bot's computer**, moves the cloud computer to the latest version. A software update only refreshes Grok Bot's software and keeps installed apps. A computer update rebuilds the computer, keeping files and logins but removing installed apps and packages. The text under **Update Bot's Computer** says which kind is waiting.
 - **Reset Bot's Computer**, in the same section, is a last resort that rebuilds the computer from your last saved data, the same as Recover; if the computer can't be reached to save first, very recent changes don't come back.
 

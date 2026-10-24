@@ -22,9 +22,9 @@ dashboard](https://cursor.com/dashboard/bot): the **Download Grok Bot** setup
 row installs the desktop app or copies a link you can share. If you don't
 have dashboard access, ask your admin for the download link. The app runs
 on macOS (Apple silicon and Intel), Windows (x64 and Arm64), and Linux
-(x64 and Arm64) and checks for updates automatically. On iPhone,
-install Grok Bot from the App Store; see
-[Use Grok Bot on iOS](https://cursor.com/docs/grok-bot/get-started.md#use-grok-bot-on-ios).
+(x64 and Arm64) and checks for updates automatically. On a phone,
+install Grok Bot from the App Store or Google Play; see
+[Use Grok Bot on your phone](https://cursor.com/docs/grok-bot/get-started.md#use-grok-bot-on-your-phone).
 
 ### Sign in with your Cursor account
 
@@ -65,12 +65,14 @@ a five-minute first result, attach a document and try:
 
 ### Sign in to the tools it needs
 
-When the Bot reaches an app that requires authentication, it hands you
-the computer. Click **Open computer**, take over, enter the password or
-two-factor code yourself, and return control. The Bot doesn't see your
-password, and the signed-in session persists on your computer for future
-tasks. For supported services, you can also [connect an
-app](https://cursor.com/docs/grok-bot/work.md#connect-apps) instead.
+When the Bot reaches an app that requires authentication, it uses a login
+saved in [Vault](https://cursor.com/help/grok-bot/secrets.md#what-is-vault) or a connected
+password manager, or asks you for it with a Secure Form. The Bot never
+sees the password, and the signed-in session persists on your computer
+for future tasks. For single sign-on, a passkey, or another step a form
+can't handle, it hands you the computer: click **Open computer**, finish
+that step, and return control. For supported services, you can also
+[connect an app](https://cursor.com/docs/grok-bot/work.md#connect-apps) instead.
 
 ### Review the result and make it stick
 
@@ -80,9 +82,9 @@ format you want reused. When the process is stable, save it as a
 
 Before you let a Bot change external systems, read [Approvals and Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review). It covers approval prompts, the review model behind them, and how to keep credentials out of chat.
 
-## Use Grok Bot on iOS
+## Use Grok Bot on your phone
 
-The iPhone app (iOS 18 or later) connects to the same Bots, conversations, routines, and cloud computer as desktop. Install Grok Bot from the App Store and sign in with the same Cursor account; access from your plan or SuperGrok link carries over without a second purchase. From your phone you can message Bots, watch and take over the computer, approve actions, and pause or resume routines.
+The iPhone app (iOS 18 or later) and the Android app (Android 9 or later) connect to the same Bots, conversations, routines, and cloud computer as desktop. Install Grok Bot from the App Store or Google Play and sign in with the same Cursor account; access from your plan or SuperGrok link carries over without a second purchase. From your phone you can message Bots, watch and take over the computer, approve actions, and pause or resume routines.
 
 Some flows stay on desktop: teaching a workflow by demonstration, testing routines, and updating the computer. See [Grok Bot on mobile](https://cursor.com/help/grok-bot/mobile.md) for setup details and [Subscribe from the mobile app](https://cursor.com/help/grok-bot/mobile-purchase.md) if your account doesn't include access.
 
