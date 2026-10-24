@@ -112,7 +112,7 @@ Whether to skip requesting the user as a reviewer when Cursor opens a PR. Only a
 
 `envVars` object (optional)
 
-Session-scoped environment variables for the cloud agent. Values are encrypted at rest, injected into the agent's shell, and deleted with the agent. Maximum 50 entries; names up to 255 bytes (can't start with `CURSOR_`), values up to 4096 bytes. Cannot be combined with a client-supplied `agentId`.
+Session-scoped environment variables for the cloud agent. Values are encrypted at rest, injected into the agent's shell, and deleted with the agent. Maximum 50 entries. Each name is 1 to 255 characters of ASCII letters, digits, and underscores, doesn't start with a digit, can't start with `CURSOR_`, and can't contain `CURSOR_SANDBOX` in any letter case. Each value is non-empty and at most 4096 UTF-8 bytes. Cannot be combined with a client-supplied `agentId`.
 
 On self-hosted targets, `envVars` reach only pool workers that run with `--sync-dashboard-secrets` while a team admin has **Secret sync** on. `machine` targets and other pool workers run without them. See [Environments on Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines).
 
@@ -407,7 +407,7 @@ curl --request GET \
 }
 ```
 
-### Create A Run
+### Send A Follow-Up Or Steer
 
 POST
 
@@ -453,12 +453,10 @@ Conversation mode override for this follow-up run: `agent` or `plan`. Omit to ke
 
 A steer adds a prompt to an agent while it works, instead of being refused with `409 agent_busy`. You can send one whether or not a run is active. The response is `202` with a `delivery` field:
 
-- `steered` — The agent's running turn accepted the prompt and takes it at its next safe step. If that turn ends first, the prompt starts the agent's next run instead.
-- `queued` — No running turn could take the prompt, so it becomes the agent's next follow-up.
+- `steered` — The agent's running turn accepted the prompt. The response includes `runId`, the run that accepted the steer, which was running when the API got it. The prompt reaches that run at its next safe step unless the run ends first, in which case the prompt starts the agent's next run. `runId` is omitted when the agent had no active run.
+- `queued` — No running turn could take the prompt, so it becomes the agent's next follow-up. That includes a steer that lands just after the agent's run changed. A `queued` response never includes `runId`.
 
-Neither response includes a run ID, and runs don't carry the prompt or any request ID, so you can't match a steer to a run. [List Runs](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-runs) shows the agent's runs as they happen.
-
-A steer body with any top-level field besides `prompt` and `delivery`, or a `delivery` other than `steer`, returns `400 validation_error`. Cursor checks the body first, so this happens even when steering isn't available for your account. A steer that Cursor refuses also returns `400 validation_error`. If steering isn't available for your account, a valid steer returns `403 feature_unavailable`.
+A steer body with any top-level field besides `prompt` and `delivery` returns `400 validation_error` with a message that names the fields, such as `"model" is not allowed with delivery "steer"` or `"model", "mode" are not allowed with delivery "steer"`. A `delivery` other than `steer` also returns `400 validation_error`. Cursor checks the body first, so these errors happen even when steering isn't available for your account. A steer that Cursor refuses also returns `400 validation_error`. If steering isn't available for your account, a valid steer returns `403 feature_unavailable`.
 
 A steer that fails with a server or network error may still have reached the agent. Cursor treats a retry as a new prompt, so retrying can deliver the prompt twice.
 
@@ -514,7 +512,8 @@ curl --request POST \
 
 ```json
 {
-  "delivery": "steered"
+  "delivery": "steered",
+  "runId": "run-00000000-0000-0000-0000-000000000002"
 }
 ```
 
@@ -600,7 +599,7 @@ Unique identifier for the run (for example, `run-00000000-0000-0000-0000-0000000
 
 #### Response Fields
 
-The base run fields (`id`, `agentId`, `status`, `createdAt`, `updatedAt`) are always present. The following are populated as soon as data is available:
+The base run fields (`id`, `agentId`, `status`, `createdAt`, `updatedAt`) are always present. `status` is `CREATING`, `RUNNING`, or `WAITING_FOR_BACKGROUND_WORK` while the run is active, and `FINISHED`, `ERROR`, `CANCELLED`, or `EXPIRED` once it ends. The following are populated as soon as data is available:
 
 `durationMs` integer (terminal runs)
 

@@ -80,7 +80,7 @@ Hosted computers reach the internet through shared static egress IP addresses by
 
 If member devices sit behind Zscaler or another TLS-inspecting gateway, allow Cursor's domains and exempt them from inspection on every profile, including off-network. See [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md).
 
-Members can route traffic through their desktop to use its network and IP address. **Team Setup Scripts** is Enterprise only. Those teams can also install their own networking client on every team computer. Both paths are separate from the shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
+Members can route traffic through their desktop to use its IP address; sites that resolve to a private or VPN address stay blocked on that route unless they've been allowed for your organization. **Team Setup Scripts** is Enterprise only. Those teams can also install their own networking client on every team computer. Both paths are separate from the shared egress ranges. See [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 
 ## Approvals and Auto Review
 
@@ -90,7 +90,7 @@ Approvals keep consequential actions under the member's control. The strongest b
 > change the campaign or message the agency. Ask for approval after showing
 > the current value, proposed value, and expected impact.
 
-When an action needs approval, the conversation shows the proposed operation and its inputs. **Allow once** lets the Bot continue with that action, **Always allow** can save a matching rule, and **Deny** blocks it. The controls are the same on iPhone. An approval controls the proposed action, not work already completed, and nobody should approve an action whose target or effect they can't identify.
+When an action needs approval, the conversation shows the proposed operation and its inputs. **Allow once** lets the Bot continue with that action, **Always allow** can save a matching rule, and **Deny** stops the action; the Bot doesn't try it again until the member sends another message. The controls are the same on iPhone. An approval controls the proposed action, not work already completed, and nobody should approve an action whose target or effect they can't identify.
 
 Auto Review is the review layer behind those prompts: an independent review model that evaluates risky Bot actions before they run, covering shell commands, app calls, computer use, automation writes (changes to routines and event triggers), and delegation such as Cloud Agent and subagent launches. It can let an action proceed, require approval, or deny it.
 
@@ -117,7 +117,7 @@ A Bot has no identity or credentials of its own:
 
 - **Bots act as the signed-in member.** A Bot can never hold more access than the person it belongs to, every action stays attributable to a named member, and there's no separate machine identity outside your identity provider to provision, rotate, or audit. Team-managed connectors are the one exception: they may use team or service-account credentials.
 - **Connector tokens stay on Cursor's backend.** Bots invoke tools without receiving OAuth tokens, and tokens are never stored on the computer.
-- **Credentials stay with the member.** For login, two-factor, and payment steps, the Bot hands the computer to the member rather than typing credentials. For supported connections, a secure secret request masks the entered value and keeps it out of the transcript and away from the model; passwords and one-time codes never belong in ordinary chat. See [Store secrets securely](https://cursor.com/help/grok-bot/secrets.md).
+- **Credentials stay out of the model.** To sign in, the Bot uses a login the member saved in Vault, a connected password manager, or a value the member enters in a Secure Form. These values are filled into the page by reference: the model never receives a saved password, card number, or security code, or what the member types in a Secure Form. The Bot can see which logins are saved and the member's saved contact info. For single sign-on, passkeys, and other steps a form can't handle, the Bot hands the computer to the member. For an API key or other secret, a secure secret card masks the value and keeps it out of the transcript and away from the model. A card saved in Vault fills at checkout without a separate approval each time, so members who want to approve each payment shouldn't save the card. Vault isn't available on Team Bots. Passwords and one-time codes never belong in ordinary chat. See [Store secrets securely](https://cursor.com/help/grok-bot/secrets.md).
 
 To end a member's current work, an organization admin terminates the member's computer from the dashboard; see [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md). That control is Enterprise only. It stops running Bots, keeps the durable disk, and the member's next session starts a fresh computer. It does not remove access. To remove access, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. Application sessions persist only on the member's computer.
 
