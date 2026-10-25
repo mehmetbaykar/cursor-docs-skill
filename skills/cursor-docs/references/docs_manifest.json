@@ -453,8 +453,8 @@
       "title": "Output format"
     },
     "cli__reference__parameters.md": {
-      "hash": "871878c12a1b909d474a2c08fb5dd43765712ca53375c6dd398f7caaf47199b3",
-      "last_updated": "2026-09-02T20:58:30+00:00",
+      "hash": "818ba8e98e1eab3ad1741f76c0674c13a748dff4fe8dae6820f6791523d69e86",
+      "last_updated": "2026-10-25T21:17:38+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/parameters",
       "path": "/docs/cli/reference/parameters",
       "source_url": "https://cursor.com/docs/cli/reference/parameters",
@@ -1951,7 +1951,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-24T21:19:12+00:00",
+  "last_updated": "2026-10-25T21:18:36+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
