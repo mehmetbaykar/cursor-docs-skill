@@ -1912,7 +1912,7 @@ Audit events, each containing:
 
 - `event_id` string - UUID of the event
 - `timestamp` string - ISO 8601 timestamp
-- `team_id` string - Team the event belongs to. Empty for organization-level events such as `organization_group` and `xai_credit_transfer`
+- `team_id` string - Numeric ID of the team the event belongs to, the same value as `teams[].teamId` in [List Organization Members](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-members). Empty for organization-level events such as `organization_group` and `xai_credit_transfer`
 - `ip_address` string - Client IP of the request
 - `user_email` string - Actor, as recorded when the event was written. See the [log format](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#log-format) for `Api Key:`, `Bot:`, and `System` values, and for why this isn't a stable user key
 - `user_id` string - On Origin events, the actor's public `user_…` ID. Empty for non-user actors and on rows written before the field existed. See the [log format](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#log-format)
