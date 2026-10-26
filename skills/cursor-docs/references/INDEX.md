@@ -184,6 +184,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `models__claude-sonnet-5` - [Models Claude Sonnet 5](https://cursor.com/docs/models/claude-sonnet-5)
 - `models__cursor-composer-1` - [Models Cursor Composer 1](https://cursor.com/docs/models/cursor-composer-1)
 - `models__cursor-composer-2-5` - [Models Cursor Composer 2 5](https://cursor.com/docs/models/cursor-composer-2-5)
+- `models__deepseek-v4-1-flash-1017` - [Models Deepseek V4 1 Flash 1017](https://cursor.com/docs/models/deepseek-v4-1-flash-1017)
 - `models__gemini-2-5-flash` - [Models Gemini 2 5 Flash](https://cursor.com/docs/models/gemini-2-5-flash)
 - `models__gemini-3-1-pro` - [Models Gemini 3 1 Pro](https://cursor.com/docs/models/gemini-3-1-pro)
 - `models__gemini-3-5-flash-lite` - [Models Gemini 3 5 Flash Lite](https://cursor.com/docs/models/gemini-3-5-flash-lite)
