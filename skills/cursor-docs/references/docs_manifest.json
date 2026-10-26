@@ -12,8 +12,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "ec26f0b3110546c4c7e5d615bc195c3cea10700627198552f270a18718dcf39e",
-      "last_updated": "2026-10-26T18:33:30+00:00",
+      "hash": "260c076a36f51d065e96c98f44cddb0204d13cfd1517c43e2c22be5cbd17d035",
+      "last_updated": "2026-10-26T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
@@ -2356,7 +2356,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-26T18:34:56+00:00",
+  "last_updated": "2026-10-26T21:21:43+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
