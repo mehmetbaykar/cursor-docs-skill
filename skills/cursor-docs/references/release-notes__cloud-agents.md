@@ -8,6 +8,73 @@ path: /docs/release-notes/cloud-agents
 
 Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each entry covers one week of changes and is labeled with the Monday that starts it.
 
+## Week of Oct 19, 2026
+
+### Agents
+
+- &#x20;**Agents know when a subagent fell back to a different model.** When a custom [subagent](https://cursor.com/docs/subagents.md) is set to a model your team's admin settings block, that needs Max Mode, or that isn't valid, the parent agent now learns that the subagent ran on the parent's model instead. Subagents that inherit the parent's model also no longer get blocked on teams that disallow the Fast tier when the parent isn't using Fast.
+- &#x20;**Computer use stays on when your team blocks the video review model.** Fixed an issue where blocking Gemini 3.1 Pro in team model settings turned off computer use for every Cloud Agent on the team, even when the computer use models were allowed. Now only video review is unavailable, and the agent keeps testing with computer use.
+- **Broken skills are flagged in the run.** When a skill's SKILL.md has invalid frontmatter, no description, or can't be read, the Cloud Agent run now shows a warning naming the skill and how to fix it. Previously the agent quietly skipped the skill or was unlikely to pick it.
+- **Faster follow-ups after turns that only read files.** When a turn only reads or searches files, or sends messages, the next turn now starts sooner. The agent no longer waits on a workspace snapshot that wasn't needed because nothing changed.
+
+### Pull requests
+
+- **Pull requests open ready for review by default.** Cloud Agents, including Project workers, now open pull requests ready for review instead of as drafts, unless you or the task ask for a draft. A new Never open PRs as drafts switch in the Pull requests section of your codebase settings keeps every new pull request you and your agents open ready for review, even when a draft is requested.
+- **Agent comments on private Origin pull requests link back to the run.** When a Cloud Agent posts a comment, reply, or review on a private Origin pull request, the comment now ends with an Open in Web button that opens the agent run, so reviewers can jump straight to the agent's work.
+
+### Projects
+
+- **Project coordinators keep the task tracker accurate.** In Projects that use the task tracker, the coordinator now links each pull request a worker reports to the right task, unlinks workers from finished tasks, and closes Queued or parent tasks once other work has delivered them. Workers now report status to their coordinator.
+- **Parent tasks in a Project's tracker now follow their subtasks.** In a [Project](https://cursor.com/docs/agent/projects.md)'s task tracker, a parent task with no pull request or agent of its own now takes the status of its most active subtask (In Progress, then For Review, then Queued) and moves to done once every subtask is complete. The status updates on every change to its subtasks, so the List and Board views no longer show a parent stuck behind its children.
+- **Project workers can check the task tracker.** In a [Project](https://cursor.com/docs/agent/projects.md) that tracks tasks, workers and child coordinators can now read the Project's task tracker to see the status of other tasks, without being able to change it. Workers that are still busy with a follow-up message, or that belong to a teammate, also no longer get unlinked from closed tasks when their turn ends.
+- **Project workers get short topic names you can find later.** When a Project coordinator starts workers, it now names each one for what the work is about, like "Webhook retry backoff", instead of a role, action, or PR number. A worker started from only a PR or issue number is renamed once its first report says what the work is about.
+
+### Environments
+
+- **Manage an environment's secrets from its dashboard page.** Each environment's page in the Cloud Agents dashboard now has a [Secrets section](https://cursor.com/docs/cloud-agent/setup.md#environment-scoped-secrets) where you can view that environment's secrets and add new ones, unless its configuration is locked.
+- &#x20;**Admins can turn off personal secrets for Cloud Agents.** Team admins can turn on **Disable personal secrets** in the Cloud Agents [security settings](https://cursor.com/docs/cloud-agent/settings.md#security-settings). Members then can't add or edit personal secrets, and secrets they already added are no longer given to Cloud Agents. Members can still delete their existing personal secrets.
+- &#x20;**Agents without a repository run on your team's shared default environment.** When a member of a team starts a Cloud Agent without picking a repository or environment, the agent now runs on the team's default no-repo environment instead of a personal hidden one. Nobody can edit, rename, rebuild, delete, or add environment secrets to the team default, but personal and team secrets still apply to it. An unnamed personal environment with no repositories is locked until you give it a name.
+- **New environments created by a Cloud Agent now use your repo's `environment.json`.** When a Cloud Agent starts on a single repository with no environment yet, it now boots with the repository's committed [`.cursor/environment.json`](https://cursor.com/docs/cloud-agent/setup.md#configuration-in-code-with-environmentjson) instead of ignoring it. The new environment keeps tracking that file, so later agents and builds use it too.
+- **Agents started on a specific environment build use that build's config.** Cloud Agents and subagents started on a specific [environment build](https://cursor.com/docs/cloud-agent/builds.md) now boot with the `environment.json` and settings recorded for that build, instead of the repository's current file or the parent agent's newer environment version. This keeps an agent's setup consistent with the build it starts from.
+- **Verify an environment build with an agent from the Builds section.** An environment's Builds section on the Cloud Agents dashboard now has a Verify with Agent link next to Trigger build. It opens a new agent in a new tab, ready to check that the build works. The link appears when you can trigger builds and your team allows manual builds.
+- **Pick Origin repositories shared with you when setting up an environment.** When you create a Cloud Agents environment or edit its repositories, the repository picker now also lists Origin repositories from other teams' namespaces that you've been granted access to, after your own team's repositories. This lets you build a multi-repository environment across namespaces from the dashboard instead of only through the API.
+- &#x20;**Tighter, more reliable restricted network access.** Cloud Agents with restricted network egress no longer reach every `*.cloudfront.net` host by default; only the CloudFront hosts needed to pull public container images stay allowed, so add any other CloudFront domain your environment needs to your [network allowlist](https://cursor.com/docs/cloud-agent/security-network.md#network-access). Repositories hosted on Cursor now clone faster under restricted egress, and changing network settings while an agent runs now applies that agent's current environment allowlist instead of a stale one.
+- **Default environments no longer trust two compromised root certificates.** Cloud Agents' default environments now distrust the emSign ECC Root CA - G3 and AAA Certificate Services roots after private keys for intermediates under them were exposed. The system certificate store is updated, and on the default image the Java trust store is rebuilt from it, so connections signed through these roots fail instead of being trusted.
+
+### Self-Hosted Machines
+
+- **Open the live workspace of agents on Self-Hosted Machines.** Agents running on Self-Hosted Machines can now be opened from the Cursor desktop app with their files, changes, a terminal, and forwarded ports. Turn on the [live workspace](https://cursor.com/docs/cloud-agent/self-hosted.md#live-workspace) when you start a Linux machine. If the machine restarts, opening the agent reconnects to it.
+- &#x20;**Send self-hosted runs to a team default pool.** Team admins can pick a [**Default pool**](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#default-pool) in the Self-Hosted section of the Cloud Agents dashboard, and self-hosted runs that don't name a pool or machine go there instead of routing by repository alone. If the default pool serves the run's repository, it takes the run. If not, another team pool that serves the repository takes it, and an any-repo default pool takes everything else. Repository access checks still apply.
+- **Agents on Self-Hosted Machines wait for a dropped machine to come back.** When a Self-Hosted Machine drops its connection in the middle of a run, the agent now waits up to 10 minutes for it to come back before reporting the machine as disconnected. If another machine in the pool is free, the agent moves to it instead.
+
+### Web
+
+- **New agent transcript on the web.** Cloud agent conversations at cursor.com/agents, the pull request agent panel, and side chats now use the same transcript as the Agents Window. Your first message in a new agent shows up right away, images included, and in the agent sidebars on codebase pages the mouse wheel and Page Up and Page Down scroll the transcript.
+- **Fix with agent on pull request pages goes to the right agent.** On cursor.com pull request pages, Fix with agent and similar actions now follow up the agent that opened the pull request, or your most recently active agent on it, instead of whichever agent is newest.
+- **Agent pages show their details sooner on the web.** When you open a link to a cloud agent directly, its header, status, and starting prompt appear sooner.
+- **Share canvases with your whole organization.** The share sheet for a canvas can now open it to everyone in your organization, shown as "Anyone at" your organization, or grant access to other teams in your organization.
+
+### Integrations
+
+- **Linear sessions link to the agent and its PR, and PRs close their Linear issue.** Cloud Agent sessions in [Linear](https://cursor.com/docs/integrations/linear.md) now show Open in Web, Open in Cursor, and Pull Request links, and the final reply is a plain summary that no longer appears twice. Pull requests from runs started on a Linear issue now end with a `Fixes <ISSUE-ID>` line, so Linear links the PR and closes the issue when it merges.
+
+### MCP
+
+- **MCP tools that need an extra permission now ask you to grant it.** When an MCP server refuses a Cloud Agent's tool call because your sign-in is missing a permission the server names, the agent shows a sign-in card that names the tool and the permission it needs, instead of failing. If signing in again can't grant it, the agent tells you an admin needs to approve it. Permissions you grant this way are kept the next time you sign in.
+- **Fixes to Gmail and Google Calendar tools.** When Gmail rate-limits a request, the agent now waits briefly as Google asks and retries the call, instead of having later Gmail calls blocked for a cooldown period. When a Google Calendar call fails because the connection is missing a permission, the agent now tells you to reconnect the account instead of showing a raw permission error.
+- **Google Sheets calls recover when the wrong account is connected.** If a Google Sheets tool call fails because the account in use can't open the spreadsheet, the agent now sees your other connected Sheets accounts and can retry with one that has access.
+
+### Fixes
+
+- **Fixes to Self-Hosted Machines.** When a Self-Hosted Machine drops mid-run, Cloud Agents now reconnect to it or move to another free machine in the pool instead of losing the run.
+- **Fixes to MCP connectors.** Common argument mistakes in Slack, Google Sheets, Airtable, and Jira tool calls are repaired automatically, and signing in to a team-owned MCP server no longer conflicts with your own entry for the same URL.
+- **Fixes to environment builds.** The Trigger build dialog now scrolls so its button stays reachable when an environment has many repos.
+- &#x20;**Fixes to Cloud Agents dashboard errors.** Team preferences on the Cloud Agents page no longer ask paid, Enterprise, or merged teams to upgrade. When a prepaid balance runs out, the error now names it instead of pointing to on-demand usage settings.
+- **Fixes to agent stores.** Project members can open links to a Project's store, and subagents running on their own machine keep access to their Project store after a checkpoint or finished turn. Store traffic from cloud agent machines no longer counts against your own rate limit, and the Agent Stores page shows the server's error message when it fails to load.
+- **Fixes to how agents handle Origin pull requests.** When an agent checks CI on an Origin pull request, checks that are still running but already failing are now flagged, so the agent can start fixing them without waiting. Merge-conflict notices say "at least N" conflicted paths when the list was cut short, and merging a pull request hosted elsewhere now points the agent to that host's tooling. Commits from subagents of a Slack thread agent now carry the same co-author line, and agents no longer commit a stray file created by the co-author git hook.
+- **Fixes to app publishing.** Confirming a publish no longer fails as out of date when the agent committed outside the app's folder or its machine had shut down; the machine now wakes and the confirm retries automatically. New apps are named after their folder or repository instead of a generic name, and a first publish no longer waits on missing secret values. After publishing, the agent names the repository and folder the app came from and links to it, and no longer says secret changes are waiting in the publish dialog.
+- **Fixes to Pages.** Published pages now show updates on the next load after you republish, unpublish, rename, or change their address. Pages no longer fail to compile when code blocks or comments mention `import`, and images hold their shape with a blurred preview while loading. Creating a page in a team thread where team sharing is restricted now shows your admin's sharing policy instead of a generic error.
+
 ## Week of Oct 12, 2026
 
 ### Projects

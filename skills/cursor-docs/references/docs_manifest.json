@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 214,
+    "pages_fetched_successfully": 258,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 217
+    "total_pages_discovered": 261
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -145,6 +145,402 @@
       "source_url": "https://cursor.com/docs/account/update-access",
       "status": "live",
       "title": "Update Access"
+    },
+    "agent-sdk.md": {
+      "hash": "c0b1e29fe42c43ea6e673597d33073cb1a84317b321a27b70b4363cf166be005",
+      "last_updated": "2026-10-26T15:37:01+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk",
+      "path": "/docs/agent-sdk",
+      "source_url": "https://cursor.com/docs/agent-sdk",
+      "status": "live",
+      "title": "Agent SDK"
+    },
+    "agent-sdk__building-with-agents.md": {
+      "hash": "2a0c8cc309f9f6f7e8dbc0938fef1ba07fca15928d495e7d864a548a98827cdd",
+      "last_updated": "2026-10-26T15:37:02+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/building-with-agents",
+      "path": "/docs/agent-sdk/building-with-agents",
+      "source_url": "https://cursor.com/docs/agent-sdk/building-with-agents",
+      "status": "live",
+      "title": "Build with a coding agent"
+    },
+    "agent-sdk__changelog.md": {
+      "hash": "47cbfa1fee3d28bef2e560f982ef6504bcc946a57600f7f587e577b075128285",
+      "last_updated": "2026-10-26T15:37:02+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/changelog",
+      "path": "/docs/agent-sdk/changelog",
+      "source_url": "https://cursor.com/docs/agent-sdk/changelog",
+      "status": "live",
+      "title": "Changelog"
+    },
+    "agent-sdk__deployment.md": {
+      "hash": "46876aeae93cddabf44b168b2db2b10c5f58d750a87f1136c4c9add3ba474e38",
+      "last_updated": "2026-10-26T15:37:02+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/deployment",
+      "path": "/docs/agent-sdk/deployment",
+      "source_url": "https://cursor.com/docs/agent-sdk/deployment",
+      "status": "live",
+      "title": "Deploy an Agent SDK project"
+    },
+    "agent-sdk__evals.md": {
+      "hash": "93666cc502c9466f77fd356eb56392e03187316b025647359c34f7e8fae10002",
+      "last_updated": "2026-10-26T15:37:03+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/evals",
+      "path": "/docs/agent-sdk/evals",
+      "source_url": "https://cursor.com/docs/agent-sdk/evals",
+      "status": "live",
+      "title": "Evals"
+    },
+    "agent-sdk__guides__agent-to-agent.md": {
+      "hash": "20f190a952be69ea75d42415c2e77a3acfff772c9cbc4efd0746141bc2368285",
+      "last_updated": "2026-10-26T15:37:03+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/agent-to-agent",
+      "path": "/docs/agent-sdk/guides/agent-to-agent",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/agent-to-agent",
+      "status": "live",
+      "title": "Peer agents"
+    },
+    "agent-sdk__guides__bitbucket.md": {
+      "hash": "4488deedd7603e757e7c613b69f9df13f9d65b4ec4c90b7887451ada0c5a4e35",
+      "last_updated": "2026-10-26T15:37:03+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/bitbucket",
+      "path": "/docs/agent-sdk/guides/bitbucket",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/bitbucket",
+      "status": "live",
+      "title": "Bitbucket agents"
+    },
+    "agent-sdk__guides__cloud-agents.md": {
+      "hash": "d29356db81bb7db003d1d48265c9bb84c8a4637e7dfee0a7a976b5ec0c59e107",
+      "last_updated": "2026-10-26T15:37:03+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/cloud-agents",
+      "path": "/docs/agent-sdk/guides/cloud-agents",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/cloud-agents",
+      "status": "live",
+      "title": "Cloud agents"
+    },
+    "agent-sdk__guides__convert-automation.md": {
+      "hash": "e806f90464820205fe33c96ed56b270b115c422a1f399f7cc142bf4bacd3e93f",
+      "last_updated": "2026-10-26T15:37:04+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/convert-automation",
+      "path": "/docs/agent-sdk/guides/convert-automation",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/convert-automation",
+      "status": "live",
+      "title": "Convert a Cursor Automation"
+    },
+    "agent-sdk__guides__github.md": {
+      "hash": "2c898a6e5d9002ad533236fdf2c790a190a5deb8dbd3c868476f70d66b6cddcf",
+      "last_updated": "2026-10-26T15:37:04+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/github",
+      "path": "/docs/agent-sdk/guides/github",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/github",
+      "status": "live",
+      "title": "GitHub agents"
+    },
+    "agent-sdk__guides__gitlab.md": {
+      "hash": "c3e64e91d6109c8c08a167cf79a59a93a27c2ef0dea045a7280983f314c10d1c",
+      "last_updated": "2026-10-26T15:37:04+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/gitlab",
+      "path": "/docs/agent-sdk/guides/gitlab",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/gitlab",
+      "status": "live",
+      "title": "GitLab agents"
+    },
+    "agent-sdk__guides__improve.md": {
+      "hash": "6c45c9f8f6bee856c1a9834b5afbcc603ae971a547280f757f54c77af7c7c118",
+      "last_updated": "2026-10-26T15:37:05+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/improve",
+      "path": "/docs/agent-sdk/guides/improve",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/improve",
+      "status": "live",
+      "title": "Self-improvement"
+    },
+    "agent-sdk__guides__jev.md": {
+      "hash": "6a71683edfdb99e0c3e32cf87d77c2d791d1471542d1da248cf03db544394dc8",
+      "last_updated": "2026-10-26T15:37:05+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/jev",
+      "path": "/docs/agent-sdk/guides/jev",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/jev",
+      "status": "live",
+      "title": "Use Jev in review tools"
+    },
+    "agent-sdk__guides__mcp-oauth.md": {
+      "hash": "84379fc45b919b609fb1805812002db4acbec8a88a632aea992cf2ced3ce8314",
+      "last_updated": "2026-10-26T15:37:05+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/mcp-oauth",
+      "path": "/docs/agent-sdk/guides/mcp-oauth",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/mcp-oauth",
+      "status": "live",
+      "title": "Connect a private MCP server with OAuth"
+    },
+    "agent-sdk__guides__migrate.md": {
+      "hash": "6747255a380bf95e2adeebc3f2a13afae0aadd15ee280d3b3d51bae694d5a6c8",
+      "last_updated": "2026-10-26T15:37:05+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/migrate",
+      "path": "/docs/agent-sdk/guides/migrate",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/migrate",
+      "status": "live",
+      "title": "Migrate an early-alpha project to architecture v2"
+    },
+    "agent-sdk__guides__opentelemetry.md": {
+      "hash": "8200ada45754e5958f09d81cd8e5f785bfb310f72da4160ddc14ac995b7b7ede",
+      "last_updated": "2026-10-26T15:37:06+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/opentelemetry",
+      "path": "/docs/agent-sdk/guides/opentelemetry",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/opentelemetry",
+      "status": "live",
+      "title": "OpenTelemetry"
+    },
+    "agent-sdk__guides__pagerduty.md": {
+      "hash": "e7eeb652b8ba09ce3ca055ac27dec29440720ee3d51bc9ebe23f2607f596debd",
+      "last_updated": "2026-10-26T15:37:06+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/pagerduty",
+      "path": "/docs/agent-sdk/guides/pagerduty",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/pagerduty",
+      "status": "live",
+      "title": "PagerDuty agents"
+    },
+    "agent-sdk__guides__slack.md": {
+      "hash": "94d960011c69db0542b394e04467611433d7442de27770fd5977fd02c327ee1b",
+      "last_updated": "2026-10-26T15:37:06+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/slack",
+      "path": "/docs/agent-sdk/guides/slack",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/slack",
+      "status": "live",
+      "title": "Slack Agents"
+    },
+    "agent-sdk__guides__webhooks.md": {
+      "hash": "4633b82cb85956566c517c1f1a27576704377cf155d6736bc9bfa21ea9d2e68f",
+      "last_updated": "2026-10-26T15:37:07+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/webhooks",
+      "path": "/docs/agent-sdk/guides/webhooks",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/webhooks",
+      "status": "live",
+      "title": "Webhook agents"
+    },
+    "agent-sdk__hillclimbing.md": {
+      "hash": "bcdc3746bed8cd34bf9d6e5242e79a9bfc160a37b59e682401ff509dd8937cc0",
+      "last_updated": "2026-10-26T15:37:07+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/hillclimbing",
+      "path": "/docs/agent-sdk/hillclimbing",
+      "source_url": "https://cursor.com/docs/agent-sdk/hillclimbing",
+      "status": "live",
+      "title": "Hillclimbing"
+    },
+    "agent-sdk__quickstart.md": {
+      "hash": "17c28617c4885f86b93c516669e792acb2098137da0a5f4731532dadc1d482af",
+      "last_updated": "2026-10-26T15:37:08+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/quickstart",
+      "path": "/docs/agent-sdk/quickstart",
+      "source_url": "https://cursor.com/docs/agent-sdk/quickstart",
+      "status": "live",
+      "title": "Build a PR reviewer with Agent SDK"
+    },
+    "agent-sdk__reference__access.md": {
+      "hash": "712516010d96b70f4721ac4c185eac0c953830733290ed16db94a20a84cf6a1b",
+      "last_updated": "2026-10-26T15:37:08+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/access",
+      "path": "/docs/agent-sdk/reference/access",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/access",
+      "status": "live",
+      "title": "Access"
+    },
+    "agent-sdk__reference__agent-config.md": {
+      "hash": "9b8931909733732cf28d71a47d34c808b0d0faa33590088ae395bc1210b154c1",
+      "last_updated": "2026-10-26T15:37:08+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/agent-config",
+      "path": "/docs/agent-sdk/reference/agent-config",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/agent-config",
+      "status": "live",
+      "title": "Agent config"
+    },
+    "agent-sdk__reference__artifacts.md": {
+      "hash": "5e63aba4dd649dbaab7e6ed193b0733c9b19a5681b0494653e46ba5924647a9f",
+      "last_updated": "2026-10-26T15:37:08+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/artifacts",
+      "path": "/docs/agent-sdk/reference/artifacts",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/artifacts",
+      "status": "live",
+      "title": "Artifacts"
+    },
+    "agent-sdk__reference__channels.md": {
+      "hash": "7f1cb46d2e828915d9a063c8affab3eb2f9d63ffb1f6c3f884bd13c5c0d84ce2",
+      "last_updated": "2026-10-26T15:37:09+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/channels",
+      "path": "/docs/agent-sdk/reference/channels",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/channels",
+      "status": "live",
+      "title": "Channels"
+    },
+    "agent-sdk__reference__cli.md": {
+      "hash": "75ff9b6908ece00cd8e3dce94416ad4951da1f76a463c2fe2fd1021bcf812824",
+      "last_updated": "2026-10-26T15:37:09+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/cli",
+      "path": "/docs/agent-sdk/reference/cli",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/cli",
+      "status": "live",
+      "title": "Agent SDK CLI"
+    },
+    "agent-sdk__reference__connections.md": {
+      "hash": "bb5bafa55de5f46ae1f56a0ab47b8fd67843c556e05eca9f7df22917aa3a038d",
+      "last_updated": "2026-10-26T15:37:09+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/connections",
+      "path": "/docs/agent-sdk/reference/connections",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/connections",
+      "status": "live",
+      "title": "MCP connections"
+    },
+    "agent-sdk__reference__evals.md": {
+      "hash": "2358b373486e773b0800ff06b49c708f45d8252fd46151cf87fa1865e103a6e4",
+      "last_updated": "2026-10-26T15:37:10+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/evals",
+      "path": "/docs/agent-sdk/reference/evals",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/evals",
+      "status": "live",
+      "title": "Evals"
+    },
+    "agent-sdk__reference__extensions.md": {
+      "hash": "ab6cfd25062f9ea60f626d9ad724e6d72cce0a3d0e05e3111621b5ba5e06418e",
+      "last_updated": "2026-10-26T15:37:10+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/extensions",
+      "path": "/docs/agent-sdk/reference/extensions",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/extensions",
+      "status": "live",
+      "title": "Extensions"
+    },
+    "agent-sdk__reference__hooks.md": {
+      "hash": "d4b61c9e57b2c57e8f404daced72ba0198c191145b6aba96b3f56e9f9aa0f1cb",
+      "last_updated": "2026-10-26T15:37:10+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/hooks",
+      "path": "/docs/agent-sdk/reference/hooks",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/hooks",
+      "status": "live",
+      "title": "Hooks"
+    },
+    "agent-sdk__reference__http-api.md": {
+      "hash": "e17dac570793f80564aa083dceafba68e7e27f28bd394cbf2d2e1701f88a446f",
+      "last_updated": "2026-10-26T15:37:10+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/http-api",
+      "path": "/docs/agent-sdk/reference/http-api",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/http-api",
+      "status": "live",
+      "title": "HTTP API"
+    },
+    "agent-sdk__reference__instructions.md": {
+      "hash": "ff27a903e05bba61eea1fd2b10247e1425286c5e0fb83a9591bf3156189b59fa",
+      "last_updated": "2026-10-26T15:37:11+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/instructions",
+      "path": "/docs/agent-sdk/reference/instructions",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/instructions",
+      "status": "live",
+      "title": "Instructions"
+    },
+    "agent-sdk__reference__limits.md": {
+      "hash": "481a6be1707999b0f4a2feb90779354e95a2579019374e795f3831e4b06a47d9",
+      "last_updated": "2026-10-26T15:37:11+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/limits",
+      "path": "/docs/agent-sdk/reference/limits",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/limits",
+      "status": "live",
+      "title": "Limits"
+    },
+    "agent-sdk__reference__memory.md": {
+      "hash": "3004c89b021d7323c5a63902cfd047b3689e760c7f97a6aa8523ad698bcc43f0",
+      "last_updated": "2026-10-26T15:37:12+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/memory",
+      "path": "/docs/agent-sdk/reference/memory",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/memory",
+      "status": "live",
+      "title": "Memory"
+    },
+    "agent-sdk__reference__playground.md": {
+      "hash": "2c2e12b76840b715418a52cf85b02e03329fd04996b0e341ab82a6d7631d3223",
+      "last_updated": "2026-10-26T15:37:12+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/playground",
+      "path": "/docs/agent-sdk/reference/playground",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/playground",
+      "status": "live",
+      "title": "Playground"
+    },
+    "agent-sdk__reference__project-layout.md": {
+      "hash": "98c54c7cde17ef7839bc1e36dd959b3d33afcf9784472ab5064635c90db9b903",
+      "last_updated": "2026-10-26T15:37:13+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/project-layout",
+      "path": "/docs/agent-sdk/reference/project-layout",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/project-layout",
+      "status": "live",
+      "title": "Project layout"
+    },
+    "agent-sdk__reference__schedules.md": {
+      "hash": "8541a063c7de90af465a41f64aeb17e98c526bf610e958914fdfcabfa3367ca2",
+      "last_updated": "2026-10-26T15:37:13+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/schedules",
+      "path": "/docs/agent-sdk/reference/schedules",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/schedules",
+      "status": "live",
+      "title": "Schedules and reminders"
+    },
+    "agent-sdk__reference__sessions.md": {
+      "hash": "d4780d1d1f268c3e92db664bd028cba89924ed4fe8f8883d559da2b8f1fd2dc3",
+      "last_updated": "2026-10-26T15:37:14+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/sessions",
+      "path": "/docs/agent-sdk/reference/sessions",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/sessions",
+      "status": "live",
+      "title": "Sessions, events, and streaming"
+    },
+    "agent-sdk__reference__skills.md": {
+      "hash": "7a35f8991fa91c70b1f6c8e7a302fb5252a2dfcb1b02e0d76d119e5b0e9a239f",
+      "last_updated": "2026-10-26T15:37:14+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/skills",
+      "path": "/docs/agent-sdk/reference/skills",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/skills",
+      "status": "live",
+      "title": "Skills"
+    },
+    "agent-sdk__reference__subagents.md": {
+      "hash": "fef90de801723f2c49c8229b667da9264427190c670ab01eaece6c6992e5f6a2",
+      "last_updated": "2026-10-26T15:37:14+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/subagents",
+      "path": "/docs/agent-sdk/reference/subagents",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/subagents",
+      "status": "live",
+      "title": "Subagents"
+    },
+    "agent-sdk__reference__tools.md": {
+      "hash": "7514b52da84474cc6317f455f0e7004bb72163910b83615c18d39f3678c3b50b",
+      "last_updated": "2026-10-26T15:37:15+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/reference/tools",
+      "path": "/docs/agent-sdk/reference/tools",
+      "source_url": "https://cursor.com/docs/agent-sdk/reference/tools",
+      "status": "live",
+      "title": "Tools"
+    },
+    "agent-sdk__templates__agentic-owners.md": {
+      "hash": "9a161c79e74ce07c083ae25c0c6d73f2a4ef9865d6409844788dd7c482cb9a53",
+      "last_updated": "2026-10-26T15:37:15+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/templates/agentic-owners",
+      "path": "/docs/agent-sdk/templates/agentic-owners",
+      "source_url": "https://cursor.com/docs/agent-sdk/templates/agentic-owners",
+      "status": "live",
+      "title": "Review pull requests with owners policies"
+    },
+    "agent-sdk__templates__reviews.md": {
+      "hash": "73cdfac7f88d7b2a2e3faca3aab55d2cf19b98ac69e6274ab5ae4f6f3d386006",
+      "last_updated": "2026-10-26T15:37:15+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/templates/reviews",
+      "path": "/docs/agent-sdk/templates/reviews",
+      "source_url": "https://cursor.com/docs/agent-sdk/templates/reviews",
+      "status": "live",
+      "title": "Review and triage templates"
+    },
+    "agent-sdk__troubleshooting.md": {
+      "hash": "c4ddd01dc3cb343716be7ecec218d57e3c9eb74df358f1d89d72339735260b3f",
+      "last_updated": "2026-10-26T15:37:15+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/troubleshooting",
+      "path": "/docs/agent-sdk/troubleshooting",
+      "source_url": "https://cursor.com/docs/agent-sdk/troubleshooting",
+      "status": "live",
+      "title": "Fix common agent problems"
     },
     "agent__agent-review.md": {
       "hash": "574cbd3202a8f441efeee259e597ac1dd368061914a9705f99300b01e88dfb13",
@@ -570,8 +966,8 @@
       "title": "Capabilities"
     },
     "cloud-agent__identity.md": {
-      "hash": "8bb4bfc42d5d1ec597d38dccaa17d950ed138e502221ba4012848323f836f04e",
-      "last_updated": "2026-10-15T00:50:33+00:00",
+      "hash": "4a06a3be65247f33bb4d9bb1b97abb911dabac7d4394b4aafab9db47ac360f52",
+      "last_updated": "2026-10-26T15:37:30+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
@@ -1776,8 +2172,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "a46812449e360f0fdd2d046f40939208c55b0039bfab6f17ee1a04533bc9acc4",
-      "last_updated": "2026-10-24T18:24:14+00:00",
+      "hash": "a8796ae64e0e29dbab224918e2b2bcb8091371c0619cbee3fa0893300509954a",
+      "last_updated": "2026-10-26T15:38:09+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -1794,8 +2190,8 @@
       "title": "Agents Window release notes"
     },
     "release-notes__bugbot.md": {
-      "hash": "e250dde4491746a1785c660bf935e124f4570f89cfe0e694ae93017c57728be5",
-      "last_updated": "2026-10-23T18:27:10+00:00",
+      "hash": "3c3fb1e0eea409f8795fa07bcd4caceb8cfc6571a2d99bffc7bb600b78c8a363",
+      "last_updated": "2026-10-26T15:38:10+00:00",
       "original_url": "https://cursor.com/docs/release-notes/bugbot",
       "path": "/docs/release-notes/bugbot",
       "source_url": "https://cursor.com/docs/release-notes/bugbot",
@@ -1803,8 +2199,8 @@
       "title": "Bugbot release notes"
     },
     "release-notes__cloud-agents.md": {
-      "hash": "ea5bb7140f82df9346a33085416bc7c8ffe7cb6078df20f8193bd82c0200b1b1",
-      "last_updated": "2026-10-23T18:27:10+00:00",
+      "hash": "f89faf0a070a26cddbab51185a3ab6b7a6e8e1164ce632277e7f2a5ce07d1295",
+      "last_updated": "2026-10-26T15:38:10+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
       "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
@@ -1821,8 +2217,8 @@
       "title": "Cursor IDE release notes"
     },
     "release-notes__mobile.md": {
-      "hash": "41849037e8ded36adfbb071b33a510e28544dc26cdd44ed3d32e160373fba194",
-      "last_updated": "2026-10-23T18:27:11+00:00",
+      "hash": "986bd1e124e6626344eaeab30051d41a990acce05300b25924b41cdd6fe1d162",
+      "last_updated": "2026-10-26T15:38:11+00:00",
       "original_url": "https://cursor.com/docs/release-notes/mobile",
       "path": "/docs/release-notes/mobile",
       "source_url": "https://cursor.com/docs/release-notes/mobile",
@@ -1839,8 +2235,8 @@
       "title": "Origin CLI release notes"
     },
     "release-notes__origin.md": {
-      "hash": "22424c689a439c5cb52222ad532896be9510c2e5b1b0b86f14943c4f48044114",
-      "last_updated": "2026-10-23T18:27:12+00:00",
+      "hash": "a8eb0b7ad2bca252bb5256afce392241dd5a520acb8c7f51bf002f9db9b1276e",
+      "last_updated": "2026-10-26T15:38:11+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin",
       "path": "/docs/release-notes/origin",
       "source_url": "https://cursor.com/docs/release-notes/origin",
@@ -1951,7 +2347,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-25T21:18:36+00:00",
+  "last_updated": "2026-10-26T15:38:15+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

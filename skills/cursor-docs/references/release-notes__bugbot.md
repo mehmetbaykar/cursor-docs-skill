@@ -8,6 +8,22 @@ path: /docs/release-notes/bugbot
 
 Weekly changes to [Bugbot](https://cursor.com/docs/bugbot.md). Each entry covers one week of changes and is labeled with the Monday that starts it.
 
+## Week of Oct 19, 2026
+
+### Team settings
+
+- &#x20;**Choose whether Bugbot automatically reviews outside contributors on public repositories.** Admins can turn off automatic reviews of pull requests from bots and people outside the team on public repositories. Use the **Public repositories** setting in Bugbot's [Team settings](https://cursor.com/docs/bugbot.md#configuration). Manual reviews, private repositories, and pull requests from team members work as before. Existing teams keep reviewing these pull requests until an admin changes the setting, and new teams start with it off.
+- &#x20;**Fixed Bugbot skipping reviews for some Enterprise teams.** Bugbot no longer skips pull request reviews with "Bugbot plan is disabled for this team" on Enterprise teams whose dashboard shows Bugbot as enabled. On Teams plans, Bugbot still follows the team's Bugbot setting.
+
+### Reviews and checks
+
+- &#x20;**Bugbot checks no longer stay pending when your team hits its daily cap for bot pull requests.** When your team reaches its daily cap of reviews on pull requests opened by bot accounts, Bugbot finishes its [check](https://cursor.com/docs/bugbot.md#ci-check-statuses) right away and shows the cap message. On GitHub, Bitbucket, and Azure DevOps the check fails, so a required Bugbot check blocks the merge until Bugbot reviews the pull request. On GitLab it finishes as neutral.
+- **Bugbot explains when it can't push Autofix changes.** When you ask Bugbot to push [Autofix](https://cursor.com/docs/bugbot.md#autofix) changes and the push fails, Bugbot replies on the pull request with the reason instead of staying silent. The reply names the cause, such as a merge conflict, branch protection, missing permission, a mirrored repository, or a merge queue lock.
+
+### Fixes
+
+- **Fixes to GitLab webhooks.** GitLab no longer disables the Bugbot webhook after repeated errors. Bugbot skips merge request events that arrive without a head commit instead of failing on them. When Bugbot rejects a webhook delivery, GitLab's recent events show how to fix it: delete leftover webhooks in the project's Settings > Webhooks, and turn Bugbot off and on for the project if reviews stopped.
+
 ## Week of Oct 12, 2026
 
 ### Teams and installations
