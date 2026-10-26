@@ -1,0 +1,16 @@
+---
+title: "Changelog"
+source: https://cursor.com/docs/agent-sdk/changelog
+path: /docs/agent-sdk/changelog
+---
+
+# Changelog
+
+## 0.3.0 (2026-10-23)
+
+- GA Release
+- `persistent` option is removed from `defineAgent`
+
+## 0.2.29 (2026-10-23)
+
+- Bug Fixes
