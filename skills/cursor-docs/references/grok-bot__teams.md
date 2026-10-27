@@ -66,7 +66,7 @@ Each user gets a dedicated computer with hardware-level separation, and one user
 
 Within one user, the boundary is different: all of that user's Bots share one computer, and Bots isolate personalities and workspaces, not compute. Treat a login or file on the computer as available to every Bot that user runs, sign the browser out of accounts a Bot no longer needs, and remove sensitive temporary files when work completes. When a workload needs its own computer and credential set, give it its own Cursor user.
 
-[Team Bots](https://cursor.com/help/grok-bot/team-bots.md) are the exception to one Bot per user. A member shares a cloud-hosted Bot with everyone on the team, or only with certain people and groups, and those members can chat with it. Each member's chat is private, including from the owner and the Bot's Managers. In a member's own chat or Slack DM, the Bot usually works on that member's computer, uses that member's connected accounts after asking, and uses that member's Grok Bot usage. In Slack channels, threads, group DMs, and group chats, a Team Bot uses one computer of its own. Secrets, apps, and files the owner or a Manager adds to a Team Bot are available in every teammate's chat.
+[Shared Bots](https://cursor.com/help/grok-bot/shared-bots.md) are the exception to one Bot per user. A Bot is either personal or shared: a member shares a cloud-hosted Bot with everyone on the team, or only with certain people and groups, and those members can chat with it. Each member's chat is private, including from the owner and the Bot's Managers. In a member's own chat or Slack DM, the Bot usually works on that member's computer, uses that member's connected accounts after asking, and uses that member's Grok Bot usage. In Slack channels, threads, group DMs, and group chats, a shared Bot uses one computer of its own. Secrets, apps, and files the owner or a Manager adds to a shared Bot are available in every teammate's chat.
 
 ## Admin controls
 
@@ -90,7 +90,7 @@ SCIM 2.0 provisioning and deprovisioning through your identity provider. Members
 
 #### Team icon
 
-The image Grok Bot shows for your whole team, such as when a member shares a Bot or a Team Bot with everyone. Admins upload, change, or remove it from the Team Profile section of Team Settings. Use a PNG, JPEG, or WebP up to 2 MB.
+The image Grok Bot shows for your whole team, such as when a member shares a Bot with everyone. Admins upload, change, or remove it from the Team Profile section of Team Settings. Use a PNG, JPEG, or WebP up to 2 MB.
 
 ### Agent capabilities
 
@@ -104,9 +104,9 @@ Allows or blocks Bots delegating coding tasks to Cursor [Cloud Agents](https://c
 
 Controls whether members can publish Bot templates outside your team. Off keeps sharing team-only, and Cursor enforces the policy on its servers, including for templates that are already public. Enterprise teams start with public sharing off; other teams start with it allowed. For what a shared template contains, see [Share a Bot](https://cursor.com/docs/grok-bot/work.md#share-a-bot).
 
-#### Manage Team Bots
+#### Manage Shared Bots
 
-Controls who can use each [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) and adds Team Bots to members' sidebars automatically. Open **Manage Team Bots** under **Team Bots** on the Grok Bot page. The **Access** column shows who can use each Team Bot, such as the whole team, certain people or groups, or only its owner. Click it to change who has access. In a Team Bot's **Auto-add** column, pick **All team** or one or more groups, or clear it. Auto-add only applies to groups that have access. Members who get a Bot this way can't hide it from their sidebar. Admins can also delete a Team Bot here. Deleting it removes it for everyone on the team, removes its Slack app, and can't be undone. Groups are managed on the Members & Groups page.
+Controls who can use each [shared Bot](https://cursor.com/help/grok-bot/shared-bots.md) and adds shared Bots to members' sidebars automatically. Open **Manage Shared Bots** under **Shared Bots** on the Grok Bot page. The **Access** column shows who can use each shared Bot, such as the whole team, certain people or groups, or only its owner. Click it to change who has access. In a Bot's **Auto-add** column, pick **All team** or one or more groups, or clear it. Auto-add only applies to groups that have access. Members who get a Bot this way can't hide it from their sidebar. Admins can also delete a shared Bot here. Deleting it removes it for everyone on the team, removes its Slack app, and can't be undone. Groups are managed on the Members & Groups page.
 
 #### Page sharing
 
@@ -140,7 +140,7 @@ Rules that every member's Bots follow. Add them from the Grok Bot page and scope
 
 #### Enforce Auto-review
 
-Prevents members from turning Auto-review off. The switch is on the Grok Bot page and is off by default. When it is on, Bots always check risky actions before running them and ask for approval when needed. This includes Team Bots in chats where nobody can answer an approval, which otherwise run without Auto-review. Turn it on before you rely on team Auto-review rules. A group can lift the lock for its own members with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
+Prevents members from turning Auto-review off. The switch is on the Grok Bot page and is off by default. When it is on, Bots always check risky actions before running them and ask for approval when needed. This includes shared Bots in chats where nobody can answer an approval, which otherwise run without Auto-review. Turn it on before you rely on team Auto-review rules. A group can lift the lock for its own members with **Don't enforce for this group**; see [Group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 

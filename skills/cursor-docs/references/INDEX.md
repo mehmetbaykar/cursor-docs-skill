@@ -161,6 +161,7 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `integrations__microsoft-teams` - [Microsoft Teams](https://cursor.com/docs/integrations/microsoft-teams)
 - `integrations__notion` - [Notion](https://cursor.com/docs/integrations/notion)
 - `integrations__slack` - [Slack](https://cursor.com/docs/integrations/slack)
+- `integrations__tailscale` - [Tailscale](https://cursor.com/docs/integrations/tailscale)
 - `integrations__xcode` - [Xcode](https://cursor.com/docs/integrations/xcode)
 - `mcp` - [Model Context Protocol (MCP)](https://cursor.com/docs/mcp)
 - `mcp__install-links` - [MCP Install Links](https://cursor.com/docs/mcp/install-links)
