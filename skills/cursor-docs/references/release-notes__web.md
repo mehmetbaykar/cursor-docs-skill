@@ -8,6 +8,29 @@ path: /docs/release-notes/web
 
 Weekly changes to Cursor on the web, from integrations and admin settings to automations, the APIs, security and approval agents, and models. Each entry covers one week and is labeled with the Monday that starts it. [Cloud Agents](https://cursor.com/docs/release-notes/cloud-agents.md) and [Bugbot](https://cursor.com/docs/release-notes/bugbot.md) have their own pages.
 
+## Week of Oct 19, 2026
+
+### Automations
+
+#### Triggers
+
+- **Security Reviewer runs on GitHub label changes.** Security Reviewer automations with a [Pull request label changed trigger](https://cursor.com/docs/cloud-agent/automations.md#github-triggers) now run when a matching label is added to or removed from a GitHub pull request. Before, they never ran. To apply the fix to an existing automation, open it and save it.
+
+#### Automation runs
+
+- &#x20;**Automations start on teams with an inbound IP allowlist.** Personal automations on teams with an inbound IP allowlist no longer fail with an "IP address is not on this team's inbound IP allowlist" error. Scheduled runs, webhook deliveries, and CI triggers start normally, and Cursor still checks your sign-in and repository access. Manual runs and API-key webhook calls still have to come from an allowed IP address.
+- **Clearer failure messages for runs and webhooks.** When a [webhook-triggered](https://cursor.com/docs/cloud-agent/automations.md#webhook-triggers) automation fails to start, the webhook response gives the same failure title and reason as run history, instead of a generic error. Rate-limited runs explain that the limit can apply across all of Cursor and suggest trying again after a short wait. Runs whose agent fails to start tell you to retry and to contact support if it keeps happening.
+- **Scheduled automations start up to 5 minutes after their set time.** Each [scheduled run](https://cursor.com/docs/cloud-agent/automations.md#scheduled-triggers) can start up to a fifth of its interval late, capped at 5 minutes. This applies to every schedule, not only hourly and top-of-hour ones. A schedule that runs every 15 minutes can start up to 3 minutes late, and a daily schedule up to 5 minutes late. How often a schedule runs does not change.
+
+#### Integrations
+
+- **Clearer errors when connecting Linear or linking Jira.** If you aren't a team admin, connecting Linear from a [Linear trigger](https://cursor.com/docs/cloud-agent/automations.md#linear-triggers) tells you only team admins can connect it, instead of showing a generic failure. Linking your Jira account explains when you aren't on the Cursor team connected to that Jira site, or when the site isn't connected to a Cursor team yet.
+
+#### Fixes
+
+- **Fixes to the repository picker.** The repository picker in the automation editor labels partial lists as Recent, shows a spinner while more repositories load, and says clearly when a search fails.
+- **Fixes to the PR Approver and pull request creation.** The PR Approver automation finds [routing policies](https://cursor.com/docs/approval-agents.md#routing-policies) in `.cursor/approval-policies/`, including `ROUTING.md`, and reviewer-specific criteria in `.cursor/approvals/`. Automations that open GitHub pull requests no longer fail silently when Cursor can't find the repository. The agent gets a clear error instead.
+
 ## Week of Oct 12, 2026
 
 ### Integrations

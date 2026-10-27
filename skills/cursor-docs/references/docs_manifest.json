@@ -2181,8 +2181,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "a8796ae64e0e29dbab224918e2b2bcb8091371c0619cbee3fa0893300509954a",
-      "last_updated": "2026-10-26T15:38:09+00:00",
+      "hash": "816842c756dce349aa8cc6e570e39841eaf4240917f69d1a015a243c27817540",
+      "last_updated": "2026-10-27T15:25:55+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -2190,8 +2190,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "b9d44883fc9108c7c43df75d4f493143883a16965b8a885297af3eac3128cd65",
-      "last_updated": "2026-10-24T18:24:15+00:00",
+      "hash": "e54921f0170b2fa8d3833ff6f422f99767cba7ce6e33ef6d0e1fc7750e462ef2",
+      "last_updated": "2026-10-27T15:25:56+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
@@ -2208,8 +2208,8 @@
       "title": "Bugbot release notes"
     },
     "release-notes__cloud-agents.md": {
-      "hash": "f89faf0a070a26cddbab51185a3ab6b7a6e8e1164ce632277e7f2a5ce07d1295",
-      "last_updated": "2026-10-26T15:38:10+00:00",
+      "hash": "7874749e4934aa0f2577edce7e5fdde0545d57cec96f5fea14a737621426ee9a",
+      "last_updated": "2026-10-27T15:25:56+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
       "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
@@ -2217,8 +2217,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "fb4d368009b453758d1515cafdf938c04a81d2b0fd74e1d3470cb2639b57aaa9",
-      "last_updated": "2026-10-24T18:24:16+00:00",
+      "hash": "59f4b19e69db450ee301552cb8e59091948699fdae60333b3432119a6546a4ac",
+      "last_updated": "2026-10-27T15:25:57+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "source_url": "https://cursor.com/docs/release-notes/ide",
@@ -2226,8 +2226,8 @@
       "title": "Cursor IDE release notes"
     },
     "release-notes__mobile.md": {
-      "hash": "986bd1e124e6626344eaeab30051d41a990acce05300b25924b41cdd6fe1d162",
-      "last_updated": "2026-10-26T15:38:11+00:00",
+      "hash": "b0c863fcfc6a54f0e7f11c7f7cf462c7be503eca67d983cef8b576265d6ee026",
+      "last_updated": "2026-10-27T15:25:57+00:00",
       "original_url": "https://cursor.com/docs/release-notes/mobile",
       "path": "/docs/release-notes/mobile",
       "source_url": "https://cursor.com/docs/release-notes/mobile",
@@ -2244,8 +2244,8 @@
       "title": "Origin CLI release notes"
     },
     "release-notes__origin.md": {
-      "hash": "a8eb0b7ad2bca252bb5256afce392241dd5a520acb8c7f51bf002f9db9b1276e",
-      "last_updated": "2026-10-26T15:38:11+00:00",
+      "hash": "4e7d0b9cab2c7449035c93238729778246e94a3ddb880026d7f78d158868c856",
+      "last_updated": "2026-10-27T15:25:57+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin",
       "path": "/docs/release-notes/origin",
       "source_url": "https://cursor.com/docs/release-notes/origin",
@@ -2262,8 +2262,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "a6218d3ee9075afd78e6d120f9f0c44917dada6d6bc29d45446b6161ea166de5",
-      "last_updated": "2026-10-24T18:24:18+00:00",
+      "hash": "32128664c1f549cfab114d59b776ebe1a64fa0014bc3862a9a811cc843d35285",
+      "last_updated": "2026-10-27T15:25:58+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -2356,7 +2356,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-27T12:35:04+00:00",
+  "last_updated": "2026-10-27T15:26:01+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
