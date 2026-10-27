@@ -183,6 +183,8 @@ Detailed instructions for the agent.
 | `color`                    | No       | Badge color when the skill is used as a Custom Mode. One of `default`, `green`, `cyan`, `blue`, `purple`, `magenta`, `orange`, `yellow`, `red`, or `brand`.                        |
 | `metadata`                 | No       | Arbitrary key-value mapping for additional metadata.                                                                                                                               |
 
+In [Cloud Agents](https://cursor.com/docs/cloud-agent.md), a skill whose `SKILL.md` can't be read, has frontmatter that doesn't parse, or has no `description` shows a warning in the run that names the skill. Without a description, the agent is unlikely to pick the skill on its own, but you can still invoke it by name.
+
 ## Scoping a skill to specific files
 
 Use the `paths` field to limit a skill to files that match one or more glob patterns. The skill is then only surfaced to the agent when it is reading or editing matching files. This keeps file-specific guidance out of context for unrelated work.

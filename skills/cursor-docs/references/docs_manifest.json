@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 259,
+    "pages_fetched_successfully": 260,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 262
+    "total_pages_discovered": 263
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -570,8 +570,8 @@
       "title": "Debug Mode"
     },
     "agent__design-mode.md": {
-      "hash": "7fa42d61a19a26a2d9224b2ca49d7a6e1a982007be65e6bbcf1dfbe6285854fc",
-      "last_updated": "2026-10-23T21:19:35+00:00",
+      "hash": "9d248b27c61f5ec81c8d650460335f80ff18f69ebd8359505e0353a7497b956c",
+      "last_updated": "2026-10-27T18:18:58+00:00",
       "original_url": "https://cursor.com/docs/agent/design-mode",
       "path": "/docs/agent/design-mode",
       "source_url": "https://cursor.com/docs/agent/design-mode",
@@ -696,8 +696,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "f5adc52f612c47710f70fa2fdd68a0ec37bfdebb759764dd24b3204155ec5f12",
-      "last_updated": "2026-10-27T00:53:54+00:00",
+      "hash": "4d3f801f2f1ff4714f61ae9dc6ea1fb7c5793a9733cebd86976f14ffc281e9e1",
+      "last_updated": "2026-10-27T18:19:02+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -957,8 +957,8 @@
       "title": "Cloud Agent Builds"
     },
     "cloud-agent__capabilities.md": {
-      "hash": "b20148f9aca3a9c41c9bd2234e405c2e9643c4af0e3a545e8e0c30b4798e1d02",
-      "last_updated": "2026-10-22T15:23:15+00:00",
+      "hash": "00405c0826ee87e693ae2059c7f62885e9b928377c84b182ceea6ae06bc5fe4c",
+      "last_updated": "2026-10-27T18:19:13+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
@@ -1011,8 +1011,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "c126465fedc5be35205d1d4f9391e3254a811809acb9a81bdb27ad1160dd3e02",
-      "last_updated": "2026-10-22T15:23:16+00:00",
+      "hash": "4a44660ef23764ddf14ad5d049eb8884622632387e414b7031f7faa557bce0e5",
+      "last_updated": "2026-10-27T18:19:15+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "source_url": "https://cursor.com/docs/cloud-agent/security",
@@ -1020,8 +1020,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "3979dadcc1aeee456775839c3294192d75944975b58a24cde4f84d386473e1fd",
-      "last_updated": "2026-10-20T00:52:26+00:00",
+      "hash": "c009289db86f1ba89b6a6c56a3f2ada242cb8ac4d20d599ece6d8be88252f663",
+      "last_updated": "2026-10-27T18:19:16+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -2019,8 +2019,8 @@
       "title": "Browse & Search"
     },
     "origin__cli.md": {
-      "hash": "fb7c15bc41c15fb60db7cb805a03e0cb0820b21898a64a1506f59358e4fb39c2",
-      "last_updated": "2026-10-07T21:22:55+00:00",
+      "hash": "d2a4f1c6044fe15a9df3e28e5952950854c2ad6103579c467dd80d4f694e504d",
+      "last_updated": "2026-10-27T18:19:54+00:00",
       "original_url": "https://cursor.com/docs/origin/cli",
       "path": "/docs/origin/cli",
       "source_url": "https://cursor.com/docs/origin/cli",
@@ -2028,8 +2028,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "ba77bd4e37a494285ec996ee006b18358d52b1e81fc440672f91c323ba2ce9f3",
-      "last_updated": "2026-10-13T18:31:46+00:00",
+      "hash": "4ded275d8add450a869bc9ec24a2f1dddeedcd1a7b1156468f293431eb5035cc",
+      "last_updated": "2026-10-27T18:19:54+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
@@ -2037,13 +2037,22 @@
       "title": "Commands"
     },
     "origin__cli__reference__pull-requests.md": {
-      "hash": "5c7bde560440094f8a8d9a5e1fbbf93530281a0b113c40dba4abd8dc072ab4ad",
-      "last_updated": "2026-10-13T18:31:46+00:00",
+      "hash": "282319f2d7ace08481654333dc58eb642ffeae134fc49cc2a627ca1dde0ce6cb",
+      "last_updated": "2026-10-27T18:19:54+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "path": "/docs/origin/cli/reference/pull-requests",
       "source_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "status": "live",
       "title": "Pull request commands"
+    },
+    "origin__cli__reference__stacks.md": {
+      "hash": "ad7a35b466dff18f1ccbc440681adb227a0f10832dbc2a7ec98facc74689dd8f",
+      "last_updated": "2026-10-27T18:19:55+00:00",
+      "original_url": "https://cursor.com/docs/origin/cli/reference/stacks",
+      "path": "/docs/origin/cli/reference/stacks",
+      "source_url": "https://cursor.com/docs/origin/cli/reference/stacks",
+      "status": "live",
+      "title": "Stack commands"
     },
     "origin__clonekit-ci.md": {
       "hash": "3d36a75c070d2df1f6f9abaeb64501ad517d30c69c14fa2220d7271b3016e19e",
@@ -2298,8 +2307,8 @@
       "title": "Cursor SDK Bridge"
     },
     "sdk__python.md": {
-      "hash": "c9ef04ad78740785a269d68544f81a27a4d7644d4a51bb44cdf321d8a4de4373",
-      "last_updated": "2026-10-16T18:25:56+00:00",
+      "hash": "d4c202620eacc74eabda78151c6448e8714d7dac8bde7d9655cb1a8bdd9a7a89",
+      "last_updated": "2026-10-27T18:20:05+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -2325,8 +2334,8 @@
       "title": "Security Agents"
     },
     "skills.md": {
-      "hash": "a44a2d9d7dcea7892b12fd6834f380a5def6bfbbb736e8901aa863ac35142bd3",
-      "last_updated": "2026-10-22T15:23:56+00:00",
+      "hash": "a2dc7400e0a902a0404589a8da272105d5be654808d8f55ee0ef4688476e86fb",
+      "last_updated": "2026-10-27T18:20:06+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "source_url": "https://cursor.com/docs/skills",
@@ -2356,7 +2365,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-27T15:26:01+00:00",
+  "last_updated": "2026-10-27T18:20:07+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
