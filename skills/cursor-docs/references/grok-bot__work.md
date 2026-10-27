@@ -32,7 +32,7 @@ When you discover a durable preference, boundary, or responsibility that should 
 - **Lasting rule.** "From now on, never send external messages without approval."
 - **Task.** "Draft follow-ups for these twelve accounts."
 
-A [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) also has a description, which its owner or a Manager edits under **About** in the Bot's details.
+A [shared Bot](https://cursor.com/help/grok-bot/shared-bots.md) also has a description, which its owner or a Manager edits under **About** in the Bot's details.
 
 ### Organize your roster
 
@@ -40,7 +40,7 @@ A [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) also has a descripti
 
 ### Share a Bot
 
-Share a public link when someone else should start from the same Bot. The link exposes the shared configuration (identity, description, skills, and routines), so remove API keys, internal URLs, and customer data first. The recipient adds a copy to their own account; they never get your computer, logins, or conversation history, and adding a shared Bot accepts the third-party bot terms shown at that point. To give your team one shared Bot to chat with instead of a copy each, share a [Team Bot](https://cursor.com/help/grok-bot/team-bots.md).
+Share a public link when someone else should start from the same Bot. The link exposes the shared configuration (identity, description, skills, and routines), so remove API keys, internal URLs, and customer data first. The recipient adds a copy to their own account; they never get your computer, logins, or conversation history, and adding a shared Bot accepts the third-party bot terms shown at that point. To give your team one Bot to chat with instead of a copy each, [share the Bot itself](https://cursor.com/help/grok-bot/shared-bots.md).
 
 On the Teams plan and the Enterprise plan, admins control whether members can
 publish Bot templates publicly. See [template
@@ -98,7 +98,7 @@ Your messages in a group can include attachments. Bot-to-group handoff messages 
 
 A Bot can send an asynchronous message to another Bot, which wakes, handles the request, and can reply later; you see the handoff in the conversation. Handoffs work well when one Bot owns a source system and another owns the deliverable, or when a long-running job should continue without you coordinating every step. Ask for a single owner at each stage; parallel handoffs create duplicate work and noisy updates.
 
-A handoff needs a Bot acting for one person. From the app or your own Slack DM, any Bot can hand off work. From a Slack channel thread, only a [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) can, on behalf of the person who mentioned it. See [Can a Bot message other Bots from Slack?](https://cursor.com/help/grok-bot/group-chats.md#can-a-bot-message-other-bots-from-slack)
+A handoff needs a Bot acting for one person. From the app or your own Slack DM, any Bot can hand off work. From a Slack channel thread, only a [shared Bot](https://cursor.com/help/grok-bot/shared-bots.md) can, on behalf of the person who mentioned it. See [Can a Bot message other Bots from Slack?](https://cursor.com/help/grok-bot/group-chats.md#can-a-bot-message-other-bots-from-slack)
 
 ### Ask for reviewable results
 
@@ -130,7 +130,7 @@ For an API key or other secret, enter it in the secure secret card when the Bot 
 
 Apps give Bots a structured way to work with services like Gmail, Notion, and Slack, and are more reliable than clicking through a website when one exists. Open **Connect apps** in the sidebar or follow an in-chat **Connect** card, then finish the provider login in your browser; setup steps and known issues are in [Connect apps](https://cursor.com/help/grok-bot/connect-apps.md).
 
-- **Apps are account-wide.** A connected app is available to every Bot you run. A teammate's [Team Bot](https://cursor.com/help/grok-bot/team-bots.md) asks before it uses your accounts.
+- **Apps are account-wide.** A connected app is available to every Bot you run. A teammate's [shared Bot](https://cursor.com/help/grok-bot/shared-bots.md) asks before it uses your accounts.
 - **App logins stay off the computer.** OAuth tokens are held on Cursor's connector backend, and the Bot invokes tools without receiving them.
 - **Team policy applies.** An app blocked by your team's connector policy shows **Disabled by team admin**. Blocking an app doesn't block that service's website. Closing that second path takes **Network Controls**, which is Enterprise only. See [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy).
 

@@ -167,7 +167,7 @@ When a check fails in Block mode, the desktop app shows **Your organization's po
 
 Other places show less:
 
-- **Shared Bots notify only the sender.** In a team Bot, the notice and its buttons go only to the teammate who sent the blocked message, in their own chat with the Bot, and Edit or Reset changes only that chat. The Bot's owner isn't shown the deny reason or your Blocked Message. Rooms and group chats get no Edit or Reset buttons.
+- **Shared Bots notify only the sender.** In a shared Bot, the notice and its buttons go only to the teammate who sent the blocked message, in their own chat with the Bot, and Edit or Reset changes only that chat. The Bot's owner isn't shown the deny reason or your Blocked Message. Rooms and group chats get no Edit or Reset buttons.
 - **Slack replies in the conversation.** The Bot answers "Your organization's policy blocked this conversation, so I can't reply," and in a one-to-one DM it quotes the deny reason and your Blocked Message, which channel threads and group DMs never show. The reply offers **Remove blocked message**, which works like Edit, and **Reset**, which asks for confirmation first, or only **Reset** when Cursor can't roll the conversation back. Anyone who can use the Bot and has linked their Cursor account can click them. A removed message stays visible in Slack, but the Bot no longer sees it. A repeat block right after a reset gets no buttons, and a failed check in Block mode gets the Bot's generic error reply instead of a policy notice.
 - **Elsewhere, the mobile app shows a plain failure.** In group chats and conversations that aren't the member's own, it shows "Bot failed to respond" with "Blocked by your organization's policy. Send a different message, or contact your admin if this keeps happening," without the deny reason, your Blocked Message, or buttons.
 - **Other Cursor apps show only the title.**
@@ -182,7 +182,7 @@ Members see nothing when a request is allowed or when you're in Shadow mode. Sha
 
 ## Coverage
 
-**Covered:** the model requests behind your team members' Grok Bot conversations. That includes every step of a turn, subagents, the summaries Grok Bot writes of long conversations, and routines. A team Bot or room follows its team's inference hook. A personal Bot follows the team its owner has selected. Each request gets its own frame with the conversation so far.
+**Covered:** the model requests behind your team members' Grok Bot conversations. That includes every step of a turn, subagents, the summaries Grok Bot writes of long conversations, and routines. A shared Bot or room follows its team's inference hook. A personal Bot follows the team its owner has selected. Each request gets its own frame with the conversation so far.
 
 **Not covered:**
 

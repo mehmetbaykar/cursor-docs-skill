@@ -39,10 +39,10 @@ For sign-in problems, see [Sign in to Grok Bot](https://cursor.com/help/grok-bot
 After you sign in, click through a short intro. Grok Bot then sets up
 your first Bot, named **Grok Bot**, and opens a chat with it.
 
-To add more Bots, choose **New Bot** (the **+** button) in the sidebar,
-name the Bot, and choose **Create**. On a Cursor team, open the command
-palette and choose **Create new Team Bot** to make a Bot your teammates
-can chat with; see [Team Bots](https://cursor.com/help/grok-bot/team-bots.md).
+To add more Bots, choose the **+** button in the sidebar, then **Create a
+Bot**, name the Bot, and choose **Create**. On a Cursor team, share a Bot
+to let teammates chat with it, and choose **Browse shared Bots** under
+**+** to find Bots shared with you; see [Shared Bots](https://cursor.com/help/grok-bot/shared-bots.md).
 Give each Bot one primary job in its first message and ask it to remember
 how it should work. To rename it, click its name at the top of the chat to
 open its details. A focused Bot builds more useful context than one

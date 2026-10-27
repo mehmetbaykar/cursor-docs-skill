@@ -4,11 +4,11 @@
     "failed_pages": [],
     "fetch_tool_version": "2.0",
     "pages_failed": 0,
-    "pages_fetched_successfully": 260,
+    "pages_fetched_successfully": 261,
     "pages_skipped": 3,
     "pages_stale": 0,
     "stale_pages": [],
-    "total_pages_discovered": 263
+    "total_pages_discovered": 264
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -1173,8 +1173,8 @@
       "title": "Quickstart"
     },
     "grok-bot.md": {
-      "hash": "7501decca97c19bf96f6076acdc0c1877c0dc707db4a2216ddba4e991e7dc93c",
-      "last_updated": "2026-10-24T21:18:37+00:00",
+      "hash": "21f8a91e5e183e984f4b3fab873a915c3c0dbb1cb5eebf26570ca9e6ef431ca3",
+      "last_updated": "2026-10-27T21:14:04+00:00",
       "original_url": "https://cursor.com/docs/grok-bot",
       "path": "/docs/grok-bot",
       "source_url": "https://cursor.com/docs/grok-bot",
@@ -1200,8 +1200,8 @@
       "title": "Deploy Grok Bot to your organization"
     },
     "grok-bot__get-started.md": {
-      "hash": "65cf9b3f5bef692468b24fa8134c94a6ad0f55a7f41c71666c8893173df7b847",
-      "last_updated": "2026-10-24T21:18:37+00:00",
+      "hash": "aa99093f3fa14a0eed85dcd0801bba0e545d736852af271c84b08247daf4c03c",
+      "last_updated": "2026-10-27T21:14:05+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/get-started",
       "path": "/docs/grok-bot/get-started",
       "source_url": "https://cursor.com/docs/grok-bot/get-started",
@@ -1218,8 +1218,8 @@
       "title": "Configure identity and access"
     },
     "grok-bot__inference-hooks.md": {
-      "hash": "0263fc993f8ce16e01a72c427acb9c158c21669eabf7b3bd94efffe586499ed2",
-      "last_updated": "2026-10-22T18:25:49+00:00",
+      "hash": "d6166533b3a103b9245794df11c2ff95ee1985ee8ca4af16c5eb1eefc49963b0",
+      "last_updated": "2026-10-27T21:14:06+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/inference-hooks",
       "path": "/docs/grok-bot/inference-hooks",
       "source_url": "https://cursor.com/docs/grok-bot/inference-hooks",
@@ -1245,8 +1245,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "4aec3835342e9b36d536157b4871454e605b94fbc3738dad1c33b915df1c4860",
-      "last_updated": "2026-10-24T21:18:39+00:00",
+      "hash": "2901e19b6711b1df991055876dc31b00e1b4d74456891249e0e7f38ada2cbe02",
+      "last_updated": "2026-10-27T21:14:07+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -1254,8 +1254,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "05f49e6b6cb825819120d63f42eb5eb8089d3f3cf4112050829d888fa6651cb8",
-      "last_updated": "2026-10-24T21:18:39+00:00",
+      "hash": "e0d04e6e6b44305ca8bb07fcd509fc1dc06caf0ddcbd46a900d3c96678e87d26",
+      "last_updated": "2026-10-27T21:14:07+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -1272,8 +1272,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "c278e99419d3bc0796efd0dac2e1ed793f95a699cf89a9b2e84ffbfe4b004a97",
-      "last_updated": "2026-10-27T12:34:23+00:00",
+      "hash": "d391628d8d4c5b63092d34c8d4eccfedf80fd127f10df87b89fc3f58699a16ee",
+      "last_updated": "2026-10-27T21:14:08+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -1290,8 +1290,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "6f6fb68701ee9e364ca9d7b3c00a6f3cfde404bc31a3bf0acfa27e9aa354c8c9",
-      "last_updated": "2026-10-24T21:18:40+00:00",
+      "hash": "7be833013c770f4853a6f26ec93d1cf9cca8392c1c4acb30cf5249eab2008537",
+      "last_updated": "2026-10-27T21:14:08+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -1405,6 +1405,15 @@
       "source_url": "https://cursor.com/docs/integrations/slack",
       "status": "live",
       "title": "Slack"
+    },
+    "integrations__tailscale.md": {
+      "hash": "1df6d4fe99fd478ed3f2a872d18ab85e132a17d872cafa48e9af32596a51dfd8",
+      "last_updated": "2026-10-27T21:14:12+00:00",
+      "original_url": "https://cursor.com/docs/integrations/tailscale",
+      "path": "/docs/integrations/tailscale",
+      "source_url": "https://cursor.com/docs/integrations/tailscale",
+      "status": "live",
+      "title": "Tailscale"
     },
     "integrations__xcode.md": {
       "hash": "f7b0ebe2d2576c6f5104286adff42f7bb061dbee71dbb3d26f99974ba417adee",
@@ -2365,7 +2374,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-27T18:20:07+00:00",
+  "last_updated": "2026-10-27T21:14:40+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
