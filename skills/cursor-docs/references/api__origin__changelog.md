@@ -10,6 +10,10 @@ The Origin API is in Early Beta and subject to change. Review the [OpenAPI speci
 
 Changes to the Origin public API, including endpoints, request and response schemas, scopes, and webhooks, grouped by day with the newest first. Each change carries one label: **Breaking**, **Deprecated**, **Added**, **Changed**, or **Removed**. Breaking and deprecated changes include migration guidance inline. The [Origin API reference](https://cursor.com/docs/api/origin.md) always reflects the latest synced state.
 
+## October 25, 2026
+
+- **Breaking.** [Post Check Run](https://cursor.com/docs/api/origin/reference/post-check-run.md) and [Batch Upsert Check Runs](https://cursor.com/docs/api/origin/reference/batch-upsert-check-runs.md) return `InvalidArgument` (HTTP 400) for a check suite or check run whose `name` is longer than 255 characters or whose `detailsUrl` is longer than 8,192 characters, where these requests used to succeed. A batch with one such run writes none of its runs. Migration: truncate `name` to 255 characters and `detailsUrl` to 8,192 characters on `checkSuite`, `checkRun`, and each `checkRuns[]` entry before you post.
+
 ## October 23, 2026
 
 - **Breaking.** [Get Repo Tarball](https://cursor.com/docs/api/origin/reference/get-repo-tarball.md) returns `PermissionDenied` (HTTP 403) to an installation access token or an installation user token that calls from an address outside the [inbound IP allowlist](https://cursor.com/docs/api/origin/reference/inbound-ip-allowlist.md) of the namespace the app is installed in, while that namespace enforces the list. These requests used to receive the `302` redirect, whose download URL only listed addresses could use. Migration: call Get Repo Tarball from an address on the installation namespace's allowlist, as you already do to download the archive.
