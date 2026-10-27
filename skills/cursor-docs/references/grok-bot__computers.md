@@ -6,7 +6,7 @@ path: /docs/grok-bot/computers
 
 # Manage Grok Bot computers
 
-Each member of your team gets one hosted computer where every Bot they run does its work. **Manage Member Computers and Data**, under **Security & Compliance** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot), lets admins recreate or terminate computers across many members at once, or [delete all of a member's Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). **Terminate Inactive Computers**, under **Bot Computers**, turns on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for computers that go 30 days without use. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
+Each member of your team gets one hosted computer where every Bot they run does its work. **Manage Member Computers and Data**, under **Security & Compliance** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot), lets admins recreate or terminate computers across many members at once, or [delete all of a member's Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). **Terminate Inactive Computers**, under **Bot Computers**, turns on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for members whose Bots go 30 days without a message. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
 
 **Manage Member Computers and Data is Enterprise only.** Organization admins
 and Enterprise team admins can use it. Members never see this control.
@@ -89,11 +89,11 @@ The API and the dashboard share the limit of one operation per team. An operatio
 
 ## Terminate inactive computers automatically
 
-A hibernated computer stays around until someone terminates it, even when the member has moved on or stopped using Grok Bot. **Terminate Inactive Computers**, under **Bot Computers** on the same dashboard page, does that cleanup for you. When a member's computer goes 30 days without use, Cursor terminates it. Using Grok Bot again restarts the count.
+A hibernated computer stays around until someone terminates it, even when the member has moved on or stopped using Grok Bot. **Terminate Inactive Computers**, under **Bot Computers** on the same dashboard page, does that cleanup for you. When nobody has sent a message to any of a member's Bots for 30 days, Cursor terminates their computer the next time it is asleep. Messages count from the app or Slack, whether the member or a teammate sends them. Routines and other work a Bot starts on its own don't count, so a Bot that keeps running routines doesn't keep its computer around. Sending a message restarts the count.
 
 The setting is off by default. Turning it on opens a confirmation. Two things to know before you select **Turn On**:
 
-- **Computers already past 30 days are included.** There is no grace period. Cursor checks hibernated computers on a rolling schedule, so termination lands in the days after the 30-day mark rather than at the exact moment.
+- **Members already past 30 days are included.** There is no grace period. Cursor checks hibernated computers on a rolling schedule, so termination lands in the days after the 30-day mark rather than at the exact moment.
 - **Members lose nothing and do nothing.** An automatic terminate works like a manual one. The durable disk stays, and the member's next message starts a fresh computer with their Bots, files, and logins in place. Apps and packages they installed themselves are removed, and Team Setup Scripts run again.
 
 Turning the setting off stops further terminations. One computer spans every team a member belongs to, so the setting applies to a member's computer if any of their Enterprise teams has it on.
@@ -123,9 +123,10 @@ Access**, and revoke their sessions in your identity provider. See
 
 ### Can automatic termination interrupt a Bot that is still working?
 
-No. The 30 days count from when the computer went to sleep after its last
-use. A computer that is awake, because a Bot is working or the member is
-using Grok Bot, is never terminated by this setting.
+No. Cursor only terminates a computer that is asleep. A computer that is
+awake, because a Bot is working or the member is using Grok Bot, is never
+terminated by this setting, even when the member's Bots have gone 30 days
+without a message.
 
 ## Related pages
 
