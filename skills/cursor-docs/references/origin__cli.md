@@ -34,6 +34,16 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+## Windows
+
+In PowerShell (native Windows, not WSL):
+
+```powershell
+irm https://downloads.cursor.com/origin/install.ps1 | iex
+```
+
+The installer puts `origin.exe` in `%LOCALAPPDATA%\cursor\bin` and adds that directory to your user `PATH`. Open a new terminal to pick it up.
+
 ## Verification
 
 After installation, verify that the Origin CLI is working correctly:
@@ -65,9 +75,9 @@ origin repo delete acme/my-project
 
 `origin repo create` without a slash creates the repository in your account's namespace. `origin repo delete` always takes the full `org/name`.
 
-Cursor agents can drive the same commands. Ask the agent to store a project on Origin and it can install the CLI, sign in, create the repo, set the remote, and push.
+Cursor agents can drive the same commands. Ask the agent to store a project on Origin and it can install the CLI, sign in, create the repo, set the remote, and push. To teach another coding agent the CLI, run `origin agent setup`. It installs a skill that tells the agent to read `origin agent prompt`, a usage guide written for your installed version.
 
-For every command and flag, see the [command reference](https://cursor.com/docs/origin/cli/reference/commands.md) and [pull request commands](https://cursor.com/docs/origin/cli/reference/pull-requests.md).
+For every command and flag, see the [command reference](https://cursor.com/docs/origin/cli/reference/commands.md), [pull request commands](https://cursor.com/docs/origin/cli/reference/pull-requests.md), and [stack commands](https://cursor.com/docs/origin/cli/reference/stacks.md).
 
 ## Updates
 
@@ -81,6 +91,7 @@ origin update
 
 - [Commands](https://cursor.com/docs/origin/cli/reference/commands.md)
 - [Pull request commands](https://cursor.com/docs/origin/cli/reference/pull-requests.md)
+- [Stack commands](https://cursor.com/docs/origin/cli/reference/stacks.md)
 - [Create a repository](https://cursor.com/docs/origin/create-repository.md)
 - [Clone, Push & Pull](https://cursor.com/docs/origin/git.md)
 - [Mirror a GitHub repo](https://cursor.com/docs/origin/mirror-github.md)
