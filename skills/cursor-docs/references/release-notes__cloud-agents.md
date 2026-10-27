@@ -45,14 +45,12 @@ Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each e
 
 - **Open the live workspace of agents on Self-Hosted Machines.** Agents running on Self-Hosted Machines can now be opened from the Cursor desktop app with their files, changes, a terminal, and forwarded ports. Turn on the [live workspace](https://cursor.com/docs/cloud-agent/self-hosted.md#live-workspace) when you start a Linux machine. If the machine restarts, opening the agent reconnects to it.
 - &#x20;**Send self-hosted runs to a team default pool.** Team admins can pick a [**Default pool**](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#default-pool) in the Self-Hosted section of the Cloud Agents dashboard, and self-hosted runs that don't name a pool or machine go there instead of routing by repository alone. If the default pool serves the run's repository, it takes the run. If not, another team pool that serves the repository takes it, and an any-repo default pool takes everything else. Repository access checks still apply.
-- **Agents on Self-Hosted Machines wait for a dropped machine to come back.** When a Self-Hosted Machine drops its connection in the middle of a run, the agent now waits up to 10 minutes for it to come back before reporting the machine as disconnected. If another machine in the pool is free, the agent moves to it instead.
 
 ### Web
 
 - **New agent transcript on the web.** Cloud agent conversations at cursor.com/agents, the pull request agent panel, and side chats now use the same transcript as the Agents Window. Your first message in a new agent shows up right away, images included, and in the agent sidebars on codebase pages the mouse wheel and Page Up and Page Down scroll the transcript.
 - **Fix with agent on pull request pages goes to the right agent.** On cursor.com pull request pages, Fix with agent and similar actions now follow up the agent that opened the pull request, or your most recently active agent on it, instead of whichever agent is newest.
 - **Agent pages show their details sooner on the web.** When you open a link to a cloud agent directly, its header, status, and starting prompt appear sooner.
-- **Share canvases with your whole organization.** The share sheet for a canvas can now open it to everyone in your organization, shown as "Anyone at" your organization, or grant access to other teams in your organization.
 
 ### Integrations
 
@@ -102,7 +100,6 @@ Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each e
 
 ### Self-Hosted Machines
 
-- &#x20;**Teams that require Self-Hosted Machines stay off Cursor-hosted machines.** When a team admin turns on [Require Private Workers for All Cloud Agents](https://cursor.com/docs/cloud-agent/self-hosted/private-workers.md), Cursor no longer builds or snapshots environments for that team or its members, and the Builds tab says builds are turned off. Agents that already ran on Cursor-hosted machines stop accepting follow-ups and ask you to start a new agent on a Self-Hosted Machine.
 - **Agents on Self-Hosted Machines handle offline machines better.** When a pool machine running your agent goes offline, the agent waits for that same machine to come back and continues there, and moves to another machine only after that. If you start an agent or send a follow-up to My Machine while it's disconnected, you get a machine-offline message after about 15 seconds instead of waiting for minutes.
 
 ### Integrations
@@ -124,7 +121,6 @@ Weekly changes to [Cloud Agents](https://cursor.com/docs/cloud-agent.md). Each e
 - **Fixes to Project coordinators and workers.** Workers that a coordinator starts with a variant of its own model keep the coordinator's context window instead of jumping to 1M. Coordinators with more than 1,000 workers list their newest workers, and renaming a Project before its first turn now sticks.
 - **Fixes to Self-Hosted Machines.** Runs that land on a machine that is shutting down start on another machine in the pool, and pool machines left behind by a deleted run reset so the next agent can claim them. Agents recover from a lost machine connection by reconnecting on the next step, and Windows machines resolve skill, plugin, and workspace paths correctly.
 - **Fixes to MCP connections.** MCP servers that don't need sign-in no longer have their tools disappear between listings, and servers whose sign-in was revoked or expired show as needing authentication instead of exposing cached tools. A newly added server or tool is no longer reported as missing, and an expired server session reconnects instead of failing the call.
-- **Fixes to Gmail and Slack tools.** When Gmail refuses to open a thread for permission reasons, agents read the thread's first message and note that later messages weren't included. Slack tool calls no longer fail when a channel is given as a #name or a pasted channel link.
 - **Fixes to code tours.** Code tours for pull requests in tall stacks now generate instead of failing, and a tour that fails mid-generation ends with an error instead of leaving the viewer waiting.
 - **Fixes to recording annotations.** Large screen recordings now get chapters, a thumbnail, and trim points instead of being skipped, and annotations are no longer lost when another save happens at the same time.
 - **Fixes to the web app.** The agents navigation drawer no longer opens empty at fractional browser widths, and you see all of your pinned agents, not just the first 1,000.

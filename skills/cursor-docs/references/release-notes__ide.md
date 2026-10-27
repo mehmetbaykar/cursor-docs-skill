@@ -23,9 +23,10 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 
 ### Fixes
 
-- **Fixes to agent links and tool rows in chat.** Links to cloud agents in chat now show the agent's name as soon as its details load, instead of waiting on an unrelated update. When an agent that manages other agents changes their tags, the chat now shows a clear "Updating tags" or "Updated tags" row.
+- **Fixes to agent links in chat.** Links to cloud agents in chat now show the agent's name as soon as its details load, instead of waiting on an unrelated update.
 - **Fixes to MCP.** When an [MCP server](https://cursor.com/docs/mcp.md) asks for input, the form in the agent chat now scrolls so its Submit and Cancel buttons sit above the prompt box, and the buttons are reliably clickable. MCP sign-ins whose OAuth refresh token has expired now ask you to reconnect instead of failing over and over.
 - **Clearer Add to Chat button in Review Changes.** The Add to Chat button in the Review Changes file list now uses a chat bubble with a plus icon.
+- **Fixes to Linux package update notifications.** On Linux installs from the deb or rpm package, Cursor no longer shows update notifications when apt or dnf has nothing newer to install. Cursor now checks its package repository before notifying you, and shows one notification per new version, however many windows you open or restarts you do.
 
 ## 3.26
 

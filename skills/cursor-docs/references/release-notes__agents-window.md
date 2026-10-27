@@ -37,7 +37,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 
 ### Files, changes, and pull requests
 
-- **Clearer merge actions on pull request tabs.** The merge button on a pull request tab now shows how many pull requests the merge will land, and hovering Remove from Queue shows the pull request's position in the merge queue. Pull request links in chat show a status icon right away, and the header no longer shifts when live changes replace the cached diff.
+- **Clearer merge actions on pull request tabs.** When a merge on a pull request tab lands a stack of several pull requests, the merge button shows how many it will land. Hovering Remove from Queue shows the pull request's position in the merge queue.
 - **See how stacked pull requests build on each other in the PRs tray.** The PRs tray in a [Project](https://cursor.com/docs/agent/projects.md) groups stacked pull requests on a rail, so you can see how each PR builds on the one below it. Forked stacks branch off the parent line, and the tray's stack view matches the stack navigator in the PR tab.
 
 ### Customization and settings
@@ -55,9 +55,11 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 - **Fixes to transcript and prompt styling.** Steer messages and Send now interrupts no longer appear grayed out while they wait for the agent to pick them up. Time markers in the transcript now show as a label between two lines, lined up with message bubbles.
 - **Fixes to voice calls.** Voice calls in the Agents Window no longer error out when the agent you're talking to is closed, unloaded, or hasn't loaded its conversation yet.
 - **Fixes to agent reliability.** On Windows, hooks now get clean UTF-8 payloads, and screen readers announce the Restore Checkpoint control in chat.
-- **Fixes to Projects.** Opening a newly created [Project](https://cursor.com/docs/agent/projects.md) no longer briefly fails to load its tasks and files, and Project tabs you return to restore their layout and scroll position. A Project split showing a chat from outside the Project no longer collapses when another view briefly takes the panel, and long task lists in hidden tabs no longer crash. The coordinator keeps its instructions on turns started by notifications, and unpublished draft repositories no longer appear in the cloud repository picker's Recents.
+- **Fixes to Projects.** Opening a newly created [Project](https://cursor.com/docs/agent/projects.md) no longer briefly fails to load its tasks and files, opening a Project whose parent conversation was unloaded shows that conversation instead of an error screen, and Project tabs you return to restore their layout and scroll position. A Project split showing a chat from outside the Project no longer collapses when another view briefly takes the panel, and long task lists in hidden tabs no longer crash. The coordinator keeps its instructions on turns started by notifications, and unpublished Start from Scratch drafts no longer appear in the project picker's Recents.
 - **Fixes to browser Annotate mode.** Pressing Cmd/Ctrl+L while editing page text in Annotate mode adds the edit to the chat input instead of queueing it. Picked elements show as inline mentions in notes again.
 - **Fixes to subagent rows.** Subagent rows in an agent's conversation no longer turn into empty rows of another tool when a late update arrives for the same call.
+- **Fixes to app secrets cards.** When a secret's value saves but the app keeps using another owner's secret with the same name, the card now says "Saved, not used here" instead of a generic error. After you answer the Expand secret scope prompt, the card no longer shows an outdated error. If you choose Not now on an app secrets request, the card stays collapsed after reloads and everywhere else the run is shown, until you reopen it or the agent asks again.
+- **Fixes to the Automations repo picker.** The repository picker no longer loads indefinitely for large Bitbucket Cloud accounts. If loading takes more than 25 seconds, it shows the repositories found so far.
 
 ## 3.26
 

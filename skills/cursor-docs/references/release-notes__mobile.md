@@ -8,6 +8,25 @@ path: /docs/release-notes/mobile
 
 New features, improvements, and fixes in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md). Each entry covers one app version.
 
+## 1.16.0
+
+### Voice calls
+
+- **Voice calls show on the Lock Screen and keep the chat focused.** When iOS can't show a voice call on the system call screen, Cursor for iOS shows it as a Live Activity on the Lock Screen and Dynamic Island, where you can mute or hang up. During a call, the chat hides your transcribed speech and Worked sections with nothing in them, so you see only the agent's replies, questions, plans, and edits. Call cards appear in the conversation where the call started, not pinned to the bottom.
+
+### Account and billing
+
+- **Manage Plan when you hit included usage on the top plan.** If you're on the highest personal plan and use up your included usage, the Included Usage Reached message now includes a Manage Plan button.
+
+### iPhone Duo
+
+- **The sidebar and chat split at the fold on iPhone Duo.** On iOS 27.1 or later, when iPhone Duo is half open in landscape, the agents sidebar ends at the hinge so the sidebar and chat each sit on their own half of the screen instead of straddling the fold. If either side would be too narrow, the usual layout stays.
+
+### Fixes
+
+- **Layout and visual polish on iPhone and iPad.** The composer and the iPad sidebar's account row sit on the bottom safe area and line up with each other, without an extra gap above the home indicator. Toolbar icons match the size of native toolbar symbols, the sheet grabber shows only on resizable sheets, and the Access Disabled screen keeps a readable width on iPad.
+- **Conversations and the repo picker.** The app no longer crashes on iOS 27 when loading conversations or the profile screen. A lone Thinking step in a running conversation updates to show how long it took once it finishes, and the repo picker no longer lists or preselects unpublished Start from scratch drafts.
+
 ## 1.15.0
 
 ### Voice calls
