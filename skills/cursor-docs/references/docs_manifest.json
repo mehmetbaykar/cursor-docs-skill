@@ -1182,8 +1182,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "0ede5e36e436f717102e171b1bca3d25cd5213f22c5057b84486c570ec65346b",
-      "last_updated": "2026-10-21T12:32:16+00:00",
+      "hash": "e8811d0dde0167d0ec554446449a4473e97901e5b9480fdaca0928226817ba80",
+      "last_updated": "2026-10-27T12:34:19+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
@@ -1272,8 +1272,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "b8a46f4801749fbd885adb559710260742b0c83b0b29db672ce3fd25519e0cc4",
-      "last_updated": "2026-10-24T21:18:40+00:00",
+      "hash": "c278e99419d3bc0796efd0dac2e1ed793f95a699cf89a9b2e84ffbfe4b004a97",
+      "last_updated": "2026-10-27T12:34:23+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
@@ -2356,7 +2356,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-27T00:54:57+00:00",
+  "last_updated": "2026-10-27T12:35:04+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
