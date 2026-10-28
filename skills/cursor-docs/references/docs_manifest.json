@@ -696,8 +696,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "4d3f801f2f1ff4714f61ae9dc6ea1fb7c5793a9733cebd86976f14ffc281e9e1",
-      "last_updated": "2026-10-27T18:19:02+00:00",
+      "hash": "2731a57a782989883d5a1412a749ab2506f4235ddef8218a8896fd6e3d2ba93a",
+      "last_updated": "2026-10-28T15:16:46+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
@@ -2374,7 +2374,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-28T00:42:34+00:00",
+  "last_updated": "2026-10-28T15:17:42+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
