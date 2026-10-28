@@ -8,6 +8,25 @@ path: /docs/release-notes
 
 Every Cursor product in one timeline, newest first, with up to 10 recent releases each. Filter by product, open a product's page for its full history, or follow along with the [RSS feed](https://cursor.com/docs/release-notes/rss.xml).
 
+## 1.16.0
+
+### Voice calls
+
+- **Voice calls show on the Lock Screen and keep the chat focused.** When iOS can't show a voice call on the system call screen, Cursor for iOS shows it as a Live Activity on the Lock Screen and Dynamic Island, where you can mute or hang up. During a call, the chat hides your transcribed speech and Worked sections with nothing in them, so you see only the agent's replies, questions, plans, and edits. Call cards appear in the conversation where the call started, not pinned to the bottom.
+
+### Account and billing
+
+- **Manage Plan when you hit included usage on the top plan.** If you're on the highest personal plan and use up your included usage, the Included Usage Reached message now includes a Manage Plan button.
+
+### iPhone Duo
+
+- **The sidebar and chat split at the fold on iPhone Duo.** On iOS 27.1 or later, when iPhone Duo is half open in landscape, the agents sidebar ends at the hinge so the sidebar and chat each sit on their own half of the screen instead of straddling the fold. If either side would be too narrow, the usual layout stays.
+
+### Fixes
+
+- **Layout and visual polish on iPhone and iPad.** The composer and the iPad sidebar's account row sit on the bottom safe area and line up with each other, without an extra gap above the home indicator. Toolbar icons match the size of native toolbar symbols, the sheet grabber shows only on resizable sheets, and the Access Disabled screen keeps a readable width on iPad.
+- **Conversations and the repo picker.** The app no longer crashes on iOS 27 when loading conversations or the profile screen. A lone Thinking step in a running conversation updates to show how long it took once it finishes, and the repo picker no longer lists or preselects unpublished Start from scratch drafts.
+
 ## 3.27
 
 ### Projects
@@ -37,7 +56,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 ### Files, changes, and pull requests
 
-- **Clearer merge actions on pull request tabs.** The merge button on a pull request tab now shows how many pull requests the merge will land, and hovering Remove from Queue shows the pull request's position in the merge queue. Pull request links in chat show a status icon right away, and the header no longer shifts when live changes replace the cached diff.
+- **Clearer merge actions on pull request tabs.** When a merge on a pull request tab lands a stack of several pull requests, the merge button shows how many it will land. Hovering Remove from Queue shows the pull request's position in the merge queue.
 - **See how stacked pull requests build on each other in the PRs tray.** The PRs tray in a [Project](https://cursor.com/docs/agent/projects.md) groups stacked pull requests on a rail, so you can see how each PR builds on the one below it. Forked stacks branch off the parent line, and the tray's stack view matches the stack navigator in the PR tab.
 
 ### Customization and settings
@@ -55,9 +74,11 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to transcript and prompt styling.** Steer messages and Send now interrupts no longer appear grayed out while they wait for the agent to pick them up. Time markers in the transcript now show as a label between two lines, lined up with message bubbles.
 - **Fixes to voice calls.** Voice calls in the Agents Window no longer error out when the agent you're talking to is closed, unloaded, or hasn't loaded its conversation yet.
 - **Fixes to agent reliability.** On Windows, hooks now get clean UTF-8 payloads, and screen readers announce the Restore Checkpoint control in chat.
-- **Fixes to Projects.** Opening a newly created [Project](https://cursor.com/docs/agent/projects.md) no longer briefly fails to load its tasks and files, and Project tabs you return to restore their layout and scroll position. A Project split showing a chat from outside the Project no longer collapses when another view briefly takes the panel, and long task lists in hidden tabs no longer crash. The coordinator keeps its instructions on turns started by notifications, and unpublished draft repositories no longer appear in the cloud repository picker's Recents.
+- **Fixes to Projects.** Opening a newly created [Project](https://cursor.com/docs/agent/projects.md) no longer briefly fails to load its tasks and files, opening a Project whose parent conversation was unloaded shows that conversation instead of an error screen, and Project tabs you return to restore their layout and scroll position. A Project split showing a chat from outside the Project no longer collapses when another view briefly takes the panel, and long task lists in hidden tabs no longer crash. The coordinator keeps its instructions on turns started by notifications, and unpublished Start from Scratch drafts no longer appear in the project picker's Recents.
 - **Fixes to browser Annotate mode.** Pressing Cmd/Ctrl+L while editing page text in Annotate mode adds the edit to the chat input instead of queueing it. Picked elements show as inline mentions in notes again.
 - **Fixes to subagent rows.** Subagent rows in an agent's conversation no longer turn into empty rows of another tool when a late update arrives for the same call.
+- **Fixes to app secrets cards.** When a secret's value saves but the app keeps using another owner's secret with the same name, the card now says "Saved, not used here" instead of a generic error. After you answer the Expand secret scope prompt, the card no longer shows an outdated error. If you choose Not now on an app secrets request, the card stays collapsed after reloads and everywhere else the run is shown, until you reopen it or the agent asks again.
+- **Fixes to the Automations repo picker.** The repository picker no longer loads indefinitely for large Bitbucket Cloud accounts. If loading takes more than 25 seconds, it shows the repositories found so far.
 
 ## 3.27
 
@@ -74,9 +95,10 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 ### Fixes
 
-- **Fixes to agent links and tool rows in chat.** Links to cloud agents in chat now show the agent's name as soon as its details load, instead of waiting on an unrelated update. When an agent that manages other agents changes their tags, the chat now shows a clear "Updating tags" or "Updated tags" row.
+- **Fixes to agent links in chat.** Links to cloud agents in chat now show the agent's name as soon as its details load, instead of waiting on an unrelated update.
 - **Fixes to MCP.** When an [MCP server](https://cursor.com/docs/mcp.md) asks for input, the form in the agent chat now scrolls so its Submit and Cancel buttons sit above the prompt box, and the buttons are reliably clickable. MCP sign-ins whose OAuth refresh token has expired now ask you to reconnect instead of failing over and over.
 - **Clearer Add to Chat button in Review Changes.** The Add to Chat button in the Review Changes file list now uses a chat bubble with a plus icon.
+- **Fixes to Linux package update notifications.** On Linux installs from the deb or rpm package, Cursor no longer shows update notifications when apt or dnf has nothing newer to install. Cursor now checks its package repository before notifying you, and shows one notification per new version, however many windows you open or restarts you do.
 
 ## v2026.10.22
 
@@ -254,7 +276,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 - **Slack DMs for merge queue changes.** Turn on the new **Merge queue** switch in your personal [Notifications settings](https://cursor.com/docs/origin/settings.md#notifications) to get a DM when your pull request is added to or removed from the merge queue. If the queue evicts it, the DM says why, for example which checks failed. If you turned on merge when ready for someone else's pull request, you also get the DM when it enters the queue.
 - **See which checks got a pull request removed from the merge queue.** When the merge queue removes a pull request because checks failed, the Slack notification lists up to 10 failing required checks with links to each run, and the Removed from merge queue row in the pull request timeline shows the check status of the commit the queue tested. Check details appear only to people who can read the repository's checks; others still get the removal notice.
-- **Choose merge queue checks during first-time setup.** When you set up a merge queue for a repository, the Merge queue settings tab now shows the validation checks picker right away. A single Save turns the queue on with the checks you picked, instead of requiring a second save after the queue exists.
 - **The merge queue no longer gets stuck on pull requests it can't build.** If Origin repeatedly fails to create the merge commit or queue branch that CI tests a pull request on, the merge queue now removes that pull request instead of retrying indefinitely. The removal message names the last error and asks you to re-enqueue once it is fixed.
 - **Cancel Origin CI runs and jobs.** If you have write access to a repository, you can cancel a running CI run or a single unfinished job from its CI page. A confirmation lists the jobs waiting on the one you cancel, which also show as cancelled, and stopped jobs end within about 10 seconds. The job's check shows who cancelled it.
 - **See where CI time goes with job and run timelines.** Origin CI job pages now show a Timeline of queue wait, slot hold, and each phase, including checkout broken into its parts; click a phase to see only its log, and failed jobs open the failing phase with the exit code and first error line. Run pages add a Timeline tab showing each job's waits and phases on one clock alongside the run's slot use against your repository's limit, and group jobs under Failed, Running, Waiting, and Passed, with a Next failure button to step through failures.
@@ -267,7 +288,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to reviewer groups and bots on pull request pages.** A requested reviewer group on a pull request now shows its members and their review status, even when the group isn't in your reviewer list. In a pull request's Activity, review requests to a bot show the bot's name instead of a blank reviewer, and requests to a group that was later removed show the group's name instead of a raw ID.
 - **Never open pull requests as drafts.** A new **Never open PRs as drafts** setting, under Pull requests in your Origin settings, makes every pull request you or your agents open start ready for review, even when a draft is requested. It applies to all your pull requests, whether you open them from the web, the Origin API, or a cloud agent.
 - **Pushes now warn you when they add a secret.** When you push to an Origin repository, Origin scans the pushed changes for secrets such as API keys and tokens. If it finds one, `git push` prints a warning naming the commit, file, and line, with steps to remove it. The matched secret itself is never printed or logged.
-- **Push rejections now match Git's wording.** When Origin refuses part of a push, each ref now shows the same reason Git would give, such as "deletion of the current branch prohibited". If a push rule couldn't be checked, the message says so, and a ruleset that actually blocked the push is named first. On repositories with a storage limit, pushes made at the same time can no longer go over the limit together, and the push after one that crosses the limit is rejected right away.
 - &#x20;**The audit log records more Origin changes.** Your team's audit log now records repository ruleset creates, updates, and deletes, label changes on repositories and pull requests, merge-when-ready being turned on or off, repository deletions, review dismissals, and changes to a namespace's inbound IP allowlist. Each entry includes the acting member's public user ID, which also appears as a new User ID column in CSV exports, and app installation entries list the permissions the installation holds. Repository events that were sometimes dropped right after a repository was created or deleted are now recorded too.
 - &#x20;**Clearer names for bypass users in ruleset settings.** In a repository's [Settings > Rules and Protections](https://cursor.com/docs/origin/settings.md#rules-and-protections), people on a ruleset's bypass list no longer show up as bare user IDs. Someone you don't have permission to see reads "Hidden user", a removed account reads "Deleted user", and an account with no name or email reads "Unnamed user". Hover a row to see the reason and the user ID.
 - &#x20;**Cloud agents work on teams with an inbound IP allowlist.** Cursor cloud agents can now clone, push, use Origin MCP, and open the raw file, tarball, and clone links they create, even when your team has an inbound IP allowlist. The exemption covers only your own team's repositories. Concurrent allowlist edits are now applied one at a time, so two admins editing at once can no longer lock each other out or go over the entry limit.
@@ -332,14 +352,12 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 - **Open the live workspace of agents on Self-Hosted Machines.** Agents running on Self-Hosted Machines can now be opened from the Cursor desktop app with their files, changes, a terminal, and forwarded ports. Turn on the [live workspace](https://cursor.com/docs/cloud-agent/self-hosted.md#live-workspace) when you start a Linux machine. If the machine restarts, opening the agent reconnects to it.
 - &#x20;**Send self-hosted runs to a team default pool.** Team admins can pick a [**Default pool**](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#default-pool) in the Self-Hosted section of the Cloud Agents dashboard, and self-hosted runs that don't name a pool or machine go there instead of routing by repository alone. If the default pool serves the run's repository, it takes the run. If not, another team pool that serves the repository takes it, and an any-repo default pool takes everything else. Repository access checks still apply.
-- **Agents on Self-Hosted Machines wait for a dropped machine to come back.** When a Self-Hosted Machine drops its connection in the middle of a run, the agent now waits up to 10 minutes for it to come back before reporting the machine as disconnected. If another machine in the pool is free, the agent moves to it instead.
 
 ### Web
 
 - **New agent transcript on the web.** Cloud agent conversations at cursor.com/agents, the pull request agent panel, and side chats now use the same transcript as the Agents Window. Your first message in a new agent shows up right away, images included, and in the agent sidebars on codebase pages the mouse wheel and Page Up and Page Down scroll the transcript.
 - **Fix with agent on pull request pages goes to the right agent.** On cursor.com pull request pages, Fix with agent and similar actions now follow up the agent that opened the pull request, or your most recently active agent on it, instead of whichever agent is newest.
 - **Agent pages show their details sooner on the web.** When you open a link to a cloud agent directly, its header, status, and starting prompt appear sooner.
-- **Share canvases with your whole organization.** The share sheet for a canvas can now open it to everyone in your organization, shown as "Anyone at" your organization, or grant access to other teams in your organization.
 
 ### Integrations
 
@@ -384,6 +402,17 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 - **Fixes to the repository picker.** The repository picker in the automation editor labels partial lists as Recent, shows a spinner while more repositories load, and says clearly when a search fails.
 - **Fixes to the PR Approver and pull request creation.** The PR Approver automation finds [routing policies](https://cursor.com/docs/approval-agents.md#routing-policies) in `.cursor/approval-policies/`, including `ROUTING.md`, and reviewer-specific criteria in `.cursor/approvals/`. Automations that open GitHub pull requests no longer fail silently when Cursor can't find the repository. The agent gets a clear error instead.
+
+### Security and approval agents
+
+#### Security agents
+
+- **More accurate fix detection for earlier findings.** When you push to a PR, [Security Reviewer](https://cursor.com/docs/security-agents.md) now recognizes a fix made outside the flagged file, such as a new check in a caller elsewhere in the PR, and closes the finding. It closes a finding only when the fix appears in the lines your PR changes, and it rechecks every earlier finding before posting results.
+- **Security reviews no longer fail at startup when the model list is briefly unavailable.** If the model list is rate-limited or temporarily unavailable, the review retries with backoff, honoring the server's requested wait, before giving up.
+
+#### Approval agents
+
+- **Fixed approvals held by a missing rule rating.** Fixed an issue where [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) could hold a PR's approval because a matching rule, or its global override copy, never got a risk rating. A rule and its override copy now share one rating, based on the files that rule governs.
 
 ## Week of Oct 19, 2026
 
@@ -626,7 +655,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 ### Self-Hosted Machines
 
-- &#x20;**Teams that require Self-Hosted Machines stay off Cursor-hosted machines.** When a team admin turns on [Require Private Workers for All Cloud Agents](https://cursor.com/docs/cloud-agent/self-hosted/private-workers.md), Cursor no longer builds or snapshots environments for that team or its members, and the Builds tab says builds are turned off. Agents that already ran on Cursor-hosted machines stop accepting follow-ups and ask you to start a new agent on a Self-Hosted Machine.
 - **Agents on Self-Hosted Machines handle offline machines better.** When a pool machine running your agent goes offline, the agent waits for that same machine to come back and continues there, and moves to another machine only after that. If you start an agent or send a follow-up to My Machine while it's disconnected, you get a machine-offline message after about 15 seconds instead of waiting for minutes.
 
 ### Integrations
@@ -648,7 +676,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to Project coordinators and workers.** Workers that a coordinator starts with a variant of its own model keep the coordinator's context window instead of jumping to 1M. Coordinators with more than 1,000 workers list their newest workers, and renaming a Project before its first turn now sticks.
 - **Fixes to Self-Hosted Machines.** Runs that land on a machine that is shutting down start on another machine in the pool, and pool machines left behind by a deleted run reset so the next agent can claim them. Agents recover from a lost machine connection by reconnecting on the next step, and Windows machines resolve skill, plugin, and workspace paths correctly.
 - **Fixes to MCP connections.** MCP servers that don't need sign-in no longer have their tools disappear between listings, and servers whose sign-in was revoked or expired show as needing authentication instead of exposing cached tools. A newly added server or tool is no longer reported as missing, and an expired server session reconnects instead of failing the call.
-- **Fixes to Gmail and Slack tools.** When Gmail refuses to open a thread for permission reasons, agents read the thread's first message and note that later messages weren't included. Slack tool calls no longer fail when a channel is given as a #name or a pasted channel link.
 - **Fixes to code tours.** Code tours for pull requests in tall stacks now generate instead of failing, and a tour that fails mid-generation ends with an error instead of leaving the viewer waiting.
 - **Fixes to recording annotations.** Large screen recordings now get chapters, a thumbnail, and trim points instead of being skipped, and annotations are no longer lost when another save happens at the same time.
 - **Fixes to the web app.** The agents navigation drawer no longer opens empty at fractional browser widths, and you see all of your pinned agents, not just the first 1,000.

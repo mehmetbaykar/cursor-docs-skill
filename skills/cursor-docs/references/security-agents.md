@@ -60,7 +60,7 @@ Use custom instructions to give each agent more context. You can describe the ty
 
 ### Tools and MCPs
 
-Both agent types support tools and MCPs. A Security Reviewer needs at least one tool or MCP before you can save it. A Vulnerability Scanner saves without one and reports its findings to the **Vulnerability Remediation** section on the [Vulnerability Scanner page in Automations](https://cursor.com/automations/from-cursor/vulnerability-scanner).
+Both agent types support tools and MCPs. A Security Reviewer needs at least one tool or MCP before you can save it. A Vulnerability Scanner saves without one and reports its findings to the **Remediation agents** section on the [Vulnerability Scanner page in Automations](https://cursor.com/automations/from-cursor/vulnerability-scanner).
 
 Use tools and MCPs to connect Security Agents to the systems where your team tracks security work.
 
