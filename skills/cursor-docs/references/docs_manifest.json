@@ -912,8 +912,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "1fba6982952c7661771a1157a8b0338a85b421e73475ffd9408a75108f30fe8b",
-      "last_updated": "2026-10-24T21:18:29+00:00",
+      "hash": "6ebe1d28985edbb95ec26a282ff8bb01e6b411635c84031e1650ae52410bd6a9",
+      "last_updated": "2026-10-28T00:41:39+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
@@ -1245,8 +1245,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "2901e19b6711b1df991055876dc31b00e1b4d74456891249e0e7f38ada2cbe02",
-      "last_updated": "2026-10-27T21:14:07+00:00",
+      "hash": "44190ba552dccec4cf0e6345296924a2c20a195b1fcfe1dcd291ac9da3006e32",
+      "last_updated": "2026-10-28T00:41:51+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
@@ -1254,8 +1254,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "e0d04e6e6b44305ca8bb07fcd509fc1dc06caf0ddcbd46a900d3c96678e87d26",
-      "last_updated": "2026-10-27T21:14:07+00:00",
+      "hash": "15bcaf8934afbcb6f42b461544c8f982d4bf9ea608d08cd09e27f845b87d98ae",
+      "last_updated": "2026-10-28T00:41:51+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -2374,7 +2374,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-27T21:14:40+00:00",
+  "last_updated": "2026-10-28T00:42:34+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",
