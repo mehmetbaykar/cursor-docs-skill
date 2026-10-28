@@ -919,6 +919,7 @@ SDKMessage = (
     | SDKStatusMessage
     | SDKTaskMessage
     | SDKRequestMessage
+    | SDKSummaryMessage
     | SDKUsageMessage
     | Mapping[str, Any]
 )
@@ -934,9 +935,12 @@ SDKMessage = (
 | `"status"`    | `SDKStatusMessage`    | `status`, `message`                                                         |
 | `"task"`      | `SDKTaskMessage`      | `status`, `text`                                                            |
 | `"request"`   | `SDKRequestMessage`   | `request_id`                                                                |
+| `"summary"`   | `SDKSummaryMessage`   | `status`, `fallback`                                                        |
 | `"usage"`     | `SDKUsageMessage`     | `usage` ([`TokenUsage`](https://cursor.com/docs/sdk/python.md#token-usage)) |
 
 `SDKToolUseMessage` is emitted twice for most tool calls: first with `status="running"` and `args` populated, then again on completion with `status="completed"` (or `"error"`) and `result` populated. `truncated` flags whether the SDK truncated `args` or `result` because the payload was too large.
+
+`SDKSummaryMessage` is emitted when the agent summarizes its conversation near the context limit. `status` is `"running"` when summarization starts, then `"completed"` or `"error"`. `fallback=True` on a completed message means the model couldn't write the summary, so the agent saved a trimmed copy of the transcript instead.
 
 `SDKUsageMessage` is emitted once at the end of each turn that reported token usage, carrying that turn's [`TokenUsage`](https://cursor.com/docs/sdk/python.md#token-usage). The cumulative total across turns stays on `run.usage` and `result.usage`. See [Token usage](https://cursor.com/docs/sdk/python.md#token-usage).
 
@@ -987,6 +991,8 @@ InteractionUpdate = (
 ```
 
 `PartialToolCallUpdate` is emitted as the model streams arguments into a tool call before it commits. The same stability disclaimer that applies to `SDKToolUseMessage.args` applies here.
+
+`SummaryCompletedUpdate` carries `failed`, set when summarization ended in an error, and `fallback`, set when the agent saved a trimmed copy of the transcript instead of a summary.
 
 ## Conversation types
 

@@ -93,8 +93,8 @@
       "title": "Dashboard"
     },
     "account__teams__members.md": {
-      "hash": "dc74e201c3d5f7376b132b348f1f8cb6d429238d6f36738858a1b964445d5853",
-      "last_updated": "2026-10-21T18:26:20+00:00",
+      "hash": "9a35b25c50bd3b4076bf304609d6197a3f237935bec12b1c9dde633f59f18437",
+      "last_updated": "2026-10-28T18:19:57+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
       "source_url": "https://cursor.com/docs/account/teams/members",
@@ -1020,8 +1020,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "c009289db86f1ba89b6a6c56a3f2ada242cb8ac4d20d599ece6d8be88252f663",
-      "last_updated": "2026-10-27T18:19:16+00:00",
+      "hash": "33266af56ccf501ba83e93fb627985acef1144934b2fa24525dc8362d95ac6d7",
+      "last_updated": "2026-10-28T18:20:33+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
@@ -2199,8 +2199,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "816842c756dce349aa8cc6e570e39841eaf4240917f69d1a015a243c27817540",
-      "last_updated": "2026-10-27T15:25:55+00:00",
+      "hash": "80bd269bc8a57a9427cb378e439040dfe81c7f5a40a0a286740f1b8100f99522",
+      "last_updated": "2026-10-28T18:21:17+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -2253,8 +2253,8 @@
       "title": "Cursor mobile release notes"
     },
     "release-notes__origin-cli.md": {
-      "hash": "c63414d6cfd1f27d984ab729b43631ccf057f8e1063628c1f8bdb207a7d77144",
-      "last_updated": "2026-10-11T01:07:18+00:00",
+      "hash": "23d22c03fa52b973db677e860ac1b23d6fda1aa98b76ee1fed8c9927286bfba0",
+      "last_updated": "2026-10-28T18:21:19+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin-cli",
       "path": "/docs/release-notes/origin-cli",
       "source_url": "https://cursor.com/docs/release-notes/origin-cli",
@@ -2280,8 +2280,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "32128664c1f549cfab114d59b776ebe1a64fa0014bc3862a9a811cc843d35285",
-      "last_updated": "2026-10-27T15:25:58+00:00",
+      "hash": "b2f049cf76318b15648b405131cf53336c1f0aab96464dc51276b701b55fbcad",
+      "last_updated": "2026-10-28T18:21:20+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -2316,8 +2316,8 @@
       "title": "Cursor SDK Bridge"
     },
     "sdk__python.md": {
-      "hash": "d4c202620eacc74eabda78151c6448e8714d7dac8bde7d9655cb1a8bdd9a7a89",
-      "last_updated": "2026-10-27T18:20:05+00:00",
+      "hash": "06b78ae073a509ea6b43cb66090ef11afe65b7742ba7809cf87529fd2dc3c8b5",
+      "last_updated": "2026-10-28T18:21:21+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
       "source_url": "https://cursor.com/docs/sdk/python",
@@ -2334,8 +2334,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "ef126008e71a5f8fe8925e1c2d72fad47ac753bc79bf11214a98acf3fa2150ab",
-      "last_updated": "2026-10-08T18:29:46+00:00",
+      "hash": "1d3f07b2449d70a1457b16c82c2eefaf3862fd2c78b8a411c002c4db753a73a9",
+      "last_updated": "2026-10-28T18:21:22+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -2374,7 +2374,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-28T15:17:42+00:00",
+  "last_updated": "2026-10-28T18:21:23+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

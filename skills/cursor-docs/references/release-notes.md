@@ -782,7 +782,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Security agents
 
-- **Vulnerability Scanner findings show in Flagged Vulnerabilities.** Fixed an issue where findings from a Vulnerability Scanner didn't appear in the [Flagged Vulnerabilities](https://cursor.com/docs/security-agents.md#flagged-vulnerabilities) list.
+- **Vulnerability Scanner findings show in Vulnerability Remediation.** Fixed an issue where findings from a Vulnerability Scanner didn't appear in the [Vulnerability Remediation](https://cursor.com/docs/security-agents.md#remediation-agents) section.
 - **Show more flagged vulnerabilities per page.** The Flagged Vulnerabilities list now has a **Rows per page** selector (10, 25, 50, or 100) and shows 25 rows by default instead of 5. Long titles wrap to two lines, and the **Prev** and **Next** buttons stay in place as you page.
 - **Fixed multi-file findings close when you push a fix.** When a finding names more than one file, Security Reviewer re-checks each of those files on every push, so a fix in any of them closes the finding. You no longer need to resolve it by hand. Open findings in files you haven't changed now count toward the security check, so the check status matches the open threads.
 - **Saving large Security Reviewer configurations works.** Saving a Security Reviewer with many selected repositories, exclusions, or Slack channels no longer fails.
