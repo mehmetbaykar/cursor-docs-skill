@@ -120,7 +120,7 @@ Click the computer preview in the right-hand panel of a conversation to open the
 
 ### Take over for sensitive steps
 
-To sign in, the Bot uses a login saved in [Vault](https://cursor.com/help/grok-bot/secrets.md#what-is-vault) first, then a connected password manager such as 1Password, then asks you with a Secure Form. Values from Vault and the Secure Form are filled into the page without the Bot seeing them. When a site emails a one-time code, the Bot can read it from a connected Gmail or Outlook account or from its own inbox. At checkout, it can use a card saved in Vault, a card you enter in a Secure Form, or a connected wallet such as Link or X Money.
+To sign in, the Bot uses a login saved in [Vault](https://cursor.com/help/grok-bot/secrets.md#what-is-vault) first, then a connected password manager such as 1Password, then asks you with a Secure Form. Values from Vault and the Secure Form are filled into the page without the Bot seeing them. When a site emails a one-time code, the Bot can read it from a connected Gmail or Outlook account or from its own inbox. At checkout, it can use a card saved in Vault, a card you enter in a Secure Form, or a connected wallet such as Link, X Money, or Shop Pay.
 
 The Bot hands you the computer when a form can't do the step: single sign-on, a passkey, a CAPTCHA it couldn't get past, an approval on another device, a QR code, or a bank card verification. Take control, complete only the blocked step, and tell the Bot to continue. The signed-in session persists for future tasks, shared across your Bots. Some sites expire sessions or re-verify; ask the Bot to pause and notify you rather than work around the check.
 

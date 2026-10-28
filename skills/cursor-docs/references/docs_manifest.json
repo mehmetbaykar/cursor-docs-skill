@@ -1254,8 +1254,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "15bcaf8934afbcb6f42b461544c8f982d4bf9ea608d08cd09e27f845b87d98ae",
-      "last_updated": "2026-10-28T00:41:51+00:00",
+      "hash": "9fa426d0fe9afcae953e80dade2bfb07ade9e8a78ecc4bf1992efda897ec9203",
+      "last_updated": "2026-10-28T21:14:57+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "source_url": "https://cursor.com/docs/grok-bot/security",
@@ -1290,8 +1290,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "7be833013c770f4853a6f26ec93d1cf9cca8392c1c4acb30cf5249eab2008537",
-      "last_updated": "2026-10-27T21:14:08+00:00",
+      "hash": "9558d3c868c5ce619e9bbd98dc0357937a8e8428e808cadc53d108d38644553f",
+      "last_updated": "2026-10-28T21:14:58+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "source_url": "https://cursor.com/docs/grok-bot/work",
@@ -2199,8 +2199,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "80bd269bc8a57a9427cb378e439040dfe81c7f5a40a0a286740f1b8100f99522",
-      "last_updated": "2026-10-28T18:21:17+00:00",
+      "hash": "6c0c914eab289a09ec3a0fd9d7777ed0618513b5c7dcbe51eb8923a56cc70c92",
+      "last_updated": "2026-10-28T21:15:29+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "source_url": "https://cursor.com/docs/release-notes",
@@ -2280,8 +2280,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "b2f049cf76318b15648b405131cf53336c1f0aab96464dc51276b701b55fbcad",
-      "last_updated": "2026-10-28T18:21:20+00:00",
+      "hash": "21298406c05d10ee6100954a891dfc012ff0253dd96c2ea32d94f4d4de513ccc",
+      "last_updated": "2026-10-28T21:15:33+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "source_url": "https://cursor.com/docs/release-notes/web",
@@ -2334,8 +2334,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "1d3f07b2449d70a1457b16c82c2eefaf3862fd2c78b8a411c002c4db753a73a9",
-      "last_updated": "2026-10-28T18:21:22+00:00",
+      "hash": "f2ac7cfaaad13dbd04f435e55ff00163f69bc4e8b2511ebed1fb0f593cf519a5",
+      "last_updated": "2026-10-28T21:15:35+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "source_url": "https://cursor.com/docs/security-agents",
@@ -2374,7 +2374,7 @@
       "/docs/*"
     ]
   },
-  "last_updated": "2026-10-28T18:21:23+00:00",
+  "last_updated": "2026-10-28T21:15:36+00:00",
   "skipped": [
     {
       "path": "/docs/api/origin/llms-full.txt",

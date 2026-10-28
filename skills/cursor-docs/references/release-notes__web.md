@@ -31,6 +31,17 @@ Weekly changes to Cursor on the web, from integrations and admin settings to aut
 - **Fixes to the repository picker.** The repository picker in the automation editor labels partial lists as Recent, shows a spinner while more repositories load, and says clearly when a search fails.
 - **Fixes to the PR Approver and pull request creation.** The PR Approver automation finds [routing policies](https://cursor.com/docs/approval-agents.md#routing-policies) in `.cursor/approval-policies/`, including `ROUTING.md`, and reviewer-specific criteria in `.cursor/approvals/`. Automations that open GitHub pull requests no longer fail silently when Cursor can't find the repository. The agent gets a clear error instead.
 
+### Security and approval agents
+
+#### Security agents
+
+- **More accurate fix detection for earlier findings.** When you push to a PR, [Security Reviewer](https://cursor.com/docs/security-agents.md) now recognizes a fix made outside the flagged file, such as a new check in a caller elsewhere in the PR, and closes the finding. It closes a finding only when the fix appears in the lines your PR changes, and it rechecks every earlier finding before posting results.
+- **Security reviews no longer fail at startup when the model list is briefly unavailable.** If the model list is rate-limited or temporarily unavailable, the review retries with backoff, honoring the server's requested wait, before giving up.
+
+#### Approval agents
+
+- **Fixed approvals held by a missing rule rating.** Fixed an issue where [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) could hold a PR's approval because a matching rule, or its global override copy, never got a risk rating. A rule and its override copy now share one rating, based on the files that rule governs.
+
 ## Week of Oct 12, 2026
 
 ### Integrations
