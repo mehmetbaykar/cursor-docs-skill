@@ -1,7 +1,7 @@
 {
   "name": "cursor-docs-skill",
   "owner": {
-    "name": "Mehmet Baykar"
+    "name": "Community contributors"
   },
   "metadata": {
     "description": "Unofficial Cursor documentation mirror packaged as an Agent Skill."
@@ -10,7 +10,7 @@
     {
       "name": "cursor-docs",
       "source": "./",
-      "description": "Answers Cursor questions from a local mirror of the official documentation, workflows, and guides, refreshed every 3 hours."
+      "description": "Unofficial: answers Cursor questions from a local mirror of its documentation, workflows, and guides, refreshed every 3 hours."
     }
   ]
 }

@@ -13,7 +13,6 @@ compatibility: Any agent that reads Agent Skills, such as Claude Code, Codex, or
 allowed-tools: Read Grep Glob
 metadata:
   upstream: https://cursor.com/docs
-  repository: https://github.com/mehmetbaykar/cursor-docs-skill
 ---
 
 # Cursor Docs
