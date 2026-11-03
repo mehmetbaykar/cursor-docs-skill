@@ -1445,8 +1445,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "b980d68466cd0a23ec291c4b7807ad8a23b0aa798d27bd64c67e00dc080a66fa",
-      "last_updated": "2026-11-03T19:58:23+00:00",
+      "hash": "e35cec581021d48302b01889ee93c64a9e2dcd33c105dda34a637e14cfb4561e",
+      "last_updated": "2026-11-03T21:15:56+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2850,7 +2850,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-03T19:58:37+00:00",
+  "last_updated": "2026-11-03T21:16:09+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
