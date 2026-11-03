@@ -1,13 +1,10 @@
 {
   "name": "cursor-docs",
   "version": "2026.1103.1808",
-  "description": "Answers Cursor questions from a local mirror of the official documentation, workflows, and guides, refreshed every 3 hours.",
+  "description": "Unofficial: answers Cursor questions from a local mirror of its documentation, workflows, and guides, refreshed every 3 hours.",
   "author": {
-    "name": "Mehmet Baykar"
+    "name": "Community contributors"
   },
-  "homepage": "https://github.com/mehmetbaykar/cursor-docs-skill",
-  "repository": "https://github.com/mehmetbaykar/cursor-docs-skill",
-  "license": "MIT",
   "keywords": [
     "cursor",
     "documentation",

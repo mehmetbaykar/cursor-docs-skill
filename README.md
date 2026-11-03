@@ -89,6 +89,10 @@ python3 -m venv .venv
 - **A scheduled refresh failed:** the workflow opens or updates an issue titled "Docs mirror update failures" and closes it after the next successful run.
 - **A page shows `stale`:** upstream could not be reached on the last run, so the previous copy is still served.
 
-## Notes
+## Legal notice
 
-This is an unofficial mirror, not affiliated with, endorsed by, or sponsored by Cursor. The documentation belongs to Cursor and is subject to Cursor's terms. The MIT license in this repository covers only the mirroring tooling, scripts, and packaging.
+- **Unofficial.** This is an unofficial community project. It is not affiliated with, endorsed by, or sponsored by Anysphere, Inc., the maker of Cursor.
+- **Documentation.** The mirrored pages belong to Anysphere and are subject to Anysphere's terms. Every page names its source, and https://cursor.com/docs is the authoritative version.
+- **Trademarks.** Cursor is a trademark of Anysphere, Inc. It is used here only to name the product the documentation describes.
+- **License.** The MIT license covers only this repository's own code: the scripts, tests, workflow, and skill instructions. It does not cover the mirrored documentation.
+- **Removal requests.** If you represent Anysphere and want this mirror changed or removed, [open an issue](../../issues) and it will be handled promptly.
