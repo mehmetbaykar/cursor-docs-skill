@@ -1,10 +1,10 @@
 # Cursor Docs Index
 
-Local mirror of Cursor documentation from https://cursor.com/docs.
+Local mirror of the Cursor documentation from https://cursor.com/docs.
 
-Invoke this skill with a topic, for example `/cursor-docs hooks`.
+Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `$cursor-docs hooks` in Codex.
 
-## Topics
+## Documentation
 
 - `account__organizations__organization-admin-api` - [Organization API](https://cursor.com/docs/account/organizations/organization-admin-api)
 - `account__pricing__legacy-cursor-plans` - [Legacy Cursor plans](https://cursor.com/docs/account/pricing/legacy-cursor-plans)
@@ -268,8 +268,29 @@ Invoke this skill with a topic, for example `/cursor-docs hooks`.
 - `skills` - [Agent Skills](https://cursor.com/docs/skills)
 - `subagents` - [Subagents](https://cursor.com/docs/subagents)
 
-## Skipped Pages
+## Workflows
 
-- `/docs/api/origin/llms-full.txt` - No markdown endpoint
-- `/docs/api/origin/llms.txt` - No markdown endpoint
-- `/docs/api/origin/openapi.yaml` - No markdown endpoint
+- `workflows__autonomous-agents` - [The AI software factory.](https://cursor.com/workflows/autonomous-agents)
+- `workflows__autonomous-agents__add-test-coverage` - [Add test coverage](https://cursor.com/workflows/autonomous-agents/add-test-coverage)
+- `workflows__autonomous-agents__assign-pr-reviewers` - [Assess PR risk and assign reviewers](https://cursor.com/workflows/autonomous-agents/assign-pr-reviewers)
+- `workflows__autonomous-agents__autofix-pr-review-comments` - [Autofix PR review comments](https://cursor.com/workflows/autonomous-agents/autofix-pr-review-comments)
+- `workflows__autonomous-agents__ci-autofix` - [CI autofix](https://cursor.com/workflows/autonomous-agents/ci-autofix)
+- `workflows__autonomous-agents__daily-digest` - [Daily digest of repo changes](https://cursor.com/workflows/autonomous-agents/daily-digest)
+- `workflows__autonomous-agents__find-vulnerabilities` - [Find vulnerabilities](https://cursor.com/workflows/autonomous-agents/find-vulnerabilities)
+- `workflows__autonomous-agents__fix-slack-bugs` - [Fix bugs reported in Slack](https://cursor.com/workflows/autonomous-agents/fix-slack-bugs)
+- `workflows__autonomous-agents__generate-docs` - [Generate and update docs](https://cursor.com/workflows/autonomous-agents/generate-docs)
+- `workflows__autonomous-agents__investigate-datadog-errors` - [Investigate production errors from Datadog](https://cursor.com/workflows/autonomous-agents/investigate-datadog-errors)
+- `workflows__autonomous-agents__investigate-sentry-issues` - [Investigate Sentry issues](https://cursor.com/workflows/autonomous-agents/investigate-sentry-issues)
+- `workflows__autonomous-agents__linear-issue-triage` - [Linear issue triage](https://cursor.com/workflows/autonomous-agents/linear-issue-triage)
+- `workflows__autonomous-agents__pagerduty-incident-investigation` - [PagerDuty incident investigation](https://cursor.com/workflows/autonomous-agents/pagerduty-incident-investigation)
+- `workflows__autonomous-agents__remediate-dependency-vulnerabilities` - [Remediate dependency vulnerabilities](https://cursor.com/workflows/autonomous-agents/remediate-dependency-vulnerabilities)
+- `workflows__autonomous-agents__scan-codebase-vulnerabilities` - [Scan codebase for vulnerabilities](https://cursor.com/workflows/autonomous-agents/scan-codebase-vulnerabilities)
+- `workflows__autonomous-agents__triage-github-workflow-failures` - [Triage failed GitHub Actions](https://cursor.com/workflows/autonomous-agents/triage-github-workflow-failures)
+
+## Guides
+
+- `guides` - [Guides](https://cursor.com/guides)
+- `guides__ai-code-review` - [AI code review: more context, fewer bugs](https://cursor.com/guides/ai-code-review)
+- `guides__coding-agent-mcp` - [MCP for coding agents: how agents plug into your stack](https://cursor.com/guides/coding-agent-mcp)
+- `guides__model-routing` - [Model routing: right model, right job, right price](https://cursor.com/guides/model-routing)
+- `guides__return-on-intelligence` - [Maximizing return on intelligence](https://cursor.com/guides/return-on-intelligence)

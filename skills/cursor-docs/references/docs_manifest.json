@@ -1,14 +1,17 @@
 {
   "description": "Cursor documentation mirror manifest. Files live beside this manifest in references/.",
+  "excluded": [],
   "fetch_metadata": {
     "failed_pages": [],
-    "fetch_tool_version": "2.0",
+    "fetch_tool_version": "3.0",
+    "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 261,
-    "pages_skipped": 3,
+    "pages_fetched_successfully": 282,
+    "pages_skipped": 0,
     "pages_stale": 0,
+    "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 264
+    "total_pages_discovered": 282
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -16,6 +19,7 @@
       "last_updated": "2026-10-26T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "status": "live",
       "title": "Organization API"
@@ -25,6 +29,7 @@
       "last_updated": "2026-10-21T12:31:48+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/legacy-cursor-plans",
       "path": "/docs/account/pricing/legacy-cursor-plans",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/pricing/legacy-cursor-plans",
       "status": "live",
       "title": "Legacy Cursor plans"
@@ -34,6 +39,7 @@
       "last_updated": "2026-10-26T18:33:31+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "status": "live",
       "title": "Request-Based Pricing (Legacy)"
@@ -43,6 +49,7 @@
       "last_updated": "2026-08-25T01:47:50+00:00",
       "original_url": "https://cursor.com/docs/account/regions",
       "path": "/docs/account/regions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/regions",
       "status": "live",
       "title": "Regions"
@@ -52,6 +59,7 @@
       "last_updated": "2026-10-23T21:19:30+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/admin-api",
       "status": "live",
       "title": "Admin API"
@@ -61,6 +69,7 @@
       "last_updated": "2026-09-28T05:14:00+00:00",
       "original_url": "https://cursor.com/docs/account/teams/ai-code-tracking-api",
       "path": "/docs/account/teams/ai-code-tracking-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/ai-code-tracking-api",
       "status": "live",
       "title": "AI Code Tracking API"
@@ -70,6 +79,7 @@
       "last_updated": "2026-10-08T18:28:49+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics-api",
       "path": "/docs/account/teams/analytics-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/analytics-api",
       "status": "live",
       "title": "Analytics API"
@@ -79,6 +89,7 @@
       "last_updated": "2026-09-29T01:00:02+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics",
       "path": "/docs/account/teams/analytics",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/analytics",
       "status": "live",
       "title": "Usage Analytics"
@@ -88,6 +99,7 @@
       "last_updated": "2026-09-04T04:21:25+00:00",
       "original_url": "https://cursor.com/docs/account/teams/dashboard",
       "path": "/docs/account/teams/dashboard",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/dashboard",
       "status": "live",
       "title": "Dashboard"
@@ -97,6 +109,7 @@
       "last_updated": "2026-10-28T18:19:57+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/members",
       "status": "live",
       "title": "Members, Roles, and Seat Types"
@@ -106,6 +119,7 @@
       "last_updated": "2026-10-26T18:33:34+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/pricing",
       "status": "live",
       "title": "Team Pricing"
@@ -115,6 +129,7 @@
       "last_updated": "2026-09-17T04:44:43+00:00",
       "original_url": "https://cursor.com/docs/account/teams/scim",
       "path": "/docs/account/teams/scim",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/scim",
       "status": "live",
       "title": "SCIM"
@@ -124,6 +139,7 @@
       "last_updated": "2026-09-03T04:14:47+00:00",
       "original_url": "https://cursor.com/docs/account/teams/setup",
       "path": "/docs/account/teams/setup",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/setup",
       "status": "live",
       "title": "Get Started"
@@ -133,6 +149,7 @@
       "last_updated": "2026-09-23T04:37:29+00:00",
       "original_url": "https://cursor.com/docs/account/teams/sso",
       "path": "/docs/account/teams/sso",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/teams/sso",
       "status": "live",
       "title": "SSO"
@@ -142,6 +159,7 @@
       "last_updated": "2026-10-05T18:30:07+00:00",
       "original_url": "https://cursor.com/docs/account/update-access",
       "path": "/docs/account/update-access",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/account/update-access",
       "status": "live",
       "title": "Update Access"
@@ -151,6 +169,7 @@
       "last_updated": "2026-10-26T15:37:01+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk",
       "path": "/docs/agent-sdk",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk",
       "status": "live",
       "title": "Agent SDK"
@@ -160,6 +179,7 @@
       "last_updated": "2026-10-26T15:37:02+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/building-with-agents",
       "path": "/docs/agent-sdk/building-with-agents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/building-with-agents",
       "status": "live",
       "title": "Build with a coding agent"
@@ -169,6 +189,7 @@
       "last_updated": "2026-10-26T15:37:02+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/changelog",
       "path": "/docs/agent-sdk/changelog",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/changelog",
       "status": "live",
       "title": "Changelog"
@@ -178,6 +199,7 @@
       "last_updated": "2026-10-26T15:37:02+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/deployment",
       "path": "/docs/agent-sdk/deployment",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/deployment",
       "status": "live",
       "title": "Deploy an Agent SDK project"
@@ -187,6 +209,7 @@
       "last_updated": "2026-10-26T15:37:03+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/evals",
       "path": "/docs/agent-sdk/evals",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/evals",
       "status": "live",
       "title": "Evals"
@@ -196,6 +219,7 @@
       "last_updated": "2026-10-26T15:37:03+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/agent-to-agent",
       "path": "/docs/agent-sdk/guides/agent-to-agent",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/agent-to-agent",
       "status": "live",
       "title": "Peer agents"
@@ -205,6 +229,7 @@
       "last_updated": "2026-10-26T15:37:03+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/bitbucket",
       "path": "/docs/agent-sdk/guides/bitbucket",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/bitbucket",
       "status": "live",
       "title": "Bitbucket agents"
@@ -214,6 +239,7 @@
       "last_updated": "2026-10-26T15:37:03+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/cloud-agents",
       "path": "/docs/agent-sdk/guides/cloud-agents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/cloud-agents",
       "status": "live",
       "title": "Cloud agents"
@@ -223,6 +249,7 @@
       "last_updated": "2026-10-26T15:37:04+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/convert-automation",
       "path": "/docs/agent-sdk/guides/convert-automation",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/convert-automation",
       "status": "live",
       "title": "Convert a Cursor Automation"
@@ -232,6 +259,7 @@
       "last_updated": "2026-10-26T15:37:04+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/github",
       "path": "/docs/agent-sdk/guides/github",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/github",
       "status": "live",
       "title": "GitHub agents"
@@ -241,6 +269,7 @@
       "last_updated": "2026-10-26T15:37:04+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/gitlab",
       "path": "/docs/agent-sdk/guides/gitlab",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/gitlab",
       "status": "live",
       "title": "GitLab agents"
@@ -250,6 +279,7 @@
       "last_updated": "2026-10-26T15:37:05+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/improve",
       "path": "/docs/agent-sdk/guides/improve",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/improve",
       "status": "live",
       "title": "Self-improvement"
@@ -259,6 +289,7 @@
       "last_updated": "2026-10-26T15:37:05+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/jev",
       "path": "/docs/agent-sdk/guides/jev",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/jev",
       "status": "live",
       "title": "Use Jev in review tools"
@@ -268,6 +299,7 @@
       "last_updated": "2026-10-26T15:37:05+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/mcp-oauth",
       "path": "/docs/agent-sdk/guides/mcp-oauth",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/mcp-oauth",
       "status": "live",
       "title": "Connect a private MCP server with OAuth"
@@ -277,6 +309,7 @@
       "last_updated": "2026-10-26T15:37:05+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/migrate",
       "path": "/docs/agent-sdk/guides/migrate",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/migrate",
       "status": "live",
       "title": "Migrate an early-alpha project to architecture v2"
@@ -286,6 +319,7 @@
       "last_updated": "2026-10-26T15:37:06+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/opentelemetry",
       "path": "/docs/agent-sdk/guides/opentelemetry",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/opentelemetry",
       "status": "live",
       "title": "OpenTelemetry"
@@ -295,6 +329,7 @@
       "last_updated": "2026-10-26T15:37:06+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/pagerduty",
       "path": "/docs/agent-sdk/guides/pagerduty",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/pagerduty",
       "status": "live",
       "title": "PagerDuty agents"
@@ -304,6 +339,7 @@
       "last_updated": "2026-10-26T15:37:06+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/slack",
       "path": "/docs/agent-sdk/guides/slack",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/slack",
       "status": "live",
       "title": "Slack Agents"
@@ -313,6 +349,7 @@
       "last_updated": "2026-10-26T15:37:07+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/webhooks",
       "path": "/docs/agent-sdk/guides/webhooks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/guides/webhooks",
       "status": "live",
       "title": "Webhook agents"
@@ -322,6 +359,7 @@
       "last_updated": "2026-10-26T15:37:07+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/hillclimbing",
       "path": "/docs/agent-sdk/hillclimbing",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/hillclimbing",
       "status": "live",
       "title": "Hillclimbing"
@@ -331,6 +369,7 @@
       "last_updated": "2026-10-26T15:37:08+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/quickstart",
       "path": "/docs/agent-sdk/quickstart",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/quickstart",
       "status": "live",
       "title": "Build a PR reviewer with Agent SDK"
@@ -340,6 +379,7 @@
       "last_updated": "2026-10-26T15:37:08+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/access",
       "path": "/docs/agent-sdk/reference/access",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/access",
       "status": "live",
       "title": "Access"
@@ -349,6 +389,7 @@
       "last_updated": "2026-10-26T15:37:08+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/agent-config",
       "path": "/docs/agent-sdk/reference/agent-config",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/agent-config",
       "status": "live",
       "title": "Agent config"
@@ -358,6 +399,7 @@
       "last_updated": "2026-10-26T15:37:08+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/artifacts",
       "path": "/docs/agent-sdk/reference/artifacts",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/artifacts",
       "status": "live",
       "title": "Artifacts"
@@ -367,6 +409,7 @@
       "last_updated": "2026-10-26T15:37:09+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/channels",
       "path": "/docs/agent-sdk/reference/channels",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/channels",
       "status": "live",
       "title": "Channels"
@@ -376,6 +419,7 @@
       "last_updated": "2026-10-26T15:37:09+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/cli",
       "path": "/docs/agent-sdk/reference/cli",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/cli",
       "status": "live",
       "title": "Agent SDK CLI"
@@ -385,6 +429,7 @@
       "last_updated": "2026-10-26T15:37:09+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/connections",
       "path": "/docs/agent-sdk/reference/connections",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/connections",
       "status": "live",
       "title": "MCP connections"
@@ -394,6 +439,7 @@
       "last_updated": "2026-10-26T15:37:10+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/evals",
       "path": "/docs/agent-sdk/reference/evals",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/evals",
       "status": "live",
       "title": "Evals"
@@ -403,6 +449,7 @@
       "last_updated": "2026-10-26T15:37:10+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/extensions",
       "path": "/docs/agent-sdk/reference/extensions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/extensions",
       "status": "live",
       "title": "Extensions"
@@ -412,6 +459,7 @@
       "last_updated": "2026-10-26T15:37:10+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/hooks",
       "path": "/docs/agent-sdk/reference/hooks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/hooks",
       "status": "live",
       "title": "Hooks"
@@ -421,6 +469,7 @@
       "last_updated": "2026-10-26T15:37:10+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/http-api",
       "path": "/docs/agent-sdk/reference/http-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/http-api",
       "status": "live",
       "title": "HTTP API"
@@ -430,6 +479,7 @@
       "last_updated": "2026-10-26T15:37:11+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/instructions",
       "path": "/docs/agent-sdk/reference/instructions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/instructions",
       "status": "live",
       "title": "Instructions"
@@ -439,6 +489,7 @@
       "last_updated": "2026-10-26T15:37:11+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/limits",
       "path": "/docs/agent-sdk/reference/limits",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/limits",
       "status": "live",
       "title": "Limits"
@@ -448,6 +499,7 @@
       "last_updated": "2026-10-26T15:37:12+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/memory",
       "path": "/docs/agent-sdk/reference/memory",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/memory",
       "status": "live",
       "title": "Memory"
@@ -457,6 +509,7 @@
       "last_updated": "2026-10-26T15:37:12+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/playground",
       "path": "/docs/agent-sdk/reference/playground",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/playground",
       "status": "live",
       "title": "Playground"
@@ -466,6 +519,7 @@
       "last_updated": "2026-10-26T15:37:13+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/project-layout",
       "path": "/docs/agent-sdk/reference/project-layout",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/project-layout",
       "status": "live",
       "title": "Project layout"
@@ -475,6 +529,7 @@
       "last_updated": "2026-10-26T15:37:13+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/schedules",
       "path": "/docs/agent-sdk/reference/schedules",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/schedules",
       "status": "live",
       "title": "Schedules and reminders"
@@ -484,6 +539,7 @@
       "last_updated": "2026-10-26T15:37:14+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/sessions",
       "path": "/docs/agent-sdk/reference/sessions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/sessions",
       "status": "live",
       "title": "Sessions, events, and streaming"
@@ -493,6 +549,7 @@
       "last_updated": "2026-10-26T15:37:14+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/skills",
       "path": "/docs/agent-sdk/reference/skills",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/skills",
       "status": "live",
       "title": "Skills"
@@ -502,6 +559,7 @@
       "last_updated": "2026-10-26T15:37:14+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/subagents",
       "path": "/docs/agent-sdk/reference/subagents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/subagents",
       "status": "live",
       "title": "Subagents"
@@ -511,6 +569,7 @@
       "last_updated": "2026-10-26T15:37:15+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/tools",
       "path": "/docs/agent-sdk/reference/tools",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/reference/tools",
       "status": "live",
       "title": "Tools"
@@ -520,6 +579,7 @@
       "last_updated": "2026-10-26T15:37:15+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/templates/agentic-owners",
       "path": "/docs/agent-sdk/templates/agentic-owners",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/templates/agentic-owners",
       "status": "live",
       "title": "Review pull requests with owners policies"
@@ -529,6 +589,7 @@
       "last_updated": "2026-10-26T15:37:15+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/templates/reviews",
       "path": "/docs/agent-sdk/templates/reviews",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/templates/reviews",
       "status": "live",
       "title": "Review and triage templates"
@@ -538,6 +599,7 @@
       "last_updated": "2026-10-26T15:37:15+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/troubleshooting",
       "path": "/docs/agent-sdk/troubleshooting",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent-sdk/troubleshooting",
       "status": "live",
       "title": "Fix common agent problems"
@@ -547,6 +609,7 @@
       "last_updated": "2026-08-07T17:11:45+00:00",
       "original_url": "https://cursor.com/docs/agent/agent-review",
       "path": "/docs/agent/agent-review",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/agent-review",
       "status": "live",
       "title": "Agent Review"
@@ -556,6 +619,7 @@
       "last_updated": "2026-08-31T20:47:07+00:00",
       "original_url": "https://cursor.com/docs/agent/agents-window",
       "path": "/docs/agent/agents-window",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/agents-window",
       "status": "live",
       "title": "Agents Window"
@@ -565,6 +629,7 @@
       "last_updated": "2026-08-25T01:47:55+00:00",
       "original_url": "https://cursor.com/docs/agent/debug-mode",
       "path": "/docs/agent/debug-mode",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/debug-mode",
       "status": "live",
       "title": "Debug Mode"
@@ -574,6 +639,7 @@
       "last_updated": "2026-10-27T18:18:58+00:00",
       "original_url": "https://cursor.com/docs/agent/design-mode",
       "path": "/docs/agent/design-mode",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/design-mode",
       "status": "live",
       "title": "Design Mode"
@@ -583,6 +649,7 @@
       "last_updated": "2026-09-22T21:13:18+00:00",
       "original_url": "https://cursor.com/docs/agent/overview",
       "path": "/docs/agent/overview",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/overview",
       "status": "live",
       "title": "Cursor Agent"
@@ -592,6 +659,7 @@
       "last_updated": "2026-08-25T01:47:56+00:00",
       "original_url": "https://cursor.com/docs/agent/plan-mode",
       "path": "/docs/agent/plan-mode",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/plan-mode",
       "status": "live",
       "title": "Plan Mode"
@@ -601,6 +669,7 @@
       "last_updated": "2026-10-22T15:23:04+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/projects",
       "status": "live",
       "title": "Projects"
@@ -610,6 +679,7 @@
       "last_updated": "2026-08-24T21:38:53+00:00",
       "original_url": "https://cursor.com/docs/agent/prompting",
       "path": "/docs/agent/prompting",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/prompting",
       "status": "live",
       "title": "Prompting agents"
@@ -619,6 +689,7 @@
       "last_updated": "2026-08-07T17:11:47+00:00",
       "original_url": "https://cursor.com/docs/agent/security",
       "path": "/docs/agent/security",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/security",
       "status": "live",
       "title": "Agent Security"
@@ -628,6 +699,7 @@
       "last_updated": "2026-10-15T21:20:09+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/security/run-modes",
       "status": "live",
       "title": "Run Modes"
@@ -637,6 +709,7 @@
       "last_updated": "2026-08-25T01:47:57+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/browser",
       "path": "/docs/agent/tools/browser",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/tools/browser",
       "status": "live",
       "title": "Browser"
@@ -646,6 +719,7 @@
       "last_updated": "2026-10-19T00:56:31+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/canvas",
       "path": "/docs/agent/tools/canvas",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/tools/canvas",
       "status": "live",
       "title": "Canvases"
@@ -655,6 +729,7 @@
       "last_updated": "2026-09-18T23:13:50+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/search",
       "path": "/docs/agent/tools/search",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/tools/search",
       "status": "live",
       "title": "Search"
@@ -664,6 +739,7 @@
       "last_updated": "2026-08-25T01:47:58+00:00",
       "original_url": "https://cursor.com/docs/agent/tools/terminal",
       "path": "/docs/agent/tools/terminal",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/agent/tools/terminal",
       "status": "live",
       "title": "Terminal"
@@ -673,6 +749,7 @@
       "last_updated": "2026-10-22T15:23:06+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api",
       "status": "live",
       "title": "Cursor APIs Overview"
@@ -682,6 +759,7 @@
       "last_updated": "2026-10-27T00:53:53+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin",
       "status": "live",
       "title": "Cursor Origin API"
@@ -691,6 +769,7 @@
       "last_updated": "2026-10-12T21:20:05+00:00",
       "original_url": "https://cursor.com/docs/api/origin/acting-as-users",
       "path": "/docs/api/origin/acting-as-users",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin/acting-as-users",
       "status": "live",
       "title": "Acting on behalf of users"
@@ -700,6 +779,7 @@
       "last_updated": "2026-10-28T15:16:46+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin/changelog",
       "status": "live",
       "title": "Origin API Changelog"
@@ -709,6 +789,7 @@
       "last_updated": "2026-09-28T05:14:10+00:00",
       "original_url": "https://cursor.com/docs/api/origin/grants-api",
       "path": "/docs/api/origin/grants-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin/grants-api",
       "status": "live",
       "title": "Origin Grants API"
@@ -718,6 +799,7 @@
       "last_updated": "2026-10-24T00:50:09+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp",
       "path": "/docs/api/origin/mcp",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin/mcp",
       "status": "live",
       "title": "Origin MCP"
@@ -727,6 +809,7 @@
       "last_updated": "2026-10-24T00:50:10+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "status": "live",
       "title": "Origin MCP tool reference"
@@ -736,6 +819,7 @@
       "last_updated": "2026-10-06T15:22:33+00:00",
       "original_url": "https://cursor.com/docs/api/origin/migrations",
       "path": "/docs/api/origin/migrations",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/api/origin/migrations",
       "status": "live",
       "title": "Origin Migration API"
@@ -745,6 +829,7 @@
       "last_updated": "2026-10-22T15:23:08+00:00",
       "original_url": "https://cursor.com/docs/approval-agents",
       "path": "/docs/approval-agents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/approval-agents",
       "status": "live",
       "title": "PR Routing & Approval"
@@ -754,6 +839,7 @@
       "last_updated": "2026-10-23T18:26:17+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/bugbot",
       "status": "live",
       "title": "Bugbot"
@@ -763,6 +849,7 @@
       "last_updated": "2026-08-07T17:11:50+00:00",
       "original_url": "https://cursor.com/docs/cli/acp",
       "path": "/docs/cli/acp",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/acp",
       "status": "live",
       "title": "ACP"
@@ -772,6 +859,7 @@
       "last_updated": "2026-10-23T18:26:17+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/changelog",
       "status": "live",
       "title": "Cursor CLI changelog"
@@ -781,6 +869,7 @@
       "last_updated": "2026-08-07T17:11:51+00:00",
       "original_url": "https://cursor.com/docs/cli/github-actions",
       "path": "/docs/cli/github-actions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/github-actions",
       "status": "live",
       "title": "GitHub Actions"
@@ -790,6 +879,7 @@
       "last_updated": "2026-08-07T17:11:51+00:00",
       "original_url": "https://cursor.com/docs/cli/headless",
       "path": "/docs/cli/headless",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/headless",
       "status": "live",
       "title": "Using Headless CLI"
@@ -799,6 +889,7 @@
       "last_updated": "2026-08-07T17:11:51+00:00",
       "original_url": "https://cursor.com/docs/cli/installation",
       "path": "/docs/cli/installation",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/installation",
       "status": "live",
       "title": "Installation"
@@ -808,6 +899,7 @@
       "last_updated": "2026-10-23T06:35:50+00:00",
       "original_url": "https://cursor.com/docs/cli/mcp",
       "path": "/docs/cli/mcp",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/mcp",
       "status": "live",
       "title": "MCP"
@@ -817,6 +909,7 @@
       "last_updated": "2026-08-07T17:11:52+00:00",
       "original_url": "https://cursor.com/docs/cli/overview",
       "path": "/docs/cli/overview",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/overview",
       "status": "live",
       "title": "Cursor CLI"
@@ -826,6 +919,7 @@
       "last_updated": "2026-08-07T17:11:52+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/authentication",
       "path": "/docs/cli/reference/authentication",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/authentication",
       "status": "live",
       "title": "Authentication"
@@ -835,6 +929,7 @@
       "last_updated": "2026-10-06T18:27:58+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/configuration",
       "path": "/docs/cli/reference/configuration",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/configuration",
       "status": "live",
       "title": "Configuration"
@@ -844,6 +939,7 @@
       "last_updated": "2026-08-07T17:11:53+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/output-format",
       "path": "/docs/cli/reference/output-format",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/output-format",
       "status": "live",
       "title": "Output format"
@@ -853,6 +949,7 @@
       "last_updated": "2026-10-25T21:17:38+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/parameters",
       "path": "/docs/cli/reference/parameters",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/parameters",
       "status": "live",
       "title": "Parameters"
@@ -862,6 +959,7 @@
       "last_updated": "2026-08-07T17:11:53+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/permissions",
       "path": "/docs/cli/reference/permissions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/permissions",
       "status": "live",
       "title": "Permissions"
@@ -871,6 +969,7 @@
       "last_updated": "2026-08-19T18:49:27+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/slash-commands",
       "path": "/docs/cli/reference/slash-commands",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/slash-commands",
       "status": "live",
       "title": "Slash commands"
@@ -880,6 +979,7 @@
       "last_updated": "2026-09-28T05:14:16+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/terminal-setup",
       "path": "/docs/cli/reference/terminal-setup",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/reference/terminal-setup",
       "status": "live",
       "title": "Terminal setup"
@@ -889,6 +989,7 @@
       "last_updated": "2026-08-07T17:11:54+00:00",
       "original_url": "https://cursor.com/docs/cli/shell-mode",
       "path": "/docs/cli/shell-mode",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/shell-mode",
       "status": "live",
       "title": "Shell Mode"
@@ -898,6 +999,7 @@
       "last_updated": "2026-08-24T21:39:00+00:00",
       "original_url": "https://cursor.com/docs/cli/using",
       "path": "/docs/cli/using",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cli/using",
       "status": "live",
       "title": "Using Agent in CLI"
@@ -907,6 +1009,7 @@
       "last_updated": "2026-10-22T15:23:13+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent",
       "status": "live",
       "title": "Cloud Agents"
@@ -916,6 +1019,7 @@
       "last_updated": "2026-10-28T00:41:39+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "status": "live",
       "title": "Cloud Agents API"
@@ -925,6 +1029,7 @@
       "last_updated": "2026-08-07T17:11:56+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/webhooks",
       "path": "/docs/cloud-agent/api/webhooks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/api/webhooks",
       "status": "live",
       "title": "Webhooks"
@@ -934,6 +1039,7 @@
       "last_updated": "2026-10-22T15:23:14+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/automations",
       "status": "live",
       "title": "Automations"
@@ -943,6 +1049,7 @@
       "last_updated": "2026-09-03T23:14:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/best-practices",
       "path": "/docs/cloud-agent/best-practices",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/best-practices",
       "status": "live",
       "title": "Best Practices"
@@ -952,6 +1059,7 @@
       "last_updated": "2026-10-22T15:23:15+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/builds",
       "path": "/docs/cloud-agent/builds",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/builds",
       "status": "live",
       "title": "Cloud Agent Builds"
@@ -961,6 +1069,7 @@
       "last_updated": "2026-10-27T18:19:13+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "path": "/docs/cloud-agent/capabilities",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/capabilities",
       "status": "live",
       "title": "Capabilities"
@@ -970,6 +1079,7 @@
       "last_updated": "2026-10-26T15:37:30+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/identity",
       "path": "/docs/cloud-agent/identity",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/identity",
       "status": "live",
       "title": "OIDC tokens"
@@ -979,6 +1089,7 @@
       "last_updated": "2026-08-12T21:57:20+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/metadata",
       "path": "/docs/cloud-agent/metadata",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/metadata",
       "status": "live",
       "title": "Agent metadata"
@@ -988,6 +1099,7 @@
       "last_updated": "2026-10-14T21:19:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/mobile",
       "status": "live",
       "title": "Cursor for iOS"
@@ -997,6 +1109,7 @@
       "last_updated": "2026-10-22T21:20:03+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "path": "/docs/cloud-agent/private-connectivity",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "status": "live",
       "title": "Private Connectivity"
@@ -1006,6 +1119,7 @@
       "last_updated": "2026-10-22T15:23:17+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/security-network",
       "status": "live",
       "title": "Secrets & Network"
@@ -1015,6 +1129,7 @@
       "last_updated": "2026-10-27T18:19:15+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/security",
       "status": "live",
       "title": "Security overview"
@@ -1024,6 +1139,7 @@
       "last_updated": "2026-10-28T18:20:33+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "status": "live",
       "title": "Self-Hosted Machines"
@@ -1033,6 +1149,7 @@
       "last_updated": "2026-10-21T21:19:38+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime",
       "path": "/docs/cloud-agent/self-hosted/choose-runtime",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/choose-runtime",
       "status": "live",
       "title": "Choose where Cloud Agents run"
@@ -1042,6 +1159,7 @@
       "last_updated": "2026-10-24T18:23:35+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/computer-use",
       "path": "/docs/cloud-agent/self-hosted/computer-use",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/computer-use",
       "status": "live",
       "title": "Computer use and desktop sharing"
@@ -1051,6 +1169,7 @@
       "last_updated": "2026-10-19T00:56:43+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "status": "live",
       "title": "Integrations"
@@ -1060,6 +1179,7 @@
       "last_updated": "2026-10-22T15:23:18+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "status": "live",
       "title": "My Machines"
@@ -1069,6 +1189,7 @@
       "last_updated": "2026-10-22T18:25:45+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "status": "live",
       "title": "Team Pools"
@@ -1078,6 +1199,7 @@
       "last_updated": "2026-10-22T15:23:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/settings",
       "status": "live",
       "title": "Cloud Agents settings"
@@ -1087,6 +1209,7 @@
       "last_updated": "2026-10-22T15:23:19+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/setup",
       "status": "live",
       "title": "Cloud Environment Setup"
@@ -1096,6 +1219,7 @@
       "last_updated": "2026-08-07T17:11:59+00:00",
       "original_url": "https://cursor.com/docs/configuration/migrations/vscode",
       "path": "/docs/configuration/migrations/vscode",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/configuration/migrations/vscode",
       "status": "live",
       "title": "VS Code Migration"
@@ -1105,6 +1229,7 @@
       "last_updated": "2026-08-07T17:12:00+00:00",
       "original_url": "https://cursor.com/docs/configuration/worktrees",
       "path": "/docs/configuration/worktrees",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/configuration/worktrees",
       "status": "live",
       "title": "Worktrees"
@@ -1114,6 +1239,7 @@
       "last_updated": "2026-10-21T12:32:14+00:00",
       "original_url": "https://cursor.com/docs/cursor-router",
       "path": "/docs/cursor-router",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/cursor-router",
       "status": "live",
       "title": "Cursor Router"
@@ -1123,6 +1249,7 @@
       "last_updated": "2026-10-26T18:33:30+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
+      "section": "docs",
       "source_url": "https://cursor.com/docs",
       "status": "live",
       "title": "Cursor Documentation"
@@ -1132,6 +1259,7 @@
       "last_updated": "2026-08-07T17:12:03+00:00",
       "original_url": "https://cursor.com/docs/customize-cursor",
       "path": "/docs/customize-cursor",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/customize-cursor",
       "status": "live",
       "title": "Customize Cursor"
@@ -1141,6 +1269,7 @@
       "last_updated": "2026-08-07T17:12:03+00:00",
       "original_url": "https://cursor.com/docs/customizing/aws-bedrock",
       "path": "/docs/customizing/aws-bedrock",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/customizing/aws-bedrock",
       "status": "live",
       "title": "AWS Bedrock"
@@ -1150,6 +1279,7 @@
       "last_updated": "2026-09-21T19:57:33+00:00",
       "original_url": "https://cursor.com/docs/evals",
       "path": "/docs/evals",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/evals",
       "status": "live",
       "title": "Run Cursor in your evals"
@@ -1159,6 +1289,7 @@
       "last_updated": "2026-08-24T21:39:09+00:00",
       "original_url": "https://cursor.com/docs/extension-api",
       "path": "/docs/extension-api",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/extension-api",
       "status": "live",
       "title": "Extension API reference"
@@ -1168,6 +1299,7 @@
       "last_updated": "2026-08-07T17:12:04+00:00",
       "original_url": "https://cursor.com/docs/get-started/quickstart",
       "path": "/docs/get-started/quickstart",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/get-started/quickstart",
       "status": "live",
       "title": "Quickstart"
@@ -1177,6 +1309,7 @@
       "last_updated": "2026-10-27T21:14:04+00:00",
       "original_url": "https://cursor.com/docs/grok-bot",
       "path": "/docs/grok-bot",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot",
       "status": "live",
       "title": "Grok Bot"
@@ -1186,6 +1319,7 @@
       "last_updated": "2026-10-27T12:34:19+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/computers",
       "status": "live",
       "title": "Manage Grok Bot computers"
@@ -1195,6 +1329,7 @@
       "last_updated": "2026-10-24T21:18:37+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/deployment",
       "path": "/docs/grok-bot/deployment",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/deployment",
       "status": "live",
       "title": "Deploy Grok Bot to your organization"
@@ -1204,6 +1339,7 @@
       "last_updated": "2026-10-27T21:14:05+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/get-started",
       "path": "/docs/grok-bot/get-started",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/get-started",
       "status": "live",
       "title": "Get started with Grok Bot"
@@ -1213,6 +1349,7 @@
       "last_updated": "2026-10-19T00:56:49+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/identity",
       "path": "/docs/grok-bot/identity",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/identity",
       "status": "live",
       "title": "Configure identity and access"
@@ -1222,6 +1359,7 @@
       "last_updated": "2026-10-27T21:14:06+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/inference-hooks",
       "path": "/docs/grok-bot/inference-hooks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/inference-hooks",
       "status": "live",
       "title": "Grok Bot inference hooks"
@@ -1231,6 +1369,7 @@
       "last_updated": "2026-10-24T21:18:38+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/private-networks",
       "status": "live",
       "title": "Connect to private networks"
@@ -1240,6 +1379,7 @@
       "last_updated": "2026-10-11T09:24:07+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/proxies",
       "path": "/docs/grok-bot/proxies",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/proxies",
       "status": "live",
       "title": "Configure TLS-inspecting proxies"
@@ -1249,6 +1389,7 @@
       "last_updated": "2026-10-28T00:41:51+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/security-faq",
       "status": "live",
       "title": "Grok Bot security FAQ"
@@ -1258,6 +1399,7 @@
       "last_updated": "2026-10-28T21:14:57+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/security",
       "status": "live",
       "title": "Grok Bot security"
@@ -1267,6 +1409,7 @@
       "last_updated": "2026-10-24T21:18:39+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/settings",
       "path": "/docs/grok-bot/settings",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/settings",
       "status": "live",
       "title": "Settings and notifications"
@@ -1276,6 +1419,7 @@
       "last_updated": "2026-10-27T21:14:08+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/teams",
       "status": "live",
       "title": "Grok Bot for Teams and Enterprise"
@@ -1285,6 +1429,7 @@
       "last_updated": "2026-09-03T04:15:08+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/use-cases",
       "path": "/docs/grok-bot/use-cases",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/use-cases",
       "status": "live",
       "title": "Grok Bot use cases"
@@ -1294,15 +1439,67 @@
       "last_updated": "2026-10-28T21:14:58+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/grok-bot/work",
       "status": "live",
       "title": "Work with Grok Bot"
+    },
+    "guides.md": {
+      "hash": "6f5fc0c2b43c8133547f4b3f10bc425dd02aed44eaf6e0b90a899afe1fd0db11",
+      "last_updated": "2026-11-03T18:08:43+00:00",
+      "original_url": "https://cursor.com/guides",
+      "path": "/guides",
+      "section": "guides",
+      "source_url": "https://cursor.com/guides",
+      "status": "live",
+      "title": "Guides"
+    },
+    "guides__ai-code-review.md": {
+      "hash": "5667c1f2cf673477aa7c9448ad1564c94f6d6a2f16e876057c87c4c1877d69b7",
+      "last_updated": "2026-11-03T18:08:43+00:00",
+      "original_url": "https://cursor.com/guides/ai-code-review",
+      "path": "/guides/ai-code-review",
+      "section": "guides",
+      "source_url": "https://cursor.com/guides/ai-code-review",
+      "status": "live",
+      "title": "AI code review: more context, fewer bugs"
+    },
+    "guides__coding-agent-mcp.md": {
+      "hash": "7d063b2d0936c563e6180d79bbf70cbf9b6505833620da87ab383ccf07b98a6f",
+      "last_updated": "2026-11-03T18:08:43+00:00",
+      "original_url": "https://cursor.com/guides/coding-agent-mcp",
+      "path": "/guides/coding-agent-mcp",
+      "section": "guides",
+      "source_url": "https://cursor.com/guides/coding-agent-mcp",
+      "status": "live",
+      "title": "MCP for coding agents: how agents plug into your stack"
+    },
+    "guides__model-routing.md": {
+      "hash": "e7b285b06b791cbb19a1436ab274cea9c5eba627fc91aaaa8a3873a8b4ab1193",
+      "last_updated": "2026-11-03T18:08:44+00:00",
+      "original_url": "https://cursor.com/guides/model-routing",
+      "path": "/guides/model-routing",
+      "section": "guides",
+      "source_url": "https://cursor.com/guides/model-routing",
+      "status": "live",
+      "title": "Model routing: right model, right job, right price"
+    },
+    "guides__return-on-intelligence.md": {
+      "hash": "774ae4b95b4e1f6a583c25911c50387eb416b7dfab20787c6bc2eea5d870ce4d",
+      "last_updated": "2026-11-03T18:08:44+00:00",
+      "original_url": "https://cursor.com/guides/return-on-intelligence",
+      "path": "/guides/return-on-intelligence",
+      "section": "guides",
+      "source_url": "https://cursor.com/guides/return-on-intelligence",
+      "status": "live",
+      "title": "Maximizing return on intelligence"
     },
     "hooks.md": {
       "hash": "3c81291c1a64f3625597042b60d77972b6f2f610ba656ae1975fe445f8292c56",
       "last_updated": "2026-10-23T21:20:04+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/hooks",
       "status": "live",
       "title": "Hooks"
@@ -1312,6 +1509,7 @@
       "last_updated": "2026-10-21T18:26:46+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/azure-devops",
       "status": "live",
       "title": "Azure DevOps"
@@ -1321,6 +1519,7 @@
       "last_updated": "2026-10-23T18:26:37+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/bitbucket",
       "status": "live",
       "title": "Bitbucket"
@@ -1330,6 +1529,7 @@
       "last_updated": "2026-08-07T17:12:05+00:00",
       "original_url": "https://cursor.com/docs/integrations/cursor-blame",
       "path": "/docs/integrations/cursor-blame",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/cursor-blame",
       "status": "live",
       "title": "Cursor Blame"
@@ -1339,6 +1539,7 @@
       "last_updated": "2026-10-22T15:23:26+00:00",
       "original_url": "https://cursor.com/docs/integrations/github",
       "path": "/docs/integrations/github",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/github",
       "status": "live",
       "title": "GitHub"
@@ -1348,6 +1549,7 @@
       "last_updated": "2026-10-22T15:23:27+00:00",
       "original_url": "https://cursor.com/docs/integrations/gitlab",
       "path": "/docs/integrations/gitlab",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/gitlab",
       "status": "live",
       "title": "GitLab"
@@ -1357,6 +1559,7 @@
       "last_updated": "2026-08-07T17:12:06+00:00",
       "original_url": "https://cursor.com/docs/integrations/jetbrains",
       "path": "/docs/integrations/jetbrains",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/jetbrains",
       "status": "live",
       "title": "JetBrains"
@@ -1366,6 +1569,7 @@
       "last_updated": "2026-10-22T15:23:27+00:00",
       "original_url": "https://cursor.com/docs/integrations/jira",
       "path": "/docs/integrations/jira",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/jira",
       "status": "live",
       "title": "Jira"
@@ -1375,6 +1579,7 @@
       "last_updated": "2026-08-07T17:12:07+00:00",
       "original_url": "https://cursor.com/docs/integrations/linear",
       "path": "/docs/integrations/linear",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/linear",
       "status": "live",
       "title": "Linear"
@@ -1384,6 +1589,7 @@
       "last_updated": "2026-08-07T17:12:07+00:00",
       "original_url": "https://cursor.com/docs/integrations/microsoft-teams",
       "path": "/docs/integrations/microsoft-teams",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/microsoft-teams",
       "status": "live",
       "title": "Microsoft Teams"
@@ -1393,6 +1599,7 @@
       "last_updated": "2026-08-07T17:12:07+00:00",
       "original_url": "https://cursor.com/docs/integrations/notion",
       "path": "/docs/integrations/notion",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/notion",
       "status": "live",
       "title": "Notion"
@@ -1402,6 +1609,7 @@
       "last_updated": "2026-10-22T15:23:28+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/slack",
       "status": "live",
       "title": "Slack"
@@ -1411,6 +1619,7 @@
       "last_updated": "2026-10-27T21:14:12+00:00",
       "original_url": "https://cursor.com/docs/integrations/tailscale",
       "path": "/docs/integrations/tailscale",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/tailscale",
       "status": "live",
       "title": "Tailscale"
@@ -1420,6 +1629,7 @@
       "last_updated": "2026-08-07T17:12:08+00:00",
       "original_url": "https://cursor.com/docs/integrations/xcode",
       "path": "/docs/integrations/xcode",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/integrations/xcode",
       "status": "live",
       "title": "Xcode"
@@ -1429,6 +1639,7 @@
       "last_updated": "2026-10-22T15:23:29+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/mcp",
       "status": "live",
       "title": "Model Context Protocol (MCP)"
@@ -1438,6 +1649,7 @@
       "last_updated": "2026-08-07T17:12:09+00:00",
       "original_url": "https://cursor.com/docs/mcp/install-links",
       "path": "/docs/mcp/install-links",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/mcp/install-links",
       "status": "live",
       "title": "MCP Install Links"
@@ -1447,6 +1659,7 @@
       "last_updated": "2026-10-26T18:34:22+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models-and-pricing",
       "status": "live",
       "title": "Models & Pricing"
@@ -1456,6 +1669,7 @@
       "last_updated": "2026-10-14T21:19:36+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-haiku",
       "path": "/docs/models/claude-4-5-haiku",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-4-5-haiku",
       "status": "live",
       "title": "Models Claude 4 5 Haiku"
@@ -1465,6 +1679,7 @@
       "last_updated": "2026-10-14T21:19:36+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
       "path": "/docs/models/claude-4-5-sonnet",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-4-5-sonnet",
       "status": "live",
       "title": "Models Claude 4 5 Sonnet"
@@ -1474,6 +1689,7 @@
       "last_updated": "2026-10-14T21:19:37+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
       "path": "/docs/models/claude-4-6-sonnet",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-4-6-sonnet",
       "status": "live",
       "title": "Models Claude 4 6 Sonnet"
@@ -1483,6 +1699,7 @@
       "last_updated": "2026-10-14T21:19:37+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
       "path": "/docs/models/claude-4-sonnet-1m",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet-1m",
       "status": "live",
       "title": "Models Claude 4 Sonnet 1m"
@@ -1492,6 +1709,7 @@
       "last_updated": "2026-10-14T21:19:37+00:00",
       "original_url": "https://cursor.com/docs/models/claude-4-sonnet",
       "path": "/docs/models/claude-4-sonnet",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-4-sonnet",
       "status": "live",
       "title": "Models Claude 4 Sonnet"
@@ -1501,6 +1719,7 @@
       "last_updated": "2026-10-20T18:26:49+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5-1",
       "path": "/docs/models/claude-fable-5-1",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-fable-5-1",
       "status": "live",
       "title": "Models Claude Fable 5 1"
@@ -1510,6 +1729,7 @@
       "last_updated": "2026-10-20T18:26:48+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5",
       "path": "/docs/models/claude-fable-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-fable-5",
       "status": "live",
       "title": "Models Claude Fable 5"
@@ -1519,6 +1739,7 @@
       "last_updated": "2026-10-14T21:19:38+00:00",
       "original_url": "https://cursor.com/docs/models/claude-haiku-5-5",
       "path": "/docs/models/claude-haiku-5-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-haiku-5-5",
       "status": "live",
       "title": "Models Claude Haiku 5 5"
@@ -1528,6 +1749,7 @@
       "last_updated": "2026-10-14T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-5",
       "path": "/docs/models/claude-opus-4-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-5",
       "status": "live",
       "title": "Models Claude Opus 4 5"
@@ -1537,6 +1759,7 @@
       "last_updated": "2026-10-14T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-6",
       "path": "/docs/models/claude-opus-4-6",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-6",
       "status": "live",
       "title": "Models Claude Opus 4 6"
@@ -1546,6 +1769,7 @@
       "last_updated": "2026-10-14T21:19:40+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-7-fast",
       "path": "/docs/models/claude-opus-4-7-fast",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-7-fast",
       "status": "live",
       "title": "Models Claude Opus 4 7 Fast"
@@ -1555,6 +1779,7 @@
       "last_updated": "2026-10-14T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-7",
       "path": "/docs/models/claude-opus-4-7",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-7",
       "status": "live",
       "title": "Models Claude Opus 4 7"
@@ -1564,6 +1789,7 @@
       "last_updated": "2026-10-14T21:19:40+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-4-8",
       "path": "/docs/models/claude-opus-4-8",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-4-8",
       "status": "live",
       "title": "Models Claude Opus 4 8"
@@ -1573,6 +1799,7 @@
       "last_updated": "2026-10-14T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5-5",
       "path": "/docs/models/claude-opus-5-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-5-5",
       "status": "live",
       "title": "Models Claude Opus 5 5"
@@ -1582,6 +1809,7 @@
       "last_updated": "2026-10-14T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/models/claude-opus-5",
       "path": "/docs/models/claude-opus-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-opus-5",
       "status": "live",
       "title": "Models Claude Opus 5"
@@ -1591,6 +1819,7 @@
       "last_updated": "2026-10-14T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5-5",
       "path": "/docs/models/claude-sonnet-5-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5-5",
       "status": "live",
       "title": "Models Claude Sonnet 5 5"
@@ -1600,6 +1829,7 @@
       "last_updated": "2026-10-14T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/models/claude-sonnet-5",
       "path": "/docs/models/claude-sonnet-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/claude-sonnet-5",
       "status": "live",
       "title": "Models Claude Sonnet 5"
@@ -1609,6 +1839,7 @@
       "last_updated": "2026-10-14T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/models/cursor-composer-1",
       "path": "/docs/models/cursor-composer-1",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/cursor-composer-1",
       "status": "live",
       "title": "Models Cursor Composer 1"
@@ -1618,6 +1849,7 @@
       "last_updated": "2026-10-14T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/models/cursor-composer-2-5",
       "path": "/docs/models/cursor-composer-2-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/cursor-composer-2-5",
       "status": "live",
       "title": "Models Cursor Composer 2 5"
@@ -1627,6 +1859,7 @@
       "last_updated": "2026-10-26T18:34:28+00:00",
       "original_url": "https://cursor.com/docs/models/deepseek-v4-1-flash-1017",
       "path": "/docs/models/deepseek-v4-1-flash-1017",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/deepseek-v4-1-flash-1017",
       "status": "live",
       "title": "Models Deepseek V4 1 Flash 1017"
@@ -1636,6 +1869,7 @@
       "last_updated": "2026-10-14T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-2-5-flash",
       "path": "/docs/models/gemini-2-5-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-2-5-flash",
       "status": "live",
       "title": "Models Gemini 2 5 Flash"
@@ -1645,6 +1879,7 @@
       "last_updated": "2026-10-14T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-1-pro",
       "path": "/docs/models/gemini-3-1-pro",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-1-pro",
       "status": "live",
       "title": "Models Gemini 3 1 Pro"
@@ -1654,6 +1889,7 @@
       "last_updated": "2026-10-13T18:31:32+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-5-flash-lite",
       "path": "/docs/models/gemini-3-5-flash-lite",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-5-flash-lite",
       "status": "live",
       "title": "Models Gemini 3 5 Flash Lite"
@@ -1663,6 +1899,7 @@
       "last_updated": "2026-10-14T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-5-flash",
       "path": "/docs/models/gemini-3-5-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-5-flash",
       "status": "live",
       "title": "Models Gemini 3 5 Flash"
@@ -1672,6 +1909,7 @@
       "last_updated": "2026-10-14T21:19:44+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-6-flash",
       "path": "/docs/models/gemini-3-6-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-6-flash",
       "status": "live",
       "title": "Models Gemini 3 6 Flash"
@@ -1681,6 +1919,7 @@
       "last_updated": "2026-10-14T21:19:44+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-7-flash",
       "path": "/docs/models/gemini-3-7-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-7-flash",
       "status": "live",
       "title": "Models Gemini 3 7 Flash"
@@ -1690,6 +1929,7 @@
       "last_updated": "2026-10-14T21:19:45+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-8-flash",
       "path": "/docs/models/gemini-3-8-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-8-flash",
       "status": "live",
       "title": "Models Gemini 3 8 Flash"
@@ -1699,6 +1939,7 @@
       "last_updated": "2026-10-14T21:19:45+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-flash",
       "path": "/docs/models/gemini-3-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-flash",
       "status": "live",
       "title": "Models Gemini 3 Flash"
@@ -1708,6 +1949,7 @@
       "last_updated": "2026-08-07T17:12:16+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-pro-image-preview",
       "path": "/docs/models/gemini-3-pro-image-preview",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-pro-image-preview",
       "status": "live",
       "title": "Models Gemini 3 Pro Image Preview"
@@ -1717,6 +1959,7 @@
       "last_updated": "2026-10-14T21:19:45+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-pro",
       "path": "/docs/models/gemini-3-pro",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-3-pro",
       "status": "live",
       "title": "Models Gemini 3 Pro"
@@ -1726,6 +1969,7 @@
       "last_updated": "2026-10-14T21:19:46+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-4-argon",
       "path": "/docs/models/gemini-4-argon",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-4-argon",
       "status": "live",
       "title": "Models Gemini 4 Argon"
@@ -1735,6 +1979,7 @@
       "last_updated": "2026-10-14T21:19:46+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-2",
       "path": "/docs/models/glm-5-2",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/glm-5-2",
       "status": "live",
       "title": "Models Glm 5 2"
@@ -1744,6 +1989,7 @@
       "last_updated": "2026-10-14T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-3-flash",
       "path": "/docs/models/glm-5-3-flash",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/glm-5-3-flash",
       "status": "live",
       "title": "Models Glm 5 3 Flash"
@@ -1753,6 +1999,7 @@
       "last_updated": "2026-10-14T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/models/glm-5-3",
       "path": "/docs/models/glm-5-3",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/glm-5-3",
       "status": "live",
       "title": "Models Glm 5 3"
@@ -1762,6 +2009,7 @@
       "last_updated": "2026-10-14T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-1-codex-max",
       "path": "/docs/models/gpt-5-1-codex-max",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-1-codex-max",
       "status": "live",
       "title": "Models Gpt 5 1 Codex Max"
@@ -1771,6 +2019,7 @@
       "last_updated": "2026-10-14T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-1-codex-mini",
       "path": "/docs/models/gpt-5-1-codex-mini",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-1-codex-mini",
       "status": "live",
       "title": "Models Gpt 5 1 Codex Mini"
@@ -1780,6 +2029,7 @@
       "last_updated": "2026-10-14T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-1-codex",
       "path": "/docs/models/gpt-5-1-codex",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-1-codex",
       "status": "live",
       "title": "Models Gpt 5 1 Codex"
@@ -1789,6 +2039,7 @@
       "last_updated": "2026-10-14T21:19:49+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-2-codex",
       "path": "/docs/models/gpt-5-2-codex",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-2-codex",
       "status": "live",
       "title": "Models Gpt 5 2 Codex"
@@ -1798,6 +2049,7 @@
       "last_updated": "2026-10-14T21:19:49+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-2",
       "path": "/docs/models/gpt-5-2",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-2",
       "status": "live",
       "title": "Models Gpt 5 2"
@@ -1807,6 +2059,7 @@
       "last_updated": "2026-10-14T21:19:49+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-3-codex",
       "path": "/docs/models/gpt-5-3-codex",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-3-codex",
       "status": "live",
       "title": "Models Gpt 5 3 Codex"
@@ -1816,6 +2069,7 @@
       "last_updated": "2026-10-14T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-4-mini",
       "path": "/docs/models/gpt-5-4-mini",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-4-mini",
       "status": "live",
       "title": "Models Gpt 5 4 Mini"
@@ -1825,6 +2079,7 @@
       "last_updated": "2026-10-14T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-4-nano",
       "path": "/docs/models/gpt-5-4-nano",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-4-nano",
       "status": "live",
       "title": "Models Gpt 5 4 Nano"
@@ -1834,6 +2089,7 @@
       "last_updated": "2026-10-14T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-4",
       "path": "/docs/models/gpt-5-4",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-4",
       "status": "live",
       "title": "Models Gpt 5 4"
@@ -1843,6 +2099,7 @@
       "last_updated": "2026-10-14T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-5",
       "path": "/docs/models/gpt-5-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-5",
       "status": "live",
       "title": "Models Gpt 5 5"
@@ -1852,6 +2109,7 @@
       "last_updated": "2026-10-14T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-luna",
       "path": "/docs/models/gpt-5-6-luna",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-luna",
       "status": "live",
       "title": "Models Gpt 5 6 Luna"
@@ -1861,6 +2119,7 @@
       "last_updated": "2026-10-14T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-sol",
       "path": "/docs/models/gpt-5-6-sol",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-sol",
       "status": "live",
       "title": "Models Gpt 5 6 Sol"
@@ -1870,6 +2129,7 @@
       "last_updated": "2026-10-14T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-6-terra",
       "path": "/docs/models/gpt-5-6-terra",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-6-terra",
       "status": "live",
       "title": "Models Gpt 5 6 Terra"
@@ -1879,6 +2139,7 @@
       "last_updated": "2026-10-14T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-codex",
       "path": "/docs/models/gpt-5-codex",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-codex",
       "status": "live",
       "title": "Models Gpt 5 Codex"
@@ -1888,6 +2149,7 @@
       "last_updated": "2026-10-14T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-fast",
       "path": "/docs/models/gpt-5-fast",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-fast",
       "status": "live",
       "title": "Models Gpt 5 Fast"
@@ -1897,6 +2159,7 @@
       "last_updated": "2026-10-14T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5-mini",
       "path": "/docs/models/gpt-5-mini",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5-mini",
       "status": "live",
       "title": "Models Gpt 5 Mini"
@@ -1906,6 +2169,7 @@
       "last_updated": "2026-10-14T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/models/gpt-5",
       "path": "/docs/models/gpt-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/gpt-5",
       "status": "live",
       "title": "Models Gpt 5"
@@ -1915,6 +2179,7 @@
       "last_updated": "2026-10-14T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-5",
       "path": "/docs/models/grok-4-5",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/grok-4-5",
       "status": "live",
       "title": "Models Grok 4 5"
@@ -1924,6 +2189,7 @@
       "last_updated": "2026-10-14T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-6",
       "path": "/docs/models/grok-4-6",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/grok-4-6",
       "status": "live",
       "title": "Models Grok 4 6"
@@ -1933,6 +2199,7 @@
       "last_updated": "2026-10-14T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/models/grok-4-7",
       "path": "/docs/models/grok-4-7",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/grok-4-7",
       "status": "live",
       "title": "Models Grok 4 7"
@@ -1942,6 +2209,7 @@
       "last_updated": "2026-10-14T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/models/kimi-k2-7-code",
       "path": "/docs/models/kimi-k2-7-code",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/kimi-k2-7-code",
       "status": "live",
       "title": "Models Kimi K2 7 Code"
@@ -1951,6 +2219,7 @@
       "last_updated": "2026-10-14T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/models/kimi-k3",
       "path": "/docs/models/kimi-k3",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/kimi-k3",
       "status": "live",
       "title": "Models Kimi K3"
@@ -1960,6 +2229,7 @@
       "last_updated": "2026-10-16T00:50:47+00:00",
       "original_url": "https://cursor.com/docs/models/muse-spark-1-3",
       "path": "/docs/models/muse-spark-1-3",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/muse-spark-1-3",
       "status": "live",
       "title": "Models Muse Spark 1 3"
@@ -1969,6 +2239,7 @@
       "last_updated": "2026-10-16T00:50:47+00:00",
       "original_url": "https://cursor.com/docs/models/muse-wonder",
       "path": "/docs/models/muse-wonder",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/models/muse-wonder",
       "status": "live",
       "title": "Models Muse Wonder"
@@ -1978,6 +2249,7 @@
       "last_updated": "2026-10-20T00:52:54+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin",
       "status": "live",
       "title": "Origin"
@@ -1987,6 +2259,7 @@
       "last_updated": "2026-10-16T18:25:43+00:00",
       "original_url": "https://cursor.com/docs/origin/agents",
       "path": "/docs/origin/agents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/agents",
       "status": "live",
       "title": "Agents and automations"
@@ -1996,6 +2269,7 @@
       "last_updated": "2026-10-21T15:22:48+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/apps",
       "status": "live",
       "title": "Origin Apps"
@@ -2005,6 +2279,7 @@
       "last_updated": "2026-10-13T15:25:59+00:00",
       "original_url": "https://cursor.com/docs/origin/apps/build-app",
       "path": "/docs/origin/apps/build-app",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/apps/build-app",
       "status": "live",
       "title": "Build an Origin App"
@@ -2014,6 +2289,7 @@
       "last_updated": "2026-10-13T15:25:59+00:00",
       "original_url": "https://cursor.com/docs/origin/apps/publish",
       "path": "/docs/origin/apps/publish",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/apps/publish",
       "status": "live",
       "title": "Publish to the App Marketplace"
@@ -2023,6 +2299,7 @@
       "last_updated": "2026-10-09T21:21:52+00:00",
       "original_url": "https://cursor.com/docs/origin/browse",
       "path": "/docs/origin/browse",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/browse",
       "status": "live",
       "title": "Browse & Search"
@@ -2032,6 +2309,7 @@
       "last_updated": "2026-10-27T18:19:54+00:00",
       "original_url": "https://cursor.com/docs/origin/cli",
       "path": "/docs/origin/cli",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/cli",
       "status": "live",
       "title": "Install the CLI"
@@ -2041,6 +2319,7 @@
       "last_updated": "2026-10-27T18:19:54+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "status": "live",
       "title": "Commands"
@@ -2050,6 +2329,7 @@
       "last_updated": "2026-10-27T18:19:54+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "path": "/docs/origin/cli/reference/pull-requests",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "status": "live",
       "title": "Pull request commands"
@@ -2059,6 +2339,7 @@
       "last_updated": "2026-10-27T18:19:55+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/stacks",
       "path": "/docs/origin/cli/reference/stacks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/cli/reference/stacks",
       "status": "live",
       "title": "Stack commands"
@@ -2068,6 +2349,7 @@
       "last_updated": "2026-10-07T21:22:56+00:00",
       "original_url": "https://cursor.com/docs/origin/clonekit-ci",
       "path": "/docs/origin/clonekit-ci",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/clonekit-ci",
       "status": "live",
       "title": "Set up CloneKit in CI with `origin repo clone-fast`"
@@ -2077,6 +2359,7 @@
       "last_updated": "2026-10-20T00:52:56+00:00",
       "original_url": "https://cursor.com/docs/origin/code-tours",
       "path": "/docs/origin/code-tours",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/code-tours",
       "status": "live",
       "title": "Code Tours"
@@ -2086,6 +2369,7 @@
       "last_updated": "2026-10-07T21:22:57+00:00",
       "original_url": "https://cursor.com/docs/origin/create-repository",
       "path": "/docs/origin/create-repository",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/create-repository",
       "status": "live",
       "title": "Create an Origin repository"
@@ -2095,6 +2379,7 @@
       "last_updated": "2026-10-19T21:20:19+00:00",
       "original_url": "https://cursor.com/docs/origin/git",
       "path": "/docs/origin/git",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/git",
       "status": "live",
       "title": "Clone, Push & Pull"
@@ -2104,6 +2389,7 @@
       "last_updated": "2026-10-14T21:19:59+00:00",
       "original_url": "https://cursor.com/docs/origin/mirror-github",
       "path": "/docs/origin/mirror-github",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/mirror-github",
       "status": "live",
       "title": "Mirror a GitHub repository"
@@ -2113,6 +2399,7 @@
       "last_updated": "2026-10-20T00:52:58+00:00",
       "original_url": "https://cursor.com/docs/origin/pull-requests",
       "path": "/docs/origin/pull-requests",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/pull-requests",
       "status": "live",
       "title": "Pull requests"
@@ -2122,6 +2409,7 @@
       "last_updated": "2026-10-24T18:24:11+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/origin/settings",
       "status": "live",
       "title": "Settings"
@@ -2131,6 +2419,7 @@
       "last_updated": "2026-10-22T15:23:49+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/plugins",
       "status": "live",
       "title": "Plugins"
@@ -2140,6 +2429,7 @@
       "last_updated": "2026-09-16T16:46:25+00:00",
       "original_url": "https://cursor.com/docs/reference/deeplinks",
       "path": "/docs/reference/deeplinks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/deeplinks",
       "status": "live",
       "title": "Deeplinks"
@@ -2149,6 +2439,7 @@
       "last_updated": "2026-10-23T21:20:35+00:00",
       "original_url": "https://cursor.com/docs/reference/ignore-file",
       "path": "/docs/reference/ignore-file",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/ignore-file",
       "status": "live",
       "title": "Ignore file"
@@ -2158,6 +2449,7 @@
       "last_updated": "2026-10-23T21:20:35+00:00",
       "original_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
       "path": "/docs/reference/keyboard-shortcuts",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
       "status": "live",
       "title": "Keyboard Shortcuts"
@@ -2167,6 +2459,7 @@
       "last_updated": "2026-08-07T17:12:24+00:00",
       "original_url": "https://cursor.com/docs/reference/permissions",
       "path": "/docs/reference/permissions",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/permissions",
       "status": "live",
       "title": "permissions.json reference"
@@ -2176,6 +2469,7 @@
       "last_updated": "2026-10-22T15:23:51+00:00",
       "original_url": "https://cursor.com/docs/reference/plugins",
       "path": "/docs/reference/plugins",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/plugins",
       "status": "live",
       "title": "Plugins reference"
@@ -2185,6 +2479,7 @@
       "last_updated": "2026-10-06T18:28:41+00:00",
       "original_url": "https://cursor.com/docs/reference/sandbox",
       "path": "/docs/reference/sandbox",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/sandbox",
       "status": "live",
       "title": "sandbox.json reference"
@@ -2194,6 +2489,7 @@
       "last_updated": "2026-09-16T16:46:26+00:00",
       "original_url": "https://cursor.com/docs/reference/third-party-hooks",
       "path": "/docs/reference/third-party-hooks",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/reference/third-party-hooks",
       "status": "live",
       "title": "Third Party Hooks"
@@ -2203,6 +2499,7 @@
       "last_updated": "2026-10-28T21:15:29+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes",
       "status": "live",
       "title": "Release notes"
@@ -2212,6 +2509,7 @@
       "last_updated": "2026-10-27T15:25:56+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/agents-window",
       "status": "live",
       "title": "Agents Window release notes"
@@ -2221,6 +2519,7 @@
       "last_updated": "2026-10-26T15:38:10+00:00",
       "original_url": "https://cursor.com/docs/release-notes/bugbot",
       "path": "/docs/release-notes/bugbot",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/bugbot",
       "status": "live",
       "title": "Bugbot release notes"
@@ -2230,6 +2529,7 @@
       "last_updated": "2026-10-27T15:25:56+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "status": "live",
       "title": "Cloud Agents release notes"
@@ -2239,6 +2539,7 @@
       "last_updated": "2026-10-27T15:25:57+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/ide",
       "status": "live",
       "title": "Cursor IDE release notes"
@@ -2248,6 +2549,7 @@
       "last_updated": "2026-10-27T15:25:57+00:00",
       "original_url": "https://cursor.com/docs/release-notes/mobile",
       "path": "/docs/release-notes/mobile",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/mobile",
       "status": "live",
       "title": "Cursor mobile release notes"
@@ -2257,6 +2559,7 @@
       "last_updated": "2026-10-28T18:21:19+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin-cli",
       "path": "/docs/release-notes/origin-cli",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/origin-cli",
       "status": "live",
       "title": "Origin CLI release notes"
@@ -2266,6 +2569,7 @@
       "last_updated": "2026-10-27T15:25:57+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin",
       "path": "/docs/release-notes/origin",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/origin",
       "status": "live",
       "title": "Origin release notes"
@@ -2275,6 +2579,7 @@
       "last_updated": "2026-10-23T18:27:13+00:00",
       "original_url": "https://cursor.com/docs/release-notes/sdk",
       "path": "/docs/release-notes/sdk",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/sdk",
       "status": "live",
       "title": "Cursor SDK release notes"
@@ -2284,6 +2589,7 @@
       "last_updated": "2026-10-28T21:15:33+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/release-notes/web",
       "status": "live",
       "title": "Cursor web release notes"
@@ -2293,6 +2599,7 @@
       "last_updated": "2026-10-12T18:30:12+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/rollouts",
       "status": "live",
       "title": "Rollouts"
@@ -2302,6 +2609,7 @@
       "last_updated": "2026-10-23T21:20:41+00:00",
       "original_url": "https://cursor.com/docs/rules",
       "path": "/docs/rules",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/rules",
       "status": "live",
       "title": "Rules"
@@ -2311,6 +2619,7 @@
       "last_updated": "2026-10-06T15:23:27+00:00",
       "original_url": "https://cursor.com/docs/sdk/bridge",
       "path": "/docs/sdk/bridge",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/sdk/bridge",
       "status": "live",
       "title": "Cursor SDK Bridge"
@@ -2320,6 +2629,7 @@
       "last_updated": "2026-10-28T18:21:21+00:00",
       "original_url": "https://cursor.com/docs/sdk/python",
       "path": "/docs/sdk/python",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/sdk/python",
       "status": "live",
       "title": "Cursor Python SDK"
@@ -2329,6 +2639,7 @@
       "last_updated": "2026-10-16T18:25:56+00:00",
       "original_url": "https://cursor.com/docs/sdk/typescript",
       "path": "/docs/sdk/typescript",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/sdk/typescript",
       "status": "live",
       "title": "Cursor TypeScript SDK"
@@ -2338,6 +2649,7 @@
       "last_updated": "2026-10-28T21:15:35+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/security-agents",
       "status": "live",
       "title": "Security Agents"
@@ -2347,6 +2659,7 @@
       "last_updated": "2026-10-27T18:20:06+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/skills",
       "status": "live",
       "title": "Agent Skills"
@@ -2356,9 +2669,170 @@
       "last_updated": "2026-10-21T12:32:57+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
+      "section": "docs",
       "source_url": "https://cursor.com/docs/subagents",
       "status": "live",
       "title": "Subagents"
+    },
+    "workflows__autonomous-agents.md": {
+      "hash": "b41602a0e53977ffacfe2df8af6271a1fa3da5f0bf64e04fe946297688e2580f",
+      "last_updated": "2026-11-03T18:08:44+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents",
+      "path": "/workflows/autonomous-agents",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents",
+      "status": "live",
+      "title": "The AI software factory."
+    },
+    "workflows__autonomous-agents__add-test-coverage.md": {
+      "hash": "8ad026ea72c8512a2420be7e2a2c44d457c072195c73b1db87e2ce21e1311a20",
+      "last_updated": "2026-11-03T18:08:45+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/add-test-coverage",
+      "path": "/workflows/autonomous-agents/add-test-coverage",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/add-test-coverage",
+      "status": "live",
+      "title": "Add test coverage"
+    },
+    "workflows__autonomous-agents__assign-pr-reviewers.md": {
+      "hash": "c9d972be45ca6cc2f3ba874146ce08eb785910ddcd6a05bba63525691f4f76be",
+      "last_updated": "2026-11-03T18:08:46+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/assign-pr-reviewers",
+      "path": "/workflows/autonomous-agents/assign-pr-reviewers",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/assign-pr-reviewers",
+      "status": "live",
+      "title": "Assess PR risk and assign reviewers"
+    },
+    "workflows__autonomous-agents__autofix-pr-review-comments.md": {
+      "hash": "0785fdbd0fe70fbc354c658f1a7db6e7418ff207f5aa8b8fcc9c422bbd248699",
+      "last_updated": "2026-11-03T18:08:47+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/autofix-pr-review-comments",
+      "path": "/workflows/autonomous-agents/autofix-pr-review-comments",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/autofix-pr-review-comments",
+      "status": "live",
+      "title": "Autofix PR review comments"
+    },
+    "workflows__autonomous-agents__ci-autofix.md": {
+      "hash": "b55ce4d1ea697200dbd877168349425bad995383bc2cd8f14179172947afbd7f",
+      "last_updated": "2026-11-03T18:08:47+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/ci-autofix",
+      "path": "/workflows/autonomous-agents/ci-autofix",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/ci-autofix",
+      "status": "live",
+      "title": "CI autofix"
+    },
+    "workflows__autonomous-agents__daily-digest.md": {
+      "hash": "36d74634dc5bedbb4311f6a5613d126dae820484a4e3775970ef46aa89230b66",
+      "last_updated": "2026-11-03T18:08:48+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/daily-digest",
+      "path": "/workflows/autonomous-agents/daily-digest",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/daily-digest",
+      "status": "live",
+      "title": "Daily digest of repo changes"
+    },
+    "workflows__autonomous-agents__find-vulnerabilities.md": {
+      "hash": "d2c238d4e72eacf279aa28098a53aba76b9991a1292dd85568d1b3480877214d",
+      "last_updated": "2026-11-03T18:08:49+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/find-vulnerabilities",
+      "path": "/workflows/autonomous-agents/find-vulnerabilities",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/find-vulnerabilities",
+      "status": "live",
+      "title": "Find vulnerabilities"
+    },
+    "workflows__autonomous-agents__fix-slack-bugs.md": {
+      "hash": "0d1ecd7560f9cef716707749fb736286100185f6635d32604981b96a5deca561",
+      "last_updated": "2026-11-03T18:08:50+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/fix-slack-bugs",
+      "path": "/workflows/autonomous-agents/fix-slack-bugs",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/fix-slack-bugs",
+      "status": "live",
+      "title": "Fix bugs reported in Slack"
+    },
+    "workflows__autonomous-agents__generate-docs.md": {
+      "hash": "a3d546c64fd4cd0d3aa77ab7e2d7efb0d1fab59c005e82ee0b036c635035186b",
+      "last_updated": "2026-11-03T18:08:50+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/generate-docs",
+      "path": "/workflows/autonomous-agents/generate-docs",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/generate-docs",
+      "status": "live",
+      "title": "Generate and update docs"
+    },
+    "workflows__autonomous-agents__investigate-datadog-errors.md": {
+      "hash": "167b6c603d45048829467ffec7609494001d6d77c5a7ba6d6fe86ad58e17ed54",
+      "last_updated": "2026-11-03T18:08:51+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/investigate-datadog-errors",
+      "path": "/workflows/autonomous-agents/investigate-datadog-errors",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/investigate-datadog-errors",
+      "status": "live",
+      "title": "Investigate production errors from Datadog"
+    },
+    "workflows__autonomous-agents__investigate-sentry-issues.md": {
+      "hash": "74b6ba89801924be56aa463e1d5f8216df507b767e120e4bf77a71134dd888a7",
+      "last_updated": "2026-11-03T18:08:52+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/investigate-sentry-issues",
+      "path": "/workflows/autonomous-agents/investigate-sentry-issues",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/investigate-sentry-issues",
+      "status": "live",
+      "title": "Investigate Sentry issues"
+    },
+    "workflows__autonomous-agents__linear-issue-triage.md": {
+      "hash": "f39d8f4a6f89995d28f3df1a9a68088a8fda2f7fea09ec67226071e122de9536",
+      "last_updated": "2026-11-03T18:08:52+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/linear-issue-triage",
+      "path": "/workflows/autonomous-agents/linear-issue-triage",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/linear-issue-triage",
+      "status": "live",
+      "title": "Linear issue triage"
+    },
+    "workflows__autonomous-agents__pagerduty-incident-investigation.md": {
+      "hash": "5c872ae81202fe94a116068cd5f48090a07ec256371736bcaed90eeaebaa6f25",
+      "last_updated": "2026-11-03T18:08:53+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/pagerduty-incident-investigation",
+      "path": "/workflows/autonomous-agents/pagerduty-incident-investigation",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/pagerduty-incident-investigation",
+      "status": "live",
+      "title": "PagerDuty incident investigation"
+    },
+    "workflows__autonomous-agents__remediate-dependency-vulnerabilities.md": {
+      "hash": "f3f6c00fd8288ef55300ee639fa69e0ad7074fefe622fc705bf5db15920fd3ee",
+      "last_updated": "2026-11-03T18:08:54+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/remediate-dependency-vulnerabilities",
+      "path": "/workflows/autonomous-agents/remediate-dependency-vulnerabilities",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/remediate-dependency-vulnerabilities",
+      "status": "live",
+      "title": "Remediate dependency vulnerabilities"
+    },
+    "workflows__autonomous-agents__scan-codebase-vulnerabilities.md": {
+      "hash": "41c29e4f184be8c25e03d7ef0a248a83396e2f91fafa2cc90dcb346e5d46106e",
+      "last_updated": "2026-11-03T18:08:55+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/scan-codebase-vulnerabilities",
+      "path": "/workflows/autonomous-agents/scan-codebase-vulnerabilities",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/scan-codebase-vulnerabilities",
+      "status": "live",
+      "title": "Scan codebase for vulnerabilities"
+    },
+    "workflows__autonomous-agents__triage-github-workflow-failures.md": {
+      "hash": "6f6f4bc18b94dd4cbb114ea2b7fcecaa30bb008e2409b5fa3241cea7bc55f386",
+      "last_updated": "2026-11-03T18:08:55+00:00",
+      "original_url": "https://cursor.com/workflows/autonomous-agents/triage-github-workflow-failures",
+      "path": "/workflows/autonomous-agents/triage-github-workflow-failures",
+      "section": "workflows",
+      "source_url": "https://cursor.com/workflows/autonomous-agents/triage-github-workflow-failures",
+      "status": "live",
+      "title": "Triage failed GitHub Actions"
     }
   },
   "filters": {
@@ -2371,27 +2845,13 @@
       "/docs/account/enterprise/"
     ],
     "include": [
-      "/docs/*"
+      "/docs/*",
+      "/workflows/*",
+      "/guides/*"
     ]
   },
-  "last_updated": "2026-10-28T21:15:36+00:00",
-  "skipped": [
-    {
-      "path": "/docs/api/origin/llms-full.txt",
-      "reason": "No markdown endpoint",
-      "url": "https://cursor.com/docs/api/origin/llms-full.txt"
-    },
-    {
-      "path": "/docs/api/origin/llms.txt",
-      "reason": "No markdown endpoint",
-      "url": "https://cursor.com/docs/api/origin/llms.txt"
-    },
-    {
-      "path": "/docs/api/origin/openapi.yaml",
-      "reason": "No markdown endpoint",
-      "url": "https://cursor.com/docs/api/origin/openapi.yaml"
-    }
-  ],
+  "last_updated": "2026-11-03T18:08:55+00:00",
+  "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
     "llms_txt_url": "https://cursor.com/llms.txt",
