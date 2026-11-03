@@ -1,54 +1,52 @@
 ---
 name: cursor-docs
 description: >-
-  Local mirror of Cursor product documentation (cursor.com/docs): Agent,
-  Agent Skills, Rules, Hooks, MCP, Subagents, Plugins, CLI, cloud agents,
-  models and pricing, SDK, integrations, account and team settings, and
-  Cursor configuration reference. Use whenever the user asks how Cursor
-  behaves, how to install or configure Cursor, or what a Cursor feature,
-  flag, model, or settings key does. Read this skill's references/ before
-  generic web search for Cursor product questions. Do NOT use for Claude
-  Code, OpenAI Codex, Anthropic API docs, or general coding-agent questions.
+  Answers questions about Cursor from a local mirror of its official
+  documentation, workflows, and guides (cursor.com). Use when someone asks how
+  Cursor behaves or how to set it up: Agent and its modes, Rules, Skills,
+  Hooks, MCP, Subagents, Plugins, the CLI, cloud agents, Bugbot, models and
+  pricing, the SDK and APIs, integrations, or account and team settings.
+  Read the mirror before searching the web. Not for Claude Code, OpenAI
+  Codex, or other editors.
+license: MIT for the mirroring tooling; the mirrored documentation belongs to Cursor.
+compatibility: Any agent that reads Agent Skills, such as Claude Code, Codex, or Cursor. Needs read access to this skill's files and no network access.
+allowed-tools: Read Grep Glob
+metadata:
+  upstream: https://cursor.com/docs
+  repository: https://github.com/mehmetbaykar/cursor-docs-skill
 ---
 
 # Cursor Docs
 
-Local mirror of Cursor documentation, kept fresh by a 3-hour GitHub Action. The cleaned Markdown lives in `references/`; the auto-generated topic list lives in `references/INDEX.md`; the per-file manifest with upstream URLs lives in `references/docs_manifest.json`.
+A local mirror of the Cursor documentation, workflows, and guides, refreshed from cursor.com every 3 hours. Start at `references/INDEX.md`. Each page is a file `references/<topic>.md` whose frontmatter holds its `title`, `source` URL, and `path`; `references/docs_manifest.json` records every page's upstream URL and status. Enterprise administration pages are not mirrored.
 
-## Scope
+## Find the page
 
-Use this skill for Cursor-specific product and configuration questions, including the agent and its tools, Agent Skills, Rules, Hooks, Model Context Protocol (MCP), Subagents, Plugins, the Cursor CLI, cloud agents, models and pricing, the SDK, integrations, and account, team, and reference documentation. If the question is about Claude Code, OpenAI Codex, the Anthropic API, or another non-Cursor product, this skill does not apply. Cursor enterprise administration docs are intentionally not mirrored.
+1. Turn the topic into a slug: lowercase, drop a leading `/docs/`, and join nested segments with `__` (for example `agent overview` becomes `agent__overview`). Workflows are `workflows__<name>` and guides are `guides__<name>`.
+2. If `references/<slug>.md` exists, read it.
+3. Otherwise read `references/INDEX.md`, pick the closest topics, and read those files. Search the `references/` tree only when the index has no match; the index is faster and keeps context small.
+4. With no topic, show the topic groups in `references/INDEX.md`.
 
-## Workflow
+## Answer
 
-1. If the user supplied a topic, normalize it to a slug:
-   - lowercase, strip leading `https://cursor.com/docs/` or `/docs/`, strip surrounding slashes
-   - join nested segments with `__` (e.g. `agent overview` -> `agent__overview`, `reference permissions` -> `reference__permissions`)
-2. If `references/<slug>.md` exists, read that file directly. Do NOT grep the whole `references/` tree first - the index plus targeted reads is faster and uses less context.
-3. If no exact match, read `references/INDEX.md` and pick the closest topic. If still ambiguous, list the candidates and ask.
-4. If the user supplied no topic, read `references/INDEX.md` and present the available topics.
+- Lead with a direct answer grounded in the files you read.
+- Quote commands, flags, and settings keys exactly as the page writes them.
+- End with `Source: <url>`, using the `source` value from the page's frontmatter.
 
-## Answer format
+## When the mirror looks stale or wrong
 
-- Lead with a direct answer to the user's question grounded in the file you read.
-- Quote short snippets (commands, config keys) when they appear verbatim in the doc.
-- End with `Source: <upstream URL>` using the `source` value from the file frontmatter or `original_url` from `references/docs_manifest.json`.
-
-## Freshness and fallback
-
-The mirror is refreshed every 3 hours by upstream CI, which fails rather than committing frozen content. If the local content looks stale, contradicted by the user, or empty:
-
-1. Suggest the user run `npx skills update cursor-docs`.
-2. Check the file's entry in `references/docs_manifest.json`: a `status` of `stale` means upstream could not be reached on the last run.
-3. Cross-check the canonical URL via `original_url` in `references/docs_manifest.json` and offer it as a follow-up source.
+1. Check the page's `status` in `references/docs_manifest.json`: `stale` means the last refresh could not reach upstream, so the previous copy is still served.
+2. Suggest updating the skill with `npx skills update cursor-docs`, or the `cursor-docs` plugin from the agent's plugin manager.
+3. Offer the page's `source` URL so the user can check the live page.
+4. A page whose cleaning failed keeps its raw upstream source in `references/_raw/<slug>.md`.
 
 ## Examples
 
-| Invocation | Reads |
+| Request | Read |
 | --- | --- |
-| `/cursor-docs hooks` | `references/hooks.md` |
-| `/cursor-docs mcp` | `references/mcp.md` |
-| `/cursor-docs skills` | `references/skills.md` |
-| `/cursor-docs agent overview` | `references/agent__overview.md` |
-| `/cursor-docs reference permissions` | `references/reference__permissions.md` |
-| `/cursor-docs` (no argument) | `references/INDEX.md` |
+| `/cursor-docs hooks` in Cursor or Claude Code, `$cursor-docs hooks` in Codex | `references/hooks.md` |
+| "How do Agent Skills work in Cursor?" | `references/skills.md` |
+| "How do I connect an MCP server?" | `references/mcp.md` |
+| "What can the agent do?" | `references/agent__overview.md` |
+| "How do I set up CI autofix with cloud agents?" | `references/workflows__autonomous-agents__ci-autofix.md` |
+| No topic, or no matching file | `references/INDEX.md` |

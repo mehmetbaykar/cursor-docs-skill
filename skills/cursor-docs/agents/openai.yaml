@@ -1,5 +1,7 @@
 interface:
   display_name: "Cursor Docs"
-  short_description: "Answers Cursor docs questions from a local generated mirror."
+  short_description: "Answer Cursor questions from a local docs mirror"
+  default_prompt: "Use $cursor-docs to answer my question about Cursor."
+
 policy:
   allow_implicit_invocation: true
