@@ -755,8 +755,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "50b9e1e1f06eb3e82b078de5a6e0521103bd42cd85a505209be4fabf7ec206e5",
-      "last_updated": "2026-10-27T00:53:53+00:00",
+      "hash": "bea5ec0ca4d94f043e4b4416b110b666bc5ce457a79c3610b85cbd0ee8f86e7a",
+      "last_updated": "2026-11-04T21:20:10+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "section": "docs",
@@ -775,8 +775,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "2731a57a782989883d5a1412a749ab2506f4235ddef8218a8896fd6e3d2ba93a",
-      "last_updated": "2026-10-28T15:16:46+00:00",
+      "hash": "d05203836c395f1722904c30b83b8bceb31c6d04e3796cc52feae8f912650c94",
+      "last_updated": "2026-11-04T21:20:10+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "section": "docs",
@@ -795,8 +795,8 @@
       "title": "Origin Grants API"
     },
     "api__origin__mcp.md": {
-      "hash": "0780d448d3739aaed171b0067e54b6b40643bafb0d24c7df2a7433d85f40d4ae",
-      "last_updated": "2026-10-24T00:50:09+00:00",
+      "hash": "c8581cccaeae9229e20fc9ea26d57360cd28a8c62760cdc2487d7b20cbeed3dc",
+      "last_updated": "2026-11-04T21:20:11+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp",
       "path": "/docs/api/origin/mcp",
       "section": "docs",
@@ -805,8 +805,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "acffc86f75ae8f838a58ab75067617e9977e0c9564af4dfb15df560748db6599",
-      "last_updated": "2026-10-24T00:50:10+00:00",
+      "hash": "5eb85b8174be3db1403b8dd42c8fec42c4062b71401239f01d02f2f89839988c",
+      "last_updated": "2026-11-04T21:20:11+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "section": "docs",
@@ -2860,7 +2860,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-04T03:21:29+00:00",
+  "last_updated": "2026-11-04T21:21:23+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
