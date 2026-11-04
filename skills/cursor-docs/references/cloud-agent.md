@@ -110,6 +110,7 @@ Viewing is read-only. To let teammates send follow-up messages and continue the 
 - Learn more about [Cloud agent capabilities](https://cursor.com/docs/cloud-agent/capabilities.md).
 - Learn more about [Cloud agent setup](https://cursor.com/docs/cloud-agent/setup.md).
 - Learn more about [Cloud Agent Builds](https://cursor.com/docs/cloud-agent/builds.md).
+- Learn more about [Apps](https://cursor.com/docs/cloud-agent/apps.md).
 - Learn more about [Cloud agent security](https://cursor.com/docs/cloud-agent/security-network.md).
 - Learn more about [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md).
 - Learn more about [Agent metadata](https://cursor.com/docs/cloud-agent/metadata.md).

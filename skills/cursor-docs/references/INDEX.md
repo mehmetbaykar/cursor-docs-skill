@@ -108,6 +108,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `cloud-agent` - [Cloud Agents](https://cursor.com/docs/cloud-agent)
 - `cloud-agent__api__endpoints` - [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints)
 - `cloud-agent__api__webhooks` - [Webhooks](https://cursor.com/docs/cloud-agent/api/webhooks)
+- `cloud-agent__apps` - [Apps](https://cursor.com/docs/cloud-agent/apps)
 - `cloud-agent__automations` - [Automations](https://cursor.com/docs/cloud-agent/automations)
 - `cloud-agent__best-practices` - [Best Practices](https://cursor.com/docs/cloud-agent/best-practices)
 - `cloud-agent__builds` - [Cloud Agent Builds](https://cursor.com/docs/cloud-agent/builds)

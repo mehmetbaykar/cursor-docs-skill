@@ -158,29 +158,13 @@ The rate applies when you select an eligible third-party model directly, and whe
 
 The Cursor Token Rate does not apply to Cursor models, including Grok and Composer, or to Cost mode requests.
 
-These models are excluded from the Cursor Token Rate:
-
-- Claude Haiku 5.5
-- Gemini 2.5 Flash
-- Gemini 3 Flash
-- Gemini 3.1 Flash Lite
-- Gemini 3.5 Flash Lite
-- Gemini 3.7 Flash
-- Gemini 3.8 Flash
-- GLM 5.3 Flash
-- GPT-4.1 Nano
-- GPT-4o Mini
-- GPT-5 Mini
-- GPT-5.1 Codex Mini
-- GPT-5.4 Mini
-- GPT-5.4 Nano
-- GPT-5.6 Luna
+The Cursor Token Rate also does not apply to third-party models whose cache-read price is strictly below $0.10 per million tokens across every pricing tier. This exemption also applies when you use your own API key.
 
 ## Auto modes
 
 Auto has three modes: Cost, Balance, and Intelligence. See [Cursor Router](https://cursor.com/docs/cursor-router.md) for how these modes work.
 
-Cost mode (classic Auto) bills as a Cursor-model request and draws from your weekly pool whatever model serves it. On Teams and Enterprise with Cursor Router on, Balance and Intelligence bill at the routed model's list price: a route to a Cursor model draws from the weekly pool, and a route to a third-party model is third-party usage paid from prepaid credit. Individual plans have Cost mode only. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates. On Teams and Enterprise, a Balance or Intelligence route to a third-party model also incurs the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate) unless that model is on the excluded list above. Cost mode does not.
+Cost mode (classic Auto) bills as a Cursor-model request and draws from your weekly pool whatever model serves it. On Teams and Enterprise with Cursor Router on, Balance and Intelligence bill at the routed model's list price: a route to a Cursor model draws from the weekly pool, and a route to a third-party model is third-party usage paid from prepaid credit. Individual plans have Cost mode only. See [Model pricing](https://cursor.com/docs/models-and-pricing.md#model-pricing) for per-model rates. On Teams and Enterprise, a Balance or Intelligence route to a third-party model also incurs the [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate) unless its cache-read price is strictly below $0.10 per million tokens across every pricing tier. Cost mode does not.
 
 ## Legacy Cursor plans
 
@@ -204,7 +188,7 @@ No. Plus includes Cursor's own models only (Grok 4.7, Grok 4.6, Grok 4.5, and Co
 
 ### Which models skip the Cursor Token Rate?
 
-On Teams and Enterprise, the third-party models listed under [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate) are excluded, along with Cursor models and Cost mode requests. Individual plans don't pay the rate.
+On Teams and Enterprise, third-party models whose cache-read price is strictly below $0.10 per million tokens across every pricing tier are exempt, including when you use your own API key. Cursor models and Cost mode requests are also exempt. Individual plans don't pay the rate.
 
 ### Where are models hosted?
 

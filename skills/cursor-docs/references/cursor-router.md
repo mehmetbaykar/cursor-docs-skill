@@ -30,7 +30,7 @@ Balance and Intelligence use your usage limits faster than Cost. You can switch 
 
 ## Pricing
 
-Cost mode bills as a Cursor-model request and draws from the weekly pool, with no Cursor Token Rate. Balance and Intelligence bill at the list price of the model each request is routed to. A third-party route in those modes also incurs the Cursor Token Rate, except the models listed under [Cursor Token Rate](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
+Cost mode bills as a Cursor-model request and draws from the weekly pool, with no Cursor Token Rate. Balance and Intelligence bill at the list price of the model each request is routed to. A third-party route in those modes also incurs the Cursor Token Rate unless its [cache-read price is strictly below $0.10 per million tokens across every pricing tier](https://cursor.com/docs/models-and-pricing.md#cursor-token-rate).
 
 ## Team settings
 

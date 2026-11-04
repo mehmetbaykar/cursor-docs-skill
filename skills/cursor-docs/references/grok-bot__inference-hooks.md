@@ -6,7 +6,7 @@ path: /docs/grok-bot/inference-hooks
 
 # Grok Bot inference hooks
 
-Inference hooks send every governed Grok Bot model request to an AI security server your organization runs or uses through a security vendor. Cursor signs each request, waits for an allow or deny verdict, and stops the request on a deny, so your policy checks prompts and the content Grok Bot gathers before a model sees them. For Grok Bot's other controls, see [Grok Bot security](https://cursor.com/docs/grok-bot/security.md).
+Inference hooks send every governed Grok Bot model request to an AI security server your organization runs or uses through a security vendor. Cursor signs each request, waits for an allow or deny verdict, and stops the request on a deny, so your policy checks prompts and the content Grok Bot gathers before a model sees them. With [Validate Tool Calls](https://cursor.com/docs/grok-bot/inference-hooks.md#validate-tool-calls) on, your server also checks each response's tool calls before they run. For Grok Bot's other controls, see [Grok Bot security](https://cursor.com/docs/grok-bot/security.md).
 
 ### Beta
 
@@ -19,7 +19,7 @@ can set them up from the dashboard. They cover Grok Bot only. See
 - **Each governed model request is checked.** Before Grok Bot calls a model, Cursor sends your endpoint a signed `prompt` frame with the conversation so far and holds the request until a verdict arrives or the timeout passes. A turn that calls the model several times, for example between tool calls, sends one frame per call.
 - **Your server decides.** `allow` lets the request go to the model. `deny` stops it, ends the turn, and the member who sent the message sees a [block notice](https://cursor.com/docs/grok-bot/inference-hooks.md#what-members-see).
 - **Failures follow your mode.** When your endpoint times out, returns an error, or answers with something other than a verdict, the [mode](https://cursor.com/docs/grok-bot/inference-hooks.md#modes) decides whether the request proceeds or is blocked. A failure never counts as a deny.
-- **Only model inputs are checked.** Your endpoint judges what is about to go to the model. A tool call and its result appear in a frame only after the tool has run. Grok Bot's reply to a member is a tool call too, so the reply reaches the member before any frame contains it. A deny stops the next model call, not an action that already happened.
+- **Tool calls are checked before they run only with Validate Tool Calls on.** A `prompt` frame carries what's about to go to the model, so a tool call and its result appear there only after the tool has run. [Validate Tool Calls](https://cursor.com/docs/grok-bot/inference-hooks.md#validate-tool-calls) adds a `tool_call` frame your server judges before the calls run. Grok Bot's replies to members are never checked before they're sent. A deny never undoes an action that already happened.
 
 ## Set up inference hooks
 
@@ -60,9 +60,11 @@ block the test prompt, so fix that before you enforce.
 
 New configurations start in **Shadow Mode**. Turn on **Enforce Verdicts** to
 start sending. Your endpoint receives every covered request and denials are
-recorded in the audit log, but nothing is blocked. Once the verdicts look
-right, set **Mode** under **Failure Handling** to **Allow the Request** or
-**Block the Request**.
+recorded in the audit log, but nothing is blocked. If your team has tool
+call checks, a new configuration also starts with **Validate Tool Calls**
+on. Tool calls then wait for each verdict, even in Shadow mode. Once the
+verdicts look right, set **Mode** under **Failure Handling** to **Allow the
+Request** or **Block the Request**.
 
 Setting changes take effect within about a minute, and requests already in flight finish under the old settings.
 
@@ -98,6 +100,8 @@ Each request carries exactly one signature. To rotate the secret, click **Rotate
 
 Test Connection sends a signed `prompt` frame with `source.application` set to `config-test`, a fixed message that contains no user content, and no member, session, or model. It signs with your saved secret and waits for your saved verdict timeout. It uses the URL and headers in the form when you run it from the endpoint dialog, and the saved ones when you run it from the page.
 
+With **Validate Tool Calls** on, Test Connection also sends a `tool_call` frame with one synthetic call named `config_test`. It shows two results, **Prompt request** and **Tool call request**. The tool call result appears whenever the prompt request gets a verdict. An allow there means your server answered, not that it inspected the call.
+
 | Result                  | Meaning                                                                   |
 | ----------------------- | ------------------------------------------------------------------------- |
 | Allow or deny           | Your server returned a verdict. Resolve a deny before you enforce         |
@@ -119,7 +123,7 @@ Test Connection sends a signed `prompt` frame with `source.application` set to `
 | **Allow the Request**     | Blocks the request       | Lets the request through uninspected (fails open) |
 | **Block the Request**     | Blocks the request       | Blocks the request (fails closed)                 |
 
-In Allow and Block modes the model request waits for the verdict. In Shadow mode Cursor sends the same frames at the same moments, but in the background: nothing waits, members see nothing, and denials and failures are recorded in the audit log. Under heavy load, Cursor can skip a Shadow check, and a skipped check writes no audit row.
+In Allow and Block modes the model request waits for the verdict. In Shadow mode Cursor sends the same `prompt` frames at the same moments, but in the background: the model request doesn't wait, members see nothing, and denials and failures are recorded in the audit log. Under heavy load, Cursor can skip a Shadow `prompt` check, and a skipped check writes no audit row. [Tool calls](https://cursor.com/docs/grok-bot/inference-hooks.md#validate-tool-calls) wait for their verdict in every mode, Shadow included.
 
 A check fails when your server times out, answers with a status other than 200, returns a body that isn't a JSON verdict or is larger than 64 KiB, returns an `action` other than `allow` or `deny`, or can't be reached. A frame larger than 64 MiB also counts as a failure.
 
@@ -127,7 +131,8 @@ Once Cursor has your settings, Block mode blocks every check that can't
 finish, including when the cause is on Cursor's side. If Cursor can't load
 your team's inference hook settings at all, it can't tell which mode you
 chose, so the request proceeds and the audit log records it as failed open
-with reason `config_unavailable`.
+with reason `config_unavailable`. Tool calls proceed too, but Cursor records
+them only once your settings load and show the calls would have been checked.
 
 ### Verdict timeout
 
@@ -135,7 +140,7 @@ with reason `config_unavailable`.
 
 ### Rollout
 
-**Requests Inspected (%)** sends only a share of covered requests to your endpoint while you bring it up. The choice is sticky, so all the requests behind one turn, subagents included, are either inspected or skipped. Requests outside the share proceed uninspected even in Block mode, and 0% turns inspection off.
+**Requests Inspected (%)** sends only a share of covered requests to your endpoint while you bring it up. The choice is sticky, so all the requests behind one turn, subagents and tool calls included, are either inspected or skipped. Requests outside the share proceed uninspected even in Block mode, and 0% turns inspection off.
 
 ### Circuit breaker
 
@@ -147,7 +152,24 @@ Sustained failures your server is responsible for, such as timeouts, error statu
 
 ### Cursor pause
 
-Cursor can pause inference hooks for a team, or for everyone, in an emergency. While paused, Cursor sends no frames, covered requests proceed, and the audit log records most of them as failed open with reason `kill_switch`. Test Connection shows "Inference hooks are temporarily paused by Cursor."
+Cursor can pause inference hooks for a team, or for everyone, in an emergency. While paused, Cursor sends no frames, covered requests and tool calls proceed, and the audit log records most of them as failed open with reason `kill_switch`. Test Connection shows "Inference hooks are temporarily paused by Cursor."
+
+## Validate Tool Calls
+
+**Validate Tool Calls** sends your endpoint a `tool_call` frame after each model response that calls tools. Every call in that response waits for the verdict. The switch sits below **Enforce Verdicts**, does nothing while Enforce Verdicts is off, and takes effect within about a minute.
+
+- **It's opt-in.** When Cursor turns on tool call checks for your team, the switch appears and per-request audit events start naming their frame type. Nothing else changes. A configuration saved before then keeps Validate Tool Calls off until an admin turns it on. One first saved after then starts with it on.
+- **One frame and one verdict cover a response.** The frame lists every call in the response, in the order the model made them, except tools that are never framed, such as replies. `allow` runs them all. You can't allow some calls and deny others.
+- **A deny refuses every call.** That includes calls left out of the frame, such as replies. Each refused call gets the result "Blocked by your organization's policy before it ran", and the turn ends with the same [block notice](https://cursor.com/docs/grok-bot/inference-hooks.md#what-members-see) as a denied prompt.
+- **It shares your settings.** Tool call frames use the same endpoint, signing secret, mode, verdict timeout, rollout, circuit breaker, and Blocked Message as prompt frames. There's no separate mode, so choosing **Block the Request** for tool calls also blocks prompts whose check fails.
+- **Tool calls wait in every mode.** Each response with framed calls adds one round trip to your endpoint. In Shadow mode the calls wait for the verdict, up to the verdict timeout, then run whether it allows or denies them. Shadow failures count toward the circuit breaker.
+- **Subagents and computer use are checked too.** Subagent responses get the same check. During computer use, each browser action is checked on its own, and a deny stops the computer use run. Mouse and keyboard actions aren't framed.
+
+Turn on Validate Tool Calls only once your security server handles `tool_call`
+frames. The protocol tells servers to answer `allow` to frame types they don't
+recognize, so a server without support lets every call run while the check
+looks enforced. A server that errors on them stops every tool call in Block
+mode, and those failures count toward the circuit breaker prompt frames share.
 
 ## What members see
 
@@ -186,11 +208,12 @@ Members see nothing when a request is allowed or when you're in Shadow mode. Sha
 
 **Not covered:**
 
-- **Model responses aren't checked.** See [How it works](https://cursor.com/docs/grok-bot/inference-hooks.md#how-it-works).
+- **Model responses aren't checked.** With [Validate Tool Calls](https://cursor.com/docs/grok-bot/inference-hooks.md#validate-tool-calls) on, the tool calls in them are, except tools that are never framed. See [How it works](https://cursor.com/docs/grok-bot/inference-hooks.md#how-it-works).
 - **Parts of a request that aren't conversation stay out.** System prompts, tool definitions, and the model's hidden reasoning never go to your endpoint, and Cursor leaves out most of the text it adds for the model, such as reminders and timestamps.
 - **Ancillary model calls aren't sent.** These calls support a conversation rather than continue it, such as writing chat titles, Auto Review, and saving memories.
 - **Other Cursor features aren't covered.** That includes Cloud Agents, agents in the editor, the CLI, the Agent SDK, Tab, embeddings, and local models.
-- **Actions aren't checked as they run.** Tool execution, connected-app actions, and network traffic from a member's Grok Bot computer reach your endpoint only when their output returns to the model as a tool result in a later frame. Use the [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) and [Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) to control actions.
+- **What a tool does once it runs isn't checked.** Validate Tool Calls judges each framed call before it runs, not what follows, such as the commands a script runs, a connected app's side effects, or network traffic from a member's Grok Bot computer. A tool's output reaches your endpoint only as a tool result in a later `prompt` frame. Use the [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) and [Auto Review](https://cursor.com/docs/grok-bot/security.md#approvals-and-auto-review) to control actions.
+- **Voice calls aren't covered.** Neither their prompts nor their tool calls reach your endpoint.
 
 ## Request format
 
@@ -243,27 +266,104 @@ Standard headers such as `host` and `content-length` come with every request too
 
 ### Frame fields
 
-| Field                 | Value                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                | Always `prompt`                                                                                                                             |
-| `request_id`          | A unique ID for the request. It matches `webhook-id` and the audit log's `request_id`                                                       |
-| `tenant_id`           | An opaque ID for your team                                                                                                                  |
-| `actor.type`          | Always `user`                                                                                                                               |
-| `actor.id`            | An opaque ID for the member who sent the message, or for a team service account. Null for Slack senders who haven't linked a Cursor account |
-| `actor.email_address` | Always null                                                                                                                                 |
-| `source.application`  | `grok-bot`, or `config-test` for Test Connection and circuit-breaker recovery checks                                                        |
-| `session_id`          | An opaque ID for the Bot, shared across its chats and members, so it doesn't identify one conversation                                      |
-| `model`               | A Cursor model identifier. Use it for reporting, not allowlisting                                                                           |
-| `messages`            | The conversation so far. See [Messages](https://cursor.com/docs/grok-bot/inference-hooks.md#messages)                                       |
-| `metadata`            | Always empty                                                                                                                                |
+| Field                 | Value                                                                                                                                              |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                | `prompt`, or `tool_call` for a [tool call frame](https://cursor.com/docs/grok-bot/inference-hooks.md#tool-call-frames)                             |
+| `request_id`          | A unique ID for the request. It matches `webhook-id` and the audit log's `request_id`                                                              |
+| `tenant_id`           | An opaque ID for your team                                                                                                                         |
+| `actor.type`          | Always `user`                                                                                                                                      |
+| `actor.id`            | An opaque ID for the member who sent the message, or for a team service account. Null for Slack senders who haven't linked a Cursor account        |
+| `actor.email_address` | Always null                                                                                                                                        |
+| `source.application`  | `grok-bot`, or `config-test` for Test Connection and circuit-breaker recovery checks                                                               |
+| `session_id`          | An opaque ID for the Bot, shared across its chats and members, so it doesn't identify one conversation                                             |
+| `model`               | A Cursor model identifier. Use it for reporting, not allowlisting                                                                                  |
+| `messages`            | The conversation so far, or the latest response in a tool call frame. See [Messages](https://cursor.com/docs/grok-bot/inference-hooks.md#messages) |
+| `metadata`            | Always empty                                                                                                                                       |
 
 ### Messages
 
 - **Roles are `user` and `assistant`.** Tool results sit under `user`.
 - **Blocks are `text`, `tool_use`, `tool_result`, and `attachment`.** A `tool_use` block names the tool and holds its `input`, and the matching `tool_result` holds the output. Context Grok Bot gives the model, such as rules, shared memory, and the connected apps it can use, usually arrives in an `attachment` block's `text`. An image is an `attachment` with its media type and size, but not its bytes or URL.
-- **Every frame holds the whole conversation so far.** Frames aren't deltas, so each one carries the earlier messages again. In a long conversation, a summary Grok Bot writes takes the place of older messages.
+- **Every `prompt` frame holds the whole conversation so far.** Frames aren't deltas, so each one carries the earlier messages again. In a long conversation, a summary Grok Bot writes takes the place of older messages.
 - **Replies to members are tool calls.** Grok Bot sends what members read through a tool, so its replies appear in `tool_use` input, not in assistant `text`.
 - **Cursor never adds secret values.** Context can name and describe the secrets a Bot can use, but never includes their values.
+
+### Tool call frames
+
+A `tool_call` frame has the same headers and fields as a `prompt` frame, with `type` set to `tool_call`, its own `request_id`, and the `session_id` of the turn's `prompt` frames. Its `messages` array holds the response's `assistant` message, with the model's text in `text` blocks and one `tool_use` block per framed call. Read the last entry of `messages`, because the protocol allows earlier messages before it.
+
+| `tool_use` field | Value                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| `id`             | The model's ID for the call. Later `prompt` frames use the same ID                    |
+| `tool_name`      | The tool that runs                                                                    |
+| `input`          | The arguments as the model wrote them, or null when they aren't valid JSON            |
+| `tool_info`      | What the tool is and where it runs. Never null. Optional fields are omitted, not null |
+
+| `tool_info.type` | Grok Bot sends it for                                                                                | `toolset_name`                                  |
+| ---------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `client`         | `Shell`, `Read`, and `AwaitShell` on the Bot's computer                                              | `grok-bot-computer`                             |
+| `client`         | The same tools on a member's computer, and file copies between the two computers                     | `user-computer`                                 |
+| `client`         | Phone and device tools                                                                               | `user-phone`, `user-device`, or `user-computer` |
+| `client`         | Browser tools                                                                                        | `browser`                                       |
+| `client`         | Computer use                                                                                         | `computer-use`                                  |
+| `client`         | A Model Context Protocol (MCP) server running on the Bot's computer                                  | The server's name                               |
+| `third_party`    | An MCP server reached over HTTP, and the Slack and Microsoft Teams tools                             | The server or app                               |
+| `application`    | Tools that run in Cursor's backend, such as web search, email, subagents, and messages to other Bots | The feature, when known                         |
+
+- **`tool_name` names what runs.** A `bash` call shows as `Shell`. An MCP call keeps the tool name the model used, `CallMcpTool` or `CallDynamicTool`, with the server in `toolset_name` and the arguments in `input`.
+- **`origin` comes with `third_party` calls when Cursor knows it.** It's the service's scheme, host, and port, with `verified_origin: true` because Cursor connects to that service itself. A missing `origin` means unknown, not safe. Grok Bot doesn't send `platform`.
+- **Inputs aren't redacted.** `input` carries anything the model put in a call, such as a token pasted into a command or the credentials in an `AddMcpServer` call. Later `prompt` frames carry the same inputs. The only value Cursor trims is the server URL it adds as `origin`, which it cuts to scheme, host, and port.
+- **`text` blocks are narration.** They hold the model's words between calls, and Grok Bot doesn't deliver them to anyone. Members read replies from `SendToUser` calls, which tool call frames never include.
+
+```json
+{
+  "type": "tool_call",
+  "request_id": "req_3b1f8c2e-9a4d-4e7b-8f20-6c5d1a9e7b42",
+  "tenant_id": "team_4mQvT8yLcN2pR6",
+  "actor": {
+    "type": "user",
+    "id": "user_8hJw3KzP5sXq1V7nB2cF9mD4tR",
+    "email_address": null
+  },
+  "source": { "application": "grok-bot" },
+  "session_id": "3f2c9a71-58e4-4b0d-9c6a-0d1e7b25a4f8",
+  "model": "<Cursor model identifier>",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": [
+        { "type": "text", "text": "I'll check the build log, then file the bug." },
+        {
+          "type": "tool_use",
+          "id": "call_01",
+          "tool_name": "Shell",
+          "input": { "command": "tail -n 50 build.log" },
+          "tool_info": { "type": "client", "toolset_name": "grok-bot-computer" }
+        },
+        {
+          "type": "tool_use",
+          "id": "call_02",
+          "tool_name": "CallMcpTool",
+          "input": {
+            "server": "tracker",
+            "toolName": "create_issue",
+            "arguments": { "title": "Nightly build fails at the link step" }
+          },
+          "tool_info": {
+            "type": "third_party",
+            "toolset_name": "tracker",
+            "origin": "https://mcp.tracker.example",
+            "verified_origin": true
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {}
+}
+```
+
+Answer a `tool_call` frame with the same [verdict](https://cursor.com/docs/grok-bot/inference-hooks.md#verdicts) as a `prompt` frame. A deny in this example refuses both calls.
 
 ### Write policies for these frames
 
@@ -271,7 +371,8 @@ Standard headers such as `host` and `content-length` come with every request too
 - **Treat IDs as opaque strings.** Don't parse `tenant_id` or `actor.id`. Map members by `actor.id`, since frames carry no email.
 - **Treat `source.application` as an open set.** Cursor adds values as coverage grows. It's advisory, not a security control.
 - **Scan every block type, not only `text`.** Context usually arrives in attachment `text`, and replies to members and connected-app calls arrive in `tool_use` input.
-- **Don't rely on `tool_result.is_error`.** It's `false` for most failed tool calls too.
+- **Don't rely on `tool_result.is_error`.** It's `false` for most failed tool calls too, including calls your server refused.
+- **Judge tool calls by `tool_info`, not names.** Use `tool_info.type` and `origin` to decide where a call goes, and accept `type` values you don't recognize.
 
 ### Verdicts
 
@@ -296,14 +397,16 @@ Answer `config-test` frames from Test Connection and circuit-breaker recovery wi
 
 Inference hook activity appears in your team's [audit log](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs). Payloads carry identifiers and codes, never prompt content, the deny reason, the signing secret, or header values. An allowed request writes no event.
 
-| `event_type`                               | When it fires                                                                                                                   | Fields                                                                                                                                                                                                                     |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inference_hooks_config_updated`           | An admin saves settings or resets the circuit breaker, or automatic recovery resets it                                          | `action` (`update`, `reset_circuit_breaker`, `circuit_breaker_recovered`), `changed_fields`, `enforce_verdicts`, `mode`, `endpoint_host`, `verdict_timeout_ms`, `rollout_percent`, `enabled_surfaces`, `config_version`    |
-| `inference_hooks_signing_secret_generated` | The first save that sets an endpoint generates the signing secret, or an admin rotates it                                       | `action` (`generate_signing_secret`, `rotate_signing_secret`), `changed_fields` (always empty), `enforce_verdicts`, `mode`, `endpoint_host`, `verdict_timeout_ms`, `rollout_percent`, `enabled_surfaces`, `config_version` |
-| `inference_hooks_request_denied`           | Your server denied a request                                                                                                    | `request_id`, `reference_id`, `source_application`, `session_id`, `model`, `actor_id`, `mode`, `enforced` (`false` in Shadow mode)                                                                                         |
-| `inference_hooks_request_failed_open`      | A request proceeded without a verdict: a failed check in Allow or Shadow mode, a Cursor pause, or settings Cursor couldn't load | `request_id`, `reason`, `source_application`, `session_id`, `model`, `actor_id`, `mode`, `status_code` (`0` when no response arrived)                                                                                      |
-| `inference_hooks_request_failed_closed`    | A check failed in Block mode, so the request was blocked                                                                        | `request_id`, `reason`, `source_application`, `session_id`, `model`, `actor_id`, `mode`, `status_code` (`0` when no response arrived)                                                                                      |
-| `inference_hooks_circuit_breaker_tripped`  | Sustained failures tripped the circuit breaker                                                                                  | `config_version`, `mode`, `failure_count`, `window_seconds`, `last_failure_kind`                                                                                                                                           |
+| `event_type`                               | When it fires                                                                                                                   | Fields                                                                                                                                                                                                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inference_hooks_config_updated`           | An admin saves settings or resets the circuit breaker, or automatic recovery resets it                                          | `action` (`update`, `reset_circuit_breaker`, `circuit_breaker_recovered`), `changed_fields`, `enforce_verdicts`, `mode`, `endpoint_host`, `verdict_timeout_ms`, `rollout_percent`, `enabled_surfaces`, `config_version`, `validate_tool_calls`    |
+| `inference_hooks_signing_secret_generated` | The first save that sets an endpoint generates the signing secret, or an admin rotates it                                       | `action` (`generate_signing_secret`, `rotate_signing_secret`), `changed_fields` (always empty), `enforce_verdicts`, `mode`, `endpoint_host`, `verdict_timeout_ms`, `rollout_percent`, `enabled_surfaces`, `config_version`, `validate_tool_calls` |
+| `inference_hooks_request_denied`           | Your server denied a request                                                                                                    | `request_id`, `reference_id`, `source_application`, `session_id`, `model`, `actor_id`, `mode`, `enforced` (`false` in Shadow mode), payload `event_type`                                                                                          |
+| `inference_hooks_request_failed_open`      | A request proceeded without a verdict: a failed check in Allow or Shadow mode, a Cursor pause, or settings Cursor couldn't load | `request_id`, `reason`, `source_application`, `session_id`, `model`, `actor_id`, `mode`, `status_code` (`0` when no response arrived), payload `event_type`                                                                                       |
+| `inference_hooks_request_failed_closed`    | A check failed in Block mode, so the request was blocked                                                                        | `request_id`, `reason`, `source_application`, `session_id`, `model`, `actor_id`, `mode`, `status_code` (`0` when no response arrived), payload `event_type`                                                                                       |
+| `inference_hooks_circuit_breaker_tripped`  | Sustained failures tripped the circuit breaker                                                                                  | `config_version`, `mode`, `failure_count`, `window_seconds`, `last_failure_kind`                                                                                                                                                                  |
+
+Two fields share the name `event_type`. The table's first column is the audit event's own type. The payload `event_type` on denied, failed-open, and failed-closed events names the checked frame, `prompt` or `tool_call`. It appears once Cursor turns on tool call checks for your team, as does `validate_tool_calls` on the two settings events. A denied or failed event without a payload `event_type` comes from a prompt check.
 
 On `inference_hooks_signing_secret_generated`, the settings fields show the state after the change. A rotation bumps `config_version`. A first secret shares it with the `inference_hooks_config_updated` event from the same save.
 
@@ -311,7 +414,7 @@ Cursor records request failures in every mode, as failed open in Allow and Shado
 
 The `request_id` on denied and failed events matches the frame's `request_id` and `webhook-id`, so you can join your vendor's records to the audit log.
 
-The Inference Hooks page also shows endpoint health: status, verdict latency, failures per minute, block rate over 24 hours, and recent errors with their type and status code. Its figures don't cover all traffic, so they can be lower than your vendor's counts.
+The Inference Hooks page also shows endpoint health: status, verdict latency, failures per minute, block rate over 24 hours, and recent errors with their type and status code. With Validate Tool Calls on, it splits these figures into prompts and tool calls. Its figures don't cover all traffic, so they can be lower than your vendor's counts.
 
 ## Privacy and Privacy Mode
 
@@ -381,6 +484,13 @@ has paused them.
 You're in Block mode and the check failed, or the circuit breaker tripped.
 Check **Recent Errors** on the Inference Hooks page. To keep members working
 while you fix the endpoint, switch to **Allow the Request**.
+
+### Why did tool calls stop running after I turned on Validate Tool Calls?
+
+In Block mode, tool calls stop when your server can't answer `tool_call`
+frames. Check **Recent Errors** on the Inference Hooks page for errors under
+**Tool Calls**, and confirm your vendor supports tool call frames. Until it
+does, turn **Validate Tool Calls** off.
 
 ### The circuit breaker tripped. How do I recover?
 

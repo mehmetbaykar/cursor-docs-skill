@@ -6,7 +6,7 @@ path: /docs/grok-bot/computers
 
 # Manage Grok Bot computers
 
-Each member of your team gets one hosted computer where every Bot they run does its work. **Manage Member Computers and Data**, under **Security & Compliance** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot), lets admins recreate or terminate computers across many members at once, or [delete all of a member's Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). **Terminate Inactive Computers**, under **Bot Computers**, turns on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for members whose Bots go 30 days without a message. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
+Each member of your team gets one hosted computer where every Bot they run does its work. **Manage Member Computers and Data**, under **Security & Compliance** on the [Grok Bot page of the Cursor dashboard](https://cursor.com/dashboard/bot), lets admins recreate or terminate computers across many members at once, [delete computers along with their data](https://cursor.com/docs/grok-bot/computers.md#delete-vms-and-data), or [delete all of a member's Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). **Terminate Inactive Computers**, under **Bot Computers**, turns on [automatic termination](https://cursor.com/docs/grok-bot/computers.md#terminate-inactive-computers-automatically) for members whose Bots go 30 days without a message. For the rest of the admin controls, see [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md).
 
 **Manage Member Computers and Data is Enterprise only.** Organization admins
 and Enterprise team admins can use it. Members never see this control.
@@ -19,6 +19,13 @@ Both actions keep the member's durable disk, so their synced Bots, files, and lo
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Recreate**  | Builds a replacement computer on the latest image and runs [Team Setup Scripts](https://cursor.com/docs/grok-bot/private-networks.md). The current computer stays available until the replacement is ready, then Grok Bot switches over. A Bot that is mid-turn pauses at a safe point and resumes on the new computer. If it can't pause in time, that member's recreate is not started and shows as failed. | Roll out a new image or an updated Team Setup manifest to many members at once. [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) changes reach computers without a recreate. |
 | **Terminate** | Deletes the member's computer, running or hibernated. Running work stops. The computer does not restart on its own; the member's next message starts a fresh one on the same durable disk.                                                                                                                                                                                                                    | End a member's current work, or clear a computer that is stuck. Terminating does not remove access; see the [FAQ](https://cursor.com/docs/grok-bot/computers.md#faq).                                     |
+
+## Delete VMs and data
+
+**Delete VMs and Data** deletes a member's computer and its durable disk. Their Bots and conversations stay, and their next message starts an empty computer.
+
+- **At most 1,000 members** per operation.
+- **It can't be undone.** Each operation is recorded in the [Audit Log](https://cursor.com/dashboard/audit-log).
 
 ## Delete all Grok Bot data
 
@@ -44,8 +51,8 @@ picks everyone in the current results.
 
 Open **Manage selected** and pick **Recreate VMs** or **Terminate VMs**.
 A confirmation screen restates the action and the number of members it
-affects. The same menu also offers **Delete VMs and Data**, which removes
-the computer and its durable data, and
+affects. The same menu also offers
+[Delete VMs and Data](https://cursor.com/docs/grok-bot/computers.md#delete-vms-and-data) and
 [Delete All Grok Bot Data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). Use either only
 when you want the member to start from empty.
 

@@ -109,7 +109,7 @@ Auto Review is the review layer behind those prompts: an independent review mode
 
 Inference hooks send each Grok Bot model request, signed, to an AI security server your organization runs or uses through a security vendor. Your server allows or denies the request before the model runs, so your own policy checks prompts and the content Grok Bot gathers, such as web pages and app results. New configurations start in Shadow mode, which records denials in the audit log without blocking anything.
 
-Inference hooks check model inputs, not actions as they run. Keep the network policy and Auto Review in place to control what Bots do. Setup, modes, the request format, and audit events are on [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
+Inference hooks check model inputs. With **Validate Tool Calls** on, they also check tool calls before they run, but not what an action does once it starts. Keep the network policy and Auto Review in place to control what Bots do. Setup, modes, the request format, and audit events are on [Grok Bot inference hooks](https://cursor.com/docs/grok-bot/inference-hooks.md).
 
 Inference hooks are in beta and available to all Enterprise teams.
 
