@@ -149,8 +149,9 @@ Each member's computer keeps local files, browser sessions, and anything saved i
 - **Member resets keep saved data.** Members can reset their own computer from the desktop app. Like Recover, Reset rebuilds the computer from the last saved data, and very recent changes can be lost if the computer can't be reached to save them. See [Grok Bot computer](https://cursor.com/help/grok-bot/computer-recovery.md).
 - **Deletion follows the DPA.** Under the [Data Processing Agreement](https://cursor.com/terms/dpa), data is deleted or returned within 30 days of written direction after the service ends.
 - **Backups run daily.** Cursor's production control plane is covered by daily encrypted backups, replicated to a separate recovery facility.
+- **Enterprise admins can set retention periods.** Inactive Bots, inactive computers, and old messages can be deleted automatically. See [Data retention](https://cursor.com/docs/grok-bot/teams.md#data-retention).
 
-A per-organization retention policy and customer-managed point-in-time restore of an individual computer are not available.
+Customer-managed point-in-time restore of an individual computer is not available.
 
 ## Data residency
 

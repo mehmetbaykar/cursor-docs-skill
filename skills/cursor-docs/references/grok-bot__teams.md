@@ -198,7 +198,21 @@ Lets Bots run commands as root on their own computer. The switch is under **Bot 
 
 #### Manage Member Computers and Data
 
-Lets admins recreate, terminate, or permanently delete the computers of many members at once, or delete all of their Grok Bot data, with a result for each member. Find it under **Security & Compliance** on the Grok Bot page. Recreate moves members to the latest image and Team Setup Scripts while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. Delete removes the computer and its stored files, and the member's next session starts an empty computer. **Terminate Inactive Computers**, under **Bot Computers**, does the terminate for you when a member's Bots go 30 days without a message. It is off by default. None of these remove access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
+Lets admins recreate, terminate, or permanently delete the computers of many members at once, or delete all of their Grok Bot data, with a result for each member. Find it under **Security & Compliance** on the Grok Bot page. Recreate moves members to the latest image and Team Setup Scripts while keeping their Bots, files, and logins. Terminate ends the member's current work and keeps the durable disk; the member's next session starts a fresh computer on it. Delete removes the computer and its stored files, and the member's next session starts an empty computer. To delete inactive computers automatically, use [Retention Period for Computers](https://cursor.com/docs/grok-bot/teams.md#data-retention). None of these remove access: to do that, remove the member from the team or turn off Grok Bot for their group, and revoke their sessions in your identity provider. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md).
+
+*Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
+
+### Data retention
+
+Delete Grok Bot data automatically once it passes a period you choose. Find these settings under **Data Retention** on the Grok Bot page. Each is off by default.
+
+| Setting                            | What it deletes                                                                                                                                                                                                                     | Period         |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| **Retention Period for Bots**      | Bots that no one has messaged for the period, with their conversations, memories, skills, and routines. The Bot's owner gets an email 30 days before deletion, and a message in that window keeps the Bot.                          | 60 to 365 days |
+| **Retention Period for Computers** | A member's computer and its files, once no one has messaged any of their Bots for the period. See [Delete inactive computers automatically](https://cursor.com/docs/grok-bot/computers.md#delete-inactive-computers-automatically). | 30 to 365 days |
+| **Retention Period for Messages**  | Bot messages and attachments older than the period, every day. No one is notified.                                                                                                                                                  | 30 to 365 days |
+
+Turning a setting on or shortening its period asks you to confirm first. Deleted data can't be recovered. Every change and deletion is recorded in the [Audit Log](https://cursor.com/dashboard/audit-log).
 
 *Available on the [Enterprise plan](https://cursor.com/docs/enterprise.md).*
 

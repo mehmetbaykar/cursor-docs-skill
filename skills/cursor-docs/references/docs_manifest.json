@@ -1325,8 +1325,8 @@
       "title": "Grok Bot"
     },
     "grok-bot__computers.md": {
-      "hash": "c14f789ac32f176f343dc158e9800d54fe0c0c9770c896a536be4e330e0d9e28",
-      "last_updated": "2026-11-04T03:20:41+00:00",
+      "hash": "d5b95149361cc1cac13a4976188c4a87825c2223db26655102ee7dac135d9425",
+      "last_updated": "2026-11-05T06:29:14+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/computers",
       "path": "/docs/grok-bot/computers",
       "section": "docs",
@@ -1405,8 +1405,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "de335d9634eaa4896be7edd9b506e71c8e3439389b163ef1db78055305456b1e",
-      "last_updated": "2026-11-04T03:20:43+00:00",
+      "hash": "fc02afbe79e34581b2fe120121e632c40854474db81b5e1fc2e916c48340ded3",
+      "last_updated": "2026-11-05T06:29:17+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "section": "docs",
@@ -1425,8 +1425,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "d391628d8d4c5b63092d34c8d4eccfedf80fd127f10df87b89fc3f58699a16ee",
-      "last_updated": "2026-10-27T21:14:08+00:00",
+      "hash": "41533152de77d207bde65ec0489ee7db3e0a321bdfb1db3227750700fe43c5f6",
+      "last_updated": "2026-11-05T06:29:18+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "section": "docs",
@@ -2860,7 +2860,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-04T21:21:23+00:00",
+  "last_updated": "2026-11-05T06:30:13+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
