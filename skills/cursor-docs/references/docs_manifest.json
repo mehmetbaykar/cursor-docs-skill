@@ -1035,8 +1035,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__apps.md": {
-      "hash": "43547887b9ddae3266070d86fcb696e0d0741a92de4f9b8be91f642aaffabcde",
-      "last_updated": "2026-11-04T03:20:33+00:00",
+      "hash": "5acfc3f82385d7647fbf87a4bb82c26cccb20bac0c6e1a42322716cf2bcee069",
+      "last_updated": "2026-11-05T15:20:32+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/apps",
       "path": "/docs/cloud-agent/apps",
       "section": "docs",
@@ -2860,7 +2860,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-05T06:30:13+00:00",
+  "last_updated": "2026-11-05T15:21:27+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
