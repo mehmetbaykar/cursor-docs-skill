@@ -8,35 +8,33 @@ path: /docs/security-agents
 
 Security Agents scan your code for security bugs, risky patterns, and vulnerabilities.
 
-Configure Security Agents in Automations. Each agent type has its own page: [Security Reviewer](https://cursor.com/automations/from-cursor/security-reviewer) and [Vulnerability Scanner](https://cursor.com/automations/from-cursor/vulnerability-scanner).
+Configure Security Agents in Automations. Each agent type has its own page: [Security Review](https://cursor.com/automations/from-cursor/security-review) and [Vulnerability Remediation](https://cursor.com/automations/from-cursor/vulnerability-remediation).
 
 ## How it works
 
 Security Agents include two Cursor-managed agent types:
 
-- **Security Reviewer** checks pull requests before they merge. Use it to catch vulnerabilities during code review.
-- **Vulnerability Scanner** scans your codebase at rest. Use it to find pre-existing vulnerabilities, long-standing issues, and problems missed during PR review.
+- **Security Review** checks pull requests before they merge. Use it to catch vulnerabilities during code review.
+- **Vulnerability Remediation** scans your codebase at rest and patches it with the fix. Use it to find and fix pre-existing vulnerabilities, long-standing issues, and problems missed during PR review.
 
 Both agent types run on the Automations platform and require Cloud Agents.
 
 ## Setup
 
-Open the [Security Reviewer](https://cursor.com/automations/from-cursor/security-reviewer) or [Vulnerability Scanner](https://cursor.com/automations/from-cursor/vulnerability-scanner) page in Automations to configure that agent type.
+Open the [Security Review](https://cursor.com/automations/from-cursor/security-review) or [Vulnerability Remediation](https://cursor.com/automations/from-cursor/vulnerability-remediation) page in Automations to configure that agent type.
 
 ### Source control support
 
-Security Reviewer supports pull requests on Origin, GitHub, and GitLab. For pull request reviews on Bitbucket or Azure DevOps repositories, use [Bugbot](https://cursor.com/docs/bugbot.md).
+Security Reviewer and Vulnerability Scanner support repositories on Origin, GitHub, GitLab, and Bitbucket Cloud.
 
-| Source control provider                                                          | Security Reviewer | Bugbot                                                                                                  |
-| :------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------ |
-| [Origin](https://cursor.com/docs/origin.md)                                      | Supported         | Supported                                                                                               |
-| [GitHub](https://cursor.com/docs/integrations/github.md)                         | Supported         | Supported                                                                                               |
-| [GitLab](https://cursor.com/docs/integrations/gitlab.md)                         | Supported         | Supported                                                                                               |
-| [Bitbucket Cloud](https://cursor.com/docs/integrations/bitbucket.md)             | Not supported     | Supported (public beta)                                                                                 |
-| [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md#setup) | Not supported     | Supported on Teams and Enterprise; automatic reviews only; no `bugbot run`, `cursor review`, or Autofix |
-| [Azure DevOps Services](https://cursor.com/docs/integrations/azure-devops.md)    | Not supported     | Supported (public beta)                                                                                 |
-
-Vulnerability Scanner also does not support Bitbucket Cloud or Bitbucket Data Center repositories.
+| Source control provider                                                          | Security Review | Vulnerability Remediation | Bugbot                                                                                                  |
+| :------------------------------------------------------------------------------- | :-------------- | :------------------------ | :------------------------------------------------------------------------------------------------------ |
+| [Origin](https://cursor.com/docs/origin.md)                                      | Supported       | Supported                 | Supported                                                                                               |
+| [GitHub](https://cursor.com/docs/integrations/github.md)                         | Supported       | Supported                 | Supported                                                                                               |
+| [GitLab](https://cursor.com/docs/integrations/gitlab.md)                         | Supported       | Supported                 | Supported                                                                                               |
+| [Bitbucket Cloud](https://cursor.com/docs/integrations/bitbucket.md)             | Supported       | Supported                 | Supported                                                                                               |
+| [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md#setup) | Not supported   | Not supported             | Supported on Teams and Enterprise; automatic reviews only; no `bugbot run`, `cursor review`, or Autofix |
+| [Azure DevOps Services](https://cursor.com/docs/integrations/azure-devops.md)    | Not supported   | Not supported             | Supported (public beta)                                                                                 |
 
 ### Triggers
 
@@ -60,7 +58,7 @@ Use custom instructions to give each agent more context. You can describe the ty
 
 ### Tools and MCPs
 
-Both agent types support tools and MCPs. A Security Reviewer needs at least one tool or MCP before you can save it. A Vulnerability Scanner saves without one and reports its findings to the **Remediation agents** section on the [Vulnerability Scanner page in Automations](https://cursor.com/automations/from-cursor/vulnerability-scanner).
+Both agent types support tools and MCPs. A Security Reviewer needs at least one tool or MCP before you can save it. A Vulnerability Scanner saves without one and reports its findings to the **Remediation agents** section on the [Vulnerability Remediation page in Automations](https://cursor.com/automations/from-cursor/vulnerability-remediation).
 
 Use tools and MCPs to connect Security Agents to the systems where your team tracks security work.
 
@@ -95,7 +93,7 @@ Security Agents are billed at the team usage level:
 
 ## Analytics
 
-Security Agents track three key metrics across agent runs. The [Security Reviewer page in Automations](https://cursor.com/automations/from-cursor/security-reviewer) shows them:
+Security Agents track three key metrics across agent runs. The [Security Review page in Automations](https://cursor.com/automations/from-cursor/security-review) shows them:
 
 - **Vulnerabilities found**: the number of security findings reported by agents.
 - **Issues fixed**: the number of findings that were resolved after they were reported.
@@ -107,7 +105,7 @@ To determine whether an issue was fixed, Cursor uses LLMs to review incremental 
 
 Every agent run is tracked in Automations. Each agent type's page lists **Recent Runs** for its own agents. Use the run history to see when an agent ran, which tools it used, its final status, and how long it took.
 
-Open a run to inspect the underlying Cloud Agent for more detail about what the agent did. A review or scan that ran on Cursor-managed hosting has no Cloud Agent. Find a hosted review under **Recent Runs** on the Security Reviewer page, where it opens a read-only view of the review session.
+Open a run to inspect the underlying Cloud Agent for more detail about what the agent did. A review or scan that ran on Cursor-managed hosting has no Cloud Agent. Find a hosted review under **Recent Runs** on the Security Review page, where it opens a read-only view of the review session.
 
 ![Security Agents run history in Automations](https://cursor.com/docs-static/images/security-review/recent-runs.png)
 
@@ -117,7 +115,7 @@ Remediation agents check the findings produced by the scanner and help you verif
 
 For each finding, Cursor starts an agent that writes exploit tests to verify the issue and automatically patch the confirmed ones.
 
-Find it in the [Vulnerability Remediation](https://cursor.com/automations/from-cursor/vulnerability-scanner) section and on each scanner's detail page.
+Find it in the [Vulnerability Remediation](https://cursor.com/automations/from-cursor/vulnerability-remediation) section and on each scanner's detail page.
 
 ### How it works
 

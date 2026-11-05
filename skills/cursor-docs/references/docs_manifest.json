@@ -1145,8 +1145,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "cff1235c6ee3b5022850fd8a5edaad80adafadc95ecf1cb46626e36499beda78",
-      "last_updated": "2026-11-04T03:20:36+00:00",
+      "hash": "c134db09820570d6ec257e1a6481d81a9ad91b78e8c6a19b6391b61af31f9b5b",
+      "last_updated": "2026-11-05T21:20:12+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "section": "docs",
@@ -1175,8 +1175,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "ab682f790fb07a6b91d8ab6ee56569531893b3d1e08c0542739373476770b3ee",
-      "last_updated": "2026-10-19T00:56:43+00:00",
+      "hash": "fba46d09f4b0970322f1a3bcc4f4323ba7761309f734323b0751b489f7891a97",
+      "last_updated": "2026-11-05T21:20:13+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "section": "docs",
@@ -1195,8 +1195,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "a5a3085b48024322233ae7e88b0cf6d27286f8803744d170e3d722e507f118dc",
-      "last_updated": "2026-10-22T18:25:45+00:00",
+      "hash": "c97749278c5ac6880fe1ea9df2d8878a7764ba269e9a392eb0b33921f44c9438",
+      "last_updated": "2026-11-05T21:20:14+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "section": "docs",
@@ -1455,8 +1455,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "e35cec581021d48302b01889ee93c64a9e2dcd33c105dda34a637e14cfb4561e",
-      "last_updated": "2026-11-03T21:15:56+00:00",
+      "hash": "f861f2529a3ab3f9e0ec7d98c24807d1457edd301de1f3d88a3ee418392a7fd1",
+      "last_updated": "2026-11-05T21:21:04+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1525,8 +1525,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "3a3e71d80dd78b5d703d7f4e76d496d186fba8f167e34b7b5c3eb413b30a1827",
-      "last_updated": "2026-10-23T18:26:37+00:00",
+      "hash": "7a043bbc3f265ac1ee85ad274a57112f574f5bc3fa2433d82e7b485dd26486ce",
+      "last_updated": "2026-11-05T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "section": "docs",
@@ -2655,8 +2655,8 @@
       "title": "Cursor TypeScript SDK"
     },
     "security-agents.md": {
-      "hash": "f2ac7cfaaad13dbd04f435e55ff00163f69bc4e8b2511ebed1fb0f593cf519a5",
-      "last_updated": "2026-10-28T21:15:35+00:00",
+      "hash": "b58b427697c2daa16b48703d26a943d8d8674ee2545a619c7c227df21f4d8e97",
+      "last_updated": "2026-11-05T21:21:02+00:00",
       "original_url": "https://cursor.com/docs/security-agents",
       "path": "/docs/security-agents",
       "section": "docs",
@@ -2860,7 +2860,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-05T15:21:27+00:00",
+  "last_updated": "2026-11-05T21:21:29+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
