@@ -22,7 +22,7 @@ All Cursor keybindings, including Cursor-specific features, can be remapped in K
 | Cmd .           | Mode Menu                               |
 | Cmd /           | Loop between AI models                  |
 | Cmd Shift J     | Cursor settings                         |
-| Cmd Shift Space | Toggle Voice Mode                       |
+| Cmd Shift Space | Toggle Voice Mode (dictation)           |
 | Cmd ,           | General settings                        |
 | Cmd Shift P     | Command palette                         |
 

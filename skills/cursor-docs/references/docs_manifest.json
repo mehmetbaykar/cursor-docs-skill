@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 283,
+    "pages_fetched_successfully": 284,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 283
+    "total_pages_discovered": 284
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -675,8 +675,8 @@
       "title": "Projects"
     },
     "agent__prompting.md": {
-      "hash": "3cf31cf84e25135edeb8b597072e9bbce65ee98b3b8df98703dcb8f96bb965fc",
-      "last_updated": "2026-08-24T21:38:53+00:00",
+      "hash": "589ae273e5918d4c4c8f9b6596a1bbcf73b46ad96a81068c65034930e8bf1b48",
+      "last_updated": "2026-11-06T06:29:09+00:00",
       "original_url": "https://cursor.com/docs/agent/prompting",
       "path": "/docs/agent/prompting",
       "section": "docs",
@@ -743,6 +743,16 @@
       "source_url": "https://cursor.com/docs/agent/tools/terminal",
       "status": "live",
       "title": "Terminal"
+    },
+    "agent__voice-chat.md": {
+      "hash": "d133103198c1e74dece04d165874a605a1f455ab18c37d71b98704f4fac1455e",
+      "last_updated": "2026-11-06T06:29:11+00:00",
+      "original_url": "https://cursor.com/docs/agent/voice-chat",
+      "path": "/docs/agent/voice-chat",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/agent/voice-chat",
+      "status": "live",
+      "title": "Voice chat"
     },
     "api.md": {
       "hash": "d4afc3e6dea4af5dd8be5f92471b27fcfae9959814544b68207280b256e8f600",
@@ -1105,8 +1115,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "3e1a6f81c550ae9579a11b226230750f25e7a7f99e39d21e242e0528dc47e175",
-      "last_updated": "2026-10-14T21:19:19+00:00",
+      "hash": "e1683ad0364524018637c135f5487425946b280753733f0f12d3cc53bdb5c8c0",
+      "last_updated": "2026-11-06T06:29:24+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "section": "docs",
@@ -2455,8 +2465,8 @@
       "title": "Ignore file"
     },
     "reference__keyboard-shortcuts.md": {
-      "hash": "7a8735a13c577e75625b9b9294b0e01843ccf7be0f01f878ea7028a6879a0c85",
-      "last_updated": "2026-10-23T21:20:35+00:00",
+      "hash": "7dc29fa10fe662d5a793f29a5dbd636493833f62a97ae2d3bbbd34142efd306f",
+      "last_updated": "2026-11-06T06:30:02+00:00",
       "original_url": "https://cursor.com/docs/reference/keyboard-shortcuts",
       "path": "/docs/reference/keyboard-shortcuts",
       "section": "docs",
@@ -2860,7 +2870,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-06T00:39:52+00:00",
+  "last_updated": "2026-11-06T06:30:21+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

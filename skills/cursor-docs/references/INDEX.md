@@ -79,6 +79,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `agent__tools__canvas` - [Canvases](https://cursor.com/docs/agent/tools/canvas)
 - `agent__tools__search` - [Search](https://cursor.com/docs/agent/tools/search)
 - `agent__tools__terminal` - [Terminal](https://cursor.com/docs/agent/tools/terminal)
+- `agent__voice-chat` - [Voice chat](https://cursor.com/docs/agent/voice-chat)
 - `api` - [Cursor APIs Overview](https://cursor.com/docs/api)
 - `api__origin` - [Cursor Origin API](https://cursor.com/docs/api/origin)
 - `api__origin__acting-as-users` - [Acting on behalf of users](https://cursor.com/docs/api/origin/acting-as-users)
