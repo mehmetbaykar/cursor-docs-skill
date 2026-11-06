@@ -1285,8 +1285,8 @@
       "title": "Customize Cursor"
     },
     "customizing__aws-bedrock.md": {
-      "hash": "ebe02101130eeaf01929b64bb33c664c279b350d045ef64004918bd8be6f8ab3",
-      "last_updated": "2026-08-07T17:12:03+00:00",
+      "hash": "b249d1b5bc2dbd23452daaef7e6f138d4e8a771816154f576c9500bcc3e39f6c",
+      "last_updated": "2026-11-06T18:23:03+00:00",
       "original_url": "https://cursor.com/docs/customizing/aws-bedrock",
       "path": "/docs/customizing/aws-bedrock",
       "section": "docs",
@@ -2870,7 +2870,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-06T06:30:21+00:00",
+  "last_updated": "2026-11-06T18:24:04+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
