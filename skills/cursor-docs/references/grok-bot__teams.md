@@ -104,9 +104,21 @@ Allows or blocks Bots delegating coding tasks to Cursor [Cloud Agents](https://c
 
 Controls whether members can publish Bot templates outside your team. Off keeps sharing team-only, and Cursor enforces the policy on its servers, including for templates that are already public. Enterprise teams start with public sharing off; other teams start with it allowed. For what a shared template contains, see [Share a Bot](https://cursor.com/docs/grok-bot/work.md#share-a-bot).
 
-#### Manage Shared Bots
+#### Bot sharing
 
-Controls who can use each [shared Bot](https://cursor.com/help/grok-bot/shared-bots.md) and adds shared Bots to members' sidebars automatically. Open **Manage Shared Bots** under **Shared Bots** on the Grok Bot page. The **Access** column shows who can use each shared Bot, such as the whole team, certain people or groups, or only its owner. Click it to change who has access. In a Bot's **Auto-add** column, pick **All team** or one or more groups, or clear it. Auto-add only applies to groups that have access. Members who get a Bot this way can't hide it from their sidebar. Admins can also delete a shared Bot here. Deleting it removes it for everyone on the team, removes its Slack app, and can't be undone. Groups are managed on the Members & Groups page.
+Controls who may share a Bot with teammates. Find **Bot sharing** under **Sharing** on the Grok Bot page and pick **Everyone** or **Admins only**. **Everyone** is the default. With **Admins only**, members see **Only team admins can share Bots** and the **Share** control is disabled for them; Cursor enforces this on its servers. Bots already shared stay shared, and the access an admin sets in **Manage Bots** still applies. See [Who can share Bots?](https://cursor.com/help/grok-bot/shared-bots.md#who-can-share-bots)
+
+#### Allow Shared Logins
+
+Lets a shared Bot's Managers share their own app logins as shared connectors. Find **Allow Shared Logins** under **Sharing** on the Grok Bot page. It's off by default. When it's on, everyone who uses the Bot acts through that Manager's account, including for changes the Bot makes. When it's off, Managers see **Your admin has turned off sharing logins with Bots**. See [How do shared connectors work?](https://cursor.com/help/grok-bot/shared-bots.md#how-do-shared-connectors-work)
+
+#### Slack Workspace Access
+
+Lets members of your Slack workspace who aren't on the team use shared Bots in Slack without a linked Cursor account. It applies to Bots shared with your organization, or with the team when it's the organization's only team or isn't in one. Their replies use the team's usage. Slack guests and Slack Connect channels are never included. Find **Slack Workspace Access** under **Sharing** on the Grok Bot page. It's on by default. In an organization, an organization admin sets it for every team. The setting appears as it reaches your team. See [Who can talk to a shared Bot in Slack?](https://cursor.com/help/grok-bot/shared-bots.md#who-can-talk-to-a-shared-bot-in-slack)
+
+#### Manage Bots
+
+Lists every Bot on your team. Open **Manage Bots** under **Shared Bots** on the Grok Bot page, and filter the list by sharing or by owner. The **Access** column shows who can use each [shared Bot](https://cursor.com/help/grok-bot/shared-bots.md), such as the whole team, certain people or groups, or only its owner. Click it to change who has access. In a Bot's **Auto-add** column, pick **All team** or one or more groups to add the Bot to those members' sidebars, or clear it. Auto-add only applies to groups that have access. Members who get a Bot this way can't hide it from their sidebar. Admins can delete any Bot here. Deleting a Bot removes it and its Slack app for everyone who uses it, and can't be undone. Groups are managed on the Members & Groups page.
 
 #### Page sharing
 
@@ -275,8 +287,10 @@ For administrators:
 4. **Set Execution on Local Computer to Never allow** unless Bots need to act on member machines. The default leaves the choice to each member.
 5. **Disable Cloud Agent spawning** if you don't need delegation.
 6. **Keep public template sharing off** unless members should publish Bot templates outside the team.
-7. **Add team Auto-review rules. Enterprise only.** Cover actions that should always ask first or can proceed automatically. Production deployments, external email, payments, and accepting legal terms are good "Ask first" examples. Keep automatic rules narrow.
-8. **Gate sign-in to managed devices through your identity provider.** Grok Bot sign-in uses your SSO, so a device-aware sign-in policy applies to it. This gates sign-in, not the hosted computer itself.
+7. **Set Bot sharing to Admins only** if shared Bots should go through a review before teammates can use them. Shared Bots carry their owner's apps, secrets, and files into every teammate's chat.
+8. **Keep Allow Shared Logins off** unless a shared Bot should act through one Manager's account for everyone who uses it.
+9. **Add team Auto-review rules. Enterprise only.** Cover actions that should always ask first or can proceed automatically. Production deployments, external email, payments, and accepting legal terms are good "Ask first" examples. Keep automatic rules narrow.
+10. **Gate sign-in to managed devices through your identity provider.** Grok Bot sign-in uses your SSO, so a device-aware sign-in policy applies to it. This gates sign-in, not the hosted computer itself.
 
 For members:
 
@@ -341,6 +355,7 @@ Isolation, egress, approvals, logging, and data-handling questions are on [Grok 
 - [Configure TLS-inspecting proxies](https://cursor.com/docs/grok-bot/proxies.md)
 - [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md)
 - [Work with Grok Bot](https://cursor.com/docs/grok-bot/work.md)
+- [Shared Bots](https://cursor.com/help/grok-bot/shared-bots.md)
 - [Admin API](https://cursor.com/docs/account/teams/admin-api.md#grok-bot)
 - [Grok Bot Conversation Insights](https://cursor.com/docs/account/teams/analytics.md#grok-bot-conversation-insights)
 - [Plans and billing](https://cursor.com/help/grok-bot/plans.md)

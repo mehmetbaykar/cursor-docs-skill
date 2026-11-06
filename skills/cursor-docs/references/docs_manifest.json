@@ -1425,8 +1425,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "41533152de77d207bde65ec0489ee7db3e0a321bdfb1db3227750700fe43c5f6",
-      "last_updated": "2026-11-05T06:29:18+00:00",
+      "hash": "9a1263fd5586bda4afb413f5f161a9d409d3f0f0580cc48e1af0a061ea8f1d9c",
+      "last_updated": "2026-11-06T00:38:58+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "section": "docs",
@@ -1455,8 +1455,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "f861f2529a3ab3f9e0ec7d98c24807d1457edd301de1f3d88a3ee418392a7fd1",
-      "last_updated": "2026-11-05T21:21:04+00:00",
+      "hash": "2aafb312c183887ce991769bb7c476be965c716efe042f7ad76f1c4f65d0092a",
+      "last_updated": "2026-11-06T00:39:34+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2860,7 +2860,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-05T21:21:29+00:00",
+  "last_updated": "2026-11-06T00:39:52+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
