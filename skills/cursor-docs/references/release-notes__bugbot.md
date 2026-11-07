@@ -18,7 +18,7 @@ Weekly changes to [Bugbot](https://cursor.com/docs/bugbot.md). Each entry covers
 ### Reviews and checks
 
 - &#x20;**Bugbot checks no longer stay pending when your team hits its daily cap for bot pull requests.** When your team reaches its daily cap of reviews on pull requests opened by bot accounts, Bugbot finishes its [check](https://cursor.com/docs/bugbot.md#ci-check-statuses) right away and shows the cap message. On GitHub, Bitbucket, and Azure DevOps the check fails, so a required Bugbot check blocks the merge until Bugbot reviews the pull request. On GitLab it finishes as neutral.
-- **Bugbot explains when it can't push Autofix changes.** When you ask Bugbot to push [Autofix](https://cursor.com/docs/bugbot.md#autofix) changes and the push fails, Bugbot replies on the pull request with the reason instead of staying silent. The reply names the cause, such as a merge conflict, branch protection, missing permission, a mirrored repository, or a merge queue lock.
+- **Bugbot explains when it can't push Autofix changes.** When you ask Bugbot to push [Autofix](https://cursor.com/docs/bugbot.md#autofix) changes and the push fails, Bugbot replies on the pull request with the reason instead of staying silent. The reply names the cause, such as a merge conflict, branch protection, missing permission, or a mirrored repository.
 
 ### Fixes
 

@@ -60,7 +60,6 @@ New features, improvements, and fixes in the [Origin CLI](https://cursor.com/doc
 ### Pull requests
 
 - **See which bot owners can clear a Code Review Gate.** When a Code Review Gate policy still needs approval, [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) lists any bot owner whose approval satisfies it, with the `origin pr reviewer request` command to ask for that bot's review. `--json` keeps the `nativeVerdict` field on gates and approvals, so scripts can tell which ones Agentic Owners decides.
-- **See which stacked pull requests leave the merge queue with the one you remove.** `origin pr dequeue` names any pull requests queued behind the one you removed that left the merge queue with it, so you know what to queue again.
 - **Clearer owner approval blockers in `origin pr requirements`.** Owner approval blockers name who must approve which paths. If the author is the only owner of the changed paths, the blocker says an approval from anyone but the author clears it. When a diff is too large for a full risk assessment, the blocker says so and suggests splitting the pull request.
 
 ### Rulesets
@@ -135,7 +134,7 @@ New features, improvements, and fixes in the [Origin CLI](https://cursor.com/doc
 
 ### Repositories
 
-- **Imported rulesets keep merge methods and merge queue exclusions.** `origin ruleset import --from-github` carries a GitHub ruleset's allowed merge and squash methods onto the imported pull request rule. Rebase is dropped with a warning. A ruleset that exempts GitHub merge queue branches also exempts Origin's merge queue branches, with a warning naming the added exclusion. See [rulesets](https://cursor.com/docs/origin/cli/reference/commands.md#rulesets).
+- **Imported rulesets keep merge methods.** `origin ruleset import --from-github` carries a GitHub ruleset's allowed merge and squash methods onto the imported pull request rule. Rebase is dropped with a warning. See [rulesets](https://cursor.com/docs/origin/cli/reference/commands.md#rulesets).
 - **Faster default-branch lookup in `origin repo clone-fast`.** It asks the server for the repository's default branch alone instead of downloading the full list of refs, and falls back to the old lookup if that request fails.
 
 ### Reliability

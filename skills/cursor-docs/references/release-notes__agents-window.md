@@ -37,7 +37,7 @@ New features, improvements, and fixes in the [Agents Window](https://cursor.com/
 
 ### Files, changes, and pull requests
 
-- **Clearer merge actions on pull request tabs.** When a merge on a pull request tab lands a stack of several pull requests, the merge button shows how many it will land. Hovering Remove from Queue shows the pull request's position in the merge queue.
+- **Clearer merge actions on pull request tabs.** When a merge on a pull request tab lands a stack of several pull requests, the merge button shows how many it will land.
 - **See how stacked pull requests build on each other in the PRs tray.** The PRs tray in a [Project](https://cursor.com/docs/agent/projects.md) groups stacked pull requests on a rail, so you can see how each PR builds on the one below it. Forked stacks branch off the parent line, and the tray's stack view matches the stack navigator in the PR tab.
 
 ### Customization and settings

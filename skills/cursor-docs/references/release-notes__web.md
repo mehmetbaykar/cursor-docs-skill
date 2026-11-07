@@ -104,7 +104,7 @@ Weekly changes to Cursor on the web, from integrations and admin settings to aut
 
 #### Security and audit logs
 
-- &#x20;**More team changes in the audit log.** The audit log now records changes to cloud agent network egress and sandbox networking settings, and to your team's repository allowlist and blocklist, including repo patterns. It also records Remote Control events, such as a computer being registered or a device being paired, unpaired, or revoked, with a new Remote Control filter. Merge queue bypass attempts and pull request takeovers are now logged too, and takeovers show the previous author. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- &#x20;**More team changes in the audit log.** The audit log now records changes to cloud agent network egress and sandbox networking settings, and to your team's repository allowlist and blocklist, including repo patterns. It also records Remote Control events, such as a computer being registered or a device being paired, unpaired, or revoked, with a new Remote Control filter. Pull request takeovers are now logged too, and takeovers show the previous author. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
 
 #### Workspace settings
 
