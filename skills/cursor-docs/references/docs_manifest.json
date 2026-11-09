@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 284,
+    "pages_fetched_successfully": 285,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 284
+    "total_pages_discovered": 285
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -35,8 +35,8 @@
       "title": "Legacy Cursor plans"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "f402a671286f81103a81867419dd3ac23420f95ce60e3e8b0a7a8bcc9dde83ed",
-      "last_updated": "2026-10-26T18:33:31+00:00",
+      "hash": "6c2585d525d91d5aced3093fa510aff4ea80aca2e1b313403013d9f373d4d5fd",
+      "last_updated": "2026-11-09T21:19:28+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "section": "docs",
@@ -115,8 +115,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "403e2bd46e7ae9d1631dceac811085c4aa9efa5b0c9ba4eaac0eceb0efa386f0",
-      "last_updated": "2026-11-04T03:20:08+00:00",
+      "hash": "7343b406bc02e50e8000651bb26abe9f43c6a17baff0e146673180c0a67d346f",
+      "last_updated": "2026-11-09T21:19:30+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "section": "docs",
@@ -815,8 +815,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "5eb85b8174be3db1403b8dd42c8fec42c4062b71401239f01d02f2f89839988c",
-      "last_updated": "2026-11-04T21:20:11+00:00",
+      "hash": "426d345e0dc4582a653494bd926077d17d384ef0e9763c1cb6ad4ccb08e79bcb",
+      "last_updated": "2026-11-09T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "section": "docs",
@@ -1265,8 +1265,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "c38a91472037e8dc84e984462ad138ff5267a669cf5345d3c67a68386f1b95f0",
-      "last_updated": "2026-10-26T18:33:30+00:00",
+      "hash": "dc72aab0e9f46070ec53acde52046615e8e9aaf06ee27d446d160a633105271c",
+      "last_updated": "2026-11-09T21:19:27+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "section": "docs",
@@ -1465,8 +1465,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "09ebac9b9a03c08810d2c270fb32390777eef7f807ad088f2cb3fc26a91d68cc",
-      "last_updated": "2026-11-07T21:20:41+00:00",
+      "hash": "4f5db2a8bdd14ea9388608e16c5f09772c6ea81951802bf61e39bd6a72b24166",
+      "last_updated": "2026-11-09T21:20:55+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1675,8 +1675,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "e2ec5817b783059d035a878467e8e8a2830f87edc4ded6d408b153b28b50d13a",
-      "last_updated": "2026-11-04T03:20:49+00:00",
+      "hash": "26e1723847ac77bbeb7fbd7cb0104cec317407610483533e95eed98ec789071f",
+      "last_updated": "2026-11-09T21:20:21+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "section": "docs",
@@ -1735,8 +1735,8 @@
       "title": "Models Claude 4 Sonnet"
     },
     "models__claude-fable-5-1.md": {
-      "hash": "e26ed5d45e610a838ba512815f39b3cfe9977f201ff11ce2c2a6b5ac1b1ced88",
-      "last_updated": "2026-10-20T18:26:49+00:00",
+      "hash": "41e399c76072a1670c1290234879279a6510f51f7c3b98e780170d07813cf7f4",
+      "last_updated": "2026-11-09T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5-1",
       "path": "/docs/models/claude-fable-5-1",
       "section": "docs",
@@ -1744,9 +1744,19 @@
       "status": "live",
       "title": "Models Claude Fable 5 1"
     },
+    "models__claude-fable-5-2.md": {
+      "hash": "063de4540043592218b02f3b3fb04754fdd34d6d18c755ddff16ecf6254881d8",
+      "last_updated": "2026-11-09T21:20:23+00:00",
+      "original_url": "https://cursor.com/docs/models/claude-fable-5-2",
+      "path": "/docs/models/claude-fable-5-2",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/models/claude-fable-5-2",
+      "status": "live",
+      "title": "Models Claude Fable 5 2"
+    },
     "models__claude-fable-5.md": {
-      "hash": "e4c372a1690c3f5b9a1be5cd82099366c52817f5cb4fe4bae11009274892dc13",
-      "last_updated": "2026-10-20T18:26:48+00:00",
+      "hash": "c9f0175ff4596efa8e5403b98a896635cb5ffb063e455898222c4f01f527f33b",
+      "last_updated": "2026-11-09T21:20:22+00:00",
       "original_url": "https://cursor.com/docs/models/claude-fable-5",
       "path": "/docs/models/claude-fable-5",
       "section": "docs",
@@ -2870,7 +2880,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-07T21:20:54+00:00",
+  "last_updated": "2026-11-09T21:21:23+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

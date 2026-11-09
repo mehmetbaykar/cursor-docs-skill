@@ -174,6 +174,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `models__claude-4-sonnet-1m` - [Models Claude 4 Sonnet 1m](https://cursor.com/docs/models/claude-4-sonnet-1m)
 - `models__claude-4-sonnet` - [Models Claude 4 Sonnet](https://cursor.com/docs/models/claude-4-sonnet)
 - `models__claude-fable-5-1` - [Models Claude Fable 5 1](https://cursor.com/docs/models/claude-fable-5-1)
+- `models__claude-fable-5-2` - [Models Claude Fable 5 2](https://cursor.com/docs/models/claude-fable-5-2)
 - `models__claude-fable-5` - [Models Claude Fable 5](https://cursor.com/docs/models/claude-fable-5)
 - `models__claude-haiku-5-5` - [Models Claude Haiku 5 5](https://cursor.com/docs/models/claude-haiku-5-5)
 - `models__claude-opus-4-5` - [Models Claude Opus 4 5](https://cursor.com/docs/models/claude-opus-4-5)

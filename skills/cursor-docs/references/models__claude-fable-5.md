@@ -4,7 +4,7 @@ source: https://cursor.com/docs/models/claude-fable-5
 path: /docs/models/claude-fable-5
 ---
 
-We recommend using [Claude Fable 5.1](https://cursor.com/docs/models/claude-fable-5-1.md). It is Anthropic's latest Mythos-class model, with cheaper prompt-cache reads. Fable 5 remains available.
+We recommend using [Claude Fable 5.2](https://cursor.com/docs/models/claude-fable-5-2.md). It is Anthropic's latest Mythos-class model, with lower rates than Fable 5. Fable 5 remains available.
 
 Claude Fable 5 is Anthropic's most capable generally available model for autonomous knowledge work and coding. It is a Mythos-class model with strong safeguards, built to handle long-running, complex, and asynchronous tasks where earlier models needed more frequent check-ins.
 
