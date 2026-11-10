@@ -42,7 +42,7 @@ your first Bot, named **Grok Bot**, and opens a chat with it.
 To add more Bots, choose the **+** button in the sidebar, then **Create a
 Bot**, name the Bot, and choose **Create**. On a Cursor team, share a Bot
 to let teammates chat with it, and choose **Browse shared Bots** under
-**+** to find Bots shared with you; see [Shared Bots](https://cursor.com/help/grok-bot/shared-bots.md).
+**+** to find Bots shared with you; see [Team Bots](https://cursor.com/help/grok-bot/team-bots.md).
 Give each Bot one primary job in its first message and ask it to remember
 how it should work. To rename it, click its name at the top of the chat to
 open its details. A focused Bot builds more useful context than one

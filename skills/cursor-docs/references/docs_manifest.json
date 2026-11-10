@@ -1325,8 +1325,8 @@
       "title": "Quickstart"
     },
     "grok-bot.md": {
-      "hash": "21f8a91e5e183e984f4b3fab873a915c3c0dbb1cb5eebf26570ca9e6ef431ca3",
-      "last_updated": "2026-10-27T21:14:04+00:00",
+      "hash": "7501decca97c19bf96f6076acdc0c1877c0dc707db4a2216ddba4e991e7dc93c",
+      "last_updated": "2026-11-10T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/grok-bot",
       "path": "/docs/grok-bot",
       "section": "docs",
@@ -1355,8 +1355,8 @@
       "title": "Deploy Grok Bot to your organization"
     },
     "grok-bot__get-started.md": {
-      "hash": "aa99093f3fa14a0eed85dcd0801bba0e545d736852af271c84b08247daf4c03c",
-      "last_updated": "2026-10-27T21:14:05+00:00",
+      "hash": "c8e15f1f6abf126daba0062fdd5d50ea392ad8e1bf31581f6cd6f240b2cc1a01",
+      "last_updated": "2026-11-10T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/get-started",
       "path": "/docs/grok-bot/get-started",
       "section": "docs",
@@ -1375,8 +1375,8 @@
       "title": "Configure identity and access"
     },
     "grok-bot__inference-hooks.md": {
-      "hash": "cddb46ef4a309372b13bacd1e59088927aa17b5663f6710d8adc8a2ba3d776e5",
-      "last_updated": "2026-11-04T03:20:42+00:00",
+      "hash": "e52e200d71e0ebb030fe9944afcb5f3b41530926541632797436852fee6c4e55",
+      "last_updated": "2026-11-10T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/inference-hooks",
       "path": "/docs/grok-bot/inference-hooks",
       "section": "docs",
@@ -1405,8 +1405,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "24080c36d865c94d176b145bf07e0661d718d4f3c9f4cf6adf4669b9d779044b",
-      "last_updated": "2026-11-04T03:20:43+00:00",
+      "hash": "0d556546397fbeb8e386d62adbd08f80fac68105d52c154ebea17b5ea84f3175",
+      "last_updated": "2026-11-10T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "section": "docs",
@@ -1415,8 +1415,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "fc02afbe79e34581b2fe120121e632c40854474db81b5e1fc2e916c48340ded3",
-      "last_updated": "2026-11-05T06:29:17+00:00",
+      "hash": "8472517881e686841c2a9332decca733a0b841cc083552eb24e8f7c55c537e91",
+      "last_updated": "2026-11-10T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "section": "docs",
@@ -1435,8 +1435,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "9a1263fd5586bda4afb413f5f161a9d409d3f0f0580cc48e1af0a061ea8f1d9c",
-      "last_updated": "2026-11-06T00:38:58+00:00",
+      "hash": "4f2c10048c7ac84ae0e320700b56ef8466ee72f3570b7ce8fb68f0193d6f8766",
+      "last_updated": "2026-11-10T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "section": "docs",
@@ -1455,8 +1455,8 @@
       "title": "Grok Bot use cases"
     },
     "grok-bot__work.md": {
-      "hash": "9558d3c868c5ce619e9bbd98dc0357937a8e8428e808cadc53d108d38644553f",
-      "last_updated": "2026-10-28T21:14:58+00:00",
+      "hash": "9f1cc347598122e44776bb86e4c72a28822ce830c93b9147e5da8779c5162d74",
+      "last_updated": "2026-11-10T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/work",
       "path": "/docs/grok-bot/work",
       "section": "docs",
@@ -1465,8 +1465,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "33dc72674333a2f7b5850763af4ccbf0fc41ec6861ba2367090bc73ea0d50c05",
-      "last_updated": "2026-11-10T18:21:46+00:00",
+      "hash": "7bbc5ddca77477932658d209952d0ccd0e5f817f3463e32cda31a86a7a543911",
+      "last_updated": "2026-11-10T21:20:30+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2890,7 +2890,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-10T18:22:05+00:00",
+  "last_updated": "2026-11-10T21:20:44+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
