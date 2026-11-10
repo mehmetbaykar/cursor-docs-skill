@@ -552,6 +552,9 @@ Each object in `usageEvents` contains the same fields as the team endpoint, plus
 - `userEmail` string - Email address of the user who made the request
 - `serviceAccountId` string | undefined - ID of the service account that made the request. Omitted for human user events.
 - `serviceAccountName` string | undefined - Display name of the service account that made the request. Omitted for human user events.
+- `prAuthor` string | undefined - SCM username of the pull request author. Present on events from Bugbot reviews of pull requests. Omitted for other events.
+- `repo` string | undefined - Repository the Bugbot review ran on, in `host/owner/repo` form, such as `github.com/your-org/your-repo`. Omitted for events outside Bugbot reviews of pull requests.
+- `prNumber` number | undefined - Pull request or merge request number the Bugbot review ran on. Omitted for events outside Bugbot reviews of pull requests.
 - `model` string - AI model used for the request
 - `kind` string - Billing category (e.g., `Usage-based`, `Included in Business`)
 - `maxMode` boolean - Whether the request used max mode

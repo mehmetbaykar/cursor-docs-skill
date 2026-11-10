@@ -15,8 +15,8 @@
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "260c076a36f51d065e96c98f44cddb0204d13cfd1517c43e2c22be5cbd17d035",
-      "last_updated": "2026-10-26T21:20:23+00:00",
+      "hash": "5964b0cfbc9ae51e458c1dfae0e8d95624de84e1a915f1d25a94678a95df53d4",
+      "last_updated": "2026-11-10T00:37:15+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "section": "docs",
@@ -55,8 +55,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "ccec23c3a225bd48d6e9508be1d6b86f3fb879facad55134375b88a3e206b274",
-      "last_updated": "2026-10-23T21:19:30+00:00",
+      "hash": "962e39b6b486ba44422352fd0da3581e4c27a06183fd5e6e534f5e3618320e39",
+      "last_updated": "2026-11-10T00:37:16+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "section": "docs",
@@ -75,8 +75,8 @@
       "title": "AI Code Tracking API"
     },
     "account__teams__analytics-api.md": {
-      "hash": "d01434524849d15d7aa03bb5d34a5a0a75c68eeccc545a5b26da609dbde722ca",
-      "last_updated": "2026-10-08T18:28:49+00:00",
+      "hash": "737a4990e69c2a4caab905e6f106d24d8a293d560cb15c1b42613077446294df",
+      "last_updated": "2026-11-10T00:37:17+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics-api",
       "path": "/docs/account/teams/analytics-api",
       "section": "docs",
@@ -845,8 +845,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "42c8a2b308df759297f55e04f63c202cfbdd8b9d7354dc599eb10ef5caa02e1c",
-      "last_updated": "2026-10-23T18:26:17+00:00",
+      "hash": "9e011d796ff3d78df60eca13665f584a6baef29a747a56cb7134d5d5ab178c1b",
+      "last_updated": "2026-11-10T00:37:43+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "section": "docs",
@@ -1465,8 +1465,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "4f5db2a8bdd14ea9388608e16c5f09772c6ea81951802bf61e39bd6a72b24166",
-      "last_updated": "2026-11-09T21:20:55+00:00",
+      "hash": "b8ac12ba576dd4372d3312d470f09a9caae9cf796210870618fb5f61d15cc4ec",
+      "last_updated": "2026-11-10T00:38:46+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2880,7 +2880,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-09T21:21:23+00:00",
+  "last_updated": "2026-11-10T00:39:03+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

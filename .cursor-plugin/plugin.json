@@ -1,6 +1,6 @@
 {
   "name": "cursor-docs",
-  "version": "2026.1109.2121",
+  "version": "2026.1110.39",
   "description": "Unofficial: answers Cursor questions from a local mirror of its documentation, workflows, and guides, refreshed every 3 hours.",
   "author": {
     "name": "Community contributors"

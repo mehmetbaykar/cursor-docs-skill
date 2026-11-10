@@ -503,6 +503,8 @@ Retrieve detailed usage events for your team with filtering, search, and paginat
 
 The `cursorTokenFee` field represents the Cursor Token Rate and is only present when the rate applies to a third-party model request. This includes when Auto routes to a third-party model. First-party Cursor models such as Grok and Composer, and request-based enterprise accounts do not include this fee. See [Cursor Token Rate](https://cursor.com/help/models-and-usage/token-rate.md).
 
+**Bugbot Spend**: Events from Bugbot reviews of pull requests include `prAuthor`, `repo`, and `prNumber`. To break down Bugbot spend by repository or author, group those events by `repo` or `prAuthor` and sum `chargedCents`.
+
 #### Parameters
 
 `startDate` number
@@ -571,6 +573,9 @@ Each object in `usageEvents` contains:
 - `cloudAgentId` string | undefined - ID of the cloud agent run attributed to this event. Omitted for events outside cloud agents.
 - `automationId` string | undefined - UUID of the automation attributed to this event. Omitted for events outside automations.
 - `conversationId` string | undefined - ID of the conversation (agent session) that generated this event. Use it to attribute spend to a session or as a join key with other sources that expose conversation IDs, such as the [AI Code Tracking API](https://cursor.com/docs/account/teams/ai-code-tracking-api.md). Omitted for events without an associated conversation.
+- `prAuthor` string | undefined - SCM username of the pull request author. Present on events from Bugbot reviews of pull requests. Omitted for other events.
+- `repo` string | undefined - Repository the Bugbot review ran on, in `host/owner/repo` form, such as `github.com/your-org/your-repo`. Omitted for events outside Bugbot reviews of pull requests.
+- `prNumber` number | undefined - Pull request or merge request number the Bugbot review ran on. Omitted for events outside Bugbot reviews of pull requests.
 - `model` string - AI model used for the request
 - `kind` string - Billing category (e.g., `Usage-based`, `Included in Business`)
 - `maxMode` boolean - Whether the request used max mode
