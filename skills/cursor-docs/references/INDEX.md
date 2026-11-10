@@ -200,6 +200,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `models__gemini-3-pro-image-preview` - [Models Gemini 3 Pro Image Preview](https://cursor.com/docs/models/gemini-3-pro-image-preview)
 - `models__gemini-3-pro` - [Models Gemini 3 Pro](https://cursor.com/docs/models/gemini-3-pro)
 - `models__gemini-4-argon` - [Models Gemini 4 Argon](https://cursor.com/docs/models/gemini-4-argon)
+- `models__gemini-4-carbon` - [Models Gemini 4 Carbon](https://cursor.com/docs/models/gemini-4-carbon)
 - `models__glm-5-2` - [Models Glm 5 2](https://cursor.com/docs/models/glm-5-2)
 - `models__glm-5-3-flash` - [Models Glm 5 3 Flash](https://cursor.com/docs/models/glm-5-3-flash)
 - `models__glm-5-3` - [Models Glm 5 3](https://cursor.com/docs/models/glm-5-3)

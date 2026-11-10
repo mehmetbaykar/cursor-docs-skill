@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 285,
+    "pages_fetched_successfully": 286,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 285
+    "total_pages_discovered": 286
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -35,8 +35,8 @@
       "title": "Legacy Cursor plans"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "6c2585d525d91d5aced3093fa510aff4ea80aca2e1b313403013d9f373d4d5fd",
-      "last_updated": "2026-11-09T21:19:28+00:00",
+      "hash": "d69c337422c3269f2953bc7eb12c95977bc9f6f8f98e385d74630d7665d916c2",
+      "last_updated": "2026-11-10T18:20:14+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "section": "docs",
@@ -115,8 +115,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "7343b406bc02e50e8000651bb26abe9f43c6a17baff0e146673180c0a67d346f",
-      "last_updated": "2026-11-09T21:19:30+00:00",
+      "hash": "e9077befc5aa3d5369162fbe7e987af74edfe9f5e9c0a8166fa43b7d535796d2",
+      "last_updated": "2026-11-10T18:20:18+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "section": "docs",
@@ -815,8 +815,8 @@
       "title": "Origin MCP"
     },
     "api__origin__mcp__tools.md": {
-      "hash": "426d345e0dc4582a653494bd926077d17d384ef0e9763c1cb6ad4ccb08e79bcb",
-      "last_updated": "2026-11-09T21:19:54+00:00",
+      "hash": "e88f6870fc745139f7ad387f444c8fb8bbf7fdf58d7d33f5f3d747fd8c177fcc",
+      "last_updated": "2026-11-10T18:20:42+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp/tools",
       "path": "/docs/api/origin/mcp/tools",
       "section": "docs",
@@ -1155,8 +1155,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "c134db09820570d6ec257e1a6481d81a9ad91b78e8c6a19b6391b61af31f9b5b",
-      "last_updated": "2026-11-05T21:20:12+00:00",
+      "hash": "6c3588b689d4455a232fd34fc05a9b020b779e07608f17f11ca3715d01305237",
+      "last_updated": "2026-11-10T18:20:54+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "section": "docs",
@@ -1185,8 +1185,8 @@
       "title": "Computer use and desktop sharing"
     },
     "cloud-agent__self-hosted__integrations.md": {
-      "hash": "fba46d09f4b0970322f1a3bcc4f4323ba7761309f734323b0751b489f7891a97",
-      "last_updated": "2026-11-05T21:20:13+00:00",
+      "hash": "b6c761d4eedd9e5c34e6234f05ee52930cf1f2c49f4e1240cfc2a3cace7f06e6",
+      "last_updated": "2026-11-10T18:20:55+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/integrations",
       "path": "/docs/cloud-agent/self-hosted/integrations",
       "section": "docs",
@@ -1195,8 +1195,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "21bd2637562a1b2a55619c38f4125bc48ba578a43edd41bdaa06126965fc3e9c",
-      "last_updated": "2026-10-22T15:23:18+00:00",
+      "hash": "3f9dfc02a4beb56820c7e7b39b67716b9a1b1e230c42426f76dfcc2066808b12",
+      "last_updated": "2026-11-10T18:20:55+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "section": "docs",
@@ -1205,8 +1205,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "c97749278c5ac6880fe1ea9df2d8878a7764ba269e9a392eb0b33921f44c9438",
-      "last_updated": "2026-11-05T21:20:14+00:00",
+      "hash": "6613f35981f86ccdc21be3be30bf44011ce0b4f90b47f1fc67bc7ff19e4fd002",
+      "last_updated": "2026-11-10T18:20:56+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "section": "docs",
@@ -1265,8 +1265,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "dc72aab0e9f46070ec53acde52046615e8e9aaf06ee27d446d160a633105271c",
-      "last_updated": "2026-11-09T21:19:27+00:00",
+      "hash": "166aaaaa5be7a091c786f95dd365a16b93ea9ab1c8d936ccf27960a24a2f68a3",
+      "last_updated": "2026-11-10T18:20:13+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "section": "docs",
@@ -1465,8 +1465,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "b8ac12ba576dd4372d3312d470f09a9caae9cf796210870618fb5f61d15cc4ec",
-      "last_updated": "2026-11-10T00:38:46+00:00",
+      "hash": "33dc72674333a2f7b5850763af4ccbf0fc41ec6861ba2367090bc73ea0d50c05",
+      "last_updated": "2026-11-10T18:21:46+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1675,8 +1675,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "26e1723847ac77bbeb7fbd7cb0104cec317407610483533e95eed98ec789071f",
-      "last_updated": "2026-11-09T21:20:21+00:00",
+      "hash": "198ca80f34613de598b916a73f02a0b6017a8339eaeb114b6c97e10fdb938839",
+      "last_updated": "2026-11-10T18:21:10+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "section": "docs",
@@ -2003,6 +2003,16 @@
       "source_url": "https://cursor.com/docs/models/gemini-4-argon",
       "status": "live",
       "title": "Models Gemini 4 Argon"
+    },
+    "models__gemini-4-carbon.md": {
+      "hash": "87837a95290fa4f7c599b3ac1401b768a4fdc9434c85780f5cd9db81795c6474",
+      "last_updated": "2026-11-10T18:21:21+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-4-carbon",
+      "path": "/docs/models/gemini-4-carbon",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/models/gemini-4-carbon",
+      "status": "live",
+      "title": "Models Gemini 4 Carbon"
     },
     "models__glm-5-2.md": {
       "hash": "24cbc264997ff7f707f2c1a3769d77f01f570ba4013c3edd8838a726e7cd72bb",
@@ -2880,7 +2890,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-10T00:39:03+00:00",
+  "last_updated": "2026-11-10T18:22:05+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
