@@ -2431,7 +2431,11 @@ Team ceiling for Bots on a member's machine: `never`, `ask`, `always`, or `null`
 
 `localEgressAllowed` boolean
 
-Whether members can route Grok Bot's web traffic through their own computer (**Allow Local Egress Routing**; Enterprise only).
+Whether the team default allows routing Grok Bot's web traffic through a member's computer: `false` when the team's local egress mode is `always_off`, `true` otherwise.
+
+`localEgressMode` string
+
+Team default for routing Grok Bot's web traffic through a member's computer: `always_on`, `member_decides`, or `always_off`. Only Enterprise teams can change it. Grok Bot desktop versions without `always_on` support treat it as `member_decides`, so members on those versions can still turn routing off. Under `always_off`, the server does not send a member's computer the egress policy for routing. This applies also when the desktop setting is on. The desktop then stops routing. Exception: when [group settings](https://cursor.com/docs/grok-bot/teams.md#group-settings) allow local egress routing for a group, the server uses `member_decides` for the members of that group.
 
 ```bash
 curl -X GET https://api.cursor.com/grok-bot/capabilities \
@@ -2447,7 +2451,8 @@ curl -X GET https://api.cursor.com/grok-bot/capabilities \
   "templateSharing": "team_only",
   "actionRecording": false,
   "localExecution": "ask",
-  "localEgressAllowed": true
+  "localEgressAllowed": true,
+  "localEgressMode": "member_decides"
 }
 ```
 
@@ -2481,7 +2486,13 @@ Whether Action Recording is enabled.
 
 `localEgressAllowed` boolean
 
-Whether members can route Grok Bot's web traffic through their own computer (**Allow Local Egress Routing**; Enterprise only). Returns **403** when local egress routing controls are not enabled for the team.
+Legacy boolean. `true` sets `member_decides`. `false` sets `always_off`. Returns **400** when sent with `localEgressMode`, and **403** when local egress routing controls are not enabled for the team.
+
+`localEgressMode` string
+
+`always_on`, `member_decides`, or `always_off`. Returns **400** when sent with `localEgressAllowed`, and **403** when local egress routing controls are not enabled for the team.
+
+Writing back the `localEgressAllowed: true` that GET returns for an `always_on` team changes it to `member_decides`. Send `localEgressMode` to keep `always_on`.
 
 ```bash
 curl -X PATCH https://api.cursor.com/grok-bot/capabilities \
@@ -2490,7 +2501,7 @@ curl -X PATCH https://api.cursor.com/grok-bot/capabilities \
   -d '{
     "cloudAgents": false,
     "localExecution": "never",
-    "localEgressAllowed": false
+    "localEgressMode": "always_on"
   }'
 ```
 
@@ -2503,7 +2514,8 @@ curl -X PATCH https://api.cursor.com/grok-bot/capabilities \
   "templateSharing": "team_only",
   "actionRecording": false,
   "localExecution": "never",
-  "localEgressAllowed": false
+  "localEgressAllowed": true,
+  "localEgressMode": "always_on"
 }
 ```
 
@@ -2701,6 +2713,10 @@ Return the team's Grok Bot network policy.
 
 Allowed destinations: domains, wildcard domains, IP addresses, CIDR ranges, or `host-or-CIDR:port` such as `54.85.223.0/24:3306`.
 
+`blockedSites` array
+
+Sites the team blocks, as hostnames such as `example.com`. Each one covers the site and every subdomain. Omitted when the team blocks no sites.
+
 `locked` boolean
 
 When `true`, group policies cannot override the team policy.
@@ -2741,13 +2757,28 @@ One of:
 
 `allowlist` array Required
 
-Up to 500 destinations, 1 to 253 characters each. Domains, wildcard domains, IP addresses, CIDR ranges, or `host-or-CIDR:port` such as `54.85.223.0/24:3306`.
+Up to 2000 destinations, 1 to 253 characters each. Domains, wildcard domains, IP addresses, CIDR ranges, or `host-or-CIDR:port` such as `54.85.223.0/24:3306`. Send `[]` when the team blocks sites.
+
+`blockedSites` array
+
+Sites to block for the whole team. This is the **Allow All Sites Except These** mode in the dashboard. Leave the field out to keep the team's current list. Send `[]` to clear it.
+
+- Hostnames only, such as `example.com`. Don't send schemes, ports, paths, IP addresses, inner wildcards, or single-label names.
+- `*.example.com` is the same as `example.com`. Both cover the site and every subdomain, and both are stored as `example.com`. Duplicates count once, and non-ASCII names are stored as punycode.
+- At most 50 sites across the team and all its groups combined, including sites a group blocks in the dashboard.
+- You can't block a site Grok Bot needs to run, or one it reaches through Cursor's proxy.
+- Set `egressMode` to `allow_all` and `allowlist` to `[]`. A team can allow destinations or block sites, not both.
 
 `locked` boolean Required
 
 When `true`, group policies cannot override the team policy.
 
-Partial bodies, unknown modes, and invalid allowlist entries return **400**.
+A body missing `egressMode`, `allowlist`, or `locked` returns **400**. Unknown modes, invalid allowlist entries, and blocked sites that break the rules above also return **400**. So does a request that sets allowed destinations, `default_with_network_settings`, or `network_settings_only` while the team blocks sites, whether those sites are in the request or already stored. To switch from blocked sites to an allowlist, send `"blockedSites": []` in the same request.
+
+- **Availability**: Blocked sites are Enterprise only.
+- **Best effort**: Blocking is best effort, not a security boundary. Requests to a bare IP address and WebSearch results still go through.
+- **WebFetch**: Blocking any site turns off JavaScript rendering in WebFetch for the whole team.
+- **When it applies**: A change saved through the API takes effect the same way, and with the same timing, as a save in the dashboard. See [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) for when changes apply and what each mode covers.
 
 ```bash
 curl -X PUT https://api.cursor.com/grok-bot/network \
@@ -2767,6 +2798,31 @@ curl -X PUT https://api.cursor.com/grok-bot/network \
   "egressMode": "network_settings_only",
   "allowlist": ["linkedin.com", "*.crunchbase.com", "10.0.0.0/8", "54.85.223.0/24:3306"],
   "locked": true
+}
+```
+
+**Block sites instead:**
+
+```bash
+curl -X PUT https://api.cursor.com/grok-bot/network \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "egressMode": "allow_all",
+    "allowlist": [],
+    "blockedSites": ["*.example.com", "example.org"],
+    "locked": false
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "egressMode": "allow_all",
+  "allowlist": [],
+  "blockedSites": ["example.com", "example.org"],
+  "locked": false
 }
 ```
 

@@ -31,7 +31,10 @@ Auto-review rules shape which actions stop for your approval. When your admin en
 
 Under **Your computer**, turn on **Route traffic through this computer** to send your Grok Bot computer's web traffic through the current desktop. The route applies to new connections. Destinations see your desktop's IP address. Sites that resolve to a private or VPN address are blocked unless they've been allowed for your organization, and the setting shows how many were blocked this session.
 
-The setting applies to one desktop. If your Enterprise admin turns off **Allow Local Egress Routing**, the toggle turns off and locks with `Disabled by your admin. You can't turn this on.` Any active route stops within five minutes. Your choice is preserved and takes effect again if the admin re-allows local egress.
+The setting applies to one desktop. Your Enterprise admin can lock it:
+
+- **Always off**: the toggle turns off and locks with `Disabled by your admin. You can't turn this on.` Traffic goes through the cloud. Your choice is kept and applies again if the admin changes the mode to **Members decide**.
+- **Always on**: the toggle turns on and locks with `Required by your admin. You can't turn this off.` When none of your computers is connected, Grok Bot's computer refuses routed sites. It does not use the cloud instead. If Grok Bot's computer needs an update first, select **Update Bot's computer**. Until you update, Grok Bot's computer routes traffic through the cloud.
 
 For private network options and their tradeoffs, see [Connect to private networks](https://cursor.com/docs/grok-bot/private-networks.md).
 

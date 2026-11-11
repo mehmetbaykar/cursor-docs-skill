@@ -27,18 +27,40 @@ A control sits on each of those paths. Each one links to its section on this pag
 
 **Network Controls is Enterprise only.** Admins set a Grok Bot network policy under **Network** on the [Grok Bot page](https://cursor.com/dashboard/bot) of the Cursor dashboard, in **Grok Bot Network Access**. It controls which destinations team computers can reach. Self-serve Teams do not see this panel and cannot set a destination allowlist. Teams without a policy default to allow-all.
 
-| Mode                          | Effect                                                             |
-| ----------------------------- | ------------------------------------------------------------------ |
-| **Allow All Network Access**  | All destinations. Teams without a policy get this.                 |
-| **Defaults + Team Allowlist** | Cursor's default destinations plus your list                       |
-| **Team Allowlist Only**       | Only your list, plus the destinations a computer needs to function |
+| Mode                             | Effect                                                                                                                        |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Allow All Network Access**     | All destinations. Teams without a policy get this.                                                                            |
+| **Allow All Sites Except These** | All destinations except the sites you block. See [Blocked sites](https://cursor.com/docs/grok-bot/security.md#blocked-sites). |
+| **Defaults + Team Allowlist**    | Cursor's default destinations plus your list                                                                                  |
+| **Team Allowlist Only**          | Only your list, plus the destinations a computer needs to function                                                            |
 
-- **Destinations** cover web domains as well as IP ranges with ports for raw connections, with no cap on the number of entries.
+- **Destinations** in the allowlist modes cover web domains as well as IP ranges with ports for raw connections, with no cap on the number of entries.
 - **Directory groups. Enterprise only, inside Network Controls.** Groups can set their own network policy, which replaces the team's for their members, and a lock makes the team policy effective for everyone.
 - **The policy is separate from Cloud Agent network settings.** Running computers apply changes automatically within about a minute. Sleeping computers apply changes when they next wake. You don't need to recreate the computer.
 - **Restricting egress limits where data can be sent.** To check what reaches the model against your own data loss prevention policy, use [inference hooks](https://cursor.com/docs/grok-bot/security.md#inference-hooks).
 
 Blocking an app doesn't block that service's website. The connector policy and the network policy are separate layers, and closing both paths takes both controls.
+
+### Blocked sites
+
+**Allow All Sites Except These** lets team computers reach every destination except the sites you list under **Blocked Sites**. A group picks **Team Policy, Except These Sites** to block more sites on top of the team policy. A team or group uses either an allowlist or blocked sites, not both.
+
+- **Hostnames only.** Enter one site per line, such as `example.com`, with no scheme, port, or path. IP addresses aren't accepted. Each site also blocks its subdomains, so `example.com` and `*.example.com` are the same entry, and the list saves them as one.
+- **Up to 50 sites.** The limit counts the team's list and every group's list together.
+- **Sites Grok Bot needs stay open.** A save is refused when the list names a site the computer needs to run, or one Grok Bot reaches through Cursor's proxy.
+- **What it covers.** Shell commands and the browser on the computer, WebFetch, and connected apps (MCP servers). A remote MCP server on a blocked site is refused without **Apply to MCP servers**. When a member routes traffic through their desktop, blocked sites stay blocked on that route too.
+- **When it applies.** A change reaches computers without a reset.
+  - Running computers usually pick up a change within about a minute. Sleeping computers pick it up when they next wake.
+  - Web fetches in a task that's already running finish with the previous list. The new list applies from the next task.
+  - For MCP servers, a change can take up to about a minute to apply.
+  - A computer that [routes traffic through the member's desktop](https://cursor.com/docs/grok-bot/settings.md#route-traffic-through-your-desktop) may restart once at an idle moment to apply a change, keeping files and sign-ins. If you change the list several times in a day, a later change may wait for the next restart. To apply it right away, recreate the computer from [Manage Member Computers and Data](https://cursor.com/docs/grok-bot/teams.md#manage-member-computers-and-data).
+
+Know the limits before you rely on it:
+
+- **Best effort, not a security boundary.** Matching is by hostname. A request to a bare IP address gets through, and so can some apps and encrypted connections.
+- **WebSearch isn't filtered.** Search results can still list pages from a blocked site. Opening one with WebFetch or the browser is refused.
+- **WebFetch stops rendering pages.** While a list blocks any site, WebFetch reads pages as plain HTML without running their scripts, for everyone the list applies to. Pages that build their content with JavaScript can come back empty.
+- **No block page in the browser.** A blocked HTTPS site shows a browser security or connection error, not a page that says the site is blocked. Shell commands get an HTTP 403 response, and WebFetch and MCP return a message naming the blocked site.
 
 ### MCP servers and the network policy
 

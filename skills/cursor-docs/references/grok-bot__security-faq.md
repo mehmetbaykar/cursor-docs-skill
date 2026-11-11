@@ -52,6 +52,15 @@ Teams do not see it and cannot set a destination allowlist. Teams without
 a policy default to allow-all. See
 [network policy](https://cursor.com/docs/grok-bot/security.md#network-policy).
 
+### Can we block a few sites instead of using an allowlist?
+
+Yes. Pick **Allow All Sites Except These** in **Network Controls** and
+list up to 50 hostnames; each one also blocks its subdomains. It covers
+the computer's shell and browser, WebFetch, and MCP servers. It's best
+effort, not a security boundary: a bare IP address gets through, and
+WebSearch results aren't filtered. See
+[Blocked sites](https://cursor.com/docs/grok-bot/security.md#blocked-sites).
+
 ### Do admin controls apply per group, or only org-wide?
 
 Directory-group scope is part of **Network Controls**, which is Enterprise

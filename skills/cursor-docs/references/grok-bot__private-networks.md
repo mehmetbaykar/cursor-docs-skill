@@ -30,7 +30,7 @@ allowlist.
 
 ### Route through a member's desktop
 
-In the Grok Bot desktop app, open **Settings** > **Computer** and, under **Your computer**, turn on **Route traffic through this computer**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin disables **Allow Local Egress Routing**.
+In the Grok Bot desktop app, open **Settings** > **Computer** and, under **Your computer**, turn on **Route traffic through this computer**. The route uses the current device's network and IP address. It stops when the setting is turned off or an Enterprise admin sets local egress routing to **Always off**. A [group setting](https://cursor.com/docs/grok-bot/teams.md#group-settings) can still allow routing for that group's members.
 
 The route doesn't open your private network to the Bot. Sites that resolve to a private or VPN address are blocked unless they've been allowed for your organization, and the setting shows how many sites were blocked this session. To reach private services, [install a networking client with Team Setup](https://cursor.com/docs/grok-bot/private-networks.md#install-a-networking-client-with-team-setup).
 

@@ -55,8 +55,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "962e39b6b486ba44422352fd0da3581e4c27a06183fd5e6e534f5e3618320e39",
-      "last_updated": "2026-11-10T00:37:16+00:00",
+      "hash": "ba611a2e996012d1206b87a1076bbcf956b9e1426cc7e76bd12f90c71cbcf6bb",
+      "last_updated": "2026-11-11T12:24:57+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "section": "docs",
@@ -1395,8 +1395,8 @@
       "title": "Set up Okta Verify and FastPass"
     },
     "grok-bot__private-networks.md": {
-      "hash": "c4ca4daa566b5f69967d062bec06b070f6a89d9fe5d290f193dd1f87bb72b8f0",
-      "last_updated": "2026-10-24T21:18:38+00:00",
+      "hash": "e3e3bbc58a43b6c3717b66ad8fe1175194f2f52db56ab7e811b542d85ff9c5af",
+      "last_updated": "2026-11-11T12:25:36+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/private-networks",
       "path": "/docs/grok-bot/private-networks",
       "section": "docs",
@@ -1415,8 +1415,8 @@
       "title": "Configure TLS-inspecting proxies"
     },
     "grok-bot__security-faq.md": {
-      "hash": "0d556546397fbeb8e386d62adbd08f80fac68105d52c154ebea17b5ea84f3175",
-      "last_updated": "2026-11-10T21:19:52+00:00",
+      "hash": "9d8a8c82e1176ba9dda7f4f34a247f250e3eac4292ce836a5bd3d91b8f3b58c3",
+      "last_updated": "2026-11-11T12:25:37+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security-faq",
       "path": "/docs/grok-bot/security-faq",
       "section": "docs",
@@ -1425,8 +1425,8 @@
       "title": "Grok Bot security FAQ"
     },
     "grok-bot__security.md": {
-      "hash": "8472517881e686841c2a9332decca733a0b841cc083552eb24e8f7c55c537e91",
-      "last_updated": "2026-11-10T21:19:52+00:00",
+      "hash": "790eeaab1a8c9897594cfa268128e7ccfcf03bcae9769d29f925ef780f578acb",
+      "last_updated": "2026-11-11T12:25:37+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/security",
       "path": "/docs/grok-bot/security",
       "section": "docs",
@@ -1435,8 +1435,8 @@
       "title": "Grok Bot security"
     },
     "grok-bot__settings.md": {
-      "hash": "d2d962a726cec8599707c7d674a73ab055d6d42e68a079e558b0f7ba4aaa69f0",
-      "last_updated": "2026-10-24T21:18:39+00:00",
+      "hash": "e1df676e477d61f6fee8b8b806e70f1e2785071b984ace4863091cd1d0f1862d",
+      "last_updated": "2026-11-11T12:25:38+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/settings",
       "path": "/docs/grok-bot/settings",
       "section": "docs",
@@ -1445,8 +1445,8 @@
       "title": "Settings and notifications"
     },
     "grok-bot__teams.md": {
-      "hash": "4f2c10048c7ac84ae0e320700b56ef8466ee72f3570b7ce8fb68f0193d6f8766",
-      "last_updated": "2026-11-10T21:19:53+00:00",
+      "hash": "d732147c16f6efcc6b059cf0f1b353608be784e3b759ff9b4745b9ba3f9bd281",
+      "last_updated": "2026-11-11T12:25:38+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/teams",
       "path": "/docs/grok-bot/teams",
       "section": "docs",
@@ -1475,8 +1475,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "20f487754f76631d787fcf492a2648b162e6539551054a7f14651dc7b034c74c",
-      "last_updated": "2026-11-11T03:22:44+00:00",
+      "hash": "83ee82927ec7e8b57e351f681c6578eb1403352e16f6cccfd85326339e4017a9",
+      "last_updated": "2026-11-11T12:26:15+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2900,7 +2900,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-11T03:22:56+00:00",
+  "last_updated": "2026-11-11T12:26:30+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
