@@ -665,8 +665,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "6df7e8d61cbb30d15a5714ff7381b82e8219832633424c8a8d54fb342be6f778",
-      "last_updated": "2026-10-22T15:23:04+00:00",
+      "hash": "4671caafe2fe29e21caaf9eecd6e612da0e386054032586ea6c08d0b5336b241",
+      "last_updated": "2026-11-11T00:38:22+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "section": "docs",
@@ -1205,8 +1205,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "6613f35981f86ccdc21be3be30bf44011ce0b4f90b47f1fc67bc7ff19e4fd002",
-      "last_updated": "2026-11-10T18:20:56+00:00",
+      "hash": "8c2884d4fd6c5f3fcc10d9133cde78347056875e9a689a94261bd478837c21a7",
+      "last_updated": "2026-11-11T00:38:38+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "section": "docs",
@@ -1465,8 +1465,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "7bbc5ddca77477932658d209952d0ccd0e5f817f3463e32cda31a86a7a543911",
-      "last_updated": "2026-11-10T21:20:30+00:00",
+      "hash": "41c00da42a6a7c2d1affe22d3f7c92b8db9dfe3d1496ce51fccb04b2847be79a",
+      "last_updated": "2026-11-11T00:39:22+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2890,7 +2890,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-10T21:20:44+00:00",
+  "last_updated": "2026-11-11T00:39:36+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
