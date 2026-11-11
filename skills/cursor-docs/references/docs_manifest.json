@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 286,
+    "pages_fetched_successfully": 287,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 286
+    "total_pages_discovered": 287
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -1365,8 +1365,8 @@
       "title": "Get started with Grok Bot"
     },
     "grok-bot__identity.md": {
-      "hash": "1e38f59a6448ba6965eef79b77ecda7ebf9e563c4d5bfa49972f53b0827d75d0",
-      "last_updated": "2026-10-19T00:56:49+00:00",
+      "hash": "8f5abcd99a53834948bba0141d647225079a3c69d9ac3f49d6befc7eed41fa39",
+      "last_updated": "2026-11-11T03:22:07+00:00",
       "original_url": "https://cursor.com/docs/grok-bot/identity",
       "path": "/docs/grok-bot/identity",
       "section": "docs",
@@ -1383,6 +1383,16 @@
       "source_url": "https://cursor.com/docs/grok-bot/inference-hooks",
       "status": "live",
       "title": "Grok Bot inference hooks"
+    },
+    "grok-bot__okta-fastpass.md": {
+      "hash": "8f59c0aa6e5abbb457e2e6597431593b74c44e0960e0a82053c7508a084ce306",
+      "last_updated": "2026-11-11T03:22:07+00:00",
+      "original_url": "https://cursor.com/docs/grok-bot/okta-fastpass",
+      "path": "/docs/grok-bot/okta-fastpass",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/grok-bot/okta-fastpass",
+      "status": "live",
+      "title": "Set up Okta Verify and FastPass"
     },
     "grok-bot__private-networks.md": {
       "hash": "c4ca4daa566b5f69967d062bec06b070f6a89d9fe5d290f193dd1f87bb72b8f0",
@@ -1465,8 +1475,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "41c00da42a6a7c2d1affe22d3f7c92b8db9dfe3d1496ce51fccb04b2847be79a",
-      "last_updated": "2026-11-11T00:39:22+00:00",
+      "hash": "20f487754f76631d787fcf492a2648b162e6539551054a7f14651dc7b034c74c",
+      "last_updated": "2026-11-11T03:22:44+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2890,7 +2900,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-11T00:39:36+00:00",
+  "last_updated": "2026-11-11T03:22:56+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

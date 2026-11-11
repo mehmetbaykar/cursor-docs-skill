@@ -19,7 +19,7 @@ where device-trust policies most often need attention.
 You'll make two changes, and they do different jobs:
 
 - **Assign the Cursor app** so users outside your engineering organization can access Grok Bot through your Cursor team.
-- **Add an authentication rule** so users can sign in to IdP-provisioned apps from the Bot's computer, which runs Linux and doesn't run device-trust agents.
+- **Add an authentication rule** so users can sign in to IdP-provisioned apps from the Bot's computer, which runs Linux and isn't a managed device.
 
 Only the first change controls Grok Bot sign-in. The second never blocks it, and it doesn't apply to connected-app sign-in, because connecting an app doesn't go through the computer.
 
@@ -61,14 +61,15 @@ The assignment works when:
 
 ## Allow sign-in to IdP apps from the computer
 
-Inside the hosted computer, members sign in to applications through your own identity provider in the browser, so your session policies govern those sessions. The computer runs Linux and isn't enrolled in MDM, and device-trust agents like Okta FastPass don't run on it. Any rule that requires FastPass, a registered or managed device, a compliant device, or a phishing-resistant factor only FastPass can satisfy fails in the computer browser.
+Inside the hosted computer, members sign in to applications through your own identity provider in the browser, so your session policies govern those sessions. The computer runs Linux and isn't enrolled in MDM. Okta FastPass runs on it only after you [set up Okta Verify and FastPass](https://cursor.com/docs/grok-bot/okta-fastpass.md). Without that setup, any rule that requires FastPass or a phishing-resistant factor only FastPass can satisfy fails in the computer browser. Rules that require a managed or compliant device fail either way.
 
-Don't turn FastPass or device compliance off for the whole company. Add a higher-priority rule scoped to this unmanaged Linux session. This change covers only the IdP-provisioned apps the Bot opens in the computer browser; it isn't required for Grok Bot sign-in or for connected-app sign-in.
+Don't turn FastPass or device compliance off for the whole company. If your policies require FastPass, set up Okta Verify on the computers. Otherwise, add a higher-priority rule scoped to this unmanaged Linux session. This change covers only the IdP-provisioned apps the Bot opens in the computer browser; it isn't required for Grok Bot sign-in or for connected-app sign-in.
 
 These sign-in methods work in the computer browser:
 
 - **Password plus a second factor that works in a remote browser**, such as Okta Verify push or an authenticator app.
 - **Passkeys stored in a password manager on the computer**, installed with [Team Setup Scripts](https://cursor.com/docs/grok-bot/teams.md#team-setup-scripts). Team Setup Scripts is Enterprise only.
+- **Okta FastPass**, after you [set up Okta Verify and FastPass](https://cursor.com/docs/grok-bot/okta-fastpass.md) with a Team Setup Script. FastPass satisfies FastPass and Okta Verify factor requirements, but not managed-device rules.
 
 Requiring managed devices for Grok Bot sign-in itself still works. Grok Bot
 uses your Cursor SSO, so a device-aware sign-in policy in your identity
@@ -109,8 +110,8 @@ Revocation stays with you either way: revoking the user in your identity provide
 
 ## Limitations
 
-- Okta FastPass doesn't run on Linux, so the Bot's computer can't satisfy FastPass or managed-device rules.
-- The computer isn't enrolled in MDM by default.
+- Okta FastPass runs on the Bot's computer only after you [set up Okta Verify and FastPass](https://cursor.com/docs/grok-bot/okta-fastpass.md).
+- The computer isn't enrolled in MDM by default, so it can't satisfy managed-device or compliant-device rules.
 - Group-based assignment in Entra ID requires P1 or P2 and doesn't include nested groups.
 
 ## FAQ
@@ -140,6 +141,7 @@ the team in the dashboard.
 
 ## Related pages
 
+- [Set up Okta Verify and FastPass](https://cursor.com/docs/grok-bot/okta-fastpass.md)
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security.md)
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams.md)
 - [SSO](https://cursor.com/docs/account/teams/sso.md)
