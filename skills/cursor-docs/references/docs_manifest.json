@@ -885,8 +885,8 @@
       "title": "GitHub Actions"
     },
     "cli__headless.md": {
-      "hash": "1a35981462b8e084bd28c2362337ac4f3361b76d16dbd710677ecf7645ca03b0",
-      "last_updated": "2026-08-07T17:11:51+00:00",
+      "hash": "a397d648195a1ca162a199625b165b4fda055d24b60375687db8fa17156adf68",
+      "last_updated": "2026-11-11T18:20:34+00:00",
       "original_url": "https://cursor.com/docs/cli/headless",
       "path": "/docs/cli/headless",
       "section": "docs",
@@ -1005,8 +1005,8 @@
       "title": "Shell Mode"
     },
     "cli__using.md": {
-      "hash": "b497b2472f9db2c90d0b2f75bb43fa2d89dc1b271951c56cda490bbec93b1879",
-      "last_updated": "2026-08-24T21:39:00+00:00",
+      "hash": "9e44faf0a609f991c5aa13f606b95e7a89d631d5b8c94a3e5b18317de1df685c",
+      "last_updated": "2026-11-11T18:20:38+00:00",
       "original_url": "https://cursor.com/docs/cli/using",
       "path": "/docs/cli/using",
       "section": "docs",
@@ -1025,8 +1025,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "6ebe1d28985edbb95ec26a282ff8bb01e6b411635c84031e1650ae52410bd6a9",
-      "last_updated": "2026-10-28T00:41:39+00:00",
+      "hash": "463f3d691929c444de47d520b1b83247fab115fef18e5cf6c2febb5a0721948b",
+      "last_updated": "2026-11-11T18:20:38+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1475,8 +1475,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "83ee82927ec7e8b57e351f681c6578eb1403352e16f6cccfd85326339e4017a9",
-      "last_updated": "2026-11-11T12:26:15+00:00",
+      "hash": "8897c2d88fbf5d3b739ce6580ccbf50c2350041781f1f29de85e18a9c3baf9a2",
+      "last_updated": "2026-11-11T18:21:30+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2900,7 +2900,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-11T12:26:30+00:00",
+  "last_updated": "2026-11-11T18:21:43+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

@@ -2592,6 +2592,238 @@ curl --request DELETE \
 }
 ```
 
+## Automations
+
+[Automations](https://cursor.com/docs/cloud-agent/automations.md) run Cloud Agents on a schedule or when something happens in a connected tool. These endpoints read the automations your API key can see and change an automation's model. Create, edit, and delete automations in the [Automations dashboard](https://cursor.com/automations).
+
+### Beta
+
+The Automations endpoints are in beta and not yet available to every team. Until your team has access, they return `403 feature_unavailable`.
+
+- **Use a user API key or a team API key with an automations permission.** A team API key, one that starts with `grok_`, needs **View automations** (`team.automations.read`) to list and get automations, and **Manage automations** (`team.automations.manage`) to change them. Neither includes the other, and **Run Cloud Agents** (`cloud-agents:*`) doesn't reach these endpoints. A team key missing the permission an endpoint needs gets `403 permission_required`. Other team service account API keys, and API keys created for an automation's webhook, get `403 key_not_supported`.
+- **A team API key works only inside its own team.** It acts as the team's service account. It sees the team's shared automations (`TEAM`, `TEAM_VISIBLE`, `TEAM_EDITABLE`, and `TEAM_EDITABLE_USER`) and never a member's private (`USER`) automations, which return `404 automation_not_found`. It can change only `TEAM` and `TEAM_EDITABLE` automations, which run as the team's service account. `TEAM_VISIBLE` and `TEAM_EDITABLE_USER` automations run as the member who created them, so changing one returns `403 role_forbidden`.
+- **You see what the dashboard shows you.** You see your own automations and your team's shared automations. A team admin also sees teammates' private automations, but only with the admin's own API key, not a user-scoped token. A user-scoped token sees only the team it was created for. An automation you can't see returns `404 automation_not_found`.
+- **Cloud automations only.** Built-in automations, such as Security Reviewer, are listed with their `managedType` and can't be changed through the API. Project routines aren't listed.
+
+#### The Automation Object
+
+`id` string
+
+Automation ID, a UUID.
+
+`name` string
+
+Display name.
+
+`description` string
+
+Description, or an empty string.
+
+`enabled` boolean
+
+Whether the automation's triggers start runs.
+
+`scope` string
+
+Who can see and edit the automation: `USER` for a private automation, or one of the team sharing levels `TEAM`, `TEAM_VISIBLE`, `TEAM_EDITABLE`, and `TEAM_EDITABLE_USER`.
+
+`ownerUserId` number or null
+
+The user who owns the automation, or `null` when no user owns it.
+
+`teamId` number or null
+
+The team the automation belongs to, or `null` for a personal automation.
+
+`managedType` string
+
+`MANUAL` for an automation someone created. Built-in automations have their own value: `SECURITY_REVIEWER`, `VULNERABILITY_SCANNER`, `PR_APPROVAL`, or `PROACTIVITY`.
+
+`authoringMode` string
+
+Where the automation is edited, as in a config file's `managed-by`: `ANY` for the dashboard or a deploy, `UI` for the dashboard, or `DEPLOY` when a config-as-code deploy owns it.
+
+`hidden` boolean
+
+Whether the dashboard hides the automation from its list.
+
+`modelSelection` object or null
+
+The model the automation runs with, or `null` when it picks one at run time. Automations always run in Max Mode, so it has no Max Mode setting:
+
+- `modelId` string - A model `id` from [List Models](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-models).
+- `parameters` array - The model's parameter values, each an `id` and a `value`.
+
+`workflow` object
+
+What the automation does: its `triggers`, `actions`, `prompts`, `gitConfig`, `agentOptions`, `memoryEnabled`, and `disabledDefaultTools`, plus `managedEffortLevel` on built-in automations, in the same JSON form that automation config files use. A field with no value is left out. Fields the server manages aren't included, and the model appears only in `modelSelection`.
+
+`url` string
+
+The automation's page in the dashboard.
+
+`createdAt`, `updatedAt` string
+
+When the automation was created and last changed, in ISO 8601 format.
+
+#### Errors
+
+Errors from these endpoints use the same body as the rest of this API, `{ "error": { "code": "...", "message": "..." } }`. Branch on `code`; the `message` wording can change. Any of the three endpoints can return:
+
+- `403 feature_unavailable` - Your account doesn't have API access or the Automations beta yet.
+- `403 plan_required` - Your account is on the free plan.
+- `403 permission_required` - A team API key without the permission the endpoint needs: View automations for list and get, Manage automations for changing the model.
+- `403 key_not_supported` - A team service account API key that doesn't start with `grok_`, or an API key created for an automation's webhook.
+- `429 rate_limit_exceeded` - Too many requests. List and get allow 60 a minute and 1,200 an hour; changing a model allows 20 a minute and 200 an hour. The `Retry-After` header says when to try again.
+- `500 internal_error` - Something went wrong on Cursor's side.
+
+Each endpoint below lists its own errors.
+
+### List Automations
+
+GET
+
+`/v1/automations`
+
+List the automations your API key can see, newest first: your personal automations, or one team's.
+
+#### Query Parameters
+
+`scope` string
+
+`personal` for your personal automations, or `team` for one team's automations.
+
+`teamId` number (required with `scope=team` for a user API key)
+
+The team to list. You must be a member, or the request returns `403 team_membership_required`. Sending `teamId` with `scope=personal` returns `400 validation_error`. A team API key lists its own team: it can leave `teamId` out, and any other team returns `403 team_membership_required`. It can't list personal automations; `scope=personal` returns `403 user_required`.
+
+`limit` number (optional)
+
+Number of automations to return. Default: 20, Max: 100.
+
+`cursor` string (optional)
+
+Pagination cursor from `nextCursor` on the previous response. Send the same `scope` and `teamId` with each `cursor`.
+
+#### Response Fields
+
+`items` array
+
+[Automation objects](https://cursor.com/docs/cloud-agent/api/endpoints.md#the-automation-object).
+
+`nextCursor` string (optional)
+
+Pass as `cursor` to get the next page. Omitted on the last page.
+
+Besides the shared errors, this endpoint returns `400 validation_error` for a missing or unknown `scope`, `scope=team` without `teamId`, a `limit` outside 1 to 100, any other query parameter, or a `cursor` it didn't return for this list; `403 team_membership_required` when you aren't on `teamId`; and `503 scan_limit_exceeded` when the team has too many automations you can't see to fill a page.
+
+```bash
+curl --request GET \
+  --url 'https://api.cursor.com/v1/automations?scope=team&teamId=456&limit=20' \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "items": [
+    {
+      "id": "7f3c2a1b-4d5e-4f6a-8b9c-0d1e2f3a4b5c",
+      "name": "Nightly dependency audit",
+      "description": "Opens a PR when a dependency has a known vulnerability.",
+      "enabled": true,
+      "scope": "TEAM",
+      "ownerUserId": 123,
+      "teamId": 456,
+      "managedType": "MANUAL",
+      "authoringMode": "ANY",
+      "hidden": false,
+      "modelSelection": {
+        "modelId": "claude-4.6-sonnet",
+        "parameters": [{ "id": "thinking", "value": "true" }]
+      },
+      "workflow": {
+        "triggers": [{ "cron": { "cron": "0 9 * * *" } }],
+        "actions": [{ "gitPr": {} }],
+        "prompts": [{ "prompt": "Audit dependencies for known vulnerabilities." }],
+        "gitConfig": { "repo": "https://github.com/your-org/your-repo", "branch": "main" }
+      },
+      "url": "https://cursor.com/automations/7f3c2a1b-4d5e-4f6a-8b9c-0d1e2f3a4b5c",
+      "createdAt": "2026-10-28T18:00:00.000Z",
+      "updatedAt": "2026-10-29T09:12:00.000Z"
+    }
+  ],
+  "nextCursor": "7f3c2a1b-4d5e-4f6a-8b9c-0d1e2f3a4b5c"
+}
+```
+
+### Get An Automation
+
+GET
+
+`/v1/automations/{id}`
+
+Retrieve one [automation](https://cursor.com/docs/cloud-agent/api/endpoints.md#the-automation-object).
+
+#### Path Parameters
+
+`id` string
+
+Automation ID, the UUID at the end of its dashboard URL.
+
+Besides the shared errors, this endpoint returns `400 validation_error` when `id` isn't a UUID and `404 automation_not_found` when you can't see the automation.
+
+```bash
+curl --request GET \
+  --url https://api.cursor.com/v1/automations/7f3c2a1b-4d5e-4f6a-8b9c-0d1e2f3a4b5c \
+  -u YOUR_API_KEY:
+```
+
+**Response:** an [automation object](https://cursor.com/docs/cloud-agent/api/endpoints.md#the-automation-object), as in [List Automations](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-automations).
+
+### Change An Automation's Model
+
+PATCH
+
+`/v1/automations/{id}`
+
+Set the model an automation runs with. Nothing else about the automation changes, including its schedule. The response is the updated [automation](https://cursor.com/docs/cloud-agent/api/endpoints.md#the-automation-object).
+
+You can change an automation when the dashboard would let you edit it. A team API key with Manage automations can change its team's `TEAM` and `TEAM_EDITABLE` automations. Otherwise the request returns `403 role_forbidden`, including for a team API key on a `TEAM_VISIBLE` or `TEAM_EDITABLE_USER` automation. Built-in automations return `409 managed_automation`, and automations a config-as-code deploy owns return `409 deploy_managed`; change those in their spec instead.
+
+#### Path Parameters
+
+`id` string
+
+Automation ID.
+
+#### Request Body
+
+`modelSelection` object
+
+The model to use. The body takes no other fields.
+
+- `modelId` string - A model `id` from [List Models](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-models).
+- `parameters` array (optional) - Parameter values, each an `id` and a `value`. To use a model variant, send the variant's `params`. Leave it out for the model's default Max Mode variant.
+
+The selection must match a model and variant that [List Models](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-models) returns for your key, and your team's model settings must allow it. Otherwise the request returns `400 validation_error` with the reason. Automations always run in Max Mode, so the selection is saved in Max Mode: a variant whose `isMaxMode` isn't `true`, or a model without Max Mode, returns `400 validation_error`, and so does a `maxMode` field in `modelSelection`. A model given as a single string, such as `{ "model": "gpt-5.6-sol-high" }`, or any other field in the body also returns `400 validation_error`, and a request with no body returns `400 missing_body`. An automation you can't see returns `404 automation_not_found`.
+
+```bash
+curl --request PATCH \
+  --url https://api.cursor.com/v1/automations/7f3c2a1b-4d5e-4f6a-8b9c-0d1e2f3a4b5c \
+  -u YOUR_API_KEY: \
+  -H 'Content-Type: application/json' \
+  --data '{
+    "modelSelection": {
+      "modelId": "gpt-5.6-sol",
+      "parameters": [{ "id": "reasoning", "value": "high" }]
+    }
+  }'
+```
+
+**Response:** the updated [automation object](https://cursor.com/docs/cloud-agent/api/endpoints.md#the-automation-object), with the new `modelSelection`.
+
 ## Worker Tokens
 
 ### Create A User-Scoped Worker Token

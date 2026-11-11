@@ -118,4 +118,6 @@ With non-interactive mode, you can invoke Agent in a non-interactive way. This a
 
 You can combine this with `--output-format` to control how the output is formatted. For example, use `--output-format json` for structured output that's easier to parse in scripts, or `--output-format text` for plain text output of the agent's final response.
 
-Cursor has full write access in non-interactive mode.
+Non-interactive mode edits workspace files and runs allowed commands without
+asking. Actions that would need approval are rejected unless you pass
+`--force`. See [Using Headless CLI](https://cursor.com/docs/cli/headless.md#file-modification-in-scripts).

@@ -14,7 +14,7 @@ Aug 12, 2026 · models
 
 ## Model routing: right model, right job, right price
 
-![](https://cursor.com/marketing-static/_next/image?url=%2Fmarketing-static%2Fguides%2Fmodel-routing-hero-poster.png&w=3840&q=70&dpl=dpl_6EQv3D5U3DSEzY88XPRSbYRDGr5y)
+![](https://cursor.com/marketing-static/_next/image?url=%2Fmarketing-static%2Fguides%2Fmodel-routing-hero-poster.png&w=3840&q=70&dpl=dpl_EfM3PJ8sxsj6uXYyNLF3CCWxq3ne)
 
 Model routing sends each request to the model that fits the job, so routine work stops billing at frontier prices. How it works, what to measure, and how to run it.
 

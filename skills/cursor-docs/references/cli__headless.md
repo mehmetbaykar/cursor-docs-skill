@@ -14,23 +14,30 @@ Use [print mode](https://cursor.com/docs/cli/using.md#non-interactive-mode) (`-p
 
 ### File modification in scripts
 
-Combine `--print` with `--force` (or `--yolo`) to modify files in scripts:
+Print mode follows the same approval rules as an interactive session, but it can't stop to ask you. Without `--force`, anything that runs without approval still runs, and anything that would need approval is rejected:
+
+- **Runs:** file edits inside the workspace, shell commands on your allowlist or that can run in the [sandbox](https://cursor.com/docs/agent/security/run-modes.md#sandboxing) when sandboxing is on, and anything else your [`permissions.allow`](https://cursor.com/docs/cli/reference/permissions.md) rules cover.
+- **Rejected:** writes outside the workspace or to protected paths like `.vscode/` and `.git/hooks/`, plus shell commands, MCP tools, and web fetches that aren't allowed.
+
+Combine `--print` with `--force` (or `--yolo`) to run every action without approval, except what `permissions.deny` and team policies block. If your team admin has disabled Run Everything, `--force` exits with an error instead.
 
 ```bash
-# Enable file modifications in print mode
+# Edits workspace files, and rejects actions that need approval
+agent -p "Add JSDoc comments to this file"
+
+# Runs every action, including ones that would need approval
 agent -p --force "Refactor this code to use modern ES6+ syntax"
 
-# Without --force, changes are only proposed, not applied
-agent -p "Add JSDoc comments to this file"  # Won't modify files
-
-# Batch processing with actual file changes
+# Batch processing with every action allowed
 find src/ -name "*.js" | while read file; do
   agent -p --force "Add comprehensive JSDoc comments to $file"
 done
 ```
 
-The `--force` flag allows the agent to make direct file changes without
-confirmation
+Print mode writes to files in your workspace even without `--force`. If your
+[CLI config](https://cursor.com/docs/cli/reference/configuration.md) sets `approvalMode` to
+`unrestricted`, print mode also runs every action without approval, the same
+as `--force`.
 
 ## Setup
 
