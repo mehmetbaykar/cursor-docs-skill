@@ -26,6 +26,18 @@ With Cursor's integration for Microsoft Teams, you can use [Cloud Agents](https:
 
 5. Start using Cloud Agents in Microsoft Teams by mentioning `@Cursor`
 
+### Link your account
+
+Each person links their own Microsoft Teams account to a Cursor account. Cloud Agents and Team Bots in your Microsoft organization share that link.
+
+1. Message the bot in Microsoft Teams. If your account isn't linked, it sends you a **Link Account** card in a 1:1 chat
+2. Sign in to cursor.com as the Cursor account you want to link. If cursor.com shows a different account, click **Not you? Switch account**
+3. Click **Link Account** on the card
+
+If the bot can't send you the card, it tells you to open a 1:1 chat with it. If your Cursor team admin hasn't connected Microsoft Teams yet, ask them to connect it in the Cursor dashboard, then message the bot again.
+
+To check or remove your link with a Team Bot, send it `account`. To unlink from Cloud Agents, mention `@Cursor unlink`.
+
 ## How to use
 
 Mention `@Cursor` and give your prompt. Cursor automatically picks the right repository, model, base branch, or named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md) based on your message, the thread context, and your recent agent activity.

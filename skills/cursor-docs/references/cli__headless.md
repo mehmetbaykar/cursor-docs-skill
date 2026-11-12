@@ -39,6 +39,12 @@ Print mode writes to files in your workspace even without `--force`. If your
 `unrestricted`, print mode also runs every action without approval, the same
 as `--force`.
 
+## Disable headless mode for your team
+
+Team admins can block print mode by turning on **Disable CLI headless mode** in [Team Settings > Security & automation](https://cursor.com/dashboard/team-settings?view=extension-security). With it on, `agent -p` and `agent --print` exit with an error before sending the prompt. Interactive sessions still work.
+
+The CLI enforces this setting on the member's machine. Cursor's servers don't check it. In print mode, the CLI loads your team's settings at startup and exits if headless mode is disabled. Treat the setting as a usage policy, not a security boundary: a modified client can skip the check, and the run continues when the CLI can't load team settings. It also doesn't cover other ways to run agents without a UI, such as the [Cursor SDK](https://cursor.com/docs/sdk/typescript.md).
+
 ## Setup
 
 See [Installation](https://cursor.com/docs/cli/installation.md) and [Authentication](https://cursor.com/docs/cli/reference/authentication.md) for complete setup details.

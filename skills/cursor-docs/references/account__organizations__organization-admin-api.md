@@ -431,6 +431,8 @@ POST
 
 Retrieve organization-pooled usage: the pool's spend limit, total usage across the organization, and a per-team breakdown. This powers the pooled-usage section of the dashboard. All monetary fields are in cents.
 
+This endpoint doesn't split usage by product. To see Grok Bot and Cursor usage separately, use the `product` filter on [`/organizations/filtered-usage-events`](https://cursor.com/docs/account/organizations/organization-admin-api.md#get-usage-events).
+
 #### Request body
 
 `organizationId` string Required
@@ -505,6 +507,8 @@ By default, events from **all** teams in the organization pool are returned. Pas
 
 The `cursorTokenFee` field represents the Cursor Token Rate and is only present when the rate applies to a third-party model request. This includes when Auto routes to a third-party model. First-party Cursor models such as Grok and Composer, and request-based enterprise accounts do not include this fee. See [Cursor Token Rate](https://cursor.com/help/models-and-usage/token-rate.md).
 
+**Grok Bot Spend**: Every event includes `product`, set to `grok-bot` or `cursor`. To get Grok Bot spend, pass `product: "grok-bot"` and sum `chargedCents`. Usage paid from a credit grant has `kind` set to `Credit` and `chargedCents` set to `0`, so this sum leaves it out. Work that Grok Bot delegates to [Cloud Agents](https://cursor.com/docs/cloud-agent.md) is billed as Cursor usage and returns `cursor`. Events before 2026-07-19 have no stored product and return `cursor`, including Grok Bot usage from that period.
+
 #### Request body
 
 `organizationId` string Required
@@ -534,6 +538,15 @@ Filter by user email address.
 `serviceAccountId` string
 
 Filter by service account ID.
+
+`product` string
+
+Filter by the product that generated the event. When omitted or `null`, events from every product are returned. Accepted values:
+
+- `grok-bot` - Grok Bot usage
+- `cursor` - all other usage, including events with no stored product
+
+An unrecognized `product` value returns a `400` error rather than an empty result. Field names are case-sensitive: the endpoint ignores `Product`. A request with `product` set to `grok-bot` or `cursor` never returns unfiltered events. If the events can't be read, the request fails with a `503` or `500` error. If a `503` repeats, use a shorter date range.
 
 `page` number
 
@@ -571,6 +584,7 @@ Each object in `usageEvents` contains the same fields as the team endpoint, plus
   - `discountPercentOff` number | undefined - Discount percentage applied, if any
 - `chargedCents` number - Total amount charged in cents for this event. For third-party model requests subject to the Cursor Token Rate, this includes model cost plus the Cursor Token Rate.
 - `cursorTokenFee` number | undefined - Cursor Token Rate in cents. Present only when the rate applies to a third-party model request (including when Auto routes to a third-party model).
+- `product` string - Product that generated the event: `grok-bot` for Grok Bot, `cursor` for all other usage. Older events have no stored product and return `cursor`, including Grok Bot usage. See the Grok Bot Spend note above for the date.
 
 ```bash
 # Events across all teams in the organization pool
@@ -631,7 +645,8 @@ curl -X POST https://api.cursor.com/organizations/filtered-usage-events \
         "totalCents": 20.18232
       },
       "chargedCents": 21.36232,
-      "cursorTokenFee": 1.18
+      "cursorTokenFee": 1.18,
+      "product": "cursor"
     },
     {
       "teamId": 8,
@@ -644,7 +659,8 @@ curl -X POST https://api.cursor.com/organizations/filtered-usage-events \
       "isTokenBasedCall": false,
       "isChargeable": false,
       "isHeadless": false,
-      "chargedCents": 8
+      "chargedCents": 8,
+      "product": "cursor"
     }
   ],
   "period": {
@@ -653,6 +669,24 @@ curl -X POST https://api.cursor.com/organizations/filtered-usage-events \
   }
 }
 ```
+
+**Grok Bot spend example:**
+
+```bash
+curl -X POST https://api.cursor.com/organizations/filtered-usage-events \
+  -u YOUR_ORGANIZATION_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "organizationId": "org_abc123",
+    "startDate": 1785542400000,
+    "endDate": 1788220799999,
+    "product": "grok-bot",
+    "page": 1,
+    "pageSize": 100
+  }'
+```
+
+Each matching event has `product` set to `grok-bot`. Sum `chargedCents` across the events to calculate Grok Bot spend for the period. Group the events by `teamId` to split it by team.
 
 ### Get Daily Usage Data
 
@@ -800,6 +834,8 @@ POST
 `/organizations/spend`
 
 Retrieve per-member spend across the teams linked to your organization. This is the organization-wide counterpart to the team [`/teams/spend`](https://cursor.com/docs/account/teams/admin-api.md#get-spending-data) endpoint, with each member tagged by its owning `teamId`. Unlike the team endpoint, spend is reported over the **organization contract window** (not per-team billing cycles) using the same included-spend definition as [`/organizations/pooled-usage`](https://cursor.com/docs/account/organizations/organization-admin-api.md#get-pooled-usage), so the numbers reconcile with the pool.
+
+This endpoint doesn't split spend by product. To see Grok Bot and Cursor usage separately, use the `product` filter on [`/organizations/filtered-usage-events`](https://cursor.com/docs/account/organizations/organization-admin-api.md#get-usage-events).
 
 #### Request body
 
@@ -1993,7 +2029,7 @@ curl -X GET "https://api.cursor.com/organizations/audit-logs?startTime=7d&endTim
 
 ## Grok Bot computers
 
-Recreate, terminate, or delete the hosted computers that run Grok Bot for a team's members, or delete all of their Grok Bot data, then follow the operation until every member has a result. These routes run the same operations as **Manage Member Computers and Data** in the dashboard. See [Manage Grok Bot computers](https://cursor.com/docs/grok-bot/computers.md) for what each action does to a member's computer and what the member sees.
+Recreate, terminate, or delete the hosted computers that run Grok Bot for a team's members, or delete all of their Grok Bot data, then follow the operation until every member has a result. These routes run the same operations as **Manage Member Computers and Data** in the dashboard. See [Manage Grok Bot computers](https://docs.x.ai/grok-bot/computers) for what each action does to a member's computer and what the member sees.
 
 - **Availability**: Enterprise only.
 - **Authentication**: Organization API key (Basic auth) with the **`admin:*`** scope. Keys with any other scope return `401`. These routes take an Organization API key rather than a Team API key because one computer serves every team a member belongs to.
@@ -2035,7 +2071,7 @@ What to do to each member's computer:
 - `recreate_vm` - Build a replacement computer on the latest image and run Team Setup. Bots, files, and logins carry over, and a Bot that is mid-turn pauses and resumes on the new computer.
 - `terminate_vm` - Delete the member's current computer and keep the durable disk. The member's next message starts a fresh computer.
 - `delete_vm_and_data` - Delete the computer and its durable data, so the member starts from empty. This can't be undone.
-- `delete_grok_bot_data` - Delete all of the member's [Grok Bot data](https://cursor.com/docs/grok-bot/computers.md#delete-all-grok-bot-data). This can't be undone.
+- `delete_grok_bot_data` - Delete all of the member's [Grok Bot data](https://docs.x.ai/grok-bot/computers#delete-all-grok-bot-data). This can't be undone.
 
 `userIds` number\[] Required
 
@@ -2169,7 +2205,7 @@ The `reason` values you're most likely to see:
 | `delete-failed`                | `failed`  | The deletion didn't finish                                                                                       |
 | `authorization-revoked`        | `failed`  | The API key that started the operation was revoked, expired, or lost `admin:*` before Cursor reached this member |
 
-Any other `reason` on a failed member means the action didn't finish. Start a new operation for those members. See [Skipped and failed members](https://cursor.com/docs/grok-bot/computers.md#skipped-and-failed-members) for what to do next.
+Any other `reason` on a failed member means the action didn't finish. Start a new operation for those members. See [Skipped and failed members](https://docs.x.ai/grok-bot/computers#skipped-and-failed-members) for what to do next.
 
 A `404` with `Operation not found.` means the operation never started or has aged out. A `404` with `This operation finished, and its status is no longer available.` means the operation completed, but Cursor no longer holds its results.
 

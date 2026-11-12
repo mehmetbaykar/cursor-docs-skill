@@ -6,17 +6,17 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 287,
+    "pages_fetched_successfully": 273,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 287
+    "total_pages_discovered": 273
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "5964b0cfbc9ae51e458c1dfae0e8d95624de84e1a915f1d25a94678a95df53d4",
-      "last_updated": "2026-11-10T00:37:15+00:00",
+      "hash": "16834028667501b889b1d113bb1ab6433113eb259aa5a0be822e28a164c51c4b",
+      "last_updated": "2026-11-12T18:21:55+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "section": "docs",
@@ -35,8 +35,8 @@
       "title": "Legacy Cursor plans"
     },
     "account__pricing__request-based-legacy.md": {
-      "hash": "d69c337422c3269f2953bc7eb12c95977bc9f6f8f98e385d74630d7665d916c2",
-      "last_updated": "2026-11-10T18:20:14+00:00",
+      "hash": "afefa2e44c50834ba716eef8404f4dac33df4c36f3d91d1638d204f0abd4d75e",
+      "last_updated": "2026-11-12T18:21:56+00:00",
       "original_url": "https://cursor.com/docs/account/pricing/request-based-legacy",
       "path": "/docs/account/pricing/request-based-legacy",
       "section": "docs",
@@ -55,8 +55,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "7aefe6cbc9652d1c6e1b953ef4acfcc985b0895c51193a122b6647670aaceb26",
-      "last_updated": "2026-11-12T12:26:01+00:00",
+      "hash": "e3bce04478355fdfcccc18558a5ba336828adbeb43ab483ed1369762ebd673b1",
+      "last_updated": "2026-11-12T18:21:56+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "section": "docs",
@@ -85,8 +85,8 @@
       "title": "Analytics API"
     },
     "account__teams__analytics.md": {
-      "hash": "43c5d7cc6bfd1bed7f530b2291f447912b454f728e6caec1ee9103ef4041c3f6",
-      "last_updated": "2026-09-29T01:00:02+00:00",
+      "hash": "39ee518bf85eedd45a61165d1c344fda4a2e72bb63ad949a8f54857f7a0bc3dc",
+      "last_updated": "2026-11-12T18:21:57+00:00",
       "original_url": "https://cursor.com/docs/account/teams/analytics",
       "path": "/docs/account/teams/analytics",
       "section": "docs",
@@ -115,8 +115,8 @@
       "title": "Members, Roles, and Seat Types"
     },
     "account__teams__pricing.md": {
-      "hash": "e9077befc5aa3d5369162fbe7e987af74edfe9f5e9c0a8166fa43b7d535796d2",
-      "last_updated": "2026-11-10T18:20:18+00:00",
+      "hash": "deb6a6953ba31e6f2bd619a466f0aa7b9f180fe369512abe2afac84e55a98b51",
+      "last_updated": "2026-11-12T18:21:58+00:00",
       "original_url": "https://cursor.com/docs/account/teams/pricing",
       "path": "/docs/account/teams/pricing",
       "section": "docs",
@@ -125,8 +125,8 @@
       "title": "Team Pricing"
     },
     "account__teams__scim.md": {
-      "hash": "b465a35d6172aa79d183e23e131baeae476f59aa8375511484b38d6fc595a8cf",
-      "last_updated": "2026-09-17T04:44:43+00:00",
+      "hash": "4febdf53b8cb62e7684790e404477fd18f7df2ca30d569212820cdb9897f46a6",
+      "last_updated": "2026-11-12T18:21:58+00:00",
       "original_url": "https://cursor.com/docs/account/teams/scim",
       "path": "/docs/account/teams/scim",
       "section": "docs",
@@ -755,8 +755,8 @@
       "title": "Voice chat"
     },
     "api.md": {
-      "hash": "d4afc3e6dea4af5dd8be5f92471b27fcfae9959814544b68207280b256e8f600",
-      "last_updated": "2026-10-22T15:23:06+00:00",
+      "hash": "9532d9dc66605fbf6c89b36c0c3a0edc5154385de4d984400edf082d55f802f5",
+      "last_updated": "2026-11-12T18:22:17+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "section": "docs",
@@ -805,8 +805,8 @@
       "title": "Origin Grants API"
     },
     "api__origin__mcp.md": {
-      "hash": "c8581cccaeae9229e20fc9ea26d57360cd28a8c62760cdc2487d7b20cbeed3dc",
-      "last_updated": "2026-11-04T21:20:11+00:00",
+      "hash": "2a77e32871d4f64bfb91deb576c439194001f4e3fd422719c4d8a96c2d38e9b6",
+      "last_updated": "2026-11-12T18:22:18+00:00",
       "original_url": "https://cursor.com/docs/api/origin/mcp",
       "path": "/docs/api/origin/mcp",
       "section": "docs",
@@ -885,8 +885,8 @@
       "title": "GitHub Actions"
     },
     "cli__headless.md": {
-      "hash": "a397d648195a1ca162a199625b165b4fda055d24b60375687db8fa17156adf68",
-      "last_updated": "2026-11-11T18:20:34+00:00",
+      "hash": "d8a20248651ac507fefaebfc02b5145a4e35914c8eb253da35e7dd207c589b0c",
+      "last_updated": "2026-11-12T18:22:21+00:00",
       "original_url": "https://cursor.com/docs/cli/headless",
       "path": "/docs/cli/headless",
       "section": "docs",
@@ -1025,8 +1025,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "463f3d691929c444de47d520b1b83247fab115fef18e5cf6c2febb5a0721948b",
-      "last_updated": "2026-11-11T18:20:38+00:00",
+      "hash": "d7525e6d09960f18f5ef864b03cc5619a2e402ae1e2b06b31c89dad04fe8c69e",
+      "last_updated": "2026-11-12T18:22:25+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1265,8 +1265,8 @@
       "title": "Cursor Router"
     },
     "cursor.md": {
-      "hash": "166aaaaa5be7a091c786f95dd365a16b93ea9ab1c8d936ccf27960a24a2f68a3",
-      "last_updated": "2026-11-10T18:20:13+00:00",
+      "hash": "b987c6046eda555d314caa03a40274bb683723e7c1f2cd111a12ff39bae44ede",
+      "last_updated": "2026-11-12T18:21:55+00:00",
       "original_url": "https://cursor.com/docs",
       "path": "/docs",
       "section": "docs",
@@ -1324,159 +1324,9 @@
       "status": "live",
       "title": "Quickstart"
     },
-    "grok-bot.md": {
-      "hash": "7501decca97c19bf96f6076acdc0c1877c0dc707db4a2216ddba4e991e7dc93c",
-      "last_updated": "2026-11-10T21:19:50+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot",
-      "path": "/docs/grok-bot",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot",
-      "status": "live",
-      "title": "Grok Bot"
-    },
-    "grok-bot__computers.md": {
-      "hash": "d5b95149361cc1cac13a4976188c4a87825c2223db26655102ee7dac135d9425",
-      "last_updated": "2026-11-05T06:29:14+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/computers",
-      "path": "/docs/grok-bot/computers",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/computers",
-      "status": "live",
-      "title": "Manage Grok Bot computers"
-    },
-    "grok-bot__deployment.md": {
-      "hash": "5bc25f4a0b6138a70e83d5151b32f4c6df92c26ce99db999cb520126000d0cf8",
-      "last_updated": "2026-10-24T21:18:37+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/deployment",
-      "path": "/docs/grok-bot/deployment",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/deployment",
-      "status": "live",
-      "title": "Deploy Grok Bot to your organization"
-    },
-    "grok-bot__get-started.md": {
-      "hash": "c8e15f1f6abf126daba0062fdd5d50ea392ad8e1bf31581f6cd6f240b2cc1a01",
-      "last_updated": "2026-11-10T21:19:51+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/get-started",
-      "path": "/docs/grok-bot/get-started",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/get-started",
-      "status": "live",
-      "title": "Get started with Grok Bot"
-    },
-    "grok-bot__identity.md": {
-      "hash": "8f5abcd99a53834948bba0141d647225079a3c69d9ac3f49d6befc7eed41fa39",
-      "last_updated": "2026-11-11T03:22:07+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/identity",
-      "path": "/docs/grok-bot/identity",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/identity",
-      "status": "live",
-      "title": "Configure identity and access"
-    },
-    "grok-bot__inference-hooks.md": {
-      "hash": "e52e200d71e0ebb030fe9944afcb5f3b41530926541632797436852fee6c4e55",
-      "last_updated": "2026-11-10T21:19:51+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/inference-hooks",
-      "path": "/docs/grok-bot/inference-hooks",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/inference-hooks",
-      "status": "live",
-      "title": "Grok Bot inference hooks"
-    },
-    "grok-bot__okta-fastpass.md": {
-      "hash": "8f59c0aa6e5abbb457e2e6597431593b74c44e0960e0a82053c7508a084ce306",
-      "last_updated": "2026-11-11T03:22:07+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/okta-fastpass",
-      "path": "/docs/grok-bot/okta-fastpass",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/okta-fastpass",
-      "status": "live",
-      "title": "Set up Okta Verify and FastPass"
-    },
-    "grok-bot__private-networks.md": {
-      "hash": "e3e3bbc58a43b6c3717b66ad8fe1175194f2f52db56ab7e811b542d85ff9c5af",
-      "last_updated": "2026-11-11T12:25:36+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/private-networks",
-      "path": "/docs/grok-bot/private-networks",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/private-networks",
-      "status": "live",
-      "title": "Connect to private networks"
-    },
-    "grok-bot__proxies.md": {
-      "hash": "feeac1469605013d38cb0531c9036f07a2ad800d97e07dab4e120f562de60ba9",
-      "last_updated": "2026-10-11T09:24:07+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/proxies",
-      "path": "/docs/grok-bot/proxies",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/proxies",
-      "status": "live",
-      "title": "Configure TLS-inspecting proxies"
-    },
-    "grok-bot__security-faq.md": {
-      "hash": "9d8a8c82e1176ba9dda7f4f34a247f250e3eac4292ce836a5bd3d91b8f3b58c3",
-      "last_updated": "2026-11-11T12:25:37+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/security-faq",
-      "path": "/docs/grok-bot/security-faq",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/security-faq",
-      "status": "live",
-      "title": "Grok Bot security FAQ"
-    },
-    "grok-bot__security.md": {
-      "hash": "790eeaab1a8c9897594cfa268128e7ccfcf03bcae9769d29f925ef780f578acb",
-      "last_updated": "2026-11-11T12:25:37+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/security",
-      "path": "/docs/grok-bot/security",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/security",
-      "status": "live",
-      "title": "Grok Bot security"
-    },
-    "grok-bot__settings.md": {
-      "hash": "e1df676e477d61f6fee8b8b806e70f1e2785071b984ace4863091cd1d0f1862d",
-      "last_updated": "2026-11-11T12:25:38+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/settings",
-      "path": "/docs/grok-bot/settings",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/settings",
-      "status": "live",
-      "title": "Settings and notifications"
-    },
-    "grok-bot__teams.md": {
-      "hash": "d732147c16f6efcc6b059cf0f1b353608be784e3b759ff9b4745b9ba3f9bd281",
-      "last_updated": "2026-11-11T12:25:38+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/teams",
-      "path": "/docs/grok-bot/teams",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/teams",
-      "status": "live",
-      "title": "Grok Bot for Teams and Enterprise"
-    },
-    "grok-bot__use-cases.md": {
-      "hash": "c05524cb6dcbfb4b125d678cda14b1f2053b5dd986a5276ee339a099abab8ea4",
-      "last_updated": "2026-09-03T04:15:08+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/use-cases",
-      "path": "/docs/grok-bot/use-cases",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/use-cases",
-      "status": "live",
-      "title": "Grok Bot use cases"
-    },
-    "grok-bot__work.md": {
-      "hash": "9f1cc347598122e44776bb86e4c72a28822ce830c93b9147e5da8779c5162d74",
-      "last_updated": "2026-11-10T21:19:54+00:00",
-      "original_url": "https://cursor.com/docs/grok-bot/work",
-      "path": "/docs/grok-bot/work",
-      "section": "docs",
-      "source_url": "https://cursor.com/docs/grok-bot/work",
-      "status": "live",
-      "title": "Work with Grok Bot"
-    },
     "guides.md": {
-      "hash": "c1c332fd657f0dd3971c8ad0b50a58c9b2ccc2aa813ad5799d55645bda5ab802",
-      "last_updated": "2026-11-12T12:27:32+00:00",
+      "hash": "9b9bf63cd15225e2bcc4352d99c2590130f23b50bdca6ba2bee4a8bb57ee34c6",
+      "last_updated": "2026-11-12T18:23:09+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1615,8 +1465,8 @@
       "title": "Linear"
     },
     "integrations__microsoft-teams.md": {
-      "hash": "3c898bccc6a5f6fe30ada5c1d0dcf13bf9c078d8b1e24484f07facba699283dc",
-      "last_updated": "2026-08-07T17:12:07+00:00",
+      "hash": "749b0fb17978ea9fe5747e4d68138dca88cdb4dc332372386245492895241a1d",
+      "last_updated": "2026-11-12T18:22:36+00:00",
       "original_url": "https://cursor.com/docs/integrations/microsoft-teams",
       "path": "/docs/integrations/microsoft-teams",
       "section": "docs",
@@ -1645,8 +1495,8 @@
       "title": "Slack"
     },
     "integrations__tailscale.md": {
-      "hash": "1df6d4fe99fd478ed3f2a872d18ab85e132a17d872cafa48e9af32596a51dfd8",
-      "last_updated": "2026-10-27T21:14:12+00:00",
+      "hash": "8735f4acda53e176753496786625475381f2d7089f35f3bd1b1c9e7124c8a178",
+      "last_updated": "2026-11-12T18:22:37+00:00",
       "original_url": "https://cursor.com/docs/integrations/tailscale",
       "path": "/docs/integrations/tailscale",
       "section": "docs",
@@ -1685,8 +1535,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "198ca80f34613de598b916a73f02a0b6017a8339eaeb114b6c97e10fdb938839",
-      "last_updated": "2026-11-10T18:21:10+00:00",
+      "hash": "ae59aab4cce4b98235cf015f5b0456c00efc34119fe7cc528dbd11c0b5e29413",
+      "last_updated": "2026-11-12T18:22:38+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "section": "docs",
@@ -1965,8 +1815,8 @@
       "title": "Models Gemini 3 7 Flash"
     },
     "models__gemini-3-8-flash.md": {
-      "hash": "f8c4908a66bdc8ee3e2ff55e4bb2ee53b450bfb23ddf690719b9216ff76406d2",
-      "last_updated": "2026-10-14T21:19:45+00:00",
+      "hash": "04f78e8f3fc6b62ef2208f22eecb687048e1999204a9b4c0b573dd20df52bcaf",
+      "last_updated": "2026-11-12T18:22:46+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-3-8-flash",
       "path": "/docs/models/gemini-3-8-flash",
       "section": "docs",
@@ -2015,14 +1865,24 @@
       "title": "Models Gemini 4 Argon"
     },
     "models__gemini-4-carbon.md": {
-      "hash": "87837a95290fa4f7c599b3ac1401b768a4fdc9434c85780f5cd9db81795c6474",
-      "last_updated": "2026-11-10T18:21:21+00:00",
+      "hash": "a4b1ae44a6cbf423b538364679dafe9905feafc42cac2c34f9934ec9347fdbeb",
+      "last_updated": "2026-11-12T18:22:47+00:00",
       "original_url": "https://cursor.com/docs/models/gemini-4-carbon",
       "path": "/docs/models/gemini-4-carbon",
       "section": "docs",
       "source_url": "https://cursor.com/docs/models/gemini-4-carbon",
       "status": "live",
       "title": "Models Gemini 4 Carbon"
+    },
+    "models__gemini-4-hydrogen.md": {
+      "hash": "d74fb19d0a00d0b5c6ddbb47d28e1879970b119b2617c21df189c1d1205fb5e6",
+      "last_updated": "2026-11-12T18:22:48+00:00",
+      "original_url": "https://cursor.com/docs/models/gemini-4-hydrogen",
+      "path": "/docs/models/gemini-4-hydrogen",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/models/gemini-4-hydrogen",
+      "status": "live",
+      "title": "Models Gemini 4 Hydrogen"
     },
     "models__glm-5-2.md": {
       "hash": "24cbc264997ff7f707f2c1a3769d77f01f570ba4013c3edd8838a726e7cd72bb",
@@ -2900,7 +2760,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-12T12:27:48+00:00",
+  "last_updated": "2026-11-12T18:23:24+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

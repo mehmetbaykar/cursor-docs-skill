@@ -2596,13 +2596,9 @@ curl --request DELETE \
 
 [Automations](https://cursor.com/docs/cloud-agent/automations.md) run Cloud Agents on a schedule or when something happens in a connected tool. These endpoints read the automations your API key can see and change an automation's model. Create, edit, and delete automations in the [Automations dashboard](https://cursor.com/automations).
 
-### Beta
-
-The Automations endpoints are in beta and not yet available to every team. Until your team has access, they return `403 feature_unavailable`.
-
 - **Use a user API key or a team API key with an automations permission.** A team API key, one that starts with `grok_`, needs **View automations** (`team.automations.read`) to list and get automations, and **Manage automations** (`team.automations.manage`) to change them. Neither includes the other, and **Run Cloud Agents** (`cloud-agents:*`) doesn't reach these endpoints. A team key missing the permission an endpoint needs gets `403 permission_required`. Other team service account API keys, and API keys created for an automation's webhook, get `403 key_not_supported`.
 - **A team API key works only inside its own team.** It acts as the team's service account. It sees the team's shared automations (`TEAM`, `TEAM_VISIBLE`, `TEAM_EDITABLE`, and `TEAM_EDITABLE_USER`) and never a member's private (`USER`) automations, which return `404 automation_not_found`. It can change only `TEAM` and `TEAM_EDITABLE` automations, which run as the team's service account. `TEAM_VISIBLE` and `TEAM_EDITABLE_USER` automations run as the member who created them, so changing one returns `403 role_forbidden`.
-- **You see what the dashboard shows you.** You see your own automations and your team's shared automations. A team admin also sees teammates' private automations, but only with the admin's own API key, not a user-scoped token. A user-scoped token sees only the team it was created for. An automation you can't see returns `404 automation_not_found`.
+- **You see what the dashboard shows you.** You see your own automations and your team's shared automations. A team admin also sees teammates' private automations, but only with the admin's own API key, not a user-scoped token. With that key, an admin can [change the model](https://cursor.com/docs/cloud-agent/api/endpoints.md#change-an-automations-model) on teammates' automations, but nothing else. A user-scoped token sees only the team it was created for. An automation you can't see returns `404 automation_not_found`.
 - **Cloud automations only.** Built-in automations, such as Security Reviewer, are listed with their `managedType` and can't be changed through the API. Project routines aren't listed.
 
 #### The Automation Object
@@ -2670,7 +2666,7 @@ When the automation was created and last changed, in ISO 8601 format.
 
 Errors from these endpoints use the same body as the rest of this API, `{ "error": { "code": "...", "message": "..." } }`. Branch on `code`; the `message` wording can change. Any of the three endpoints can return:
 
-- `403 feature_unavailable` - Your account doesn't have API access or the Automations beta yet.
+- `403 feature_unavailable` - Your account doesn't have API access.
 - `403 plan_required` - Your account is on the free plan.
 - `403 permission_required` - A team API key without the permission the endpoint needs: View automations for list and get, Manage automations for changing the model.
 - `403 key_not_supported` - A team service account API key that doesn't start with `grok_`, or an API key created for an automation's webhook.
@@ -2790,7 +2786,14 @@ PATCH
 
 Set the model an automation runs with. Nothing else about the automation changes, including its schedule. The response is the updated [automation](https://cursor.com/docs/cloud-agent/api/endpoints.md#the-automation-object).
 
-You can change an automation when the dashboard would let you edit it. A team API key with Manage automations can change its team's `TEAM` and `TEAM_EDITABLE` automations. Otherwise the request returns `403 role_forbidden`, including for a team API key on a `TEAM_VISIBLE` or `TEAM_EDITABLE_USER` automation. Built-in automations return `409 managed_automation`, and automations a config-as-code deploy owns return `409 deploy_managed`; change those in their spec instead.
+Who can change an automation's model:
+
+- **A user API key or user-scoped token** changes an automation when the dashboard would let its user edit it, such as an automation the user owns.
+- **A team API key with Manage automations** changes its team's `TEAM` and `TEAM_EDITABLE` automations. On a `TEAM_VISIBLE` or `TEAM_EDITABLE_USER` automation, it gets `403 role_forbidden`.
+- **Other members' automations, for team admins.** A team admin using their own user API key can also change the model on other members' automations, including private ones. The model is the only field they can change, and each change is recorded in the team's [audit log](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- **Everyone else** gets `403 role_forbidden`.
+
+Built-in automations return `409 managed_automation`, and automations a config-as-code deploy owns return `409 deploy_managed`; change those in their spec instead.
 
 #### Path Parameters
 

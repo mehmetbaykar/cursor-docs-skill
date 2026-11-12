@@ -91,6 +91,7 @@ All APIs implement rate limiting to ensure fair usage and system stability. Limi
 | ------------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------- |
 | **Admin API**            | Most endpoints                                                            | 20 requests/minute                                    |
 | **Admin API**            | `/teams/filtered-usage-events` and `/organizations/filtered-usage-events` | 60 requests/minute                                    |
+| **Admin API**            | `/v2/teams/billing-items`                                                 | 60 requests/minute                                    |
 | **Admin API**            | `/teams/user-spend-limit`                                                 | 250 requests/minute                                   |
 | **Admin API**            | `/teams/user-spend-limits`                                                | 20 requests/minute                                    |
 | **Organization API**     | Most endpoints                                                            | 20 requests/minute per endpoint                       |
