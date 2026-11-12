@@ -255,9 +255,10 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `sdk__bridge` - [Cursor SDK Bridge](https://cursor.com/docs/sdk/bridge)
 - `sdk__python` - [Cursor Python SDK](https://cursor.com/docs/sdk/python)
 - `sdk__typescript` - [Cursor TypeScript SDK](https://cursor.com/docs/sdk/typescript)
-- `security-agents` - [Security Agents](https://cursor.com/docs/security-agents)
+- `security-review` - [Security Review](https://cursor.com/docs/security-review)
 - `skills` - [Agent Skills](https://cursor.com/docs/skills)
 - `subagents` - [Subagents](https://cursor.com/docs/subagents)
+- `vulnerability-remediation` - [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation)
 
 ## Workflows
 

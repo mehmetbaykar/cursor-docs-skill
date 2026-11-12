@@ -27,7 +27,7 @@ For any path:
 The Automations page also includes three Cursor-managed agents:
 
 - [Bugbot](https://cursor.com/docs/bugbot.md) reviews pull requests for bugs and code quality issues.
-- [Security Agents](https://cursor.com/docs/security-agents.md) review pull requests and scan codebases for vulnerabilities.
+- [Security Review](https://cursor.com/docs/security-review.md) reviews pull requests for vulnerabilities, and [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md) scans codebases and patches what it finds.
 - [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) routes pull requests to reviewers and can approve low-risk changes.
 
 Open these from their cards under **From Cursor**. They don't appear in the **Mine** or **Team** automation lists.

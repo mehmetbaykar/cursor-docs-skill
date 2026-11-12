@@ -169,7 +169,8 @@ Monitor and manage cloud agents running in your workspace. View agent status, lo
 Use [Automations](https://cursor.com/automations) to create recurring cloud agents and configure Cursor-managed agents:
 
 - [Bugbot](https://cursor.com/docs/bugbot.md)
-- [Security Agents](https://cursor.com/docs/security-agents.md)
+- [Security Review](https://cursor.com/docs/security-review.md)
+- [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md)
 - [PR Routing & Approval](https://cursor.com/docs/approval-agents.md)
 
 ## Active Directory Management

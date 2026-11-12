@@ -44,7 +44,7 @@ On GitHub, connecting turns Bugbot on for the repositories you grant access to. 
 
 On a team, members who can't change an installation's settings see **Request access** instead of the switch on a repository where Bugbot is off. Requesting emails your team admins a one-click link to turn Bugbot on for that repository, and the button changes to **Requested**. The repository stays off until an admin turns it on.
 
-For a comparison with Security Reviewer, see [Security Agents source control support](https://cursor.com/docs/security-agents.md#source-control-support).
+For a comparison with Security Reviewer, see [Security Review source control support](https://cursor.com/docs/security-review.md#source-control-support).
 
 ## CI check statuses
 

@@ -8,6 +8,38 @@ path: /docs/release-notes
 
 Every Cursor product in one timeline, newest first, with up to 10 recent releases each. Filter by product, open a product's page for its full history, or follow along with the [RSS feed](https://cursor.com/docs/release-notes/rss.xml).
 
+## October 26, 2026 release
+
+### Pull requests
+
+- **`origin pr edit` no longer wipes a description by accident.** It refuses an empty, whitespace-only, or `null` `--body` or `--body-file`; use the new `--clear-body` flag to clear a description on purpose. `origin pr view` and `origin pr list` return each `--json` field under the name you asked for, so `--json body` prints `body`, not `description`. Update scripts that read `.description` after asking for `body`.
+- **Merge-when-ready is now called auto-merge.** `origin pr view`, `status`, and `requirements` print an `Auto-merge` line, `origin pr merge --auto` and `--disable-auto` say auto-merge in their messages, and `origin pr watch` labels events `[auto-merge]`. Use `--json autoMerge` in scripts; `--json mergeWhenReady` still works but is deprecated. See [merge](https://cursor.com/docs/origin/cli/reference/pull-requests.md#merge).
+
+### Repositories
+
+- **Faster CloneKit downloads on more systems.** `origin repo clone-fast` uses its faster download engine with curl 7.75 or newer and GNU coreutils dd. When it can't, it prints a warning that says why and what to install, and the fallback engine uses bounded memory. See [CloneKit in CI](https://cursor.com/docs/origin/clonekit-ci.md).
+
+## October 23, 2026 release
+
+### Pull requests
+
+- **`origin pr create` opens pull requests ready for review.** New pull requests open ready for review by default instead of as drafts; pass `--draft` or `--status draft` for a draft. If your 'Never open PRs as drafts' setting or the repository's setting turns a requested draft into a ready pull request, `origin pr create` says why. See [create](https://cursor.com/docs/origin/cli/reference/pull-requests.md#create).
+- **Agentic code owner holds read like classic approval requirements.** When a ruleset uses Agentic code owner review, `origin pr requirements` lists its holds under "Approvals still needed" in the same shape as classic requirements, such as "1 approving review from anyone but the author (0 so far)".
+
+### Stacks
+
+- **`origin stack sync` cleans up merged branches it used to miss.** It deletes the local branches of merged and closed pull requests even after `origin stack get` stopped tracking them, unless that would lose a commit. A branch renamed with `git branch -m` is kept and reported with the command that lets sync delete it. Stack commands run on a merged or closed branch point you to [`origin stack sync`](https://cursor.com/docs/origin/cli/reference/stacks.md#view-get-and-sync).
+- **Stack commands no longer throw away a rebase you're resolving.** `origin stack move`, `delete`, `restack`, and `sync` stop with an error when a rebase or merge they didn't start is in progress, instead of aborting it and discarding your resolved conflicts. When a stack rebase hits a conflict, the message names the branch, its new parent, the conflicting files, and the commit being applied, then lists the commands to run next.
+- **Clearer `origin stack` messages.** `origin stack sync`, `get`, `push`, `restack`, and `delete-branch` say exactly what changed, for example `moved b's parent from main to a, as on Origin`. `origin pr create` and `origin pr edit` explain when a branch's stack parent couldn't be saved in your clone and point you to `origin stack get`.
+
+### Scripting
+
+- **Stack commands take `--json` field lists.** `origin stack` commands such as `get`, `restack`, and `push` take a comma-separated field list with `--json`, like `origin stack get --json members,checkedOut`, and a bare `--json` is a usage error that lists the fields. See [JSON and exit codes](https://cursor.com/docs/origin/cli/reference/stacks.md#json-and-exit-codes).
+
+### Fixes
+
+- **Fixes to `origin stack get` with restacked branches.** It fast-forwards branches that Origin restacked instead of reporting them as diverged, including in fresh clones, with `core.logAllRefUpdates=false`, and with `log.showSignature` enabled.
+
 ## 1.16.0
 
 ### Voice calls
@@ -129,6 +161,21 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to Auto-review.** Auto-review of MCP tool calls now sees the tool's input schema when the server sends it as a JSON string.
 - **Fixes to MCP servers.** A single invalid tool or a tool schema without a type no longer hides the rest of an MCP server's tools, and a server that fails to list its tools now reports an error to the agent.
 - **Fixes to Windows.** Shell commands the agent runs in PowerShell now use UTF-8, so non-ASCII output no longer appears garbled. Staged updates are no longer held back by leftover markers from crashed or killed processes, and the background update check no longer flashes console windows.
+
+## October 21, 2026 release
+
+### Stacks
+
+- **Clean up merged stacks with `origin stack sync`.** It fast-forwards trunk, deletes your local branches whose pull requests were merged or closed, and restacks the branches that sat on them. Use `--dry-run` to preview or `--no-restack` to leave branches in place. `origin stack delete-branch` also moves stacked branches onto the deleted branch's parent and tells you when it checks out a different branch. See [view, get, and sync](https://cursor.com/docs/origin/cli/reference/stacks.md#view-get-and-sync).
+
+### Pull requests
+
+- **See every owner rule on a pull request and where it stands.** [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) has an Owner rules section with one line per rule, including rules that already passed: who can approve, how many files it covers, and whether it still needs an approval. Rules waiting on approval are listed first, and `--json ownerRules` returns the same data.
+- **Clearer message when a pull request has nothing to merge.** When a pull request's changes are already on its base branch, the merge blocker says so and suggests closing the pull request or pushing a commit with new changes.
+
+### Scripting
+
+- **Pick JSON fields for `origin ruleset` and access commands.** `origin ruleset` commands and the repository and namespace access commands take a field list with `--json`, for example `origin repo access remove --json repo,action,subject`. `origin ruleset list --json` includes bypass actors and returns an empty list when a repository has no rulesets.
 
 ## 1.15.0
 
@@ -270,6 +317,46 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Python runs report why they failed.** When a run fails after it starts, `run.wait()` in the Python SDK now returns `error_code` and `error_message` on the `RunResult`, and stream result events carry the same fields. Before, Python only saw an error status.
 - **Fixes to local MCP servers and transcripts.** Passing `mcpServers` on an individual send in a local run no longer drops MCP servers loaded from `settingSources`. Local agents also keep writing transcripts when the home directory is missing or read-only, using `CURSOR_DATA_DIR` when set or a private temporary directory otherwise.
 
+## October 20, 2026 release
+
+### Pull requests
+
+- **See which bot owners can clear a Code Review Gate.** When a Code Review Gate policy still needs approval, [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) lists any bot owner whose approval satisfies it, with the `origin pr reviewer request` command to ask for that bot's review. `--json` keeps the `nativeVerdict` field on gates and approvals, so scripts can tell which ones Agentic Owners decides.
+- **Clearer owner approval blockers in `origin pr requirements`.** Owner approval blockers name who must approve which paths. If the author is the only owner of the changed paths, the blocker says an approval from anyone but the author clears it. When a diff is too large for a full risk assessment, the blocker says so and suggests splitting the pull request.
+
+### Rulesets
+
+- &#x20;**Ruleset bypass actors use `group` instead of `team`.** In [`origin ruleset`](https://cursor.com/docs/origin/cli/reference/commands.md#rulesets) `create` and `update` specs and in ruleset output, a group bypass actor's `actorKind` is now `group`. Specs that still say `team` fail with an error telling you to use `group`, so update any saved specs.
+
+### Fixes
+
+- **Fixes to update hints.** The Origin CLI no longer prints its update hint or starts a background update check when git runs `origin credential-helper` or your shell requests completions, so git and shell output stay clean.
+
+## October 19, 2026 release
+
+### Pull requests
+
+- **Clearer approval requirements.** Blockers for required reviewers name the files that need the approval, for example "1 approval from X required for a.ts, 0 so far." When Agentic Owners decides a pull request's review, [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) labels it "Agentic Owners" instead of "Code Review Gate".
+
+### Repositories
+
+- **Map GitHub authors and dry-run pull request imports.** `origin repo import-prs` accepts `--user-map <file>` to map GitHub logins to Origin users (`user:<email>`), apps (`app:<app_id>`), or the import actor (`-`), with an optional `* -> target` catch-all. Add `--validate` to check every pull request's state, author mapping, and referenced commits without importing anything.
+
+### Rulesets
+
+- &#x20;**GitHub ruleset import no longer creates bypass actors that grant nothing.** Organization admin roles, repository roles, and `enforce_admins` are now reported as unsupported instead of becoming role bypass actors that never let anyone bypass. Ruleset commands accept only `user`, `team`, and `app` bypass actors, and `origin ruleset update` from a spec removes stored role actors. Add who may bypass with [`origin ruleset update`](https://cursor.com/docs/origin/cli/reference/commands.md#rulesets).
+
+### Scripting
+
+- **Pick `origin auth status` JSON fields, and catch broken git credential setup.** `origin auth status --json` takes a field list, such as `--json account,team,organization`, and `--json help` lists every field. `origin auth status` also warns when git uses the Origin credential helper for some Origin remotes but not `owner/repo` ones, and names the `origin auth setup-git` command that fixes it. See [authentication](https://cursor.com/docs/origin/cli/reference/commands.md#authentication).
+- **Pick the label fields you want in JSON.** `origin label list`, `create`, `edit`, and `delete` take a comma-separated field list with `--json`, such as `--json name,color`, matching `gh`. Bare `--json` lists the fields. See [labels](https://cursor.com/docs/origin/cli/reference/commands.md#labels).
+
+### Fixes
+
+- &#x20;**Fixes to ruleset import and branch patterns.** `origin ruleset import` no longer adds a require-branch-up-to-date rule when a GitHub status-check rule lists no required checks. Saving a ruleset with an invalid branch or tag pattern fails with a plain explanation of the problem and how to fix it.
+- **Fixed git remote detection and `origin push local` checks.** Commands that read your git remote recognize scp-style remotes without a user, like `host:org/repo`, and no longer mistake local paths containing a colon for remotes. `origin push local` rejects `--remote origin` or `--remote github` before any other checks run.
+- **Fixes to the transcript private-key check.** The Origin CLI refuses to upload a transcript that hides a private key behind a BEGIN marker split across separate strings, including when a later string or plain-text line finishes the marker. Before, these transcripts could pass the secret check.
+
 ## Week of Oct 19, 2026
 
 ### Web
@@ -374,6 +461,93 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 ## Week of Oct 19, 2026
 
+### Integrations
+
+#### GitHub
+
+- &#x20;**Connect GitHub just for yourself, then move it to your team.** On a team's integrations page, GitHub now offers **Just for me** next to **Connect**, so team members who can't manage the team's integrations can still connect GitHub for their own use. After a personal connect, team admins see an offer on the success page to move the installation to the team, and can also move personal installations from the **Details** dialog on the GitHub row.
+- &#x20;**Clearer GitHub access errors on the Integrations page.** When Cursor can't reach a connected GitHub or GitHub Enterprise integration, its row on the Integrations page now shows a warning that explains the problem and how to fix it, with a Try again or Reconnect button, instead of a generic "Reconnect required." You can also disconnect GitHub when Cursor can't read its installations, instead of being stuck on an error row.
+- **Clearer GitHub connection errors.** If GitHub has an error or times out while Cursor checks your access to a repository, git, pull request creation, and agent tools now say GitHub didn't answer and to try again, instead of saying you don't have access. If your GitHub connection was revoked, Cursor asks you to connect GitHub again instead of showing an internal error. If GitHub won't refresh the connection because your primary email isn't verified, Cursor tells you to verify it.
+- **Agents recover from common GitHub errors.** When an agent works with GitHub, short rate limits are waited out and retried automatically, and merging a pull request without naming a method uses a method the repository allows. Merging an already-merged pull request, opening a pull request that already exists, or creating a branch that's already at the right commit now succeeds with a note. Errors that remain name the fix, such as a missing branch or label, a pull request with conflicts or blocked by branch protection, or a repository where the account only has read access.
+- **GitHub pull request lookup no longer fails on busy branches.** Finding the pull requests for a GitHub branch with more than 100 pull requests now returns the newest ones instead of failing, and lookups for other branches in the same request still go through.
+
+#### Bitbucket
+
+- &#x20;**Bitbucket Data Center works on hosts without account linking.** On a [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md) host where members can't link their own accounts, Cursor now accepts pull request links from repositories your team has connected, and team admins' runs started from Slack, Microsoft Teams, or Jira use the host's connection. Other members, and anyone who comments `@cursor` on a pull request, now get a reply saying Cursor can't verify their account and asking a team admin to set up account linking, instead of a refusal or no response.
+- **Agent commits on Bitbucket Data Center credit you.** When a cloud agent you launch commits to a Bitbucket Data Center repository, the commit is authored as your linked Data Center account, so Bitbucket attributes it to you. If your account isn't linked or no longer has access to the repository, commits keep the default Cursor agent author.
+- &#x20;**Switch your team's Bitbucket workspace from the dashboard.** If you installed the Cursor app in another Bitbucket Cloud workspace, the Bitbucket Cloud integration now shows it and lets admins switch to it from **Switch workspace** in the **Manage** menu. A team uses one workspace at a time, and linking a second workspace now explains how to switch instead of failing with a generic error.
+- **Fixes to Bitbucket Data Center pull requests.** Cursor now shows diffs for [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md) pull requests, finds a pull request by its source branch, and opens create pull request links on your server's browser URL. Merges use a strategy the repository allows, and pull requests that can be merged no longer show as blocked by branch rules. When creating or merging a pull request fails, Cursor explains why, for example that the branch hasn't been pushed, there are no new commits, or a pull request is already open.
+- **Fixes to Bitbucket Data Center.** Repositories are now recognized as connected when the URL uses different capitalization, or when the instance is registered on a non-standard port. Agents can clone same-host submodules listed by their `/scm/` clone URL, and PR creation no longer fails while a rejected member token stays cached. Members whose Bitbucket user was deleted are asked to reconnect instead of hitting repeated temporary errors.
+
+#### GitLab
+
+- **GitLab merges run as your GitLab account.** Merging a [GitLab](https://cursor.com/docs/integrations/gitlab.md) merge request from Cursor, or turning auto-merge on or off, now uses your connected GitLab account, so protected-branch merge rules apply to your role instead of failing with an unauthenticated error. If GitLab denies the merge, the error says whether to ask a project Maintainer for merge access or to connect your GitLab account to Cursor.
+- **Fixes to GitLab.** Merge request state, author, and mergeability now update right away after merging, closing, reopening, or renaming instead of showing stale values. Expired GitLab OAuth tokens are refreshed automatically during permission checks, service account tokens no longer rotate repeatedly and break access, and rate limits are reported as rate limits rather than project access errors. Repository access checks also retry after a timeout or dropped connection.
+
+### Dashboard and admin
+
+#### Security and audit logs
+
+- &#x20;**Review and revoke your members' personal API keys.** Enterprise admins can open the new **Members** tab on the API keys page to see members' personal Cursor API keys, filter by member, and revoke one key or all of a member's keys. The Members page also adds a **View API keys** action for each member.
+- &#x20;**See which API key acted in the audit log.** When an action was made with an API key, the audit log now shows the key under the user, such as a service-account key or Admin API key with its name and ID, plus the delegated user when there is one. Audit log CSV exports add Actor API Key Kind, Actor API Key ID, Actor API Key Name, and Actor Delegated User Email columns. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- &#x20;**More Origin activity in the audit log.** On Enterprise teams using Origin, the audit log now records repository ruleset changes, repository deletions, labels, merge when ready being turned on or off, dismissed reviews, and ownership exemptions. It also logs app signing keys being added or revoked, and members adding or deleting personal SSH keys, with the key name, fingerprint, and algorithm. You can pick each new event in the event type filter.
+
+#### Deployed agents
+
+- &#x20;**Control who can view, deploy, and manage each deployed agent.** Each deployed agent now has Viewer, Editor, and Owner roles: Viewers see the agent and its logs, Editors can also deploy and stop it, and Owners manage secrets, access, the Slack app, token rotation, and deletion. New agents make the deployer Owner and the rest of the team Viewer, and existing agents keep their current access. The deployed agents page also shows your deployment count against your team's limit, and deploys over a limit are refused with a message explaining which one.
+
+#### Agent settings
+
+- &#x20;**Turn off personal secrets for Cloud Agents.** Team admins can turn on **Disable personal secrets in Cloud Agents** in the [Cloud Agents security settings](https://cursor.com/docs/cloud-agent/settings.md#security-settings). Members then see Add and Edit for personal secrets disabled, with a note explaining why, and can still delete secrets they already added.
+- &#x20;**Pick a default pool for self-hosted Cloud Agents.** Team admins can now set a **Default pool** in the self-hosted machine settings of the Cloud Agents dashboard, so self-hosted Cloud Agents that don't name a pool or machine run there. If the default pool doesn't cover a run's repository, that repository keeps using its own pool. Choose **None** to keep routing as before. See [Self-hosted pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#default-pool).
+
+#### Plugins and MCP
+
+- **Manage your personal plugins and MCP servers from a team workspace.** In a team workspace, the Plugins and MCP pages now have a Team and Personal switch, so you can view and manage your own plugins and MCP servers without leaving the team. Your MCP servers stay listed even when team policy blocks them, marked "Disabled by admin", and adding or editing your own servers doesn't need team manage permission.
+- &#x20;**Import a team marketplace alongside your default one.** On the Plugins & MCPs page, teams without Enterprise can now import a team marketplace even when the team has a default marketplace, because the default no longer counts toward the one-marketplace limit.
+
+#### Integrations
+
+- &#x20;**Connect GitHub just for yourself on a team.** On a team's Integrations page, GitHub now offers **Just for me** next to **Connect**, so members who aren't admins can connect their own GitHub account. **Details** on a connected GitHub row lists who owns each GitHub account, and team admins can choose **Move to this team** to turn a personal connection into a team one. Inactive teams are warned that this needs active seats. See [GitHub](https://cursor.com/docs/integrations/github.md).
+- **Source control connection problems now explain how to fix them.** When a GitHub, GitHub Enterprise, or GitLab connection on the Integrations page runs into an access problem, such as a rate limit or expired authorization, the row now says what went wrong and how to fix it, with a Try again or Reconnect action. Environment build failures caused by source control errors use the same wording and link to Integrations, the docs, or the installation settings. A GitHub connection whose installations fail to load still shows as connected and offers Disconnect.
+- &#x20;**Switch the Bitbucket workspace your team uses.** If you install the Cursor app in a second Bitbucket workspace, the Bitbucket integration on the Integrations page now says so and offers to switch the team to it. Admins can also choose Switch workspace from the Manage menu, which explains how to move the team to another workspace. Members who aren't admins are told to ask one.
+
+#### Cloud agent environments
+
+- **Create Cloud Agent environments without a repository.** In the dashboard's Environments section and the **New environment** dialog, you can now skip picking a repository, name the environment, and save it. Repository-free environments then appear in your environment lists and can be configured like any other, with an install script and secrets. See [environment management](https://cursor.com/docs/cloud-agent/settings.md#environment-management).
+- **Set how long a cloud agent environment's install script can run.** Environment Build Settings in the dashboard now include an Install Timeout field, so a slow install no longer fails at the fixed default. Enter a whole number of minutes from 5 to 300, or leave it blank to keep the 90-minute default. When an install times out, the build failure message now points you to this setting. See [managing Builds](https://cursor.com/docs/cloud-agent/builds.md#manage-builds).
+- &#x20;**Refreshed secrets tables and safer bulk scope edits.** Team Secrets, My Secrets, and the Secrets section on an environment's page now share one secrets table, with new dialogs for adding and editing secrets. When you bulk-edit the repository scope of secrets with different scopes, the picker now starts empty instead of defaulting to all repositories.
+
+#### Members and groups
+
+- &#x20;**Set spend limits on automation and agent service accounts.** Admins can now use **Edit monthly spend limit** on the service accounts that run automations and cloud agents, so these accounts get a budget like any other. Key, suspend, and archive actions stay unavailable for these managed accounts.
+- &#x20;**Every member can see whether a group is Synced or Manual, and group rosters sort by usage.** The Type column on the Groups tab now shows Synced or Manual for every viewer, not only for admins who manage SCIM. On a group's member list, you can click the usage column header (monthly spend, included spend, or requests) to sort by it if you can see member spend.
+
+#### Bugbot
+
+- &#x20;**Choose whether Bugbot reviews outside contributors on public repositories.** A new **Public repositories** switch in Bugbot team settings controls whether Bugbot automatically reviews pull requests from people outside your team on public repositories. It starts on for existing teams and off for new teams. See [Bugbot configuration](https://cursor.com/docs/bugbot.md#configuration).
+
+#### Account and navigation
+
+- **Old settings links now open the right place in Settings.** Bookmarks and links to the old My Settings and Voice pages now open the matching section of the Settings dialog, including Pull requests preferences. If you're not on a team, a model consent link from the editor opens Settings > Privacy with that model's consent dialog already open.
+
+#### Fixes
+
+- **Fixes to deployed agents.** A deployed agent's page no longer fails to load while its Slack app is waiting for Slack's first request, and now shows that it is pending. Running Slack setup again from the dashboard keeps any extra bot scopes the agent's existing Slack apps already use. The Source value and the egress allowlist domains are now easier to read.
+- &#x20;**Fixes to the Apps pages.** When an admin changes access on a teammate's app, the Private and Team options now name the app's owner instead of saying "you." Failed Revoke, Change access, and Unpublish actions now show the reason they failed instead of a raw error code.
+- &#x20;**Fixes to MCP, LLM Gateway, and plugin marketplace settings.** Editing an HTTP MCP server no longer drops its custom CA bundle when you save other changes, and long MCP tool names truncate in a single alphabetical list instead of scrolling sideways. The LLM Gateway model test lists your team's published models and says when model discovery returned nothing, instead of showing a misleading provider mismatch. Failed plugin marketplace refreshes now explain the cause, such as missing repository access or rate limiting.
+- **Fixes to cloud agent environments.** The Trigger build dialog on the Environments page no longer grows past the screen for environments with many repositories. Its branch pickers now scroll inside the dialog.
+- &#x20;**Fixes to usage and analytics.** The analytics overview now marks the chats and models widgets as unavailable when part of the date range fails to load, instead of showing those days as zero. On the Usage page, owners of a personal team now see their usage from before the team was created, and chart tooltips show a total for the day. Paginated tables format large counts with thousands separators.
+- &#x20;**Fixes to members and groups.** Members with an unlimited spending limit now show a blank in CSV exports instead of a very large dollar amount, and they sort last with other no-limit members. The suggested Increase limit amount no longer jumps to a huge value because of them. A group's Codebase access section now shows that the team has no Codebase namespace instead of failing.
+- &#x20;**Fixes to team invites and the team list.** Sending invites or getting an invite link no longer times out on teams with very large numbers of pending invites, and pending invites waiting on a card confirmation now say so, can be revoked, and complete correctly for shared invite links. The Invite members dialog no longer offers a Free seat on teams that can't use one, and the team list no longer shows empty teams left over from abandoned checkouts.
+- &#x20;**Fixes to audit log labels.** Source control connection entries in the audit log now show "Bitbucket Cloud" and "Bitbucket Data Center" instead of raw provider IDs. The API keys page and audit logs now label Grok inference keys as "Grok API" keys.
+- **Fixes to the account menu, profile, and sign-in.** Approving a desktop sign-in now tolerates a slow security check, and the approve button can't be pressed twice. Accounts that signed in by phone no longer see a placeholder email address, and picking or removing a profile photo in Settings now saves right away. The account menu shows your profile photo and lists the same items everywhere.
+- **Fixes to dashboard navigation and the Overview page.** Switching teams from the team switcher or account menu no longer lands on a "team not found" page, and older dashboard links now keep their section anchor and open the matching Cloud Agents view and team instead of the dashboard home. On the Overview page, clicking the Cursor card opens the desktop app when it's installed and falls back to the download page otherwise.
+- **Fixes to automations.** Breadcrumbs, Back links, and navigation after deleting an automation now return you to the Mine or Team list you opened it from. The model picker in an automation's prompts section is now searchable.
+- **Fixes to dialogs and menus.** Pressing Escape or clicking outside a menu inside a dialog now closes just the menu, and menus in side panels are no longer cut off at the panel edge. The Duplicate as Origin dialog now fits on screen, and its list scrolls.
+- **Fixes to scrolling in the Changes agent panel.** The agent conversation in the dashboard's Changes agent panel scrolls with the mouse wheel and Page Up/Page Down again, instead of only responding to dragging the scrollbar.
+- **Fixes to merging accounts.** When a merge can't go ahead, the dashboard now says why, for example a merge already in progress or a team or organization that blocks it. The merge banner on Overview appears only when there is an account you can merge, and Profile settings no longer shift while it loads. Merged accounts on a merged team now open the new dashboard instead of the legacy one.
+
 ### Automations
 
 #### Triggers
@@ -395,11 +569,16 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to the repository picker.** The repository picker in the automation editor labels partial lists as Recent, shows a spinner while more repositories load, and says clearly when a search fails.
 - **Fixes to the PR Approver and pull request creation.** The PR Approver automation finds [routing policies](https://cursor.com/docs/approval-agents.md#routing-policies) in `.cursor/approval-policies/`, including `ROUTING.md`, and reviewer-specific criteria in `.cursor/approvals/`. Automations that open GitHub pull requests no longer fail silently when Cursor can't find the repository. The agent gets a clear error instead.
 
+### APIs
+
+- &#x20;**Team admins can list a member's personal environments.** The Cloud Agents API's [`GET /v1/environments`](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-environments) accepts a `userId` query parameter. With a team admin's user API key, pass a member's ID to see their personal environments that list at least one repository, all of which you can read, for example to promote them to team environments. Pages can come back short or empty, so keep requesting until `nextCursor` is absent.
+- &#x20;**Match team directory groups to the group IDs used elsewhere.** [Team directory groups](https://cursor.com/docs/account/teams/admin-api.md#team-directory-groups) in the Admin API now return each group's `publicId` (`grp_…`), the ID access grants use for the group. `GET /teams/directory-groups/:groupId` and its `/members` route also accept the `publicId`; write routes still take the `team_group_…` ID.
+
 ### Security and approval agents
 
 #### Security agents
 
-- **More accurate fix detection for earlier findings.** When you push to a PR, [Security Reviewer](https://cursor.com/docs/security-agents.md) now recognizes a fix made outside the flagged file, such as a new check in a caller elsewhere in the PR, and closes the finding. It closes a finding only when the fix appears in the lines your PR changes, and it rechecks every earlier finding before posting results.
+- **More accurate fix detection for earlier findings.** When you push to a PR, [Security Reviewer](https://cursor.com/docs/security-review.md) now recognizes a fix made outside the flagged file, such as a new check in a caller elsewhere in the PR, and closes the finding. It closes a finding only when the fix appears in the lines your PR changes, and it rechecks every earlier finding before posting results.
 - **Security reviews no longer fail at startup when the model list is briefly unavailable.** If the model list is rate-limited or temporarily unavailable, the review retries with backoff, honoring the server's requested wait, before giving up.
 
 #### Approval agents
@@ -476,6 +655,25 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to self-hosted workers.** Workers no longer time out agent claims when the agent store is slow to open, and they keep recognizing a running Cursor server after the process that launched it exits. A worker also no longer fails when another worker on the same machine installs the same server build while it is downloading.
 - **Fixes to hooks and shell commands on Windows.** Hooks that fail or point at a command that can't be found are now reported as failed instead of silently succeeding. The agent also no longer tries to use tmux for shell commands on Windows.
 - **Fixes to file suggestions, archived agents, and local addresses.** Running the CLI from your home folder on macOS no longer triggers permission prompts for protected folders like Desktop, Documents, or Library when building `@` file suggestions. Messaging an archived agent now says so clearly instead of showing a generic not-found error, and unrelated errors that mention "archived" are no longer misreported. IPv6 hosts such as `[::1]` are now recognized as loopback, and the full link-local range is treated as private.
+
+## October 15, 2026 release
+
+### Pull requests
+
+- **Safer transcript uploads in `origin pr gate report`.** `--transcript-file` refuses a transcript when a private key's BEGIN marker is split across lines, or when a line is nested too deeply to check for secrets. The help text and the "Stored transcript" message say that anyone who can read the repository can read the transcript until 30 days after the pull request closes or merges.
+
+### Rulesets
+
+- &#x20;**Clearer guidance when importing GitHub team reviewer rules.** `origin ruleset import --from-github` lists each required reviewer team with its approval count and tells you to add the requirement with `origin ruleset update` using `requiredReviewers`. It also notes when GitHub file patterns can't narrow the requirement, since Origin applies it to every pull request on the targeted branches. See [rulesets](https://cursor.com/docs/origin/cli/reference/commands.md#rulesets).
+- &#x20;**GitHub file size limits carry over on ruleset import.** `origin ruleset import --from-github` converts a GitHub push ruleset's maximum file size rule into an Origin push ruleset instead of dropping it. Limits from 1 to 100 MB carry over; other values are still reported as unsupported.
+
+### Authentication
+
+- **Origin App installation tokens last their full lifetime.** When you export an Origin App installation token as `CURSOR_AUTH_TOKEN`, `origin` uses it until it expires instead of rejecting it five minutes early. Once it has expired, the CLI tells you to mint a new one.
+
+### Scripting
+
+- **Clearer errors for file and stdin flags.** Flags that take a file or `-` for stdin, such as `--input`, `--body-file`, `--signing-key`, and `--public-key`, require a value and fail with a usage error that names the flag and the problem, such as "does not exist" or "is not valid JSON". `origin pr create --body-file -` no longer competes with the push prompt for stdin.
 
 ## 3.25
 
@@ -577,6 +775,40 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to loading local media files.** Local video and audio files now play and seek correctly in the editor. AVIF, ICO, WebM, and M4V files from anywhere on disk now load in previews, and files under a symlinked home or extensions folder are no longer refused.
 - **Fixes to saving Markdown files from the preview.** Saving a Markdown file from the Markdown preview editor without editing it no longer rewrites its formatting. Edits made in the preview no longer remove the file's final newline or add a blank line after a trailing list, code block, table, or heading.
 - **Fixes to model settings.** The Explore Subagent Model help in Settings no longer shows two tooltips at once, and the model picker no longer shifts sideways when you change the selection.
+
+## October 13, 2026 release
+
+### Agents
+
+- **Teach your coding agent to use the Origin CLI.** `origin agent prompt` prints a Markdown guide to `origin` for AI agents, matched to your installed version, with focused topics such as pull requests, review, and CI. `origin agent setup` installs a skill for Cursor, Claude Code, or Codex that points the agent to that guide, and mistyped commands suggest the closest match. See [agent commands](https://cursor.com/docs/origin/cli/reference/commands.md#agents).
+
+### Pull requests
+
+- **`origin pr merge` stops merges that would land on a closed pull request's branch.** If a pull request targets the head branch of a pull request that was closed without merging, `origin pr merge` refuses instead of landing your change on that branch. The message tells you how to fix it: retarget to trunk, reopen the parent and stack on it, or pass `--base-ok` to merge anyway.
+- **Merge-conflict status no longer shows a pull request as clean too early.** `origin pr view --checks`, `origin pr watch`, and `origin pr status -c` now say when Origin is still checking for conflicts, is checking a conflicting pull request again, needs a restack, or has nothing to merge. Before, all of these showed as `no` or `MERGEABLE`.
+- **Merge blockers say what to do next.** Blockers in [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) now give the next step, such as "Restack the stack from #N to continue." or which branch to retarget onto when a stack's base branch was deleted. A blocker on a lower pull request in the stack names that pull request.
+- **Shorter Gates section in `origin pr requirements`.** It shows only the gates your pull request requires, with their status at head, plus any errors in the head's `.origin/gates.ci`. When nothing is required, it prints `Gates: none required.`
+- **`origin pr search` reports every invalid qualifier at once.** When a search has several unknown or malformed qualifiers, the error lists all of them instead of making you fix them one at a time.
+
+### Stacks
+
+- **Checking out a stack updates its trunk and protects teammates' branches.** `origin pr checkout --stack` and `origin stack get` fetch the stack's trunk branch and fast-forward it when it is behind. Branches for pull requests you didn't author are frozen, so stack commands won't rewrite them; run `origin stack unfreeze <branch>` to take one over. See [track and freeze](https://cursor.com/docs/origin/cli/reference/stacks.md#track-and-freeze).
+
+### Repositories
+
+- **Imported rulesets keep merge methods.** `origin ruleset import --from-github` carries a GitHub ruleset's allowed merge and squash methods onto the imported pull request rule. Rebase is dropped with a warning. See [rulesets](https://cursor.com/docs/origin/cli/reference/commands.md#rulesets).
+- **Faster default-branch lookup in `origin repo clone-fast`.** It asks the server for the repository's default branch alone instead of downloading the full list of refs, and falls back to the old lookup if that request fails.
+
+### Reliability
+
+- **Git stops with a login hint instead of asking for a username.** When you aren't logged in to Origin, or your credentials expired and can't be refreshed, git operations through the Origin credential helper stop with a message to run `origin auth login`. Before, git fell back to a username prompt.
+- **Fewer failed reads right after you create a pull request.** When Origin briefly reports that it is unavailable and asks the client to retry, `origin` commands that only read data try again, up to four attempts, instead of failing. That covers the moments after you create a pull request, before its first version is readable. Commands that change data are never retried.
+- **Usage errors show what you can run next.** A mistyped command or missing argument prints the error with a short usage line, the commands and flags available at that level, and a pointer to `--help`. `-h` now works as `--help`, and `origin config get-channel` names the environment variable that set your channel.
+
+### Fixes
+
+- **Fixes to stack restack, checkout, and get.** `origin stack get` no longer fails on every run claiming `--take-remote` and `--keep-local` were both passed. `origin stack restack` rejects a branch with a `restack <branch> first` message instead of dropping commits. Stack checkout follows branches you renamed locally and reports when the stack's base branch is gone.
+- **Fixes to `origin pr watch`.** It no longer reports a failure when the server hasn't read the pull request's merge rules yet; it waits up to two minutes instead. It also stops reprinting status that hasn't changed.
 
 ## Week of Oct 12, 2026
 
@@ -739,7 +971,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Automations
 
-- &#x20;**See more flagged vulnerabilities per page.** The flagged vulnerabilities table on the Vulnerability Scanner page now has a rows-per-page selector with 10, 25, 50, or 100 rows. It shows 25 by default instead of 5. Long titles wrap to two lines, and the Prev and Next buttons no longer move when you change pages. See [Security Agents](https://cursor.com/docs/security-agents.md).
+- &#x20;**See more flagged vulnerabilities per page.** The flagged vulnerabilities table on the Vulnerability Scanner page now has a rows-per-page selector with 10, 25, 50, or 100 rows. It shows 25 by default instead of 5. Long titles wrap to two lines, and the Prev and Next buttons no longer move when you change pages. See [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md).
 
 #### Account and navigation
 
@@ -764,7 +996,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Security agents
 
-- &#x20;**Vulnerability Scanner caps hourly scans per team.** [Vulnerability Scanner](https://cursor.com/docs/security-agents.md) automations run at most 500 repository scans per team per hour. Scans over the cap are skipped and show in run history as rate limited.
+- &#x20;**Vulnerability Scanner caps hourly scans per team.** [Vulnerability Scanner](https://cursor.com/docs/vulnerability-remediation.md) automations run at most 500 repository scans per team per hour. Scans over the cap are skipped and show in run history as rate limited.
 - **Subagents in managed security runs no longer message on their own.** Fixed an issue where helper subagents in managed security review, vulnerability scanner, and PR approval runs could send Slack and Teams messages or resolve review threads on their own. Those actions are now refused for subagents in these runs.
 
 #### Integrations
@@ -797,7 +1029,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Security agents
 
-- **Vulnerability Scanner findings show in Vulnerability Remediation.** Fixed an issue where findings from a Vulnerability Scanner didn't appear in the [Vulnerability Remediation](https://cursor.com/docs/security-agents.md#remediation-agents) section.
+- **Vulnerability Scanner findings show in Vulnerability Remediation.** Fixed an issue where findings from a Vulnerability Scanner didn't appear in the [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md#remediation-agents) section.
 - **Show more flagged vulnerabilities per page.** The Flagged Vulnerabilities list now has a **Rows per page** selector (10, 25, 50, or 100) and shows 25 rows by default instead of 5. Long titles wrap to two lines, and the **Prev** and **Next** buttons stay in place as you page.
 - **Fixed multi-file findings close when you push a fix.** When a finding names more than one file, Security Reviewer re-checks each of those files on every push, so a fix in any of them closes the finding. You no longer need to resolve it by hand. Open findings in files you haven't changed now count toward the security check, so the check status matches the open threads.
 - **Saving large Security Reviewer configurations works.** Saving a Security Reviewer with many selected repositories, exclusions, or Slack channels no longer fails.
@@ -989,6 +1221,14 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 ## October 6, 2026 release
 
+- **Clearer messages when a write isn't approved.** When a command that needs approval is denied, expires, is cancelled, or can't be shown to anyone in Cursor, the CLI says nothing was applied and not to retry until someone can approve it. If `origin pr merge --auto --downstack` fails partway through a stack, the error names the pull requests that still have merge-when-ready on and how to turn it off with `--disable-auto`.
+
+## October 6, 2026 release
+
+- **`origin repo set-origin-remote` finds the right Origin repository.** It now asks Origin which repository mirrors your GitHub repo instead of guessing the URL from the owner and name, and `origin push local` uses the same lookup when it offers to run it. If the repo isn't mirrored or `gh` isn't signed in, it stops with an error and leaves your git remotes unchanged.
+
+## October 6, 2026 release
+
 ### Pull requests
 
 - **See what a pull request still needs to merge.** `origin pr requirements` lists required gates and their status at head, needed approvals, human-only paths, the Code Review Gate, and blockers in the stack. Add `--json` for scripts.
@@ -1135,7 +1375,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 #### Automations
 
 - **Mine, Team, and Explore tabs on the Automations page.** Mine lists the automations you own, Team shows your team's automations alongside agents from Cursor, and Explore holds the template gallery. Team admins open on Team by default, and everyone else opens on Mine.
-- &#x20;**Security Reviewer and Vulnerability Scanner have their own pages.** The From Cursor automations list shows separate Security Reviewer and Vulnerability Scanner cards in place of the single Security card. Each page lists only its own agents and recent runs, its New button creates that type directly, and flagged vulnerabilities appear on the Vulnerability Scanner page. Old Security links redirect to Security Reviewer. See [Security Agents](https://cursor.com/docs/security-agents.md).
+- &#x20;**Security Reviewer and Vulnerability Scanner have their own pages.** The From Cursor automations list shows separate Security Reviewer and Vulnerability Scanner cards in place of the single Security card. Each page lists only its own agents and recent runs, its New button creates that type directly, and flagged vulnerabilities appear on the Vulnerability Scanner page. Old Security links redirect to Security Reviewer. See [Security Review](https://cursor.com/docs/security-review.md) and [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md).
 - **Start Rollouts checks yourself when a deploy isn't recorded.** If a merged change goes live without a recorded deployment, select **Run checks** on the change's page in Rollouts, pick the environment and services, and Rollouts starts checking it. Deferred checks show as **Deferred** with the reason, and closing an issue now asks for a reason, such as **Fixed** or **Duplicate**. See [Rollouts](https://cursor.com/docs/rollouts.md#deploy-tracking).
 
 #### Usage and integrations
@@ -1173,7 +1413,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Security agents
 
-- **Vulnerability Scanner follows your custom instructions and files follow-ups.** Team Vulnerability Scanner automations now use your [custom instructions](https://cursor.com/docs/security-agents.md#custom-instructions) to shape what they scan. After a scan, they carry out the follow-up actions those instructions ask for, like filing a ticket for each new finding, through the automation's MCP servers, and link what they filed in the finding's Slack report.
+- **Vulnerability Scanner follows your custom instructions and files follow-ups.** Team Vulnerability Scanner automations now use your [custom instructions](https://cursor.com/docs/vulnerability-remediation.md#custom-instructions) to shape what they scan. After a scan, they carry out the follow-up actions those instructions ask for, like filing a ticket for each new finding, through the automation's MCP servers, and link what they filed in the finding's Slack report.
 
 #### Automation runs
 
@@ -1181,7 +1421,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Fixes
 
-- **Fixes to the Vulnerability Scanner.** Findings recorded by the [Vulnerability Scanner](https://cursor.com/docs/security-agents.md) show up again instead of appearing empty. Repositories listed as host/owner/name without https\:// now scan instead of failing. Teams that turn Security off in their managed automation settings no longer get scheduled scanner runs.
+- **Fixes to the Vulnerability Scanner.** Findings recorded by the [Vulnerability Scanner](https://cursor.com/docs/vulnerability-remediation.md) show up again instead of appearing empty. Repositories listed as host/owner/name without https\:// now scan instead of failing. Teams that turn Security off in their managed automation settings no longer get scheduled scanner runs.
 - **Fixes to Change Monitor setup.** Turning off Change Monitor now stops its agents, and asks you to try again if they don't stop. Saving repositories the installation can't see, or that are missing a webhook, now shows the specific setup error instead of a generic one. Nested GitLab paths now ask for the full `gitlab.com/<group>/<project>` form, and fully qualified GitLab projects are watched correctly.
 - &#x20;**Fixes to the automation editor and integrations.** Your GitHub or GitLab connection no longer shows as disconnected when you belong to several teams or use self-hosted GitHub Enterprise or GitLab. The editor's MCP server options now list the selected team's servers. Disconnecting a team's PagerDuty integration now removes the team's connection, and "Configure here" links in Security Reviewer comments and Slack messages open that agent's page under From Cursor.
 - **Fixes to the Automations page layout on web and mobile.** On narrow screens, the Automations list now scrolls sideways instead of cutting off columns, and the row actions stay pinned on the right. Spacing and alignment across the page header, tabs, toolbar, and list rows are fixed.
@@ -1194,7 +1434,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 #### Security agents
 
-- &#x20;**Separate Security Reviewer and Vulnerability Scanner pages.** Under From Cursor in the dashboard, the Security card is now two cards, Security Reviewer and Vulnerability Scanner. Each opens a page that lists only that type of [security agent](https://cursor.com/docs/security-agents.md) and its recent runs, with a New button that creates that type and an icon that shows whether it's enabled. Old Security links redirect to Security Reviewer.
+- &#x20;**Separate Security Reviewer and Vulnerability Scanner pages.** Under From Cursor in the dashboard, the Security card is now two cards, Security Reviewer and Vulnerability Scanner. Each opens a page that lists only that type of [security agent](https://cursor.com/docs/security-review.md) and its recent runs, with a New button that creates that type and an icon that shows whether it's enabled. Old Security links redirect to Security Reviewer.
 - **Incomplete reviews no longer auto-approve.** When part of a security review fails, Security Reviewer no longer treats the result as clean, so it doesn't auto-approve the PR. If no reviewer finishes, it posts no findings and leaves existing threads alone. Earlier findings stay open when their follow-up check times out or fails.
 - **Accepted findings aren't posted again on every push.** If you resolve a finding without fixing it, for example to accept the risk, a later push that finds the same issue no longer opens a new comment. A different issue on the same lines still gets its own comment, and a fixed issue that comes back is reported again.
 - **Failed large reviews finish sooner.** When every reviewer on a very large security review fails, the review now stops early instead of retrying until its budget runs out.
@@ -1349,21 +1589,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Accessibility fixes.** Screen readers now announce the highlighted item and its position in the agent input's `/` and `@` menus. Buttons in the agent chat show a focus ring when you reach them with the keyboard.
 - &#x20;**Fixes to team and enterprise policies.** Repository access rules now come only from your active team, so another team's allowlist no longer blocks your repos. Team privacy mode no longer falls back to the restrictive default during brief network errors, and Enterprise members behind unreliable proxies are no longer signed out after a temporary membership check failure.
 - **Fixes to the editor.** Extension hosts no longer deadlock at startup, and searches started while Cursor loads no longer fail. Ctrl+I and Ctrl+L no longer land on a chat stuck on "Loading Chat", and undo/redo no longer catches other shortcuts on AZERTY or Dvorak layouts.
-
-## October 1, 2026 release
-
-### Pull requests
-
-- **Request reviewers by email.** `origin pr edit --add-reviewer` takes one or more emails, fails if an email doesn't match exactly one reviewer candidate, and prints who was requested.
-- **Links to new comments.** `origin pr comment` prints the new comment's id and a URL that opens it.
-- **More `gh`-compatible JSON.** `origin pr view` and `origin pr list` accept `--json headRefOid`. Change output shows actions taken through an app or bot as "Name via app", and JSON output includes a `performedVia` field.
-- **Gate checks no longer count as CI.** `origin pr checks` ignores Gate review checks when it sets its pending, failed, or no-checks exit code. `origin pr view` shows "unknown" instead of "no" for CI and approvals when the target's rules can't be read.
-- **`origin pr stack` is removed, and so is `--branch` for picking a pull request.** Name a branch as the positional target instead. `origin pr checkout --branch` is unchanged.
-
-### Reliability
-
-- **Safer branch names.** `origin pr create --push` and `origin pr checkout` use fully qualified refs, so branch names that clash with tags work, and invalid names fail with `'<name>' is not a valid branch name`. `origin pr create --push` also pushes branches whose names start with `-`.
-- **Automatic retries on rate limits.** When Origin rate-limits a request, the CLI waits and retries, printing "Origin rate limit reached; retrying in Ns."
 
 ## 1.12.0
 
@@ -1660,13 +1885,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to the editor and workbench.** Cmd/Ctrl+Shift+B runs Run Build Task again, and unsaved backups of deleted files no longer reopen every time a window opens. Worktree fetches work on git versions older than 2.29. If the local extension host that connects Cursor to its servers hangs, Cursor restarts it so the window reconnects, unless a debugger may be attached, and it keeps restarting that host if it crashes repeatedly. Cancelled symbol and call hierarchy requests no longer leak memory.
 - **Fixes to usage banners, the model picker, and chat visualizations.** Models you enabled in the model picker no longer disappear when the model list refreshes. The usage-limit banner no longer stacks under a usage-limit error in the composer or shows a Request Credit button when your organization hides credit requests. Visualization cards in chat show an error instead of loading forever when their content never arrives, and chart tooltips no longer shift the surrounding chat.
 
-## September 24, 2026 release
-
-- **Find pull requests by commit.** `origin pr list --commit <sha>` lists the pull requests Origin records for a commit.
-- **`reviewDecision` in JSON output.** `origin pr view --json reviewDecision` returns the review decision, matching `gh`.
-- **Request bodies from stdin.** `origin api --input -` reads the request body from stdin instead of failing with "Unknown argument: -".
-- **CloneKit fixes.** `origin repo clone-fast` no longer fails with spurious EPIPE errors during parallel range downloads, and it looks up the default branch while the kit downloads instead of before.
-
 ## v2026.09.22
 
 ### Auto-review
@@ -1916,10 +2134,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Search in remote workspaces no longer hangs.** When search isn't available yet, it now times out and shows an error instead of waiting forever.
 - **Fixes to agent visualizations.** Visualization cards from `/visualize` now render in the IDE. Shaded areas in charts no longer render solid black, and the visualization loading row lines up with other tool calls.
 
-## September 17, 2026 release
-
-- **Team details in `origin auth status`.** `origin auth status` prints your teams, role, and organization ids, and `--json` prints them as JSON for scripts.
-
 ## 1.9.0
 
 ### Composer
@@ -1947,10 +2161,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Composer and keyboard.** Renaming an agent no longer pushes the composer bar up with the alert's keyboard. The composer placeholder changes smoothly between new-agent and follow-up text, and the quick-action pills above the composer fade in place, with a plain fade when Reduce Motion is on.
 - **Copy and visual polish.** The profile sheet shows chart titles and gridlines while stats load. In-progress labels read "Working" and "Thinking", and the Customize sheet sections are renamed Show and Agent Properties.
 
-## September 16, 2026 release
-
-- **Clearer stack status.** `origin pr stack` shows how each pull request in a stack relates to its parent and the action that repairs it.
-
 ## v2026.09.15
 
 ### ACP
@@ -1971,23 +2181,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to self-hosted workers.** Workers started with [`--clone-git-repos`](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools) now clone repositories stored without a scheme, such as `github.com/owner/repo`, instead of failing because git read them as local paths. When Cursor rate-limits `agent worker controller`, it waits for the server's `Retry-After` time, up to 1 hour. A pool worker that reconnects with a stale claim now drops it instead of rejecting its next agent, and a worker that fails account validation shows the server's reason instead of a bare "Error".
 - **Loop reminders on every model.** When an agent on any model, not just Composer, keeps repeating the same tool calls or messages, it now gets a reminder to try something different instead of looping until it hits the step limit.
 - **Asking the agent to stop a goal closes it.** When you ask the agent to stop working toward a [`/goal`](https://cursor.com/docs/cli/reference/slash-commands.md), it can now mark the goal complete instead of leaving it active.
-
-## September 15, 2026 release
-
-### Repositories
-
-- **Edit repository settings.** `origin repo edit` sets the default branch, visibility, allowed merge methods, and delete-branch-on-merge. `origin repo view` shows those settings, and `origin repo list --json <fields>` prints repositories as JSON with optional `--jq` filtering.
-- **Manage access from the CLI.** `origin repo access` and `origin namespace access` list, grant, change, and remove access for teams, users, and organization groups, and list the roles you can assign. On repositories in your personal namespace, `origin repo access` also lists, grants, and removes external collaborators, with Read or Write access.
-- **Manage GitHub mirrors.** `origin repo mirror` starts a mirror transition, watches its status, syncs a ref on demand, and detaches the mirror, with `--json` output.
-- **Verify a migration.** `origin repo verify-migration` compares a GitHub repository's default branch, visibility, merge settings, labels, and rulesets against its Origin copy and exits 1 on a mismatch. Use `--namespace` to check every repository in a namespace.
-- **Rulesets, labels, and apps.** `origin ruleset create`, `update`, and `delete` manage rulesets from flags or a JSON spec, and `origin ruleset import --from-github` converts GitHub rulesets or branch protection. `origin label` lists, creates, edits, deletes, and bulk-imports labels. `origin app` manages Origin apps, their signing keys, and webhook deliveries.
-- **Stricter CloneKit downloads.** `origin repo clone-fast` checks every range response against the kit's size. If the server stops honoring byte ranges, it downloads the pack as one file, and a range that returns the wrong number of bytes fails the kit download with an error.
-
-### Pull requests
-
-- **Set the merge commit message.** `origin pr merge` accepts `--subject`, `--body`, and `--body-file` to set the commit message for a single pull request. When a stack lands as one commit, the flags are ignored instead of failing the merge.
-- **Diffs for very large pull requests.** `origin pr diff` and `origin pr view` fetch the diff in pages, so very large changes no longer fail on an oversized response.
-- **Request changes from the CLI.** `origin pr review --request-changes` (`-r`) submits a request-changes review instead of erroring. Pass exactly one of `--approve`, `--request-changes`, or `--comment`.
 
 ## Week of Sep 14, 2026
 
@@ -2236,13 +2429,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixed the agent chat transcript.** After Restore Checkpoint, the restored turn and later turns no longer show stale footers, and autocomplete suggestions in the agent input skip files excluded by `.cursorignore`.
 - **Fixed editor stability and layout.** Webviews stay aligned with their editor while you scroll or resize. On Linux, Cursor no longer runs out of file descriptors under heavy load. The built-in Browser's DevTools loads again, and Git remotes defined through `include` or `includeIf` are detected.
 
-## September 8, 2026 release
-
-- **Print your auth token.** Run `origin auth token` to print the access token the CLI is configured to use.
-- **Git authenticates with `CURSOR_AUTH_TOKEN`.** When `CURSOR_AUTH_TOKEN` is set, git operations through the Origin credential helper use it before stored credentials, so headless jobs can export the token instead of running `origin auth login`.
-- **Clear error for an expired token.** If `CURSOR_AUTH_TOKEN` has expired, the CLI stops with a message that the token must be refreshed instead of sending it and failing with a 401.
-- **Control CloneKit fallback.** `origin repo clone-fast --fallback never` exits non-zero instead of falling back to `git clone`, and the command now reports which phase stopped.
-
 ## Week of Sep 7, 2026
 
 ### Web
@@ -2392,11 +2578,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Large generated files no longer block reviews.** Files marked `linguist-generated` in `.gitattributes`, such as lockfiles, are left out of Bugbot's size check even when they are larger than 2 MB. Bugbot reviews the rest of the pull request instead of skipping it as too large.
 - **Bugbot dashboard dialogs close with Escape.** The disable, bulk repository action, and cancellation dialogs in the Bugbot dashboard now close when you press Escape.
 - **Azure DevOps fixes.** When a pull request summary would exceed Azure DevOps's 4,000-character description limit, Bugbot posts the full summary as a comment and says so in a shorter description. Organizations whose tenant check names no tenant can now enable Bugbot instead of failing tenant discovery. When an Azure DevOps pull request event includes its head commit, Bugbot queues the review without first reading the pull request from Azure DevOps, so a brief Azure DevOps or Entra outage no longer fails the event.
-
-## September 4, 2026 release
-
-- **Faster CI clones with CloneKit.** For repositories with CloneKit turned on, `origin repo clone-fast` downloads a prebuilt clone kit, verifies it, fetches newer objects, checks out the default branch, and prints how long each phase took.
-- **More reliable large clones.** `origin repo clone` raises git's HTTP post buffer, so large fetches no longer fail with "unable to rewind rpc post data" after a dropped connection.
 
 ## 1.0.31
 

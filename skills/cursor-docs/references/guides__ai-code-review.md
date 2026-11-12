@@ -76,7 +76,7 @@ AI code review in Cursor runs locally in the editor, then on the pull request, t
 
 **On the PR.** [Bugbot](https://cursor.com/docs/bugbot) reviews pull requests on GitHub, GitLab, and Bitbucket. Encode team invariants in `.cursor/BUGBOT.md`, plus team rules and repo rules. Learned rules (`@cursor remember`) fold feedback into future runs. Watch resolution rate in Bugbot Automations before you widen comment categories.
 
-**Fix loop.** Findings show up on the PR with paths back into Cursor (Fix in Cursor and Fix in Web). Bugbot Autofix can spawn a Cloud Agent to propose repairs. For security, Cursor's [Security Agents](https://cursor.com/docs/security-agents) cover the two jobs: Security Reviewer checks PRs before merge, and Vulnerability Scanner scans the codebase at rest.
+**Fix loop.** Findings show up on the PR with paths back into Cursor (Fix in Cursor and Fix in Web). Bugbot Autofix can spawn a Cloud Agent to propose repairs. For security, Cursor covers two jobs: [Security Review](https://cursor.com/docs/security-review) checks PRs before merge, and [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation) scans the codebase at rest.
 
 **Start.** The docs cover setup end to end: connecting your repo, choosing which repos and people trigger reviews, effort level, and `.cursor/BUGBOT.md`. Follow along at [cursor.com/docs/bugbot](https://cursor.com/docs/bugbot).
 

@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 273,
+    "pages_fetched_successfully": 274,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 273
+    "total_pages_discovered": 274
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -95,8 +95,8 @@
       "title": "Usage Analytics"
     },
     "account__teams__dashboard.md": {
-      "hash": "c41704898b236188e405c2862767390acb80afe2e8dc9404037b2c468b43f807",
-      "last_updated": "2026-09-04T04:21:25+00:00",
+      "hash": "f3440e8f415ba5956061c1a6bc1e88a82d07a5420275180ce9ba25232070b1cd",
+      "last_updated": "2026-11-12T21:19:26+00:00",
       "original_url": "https://cursor.com/docs/account/teams/dashboard",
       "path": "/docs/account/teams/dashboard",
       "section": "docs",
@@ -845,8 +845,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "9e011d796ff3d78df60eca13665f584a6baef29a747a56cb7134d5d5ab178c1b",
-      "last_updated": "2026-11-10T00:37:43+00:00",
+      "hash": "6f71b75d8ff2241880fa4afdb848bc10d5b6b627d9112f3ec567800461db6ca2",
+      "last_updated": "2026-11-12T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "section": "docs",
@@ -1055,8 +1055,8 @@
       "title": "Apps"
     },
     "cloud-agent__automations.md": {
-      "hash": "0932c6ab07c15aadc8206bfa79aa88cf4716c06fef842391a8e4f7dfdb82799a",
-      "last_updated": "2026-10-22T15:23:14+00:00",
+      "hash": "c6299d7a78cd8455e3104ab53a27064b9876a4792053e7c3a2fcab8a7a1d371d",
+      "last_updated": "2026-11-12T21:19:58+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "section": "docs",
@@ -1125,8 +1125,8 @@
       "title": "Cursor for iOS"
     },
     "cloud-agent__private-connectivity.md": {
-      "hash": "a7ff36b368b05ac90441051a238214c4c2ebd521b312564c8df3c46ea5c900fb",
-      "last_updated": "2026-10-22T21:20:03+00:00",
+      "hash": "1436fbfe14a480ebe889d236b16ee1449b8b56c7d6862d2d00a6d77df383c139",
+      "last_updated": "2026-11-12T21:20:00+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "path": "/docs/cloud-agent/private-connectivity",
       "section": "docs",
@@ -1145,8 +1145,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "4a44660ef23764ddf14ad5d049eb8884622632387e414b7031f7faa557bce0e5",
-      "last_updated": "2026-10-27T18:19:15+00:00",
+      "hash": "40e79ece5b7479f2c1fe0f42545eee644694145bfd49fd909e6dfae2f83709b9",
+      "last_updated": "2026-11-12T21:20:00+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "section": "docs",
@@ -1325,8 +1325,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "9b9bf63cd15225e2bcc4352d99c2590130f23b50bdca6ba2bee4a8bb57ee34c6",
-      "last_updated": "2026-11-12T18:23:09+00:00",
+      "hash": "3cb4fcfaecde77d08fc413b068844a548f34775da5220ba9fb97efc4de7faa14",
+      "last_updated": "2026-11-12T21:20:48+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1335,8 +1335,8 @@
       "title": "Guides"
     },
     "guides__ai-code-review.md": {
-      "hash": "5667c1f2cf673477aa7c9448ad1564c94f6d6a2f16e876057c87c4c1877d69b7",
-      "last_updated": "2026-11-03T18:08:43+00:00",
+      "hash": "0af33ad8410d2f632c01183e2b0ef4fb11459d431e1e3bfc53eca8d7aaa6838b",
+      "last_updated": "2026-11-12T21:20:49+00:00",
       "original_url": "https://cursor.com/guides/ai-code-review",
       "path": "/guides/ai-code-review",
       "section": "guides",
@@ -1385,8 +1385,8 @@
       "title": "Hooks"
     },
     "integrations__azure-devops.md": {
-      "hash": "4fa0255e816132a2bfcf0bdf34a54f3ac564a117344fd9e586df697540d1939d",
-      "last_updated": "2026-10-21T18:26:46+00:00",
+      "hash": "012589033ec3d1e7c6c935e87d0309c618c7e635544b01751df3264885aa5885",
+      "last_updated": "2026-11-12T21:20:06+00:00",
       "original_url": "https://cursor.com/docs/integrations/azure-devops",
       "path": "/docs/integrations/azure-devops",
       "section": "docs",
@@ -1395,8 +1395,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "7a043bbc3f265ac1ee85ad274a57112f574f5bc3fa2433d82e7b485dd26486ce",
-      "last_updated": "2026-11-05T21:20:23+00:00",
+      "hash": "70f0a95fecee06a1649245e8c3370086aace4807f676dd5a747fbb2cd29c6be2",
+      "last_updated": "2026-11-12T21:20:07+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "section": "docs",
@@ -2405,8 +2405,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "817e0e14082b60afd4ca68f1db099a2bd6c0a577300ce240b394d8c2b87f6e1a",
-      "last_updated": "2026-11-07T00:38:09+00:00",
+      "hash": "fc231f1a0fd60084bf944ce6cb4a0ad6196422c6a39ce2c62cfebc5b707a4c53",
+      "last_updated": "2026-11-12T21:20:41+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "section": "docs",
@@ -2495,8 +2495,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "00c2c5dfc6fff87e51d838213a281ae50b840c749d1971eacdc2d676445a0e67",
-      "last_updated": "2026-11-07T00:38:12+00:00",
+      "hash": "1d3591ff6316f1ed6d6106664feeb55a0dfe895e80532e33b960291643be1ecc",
+      "last_updated": "2026-11-12T21:20:45+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "section": "docs",
@@ -2505,8 +2505,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "37aa5c8d1fa3b2da8d740ba1b57a3bf6c5f39d88eb50debf95281a9822bbe4bd",
-      "last_updated": "2026-10-12T18:30:12+00:00",
+      "hash": "01a4ae3a6802cdcb5a2551cfef0af0c3d955a6cd73eacbf715bf8aebaa0bc0a5",
+      "last_updated": "2026-11-12T21:20:45+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "section": "docs",
@@ -2554,15 +2554,15 @@
       "status": "live",
       "title": "Cursor TypeScript SDK"
     },
-    "security-agents.md": {
-      "hash": "b58b427697c2daa16b48703d26a943d8d8674ee2545a619c7c227df21f4d8e97",
-      "last_updated": "2026-11-05T21:21:02+00:00",
-      "original_url": "https://cursor.com/docs/security-agents",
-      "path": "/docs/security-agents",
+    "security-review.md": {
+      "hash": "6e3659ae1cd77445dc16629ef97bb4517b60cb35ebe37c8d4a2026c87e1ec7a0",
+      "last_updated": "2026-11-12T21:20:47+00:00",
+      "original_url": "https://cursor.com/docs/security-review",
+      "path": "/docs/security-review",
       "section": "docs",
-      "source_url": "https://cursor.com/docs/security-agents",
+      "source_url": "https://cursor.com/docs/security-review",
       "status": "live",
-      "title": "Security Agents"
+      "title": "Security Review"
     },
     "skills.md": {
       "hash": "a2dc7400e0a902a0404589a8da272105d5be654808d8f55ee0ef4688476e86fb",
@@ -2583,6 +2583,16 @@
       "source_url": "https://cursor.com/docs/subagents",
       "status": "live",
       "title": "Subagents"
+    },
+    "vulnerability-remediation.md": {
+      "hash": "f3b8321f30d50c42e4dcd9b00260b0726f62190898b69cbc30386a0a46d432f1",
+      "last_updated": "2026-11-12T21:20:48+00:00",
+      "original_url": "https://cursor.com/docs/vulnerability-remediation",
+      "path": "/docs/vulnerability-remediation",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/vulnerability-remediation",
+      "status": "live",
+      "title": "Vulnerability Remediation"
     },
     "workflows__autonomous-agents.md": {
       "hash": "b41602a0e53977ffacfe2df8af6271a1fa3da5f0bf64e04fe946297688e2580f",
@@ -2760,7 +2770,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-12T18:23:24+00:00",
+  "last_updated": "2026-11-12T21:21:06+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

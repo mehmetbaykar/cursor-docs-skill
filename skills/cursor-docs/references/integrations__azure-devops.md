@@ -18,7 +18,7 @@ The following features don't support Azure DevOps yet:
 
 - [Automations](https://cursor.com/docs/cloud-agent/automations.md)
 - [Bugbot autofix](https://cursor.com/docs/bugbot.md#autofix)
-- [Security Agents](https://cursor.com/docs/security-agents.md), including Security Reviewer and Vulnerability Scanner
+- [Security Review](https://cursor.com/docs/security-review.md) and [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md)
 
 These features work with [GitHub](https://cursor.com/docs/integrations/github.md) today. Azure DevOps support is on the roadmap.
 

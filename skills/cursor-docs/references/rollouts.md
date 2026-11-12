@@ -132,5 +132,6 @@ A team admin must add Rollouts to Slack first. Only team admins can change the t
 ## Related pages
 
 - [Automations](https://cursor.com/docs/cloud-agent/automations.md)
-- [Security Agents](https://cursor.com/docs/security-agents.md)
+- [Security Review](https://cursor.com/docs/security-review.md)
+- [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md)
 - [Bugbot](https://cursor.com/docs/bugbot.md)
