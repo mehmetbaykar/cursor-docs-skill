@@ -2778,7 +2778,7 @@ A body missing `egressMode`, `allowlist`, or `locked` returns **400**. Unknown m
 - **Availability**: Blocked sites are Enterprise only.
 - **Best effort**: Blocking is best effort, not a security boundary. Requests to a bare IP address and WebSearch results still go through.
 - **WebFetch**: Blocking any site turns off JavaScript rendering in WebFetch for the whole team.
-- **When it applies**: A change saved through the API takes effect the same way, and with the same timing, as a save in the dashboard. See [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) for when changes apply and what each mode covers.
+- **When it applies**: A change saved through the API takes effect the same way, and with the same timing, as a save in the dashboard. See [Network policy](https://cursor.com/docs/grok-bot/security.md#network-policy) and [Blocked sites](https://cursor.com/docs/grok-bot/security.md#blocked-sites) for when changes apply and what each mode covers.
 
 ```bash
 curl -X PUT https://api.cursor.com/grok-bot/network \

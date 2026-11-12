@@ -55,8 +55,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "ba611a2e996012d1206b87a1076bbcf956b9e1426cc7e76bd12f90c71cbcf6bb",
-      "last_updated": "2026-11-11T12:24:57+00:00",
+      "hash": "7aefe6cbc9652d1c6e1b953ef4acfcc985b0895c51193a122b6647670aaceb26",
+      "last_updated": "2026-11-12T12:26:01+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "section": "docs",
@@ -1475,8 +1475,8 @@
       "title": "Work with Grok Bot"
     },
     "guides.md": {
-      "hash": "dc64dc2c31210521f4612d6d7818419aaaad244750a7411b133f7227a4fe1a27",
-      "last_updated": "2026-11-12T06:29:55+00:00",
+      "hash": "c1c332fd657f0dd3971c8ad0b50a58c9b2ccc2aa813ad5799d55645bda5ab802",
+      "last_updated": "2026-11-12T12:27:32+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2900,7 +2900,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-12T06:30:22+00:00",
+  "last_updated": "2026-11-12T12:27:48+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
