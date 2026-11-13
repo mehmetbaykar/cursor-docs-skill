@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cursor-docs",
-  "version": "2026.1112.2121",
+  "version": "2026.1113.40",
   "description": "Unofficial: answers Cursor questions from a local mirror of its documentation, workflows, and guides, refreshed every 3 hours.",
   "author": {
     "name": "Community contributors"
