@@ -51,9 +51,7 @@ A Security Reviewer needs at least one tool or MCP before you can save it. Use t
 
 ### Environment setup
 
-Security Reviewer agents run on Cloud Agents. On a team, a Security Reviewer that a pull request event triggers runs on Cursor-managed hosting instead. Teams that [require Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents) keep it on Cloud Agents.
-
-You can use Cursor's cloud with no additional setup.
+Both Cursor-managed hosting and Cloud Agents are used in this solution. If a team [requires Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#triggering-pool-agents) then scans remain on Cloud Agents.
 
 ## Run in your agent
 
