@@ -665,8 +665,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "4671caafe2fe29e21caaf9eecd6e612da0e386054032586ea6c08d0b5336b241",
-      "last_updated": "2026-11-11T00:38:22+00:00",
+      "hash": "20bdf6604d3c3486e0ba83a795c15b628ff9214f823a0e0a545f3ec6c37415ce",
+      "last_updated": "2026-11-13T18:20:17+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "section": "docs",
@@ -1025,8 +1025,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "d7525e6d09960f18f5ef864b03cc5619a2e402ae1e2b06b31c89dad04fe8c69e",
-      "last_updated": "2026-11-12T18:22:25+00:00",
+      "hash": "7746bea1eabe3238ee3fcf56d5a06cd4f9ece3f689d9e01fb1d2eb43224a590f",
+      "last_updated": "2026-11-13T18:20:28+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1325,8 +1325,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "339327814c7344a7747103866aaebeaeb3124bdf877f83108e2a0e672eabd291",
-      "last_updated": "2026-11-13T15:20:42+00:00",
+      "hash": "886de7326915e3a1ce7b8085e75dc260d36cd6b4f7beab1150f6a6ea8e8c6db4",
+      "last_updated": "2026-11-13T18:21:14+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2770,7 +2770,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-13T15:20:53+00:00",
+  "last_updated": "2026-11-13T18:21:29+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

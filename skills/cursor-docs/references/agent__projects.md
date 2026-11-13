@@ -35,6 +35,8 @@ Under **Workspace**, pick the repository the Project works in. Projects run in t
 
 The Project opens as a chat with its coordinator. Describe what you want built, and the coordinator takes it from there.
 
+To create and manage Projects from code, use the [Projects endpoints](https://cursor.com/docs/cloud-agent/api/endpoints.md#projects) of the Cloud Agents API.
+
 Projects work best on work that outlives a single chat: a feature with several PRs, a migration, or a job you want handled while you're away.
 
 ## Add and remove chats
