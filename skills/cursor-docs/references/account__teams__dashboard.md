@@ -92,6 +92,12 @@ Access Cursor's REST API endpoints for programmatic integration. All API endpoin
 
 **Device-level enforcement:** In addition to dashboard settings, enterprises can enforce policies like allowed team IDs and allowed extensions on user devices through MDM. See [Identity and Access Management](https://cursor.com/docs/enterprise/identity-and-access-management.md#mdm-policies) and [Deployment Patterns](https://cursor.com/docs/enterprise/deployment-patterns.md#mdm-configuration) for details.
 
+### Cursor Access
+
+Turn off Cursor for your whole team, or limit it to selected team groups.
+Find it under **Team Settings → Cursor → Enable Cursor for Your Team** and
+**Manage Group Access**.
+
 ### Model Access Control
 
 Control which AI models are available to team members from **Team Settings →

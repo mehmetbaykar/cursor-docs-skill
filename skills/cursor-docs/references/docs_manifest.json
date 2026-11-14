@@ -95,8 +95,8 @@
       "title": "Usage Analytics"
     },
     "account__teams__dashboard.md": {
-      "hash": "f3440e8f415ba5956061c1a6bc1e88a82d07a5420275180ce9ba25232070b1cd",
-      "last_updated": "2026-11-12T21:19:26+00:00",
+      "hash": "ee61fa51e498d8625fe5b5af578ef362ed43c785d77d2331b8ecb54cffcd29f2",
+      "last_updated": "2026-11-14T03:19:57+00:00",
       "original_url": "https://cursor.com/docs/account/teams/dashboard",
       "path": "/docs/account/teams/dashboard",
       "section": "docs",
@@ -1325,8 +1325,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "b7ec97582851fcb70a5420207552e65a4ee4a7f4f1e5b72d9ea88cceec8d1464",
-      "last_updated": "2026-11-14T00:38:32+00:00",
+      "hash": "31b0a276478a8754f11d68bc1beb449f7cf3548acc6153ecbcc45d66ee50c8e2",
+      "last_updated": "2026-11-14T03:21:06+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2770,7 +2770,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-14T00:38:51+00:00",
+  "last_updated": "2026-11-14T03:21:18+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
