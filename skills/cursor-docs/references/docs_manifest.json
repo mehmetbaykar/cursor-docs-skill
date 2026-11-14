@@ -1025,8 +1025,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "7746bea1eabe3238ee3fcf56d5a06cd4f9ece3f689d9e01fb1d2eb43224a590f",
-      "last_updated": "2026-11-13T18:20:28+00:00",
+      "hash": "5f5629505d7714bbfe90f5e7298b656fb165626cb6a366c86a174ce9bf94436a",
+      "last_updated": "2026-11-14T00:37:40+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1325,8 +1325,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "886de7326915e3a1ce7b8085e75dc260d36cd6b4f7beab1150f6a6ea8e8c6db4",
-      "last_updated": "2026-11-13T18:21:14+00:00",
+      "hash": "b7ec97582851fcb70a5420207552e65a4ee4a7f4f1e5b72d9ea88cceec8d1464",
+      "last_updated": "2026-11-14T00:38:32+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2770,7 +2770,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-13T18:21:29+00:00",
+  "last_updated": "2026-11-14T00:38:51+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

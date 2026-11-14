@@ -1158,9 +1158,21 @@ POST
 
 `/v1/projects`
 
-Create a Project and immediately enqueue its initial run. The response returns both the durable `project` and the initial `run`, which starts the Project's coordinator agent. To message the coordinator and read its replies, see [Working With A Project](https://cursor.com/docs/cloud-agent/api/endpoints.md#working-with-a-project).
+Create a Project and immediately enqueue its initial run. The response returns both the durable `project` and the initial `run`, which starts the Project's coordinator agent. With a `prompt`, that run works on your prompt. To message the coordinator and read its replies, see [Working With A Project](https://cursor.com/docs/cloud-agent/api/endpoints.md#working-with-a-project).
 
 #### Request Body
+
+`prompt` object (optional)
+
+The task prompt for the coordinator, including optional images. When omitted, the coordinator opens the Project with a greeting and waits for your first message.
+
+`prompt.text` string (required if `prompt` provided)
+
+The instruction text for the coordinator.
+
+`prompt.images` array (optional)
+
+Image inputs for the prompt. Each entry must include either `data` (base64-encoded bytes with a required `mimeType`) or `url` (an http or https URL that Cursor fetches). Maximum 5 images, 15 MB each. Supported MIME types: `image/png`, `image/jpeg`, `image/gif`, `image/webp`.
 
 `model` object (optional)
 
@@ -1197,7 +1209,7 @@ The Project's icon and color. Send both fields, or leave `appearance` out.
 
 Client-supplied Project identifier in the form `bc-<uuid>`. Useful for idempotent create flows; re-POSTing the same `projectId` returns `409 project_id_conflict` rather than creating a duplicate. A Project's ID is also its coordinator agent's ID, so an ID that any agent already uses returns the same error.
 
-Besides the shared errors, this endpoint returns `400 validation_error` for an invalid body, including any field not listed above; `400 missing_body` for a request with no body; `403 user_required` for a service account API key; `403 projects_disabled` when your team turned Projects off; and `409 project_id_conflict` for a `projectId` already in use. It can also return the errors [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent) returns for `model`, `env`, and `repos`.
+Besides the shared errors, this endpoint returns `400 validation_error` for an invalid body, including any field not listed above; `400 missing_body` for a request with no body; `403 user_required` for a service account API key; `403 projects_disabled` when your team turned Projects off; and `409 project_id_conflict` for a `projectId` already in use. It can also return the errors [Create An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-an-agent) returns for `prompt`, `model`, `env`, and `repos`.
 
 ```bash
 curl --request POST \
@@ -1205,6 +1217,9 @@ curl --request POST \
   -u YOUR_API_KEY: \
   --header 'Content-Type: application/json' \
   --data '{
+    "prompt": {
+      "text": "Move checkout from the legacy payments client to the new one"
+    },
     "name": "Payments migration",
     "model": {
       "id": "composer-2"
