@@ -54,6 +54,8 @@ Choose the repositories to watch. Every pull request that ships from these repos
 
 Tell Rollouts when each production deploy starts and finishes. [Create an API key](https://cursor.com/docs/api.md#creating-api-keys) and store it as the `CURSOR_API_KEY` CI secret. Use a user API key, a service account API key, or a team Admin API key with the `admin:*` scope. You can either do this [manually](https://cursor.com/docs/rollouts.md#send-deployment-events) or with an agent. With an agent, a setup agent opens a pull request that adds the calls, then you merge it to finish setup.
 
+If you deploy with Vercel, select **Send deployments through Vercel** instead. Vercel's GitHub integration already sends deployment events for your projects. Rollouts records Production and Staging deploys with the Vercel project as the service, and ignores preview deploys.
+
 ### Telemetry
 
 Connect your observability tools, such as Datadog, so each change is verified against what production is doing. Rollouts needs at least one connected tool. Without one, changes stay pending and Rollouts can't detect issues.

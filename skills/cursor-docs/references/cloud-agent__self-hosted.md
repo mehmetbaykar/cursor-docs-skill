@@ -123,7 +123,7 @@ agent worker --pool my-pool --connect-workspace start
 - **Off by default.** Cursor never turns it on for you. The worker reads the flag at startup, so restart it after you add the flag. To turn it off, restart the worker without the flag.
 - **Linux only.** On macOS and Windows, the worker logs `--connect-workspace requires a Linux worker` and starts without the live workspace. Those workers behave as they do today.
 - **Cursor 3.25 or later.** The worker installs only server builds whose published signature verifies. Older Cursor versions show "Update Cursor to 3.25 or later to open this workspace."
-- **One more outbound host.** When the desktop app opens one of its agents, the worker downloads the server build for that Cursor version from `cursor.blob.core.windows.net` into `~/.cursor-server/bin/<commit>/`, once per version, and runs it on `127.0.0.1`. Workspace traffic uses the worker's existing outbound connection, so no inbound ports open.
+- **Server download.** When the desktop app opens one of its agents, the worker downloads the server build for that Cursor version from `downloads.cursor.com`, falling back to `cursor.blob.core.windows.net`, into `~/.cursor-server/bin/<commit>/`, once per version, and runs it on `127.0.0.1`. Workspace traffic uses the worker's existing outbound connection, so no inbound ports open.
 
 The live workspace runs as the worker's OS user. Anyone who can open one of
 the worker's agents gets a terminal and file access as that user: the agent's
@@ -159,7 +159,8 @@ one, the worker installs and runs nothing, and the worker log says why. If
 another agent or worker process on the machine is still running a copy of
 that build, end that session or stop that worker, then retry. A download
 whose bytes don't match fails again on retry. If the log shows the download
-itself failed, allow outbound HTTPS to `cursor.blob.core.windows.net`.
+itself failed, allow outbound HTTPS to `downloads.cursor.com` and
+`cursor.blob.core.windows.net`.
 Cursor provides no mirror.
 
 ## Supported deployment patterns

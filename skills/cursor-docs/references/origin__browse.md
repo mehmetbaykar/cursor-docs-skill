@@ -12,7 +12,7 @@ Open a repository at [cursor.com/codebase](https://cursor.com/codebase) to brows
 
 ## Folders and files
 
-On **Code**, browse directories and open files in the tree. Switch branches from the branch control in the header. The green **Code** button opens HTTPS and Origin CLI clone setup.
+On **Code**, browse directories and open files in the tree. Switch branches from the branch control in the header. The green **Code** button shows clone commands for the Origin CLI, HTTPS, and SSH.
 
 ![Origin repository Code tab with file tree and file contents](https://cursor.com/docs-static/images/origin/browse-files.png)
 
@@ -28,7 +28,7 @@ From **Code**, open commit history for the current branch. Select a commit to se
 
 ## Related
 
-The repository header also has **Pull requests** and **Settings** tabs alongside **Code**:
+The repository header also has **Pull Requests** and **Settings** tabs alongside **Code**:
 
 - [Pull requests](https://cursor.com/docs/origin/pull-requests.md) - open, review, and merge pull requests
 - [Settings](https://cursor.com/docs/origin/settings.md) - sync status, access, rules and protections, and apps

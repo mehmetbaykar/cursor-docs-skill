@@ -8,6 +8,56 @@ path: /docs/release-notes
 
 Every Cursor product in one timeline, newest first, with up to 10 recent releases each. Filter by product, open a product's page for its full history, or follow along with the [RSS feed](https://cursor.com/docs/release-notes/rss.xml).
 
+## November 3, 2026 release
+
+### Security
+
+- **The credential helper sends your Origin token only to Origin hosts.** The Origin credential helper now gives your Origin token only to Origin hosts. For any other host it declines and says why, so a broad `credential.helper` setting or a redirect can't leak the token. [`origin update`](https://cursor.com/docs/origin/cli/reference/commands.md#updates) installs only from Cursor's release channel manifest, so the `--manifest-url` flag and manifest URL environment overrides are gone. `CURSOR_ORIGIN_ENDPOINT` must also point to an Origin host over https or to a loopback URL.
+- **`origin agent setup` won't write through symlinks in your project.** When you install a project-level skill, [`origin agent setup`](https://cursor.com/docs/origin/cli/reference/commands.md#agents) now stops if any folder or file on the way to the skill is a symlink, so a checkout can't redirect the write somewhere else. It names the symlink and tells you to remove it or save the output of `origin agent setup --print` yourself. Global installs under your home directory are unchanged.
+
+### Configuration
+
+- **The config directory follows `XDG_CONFIG_HOME`.** When `XDG_CONFIG_HOME` is set to an absolute path, the Origin CLI keeps your login, settings, and caches in `$XDG_CONFIG_HOME/origin-cli`. If you already have `~/.config/origin-cli`, the CLI keeps using it, so existing logins keep working.
+
+### Fixes
+
+- **Fixed clone downloads.** [`origin repo clone`](https://cursor.com/docs/origin/cli/reference/commands.md#repositories) now retries brief network interruptions during fast downloads instead of failing. On macOS, it uses parallel range downloads instead of falling back to a slower path.
+
+## October 28, 2026 release
+
+### Pull requests
+
+- **See what a pull request still needs from reviewers in `origin pr view --checks`.** For an open or draft pull request, `origin pr view --checks` now prints a Review requirements section with the required gates, the approvals still needed, and the Code Review Gate, so you don't need to run `origin pr requirements` separately. Scripts can read the same data with `origin pr view --json reviewRequirements`, which is `null` for merged or closed pull requests. See [view, diff, and checks](https://cursor.com/docs/origin/cli/reference/pull-requests.md#view-diff-and-checks).
+- **See which reviews count toward a pull request.** [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) has a Reviews on record section listing each reviewer's standing approval or change request and the pull request version it was filed on, so you can tell when an approval was given on an older version. Dismissed reviews are listed with when and why they were dismissed, and `--json reviewsOnRecord` returns the same data.
+
+## October 28, 2026 release
+
+### Stacks
+
+- **`origin stack push` pushes the whole stack, and `origin stack restack-remote` asks before rewriting other people's pull requests.** `origin stack push` now pushes every branch in the current stack that needs it, root to leaf, so you no longer need `--all`. Pass `--only` to push just the current branch. See [push, move, and delete](https://cursor.com/docs/origin/cli/reference/stacks.md#push-move-and-delete). `origin stack restack-remote` lists any pull requests in the range that you didn't write and asks before rewriting them; pass `--yes` to skip the prompt. Without a terminal or with `--json`, it refuses instead of waiting.
+- **Stack commands on trunk explain what to do instead of failing.** Running a stack command on your default branch now says that trunk isn't part of a stack and exits cleanly. `origin stack get` with no target fast-forwards trunk, `origin stack up` and `top` move into a stack based on trunk, and `origin stack view`, `restack`, and `push` exit without changing anything. See [navigate](https://cursor.com/docs/origin/cli/reference/stacks.md#navigate).
+
+### Repositories
+
+- **`origin repo doctor` sets up a checkout so plain `gh` works.** The new `origin repo doctor` command points your checkout's `origin` remote at Origin and, for repos that GitHub owns, adds a `github` remote that `gh` uses as its default repository, so `gh` commands work without `-R`. `git fetch` and `git pull` stay on `origin`. `origin repo clone` sets up the same remote automatically, and `origin repo set-origin-remote` still works as an alias for `origin repo doctor`. See [repositories](https://cursor.com/docs/origin/cli/reference/commands.md#repositories).
+- **Choose visibility when you create a repository.** `origin repo create` takes `--visibility internal` or `--visibility private`, so you can make a repository private from the start. The default stays `internal`, and the output shows the visibility it set. See [repositories](https://cursor.com/docs/origin/cli/reference/commands.md#repositories).
+- **Clearer `origin repo clone-fast` output and Windows clone fixes.** `origin repo clone-fast` prints git-style `Cloning into` and `Cloned into` lines and plain-language messages when it falls back to `git clone`. Set `CO_DEBUG` to see timings and download details. If the checkout step fails, it keeps the downloaded repository and prints the git command that finishes the checkout. `origin repo clone` and `clone-fast` now set `core.longpaths` on Windows, and `origin` no longer exits silently without running. See [CloneKit in CI](https://cursor.com/docs/origin/clonekit-ci.md).
+
+### Pull requests
+
+- **PR file JSON shows where renamed files came from.** `origin pr view --json files` and `origin pr list --json files` now include an `oldPath` for each file: the previous path of a renamed or copied file, or `null`. See [view, diff, and checks](https://cursor.com/docs/origin/cli/reference/pull-requests.md#view-diff-and-checks).
+- **Fixed `origin pr list --search` errors.** When the server rejects a search, the error's carets point at the text you typed rather than a rewritten query. A query that names a state, such as `state:all` or `is:merged`, is no longer also sent with `is:open` when the CLI can't parse it. See [list and status](https://cursor.com/docs/origin/cli/reference/pull-requests.md#list-and-status).
+- **Clearer gate definition errors.** When a pull request's gate definitions are invalid, `origin pr requirements` says so and names the policy file that defines the broken gates when that file is known. When gate definitions can't be read, `origin pr gate` says they're unavailable and gives the reason. See [requirements and watch](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch).
+
+## 1.2.0
+
+- **Run local agents on a file system you provide.** Pass `local.fs` to a local agent, either a `FileSystem` or a factory called once per run, and its file tools (Read, Write, StrReplace, LS, Grep, Glob, Delete) and `Task` subagents work on that tree instead of your disk. Shell, hooks, and other tools that touch the host are turned off, and each run gets its own in-memory `/tmp`. Build trees with helpers like `tempFs`, `unionFs`, `overlayFs`, `readOnlyFs`, and `childOverlayFs`. TypeScript only.
+- **Run the built-in file tools on your own file system.** The new `createFileSystemTools(fs, { workspace })` export gives you the native Read, Write, StrReplace, LS, Grep, Glob, and Delete tools on any `FileSystem`, so you can call them outside an agent run, for example from a direct tool-call endpoint, a test, or a CLI. Each `execute` call returns the same tool-call shape a run's `tool_call` event carries, and each tool comes with MCP-style annotations such as `readOnlyHint` and `destructiveHint`.
+- **Compact a local agent's conversation with `agent.summarize()`.** Local agents can now summarize their conversation on demand to free up context, like `/summarize` in the CLI. TypeScript only. The run streams `summary` messages as compaction progresses, and `wait()` returns the summary text. Calling it on a cloud agent throws `ConfigurationError`.
+- **Give a local agent's own session custom executors and a workspace path.** Set `local.resourceProviderOptions` and `local.reportedWorkspacePath` on `Agent.create()` to give a local agent's own session custom read, write, and shell executors and the workspace path its model is told to use, not only its subagents. Override either for a single `send`. TypeScript local agents only; setting them on a cloud agent throws a `ConfigurationError`.
+- **Custom executors can now handle the Delete tool.** Set `overrideDeleteExecutor` in `local.resourceProviderOptions` to run the agent's Delete tool through your own executor in place of the built-in delete. Your executor replaces the host's permission check and delete approval, so it decides what can be deleted. TypeScript local agents only.
+- **Fixes to run streaming, error reporting, packaging, and Windows paths.** Streaming a cloud agent run now reconnects and replays events when the stream is briefly unavailable, and results keep their duration and git info. Failed local runs report `RunResult.error.code` again, and the published package's `./agent`, `./sqlite`, and `./bundled` entry points resolve to built files. On Windows, local runs no longer fail to start when the project sits at a long path.
+
 ## October 26, 2026 release
 
 ### Pull requests
@@ -1218,49 +1268,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to self-hosted workers.** Workers no longer drop their connection while uploading large messages on slow links, report themselves ready before the server accepts them, or delete git credentials another worker pushed on the same machine. Existing checkouts are no longer refused because of system or global git config, and stopping a worker now prints the reason. Agent stores you removed stay removed after a restart, and a store that hangs while closing reopens on the next claim.
 - **Fixes to long sessions and summarization.** Sessions that hit the context limit now summarize and continue instead of getting stuck, and your latest request is kept word for word after summarization. Debug mode no longer fails a turn after the conversation is summarized, and images attached to a message queued during an interrupted turn are now sent on the next turn.
 - **Agent store sync keeps working after you switch teams.** Local agent stores no longer fail to sync after you change your active team, as long as you are still a member of the team that owns the store.
-
-## October 6, 2026 release
-
-- **Clearer messages when a write isn't approved.** When a command that needs approval is denied, expires, is cancelled, or can't be shown to anyone in Cursor, the CLI says nothing was applied and not to retry until someone can approve it. If `origin pr merge --auto --downstack` fails partway through a stack, the error names the pull requests that still have merge-when-ready on and how to turn it off with `--disable-auto`.
-
-## October 6, 2026 release
-
-- **`origin repo set-origin-remote` finds the right Origin repository.** It now asks Origin which repository mirrors your GitHub repo instead of guessing the URL from the owner and name, and `origin push local` uses the same lookup when it offers to run it. If the repo isn't mirrored or `gh` isn't signed in, it stops with an error and leaves your git remotes unchanged.
-
-## October 6, 2026 release
-
-### Pull requests
-
-- **See what a pull request still needs to merge.** `origin pr requirements` lists required gates and their status at head, needed approvals, human-only paths, the Code Review Gate, and blockers in the stack. Add `--json` for scripts.
-- **Safer merges and merge-when-ready status.** `origin pr merge --expect-head <number>=<sha>` refuses to merge if a listed pull request has moved, and `--auto --downstack` turns on merge-when-ready for every open pull request below this one. `origin pr view`, `status`, and `requirements` show a `Merge-when-ready` line, and `--json mergeWhenReady` returns it.
-- **Manage reviewers and labels from the CLI.** `origin pr reviewer list`, `request`, and `remove` manage review requests for users, teams (`org/team`), and service accounts. `origin pr create` takes `--label` and `--reviewer`, and checks both before creating the pull request.
-- **Wait on more than CI, and filter checks.** `origin pr watch --until` can wait for `merged`, `head:<sha>`, or `comment:<regex>`, and `--json` returns one result object. `origin pr checks --name <pattern>` limits output and the exit code to matching checks, and the output names the commit the checks ran on.
-- **Edit and delete comments, and view one review thread.** `origin pr comment edit` and `origin pr comment delete` change or remove a comment you wrote, and `--edit-last` or `--delete-last` act on your newest one. `origin pr thread view <thread-id>` prints a single review thread, and comment JSON now includes a `url`.
-- **Limit `origin pr diff` to specific paths.** List files, directories, or globs after `--`, as in `origin pr diff 123 -- src/ '*.md'`. In pathspecs and `--exclude`, `**` now matches any depth, including the top level.
-- **See a pull request's cloud agents.** `origin pr view <number> --agents` lists the cloud agents attached to a pull request, and `--json agents` returns them for scripts.
-- **More GitHub search syntax in `origin pr search`.** Negated qualifiers such as `-label:bug`, `has:` qualifiers, `OR` between scopes, and `mentions:` now work. `origin pr search --help` lists every supported qualifier.
-
-### Stacks
-
-- **Server-side restacks.** `origin stack restack --server` has Origin rebase your stack and move its branches in one atomic step, so your clone force-pushes nothing. Add `--dry-run` to preview first.
-
-### Scripting
-
-- **More `gh` JSON fields, and `--json help`.** `origin pr view` and `origin pr list` accept more `gh` field names, such as `body`, `state`, `headRefName`, and `isDraft`. Pass `--json help` to `origin pr view` or `origin pr list` to list the fields they accept.
-- **Set a default repository with `ORIGIN_REPO`.** Commands that take `-R, --repo` fall back to the `ORIGIN_REPO` environment variable, then your clone's `origin` remote.
-- **Find the Origin copy of a GitHub repository.** `origin repo from-github owner/repo` shows the Origin repository that mirrors a github.com repository, with its clone URL and source of truth, using your `gh` login.
-
-### Reliability
-
-- **Requests no longer hang.** Origin requests time out after 60 seconds by default; set `ORIGIN_TIMEOUT_MS` to change it, or `0` for no limit. `origin pr merge --match-head-commit <sha>` refuses the merge if the head has moved, and common server refusals print a suggested fix.
-- **Shorter, clearer errors.** A mistyped command prints the error and a pointer to `--help` instead of the full help text. In a cloud agent VM, `origin api` stops with guidance instead of failing with a bare HTTP 401.
-- **`origin auth login` shows who you signed in as.** After a successful login, including with `--api-key`, it prints the email of the account you signed in to.
-
-### Fixes
-
-- **Fixed stack navigation and restacking.** `origin stack up`, `down`, `top`, and `bottom` now work in single-branch and shallow clones when the target branch exists only on the remote. After a parent squash-lands, `origin stack restack` no longer replays trunk commits a child had merged in.
-- **Fixed `--remote` handling.** Commands that take `--remote` now fail clearly when it is repeated or malformed, and a remote name starting with `-` is no longer read by git as an option.
-- **Fixed pull request diffs and repo arguments.** `origin pr diff` shows real file modes and applies cleanly with `git apply`. Repo arguments ending in `.git` or `/` resolve correctly, and `origin pr list --mine` gives working steps in token sessions.
 
 ## Week of Oct 5, 2026
 
@@ -2869,10 +2876,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 ## 1.0.29
 
 - **Output schemas on custom tools.** `outputSchema` in TypeScript and `output_schema` in Python declare a JSON Schema for a custom tool's structured result, advertised to the model as the tool's MCP output schema. Results are not validated against it. Local agents only.
-
-## 1.0.28
-
-- **Ship the SDK as a single file.** Under Bun, `@cursor/sdk` now resolves to a flat single-file bundle, so `bun build --compile` works with no import change and no more `Cannot find module './986.js'`. `@cursor/sdk/bundled` and `@cursor/sdk/bundled/sqlite` expose the same build as explicit entries for other single-file bundlers such as esbuild. TypeScript only.
 
 ## v2026.08.11
 

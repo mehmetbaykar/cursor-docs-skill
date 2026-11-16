@@ -210,8 +210,9 @@ Install the Cursor app in the Bitbucket workspace and link it to your Cursor tea
 
 ### Cursor cannot list my Bitbucket Data Center repositories
 
-- Confirm the service account token is active.
-- Confirm the service account can access the repositories.
+- Cursor lists the team's Bitbucket Data Center repositories with your own linked Bitbucket account, not the service account. Connect your account from [Integrations in the dashboard](https://cursor.com/dashboard/integrations), or click **Reconnect** if the link has expired.
+- If you can't connect your account, ask a team admin to turn on account linking for the instance in its **Application link** settings.
+- Confirm your Bitbucket user can access the repositories.
 - Confirm Cursor can reach the instance hostname or configured external host over HTTPS.
 
 ### I cannot enable Bugbot on a Bitbucket Data Center repository

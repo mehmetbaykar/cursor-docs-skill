@@ -24,7 +24,7 @@ Each grant names exactly one principal.
 
 A team-group grant is the floor every member of that built-in group holds on the resource. On a namespace it is the team's namespace floor. On a repository it is the team's per-repository override, and deleting it returns the repository to the namespace floor.
 
-Users must belong to the owner's organization. A group must be one the owner's team owns, or an active group in that team's organization; a team's own groups are grantable even when the team is not linked to an organization. The write endpoints answer a user or group that does not exist exactly like one outside the organization, so a response never confirms that a principal exists. List responses omit principals that no longer resolve to an active user, group, or the owning team.
+A user must be an active member of the owner's team or of that team's organization. A group must be one the owner's team owns, or an active group in that team's organization; a team's own groups are grantable even when the team is not linked to an organization. The write endpoints answer a user or group that does not exist exactly like one outside the organization, so a response never confirms that a principal exists. List responses omit principals that no longer resolve to an active user, group, or the owning team.
 
 ## Permissions
 

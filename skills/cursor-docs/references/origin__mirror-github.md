@@ -14,7 +14,7 @@ Mirroring copies a GitHub repository into Origin and keeps Origin updated as the
 
 - A Cursor account with [Origin access](https://cursor.com/docs/origin.md#who-can-access) on Premium or higher, Teams, Enterprise, or a legacy paid Cursor plan
 - The [Cursor GitHub app](https://cursor.com/docs/integrations/github.md) connected to the org or account that owns the repo
-- GitHub admin access on the repository you want to sync (required to enable the mirror)
+- GitHub admin access to enable the mirror: admin on the repository or its organization when syncing into a team codebase, or admin of the GitHub organization when syncing into your personal account
 
 ## Sync a repo
 
@@ -71,7 +71,7 @@ Reads of an already-synced repo may still work over the same HTTPS clone URL. Or
 
 ## Detach from GitHub
 
-To stop syncing, open **Settings → General** and select **Detach from GitHub** under **Danger Zone**. This stops the sync and converts the Origin copy into a standalone Origin-hosted repository: Origin becomes the source of truth, and pushes to the Origin remote no longer flow to GitHub. Your GitHub repository is not affected.
+To stop syncing, open **Settings → Advanced** and select **Detach from GitHub** under **Danger Zone**. This stops the sync and converts the Origin copy into a standalone Origin-hosted repository: Origin becomes the source of truth, and pushes to the Origin remote no longer flow to GitHub. Your GitHub repository is not affected.
 
 ## Sync lag
 

@@ -16,7 +16,7 @@ Origin works with Cursor Automations and cloud agents so agents can review, chan
 
 Common triggers for Origin repos:
 
-- **Push to branch** — for example push to `main` or `master`
+- **New push to branch** — for example push to `main` or `master`
 - **Pull request opened**, **Pull request pushed**, and related PR events
 - **Label change**, when a label is added to or removed from a pull request
 

@@ -37,6 +37,6 @@ From the app's install page in the same settings, install the app on the owner t
 
 ### Copy the installation id
 
-The installation id is in the URL of the installation's page, `/codebase/settings/apps/installations/{installationId}`. Installation ids start with `i_`.
+After you install, the app's page in the same settings shows the **Installation ID** with a copy button. Installation ids start with `i_`.
 
 To read installation ids programmatically, call [List App Installations](https://cursor.com/docs/api/origin/reference/list-app-installations.md) with an app JWT as the bearer. The response includes each installation's `id`, `target.slug`, `scopes`, and `repoSelectionMode`.

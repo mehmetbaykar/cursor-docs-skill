@@ -32,7 +32,7 @@ The token and the checkout behave the same way on every CI system:
 CloneKit is available on Enterprise plans and is turned on per repository; there is no self-serve toggle. Contact your Cursor account team to turn it on for each repository you clone. `origin repo clone-fast --help` lists the command's options.
 
 - The Origin CLI on the runner. Install it with `curl -fsSL https://downloads.cursor.com/origin/install.sh | sh`, which puts the binary at `$HOME/.local/bin/origin`. Linux runners need glibc on x64 or arm64; Alpine and other musl images are not supported. macOS runners are supported. See [Install the Origin CLI](https://cursor.com/docs/origin/cli.md).
-- bash, git, jq, curl 7.55 or later, and openssl 1.1.1 or later. `clone-fast` uses `curl` for its downloads.
+- bash, git, jq, curl 7.55 or later, and openssl 1.1.1 or later. `clone-fast` downloads with `curl` 7.75 or later; with an older or missing `curl` it uses a slower built-in download and prints a warning.
 - Network egress to these hosts:
 
 | Host                       | Used for                                                   |
@@ -265,7 +265,7 @@ GitLab CI, Jenkins, CircleCI, and self-hosted fleets use the [Origin App](https:
 
 Run the first job with `--fallback never`. A missing kit then fails the job with exit status 1 instead of silently running a slow `git clone`. Keep the flag on until the kit path succeeds.
 
-A successful run prints `clone-kit: manifest=...`, one download line per artifact, a `clone-kit timings:` block, and `clone-kit: ready DIR (head SHA)` on stderr, then `mode: clone-kit` on stdout, and exits 0. The timings block breaks the run into manifest, download, verify, and checkout phases. To measure the gain, compare its total with a plain `git clone` of the same repository on the same runner.
+A successful run prints `Cloning into 'DIR'...` and `Cloned into 'DIR'.`, then `mode: clone-kit` on stdout, and exits 0. Set `CO_DEBUG=1` to also print the manifest, one download line per artifact, a `clone-kit timings:` block, and `clone-kit: ready DIR (head SHA)` on stderr. The timings block breaks the run into manifest, download, verify, and checkout phases. To measure the gain, compare its total with a plain `git clone` of the same repository on the same runner.
 
 When the kit path does not complete, stderr shows one machine-readable line, `clone-kit-result: status=fallback phase=PHASE` or `clone-kit-result: status=failed phase=PHASE`, followed by the reason. With the default `--fallback auto`, stdout then shows `mode: git-clone`.
 
@@ -275,15 +275,15 @@ Each entry starts with the line the job log shows.
 
 ### Manifest fetch returns 404
 
-`clone-kit-result: status=fallback phase=manifest` with `HTTP 404`. No clone kit exists for the repository yet; contact your Cursor account team to turn CloneKit on. If the URL in the message contains `https://` twice, the command received a clone URL instead of `{owner}/{repo}`.
+`clone-kit-result: status=fallback phase=manifest` with `this repository has no fast-clone download`. No clone kit exists for the repository yet; contact your Cursor account team to turn CloneKit on.
 
 ### Manifest fetch returns 401
 
-`clone-kit manifest fetch failed: HTTP 401`. Origin rejected the token: it expired, was never valid, or its installation was removed. Mint a new token immediately before the clone. With the default `--fallback auto`, the fallback `git clone` fails with the same code and exit status 128, so the log shows both errors.
+`clone-kit-result: status=fallback phase=manifest` with `origin.cursor.com returned HTTP 401`. Origin rejected the token: it expired, was never valid, or its installation was removed. Mint a new token immediately before the clone. With the default `--fallback auto`, the fallback `git clone` fails with the same code and exit status 128, so the log shows both errors.
 
 ### Manifest fetch returns 403
 
-`clone-kit manifest fetch failed: HTTP 403`. The installation, or the Buildkite pipeline token, does not cover this repository. Reinstall the app or reselect the repositories it covers. As with 401, the fallback `git clone` fails with the same code and exit status 128.
+`clone-kit-result: status=fallback phase=manifest` with `origin.cursor.com returned HTTP 403`. The installation, or the Buildkite pipeline token, does not cover this repository. Reinstall the app or reselect the repositories it covers. As with 401, the fallback `git clone` fails with the same code and exit status 128.
 
 ### Git asks for a username
 
@@ -299,6 +299,6 @@ Each entry starts with the line the job log shows.
 
 ### origin auth status reports a valid token but the clone fails
 
-`origin auth status` derives `Token: valid` or `Token: expired` from the expiry claim inside `CURSOR_AUTH_TOKEN`. It does not ask Origin whether it accepts the token, so `valid` means only that the token has not expired. The CLI treats a token as expired five minutes before its expiry claim. `origin` commands refuse an expired token before making any request, and `clone-fast` logs `clone-kit-result: status=fallback phase=auth` with `The injected CURSOR_AUTH_TOKEN session has expired`. Mint a new token and retry.
+`origin auth status` derives `Token: valid` or `Token: expired` from the expiry claim inside `CURSOR_AUTH_TOKEN`. It does not ask Origin whether it accepts the token, so `valid` means only that the token has not expired. An installation token expires at its expiry claim, at most 15 minutes after it was minted. `origin` commands refuse an expired token before making any request, and `clone-fast` logs `clone-kit-result: status=fallback phase=auth` with `The CURSOR_AUTH_TOKEN installation token has expired`. Mint a new token and retry.
 
 If the kit path still fails, send your Cursor account team the job log with the `clone-kit-result` line, the repository, and the output of `origin --version`.

@@ -21,7 +21,7 @@ Partners build an Origin app in their own namespace, make it public, and submit 
    ```
 
    `client_id` is the app ID (`app_01…`), not the slug.
-4. Record a demo video of the [flows](https://cursor.com/docs/origin/apps/publish.md#flows) below, about 5 to 10 minutes long. Then click **Submit to marketplace** next to **Edit App** on your app's settings page.
+4. Record a demo video of the [flows](https://cursor.com/docs/origin/apps/publish.md#flows) below, about 5 to 10 minutes long. Then click **Submit to Marketplace** in the **Marketplace Listing** section of your app's page.
 5. After Cursor approves the app, it's **Listed** in the marketplace and you get an email.
 
 ## App visibility
@@ -46,12 +46,14 @@ Unlisting an app or making it Private hides it from the marketplace. Existing in
 
 ## Submit to the marketplace
 
-Once your app is Public, a namespace admin clicks **Submit to marketplace** next to **Edit App** on the app's settings page and provides:
+A namespace admin clicks **Submit to Marketplace** in the **Marketplace Listing** section of the app's page and provides:
 
 - **Demo video** (required): a link to a demo video, about 5 to 10 minutes long, that covers the [flows](https://cursor.com/docs/origin/apps/publish.md#flows) below. The link must be viewable without signing in, for example an unlisted YouTube video or a public Google Drive link.
 - **App description** (required): a detailed description of your app and its main flows.
 - **Slug** (optional): your app's unique identifier, used in its marketplace URL. It can't be changed after the app is listed.
-- **Suggested tags** (optional): comma-separated.
+- **Category** (optional): pick from the listed categories, or suggest others as comma-separated values.
+
+If the app is still Private, the dialog asks you to make it public, which needs at least one default scope. Submitting means you agree to the Marketplace Publisher Terms.
 
 You get a confirmation email when you submit and another email when your app is listed. Cursor reviews every submission.
 

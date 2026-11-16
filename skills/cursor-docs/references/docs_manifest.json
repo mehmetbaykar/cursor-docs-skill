@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 274,
+    "pages_fetched_successfully": 275,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 274
+    "total_pages_discovered": 275
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -105,8 +105,8 @@
       "title": "Dashboard"
     },
     "account__teams__members.md": {
-      "hash": "9a35b25c50bd3b4076bf304609d6197a3f237935bec12b1c9dde633f59f18437",
-      "last_updated": "2026-10-28T18:19:57+00:00",
+      "hash": "cae5aa11b79b364f738448b29bc3afc5b23e5465389c18802b30b3f34f8b063c",
+      "last_updated": "2026-11-16T21:19:24+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
       "section": "docs",
@@ -665,8 +665,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "20bdf6604d3c3486e0ba83a795c15b628ff9214f823a0e0a545f3ec6c37415ce",
-      "last_updated": "2026-11-13T18:20:17+00:00",
+      "hash": "5f0448e1587e399255f8f2c925cf0b1a195127f23b529be1fe745372be1fc359",
+      "last_updated": "2026-11-16T21:19:39+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "section": "docs",
@@ -745,8 +745,8 @@
       "title": "Terminal"
     },
     "agent__voice-chat.md": {
-      "hash": "d133103198c1e74dece04d165874a605a1f455ab18c37d71b98704f4fac1455e",
-      "last_updated": "2026-11-06T06:29:11+00:00",
+      "hash": "80f0868a41e599e0ad9a38a9e065104e4b8f1c27bae75a91ac4116ff4247639b",
+      "last_updated": "2026-11-16T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/agent/voice-chat",
       "path": "/docs/agent/voice-chat",
       "section": "docs",
@@ -765,8 +765,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "bea5ec0ca4d94f043e4b4416b110b666bc5ce457a79c3610b85cbd0ee8f86e7a",
-      "last_updated": "2026-11-04T21:20:10+00:00",
+      "hash": "31adfa2fb34803d769f7d48ed73e3870eb5c041adf3c8868a8b8cc1aef561dd6",
+      "last_updated": "2026-11-16T21:19:42+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "section": "docs",
@@ -795,8 +795,8 @@
       "title": "Origin API Changelog"
     },
     "api__origin__grants-api.md": {
-      "hash": "38871a430f9a387c56f05860917704e54b18df7ec3823cfef2b6b2a9dc0c0eab",
-      "last_updated": "2026-09-28T05:14:10+00:00",
+      "hash": "05ee7e4df8011c4dc724cb77f9eb4e8ef3ae2be6652341feaaed7f7325c7cda8",
+      "last_updated": "2026-11-16T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/api/origin/grants-api",
       "path": "/docs/api/origin/grants-api",
       "section": "docs",
@@ -825,8 +825,8 @@
       "title": "Origin MCP tool reference"
     },
     "api__origin__migrations.md": {
-      "hash": "5c2319a5bb6caaec320186c55594b705ebf687e7c6c156e54bed0984cd68e6d6",
-      "last_updated": "2026-10-06T15:22:33+00:00",
+      "hash": "bf2e4e2580726c272f9785e8d59ed4a68a5380b98953f6d4d249490b15fa6e30",
+      "last_updated": "2026-11-16T21:19:44+00:00",
       "original_url": "https://cursor.com/docs/api/origin/migrations",
       "path": "/docs/api/origin/migrations",
       "section": "docs",
@@ -955,8 +955,8 @@
       "title": "Output format"
     },
     "cli__reference__parameters.md": {
-      "hash": "818ba8e98e1eab3ad1741f76c0674c13a748dff4fe8dae6820f6791523d69e86",
-      "last_updated": "2026-10-25T21:17:38+00:00",
+      "hash": "dd1e0e70f5631b2bbc902ea1b5602b6d2b90d51419f198d77b24661afdec4f55",
+      "last_updated": "2026-11-16T21:19:47+00:00",
       "original_url": "https://cursor.com/docs/cli/reference/parameters",
       "path": "/docs/cli/reference/parameters",
       "section": "docs",
@@ -1045,8 +1045,8 @@
       "title": "Webhooks"
     },
     "cloud-agent__apps.md": {
-      "hash": "5acfc3f82385d7647fbf87a4bb82c26cccb20bac0c6e1a42322716cf2bcee069",
-      "last_updated": "2026-11-05T15:20:32+00:00",
+      "hash": "c0b20ecfdd23cf3a2b0159f4c9b92a7116a9448814aea4705b7b82ee02cb3e7a",
+      "last_updated": "2026-11-16T21:19:50+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/apps",
       "path": "/docs/cloud-agent/apps",
       "section": "docs",
@@ -1115,8 +1115,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "e1683ad0364524018637c135f5487425946b280753733f0f12d3cc53bdb5c8c0",
-      "last_updated": "2026-11-06T06:29:24+00:00",
+      "hash": "7fd245e9b428a001440738db0ceac57c362ed1dc9fc6b328632200481add0274",
+      "last_updated": "2026-11-16T21:19:51+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "section": "docs",
@@ -1125,14 +1125,24 @@
       "title": "Cursor for iOS"
     },
     "cloud-agent__private-connectivity.md": {
-      "hash": "1436fbfe14a480ebe889d236b16ee1449b8b56c7d6862d2d00a6d77df383c139",
-      "last_updated": "2026-11-12T21:20:00+00:00",
+      "hash": "9749bbff83213e2412322aca5538605cacb13778ef8f67a9a62898d27b3c6ec5",
+      "last_updated": "2026-11-16T21:19:52+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "path": "/docs/cloud-agent/private-connectivity",
       "section": "docs",
       "source_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "status": "live",
       "title": "Private Connectivity"
+    },
+    "cloud-agent__repo-access.md": {
+      "hash": "977e7b945cf1e6b06011fa8f0d807d41bb3e1c6acf3bcc9414794fe0ad208fb5",
+      "last_updated": "2026-11-16T21:19:52+00:00",
+      "original_url": "https://cursor.com/docs/cloud-agent/repo-access",
+      "path": "/docs/cloud-agent/repo-access",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/cloud-agent/repo-access",
+      "status": "live",
+      "title": "Access Other Repositories"
     },
     "cloud-agent__security-network.md": {
       "hash": "a3561cb2c61260593bc408a539c80d46d3ce1990c70480801dd31b587d8a7d47",
@@ -1155,8 +1165,8 @@
       "title": "Security overview"
     },
     "cloud-agent__self-hosted.md": {
-      "hash": "6c3588b689d4455a232fd34fc05a9b020b779e07608f17f11ca3715d01305237",
-      "last_updated": "2026-11-10T18:20:54+00:00",
+      "hash": "32d25dfe92c966c877a5310173105608b7e1e3a0e4b1268d562dce9a599ab09a",
+      "last_updated": "2026-11-16T21:19:53+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted",
       "path": "/docs/cloud-agent/self-hosted",
       "section": "docs",
@@ -1215,8 +1225,8 @@
       "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
-      "hash": "bc8ff6538aa36ee35c1967d11438817057a4a487b5a8a7eea9080179c31e48ac",
-      "last_updated": "2026-10-22T15:23:19+00:00",
+      "hash": "6fe8bf7fa83b7bd362d861973472b1a5d427c3de52bbce05178c8580161b565a",
+      "last_updated": "2026-11-16T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "section": "docs",
@@ -1225,8 +1235,8 @@
       "title": "Cloud Agents settings"
     },
     "cloud-agent__setup.md": {
-      "hash": "42be1012687235d3f2a7bbb5f0729d05ac14281c119f1126a9ff74d2b7a59493",
-      "last_updated": "2026-10-22T15:23:19+00:00",
+      "hash": "e4e41d921caa15aefe40baf69a662b531e7c59b535b4dd4d0203f3f144f7203e",
+      "last_updated": "2026-11-16T21:19:55+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/setup",
       "path": "/docs/cloud-agent/setup",
       "section": "docs",
@@ -1325,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "7dc779cb38b9bdeab940954147b4c15b54f91b50e1cdf6ea98a87b4b057a8975",
-      "last_updated": "2026-11-16T15:30:11+00:00",
+      "hash": "12bff4f7343a0409d14906f31bc87705e455d9c1af786d2c810376975f4c28a2",
+      "last_updated": "2026-11-16T21:20:32+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1375,8 +1385,8 @@
       "title": "Maximizing return on intelligence"
     },
     "hooks.md": {
-      "hash": "3c81291c1a64f3625597042b60d77972b6f2f610ba656ae1975fe445f8292c56",
-      "last_updated": "2026-10-23T21:20:04+00:00",
+      "hash": "e524d7561cf580d234ebb45443efb784b4104b6436b34160cd41daaa006966d8",
+      "last_updated": "2026-11-16T21:19:57+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "section": "docs",
@@ -1395,8 +1405,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "70f0a95fecee06a1649245e8c3370086aace4807f676dd5a747fbb2cd29c6be2",
-      "last_updated": "2026-11-12T21:20:07+00:00",
+      "hash": "4886a8868c8e1abca80599b5d155dc3399fbfe5a4f8b99e6342f84c77a093958",
+      "last_updated": "2026-11-16T21:19:58+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "section": "docs",
@@ -1485,8 +1495,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "2947aa34ad10949df1a6398b2bb6eaef7ab1f15c1316ba93bac57cf035758832",
-      "last_updated": "2026-10-22T15:23:28+00:00",
+      "hash": "9a90df1cb2dad08cb0fd426225da8c5521be01a29311f421f0a454a4e8aa8c55",
+      "last_updated": "2026-11-16T21:20:01+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "section": "docs",
@@ -2155,8 +2165,8 @@
       "title": "Models Muse Wonder"
     },
     "origin.md": {
-      "hash": "ede98422641eb7045fb100d7218516ff29bcce6c174f275124f51d6639a11000",
-      "last_updated": "2026-10-20T00:52:54+00:00",
+      "hash": "93ea7214cb1a68933ddad49b13fc306d9b2fb09dd6247f4923d4e778c9f3e09a",
+      "last_updated": "2026-11-16T21:20:19+00:00",
       "original_url": "https://cursor.com/docs/origin",
       "path": "/docs/origin",
       "section": "docs",
@@ -2165,8 +2175,8 @@
       "title": "Origin"
     },
     "origin__agents.md": {
-      "hash": "3cddac3afb8284fec352dd6db27cc9f52848836a1642f0267f53ea7004cc3f5e",
-      "last_updated": "2026-10-16T18:25:43+00:00",
+      "hash": "568486d05e55475b9ae9145ba46d84b6a242fdf97701b10290eeb182c8c7b7d7",
+      "last_updated": "2026-11-16T21:20:19+00:00",
       "original_url": "https://cursor.com/docs/origin/agents",
       "path": "/docs/origin/agents",
       "section": "docs",
@@ -2175,8 +2185,8 @@
       "title": "Agents and automations"
     },
     "origin__apps.md": {
-      "hash": "710c1cc8144334e2a0da34059df2b2717344007f7f0c54ace19b312113b819f7",
-      "last_updated": "2026-10-21T15:22:48+00:00",
+      "hash": "11d470b3063adddbc9588a2051b43da4ae6ecb67450a0e1d8d9a6ac340b851f0",
+      "last_updated": "2026-11-16T21:20:19+00:00",
       "original_url": "https://cursor.com/docs/origin/apps",
       "path": "/docs/origin/apps",
       "section": "docs",
@@ -2185,8 +2195,8 @@
       "title": "Origin Apps"
     },
     "origin__apps__build-app.md": {
-      "hash": "f785fa182edc260e9b31e5abf7964256eedb6cf31116305a9fb4ba71d01bb8fc",
-      "last_updated": "2026-10-13T15:25:59+00:00",
+      "hash": "4147f48477b8cf6e09db93ab1b99c6fe0a13b2971ed9394b1dcd424fbf10b978",
+      "last_updated": "2026-11-16T21:20:20+00:00",
       "original_url": "https://cursor.com/docs/origin/apps/build-app",
       "path": "/docs/origin/apps/build-app",
       "section": "docs",
@@ -2195,8 +2205,8 @@
       "title": "Build an Origin App"
     },
     "origin__apps__publish.md": {
-      "hash": "da1df2a69baf40febacbc589cc07e9f0f286e8b09cad2778f24c3bc917f972d6",
-      "last_updated": "2026-10-13T15:25:59+00:00",
+      "hash": "7f447451036d13f27b75338968213dd18bc7e1ebcaa6f9cc2b62b0ce7a8c5854",
+      "last_updated": "2026-11-16T21:20:20+00:00",
       "original_url": "https://cursor.com/docs/origin/apps/publish",
       "path": "/docs/origin/apps/publish",
       "section": "docs",
@@ -2205,8 +2215,8 @@
       "title": "Publish to the App Marketplace"
     },
     "origin__browse.md": {
-      "hash": "f7cae4ce9d1936c8785c7a70f9bd2276ce47fd98b4891a65f13faedadf2cc63f",
-      "last_updated": "2026-10-09T21:21:52+00:00",
+      "hash": "a56af5c9c197a58a9b4d175fd480c02dedb4ea045495fdbe4e6d8f8bbf349d92",
+      "last_updated": "2026-11-16T21:20:20+00:00",
       "original_url": "https://cursor.com/docs/origin/browse",
       "path": "/docs/origin/browse",
       "section": "docs",
@@ -2235,8 +2245,8 @@
       "title": "Commands"
     },
     "origin__cli__reference__pull-requests.md": {
-      "hash": "282319f2d7ace08481654333dc58eb642ffeae134fc49cc2a627ca1dde0ce6cb",
-      "last_updated": "2026-10-27T18:19:54+00:00",
+      "hash": "bce20d3c77a20af8937d71f05df292e8aec567a7ec7a76efce2a361e31e9e982",
+      "last_updated": "2026-11-16T21:20:21+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/pull-requests",
       "path": "/docs/origin/cli/reference/pull-requests",
       "section": "docs",
@@ -2255,8 +2265,8 @@
       "title": "Stack commands"
     },
     "origin__clonekit-ci.md": {
-      "hash": "3d36a75c070d2df1f6f9abaeb64501ad517d30c69c14fa2220d7271b3016e19e",
-      "last_updated": "2026-10-07T21:22:56+00:00",
+      "hash": "ff51c73830ce7978520874677dc546505dbaf2f8e21554c6a2bc0975d99c0e58",
+      "last_updated": "2026-11-16T21:20:22+00:00",
       "original_url": "https://cursor.com/docs/origin/clonekit-ci",
       "path": "/docs/origin/clonekit-ci",
       "section": "docs",
@@ -2275,8 +2285,8 @@
       "title": "Code Tours"
     },
     "origin__create-repository.md": {
-      "hash": "f1b5c4b2a03f090c9f016c096af102e73fd03fac4e6d4c15c22994918ead047f",
-      "last_updated": "2026-10-07T21:22:57+00:00",
+      "hash": "852891eb65c4b098fa4778c2f1c47991f9e39d11a9e2b6841905a4a06e7f5bca",
+      "last_updated": "2026-11-16T21:20:22+00:00",
       "original_url": "https://cursor.com/docs/origin/create-repository",
       "path": "/docs/origin/create-repository",
       "section": "docs",
@@ -2295,8 +2305,8 @@
       "title": "Clone, Push & Pull"
     },
     "origin__mirror-github.md": {
-      "hash": "fd14acdd81439ee44dd3e72839434a8925de257e94f5ac7525988a9544b5dabf",
-      "last_updated": "2026-10-14T21:19:59+00:00",
+      "hash": "33cf299ea4f48eab2b74567602b0daa8958097c2e8fcbe0a0ca74f397fe3f0bb",
+      "last_updated": "2026-11-16T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/origin/mirror-github",
       "path": "/docs/origin/mirror-github",
       "section": "docs",
@@ -2315,8 +2325,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "fadbc8b7f6f6e2530543429b33eca4280590cba998334110f6fe039dedfb40e2",
-      "last_updated": "2026-10-24T18:24:11+00:00",
+      "hash": "753439c2059aaf1cc0866d79f1d77219ed020c02e7ba2f0bfaf17d41a7d33eff",
+      "last_updated": "2026-11-16T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "section": "docs",
@@ -2405,8 +2415,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "fc231f1a0fd60084bf944ce6cb4a0ad6196422c6a39ce2c62cfebc5b707a4c53",
-      "last_updated": "2026-11-12T21:20:41+00:00",
+      "hash": "36c76c2993e722f882dbc958e3f140316c1ac4ecbda7419324c335d371dc387c",
+      "last_updated": "2026-11-16T21:20:26+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "section": "docs",
@@ -2465,8 +2475,8 @@
       "title": "Cursor mobile release notes"
     },
     "release-notes__origin-cli.md": {
-      "hash": "4e9e1b121d2fce426fa41b4fc4305e83a236219a05a067a1aeb38e301619d182",
-      "last_updated": "2026-11-07T00:38:11+00:00",
+      "hash": "80ce1a637e4534455d8bfff4cf36802b65473cc8e7097fdc459dbb4813840aff",
+      "last_updated": "2026-11-16T21:20:28+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin-cli",
       "path": "/docs/release-notes/origin-cli",
       "section": "docs",
@@ -2485,8 +2495,8 @@
       "title": "Origin release notes"
     },
     "release-notes__sdk.md": {
-      "hash": "7ee6a415eac49080dd7b3874f8f77bf1aaefe5867cee4d61802c8bc6ccda7404",
-      "last_updated": "2026-10-23T18:27:13+00:00",
+      "hash": "f4e34c8bd1bc04cddd338a5d7e023cf1d22a89d81c2a88baf4eeeeb77cbbba6b",
+      "last_updated": "2026-11-16T21:20:29+00:00",
       "original_url": "https://cursor.com/docs/release-notes/sdk",
       "path": "/docs/release-notes/sdk",
       "section": "docs",
@@ -2505,8 +2515,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "01a4ae3a6802cdcb5a2551cfef0af0c3d955a6cd73eacbf715bf8aebaa0bc0a5",
-      "last_updated": "2026-11-12T21:20:45+00:00",
+      "hash": "404bb1f2f73453bee0d0c404cc8891431fb58dcf7a5b3e4d36120d77c3fe16d3",
+      "last_updated": "2026-11-16T21:20:29+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "section": "docs",
@@ -2585,8 +2595,8 @@
       "title": "Subagents"
     },
     "vulnerability-remediation.md": {
-      "hash": "6d599a04eb5708f4fc280f14fd98edd5450fe3d6205ac0efec1ad7153e353889",
-      "last_updated": "2026-11-13T15:20:41+00:00",
+      "hash": "c05f5cb8396bb1c7d24f2be2d523500d680fb8528f0e69b7ba4c011b362e0d8e",
+      "last_updated": "2026-11-16T21:20:31+00:00",
       "original_url": "https://cursor.com/docs/vulnerability-remediation",
       "path": "/docs/vulnerability-remediation",
       "section": "docs",
@@ -2770,7 +2780,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-16T15:30:23+00:00",
+  "last_updated": "2026-11-16T21:20:44+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

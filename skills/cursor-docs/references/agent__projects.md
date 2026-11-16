@@ -16,6 +16,7 @@ A Project maintains context over months of work, delegates tasks to many agents 
 
 - **The coordinator plans and delegates.** It creates and manages agents on your behalf, running as many in parallel as the work needs. Because it delegates rather than executes, it stays responsive to your direction.
 - **Agents work inside the Project.** Open any agent the coordinator starts to follow its work or talk to it directly.
+- **Work reaches other repos.** When the work needs another repo or environment, the coordinator asks for access and starts agents there. See [Access Other Repositories](https://cursor.com/docs/cloud-agent/repo-access.md#in-a-project).
 
 ## Create a Project
 

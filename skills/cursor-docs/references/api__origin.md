@@ -244,6 +244,7 @@ Every link below is a Markdown page. Each reference section, endpoint, and webho
 - [Repository Label Events](https://cursor.com/docs/api/origin/reference/repository-label-events.md)
 - [Repository Label Updated](https://cursor.com/docs/api/origin/reference/repository-label-updated.md)
 - [Pull Request Events](https://cursor.com/docs/api/origin/reference/pull-request-events.md)
+- [Pull Request Commandeered](https://cursor.com/docs/api/origin/reference/pull-request-commandeered.md)
 - [Pull Request Auto Merge Enabled](https://cursor.com/docs/api/origin/reference/pull-request-auto-merge-enabled.md)
 - [Pull Request Auto Merge Disabled](https://cursor.com/docs/api/origin/reference/pull-request-auto-merge-disabled.md)
 - [Pull Request Label Events](https://cursor.com/docs/api/origin/reference/pull-request-label-events.md)
@@ -259,4 +260,3 @@ Every link below is a Markdown page. Each reference section, endpoint, and webho
 - [Installation Suspended](https://cursor.com/docs/api/origin/reference/installation-suspended.md)
 - [Installation Unsuspended](https://cursor.com/docs/api/origin/reference/installation-unsuspended.md)
 - [Installation Deleted](https://cursor.com/docs/api/origin/reference/installation-deleted.md)
-- [Pull Request Commandeered](https://cursor.com/docs/api/origin/reference/pull-request-commandeered.md)

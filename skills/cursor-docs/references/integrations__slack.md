@@ -28,6 +28,8 @@ With Cursor's integration for Slack, you can use [Cloud Agents](https://cursor.c
 
 To unlink your Slack account, go to [Dashboard → Cloud Agents](https://www.cursor.com/dashboard/cloud-agents) and click **Unlink Slack** next to **Slack integration**. You'll need to link it again before you can start Cloud Agents from Slack.
 
+You can also unlink from [Integrations in the dashboard](https://cursor.com/dashboard/integrations): click **Manage** next to Slack and choose **Unlink**. This unlinks your Slack account from Cursor in every workspace you connected.
+
 ## How to use
 
 Mention `@cursor` and give your prompt. Cursor tries to detect a repository, model, base branch, or named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md) from your message. It also uses your recent agent activity when selecting a repository.
@@ -317,6 +319,10 @@ Read more about [Privacy Mode](https://www.cursor.com/privacy-overview) or manag
 
 Privacy Mode (Legacy) is not supported. Cloud Agents require temporary
 code storage while running.
+
+#### Link previews
+
+Links you post in Slack to Cursor-hosted pull requests, code, and cloud agent artifacts show a preview. To turn previews off for the links you post, turn off **Slack link previews** under **Pull requests** in your account settings. It's on by default.
 
 #### Display Agent Summary
 

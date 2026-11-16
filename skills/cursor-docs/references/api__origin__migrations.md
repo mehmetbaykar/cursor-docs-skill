@@ -18,7 +18,7 @@ The endpoints use the [Origin API](https://cursor.com/docs/api/origin.md) base U
 
 `repository:mirror:write`, `repository:mirror:delete`, and `repository:mirror:read` are user policy scopes. [Transition Repo Mirror](https://cursor.com/docs/api/origin/migrations.md#transition-repo-mirror) requires Write (`repository:mirror:write`). [Detach Repo Mirror](https://cursor.com/docs/api/origin/migrations.md#detach-repo-mirror) requires Admin (`repository:mirror:delete`). [Get Mirror Transition Job](https://cursor.com/docs/api/origin/migrations.md#get-mirror-transition-job) and [Get Active Mirror Transition Job](https://cursor.com/docs/api/origin/migrations.md#get-active-mirror-transition-job) require `repository:mirror:read`. You must also administer the repository on its upstream GitHub source.
 
-An Origin App can't request `repository:mirror:write` or `repository:mirror:delete` during installation, and it can't call these endpoints. An app can request `repository:mirror:read`, but only to read `mirror` on [Get Repo](https://cursor.com/docs/api/origin/reference/get-repo.md).
+An Origin App can't request `repository:mirror:write` or `repository:mirror:delete` during installation, so it can't transition or detach a mirror. An app can request `repository:mirror:read` to read `mirror` on [Get Repo](https://cursor.com/docs/api/origin/reference/get-repo.md) and to call the two transition job lookups with an installation access token.
 
 ## Endpoint reference
 

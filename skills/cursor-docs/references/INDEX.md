@@ -118,6 +118,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `cloud-agent__metadata` - [Agent metadata](https://cursor.com/docs/cloud-agent/metadata)
 - `cloud-agent__mobile` - [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile)
 - `cloud-agent__private-connectivity` - [Private Connectivity](https://cursor.com/docs/cloud-agent/private-connectivity)
+- `cloud-agent__repo-access` - [Access Other Repositories](https://cursor.com/docs/cloud-agent/repo-access)
 - `cloud-agent__security-network` - [Secrets & Network](https://cursor.com/docs/cloud-agent/security-network)
 - `cloud-agent__security` - [Security overview](https://cursor.com/docs/cloud-agent/security)
 - `cloud-agent__self-hosted` - [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted)

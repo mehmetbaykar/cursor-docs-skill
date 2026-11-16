@@ -8,6 +8,47 @@ path: /docs/release-notes/origin-cli
 
 New features, improvements, and fixes in the [Origin CLI](https://cursor.com/docs/origin/cli.md). Each entry covers one release and is labeled with its release date. Changes to Origin on the web and in the API are in the [Origin release notes](https://cursor.com/docs/release-notes/origin.md).
 
+## November 3, 2026 release
+
+### Security
+
+- **The credential helper sends your Origin token only to Origin hosts.** The Origin credential helper now gives your Origin token only to Origin hosts. For any other host it declines and says why, so a broad `credential.helper` setting or a redirect can't leak the token. [`origin update`](https://cursor.com/docs/origin/cli/reference/commands.md#updates) installs only from Cursor's release channel manifest, so the `--manifest-url` flag and manifest URL environment overrides are gone. `CURSOR_ORIGIN_ENDPOINT` must also point to an Origin host over https or to a loopback URL.
+- **`origin agent setup` won't write through symlinks in your project.** When you install a project-level skill, [`origin agent setup`](https://cursor.com/docs/origin/cli/reference/commands.md#agents) now stops if any folder or file on the way to the skill is a symlink, so a checkout can't redirect the write somewhere else. It names the symlink and tells you to remove it or save the output of `origin agent setup --print` yourself. Global installs under your home directory are unchanged.
+
+### Configuration
+
+- **The config directory follows `XDG_CONFIG_HOME`.** When `XDG_CONFIG_HOME` is set to an absolute path, the Origin CLI keeps your login, settings, and caches in `$XDG_CONFIG_HOME/origin-cli`. If you already have `~/.config/origin-cli`, the CLI keeps using it, so existing logins keep working.
+
+### Fixes
+
+- **Fixed clone downloads.** [`origin repo clone`](https://cursor.com/docs/origin/cli/reference/commands.md#repositories) now retries brief network interruptions during fast downloads instead of failing. On macOS, it uses parallel range downloads instead of falling back to a slower path.
+
+## October 28, 2026 release
+
+### Pull requests
+
+- **See what a pull request still needs from reviewers in `origin pr view --checks`.** For an open or draft pull request, `origin pr view --checks` now prints a Review requirements section with the required gates, the approvals still needed, and the Code Review Gate, so you don't need to run `origin pr requirements` separately. Scripts can read the same data with `origin pr view --json reviewRequirements`, which is `null` for merged or closed pull requests. See [view, diff, and checks](https://cursor.com/docs/origin/cli/reference/pull-requests.md#view-diff-and-checks).
+- **See which reviews count toward a pull request.** [`origin pr requirements`](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch) has a Reviews on record section listing each reviewer's standing approval or change request and the pull request version it was filed on, so you can tell when an approval was given on an older version. Dismissed reviews are listed with when and why they were dismissed, and `--json reviewsOnRecord` returns the same data.
+
+## October 28, 2026 release
+
+### Stacks
+
+- **`origin stack push` pushes the whole stack, and `origin stack restack-remote` asks before rewriting other people's pull requests.** `origin stack push` now pushes every branch in the current stack that needs it, root to leaf, so you no longer need `--all`. Pass `--only` to push just the current branch. See [push, move, and delete](https://cursor.com/docs/origin/cli/reference/stacks.md#push-move-and-delete). `origin stack restack-remote` lists any pull requests in the range that you didn't write and asks before rewriting them; pass `--yes` to skip the prompt. Without a terminal or with `--json`, it refuses instead of waiting.
+- **Stack commands on trunk explain what to do instead of failing.** Running a stack command on your default branch now says that trunk isn't part of a stack and exits cleanly. `origin stack get` with no target fast-forwards trunk, `origin stack up` and `top` move into a stack based on trunk, and `origin stack view`, `restack`, and `push` exit without changing anything. See [navigate](https://cursor.com/docs/origin/cli/reference/stacks.md#navigate).
+
+### Repositories
+
+- **`origin repo doctor` sets up a checkout so plain `gh` works.** The new `origin repo doctor` command points your checkout's `origin` remote at Origin and, for repos that GitHub owns, adds a `github` remote that `gh` uses as its default repository, so `gh` commands work without `-R`. `git fetch` and `git pull` stay on `origin`. `origin repo clone` sets up the same remote automatically, and `origin repo set-origin-remote` still works as an alias for `origin repo doctor`. See [repositories](https://cursor.com/docs/origin/cli/reference/commands.md#repositories).
+- **Choose visibility when you create a repository.** `origin repo create` takes `--visibility internal` or `--visibility private`, so you can make a repository private from the start. The default stays `internal`, and the output shows the visibility it set. See [repositories](https://cursor.com/docs/origin/cli/reference/commands.md#repositories).
+- **Clearer `origin repo clone-fast` output and Windows clone fixes.** `origin repo clone-fast` prints git-style `Cloning into` and `Cloned into` lines and plain-language messages when it falls back to `git clone`. Set `CO_DEBUG` to see timings and download details. If the checkout step fails, it keeps the downloaded repository and prints the git command that finishes the checkout. `origin repo clone` and `clone-fast` now set `core.longpaths` on Windows, and `origin` no longer exits silently without running. See [CloneKit in CI](https://cursor.com/docs/origin/clonekit-ci.md).
+
+### Pull requests
+
+- **PR file JSON shows where renamed files came from.** `origin pr view --json files` and `origin pr list --json files` now include an `oldPath` for each file: the previous path of a renamed or copied file, or `null`. See [view, diff, and checks](https://cursor.com/docs/origin/cli/reference/pull-requests.md#view-diff-and-checks).
+- **Fixed `origin pr list --search` errors.** When the server rejects a search, the error's carets point at the text you typed rather than a rewritten query. A query that names a state, such as `state:all` or `is:merged`, is no longer also sent with `is:open` when the CLI can't parse it. See [list and status](https://cursor.com/docs/origin/cli/reference/pull-requests.md#list-and-status).
+- **Clearer gate definition errors.** When a pull request's gate definitions are invalid, `origin pr requirements` says so and names the policy file that defines the broken gates when that file is known. When gate definitions can't be read, `origin pr gate` says they're unavailable and gives the reason. See [requirements and watch](https://cursor.com/docs/origin/cli/reference/pull-requests.md#requirements-and-watch).
+
 ## October 26, 2026 release
 
 ### Pull requests

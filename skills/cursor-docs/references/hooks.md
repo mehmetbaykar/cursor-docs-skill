@@ -53,6 +53,8 @@ These separate hook surfaces let you apply different policies to autonomous Tab 
 
 Cloud agents run command-based hooks from your repository. If you have hooks defined in `.cursor/hooks.json` at the root of your project, cloud agents pick them up and run them during their work.
 
+In a [multi-repo environment](https://cursor.com/docs/cloud-agent/setup.md#multi-repo-environments), each repo's `.cursor/hooks.json` runs from that repo's folder, and file hooks fire only for that repo's files.
+
 On Enterprise plans, cloud agents also run team hooks and enterprise-managed hooks configured through the [web dashboard](https://cursor.com/dashboard/team-content?section=hooks).
 
 Cloud agents sometimes begin in a read-only environment for early exploratory turns. Hooks do not run during those turns. They start once the agent has a writable environment.

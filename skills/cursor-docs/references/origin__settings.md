@@ -14,7 +14,7 @@ Open a repository at [cursor.com/codebase](https://cursor.com/codebase) and sele
 
 The tabs under **Settings** depend on who owns the repository. Repo visibility and the **Access** tab only appear on team-owned repos; personal repos manage sharing under **Collaborators** instead.
 
-- Team-owned repos: **General**, **Access**, **Rules and Protections**, and **Apps**
+- Team-owned repos: **General**, **Access**, **Apps**, **Rules and Protections**, and **Advanced**
 - Personal repos: **General**, **Collaborators**, **Apps**, **Rules and Protections**, and **Advanced**
 
 The Access, Collaborators, and Rules and Protections UIs are being redesigned; labels and layout may change during early beta.
@@ -24,10 +24,6 @@ The Access, Collaborators, and Rules and Protections UIs are being redesigned; l
 #### Sync status
 
 For a repository [mirrored from GitHub](https://cursor.com/docs/origin/mirror-github.md), **Sync Status** shows Origin as the mirror and GitHub as the source, with a link to the source repo. Repositories created on Origin do not show sync status.
-
-#### Detach from GitHub
-
-Under **Danger Zone**, **Detach from GitHub** stops syncing with GitHub and makes the Origin copy a standalone Origin-hosted repository: Origin becomes the source of truth, and pushes to the Origin remote no longer flow to GitHub. Your GitHub repository is not affected.
 
 ### Access
 
@@ -57,6 +53,12 @@ Personal repos do not have a per-repo visibility control; if you need Internal-s
 
 The repository **Apps** tab shows apps installed for this repository. To install or manage apps, select **Manage Apps**, which opens the codebase-level [Apps settings](https://cursor.com/docs/origin/apps.md).
 
+### Advanced
+
+#### Detach from GitHub
+
+Under **Danger Zone**, **Detach from GitHub** stops syncing with GitHub and makes the Origin copy a standalone Origin-hosted repository: Origin becomes the source of truth, and pushes to the Origin remote no longer flow to GitHub. Your GitHub repository is not affected.
+
 ## Codebase settings
 
 Codebase settings apply across your team's Origin repos at [cursor.com/codebase](https://cursor.com/codebase), not to a single repository. Open codebase settings from the codebase home (separate from a repo's **Settings** tab).
@@ -65,7 +67,7 @@ Codebase settings apply across your team's Origin repos at [cursor.com/codebase]
 
 Team-level permissions control who can use Origin for your codebase: who can access repos under your claimed codebase name, and how Origin relates to your Cursor team membership.
 
-- A team admin [claims the codebase name](https://cursor.com/docs/origin.md#enable-origin) and enables Origin; non-admins can request access from the same page
+- Any team member can [claim the codebase name](https://cursor.com/docs/origin.md#enable-origin) and enable Origin; members who can't create repositories can select **Ask Admin for Access** to email the team admins
 - Once Origin is enabled, admins can create repositories and use Permissions to grant access, including repository creation, to other members
 - Admins can disable Origin for the team at any time from the dashboard; teams on legacy privacy mode cannot enable Origin, so switch to [Privacy Mode](https://cursor.com/help/security-and-privacy/privacy.md#how-do-i-enable-privacy-mode) first if you want access
 
