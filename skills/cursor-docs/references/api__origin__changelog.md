@@ -10,6 +10,10 @@ The Origin API is in Early Beta and subject to change. Review the [OpenAPI speci
 
 Changes to the Origin public API, including endpoints, request and response schemas, scopes, and webhooks, grouped by day with the newest first. Each change carries one label: **Breaking**, **Deprecated**, **Added**, **Changed**, or **Removed**. Breaking and deprecated changes include migration guidance inline. The [Origin API reference](https://cursor.com/docs/api/origin.md) always reflects the latest synced state.
 
+## November 14, 2026
+
+- **Changed.** A group's review request clears only when a current member of the group who isn't the pull request's author submits an `approve` or `request_changes` review, so [List Pull Request Requested Reviewers](https://cursor.com/docs/api/origin/reference/list-pull-request-requested-reviewers.md) keeps returning the group after a `comment` review or a review by the author. Those reviews used to clear the group's request. A request for a user or service account still clears when that reviewer submits a review with any verdict.
+
 ## November 4, 2026
 
 - **Added.** The [`repository.renamed`](https://cursor.com/docs/api/origin/reference/events.md) webhook event is delivered when a repository's name changes within its owner namespace, including a change of case only. Its [payload](https://cursor.com/docs/api/origin/reference/repository-renamed.md) carries the repository after the rename, `previousName`, the `actor` that renamed it when known, and `renamedAt`. Subscribing requires [`repository:metadata:read`](https://cursor.com/docs/api/origin/reference/scopes.md).
