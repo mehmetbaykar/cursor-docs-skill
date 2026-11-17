@@ -16,7 +16,7 @@ Every link below is a Markdown page. Each reference section, endpoint, and webho
 
 - [Full reference (Markdown)](https://cursor.com/docs/api/origin/llms-full.txt): The complete Origin API reference as a single Markdown file.
 - [OpenAPI specification](https://cursor.com/docs/api/origin/openapi.yaml): Machine-readable OpenAPI 3.1 spec with request and response schemas.
-- [Origin Migration API](https://cursor.com/docs/api/origin/migrations.md): Endpoints for migrating repositories between GitHub and Origin mirrors, called with a user access token.
+- [Origin Migration API](https://cursor.com/docs/api/origin/migrations.md): Endpoints for migrating repositories between GitHub and Origin mirrors, called with a Cursor user credential.
 
 ## Guides
 

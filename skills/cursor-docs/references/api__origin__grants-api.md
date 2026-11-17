@@ -43,7 +43,7 @@ List responses report `custom` (repository) or `PERMISSION_CUSTOM` (namespace) f
 
 Four scopes cover the grants API, all of them listed in [Scopes](https://cursor.com/docs/api/origin/reference/scopes.md): `repository:settings:read` and `repository:settings:write` for repository grants, `namespace:settings:read` and `namespace:settings:write` for namespace grants.
 
-App installations can hold all four, so a robot calls the grants API with an installation access token. User access tokens work too. Requesting a `:write` scope also grants the matching `:read` scope. List endpoints cost 1 point and writes cost 5 against the budget in [Rate limits](https://cursor.com/docs/api/origin/reference/rate-limits.md).
+App installations can hold all four, so a robot calls the grants API with an installation access token. Cursor user credentials work too. Requesting a `:write` scope also grants the matching `:read` scope. List endpoints cost 1 point and writes cost 5 against the budget in [Rate limits](https://cursor.com/docs/api/origin/reference/rate-limits.md).
 
 ## Upserts and deletes
 

@@ -28,7 +28,7 @@ POST
 
 `/v1/origin/repos/{ownerSlug}/{repoName}/mirror:transition`
 
-Requires scope `repository:mirror:write` (user access token).
+Requires scope `repository:mirror:write` (Cursor user credential).
 
 Starts a mirror-state transition on a mirrored repository and returns the job tracking it. The repository enters a transitioning mirror status while the job runs, so poll [Get Active Mirror Transition Job](https://cursor.com/docs/api/origin/migrations.md#get-active-mirror-transition-job) or [Get Mirror Transition Job](https://cursor.com/docs/api/origin/migrations.md#get-mirror-transition-job) until the job reaches a terminal status.
 
@@ -114,7 +114,7 @@ DELETE
 
 `/v1/origin/repos/{ownerSlug}/{repoName}/mirror`
 
-Requires scope `repository:mirror:delete` (user access token).
+Requires scope `repository:mirror:delete` (Cursor user credential).
 
 Permanently disconnects a mirrored repository from its upstream source. The repository keeps its current contents and becomes a native repository, and syncing stops in both directions. Origin keeps the mirror's deploy key but doesn't use it while the repository is detached. The response body is empty.
 
@@ -154,7 +154,7 @@ GET
 
 `/v1/origin/repos/{ownerSlug}/{repoName}/mirror/transition-jobs/{jobId}`
 
-Requires scope `repository:mirror:read` (user access token).
+Requires scope `repository:mirror:read` (Cursor user credential).
 
 Returns one mirror transition job by id. An unknown job id returns `404`.
 
@@ -250,7 +250,7 @@ GET
 
 `/v1/origin/repos/{ownerSlug}/{repoName}/mirror/transition-jobs:active`
 
-Requires scope `repository:mirror:read` (user access token).
+Requires scope `repository:mirror:read` (Cursor user credential).
 
 Returns the repository's currently active mirror transition job and its most recent terminal one. Both fields are optional, so a repository that has never transitioned returns an empty object. Poll this endpoint to follow a transition: once `activeJob` disappears, `lastJob` tells you how it ended.
 
