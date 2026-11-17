@@ -118,6 +118,7 @@ Triggers decide when the agent runs. PR Routing & Approval supports pull request
 - **PR opened** runs the agent when a non-draft pull request is created or a draft is marked ready for review.
 - **PR pushed / updated** runs the agent when new commits are pushed to an existing PR.
 - **PR commented** runs the agent when a comment matching a regex is posted on an existing PR.
+- **PR stacked** runs the agent when a GitHub pull request is added to a stack, including draft PRs. Add it with **Pull request stacked** in the trigger menu. It's available for GitHub repositories only.
 
 Triggers can be scoped to repositories or organizations. For team-owned repositories, team admins can configure broader team scopes.
 

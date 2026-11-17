@@ -835,8 +835,8 @@
       "title": "Origin Migration API"
     },
     "approval-agents.md": {
-      "hash": "70c7ac4c5342255e72df509df90db3850ce3264a39e58fcdb4ce37da7d9cf45d",
-      "last_updated": "2026-10-22T15:23:08+00:00",
+      "hash": "60c4bd366e9051afbfeeffb068cc516831d8bc3334b69e6aeaa902fb59c03498",
+      "last_updated": "2026-11-17T21:18:51+00:00",
       "original_url": "https://cursor.com/docs/approval-agents",
       "path": "/docs/approval-agents",
       "section": "docs",
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "4a4bd0f33b02821aded72d2d7c63e4b1a48e9816a39e1ed0fbd884a576e395b6",
-      "last_updated": "2026-11-17T18:23:50+00:00",
+      "hash": "444d8b156c7d5c9692af9637d9c71927bccbdbf20f29c5c6ad4d58be7976fb31",
+      "last_updated": "2026-11-17T21:19:44+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1405,8 +1405,8 @@
       "title": "Azure DevOps"
     },
     "integrations__bitbucket.md": {
-      "hash": "4886a8868c8e1abca80599b5d155dc3399fbfe5a4f8b99e6342f84c77a093958",
-      "last_updated": "2026-11-16T21:19:58+00:00",
+      "hash": "9f63c208875236099acb119cac740e19b002c984a3a7beb9af09e78d1c10ca0d",
+      "last_updated": "2026-11-17T21:19:06+00:00",
       "original_url": "https://cursor.com/docs/integrations/bitbucket",
       "path": "/docs/integrations/bitbucket",
       "section": "docs",
@@ -1495,8 +1495,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "9a90df1cb2dad08cb0fd426225da8c5521be01a29311f421f0a454a4e8aa8c55",
-      "last_updated": "2026-11-16T21:20:01+00:00",
+      "hash": "e9bf6192972add9399526e48a6da8930f537a3f860591db9b7d54544f5f0fb04",
+      "last_updated": "2026-11-17T21:19:09+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "section": "docs",
@@ -2295,8 +2295,8 @@
       "title": "Create an Origin repository"
     },
     "origin__git.md": {
-      "hash": "a1c364e6a0fd4da5e3557f071de160615f3c492d76b5ede7faec41ec715904bc",
-      "last_updated": "2026-10-19T21:20:19+00:00",
+      "hash": "9e230dae541291cbb838b5d093e25741f28c00cfa2a57d021ed4029210110b9f",
+      "last_updated": "2026-11-17T21:19:34+00:00",
       "original_url": "https://cursor.com/docs/origin/git",
       "path": "/docs/origin/git",
       "section": "docs",
@@ -2595,8 +2595,8 @@
       "title": "Subagents"
     },
     "vulnerability-remediation.md": {
-      "hash": "c05f5cb8396bb1c7d24f2be2d523500d680fb8528f0e69b7ba4c011b362e0d8e",
-      "last_updated": "2026-11-16T21:20:31+00:00",
+      "hash": "9ac1dd473bf1df1d58df1ddcca6ae300cc29818486953f4219500433fbb211e3",
+      "last_updated": "2026-11-17T21:19:43+00:00",
       "original_url": "https://cursor.com/docs/vulnerability-remediation",
       "path": "/docs/vulnerability-remediation",
       "section": "docs",
@@ -2780,7 +2780,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-17T18:24:04+00:00",
+  "last_updated": "2026-11-17T21:20:03+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

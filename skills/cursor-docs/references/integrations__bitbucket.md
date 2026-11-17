@@ -100,8 +100,11 @@ Bitbucket Data Center requires a [Teams](https://cursor.com/docs/account/teams/p
 - A dedicated Bitbucket Data Center service account
 - An HTTP access token for the service account
 - Repository admin access for the service account on each repository you want to use with Bugbot
+- An incoming application link in Bitbucket Data Center with **Repositories Write** permission
 
-The service account reads repositories and pull requests, manages webhooks, and posts Bugbot comments and build statuses.
+The service account reads repositories and pull requests, manages webhooks, and posts Bugbot comments and build statuses. Members connect their own Bitbucket accounts through the application link.
+
+A Cursor team admin registers the instance under the team. Personal Bitbucket Data Center instances aren't supported.
 
 ### Networking
 
@@ -138,7 +141,7 @@ Add these Cursor IP addresses to your inbound allowlist:
 184.194.208.56
 ```
 
-If Cursor should use a load balancer or API hostname that differs from the repository clone hostname, enter it as the external host during registration.
+If Cursor should reach the instance through a load balancer or another URL than the one users open in the browser, enter it as the outbound URL during registration.
 
 For instances without public inbound access, see [Advanced networking](https://cursor.com/docs/integrations/bitbucket.md#advanced-networking).
 
@@ -147,11 +150,15 @@ For instances without public inbound access, see [Advanced networking](https://c
 1. Create an HTTP access token for the Bitbucket service account
 2. Go to [Integrations in the dashboard](https://cursor.com/dashboard/integrations)
 3. Open **Advanced**, then select **Bitbucket Data Center**
-4. Enter the **Bitbucket Hostname** used in repository clone URLs
-5. If API traffic uses a different hostname, enter it as the **External Host**
+4. Enter the **Bitbucket Browser URL**, the URL users open in the browser, including any path prefix
+5. If Cursor needs a different URL for API and Git requests, enter it as the **Outbound URL (optional)**
 6. Enter the **Service Account Token**
-7. Click **Register**
-8. Open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to enable it on repositories from the instance
+7. In Bitbucket Data Center, create an incoming application link with the redirect URL shown in the form and **Repositories Write** permission
+8. Enter the link's **Application Link Client ID** and **Application Link Client Secret**
+9. Click **Register**
+10. Open [Bugbot in Automations](https://cursor.com/automations/from-cursor/bugbot) to enable it on repositories from the instance
+
+Cursor checks the instance's OAuth token endpoint when you register. The instance stays off until both the service account token and the application link are set. While it's off, Cursor can't list its repositories or run Bugbot on them, and it drops the instance's webhook deliveries.
 
 Cursor uses the service account identity for Bugbot review comments, inline findings, webhooks, and build statuses.
 
@@ -219,6 +226,7 @@ Install the Cursor app in the Bitbucket workspace and link it to your Cursor tea
 
 - Confirm you are a Cursor team admin.
 - Confirm the registered instance has a service account token.
+- Confirm the registered instance has an application link client ID and client secret. If the instance is off, a team admin sets them from the instance's **Application link** settings.
 - Confirm the service account has repository admin access.
 
 ## Next steps

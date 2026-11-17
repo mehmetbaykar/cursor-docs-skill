@@ -195,6 +195,15 @@ Starting branch for Cloud Agent. Leave blank to use the repository's default bra
 
 If you're on more than one paid Cursor team, choose which team your Slack agents run under. Agents you start from Slack run, bill, and use settings under that team. Pick it under **Cursor Team** when you link your Slack account, or change it later with **Team for Slack Agents** in [Dashboard → Cloud Agents](https://www.cursor.com/dashboard/cloud-agents). If your Slack workspace is restricted to one Cursor team, Slack agents always run under that team.
 
+#### Reply mode
+
+Choose how Cursor handles plain replies in its Slack threads. Team admins set **Reply mode** under **Preferences** in the Slack section of [Integrations in the dashboard](https://cursor.com/dashboard/integrations). Members see it read-only.
+
+- **Follow threads** (default): Cursor follows along in its threads and responds when a reply is useful to it.
+- **Mentions only**: Cursor ignores plain replies in an agent's thread. They don't become follow-ups or steer the running agent. Answers to a question the agent asked in the thread, `@Cursor` mentions, and DMs still reach the agent.
+
+The setting of the team that owns the agent applies. For a personal agent with no owning team, the setting of the team that started it applies.
+
 ### Channel Settings
 
 Configure default settings at the channel level using `@Cursor settings`. These settings are per team and override your personal defaults for that channel.

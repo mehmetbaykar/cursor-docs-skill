@@ -69,6 +69,14 @@ To skip the prompt, add Origin's public host key to `~/.ssh/known_hosts`. The sa
 origin.cursor.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFaMKo6HCtmngBwlSH2ATs8+A6eTr+cCON5RKZX/3/MO
 ```
 
+Origin also publishes its host key in `known_hosts` format at `https://origin.cursor.com/.well-known/ssh-known-hosts`. To have OpenSSH fetch it on each connection, add this to `~/.ssh/config`:
+
+```text
+Host origin.cursor.com
+    CheckHostIP no
+    KnownHostsCommand /usr/bin/curl -fsS https://origin.cursor.com/.well-known/ssh-known-hosts
+```
+
 Cursor announces host key rotations ahead of time in the [Origin release notes](https://cursor.com/docs/release-notes/origin.md) and updates this page when a key changes. A `REMOTE HOST IDENTIFICATION HAS CHANGED` warning from your SSH client with no announced rotation means the connection is not reaching Origin; stop and don't update `known_hosts`.
 
 ## Clone with the Origin CLI
