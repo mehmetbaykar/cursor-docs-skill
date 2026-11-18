@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "265c11db1c03d77922d49ca5dd1c13ef3747bf1e4acff66ebe47742d035c6c92",
-      "last_updated": "2026-11-18T15:20:31+00:00",
+      "hash": "19ff0b33b65baa6ec8f79f3ada8cbb6fe1f234ab66be3c1a42d57f9014175192",
+      "last_updated": "2026-11-18T18:22:27+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2780,7 +2780,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-18T15:20:44+00:00",
+  "last_updated": "2026-11-18T18:22:50+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
