@@ -24,6 +24,8 @@ PR Routing & Approval can assign reviewers to pull requests based on code owners
 
 Use reviewer assignment to describe when the agent should request reviewers. The agent also considers applicable policy files, risk settings, AI reviewer findings, and the current review state.
 
+On GitHub, the agent requests a reviewer only when it has evidence for them: a CODEOWNERS entry for a changed path, read from the PR's base branch, or a recent commit on the base branch to a changed file. A reviewer named as `@login` in the **Custom Prompt** is always accepted. CODEOWNERS teams aren't expanded to their members. When no one qualifies, the agent requests no reviewers.
+
 ### Risk-based approval
 
 PR Routing & Approval can approve low-risk pull requests when your approval criteria are met.
@@ -128,16 +130,19 @@ In **Configuration**, choose which signals the agent should use:
 
 - **Use Bugbot Review Context**
 - **Use Security Review Context**
+- **Fail Check When Not Approved**
 - **Use Risk Score**
 - **Maximum Risk for Approval**
 
 Use these signals to decide whether the agent should rely on AI reviewer output, security findings, and risk thresholds before approving.
 
+**Fail Check When Not Approved** is off by default, so a finished run reports a successful status check. Turn it on to fail the check unless the run approves the pull request: the check fails when the agent declines, approves a different PR, errors, times out, or never starts. A later run that approves the PR within the check's deadline, 30 minutes by default, marks the check successful.
+
 **Mode**, the first option in **Configuration**, sets how the agent trades speed for cost. **Default** is faster. **Low** costs less and runs slower.
 
 ### Customize approval rules
 
-Use the **Custom Prompt** to add approval criteria for your team. You can describe local review expectations, examples of PRs that are safe to approve, or cases that require human review.
+Use the **Custom Prompt** to add approval criteria for your team. You can describe local review expectations, examples of PRs that are safe to approve, or cases that require human review. To have the agent request a specific reviewer, name them as `@login`.
 
 Policy files still take precedence over the custom prompt for applicable files.
 

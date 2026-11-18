@@ -765,8 +765,8 @@
       "title": "Cursor APIs Overview"
     },
     "api__origin.md": {
-      "hash": "c300ca4175d0fb79613f7456c39a79b11aa421ea6caf9ca08f4fb8202d002fa7",
-      "last_updated": "2026-11-17T00:39:43+00:00",
+      "hash": "68e3e9548e199c1bbd2320e59c82abf968dfc4d601c2b36063fe5e4c1fd4d54b",
+      "last_updated": "2026-11-18T21:19:20+00:00",
       "original_url": "https://cursor.com/docs/api/origin",
       "path": "/docs/api/origin",
       "section": "docs",
@@ -775,8 +775,8 @@
       "title": "Cursor Origin API"
     },
     "api__origin__acting-as-users.md": {
-      "hash": "fabd5b8d2cb324abf8ca80473b8aea22268accf294142c9116df094aaf5cd0e6",
-      "last_updated": "2026-10-12T21:20:05+00:00",
+      "hash": "212d928fddcd7bb2e9e6ea928ff833fea14da0f0fcc8f74cf0313bef11832e41",
+      "last_updated": "2026-11-18T21:19:20+00:00",
       "original_url": "https://cursor.com/docs/api/origin/acting-as-users",
       "path": "/docs/api/origin/acting-as-users",
       "section": "docs",
@@ -785,8 +785,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "973b33bfe6d9fb9bc9f9b1232d6e75a35cf7b6b434dec5a3550f39d6b703235b",
-      "last_updated": "2026-11-16T15:29:21+00:00",
+      "hash": "2afbc9335a1d0df6f2ef1ced51a3a230cf6ae705593a313afbc29d663a0c73cf",
+      "last_updated": "2026-11-18T21:19:21+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "section": "docs",
@@ -835,8 +835,8 @@
       "title": "Origin Migration API"
     },
     "approval-agents.md": {
-      "hash": "60c4bd366e9051afbfeeffb068cc516831d8bc3334b69e6aeaa902fb59c03498",
-      "last_updated": "2026-11-17T21:18:51+00:00",
+      "hash": "9853f254477389822eee091844c0d8fa4cb21b62ad7df57541cf437b978f3bb5",
+      "last_updated": "2026-11-18T21:19:22+00:00",
       "original_url": "https://cursor.com/docs/approval-agents",
       "path": "/docs/approval-agents",
       "section": "docs",
@@ -905,8 +905,8 @@
       "title": "Installation"
     },
     "cli__mcp.md": {
-      "hash": "b999751bd5c18c1039ec3e68c5208045c79430a3040972ed75566ba25058abd3",
-      "last_updated": "2026-10-23T06:35:50+00:00",
+      "hash": "2d4a06f42c95a90e2709615ca360e44d904fe480beedbdccd9cd48b3f15f6a0a",
+      "last_updated": "2026-11-18T21:19:25+00:00",
       "original_url": "https://cursor.com/docs/cli/mcp",
       "path": "/docs/cli/mcp",
       "section": "docs",
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "19ff0b33b65baa6ec8f79f3ada8cbb6fe1f234ab66be3c1a42d57f9014175192",
-      "last_updated": "2026-11-18T18:22:27+00:00",
+      "hash": "ed45e2e1fed2da071110ece795e0c561d9293b51895ad679d8f37f3c3d469248",
+      "last_updated": "2026-11-18T21:20:14+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2235,8 +2235,8 @@
       "title": "Install the CLI"
     },
     "origin__cli__reference__commands.md": {
-      "hash": "4ded275d8add450a869bc9ec24a2f1dddeedcd1a7b1156468f293431eb5035cc",
-      "last_updated": "2026-10-27T18:19:54+00:00",
+      "hash": "f886dd780cbbc1790edd9f605eb89f457a594fdad3bebf66920253b06b7b2ba9",
+      "last_updated": "2026-11-18T21:20:03+00:00",
       "original_url": "https://cursor.com/docs/origin/cli/reference/commands",
       "path": "/docs/origin/cli/reference/commands",
       "section": "docs",
@@ -2595,8 +2595,8 @@
       "title": "Subagents"
     },
     "vulnerability-remediation.md": {
-      "hash": "9ac1dd473bf1df1d58df1ddcca6ae300cc29818486953f4219500433fbb211e3",
-      "last_updated": "2026-11-17T21:19:43+00:00",
+      "hash": "d3c291779db8cf04949b66155bd8babe22cef08f4155b7d73e47b266ae9deb68",
+      "last_updated": "2026-11-18T21:20:14+00:00",
       "original_url": "https://cursor.com/docs/vulnerability-remediation",
       "path": "/docs/vulnerability-remediation",
       "section": "docs",
@@ -2780,7 +2780,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-18T18:22:50+00:00",
+  "last_updated": "2026-11-18T21:20:28+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
