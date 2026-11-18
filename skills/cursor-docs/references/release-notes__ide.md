@@ -8,6 +8,111 @@ path: /docs/release-notes/ide
 
 New features, improvements, and fixes in the Cursor IDE. Each entry covers one minor version, including the patch releases that follow it. Changes to the [Agents Window](https://cursor.com/docs/release-notes/agents-window.md) have their own page.
 
+## 3.30
+
+### Agent and chat
+
+- **Edit dictated text without stopping dictation.** While you [dictate](https://cursor.com/docs/agent/prompting.md#voice-input) into the agent input, typing no longer cancels dictation. Your edits stay and new words are added after them. Clearing the input still stops dictation.
+- **Skill chips show where a skill comes from.** Hovering a [skill](https://cursor.com/docs/skills.md) chip in the agent chat input shows its source and repository plus its description trimmed to four lines.
+- **Copy or save Mermaid diagrams as images.** Mermaid diagrams in chat now have a More actions menu with Copy as Image and Save as Image, so you can paste a diagram into a doc or save it as a PNG.
+- **Fixed a misleading Other Models usage entry on weekly plans.** On plans with a single weekly usage allowance, the usage status bar and ring in the agent panel no longer show Other Models at 0% when you select a third-party model. They now show a single Cursor Models percentage, whichever model you select.
+
+### MCP
+
+- **Agent finds MCP tools by what they do.** When the agent searches your [MCP](https://cursor.com/docs/mcp.md) tools, it now matches words in each tool's description, not only server and tool names. Searches also report MCP servers that are still starting or failed to connect instead of returning nothing.
+- **MCP Apps call their own tools without an approval prompt.** Interactive [MCP Apps](https://cursor.com/docs/mcp.md#mcp-apps) in the agent chat now call tools on their own server directly, without asking you to approve the server or tool first. Tools their server hides from apps stay off-limits.
+- &#x20;**Team MCP allowlist URL rules match servers more precisely.** URL rules in your team's [MCP allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) now match a server by its scheme, host, port, and path, so wildcard rules allow or block exactly the servers admins intend in the editor. Deny rules still block everything they blocked before, and a host with a trailing dot, such as `example.com.`, matches the same server as one without.
+
+### Customization and settings
+
+- &#x20;**Private Inference supports rules, remote MCP servers, and clearer gateway errors.** With Private Inference, your team rules and User Rules now apply to agent turns, and you can view and edit User Rules in Settings. Remote MCP servers can now connect. Cursor-hosted MCP servers stay off. When your inference gateway or proxy fails, the agent error names it and the cause, and Auto-review follows the reviewer set in your Private Inference config.
+- **Open your Origin settings from Source Control settings.** Cursor Settings > Source Control has a new Manage Origin Settings row. Its Open button takes you to your Origin and pull request settings on cursor.com.
+- &#x20;**Marketplace plugin installs show progress and admin refusals.** Adding a [plugin](https://cursor.com/docs/plugins.md#installing-plugins) from the marketplace in Customize now shows "Adding..." until the install finishes. If your team admin doesn't allow the plugin, Cursor shows a warning with the reason and marks the plugin Disabled, instead of briefly listing it as added.
+
+### Fixes
+
+- **Fixes to MCP.** MCP servers that only support the newer stateless handshake now connect, connections cut off mid-response are retried, and stdio servers that print non-JSON text no longer show as errored in MCP settings.
+- **Fixes to updates.** Update checks and downloads no longer hang when the server stops sending data, and restarting to install an update is no longer disrupted when a newer version appears mid-quit. On Windows, finished updates no longer trigger update recovery at startup, and leftover download folders are cleaned up.
+- **Fixes to local agent reliability.** Cancelling an agent request now ends it immediately, waking from sleep no longer triggers false extension host hang warnings, and a failed checkpoint restore or redo now shows an error with the reason.
+- **Fixes to Plan mode and file protection.** In [Plan mode](https://cursor.com/docs/agent/plan-mode.md), the agent can no longer delete non-markdown files or edit them through file links or symlinks with a markdown name. File-Deletion Protection now asks before deletes in Run Everything mode.
+- **Fixes to terminals.** Terminal text no longer renders in the wrong font and size with GPU acceleration on. A terminal whose process has exited, including a reattached one, no longer shows as busy or asks for confirmation when you close it.
+- **Fixes to agent chat.** The Agents > Text Size setting scales chat text again, Cmd+A (Ctrl+A) selects transcript text, and images an agent links with a workspace-relative path or `file:` URI now load. Rename Chat applies after another window renamed the chat, and Bugbot's Fix in Cursor works when the PR's repo is a git submodule in your workspace.
+- **Fixes to remote reconnect.** When a remote server restarts and can't resume the previous session, the "Unable to reconnect to the remote workspace" notification now offers Reload Window instead of a Reconnect Now button that could not succeed.
+
+## 3.29
+
+### Agent and chat
+
+- **Fixed Escape during voice dictation.** Pressing Escape while you [dictate](https://cursor.com/docs/agent/prompting.md#voice-input) in the agent input now stops the recording and keeps your cursor in the input with the dictated words. Previously Escape left the input and the mic kept recording.
+
+### Customization and settings
+
+- **Hooks can tell which agent or subagent type spawned a subagent.** [Hook](https://cursor.com/docs/hooks.md) scripts now receive `parent_agent_name` alongside `parent_agent_id`: the subagent type for a subagent, or the custom mode name for any other agent. `subagentStart` and `subagentStop` hooks now report the parent turn's `generation_id` instead of the conversation ID.
+- **Fixed Customize opening local files in remote windows.** In a remote window, opening or deleting a user skill, rule, or subagent from [Customize](https://cursor.com/docs/customize-cursor.md) now acts on the file on the remote host instead of a local path.
+- **Fixed skills missing in multi-root workspaces with nested folders.** When one folder in a multi-root workspace sits inside another, [skills](https://cursor.com/docs/skills.md) at the inner folder's root are now offered to the agent instead of being hidden.
+
+### MCP
+
+- &#x20;**Set up the Asana plugin without your own OAuth app.** When admins set up the Asana [plugin](https://cursor.com/docs/plugins.md), the form no longer asks for a client ID or secret. Cursor now provides the Asana OAuth app.
+- &#x20;**Easier Databricks Genie One plugin setup.** When admins set up the Databricks Genie One [plugin](https://cursor.com/docs/plugins.md), the Workspace URL field now accepts any workspace or Genie MCP URL and keeps only the hostname, and an invalid URL gets a clearer error.
+
+### Models
+
+- &#x20;**Private Inference model picker no longer loads forever.** With Private Inference on, the model picker stops waiting after about a minute and says models are unavailable instead of showing Loading models indefinitely. If this machine has no Private Inference config, the picker tells you to contact your admin.
+
+### Fixes
+
+- **Fixes to agent reliability.** Agent edits no longer hang on malformed patches, searches across all files no longer fail, and the agent can read PDFs again. Image generation now says when a reference image is missing.
+- **Fixes to agent questions and chat history.** Answering an agent's question now always reaches the agent, including after reopening the chat or restarting Cursor, and the question keeps its options. New chats no longer disappear from chat history after the editor crashes during their first turn. Follow-ups, Resume, and Send Now in a subagent's chat no longer duplicate reply text or drop the message.
+- **Fixes to MCP servers.** Plugin MCP server URLs with a `${VAR}` placeholder in the path now expand correctly, and servers whose config changed while connected, such as a rotated auth header, restart cleanly on reload. MCP sign-in now completes in remote windows, and saving cloud agent MCP defaults no longer stores built-in entries.
+- **Fixes to editors, updates, and chat tabs.** Multi-file diffs no longer leave broken entries or show outdated files, and the first launch after an update no longer shows a stale update banner. Archived chats no longer reopen as editor tabs on restart. On Linux, the updater no longer targets another AppImage when Cursor is launched from its terminal.
+- **Fixed pending agent edits rewriting files at startup.** When Cursor reopens agent edits you haven't accepted or rejected, it now shows them over the file as it is, without editing or saving the file. Previously this could save outdated contents over a file changed elsewhere, sometimes leaving it empty.
+
+## 3.28
+
+### Editor and app
+
+- **Cmd+K now adds your selection to Agent.** Inline edit and the terminal Cmd+K prompt bar are retired. Cmd+K (Ctrl+K on Windows and Linux) in the editor or terminal, and Cmd+Shift+K (Ctrl+Shift+K) in the editor, now [add the selection to your current agent chat](https://cursor.com/docs/reference/keyboard-shortcuts.md), the same as Cmd+L (Ctrl+L), and keys you bound to the old commands do the same. Resolving a merge conflict now opens an agent chat for that conflict.
+- **Update installs in Cursor, even from out-of-date versions.** The Update button on the out-of-date banner and update prompt now installs the new version in Cursor, shows progress, and then offers Restart to Update. It opens the downloads page only if it can't update. On macOS, Restart to Update no longer gets stuck on Installing when background activity is turned off.
+- **Security fixes.** Relaunching a terminal in an untrusted workspace is now refused, and an untrusted workspace's settings can no longer widen `terminal.integrated.allowedLinkSchemes`. Notification messages show plain text literally instead of parsing it into links, and webviews check file paths on remote machines more strictly.
+
+### Agent and chat
+
+- **Wider agent chat by default.** Agent chat content now grows up to 1200px wide by default, up from 840px, so code blocks and long responses use more of a wide panel. Set your own limit with the `cursor.chatMaxWidth` setting.
+- **Copied tables paste into spreadsheets and Slack as real tables.** Copy Table in the right-click menu of an agent response table now pastes as rows and columns in spreadsheets and Slack, instead of as Markdown text. Choose the new Copy as Markdown item in the same menu when you want the Markdown source.
+- **Fixes for non-English text and emoji.** Cursor Tab suggestions, agent output, and MCP server logs no longer show garbled characters or broken half-emoji, including Python MCP servers on Windows. Agent PowerShell commands on Windows no longer garble non-English output, including web responses from `Invoke-WebRequest` or `Invoke-RestMethod` in PowerShell 5.1. The agent now reads text from most Chinese, Japanese, and Korean PDFs, and image prompts in those scripts are no longer rejected as too short.
+
+### Accessibility
+
+- **Screen readers now follow agents and Cursor Tab.** Screen readers announce agent turns, replies, errors, and approval requests. In the agent chat, press Alt+F2 to open the latest reply in the Accessible View, or Alt+F1 for accessibility help. Cursor Tab suggestions are announced and can be read and accepted in the Accessible View, and chat buttons and inline diff Keep and Undo buttons can now be reached with Tab and have screen reader labels.
+
+### MCP
+
+- **MCP tools ask you to grant a missing permission.** When an [MCP](https://cursor.com/docs/mcp.md) server refuses a tool call because your sign-in lacks a permission, Cursor now starts a sign-in that adds it, and the agent names the permission the tool needs. If your last sign-in didn't get that permission because you declined it or an admin withholds it, the agent says so instead of returning a generic error.
+- **Connect the Box MCP server without your own OAuth app.** Adding Box's hosted MCP server now signs you in through Cursor's official Box app in your browser, so you no longer need to register your own OAuth client. If you set your own client ID and secret in `mcp.json`, sign-in now completes locally with your app instead.
+- &#x20;**Callback URL shown when adding cloud MCP plugins to automations with your own OAuth app.** When you add a cloud MCP plugin that needs your own OAuth client ID to an automation in the Automations tab, the setup form now shows the callback URL to register in the vendor's OAuth app. Salesforce plugins also list the scopes to grant.
+- **MCP App widgets in chat keep their place after a reload.** After a window reload, MCP App widgets in chat reappear at their previous height with a "Loading app" line instead of disappearing. If the server needs authentication, can't connect, or the app fails to load, a compact status row explains why, with Retry for load errors.
+
+### Models
+
+- **Search in every model picker.** The model pickers in Models settings, the subagent editor, the Automations editor, and when editing a previous message now open as a searchable menu, so you can type to find a model instead of scrolling.
+- &#x20;**Subagents fall back cleanly when their model can't run.** A custom [subagent](https://cursor.com/docs/subagents.md) pinned to a model your team blocks, that needs Max Mode, or that is unavailable now runs on the parent agent's model instead of failing, and the agent is told which model ran. Subagents on Composer 2.5 Fast no longer fail with an Unknown model ID error.
+- &#x20;**Private Inference fixes for local models and bug reports.** With Private Inference on a local provider, agent turns and inference now use the model catalog discovered for the model picker, so local models are no longer misrouted after an extension host restart. Teams whose admin allows bug reports can now send them from Report Issue instead of having them blocked.
+
+### Customization and settings
+
+- **Agent follows nested AGENTS.md and rules when it edits files.** When the agent edits or creates a file in a subdirectory, it now receives that directory's nested `AGENTS.md` and always-apply [rules](https://cursor.com/docs/rules.md), even if it never read a file there first. Each rule is added once per conversation.
+
+### Fixes
+
+- **Fixes to agent tool calls.** Finished tool calls in chat no longer flip back to in-progress, show as completed promptly, and subagent calls render as subagent cards instead of empty rows. The todo list no longer shows stale or duplicate items.
+- **Fixes to restoring agent chats.** Chats with corrupted or missing saved messages or checkpoints now open with a fallback for the damaged part instead of failing to load, and earlier turns no longer appear twice. A chat locked by corrupted checkpoints unlocks once you revert past them, restoring a checkpoint after moving a chat to the cloud keeps its embedded context, and archiving or reopening old chats works again.
+- &#x20;**Fixes to MCP servers.** Turning MCP servers off and on now reliably hides or restores their tools, the agent gets a server's tools back once its sign-in recovers, and simultaneous OAuth token refreshes no longer discard each other's new tokens. Always Allow no longer saves to the local allowlist when your team manages it, and sandbox and Salesforce sign-in errors now say what to fix.
+- **Fixes to Auto-review.** Auto-review now sees an MCP tool's input schema even when the server sends it as a JSON string. A `beforeShellExecution` hook that asks for approval now shows its prompt even when Auto-review would have allowed the command.
+- **Fixes to agent chat.** Switching between chat tabs keeps each chat's scroll position, and closing a prompt row's right-click menu returns focus to the input. The × on removable pills in the prompt no longer misses clicks, and plugins in the slash menu show their own logos instead of their publisher's.
+- **Fixes to the editor and terminal.** Running Terminal: Clear while a full-screen program like vim or less is open no longer breaks its display. Inlay hints near the cursor no longer lay out incorrectly or get an unneeded ellipsis, and breadcrumb review controls no longer shift neighboring buttons when you click into an editor group. Renaming a chat tab no longer shrinks it, and the notifications Accessible View no longer jumps after it is dismissed.
+- **Fixes to app reliability and settings.** Agent browser actions no longer time out on screenshots while the window is minimized. The Remote Control approval prompt keeps digits in device names, and agent startup failures now point to Network Diagnostics in Cursor Settings.
+
 ## 3.27
 
 ### Editor and app
@@ -20,6 +125,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 
 - **Agent no longer garbles non-UTF-8 and non-ASCII text.** Agent terminal output no longer garbles non-ASCII characters split across output chunks, and file reads and edits keep the original bytes when a file has some invalid characters. Codebase indexing now reads Latin-1, Windows code page, and legacy CJK files as text, so semantic search finds matches in them.
 - **Hooks can tell which agent spawned a subagent.** [Hook](https://cursor.com/docs/hooks.md) scripts now receive `parent_agent_id`, the conversation ID of the agent that spawned the subagent, on `subagentStart` and `subagentStop`, so scripts no longer have to rebuild the agent tree from earlier events.
+- **Agents keep working on remote machines that can't reach Cursor.** In Remote-SSH, WSL, and container windows, agents now route requests through your local machine when the remote can't reach Cursor's servers. If the agent connection drops mid-turn, the chat shows Reconnecting... and resumes the turn instead of failing.
 
 ### Fixes
 
@@ -27,6 +133,7 @@ New features, improvements, and fixes in the Cursor IDE. Each entry covers one m
 - **Fixes to MCP.** When an [MCP server](https://cursor.com/docs/mcp.md) asks for input, the form in the agent chat now scrolls so its Submit and Cancel buttons sit above the prompt box, and the buttons are reliably clickable. MCP sign-ins whose OAuth refresh token has expired now ask you to reconnect instead of failing over and over.
 - **Clearer Add to Chat button in Review Changes.** The Add to Chat button in the Review Changes file list now uses a chat bubble with a plus icon.
 - **Fixes to Linux package update notifications.** On Linux installs from the deb or rpm package, Cursor no longer shows update notifications when apt or dnf has nothing newer to install. Cursor now checks its package repository before notifying you, and shows one notification per new version, however many windows you open or restarts you do.
+- **Fixes to non-ASCII text on Windows.** Python-based [MCP servers](https://cursor.com/docs/mcp.md) started with `python`, `py`, `uvx`, `uv run`, or `pipx run` no longer garble or fail on non-ASCII text.
 
 ## 3.26
 

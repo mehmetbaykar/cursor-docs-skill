@@ -8,6 +8,53 @@ path: /docs/release-notes/mobile
 
 New features, improvements, and fixes in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md). Each entry covers one app version.
 
+## 1.18.0
+
+### Voice calls
+
+- **Voice calls keep going past two hours and through server drops.** A [voice call](https://cursor.com/docs/agent/voice-chat.md) no longer ends at the two-hour mark. The app moves the call to a fresh connection during a pause, with no reconnect chime, and the conversation carries on. Calls the server drops now reconnect to the same conversation instead of hanging up.
+- **Hear Project worker results during voice calls.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), a voice call in a Project's chat reads each worker's result aloud once, as soon as that worker finishes. Results keep coming even if you cover or leave the chat during the call.
+- **Voice calls can send requests while a plan waits for Build.** Asking a question or giving a follow-up during a voice call no longer fails with "The agent needs you in the chat" when the agent's plan is waiting for you to build it. The request goes through like a typed message. Calls still hold your request while the agent waits on an open question or a sign-in prompt.
+- **Voice call turns read like typed ones.** Messages a voice call sends to the agent are now hidden in every call mode, and the "Sent by voice call" label is gone. Work from a voice turn shows the same Worked sections, replies, and Changes cards as a typed request, and an instruction given mid-turn continues that turn instead of starting a new one. Messages stay hidden after you reopen the chat.
+- **Choose which status chimes play.** During a [voice call](https://cursor.com/docs/agent/voice-chat.md), the Settings menu has a Status Chimes submenu with a switch for each chime: Task Sent, Result Arrives, Needs Decision, and Error. Your choices carry over to later calls, starting from your previous chime setting.
+- **See which agent has a live voice call.** While you're away from its chat, an agent with a voice call in progress shows a green waveform chip with the call timer in the agent list. Tap the row to return. Double-tapping Stop or the mic no longer starts a voice call by accident, and links in a call's transcript now open.
+
+### Agents
+
+- **Open Agent Store files and Project notes from chat.** Tapping a file path in an [Agent Store](https://cursor.com/docs/agent/projects.md#shared-context), such as a Project's Context, or a Project notes link in an agent's reply or tool details opens the file in the in-app markdown preview instead of doing nothing. Links inside a previewed file open their own preview, so you can follow a plan or task note without leaving the chat.
+- **Running agent chats open without a blank screen.** Opening a chat whose agent is still working shows the recent conversation right away, then fills in the rest of the running turn. Before, a running turn with many steps could keep the chat blank until every step loaded. Turns you expand while it fills in stay expanded.
+
+### Fixes
+
+- **Voice calls.** If you stay quiet when a call opens while the agent is mid-task, the call now greets you after a short pause instead of staying silent. After a dropped call reconnects, the voice keeps its context without repeating earlier updates. In any chat, an edit you reject no longer shows up in the turn's Changes card.
+- **Returning to the app.** Coming back to Cursor from the background refreshes your sign-in, team memberships, and plan again, instead of leaving them out of date. The machine and pool list in the composer also updates when you return.
+
+## 1.17.0
+
+### Voice calls
+
+- **Voice calls give up-to-date answers about the agent's work.** A [voice call](https://cursor.com/docs/agent/voice-chat.md) now knows the recent chat, including the last week of messages and earlier calls, and keeps up with the agent's branch, pull request, test runs, and to-dos as they change, so asking how the work is going gets a current answer. A request that can't reach the agent within 20 seconds is reported as unreachable instead of being sent late, and a call that starts or reconnects while the agent is idle or already working no longer resends your last request.
+- **Voice call answers are shorter and stick to what the agent knows.** Answers start with a short spoken summary of about 30 words and offer to go deeper, and calls no longer read out URLs, long file paths, full commit hashes, or tool names. When you ask for an exact value or a code walkthrough, the call looks it up instead of guessing, and it reports test and CI results without speculating about why they passed or failed.
+- **Talk over the agent in voice calls.** The agent's voice fades down as soon as you start talking and comes back if it was only background noise. When you interrupt a reply, the agent knows which part you heard and can pick up the rest instead of repeating or dropping it.
+- **Voice calls read out the agent's plans.** When the agent ends a turn with a plan during a voice call, the call reads out the plan's name, overview, and to-dos instead of only saying it needs you in the chat. The full plan stays in the chat.
+- **Short tones tell you what the agent is doing.** During a voice call, a soft tone plays when a task is sent, when a result is about to be read after a pause, when the agent needs your decision, and when something goes wrong. Tones play alongside speech without interrupting it. Turn them off with Status chimes in the voice call settings.
+- **Voice calls understand your repo, file, and agent names.** Voice calls, including on CarPlay, recognize spoken repository, branch, file, and agent names from the current conversation more reliably. Asking to send to or switch to an agent works with names in Japanese, Chinese, Korean, Thai, Arabic, and accented Latin, and interrupted replies in those languages pick up at the right spot.
+- **Voice calls show on CarPlay.** When a [voice call](https://cursor.com/docs/agent/voice-chat.md#ios) plays through your car's CarPlay audio, its Live Activity appears on the CarPlay display with the agent, a live timer, and a Hang up button. Muting from the Live Activity or the system call screen stays in sync, and a Live Activity you dismiss stays dismissed for that call.
+
+### Composer
+
+- **Edit your words while you're still dictating.** Tap the live caption while [dictating](https://cursor.com/docs/agent/prompting.md#voice-input) in the composer to edit what you've said so far. Your edits stay, and anything you say next is added after them without doubled spaces or punctuation. Dismissing mid-dictation now only hides the keyboard.
+
+### Account and billing
+
+- **Clearer warning before deleting an account merged with Grok.** If your Cursor account is merged with a Grok account, the Delete Account page warns that deleting it also permanently deletes your Grok account and any Grok plan, with no way to restore them.
+
+### Fixes
+
+- **Voice calls.** What you say while a call is still connecting is no longer lost, and a two-part question no longer ends in silence. The call no longer greets you after it has already started talking, and it keeps track of the agent's latest progress during long tasks. Voice call cards stay visible and attached to your last typed message.
+- **Foldable layouts and large text sizes.** Folding or unfolding your phone, or switching iPad layouts, keeps your place in the chat you were reading, and returning from the background no longer resets navigation. At the largest accessibility text sizes, sidebar icons, round buttons, and the composer's repo row and toolbar no longer overlap or clip. Slash command suggestions also come back when you return to a draft.
+- **Conversation loading and sign-in.** Sign-in and session refresh work even when your phone's clock is wrong. Opening a large Project loads back to your last message instead of stalling, and a follow-up sent before leaving a chat shows in the right place when you return. The paywall sheet no longer shows two back controls.
+
 ## 1.16.0
 
 ### Voice calls

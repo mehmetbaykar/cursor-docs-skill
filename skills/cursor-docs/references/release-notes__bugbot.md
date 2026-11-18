@@ -8,6 +8,29 @@ path: /docs/release-notes/bugbot
 
 Weekly changes to [Bugbot](https://cursor.com/docs/bugbot.md). Each entry covers one week of changes and is labeled with the Monday that starts it.
 
+## Week of Nov 9, 2026
+
+### Bitbucket
+
+- **Bugbot works on Bitbucket repositories added after setup.** Fixed an issue where Bugbot ignored pull requests and comments on Bitbucket Cloud repositories added to a [connected workspace](https://cursor.com/docs/integrations/bitbucket.md) after setup. Bugbot now picks them up automatically.
+- **Fixed Cursor mentions picked from Bitbucket autocomplete.** Choosing the Cursor app from Bitbucket's mention list now runs your comment command, the same as typing `@cursor`.
+
+### Fixes
+
+- **Fixes to review reliability.** Bugbot on [Bitbucket](https://cursor.com/docs/integrations/bitbucket.md) no longer misses pull request updates when Bitbucket rate-limits it. It waits for the limit to clear and retries. A review that already posted its findings now keeps them, and its completed status, when a later retry is canceled.
+
+## Week of Oct 26, 2026
+
+### Reviews and Autofix
+
+- **Bugbot reviews Origin pull requests again after a retarget or restack.** When an [Origin](https://cursor.com/docs/origin.md) pull request's base changes without a new commit, for example after you retarget it or restack it onto main, Bugbot now runs a fresh automatic review against the new base. Previously Bugbot skipped the run because it had already reviewed that commit, which left some pull requests with only a stale "too large to review" result.
+- **Fixed Autofix skipping runs when your GitHub account is linked to several Cursor accounts.** On a personal Bugbot install, [Autofix](https://cursor.com/docs/bugbot.md#autofix) now prefers your personal Cursor account and its privacy settings over a team account you also belong to. Previously Autofix sometimes checked the team's privacy settings instead of yours and skipped the run.
+
+### Fixes
+
+- **Fixes to review reliability during GitHub errors.** Bugbot reviews no longer fail when GitHub briefly fails or rate-limits requests for a new access token.
+- **Fixes to the Bugbot dashboard.** Hovering a clickable row at the top or bottom of a dashboard card no longer spills past the card's rounded corners.
+
 ## Week of Oct 19, 2026
 
 ### Team settings

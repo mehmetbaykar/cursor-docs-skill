@@ -8,6 +8,332 @@ path: /docs/release-notes/web
 
 Weekly changes to Cursor on the web, from integrations and admin settings to automations, the APIs, security and approval agents, and models. Each entry covers one week and is labeled with the Monday that starts it. [Cloud Agents](https://cursor.com/docs/release-notes/cloud-agents.md) and [Bugbot](https://cursor.com/docs/release-notes/bugbot.md) have their own pages.
 
+## Week of Nov 9, 2026
+
+### Integrations
+
+#### Bitbucket
+
+- **Bugbot and `@cursor` work on every repository in a linked Bitbucket workspace.** When the [Cursor app](https://cursor.com/docs/integrations/bitbucket.md) is linked to your team, Cursor now handles pull request events from any repository in that Bitbucket Cloud workspace, including new repositories and ones nobody has opened in the Cursor dashboard. Before, those events were ignored. Picking Cursor from Bitbucket's mention autocomplete in a pull request comment now runs the command the same as typing `@cursor`.
+- **Fixes to Bitbucket Cloud connections.** [Bitbucket Cloud](https://cursor.com/docs/integrations/bitbucket.md) accounts no longer get disconnected when a token refresh coincides with a failed account lookup. The connection stays linked instead of showing as not connected.
+
+#### Slack
+
+- &#x20;**Slack settings in one place.** A new Slack page under Integrations in the dashboard lets you connect, reconnect, or unlink your Slack workspace, turn Slack notifications on or off, and pick which team runs agents started from Slack. It links to your [routing rules](https://cursor.com/docs/integrations/slack.md#routing-rules), and the **Manage rules** button and rule links in Slack now open the right rule in the right team or personal workspace.
+- **Clearer Slack errors when a cloud agent can't verify repository access.** When a cloud agent started from [Slack](https://cursor.com/docs/integrations/slack.md) fails because Cursor can't verify access to a repository in its environment, the failure message now names each affected repository and the reason, such as missing write access, missing read access, or a Git remote that is rewritten to another URL.
+
+#### GitLab
+
+- &#x20;**Cloud agents only get GitLab write access to submodules and dependencies you can push to.** When a cloud agent works on a [GitLab](https://cursor.com/docs/integrations/gitlab.md) project, it now gets credentials for the project's submodules and dependency repositories only where you have Developer access or above, or are an instance admin. Repositories you can't push to are left off the agent, and Cursor creates no project access token for them.
+- &#x20;**Sync GitLab repositories with a team API key.** A team API key with Cloud Agents access can now start the same GitLab repository sync as [**Sync Repos**](https://cursor.com/docs/integrations/gitlab.md#setup) in the dashboard, so automations pick up new GitLab projects without anyone opening the dashboard. The sync runs as the admin who created the key. If that admin is no longer a team admin or hasn't connected the GitLab instance, the request fails with an error that says what to fix. Syncs are rate limited per team and recorded in the team audit log.
+
+#### GitHub
+
+- &#x20;**Fixes to GitHub repository access and GitHub Enterprise Server connections.** Team admins who haven't connected a personal [GitHub](https://cursor.com/docs/integrations/github.md) account now see the team's GitHub organizations and repositories instead of a prompt to connect GitHub. GitHub Enterprise Server connections no longer break when the server redirects to a URL with a different scheme.
+
+#### Integrations page
+
+- **Fixes to the Integrations page.** Source-control cards such as GitLab Self-Hosted now load at their final size instead of growing when their status arrives. Menus show the full reason an action is disabled, and buttons that open a new tab show an outward arrow.
+
+### Dashboard and admin
+
+#### API keys
+
+- &#x20;**See every kind of API key in one list.** The API keys page now shows all your keys in one table with a **Type** column, and admins who manage keys see team and personal keys together with each key's owner. **Create** lets you pick the key type in one dialog, with a **Team key** switch to pick who owns the new key, and a **Filter** menu narrows the list by type and status.
+- &#x20;**Find keys created by people who left your team.** Admins who manage API keys now see a **Created by people no longer on this team** section on the API keys page. It lists the API keys and service accounts that former members created, so you can revoke the ones you no longer need.
+- &#x20;**Give team API keys access to automations.** When you create a team API key, the permission picker now offers **View automations** and **Manage automations**. View lets a key read the team's shared automations, including their prompts, triggers, and repository settings, and Manage lets it change shared automations the team allows others to edit. Neither covers members' private automations.
+- &#x20;**SSH keys moved to My settings and Origin.** Your personal SSH keys now live in the **SSH and signing keys** section of My settings. Team SSH certificate authorities and the IP allowlist moved to the Security section of the Origin page, and old links to the SSH tab on the API keys page redirect.
+
+#### Security and audit logs
+
+- &#x20;**Edit each Network access list in its own dialog.** In workspace settings, Network access now shows the sandbox allowlist and blocked destinations as rows with a destination count, each with its own edit dialog. The **Cloud agent egress uses the sandbox allowlist** switch is on by default; turn it off to give cloud agents their own allowlist row. Saving other team settings no longer overwrites your network lists. See [network access settings](https://cursor.com/docs/cloud-agent/settings.md#network-access-settings).
+- &#x20;**Clearer audit logs, and a record of a removed member's keys.** When you remove a member, the credentials revoked event in your audit log stream now lists the team API keys, fine-grained keys, and service accounts they created that still work. The audit log table shows separate Date and Time columns with sentence-case event names, and you can filter for Origin namespace access policy events. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- &#x20;**Protect an organization from one dialog.** Admins now protect an organization or group from a single **Protect organization** dialog that takes its URL. With nothing protected yet, the card shows a **Protect organization** button, or a prompt to connect GitHub or GitLab first. See [Protected Git Scopes](https://cursor.com/docs/cloud-agent/security-network.md#protected-git-scopes).
+
+#### Plugins and MCP
+
+- &#x20;**Limit which MCP servers each cloud agent environment can use.** A cloud agent environment's page now has an MCP servers section where you list the allowed servers one per line as a URL, hostname pattern, or command, or turn on **Disable all MCP servers**. Agents in that environment then get only those servers from the ones your team allows. This is now available to everyone.
+- &#x20;**Set a team plugin's distribution with switches.** A team plugin's details dialog on the Plugins page now has **Required for the team** and **On by default** switches that apply when you click **Save**. In the plugin variables dialog, leaving a saved secret blank keeps its value, and **Clear variables** removes them.
+- &#x20;**Import a team marketplace from a specific branch.** When importing a team plugin marketplace from a repository, admins can now enter a **Branch** instead of using the repository's default branch. The Manage marketplace dialog also shows the reason when a save or delete is refused. See [adding a team marketplace](https://cursor.com/docs/plugins.md#add-a-team-marketplace).
+
+#### Cloud Agents
+
+- &#x20;**Repository routing rules moved to Cloud Agents preferences.** Manage the rules that pick a repository or environment for requests from Slack, Jira, Linear, or the API in a **Routing rules** panel on the Cloud Agents preferences page, for your team or your personal workspace. Older routing links and **Manage rules** in the Slack integration open that panel with the linked rule highlighted. See [routing rules](https://cursor.com/docs/integrations/slack.md#routing-rules).
+- &#x20;**Cloud Agents PR creation is an on/off switch.** The Create PRs dropdown in Cloud Agents preferences is now an **Always create PRs** switch in team and personal settings. Teams that had "for single model runs" selected now get a pull request for every run, and in personal settings, leaving it unset follows your team's choice.
+- **Pick a default model and its options in one menu.** The Default model setting in Cloud Agents preferences is now a single picker: search for a model, then set options like effort or fast mode in the same menu.
+- &#x20;**Run Approval Agents when a pull request joins a stack.** Approval Agent triggers on GitHub-only repositories now include **Pull request stacked**, which fires when a pull request is added to a GitHub stack, drafts included. See [configuring triggers](https://cursor.com/docs/approval-agents.md#configure-triggers).
+
+#### Usage, members, and groups
+
+- &#x20;**See which products used your weekly included usage.** The weekly usage meter on your plan card and the Usage page now splits into colored segments by product, with a legend showing each product's share. The Usage chart also shows Cloud Agent spend under its own label instead of Other.
+- &#x20;**Break down usage charts by member.** The daily usage chart on team and organization Usage pages has a **User** option in its group-by menu, so admins who can see members can break spend or tokens down by member.
+- &#x20;**Spend alerts require a recipient.** Creating or editing a spend alert now requires at least one recipient, keeps at least one notification channel selected, and lets you search long admin lists.
+- &#x20;**Paste invite lists from your email client.** In the Invite members dialog, you can paste addresses in the `Name <address>` format from an email To line, and Cursor invites only the addresses and flags broken entries. An expired, revoked, or unknown invite link now says "This invite link isn't valid", and an invite sent to a different email than your account explains that and offers to switch accounts.
+- &#x20;**Confirm before changing an admin to a member.** On the Members page, changing a team admin's role to Member now opens a confirmation that explains they'll stay on the team but can no longer manage its members, invites, billing, or settings. See [changing roles](https://cursor.com/docs/account/teams/members.md#change-role).
+- &#x20;**Group model access saves exactly what you check.** Saving a group's model access now keeps exactly the models you checked, and a group's Models page shows whether access is on, with a **Turn on** or **Turn off** button that confirms before members fall back to the team policy. You can't delete a group until its members are removed, and the dialog says how many remain. See [group model access](https://cursor.com/docs/enterprise/organization-groups.md#model-access).
+
+#### Personal settings and navigation
+
+- **Your dashboard theme follows your account.** Choosing Light, Dark, or System on the dashboard now saves to your account, so the same mode appears in every browser you sign in from.
+- **Manage cookie preferences from My settings.** A new Cookies section under Privacy & security in My settings lets you turn optional cookie categories on or off, or use Accept all or Reject all. Necessary cookies stay on.
+- **Settings search shows the exact setting.** Searching settings now keeps only the matching rows and highlights the matched words. The Cmd+K command palette also finds individual settings in My settings, such as Theme or Home team, and opens the page scrolled to that setting.
+- **Resize the dashboard sidebar.** Drag the sidebar's edge to make it wider or narrower, or past its minimum width to collapse it. The width is remembered across visits, and the handle works with the keyboard.
+
+#### Fixes
+
+- &#x20;**Saving settings no longer undoes other settings.** Saving one section of team settings no longer resets unrelated admin settings such as network allow and deny lists, model lists, or browser origins, and saving MCP allowlist rules no longer flips the Enable Team MCP Allowlist switch. Saving quick actions in one team no longer removes the ones in your other teams.
+- &#x20;**Fixes to usage and members.** Usage alerts no longer arrive twice for the same threshold, and daily usage charts include usage from merged teams. Role, seat, and Over limit filters on the Members page now match across up to 5,000 members, with a warning when a longer roster is cut off.
+- &#x20;**Fixes to API keys, MCP connectors, and Cloud Agents settings.** The dialog showing a new or rotated API key secret now stays open until you click **Done**. MCP connectors whose sign-in keeps failing show a **Reconnect** button, and Cloud Agents settings load and save for the team you have selected.
+- **Fixes and polish.** Amount fields no longer misread a decimal comma like 10,50 as 1,050, and the Overview, Integrations, and My settings pages no longer jump around while they load. Links to Cloud Agents, billing, and workspace settings open in your team or personal workspace instead of the organization overview.
+
+### Automations
+
+#### Tools
+
+- **Automations can open pull requests ready for review.** When an automation [opens a pull request](https://cursor.com/docs/cloud-agent/automations.md#pull-request-creation), it can now open it ready for review when your prompt asks for it. Pull requests still open as drafts by default. A subagent working in another repository now opens its pull request on that repository, instead of failing or opening it on the repository of the agent that started it.
+
+#### Automation runs
+
+- **Test runs now tell you why an automation didn't start.** When you test an automation and the run is refused, you now see the reason, such as no prompts configured, missing repository access or environment secrets, or a rate limit with "Too many automation runs right now. Wait a moment and try again." Runs that fail because Cursor couldn't check your privacy mode now show as temporarily unavailable instead of as a privacy setting problem.
+- **Saving an automation now catches repositories it can't use.** When you add a repository, or an environment with repositories, to a cloud automation, Cursor checks that you can access each new one before it saves. Saves with a repository you can't reach or an unsupported repository URL fail with a clear message, so you don't end up with an automation that fails on every run. Repositories already on the automation aren't checked again. See [Repositories](https://cursor.com/docs/cloud-agent/automations.md#repositories).
+
+#### Automations page
+
+- **Retry failed follow-ups in the automation builder.** When you [describe an automation in plain language](https://cursor.com/docs/cloud-agent/automations.md#getting-started) and a follow-up message fails, the automation builder now shows the error above the Follow up input with a **Retry** button. Retry resends your last message, and the draft you already have stays in the form.
+
+#### Integrations
+
+- **Project automations skip the run-finished reaction in Slack.** Slack-triggered automations that a [Project](https://cursor.com/docs/agent/projects.md) sets up no longer add the default run-finished reaction to the triggering message. This applies to new ones, and to existing ones once their instructions, trigger, or destination change. A custom completion emoji still applies.
+
+#### Fixes
+
+- **Template repositories stay selected while repositories load.** When you create an automation from a template on the web, the template's repository is now filled in right away and stays selected while your repository list is still loading. Before, it was left empty if the template opened before your repositories finished loading.
+
+### Security and approval agents
+
+#### Security agents
+
+- **Vulnerability findings show their OWASP Top 10 category.** Each finding from a Vulnerability Scanner is tagged with its OWASP Top 10:2025 category, so you can see the class of issue at a glance. The category appears as a badge on findings in the dashboard and in Slack finding replies, and the new **OWASP category** filter in [Reviewing findings](https://cursor.com/docs/vulnerability-remediation.md#reviewing-findings) narrows the list to one category.
+- **Vulnerability findings lead with their impact.** When you open a [vulnerability finding](https://cursor.com/docs/vulnerability-remediation.md#reviewing-findings), its impact appears in a highlighted callout at the top, so you see why it matters first. Reports also have clearer descriptions and labeled evidence, and the scanner rates findings high or critical only when they're tied to a concrete business consequence.
+- **Fixed docs links on security dashboard pages.** The **Learn more** link on Security Review and Vulnerability Remediation pages, including each agent's page, opens the docs for that kind of agent instead of a generic page. When a scan fails because the default branch has no commits, the notice links to the Vulnerability Remediation docs.
+
+#### Approval agents
+
+- &#x20;**Name your approval policies.** On Origin repositories, a [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) policy can set an optional `name`, such as `Public API contract`, so two rules with the same owners no longer read the same. A name is one line of up to 80 characters, unique within its policy file, and titles the rule on the pull request page, in `origin pr requirements`, and in approval comments. Policies without a name look the same as before.
+
+## Week of Nov 2, 2026
+
+### Integrations
+
+#### GitLab
+
+- &#x20;**Advanced setup for GitLab Self-Hosted instances.** Admins can now open an **Advanced** section for each registered [GitLab Self-Hosted](https://cursor.com/docs/integrations/gitlab.md#setup) instance on the Integrations page in the dashboard. From there, admins can save or reset a service account token, copy the webhook URL and secret for manual webhook setup, rotate the webhook secret, and see which webhook triggers are required. This is now available to everyone.
+- **Fixes to GitLab.com token recovery.** Starting an agent on many [GitLab.com](https://cursor.com/docs/integrations/gitlab.md) repositories no longer fails because one token expired or was revoked. Cursor now refreshes or re-creates the token and retries, even when GitLab.com reports the problem as a rate limit.
+
+#### Microsoft Teams
+
+- **Clearer messages for older Microsoft Teams link cards.** In Microsoft Teams, only the most recent **Link Account** card can [link your Cursor account](https://cursor.com/docs/integrations/microsoft-teams.md#link-your-account). Opening an older card now shows that a newer card replaced it, or that your account is already linked, instead of a "linking expired" error.
+
+#### Slack
+
+- **A Slack workspace with a removed app shows Needs reconnect.** In the dashboard, a linked Slack workspace where the Cursor Slack app was removed or its access was revoked now shows **Needs reconnect** instead of **Connected**, so you know to [reinstall the app](https://cursor.com/docs/integrations/slack.md#installation).
+- **Fixes to Slack account linking.** Linking your Slack account to Cursor no longer fails as already linked when the previous link belongs to a Cursor account on a blocked team. The new account takes over the link instead.
+
+#### GitHub
+
+- **Team repo pickers no longer hide your personal GitHub repositories.** Team repo pickers now list repositories from your personal [GitHub](https://cursor.com/docs/integrations/github.md) installation, even if you connected it under a different Cursor team.
+
+#### Linear
+
+- **Reconnecting Linear takes one step.** On the [Linear](https://cursor.com/docs/integrations/linear.md) integration card in the dashboard, **Reconnect** now opens Linear's authorization window right away. The card refreshes when the window closes, even if you don't finish authorizing. If a Linear team can't be found, an **All teams** button takes you back to the team list.
+
+### Dashboard and admin
+
+#### Security and audit logs
+
+- &#x20;**Block personal API key creation for your team.** Team settings have a new **Allow personal API key creation** switch under **Security & automation**. When it's off, nobody on the team, admins included, can create or rotate personal Cursor API keys, including CLI keys, automation webhook keys, and personal service tokens. Existing keys keep working until revoked. See [members' API keys](https://cursor.com/docs/account/teams/members.md#review-members-api-keys).
+- &#x20;**Search your API keys and find fine-grained and legacy keys more easily.** The API keys page now has a search box that finds keys by name or masked key, and on the **Members** tab, by member. Fine-grained and legacy keys appear in separate sections, each with its own sorting and pages. When you can't create a key, **Create API key** is disabled with a tooltip that explains why. See [members' API keys](https://cursor.com/docs/account/teams/members.md#review-members-api-keys).
+- &#x20;**Track API key creation, revocation, and session exchanges in the audit log.** API key create and revoke entries now show the key's name and ID, plus its service account when it has one. Revocations from rotating a key, deleting an automation or service account, disconnecting Jira, deleting an account, or revoking a leaked key now appear with the reason, and a new Session Exchange event records each time an API key or service token is traded for a session. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- &#x20;**See My Machines activity in the audit log.** The audit log now records when a member's personal machine connects to or disconnects from Cloud Agents, and when a Cloud Agent starts on one, with the machine name, the agent, where it was launched from, and the disconnect reason. Filter for these with the new My Machines event type in [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+- &#x20;**Trust the IP addresses your installed apps declare.** Admins can now let installed apps connect from the IP ranges those apps declare, without adding each range to the team's inbound IP allowlist. The inbound IP allowlist settings list each installed app with its IP ranges, and each app's page shows the egress IP ranges it declares.
+
+#### Plugins and MCP
+
+- **Filter your personal plugins and MCP servers.** In a team workspace, the Personal view of the Plugins page has a filter menu for type, category, and status (such as Connected or Disabled by admin). Filters stay in the page URL, so you can share or bookmark a filtered view.
+- **Plugins removed from the marketplace are marked as removed.** On the Plugins page, an installed plugin the marketplace no longer offers now reads "No longer in the marketplace", with Edit disabled and Disconnect still available. Removed plugins no longer appear in Suggested.
+- &#x20;**See your team's first-party plugin policy at a glance.** In workspace settings, the First-Party Plugins row shows whether all first-party plugins are enabled or only an allowlist, with a summary of the allowed plugins. **Change** opens a dialog to pick the mode and edit the allowlist.
+
+#### Cloud Agents
+
+- &#x20;**Track vulnerability findings from the Security Agents page.** A new Remediation agents section on the Security Agents page groups vulnerability findings by stage. Open a finding to see its verification and patch timeline or to request verification or a patch, and admins can click **Enable all** to turn on remediation for every Vulnerability Scanner. See [vulnerability remediation](https://cursor.com/docs/vulnerability-remediation.md).
+- **See how long each environment build took.** The builds table on a Cloud Agent environment's page now has a Duration column that shows how long each finished build took. See [builds](https://cursor.com/docs/cloud-agent/builds.md).
+- **Scope secrets to Origin repositories.** When you limit a Cloud Agents secret to specific repositories, the picker now lists your Origin repositories alongside GitHub and other providers, with provider icons to tell same-named repositories apart.
+
+#### Team settings
+
+- &#x20;**Turn off voice chat for your team.** Team settings have a new Voice chat section with an **Enable voice chat** switch that hides voice chat for everyone on the team when it's off. Voice settings also let you turn each status chime on or off and preview its sound. See [turning voice chat off](https://cursor.com/docs/agent/voice-chat.md#turn-voice-chat-off).
+- &#x20;**Team privacy mode changes apply right away.** When an admin changes the team's privacy mode, every member's next request now uses the new mode, instead of the old one for up to several minutes. The same applies when someone joins or leaves a team.
+- &#x20;**Find any team setting from search or the command palette.** Search on the Team settings page tolerates typos and matches any text in a section, not only its title. Admins can also type a setting's name in the Cmd+K command palette to open Team settings scrolled to that row.
+- &#x20;**Members can see their team's restricted models.** Team members now see the **Restricted and early-access models** section in Team settings, read-only, with whether the team acknowledged each model's data policy. Only admins can change acknowledgements.
+- &#x20;**Clearer switching between repository blocklist and allowlist.** The **Blocklist / allowlist** card in workspace settings shows which indexing mode is active. **Change** switches modes in a dialog that warns you before the switch removes the repositories already on your list.
+
+#### Integrations
+
+- &#x20;**Manage self-hosted GitLab webhooks and service account tokens.** On the Integrations page, **Manage instances** for GitLab Self-Hosted now has an **Advanced** view for each instance where admins set or reset its service account token, copy the webhook URL and secret, and rotate the webhook secret. Rotations appear in the audit log. This is now available to everyone. See [GitLab](https://cursor.com/docs/integrations/gitlab.md).
+- &#x20;**Rollouts records Vercel deploys under their Vercel project.** With **Use my GitHub deployments** on in Rollouts, Production and Staging deployments that Vercel's GitHub integration reports are recorded with the Vercel project as the service, and Vercel preview deploys are ignored. See [sending deployment events](https://cursor.com/docs/rollouts.md#send-deployment-events).
+
+#### Usage, members, and groups
+
+- &#x20;**Filter team usage by service account, attribution, and client type.** On the Usage page, admins of teams without unified billing can narrow usage to a service account, an attribution such as Cloud Agents, Automations, or Bugbot, or a client type. The chart, usage events, and CSV export follow the filters.
+- &#x20;**Manage SCIM from a group's page.** The actions menu on a group's page now includes **Manage SCIM**, which opens the same SCIM mapping dialog as the Groups list, or says setup is required when SCIM isn't set up. See [group management](https://cursor.com/docs/account/teams/scim.md#group-management).
+
+#### Account and dashboard
+
+- **Choose your home team.** If you belong to two or more paid teams that aren't linked to an organization, Settings > Profile now has a Home team setting. It shows the team Cursor uses when you sign in and lets you change it or set it to None.
+- **Clearer warning before deleting a merged account.** If your Cursor account is merged with another account, the delete account confirmation now says that the merged account and its plan are deleted too, immediately and permanently.
+- **Shared canvases open on their own page.** Opening a published canvas from Shared resources now shows it on its own page with Copy link, Download as PDF, and Open in full screen. Older share links forward to the new page.
+- **Switch themes from the command palette.** Type "theme", "dark", or another mode name in the Cmd+K command palette to apply Light, Dark, or System, or pick Toggle theme. The palette also hides commands that would do nothing, like your current theme.
+
+#### Fixes
+
+- &#x20;**Fixes to MCP allowlists and plugins.** A member's group MCP policy can no longer allow MCP servers or tools that the team's Cloud Agent MCP allowlist blocks, and plugins blocked by a team admin show "Disabled by admin".
+- &#x20;**Fixes to members and spending.** Organizations using org-level SCIM no longer have members' directory emails overwritten, which could remove them from mapped teams. Reset dates on the Spending page use your local time zone.
+- &#x20;**Fixes to environments, integrations, and team settings.** Secrets now appear on the configure page for environments configured from a file in the repository, and the Bedrock IAM role instructions name the correct permissions. Team invite links that carry tracking parameters now redeem, and a failed redemption says why.
+- &#x20;**Fixes to dashboard navigation, old links, and the API keys page.** Sidebar items open in a new tab with Cmd-click, Ctrl-click, or middle-click, and old links to Security Agents, Audit log, Data exports, and Deployed Agents open the new dashboard. When a key list fails to load, the API keys page says so and offers **Try again** when a retry can help, and copy buttons report a failed copy.
+
+### Automations
+
+#### Security agents
+
+- **Vulnerability Scanner can open fix PRs without a verification step.** With **Open fix PRs for confirmed findings** on and **Verify new findings** off, new Vulnerability Scanner findings now go straight to a [patch agent](https://cursor.com/docs/vulnerability-remediation.md#remediation-agents). The agent first writes a test that fails against the unchanged code, and opens no PR if it can't show the finding is real.
+- **PR Approver waits longer for automated reviews.** The [PR Approver](https://cursor.com/docs/approval-agents.md#ai-reviewer-awareness) automation now waits up to 11 minutes, instead of 8, for configured Bugbot and Security Reviewer checks to finish before it approves or assigns reviewers. Fewer pull requests miss approval because a review check ran long.
+
+#### Automations page
+
+- **Sign in to an automation's MCP servers from its overview.** The MCPs card on an automation's overview now shows the logos of its [MCP servers](https://cursor.com/docs/cloud-agent/automations.md#mcp-server) and how many are connected. Click it to see which servers still need sign-in and authenticate each one. The status updates when you come back from the browser.
+
+#### Tools
+
+- **Images show inline in Origin pull requests opened by automations.** When an automation [opens a pull request](https://cursor.com/docs/cloud-agent/automations.md#pull-request-creation) on an Origin repository, screenshots and other images from the agent now appear inline in the description instead of as links to a sign-in page. Teammates who can read the repository and the agent see them without a public share.
+
+#### Fixes
+
+- **Automations on Origin repositories no longer fail when no branch is set.** An automation on an Origin repository with no branch set now finds the repository's default branch and launches, instead of failing every run. This includes scheduled automations and automations owned by service accounts.
+- **Fixes to the automation editor's pickers.** Choosing an any-repo self-hosted pool no longer clears the repository you already selected. The repository picker in the desktop app now stays responsive with very large repository lists, as it already did on the web.
+- **Fixes to vulnerability verification.** The [Vulnerability Scanner](https://cursor.com/docs/vulnerability-remediation.md#how-it-works) no longer starts a new verification session every minute while one is already running, and a reverify or patch request still starts one within a minute. Findings queued by a scan are now verified for up to 72 hours after they are queued, up from 24.
+
+### APIs
+
+- &#x20;**Look up organization groups by slug, and add members by numeric user ID.** In the Admin API, [Organization Groups](https://cursor.com/docs/account/organizations/organization-admin-api.md#organization-groups) now include a `slug`, which is null when a group has none, and [`GET /organizations/groups`](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-groups) accepts a `slug` query parameter that returns the group with that exact slug. When you add or remove group members, `userIds` also accepts the numeric `id` that `GET /organizations/members` returns, as a number or a string, alongside `user_` IDs.
+
+### Security and approval agents
+
+#### Security agents
+
+- **Security reviews avoid quoting secret values.** When a [security review](https://cursor.com/docs/security-review.md) finds an exposed credential, its findings, inline PR comments, and Slack summary refer to the secret by its variable or setting name and point to its file and line instead of repeating the value, including partial, masked, or encoded forms.
+
+### Models and Cursor Router
+
+- **Interrupted conversations no longer get stuck.** If a response is cut off partway, you can now continue the conversation instead of getting an error. This affected models such as Gemini.
+
+## Week of Oct 26, 2026
+
+### Integrations
+
+#### GitLab
+
+- **Deploy agents from GitLab Self-Hosted.** You can now deploy agents from repositories on a [GitLab Self-Hosted](https://cursor.com/docs/integrations/gitlab.md) instance connected to your team, including instances served under a URL path such as `corp.example.com/gitlab`. **New Deployment** lists those repositories, and each deploy checks clone access first. If Cursor can't reach the GitLab host or the project token can't read the repository, the deploy stops with an error that names the problem.
+- &#x20;**Clearer GitLab access errors on the Integrations page.** When Cursor can't reach a connected [GitLab or GitLab Self-Hosted](https://cursor.com/docs/integrations/gitlab.md) integration, its row on the Integrations page now explains the problem and how to fix it, with a **Try again** or **Reconnect** button, instead of showing a plain connected or disconnected state. On a team's Integrations page, if your own GitLab account is linked but the team's isn't, the GitLab row says so and names the account you're connected as.
+
+#### GitHub
+
+- &#x20;**Connect GitHub Enterprise for yourself.** On a team's Integrations page, a [GitHub Enterprise](https://cursor.com/docs/integrations/github.md) host now offers **Just for me** next to **Connect**, as GitHub already does. Members who can't manage the team's integrations see only **Just for me**, with a note that a team admin can connect it for the team. Disconnecting GitHub or GitHub Enterprise on a team now explains that only your sign-in is removed and the team's app stays installed, and a signed-out row shows a **Sign in** button.
+
+#### Bitbucket
+
+- &#x20;**Fixes to Bitbucket Data Center.** Repository lists on large [Bitbucket Data Center](https://cursor.com/docs/integrations/bitbucket.md) instances no longer repeat repositories or miss later ones. Adding a user when the server has no licenses left now reports a seat limit instead of an unexpected error.
+
+#### Integrations page
+
+- **Open self-hosted integrations by clicking anywhere on the card.** On the Integrations page in the dashboard, if you can manage integrations, clicking anywhere on the GitHub Enterprise, GitLab Self-Hosted, or Bitbucket Data Center card now opens its management page. Buttons on the card keep their own actions.
+
+### Dashboard and admin
+
+#### Cloud Agents
+
+- &#x20;**Manage deployed agents from Cloud Agents.** Once your team has deployed an agent, Cloud Agents > Deployed agents lists your team's deployed agents with their status, channels, 7-day usage, source, and last deploy, and **New deployment** deploys an agent project from a repository at any branch, tag, or commit. Each agent's page shows sessions with step-by-step traces, logs, and deploy history, and lets you roll back, redeploy, stop, or delete the agent. Deployed agents is in beta.
+- &#x20;**Members can cancel draft environment builds when environment edits are admin-only.** On teams that limit Cloud Agent environment edits to admins, any member can now cancel an in-progress draft build of a team or repository environment from the builds table or a build's page. Canceling other team builds and activating drafts still need an admin. See [managing builds](https://cursor.com/docs/cloud-agent/builds.md#manage-builds).
+
+#### Plugins and MCP
+
+- &#x20;**Browse and install plugins from the Plugins page.** **Add** on the Plugins page now opens a menu with Plugin and Custom MCP. Plugin opens a searchable catalog with Featured and category sections that installs in place, and Custom MCP opens the Add MCP server form, grouped into Where it's added, Connection, and Authentication. See [the marketplace](https://cursor.com/docs/plugins.md#the-marketplace).
+- &#x20;**Plugins your team blocks no longer offer Add.** In the plugin marketplace on the Plugins page, plugins your team's policies would refuse to install, such as ones whose MCP servers an admin disabled or that aren't on the team's allowlist, now hide **Add** instead of failing after you click it. This is now available to everyone.
+
+#### Security and audit logs
+
+- &#x20;**Stop members from creating personal API keys.** Team admins can turn off **Allow Personal API Key Creation** in the new **Personal API Keys** card on the API keys page. Members then can't create or rotate personal Cursor API keys, and existing keys keep working until revoked.
+- &#x20;**More audit log events, and a searchable event filter.** The audit log now records cloud automations being created, updated, enabled, disabled, or deleted, members setting or leaving a home team, organization API key revocations, Origin repository renames, and commit-signing keys being added or deleted. Login entries name the client and version that signed in, and the event type filter has a search box. See [audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+
+#### Members and groups
+
+- &#x20;**Move admins who don't use Cursor to a Free seat.** On teams with seat tiers, the seat menu on the Members page offers **Free** for admins who manage the team but don't use Cursor. A confirmation explains that Free admins can't use Cursor and that the change applies right away. See [seat tiers](https://cursor.com/docs/account/teams/members.md#seat-tiers).
+- &#x20;**Review seat upgrade requests from the Members page.** On teams with seat tiers, admins get an **Upgrades** tab on the Members page that lists members' pending seat upgrade requests and, on self-serve teams, recommended upgrades. Each row has **Upgrade**, and a bulk button upgrades all seats or the ones you select. The tab isn't offered during a Teams trial. On these teams, the Members page also shows when member usage resets, in your local time zone. See [changing a seat tier](https://cursor.com/docs/account/teams/members.md#change-a-seat-tier).
+- &#x20;**Legacy SCIM groups appear on the Groups tab, and synced groups show their last sync.** The Groups tab lists legacy SCIM directory groups with a Legacy badge, including for teams without an organization. Each synced group's page shows when it last synced, and when you add an organization group you can choose Manual or Synced and pick a directory group to sync from. See [group management](https://cursor.com/docs/account/teams/scim.md#group-management).
+- &#x20;**Clearer spend limit controls.** Lowering a member's spend limit warns you when a higher group or team limit still applies, and Cloud Agents blocked by a limit say which team or member limit stopped them.
+
+#### Team settings and integrations
+
+- &#x20;**Team members can open Team settings.** Every team member now sees Team settings in the dashboard navigation. Members who can't manage settings get a read-only view of the team's name, privacy mode, and Origin review and repo creation providers.
+- &#x20;**Connect GitHub Enterprise just for yourself.** On a team's Integrations page, GitHub Enterprise now offers **Just for me** next to **Connect**, and members who can't manage integrations see that a team admin can connect it for the team. **Disconnect** on GitHub and GitHub Enterprise now explains that it removes only your own sign-in while the team's app stays installed. See [GitHub](https://cursor.com/docs/integrations/github.md).
+- **Turn off Slack link previews.** A new **Slack link previews** switch in your pull request settings shows or hides previews of the pull request, code, and artifact links you post in Slack.
+- **Filter Insights to weekdays.** The Include weekends switch on the Insights page is now a **Filter by day** dropdown with All days and Weekdays only. Existing links keep their filter. See [filtering analytics](https://cursor.com/docs/account/teams/analytics.md#filtering-data).
+
+#### Fixes
+
+- &#x20;**Fixes to the Members, Usage, and Groups pages.** The Members page keeps listing members, with search and sorting, when usage data fails to load. Directory group spend limit overrides on pooled and Enterprise token plans now save to the monthly limit that is enforced, and group pages show clear empty, not-found, and load-failure states with Try again.
+- &#x20;**Fixes and polish.** Settings save instantly and offer Try again when a save fails on a temporary network or server error, and team rule globs like `*.{ts,tsx}` stay as one pattern. Adding or renaming an MCP server can no longer overwrite one with the same name, and long emails in the audit log are truncated, with the full address on hover.
+
+### Automations
+
+#### Automations page
+
+- **A refreshed Automations list with icons, run history, and templates.** The Automations list now shows each automation's icon, a 15-day run sparkline, and a count of what you're viewing, with Sort (name, last updated) and Filter (type, creator, status) menus. You can give an automation its own icon and color in the editor, and start from a template in the Templates section with one click on **Use**. Now available to everyone.
+- **Search for a model when editing an automation.** The [model](https://cursor.com/docs/cloud-agent/automations.md#model) picker in the automation prompt editor now has a search box, so you can type to filter the list instead of scrolling. Now available to everyone.
+
+#### Security agents
+
+- &#x20;**Vulnerability Scanner can verify findings and open fix PRs.** Each Vulnerability Scanner automation now has its own **Verify new findings** and **Open fix PRs for confirmed findings** [remediation settings](https://cursor.com/docs/vulnerability-remediation.md#remediation-settings), now available on Teams and Enterprise plans. Verification agents write tests to confirm each new finding, and patch agents open fix PRs for you to review. Both settings start on when an admin creates a scanner, and only team admins can change them.
+- **Security agent pages get clearer names.** Under From Cursor in Automations, the Security Reviewer page is now Security Review and the Vulnerability Scanner page is now [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md), with new page addresses to match. Old links, including links to a specific agent or finding, redirect to the new pages. On the Vulnerability Remediation page, the sections are now Scanner Agents and Remediation Agents, and Remediation Agents sits above Recent Runs.
+- **Vulnerability Scanner keeps secret values out of its reports.** When the [Vulnerability Scanner](https://cursor.com/docs/vulnerability-remediation.md) finds an exposed credential, its findings, Slack reports, and fix pull requests name the secret and point to the file and line where it lives, without repeating the value or any part of it. Fix pull requests that remove a hardcoded secret also remind you to rotate it, since removing it from the code doesn't revoke it.
+- **Security Reviewer runs on GitLab merge requests again.** Fixed an issue where [Security Reviewer](https://cursor.com/docs/security-review.md#source-control-support) automations matched a GitLab merge request, including on self-managed GitLab, but never ran and left Recent Runs empty.
+
+#### Automation runs
+
+- **Run history shows skipped scheduled runs.** When a [scheduled automation](https://cursor.com/docs/cloud-agent/automations.md#scheduled-triggers) fires while its previous run is still in progress, run history now records a skipped run that explains why, instead of showing nothing.
+- **Clearer messages when a run can't start.** When a run fails because your machine was offline, run history now shows Machine offline with the machine's name and the `agent worker start` command to bring it back. A run whose selected environment was deleted or is no longer accessible shows Environment not available and asks the owner to select an environment and save. Runs blocked by a Cursor-wide rate limit now say there is nothing to change on your side and to trigger the run again shortly.
+
+#### Fixes
+
+- **Fixes to the automation editor.** Adding or renaming an MCP server from an automation's actions no longer overwrites an existing server with the same name, and the repository picker stays responsive with very large repository lists.
+- **Fixes to automation runs.** Automations that approve pull requests, resolve review threads, or manage check runs no longer fail with an "Unknown action type" error before the agent starts. This applies to CI, scheduled, webhook, and GitHub triggers.
+
+### APIs
+
+- &#x20;**Verify and patch security findings from the API.** Use the [Vulnerability Remediation API](https://cursor.com/docs/vulnerability-remediation.md#vulnerability-remediation-api) with a team API key to list your team's Vulnerability Scanner findings with `GET /security/findings`. Start verification agents and fix pull requests with `POST /security/verifications`. Track them with `GET /security/verifications` and `GET /security/verifications/{verificationId}`, which return each verdict, its patch status, and links to the fix pull request and Cloud Agent. Service accounts get two new scopes for these endpoints: **View security findings** and **Verify and patch security findings**.
+
+### Security and approval agents
+
+#### Security agents
+
+- &#x20;**Verify vulnerability findings and open fix PRs automatically.** [Remediation Agents](https://cursor.com/docs/vulnerability-remediation.md#remediation-agents) are now available on Teams and Enterprise plans. Admins can turn on **Verify new findings** to test each finding a Vulnerability Scanner reports with an exploit test, and **Open fix PRs for confirmed findings** to get a fix PR, ready for review, for each confirmed issue. Each scanner keeps its own settings, and new scanners created by admins start with both on. Enterprise teams can also request verification and fixes for specific findings through the [Vulnerability Remediation API](https://cursor.com/docs/vulnerability-remediation.md#vulnerability-remediation-api).
+- &#x20;**Security dashboard pages renamed to Security Review and Vulnerability Remediation.** Under From Cursor in the dashboard, the Security Reviewer and Vulnerability Scanner pages are now [Security Review](https://cursor.com/docs/security-review.md) and [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation.md), and old links redirect to them. The Remediation Agents section on Vulnerability Remediation is marked Beta.
+- **Fixed duplicate findings and slow repository pickers on the security dashboard.** The [Remediation Agents](https://cursor.com/docs/vulnerability-remediation.md#remediation-agents) section no longer lists the same scanner finding twice. Links to Vulnerability Remediation, such as those from Slack, now scroll to the Remediation Agents section once the dashboard loads. The repository picker on security and approval agent triggers stays responsive with thousands of repositories.
+- **Fixed follow-up security reviews skipping fixed issues.** When you push to a pull request again, [Security Review](https://cursor.com/docs/security-review.md) marks issues you've fixed as fixed instead of skipping them without notice.
+
+#### Approval agents
+
+- **Fixed approval reviews failing when rules share a prompt.** When several matched rules use the same prompt text, [PR Routing & Approval](https://cursor.com/docs/approval-agents.md) now includes that text once, so the repeated text no longer makes the review too large to run.
+
 ## Week of Oct 19, 2026
 
 ### Integrations

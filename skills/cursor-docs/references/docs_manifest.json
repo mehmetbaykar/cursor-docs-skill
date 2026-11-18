@@ -865,8 +865,8 @@
       "title": "ACP"
     },
     "cli__changelog.md": {
-      "hash": "0caa5d07e40822ccc9afbe9442e87af984254bf2bfafd6096927e64e6be9f6ad",
-      "last_updated": "2026-10-23T18:26:17+00:00",
+      "hash": "1200a946207fb474d53399c2f44f638b7313261b78f7e729bc820ddc9129f69c",
+      "last_updated": "2026-11-18T15:19:44+00:00",
       "original_url": "https://cursor.com/docs/cli/changelog",
       "path": "/docs/cli/changelog",
       "section": "docs",
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "7206f15ed34c877d7ab51e0995c48da267d3f65821ec6fa5ccfdee8a9959772e",
-      "last_updated": "2026-11-18T00:41:24+00:00",
+      "hash": "265c11db1c03d77922d49ca5dd1c13ef3747bf1e4acff66ebe47742d035c6c92",
+      "last_updated": "2026-11-18T15:20:31+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2415,8 +2415,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "36c76c2993e722f882dbc958e3f140316c1ac4ecbda7419324c335d371dc387c",
-      "last_updated": "2026-11-16T21:20:26+00:00",
+      "hash": "10493fb0e7766d05fd5573d0fdf9bbf29bc59341f85f9e1796b6fd85281fa84f",
+      "last_updated": "2026-11-18T15:20:25+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "section": "docs",
@@ -2425,8 +2425,8 @@
       "title": "Release notes"
     },
     "release-notes__agents-window.md": {
-      "hash": "9c935871477e972f2f2e6ee68a00352928228bdba946e0aa09f9419a87ae5a3f",
-      "last_updated": "2026-11-07T00:38:10+00:00",
+      "hash": "6b9265907dad5946f6905997e165fcecffa3c71aefcc0ae98e01f1ddc2cb2084",
+      "last_updated": "2026-11-18T15:20:25+00:00",
       "original_url": "https://cursor.com/docs/release-notes/agents-window",
       "path": "/docs/release-notes/agents-window",
       "section": "docs",
@@ -2435,8 +2435,8 @@
       "title": "Agents Window release notes"
     },
     "release-notes__bugbot.md": {
-      "hash": "38f19c7351da00f839daee7221a07820353bd5fdc6245a9fe8aa9a2a36590c0a",
-      "last_updated": "2026-11-07T00:38:10+00:00",
+      "hash": "c9d47ff49e920e7051e370524e4e2e67c93eea58c80debdcf72e777edf78b535",
+      "last_updated": "2026-11-18T15:20:25+00:00",
       "original_url": "https://cursor.com/docs/release-notes/bugbot",
       "path": "/docs/release-notes/bugbot",
       "section": "docs",
@@ -2445,8 +2445,8 @@
       "title": "Bugbot release notes"
     },
     "release-notes__cloud-agents.md": {
-      "hash": "7874749e4934aa0f2577edce7e5fdde0545d57cec96f5fea14a737621426ee9a",
-      "last_updated": "2026-10-27T15:25:56+00:00",
+      "hash": "abca562d0ec1797827d6a0dd99bb41a7cfbd3f69b41f2eb1df4f590710fd5bcb",
+      "last_updated": "2026-11-18T15:20:26+00:00",
       "original_url": "https://cursor.com/docs/release-notes/cloud-agents",
       "path": "/docs/release-notes/cloud-agents",
       "section": "docs",
@@ -2455,8 +2455,8 @@
       "title": "Cloud Agents release notes"
     },
     "release-notes__ide.md": {
-      "hash": "59f4b19e69db450ee301552cb8e59091948699fdae60333b3432119a6546a4ac",
-      "last_updated": "2026-10-27T15:25:57+00:00",
+      "hash": "0e3c779f56247d59c0ebf0bed3a74bf3e08352be8715f99ba22bad06ff885409",
+      "last_updated": "2026-11-18T15:20:26+00:00",
       "original_url": "https://cursor.com/docs/release-notes/ide",
       "path": "/docs/release-notes/ide",
       "section": "docs",
@@ -2465,8 +2465,8 @@
       "title": "Cursor IDE release notes"
     },
     "release-notes__mobile.md": {
-      "hash": "b0c863fcfc6a54f0e7f11c7f7cf462c7be503eca67d983cef8b576265d6ee026",
-      "last_updated": "2026-10-27T15:25:57+00:00",
+      "hash": "2206e183d3f51da8cd14b909e74e8231410696f420ca91082f184487c17a094e",
+      "last_updated": "2026-11-18T15:20:26+00:00",
       "original_url": "https://cursor.com/docs/release-notes/mobile",
       "path": "/docs/release-notes/mobile",
       "section": "docs",
@@ -2485,8 +2485,8 @@
       "title": "Origin CLI release notes"
     },
     "release-notes__origin.md": {
-      "hash": "79f080250926f9fc5e4746f3f0fad72f76d03f4666d704f6032b9e3ca1863b0e",
-      "last_updated": "2026-11-07T00:38:11+00:00",
+      "hash": "03552436d24d74fd7f8863e4e885772c50e93febc90f7b3f87427cda1b541f8e",
+      "last_updated": "2026-11-18T15:20:27+00:00",
       "original_url": "https://cursor.com/docs/release-notes/origin",
       "path": "/docs/release-notes/origin",
       "section": "docs",
@@ -2495,8 +2495,8 @@
       "title": "Origin release notes"
     },
     "release-notes__sdk.md": {
-      "hash": "f4e34c8bd1bc04cddd338a5d7e023cf1d22a89d81c2a88baf4eeeeb77cbbba6b",
-      "last_updated": "2026-11-16T21:20:29+00:00",
+      "hash": "eb415c9252294e6f0efc7b54a9ad66e11cbf74525f34b9b5bcf4213be47bf211",
+      "last_updated": "2026-11-18T15:20:27+00:00",
       "original_url": "https://cursor.com/docs/release-notes/sdk",
       "path": "/docs/release-notes/sdk",
       "section": "docs",
@@ -2505,8 +2505,8 @@
       "title": "Cursor SDK release notes"
     },
     "release-notes__web.md": {
-      "hash": "1d3591ff6316f1ed6d6106664feeb55a0dfe895e80532e33b960291643be1ecc",
-      "last_updated": "2026-11-12T21:20:45+00:00",
+      "hash": "09e7f85f0092f2c5a8dcd2b864c9fcfff15a2b73341c1e201eb6b38c6bcba8e3",
+      "last_updated": "2026-11-18T15:20:28+00:00",
       "original_url": "https://cursor.com/docs/release-notes/web",
       "path": "/docs/release-notes/web",
       "section": "docs",
@@ -2780,7 +2780,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-18T00:41:41+00:00",
+  "last_updated": "2026-11-18T15:20:44+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

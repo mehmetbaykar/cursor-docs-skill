@@ -8,6 +8,22 @@ path: /docs/release-notes/sdk
 
 The latest features, improvements, and fixes shipping to the Cursor SDK, covering `@cursor/sdk` on npm and `cursor-sdk` on PyPI.
 
+## 1.4.1
+
+- &#x20;**Local runs say which team MCP allowlist applies to Cursor-hosted MCP servers.** When a local agent connects to a Cursor-hosted MCP server, the run prints a `[cursor-sdk]` line to stderr naming the [MCP allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) in effect, why it applies, and which servers it allows. Each server's line prints once per process, and MCP servers you host yourself never trigger it. Works in TypeScript and Python.
+- **Python SDK callers now see SDK notices.** The Python SDK prints the SDK's `[cursor-sdk]` notices, such as which MCP allowlist applies, to your process's stderr, each distinct message once, as the TypeScript SDK does. Other diagnostic output goes to the `cursor_sdk.bridge` logger at debug level, which you can see with `CURSOR_SDK_LOG=debug` (see [troubleshooting](https://cursor.com/docs/sdk/python.md#troubleshooting)). Python agents also no longer stall when the SDK's background process writes a lot of diagnostic output.
+- **Fixes to nested subagents with inherited tools.** TypeScript local agents that set `local.subagentInherit` no longer launch subagents endlessly when no inherited tool can finish the task. A subagent can still start one more of its own, but that child has to answer with the tools it has instead of delegating again.
+
+## 1.4.0
+
+- **Steer cloud runs from TypeScript and Python.** [`run.steer(text)`](https://cursor.com/docs/sdk/typescript.md#steering-a-run-in-flight) now delivers text into a running cloud run instead of always resolving `revert_to_followup`, and Python adds `Run.steer` and `AsyncRun.steer`. If the cloud run has already ended, the text is queued as a follow-up and the outcome may include the run it starts, so don't send it again. Accounts without steering access get a `FeatureUnavailableError`.
+- **Token usage for each model call in local runs.** In TypeScript, a local run's `onDelta` callback now receives a `model-call-completed` [interaction update](https://cursor.com/docs/sdk/typescript.md#interaction-updates) as each model call finishes, with that call's input, output, cache read, cache write, and reasoning tokens. Track cost as it grows during a turn, while `turn-ended` still carries the turn's total. The `ModelCallCompletedUpdate` type and `ModelCallCompletedUpdateSchema` are exported.
+
+## 1.3.2
+
+- **Compact a local agent's conversation from Python with `agent.summarize()`.** `Agent.summarize()` and `AsyncAgent.summarize()` free up context on demand, like `/summarize` in the CLI and `agent.summarize()` in TypeScript. The returned run streams [`SDKSummaryMessage`](https://cursor.com/docs/sdk/python.md#stream-events) events, and `wait()` returns the summary text. Calling it on a cloud agent raises `ConfigurationError`.
+- **Fixes to installs and local runs.** The SDK now finds its platform-specific package when installed with pnpm or other layouts that place it next to the SDK. Local runs keep their max mode setting and their full result text, even when it contains NUL characters, and pick up checkpoints that another process writes to the same local store.
+
 ## 1.2.0
 
 - **Run local agents on a file system you provide.** Pass `local.fs` to a local agent, either a `FileSystem` or a factory called once per run, and its file tools (Read, Write, StrReplace, LS, Grep, Glob, Delete) and `Task` subagents work on that tree instead of your disk. Shell, hooks, and other tools that touch the host are turned off, and each run gets its own in-memory `/tmp`. Build trees with helpers like `tempFs`, `unionFs`, `overlayFs`, `readOnlyFs`, and `childOverlayFs`. TypeScript only.
