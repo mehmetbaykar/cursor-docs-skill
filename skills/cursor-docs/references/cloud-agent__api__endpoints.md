@@ -3440,7 +3440,7 @@ Monitor worker utilization and build autoscaling for your pools. Durable pools s
 
 The endpoint paths keep the older `private-workers` name; they refer to the same [Self-Hosted Machines workers](https://cursor.com/docs/cloud-agent/self-hosted.md).
 
-Authenticate with the pool's service account API key via Basic auth or Bearer token. Other API key types are rejected.
+Authenticate with an API key via Basic auth or Bearer token. The pool controller endpoints (pending requests, claims, and session tokens) require a team service account API key with the `agent` scope. The other endpoints also accept a user API key.
 
 ### List Workers
 
@@ -3568,6 +3568,77 @@ Unique identifier for the worker (for example, `pw_123`).
 curl --request GET \
   --url "https://api.cursor.com/v0/private-workers/pw_123" \
   -u "$CURSOR_API_KEY:"
+```
+
+### List Workers By ID
+
+GET
+
+`/v0/private-workers?workerIds=`
+
+Read up to 100 workers in one call. Pool controllers use this to check which of their workers are still connected without calling [Get Worker By ID](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-worker-by-id) once per worker.
+
+This endpoint accepts personal user API keys as well as team service account keys. A service account key needs the `agent` scope; one without it gets `401`.
+
+The call answers in full or fails; it never returns part of the answer. A `503` means the lookup is temporarily unavailable. Try again later, and don't treat the requested workers as gone.
+
+#### Query Parameters
+
+`workerIds` string (required)
+
+Comma-separated worker IDs. A repeated `workerIds` key adds more IDs. Send 1 to 100 IDs, each at most 64 characters. Duplicates are collapsed, and a blank entry returns `400`.
+
+`workerIds` can't be combined with `status`, `scope`, `limit`, or `pageToken`. That returns `400`.
+
+#### Response Fields
+
+`workers` array
+
+Workers found, in request order. Each entry has the same fields as [List Workers](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-workers).
+
+`notFoundWorkerIds` string\[]
+
+Requested IDs with no matching worker, in request order. A worker that isn't connected and a worker your key can't see both appear here.
+
+`observedAtMs` integer
+
+Server time, in Unix milliseconds, taken before worker state was read.
+
+Every distinct requested ID appears exactly once, in either `workers` or `notFoundWorkerIds`.
+
+#### Rate Limits
+
+Each call counts once, whatever the number of IDs, against its own limit of **120 requests per minute** and **7,200 requests per hour**. Over the limit, it returns `429` with a `Retry-After` header.
+
+```bash
+curl --request GET \
+  --url "https://api.cursor.com/v0/private-workers?workerIds=pw_123,pw_456" \
+  -u "$CURSOR_API_KEY:"
+```
+
+**Response:**
+
+```json
+{
+  "workers": [
+    {
+      "workerId": "pw_123",
+      "repoOwner": "acme",
+      "repoName": "payments-service",
+      "repoUrl": "https://github.com/acme/payments-service",
+      "workspaceRootPath": "/home/agent/payments-service",
+      "connectedAtMs": 1737306880000,
+      "userId": 0,
+      "teamId": 456,
+      "serviceAccountId": "sa_abc123",
+      "isInUse": true,
+      "activeBcId": "bc-00000000-0000-0000-0000-000000000002",
+      "name": "gpu-worker-1"
+    }
+  ],
+  "notFoundWorkerIds": ["pw_456"],
+  "observedAtMs": 1737306895000
+}
 ```
 
 ### List Pools

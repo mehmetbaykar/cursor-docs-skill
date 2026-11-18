@@ -1025,8 +1025,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "b9a7b7735e6e333e49232af239980bb90e6f350462479d7febe79cb1c2dd350b",
-      "last_updated": "2026-11-17T18:23:07+00:00",
+      "hash": "3e75b588c0cac50d02c4ec1122cb0af2aaaa57793157b61da41d6a260d12e023",
+      "last_updated": "2026-11-18T00:40:29+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1215,8 +1215,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "8c2884d4fd6c5f3fcc10d9133cde78347056875e9a689a94261bd478837c21a7",
-      "last_updated": "2026-11-11T00:38:38+00:00",
+      "hash": "9b9a08344a06258c136f346922d7e3ee0a87852540eb17eaef75622c56b5f901",
+      "last_updated": "2026-11-18T00:40:37+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "section": "docs",
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "444d8b156c7d5c9692af9637d9c71927bccbdbf20f29c5c6ad4d58be7976fb31",
-      "last_updated": "2026-11-17T21:19:44+00:00",
+      "hash": "7206f15ed34c877d7ab51e0995c48da267d3f65821ec6fa5ccfdee8a9959772e",
+      "last_updated": "2026-11-18T00:41:24+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2780,7 +2780,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-17T21:20:03+00:00",
+  "last_updated": "2026-11-18T00:41:41+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
