@@ -55,8 +55,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "e3bce04478355fdfcccc18558a5ba336828adbeb43ab483ed1369762ebd673b1",
-      "last_updated": "2026-11-12T18:21:56+00:00",
+      "hash": "5339c9a95aa5fd0828f2d8b52f2d103642a319d467c04bcaa849fc752662cf82",
+      "last_updated": "2026-11-19T18:22:39+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "section": "docs",
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "b326164eca763909b9917bbebd6a6fe896f8ae41d241f939e71b6ce1f82289cc",
-      "last_updated": "2026-11-19T03:23:12+00:00",
+      "hash": "83e01819af3c11f044cbfa321b3754516176470136393666bbefdb512d443437",
+      "last_updated": "2026-11-19T18:23:54+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2605,8 +2605,8 @@
       "title": "Subagents"
     },
     "vulnerability-remediation.md": {
-      "hash": "d3c291779db8cf04949b66155bd8babe22cef08f4155b7d73e47b266ae9deb68",
-      "last_updated": "2026-11-18T21:20:14+00:00",
+      "hash": "babfe785f1ec3691254ff5aa4b83177909b005504c09e64ef0b6ca28c4bd1600",
+      "last_updated": "2026-11-19T18:23:53+00:00",
       "original_url": "https://cursor.com/docs/vulnerability-remediation",
       "path": "/docs/vulnerability-remediation",
       "section": "docs",
@@ -2790,7 +2790,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-19T03:23:34+00:00",
+  "last_updated": "2026-11-19T18:24:09+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
