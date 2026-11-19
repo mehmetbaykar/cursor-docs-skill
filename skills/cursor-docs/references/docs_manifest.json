@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "61826b1590248e0246e5281bf095a33ea30589823230fa72b9d102446e7e894c",
-      "last_updated": "2026-11-19T00:40:43+00:00",
+      "hash": "b326164eca763909b9917bbebd6a6fe896f8ae41d241f939e71b6ce1f82289cc",
+      "last_updated": "2026-11-19T03:23:12+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1545,8 +1545,8 @@
       "title": "MCP Install Links"
     },
     "models-and-pricing.md": {
-      "hash": "28ba756a769ac210fb42b382cc205cd55178889b97687ae765083dd951bab727",
-      "last_updated": "2026-11-19T00:40:09+00:00",
+      "hash": "4637e82f0df4a4fe1c9f6ea262ed92107937c8f63d131bd5e835c0fcbd2466d2",
+      "last_updated": "2026-11-19T03:22:35+00:00",
       "original_url": "https://cursor.com/docs/models-and-pricing",
       "path": "/docs/models-and-pricing",
       "section": "docs",
@@ -2525,8 +2525,8 @@
       "title": "Cursor web release notes"
     },
     "rollouts.md": {
-      "hash": "404bb1f2f73453bee0d0c404cc8891431fb58dcf7a5b3e4d36120d77c3fe16d3",
-      "last_updated": "2026-11-16T21:20:29+00:00",
+      "hash": "af810cd8e4598bd220065016b255f965a2fede8068df3d0ec4c00999b494cdc2",
+      "last_updated": "2026-11-19T03:23:08+00:00",
       "original_url": "https://cursor.com/docs/rollouts",
       "path": "/docs/rollouts",
       "section": "docs",
@@ -2790,7 +2790,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-19T00:40:55+00:00",
+  "last_updated": "2026-11-19T03:23:34+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

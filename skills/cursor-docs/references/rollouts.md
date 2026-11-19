@@ -48,7 +48,7 @@ In [Automations](https://cursor.com/automations), open the **Team** tab and sele
 
 ### Access to monitored repositories
 
-Choose the repositories to watch. Every pull request that ships from these repositories gets its own watch, tied to its author. Rollouts watches repositories on Origin, GitHub, GitLab.com, and Bitbucket Cloud.
+Choose the repositories to watch. Every pull request that ships from these repositories gets its own watch, tied to its author. Pull requests already open when Rollouts is turned on aren't monitored, and connecting deployments doesn't pick them up. To monitor one, reopen it or ask Rollouts to watch it in a pull request comment. Rollouts watches repositories on Origin, GitHub, GitLab.com, and Bitbucket Cloud.
 
 ### Send deployment events to Rollouts
 
