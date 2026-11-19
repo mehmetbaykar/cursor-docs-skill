@@ -195,7 +195,7 @@ curl https://cursor.com/install -fsS | bash
   agent login
   ```
 
-- On a team, **Allow Personal Machines** or **Allow Self-Hosted Machines** turned on by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#remote-machines). **Allow Personal Machines** is the team's Remote Control setting. While both are off, Cloud Agents can't run on members' machines.
+- On a team, **Allow Personal Machines** or **Allow Self-Hosted Machines** turned on by a team admin in the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents#remote-machines). **Allow Personal Machines** is the team's Remote Control setting. While both are off, Cloud Agents can't run on members' machines. When an admin turns **Allow Personal Machines** off, no run, including an [automation](https://cursor.com/docs/cloud-agent/automations.md) run, can use a machine registered with a personal login. Workers registered with a service account aren't affected.
 
 **Team Pools**
 

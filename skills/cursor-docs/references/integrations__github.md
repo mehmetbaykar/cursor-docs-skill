@@ -184,6 +184,8 @@ The GitHub app requests the following permissions to support Cursor features:
 
 All permissions follow the principle of least privilege.
 
+These are the Cursor GitHub App's permissions. Inside a Cloud Agent's VM, `git` and `gh` use a separate, narrower token that can't dispatch or re-run workflows. If the agent needs to, add a GitHub personal access token as a [personal secret](https://cursor.com/docs/cloud-agent/security-network.md#runtime-secrets) named `GH_TOKEN`.
+
 ## Protected Git Scopes
 
 Lock your GitHub organization to your Cursor organization so only your teams can use its repositories with Cloud Agents, automations, and Bugbot. Protecting a scope requires GitHub organization owner or admin access. See [Protected Git Scopes](https://cursor.com/docs/enterprise/model-and-integration-management.md#protected-git-scopes).

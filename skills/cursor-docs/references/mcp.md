@@ -260,6 +260,8 @@ MCP distribution and MCP policy are configured separately. Team admins can distr
 
 Configure shared Team MCP servers under **Dashboard > Plugins & MCPs**. These servers are available to Cloud Agents.
 
+To run Team MCP servers only on members' computers by default, a team admin turns on **Run connectors only on members' computers** in the team's MCP settings under **Dashboard > Plugins & MCPs**. Cloud Agents can't connect to a server that runs only on members' computers. Turn the switch off to let Cloud Agents use them again.
+
 A Team MCP server's config and a team plugin's variables are shared by the whole team. Editing them from any surface, including an automation's MCP settings, changes the value for every teammate and automation that uses them. Only team admins can edit a Team MCP server or replace credentials a team plugin already has. Org admins have the same access on every team linked to their [Organization](https://cursor.com/docs/enterprise/organizations.md), even without a team admin role.
 
 To make an existing standalone Team MCP server available in the Agent Window, IDE, and CLI, select **Add to Team Marketplace** under **Team MCP Servers**. Cursor links the server to the Default team marketplace without interrupting Cloud Agent access. Teammates can then install and configure it from Customize.

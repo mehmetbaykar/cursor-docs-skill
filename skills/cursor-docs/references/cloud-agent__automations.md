@@ -239,6 +239,8 @@ Use a multi-repo environment when an automation needs to work across multiple re
 
 On [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines), an automation uses only the environment's repositories. An any-repo pool worker started with `--clone-git-repos` checks out all of them. Other workers use the checkouts they already have.
 
+When a team admin turns off **Allow Personal Machines**, automation runs can't use a worker registered with a personal login, such as a [My Machines](https://cursor.com/docs/cloud-agent/self-hosted/my-machines.md) worker. To run automations on your own infrastructure, use a [Team Pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md) worker registered with a service account.
+
 ## Share
 
 Team accounts set visibility and identity from **Share** on the automation detail header. Personal accounts do not have this menu.
@@ -251,12 +253,12 @@ Team accounts set visibility and identity from **Share** on the automation detai
 ### Access
 
 - **Private**: Other team members cannot see the automation. Only you can manage it. Team admins can view and disable it.
-- **Members can view**: Team members can view the automation. You manage it when it runs as you. Team admins manage it when it runs as the service account. Admins can disable it in either case.
+- **Members can view**: Team members can view the automation. You manage it when it runs as you. Team admins manage it when it runs as the service account. Admins can turn it on or off, or delete it, in either case.
 - **Members can edit**: Team members can view and edit the automation.
 
 The menu also includes **Copy link**.
 
-Changing **Run as** to **Service account** changes the identity the automation uses. It stops using your auth and starts using a service account dedicated to that automation. If the automation uses webhook triggers, regenerate its webhook API key after the change. If it uses MCPs or other integrations that rely on personal OAuth credentials, make sure those are configured for the team's service account instead. Only team admins can switch an automation to the service account.
+Changing **Run as** to **Service account** changes the identity the automation uses. It stops using your auth and starts using a service account dedicated to that automation. If the automation uses webhook triggers, regenerate its webhook API key after the change. If it uses MCPs or other integrations that rely on personal OAuth credentials, make sure those are configured for the team's service account instead. Only team admins can switch an automation to the service account. They can switch one set to **Members can view** or **Members can edit**. For a **Private** automation, only the creator can change **Share**, so the creator picks **Members can view** or **Members can edit** first. Once it runs as the service account, team admins can edit it.
 
 ### Service accounts for automations
 
@@ -269,6 +271,12 @@ On Enterprise teams, these accounts are listed in Dashboard → Settings → API
 Some older automations share a single team service account named `automations`. They move to their own service account the next time they are saved.
 
 An automation that runs as a service account stops running if that service account is archived or deleted. Only archive an `automation-` service account once you're sure no automation still uses it.
+
+## Delete and audit
+
+Deleting an automation is permanent. Cursor removes it and revokes its automation API keys, and it can't be restored.
+
+On Enterprise, the team's [audit log](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs) records when an automation shared with the team is created, edited, turned on or off, or deleted. Private automations aren't recorded.
 
 ## Identity
 
