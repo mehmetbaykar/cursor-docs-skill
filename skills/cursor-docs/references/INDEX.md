@@ -218,6 +218,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `models__muse-spark-1-3` - [Models Muse Spark 1 3](https://cursor.com/docs/models/muse-spark-1-3)
 - `models__muse-wonder` - [Models Muse Wonder](https://cursor.com/docs/models/muse-wonder)
 - `origin` - [Origin](https://cursor.com/docs/origin)
+- `origin__access-policies` - [Custom access policies](https://cursor.com/docs/origin/access-policies)
 - `origin__agents` - [Agents and automations](https://cursor.com/docs/origin/agents)
 - `origin__apps` - [Origin Apps](https://cursor.com/docs/origin/apps)
 - `origin__apps__build-app` - [Build an Origin App](https://cursor.com/docs/origin/apps/build-app)

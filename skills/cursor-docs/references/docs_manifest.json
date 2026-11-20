@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 276,
+    "pages_fetched_successfully": 277,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 276
+    "total_pages_discovered": 277
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "fd715c0bc29d7b758b8070f702a9b2cd2a8dc69c4a03b9a331e5aac2e6720d94",
-      "last_updated": "2026-11-20T03:23:21+00:00",
+      "hash": "a99278f350d01c46119c706b54b1f9ab8ffa841baafd70964bc6b92f2f50a04f",
+      "last_updated": "2026-11-20T18:24:06+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2184,6 +2184,16 @@
       "status": "live",
       "title": "Origin"
     },
+    "origin__access-policies.md": {
+      "hash": "2979bbacaa0f1c38dfbea44ba59f94b18f92042d85fe9121678e0370dcd028a6",
+      "last_updated": "2026-11-20T18:23:49+00:00",
+      "original_url": "https://cursor.com/docs/origin/access-policies",
+      "path": "/docs/origin/access-policies",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/origin/access-policies",
+      "status": "live",
+      "title": "Custom access policies"
+    },
     "origin__agents.md": {
       "hash": "568486d05e55475b9ae9145ba46d84b6a242fdf97701b10290eeb182c8c7b7d7",
       "last_updated": "2026-11-16T21:20:19+00:00",
@@ -2335,8 +2345,8 @@
       "title": "Pull requests"
     },
     "origin__settings.md": {
-      "hash": "753439c2059aaf1cc0866d79f1d77219ed020c02e7ba2f0bfaf17d41a7d33eff",
-      "last_updated": "2026-11-16T21:20:23+00:00",
+      "hash": "1922b216cf2eaf52ff4fb6f1c78c354d9f39050a62db2af6f9785b070ea1eab4",
+      "last_updated": "2026-11-20T18:23:55+00:00",
       "original_url": "https://cursor.com/docs/origin/settings",
       "path": "/docs/origin/settings",
       "section": "docs",
@@ -2790,7 +2800,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-20T03:23:46+00:00",
+  "last_updated": "2026-11-20T18:24:26+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

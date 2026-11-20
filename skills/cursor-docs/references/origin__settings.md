@@ -35,6 +35,8 @@ Visibility is chosen when you [create the repository](https://cursor.com/docs/or
 
 Team-wide Origin access (who can enable Origin, create repositories, or disable the feature) is managed in [Codebase settings](https://cursor.com/docs/origin/settings.md#permissions).
 
+To grant a set of permissions the built-in policies don't cover, see [Custom access policies](https://cursor.com/docs/origin/access-policies.md).
+
 ![Origin repository Settings Access tab](https://cursor.com/docs-static/images/origin/settings-permissions.png)
 
 ### Collaborators
@@ -72,6 +74,8 @@ Team-level permissions control who can use Origin for your codebase: who can acc
 - Admins can disable Origin for the team at any time from the dashboard; teams on legacy privacy mode cannot enable Origin, so switch to [Privacy Mode](https://cursor.com/help/security-and-privacy/privacy.md#how-do-i-enable-privacy-mode) first if you want access
 
 Exact controls in the Permissions UI may change during early beta.
+
+To define your own sets of permissions for the codebase, see [Custom access policies](https://cursor.com/docs/origin/access-policies.md).
 
 ### Notifications
 
