@@ -15,9 +15,9 @@ import { defineAgent } from "@grok/agent-sdk";
 
 export default defineAgent({
   model: {
-    id: "grok-4.5",
+    id: "grok-4.7",
     params: [
-      { id: "effort", value: "high" },
+      { id: "reasoning_effort", value: "high" },
       { id: "fast", value: "true" },
     ],
   }, // optional; this is the default
@@ -26,27 +26,27 @@ export default defineAgent({
 
 ## Agent fields
 
-| Field          | Type                                  | Meaning                                                                                                                                                                                         |
-| -------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model`        | string or `{ id, params }`            | Cursor model for turns. Defaults to `grok-4.5` with `effort=high` and `fast=true`. Subagents omit it to inherit.                                                                                |
-| `name`         | string                                | Display name. Defaults to the package or directory name.                                                                                                                                        |
-| `description`  | string                                | What the agent is for. Required on subagents, where the parent model reads it to decide when to delegate.                                                                                       |
-| `instructions` | string                                | Inline instructions for subagents and generated configs. Prefer `instructions.md`.                                                                                                              |
-| `local`        | `{ cwd?, workspaceDir?, sandbox? }`   | Defaults for a local run. See [Local options](https://cursor.com/docs/agent-sdk/reference/agent-config.md#local-options).                                                                       |
-| `hosting`      | `{ egressDomains?, secretNames? }`    | The egress allowlist and expected secret names that `agent-sdk deploy` reads. Mounted [extensions](https://cursor.com/docs/agent-sdk/reference/extensions.md#build-an-extension) add their own. |
-| `concurrency`  | `{ maxRunningTurns? }`                | Agent-wide limit on concurrent turns. See [Concurrency](https://cursor.com/docs/agent-sdk/reference/agent-config.md#concurrency).                                                               |
-| `builtinTools` | `{ reminders? }`                      | Opt-in tools that Agent SDK provides. See [Built-in tools](https://cursor.com/docs/agent-sdk/reference/agent-config.md#built-in-tools).                                                         |
-| `tools`        | `ToolName[]`                          | Allowlist of built-in tools. Omit it for the full standard toolset. See [Harness tools](https://cursor.com/docs/agent-sdk/reference/agent-config.md#harness-tools).                             |
-| `fs`           | `FileSystem` or `(ctx) => FileSystem` | Custom file tree for the session. `root` is the deprecated name. See [Custom filesystem](https://cursor.com/docs/agent-sdk/reference/agent-config.md#custom-filesystem).                        |
-| `skills`       | `false` or `(ctx) => FileSystem`      | Replaces the skills tree mounted at `/agent/skills`, or turns that mount off.                                                                                                                   |
+| Field          | Type                                      | Meaning                                                                                                                                                                                                                                                                                                          |
+| -------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `model`        | string or `{ id, params }`                | Cursor model for turns. Defaults to `grok-4.7` with `reasoning_effort=high` and `fast=true`. Subagents omit it to inherit.                                                                                                                                                                                       |
+| `name`         | string                                    | Display name. Defaults to the package or directory name.                                                                                                                                                                                                                                                         |
+| `description`  | string                                    | What the agent is for. Required on subagents, where the parent model reads it to decide when to delegate.                                                                                                                                                                                                        |
+| `instructions` | string                                    | Inline instructions for subagents and generated configs. Prefer `instructions.md`.                                                                                                                                                                                                                               |
+| `local`        | `{ cwd?, workspaceDir?, sandbox? }`       | Defaults for a local run. See [Local options](https://cursor.com/docs/agent-sdk/reference/agent-config.md#local-options).                                                                                                                                                                                        |
+| `hosting`      | `{ egressDomains?, secretNames?, oidc? }` | The egress allowlist, expected secret names, and [OIDC token audiences](https://cursor.com/docs/agent-sdk/guides/workload-identity.md) that `agent-sdk deploy` reads. Mounted [extensions](https://cursor.com/docs/agent-sdk/reference/extensions.md#build-an-extension) add their own egress hosts and secrets. |
+| `concurrency`  | `{ maxRunningTurns? }`                    | Agent-wide limit on concurrent turns. See [Concurrency](https://cursor.com/docs/agent-sdk/reference/agent-config.md#concurrency).                                                                                                                                                                                |
+| `builtinTools` | `{ reminders? }`                          | Opt-in tools that Agent SDK provides. See [Built-in tools](https://cursor.com/docs/agent-sdk/reference/agent-config.md#built-in-tools).                                                                                                                                                                          |
+| `tools`        | `ToolName[]`                              | Allowlist of built-in tools. Omit it for the full standard toolset. See [Harness tools](https://cursor.com/docs/agent-sdk/reference/agent-config.md#harness-tools).                                                                                                                                              |
+| `fs`           | `FileSystem` or `(ctx) => FileSystem`     | Custom file tree for the session. `root` is the deprecated name. See [Custom filesystem](https://cursor.com/docs/agent-sdk/reference/agent-config.md#custom-filesystem).                                                                                                                                         |
+| `workspace`    | string                                    | With `fs`, the folder inside the tree the agent works in, and where project rules load from. Defaults to `/`. For a sandboxed agent without shell, where its session workspace is mounted, `/workspace` by default.                                                                                              |
+| `skills`       | `false` or `(ctx) => FileSystem`          | Replaces the skills tree mounted at `/agent/skills`, or turns that mount off.                                                                                                                                                                                                                                    |
 
 The `persistent` field was removed. Discovery rejects a config that still sets it, and the error is `persistent was removed. Delete it from defineAgent.`, so `validate`, `dev`, and `deploy` fail until you delete the field. A deployment that is already running keeps serving until you stop or delete it.
 
 ## Model
 
-Effort and speed are params, not id suffixes, so Agent SDK rejects an id like
-`grok-4.5-fast`. Use the object form shown above to set params, or a plain
-string when you don't need any:
+Set effort and speed with params, not in the id. Use the object form shown above
+to set params, or a plain string when you don't need any:
 
 ```ts
 model: "composer-2.5",
@@ -66,10 +66,34 @@ untrusted input, such as webhook payloads, PR diffs, or inbound chat. The
 sandbox limits the tools themselves, so an injected prompt can't talk the model
 past it.
 
-Agent SDK runs the file tools (`read`, `edit`, `delete`, `grep`, `glob`, `ls`)
-in the serve process, outside the sandbox. With `local.sandbox` on, they refuse
-a path outside the session workspace with `Path is outside the workspace`. With
-it off, they can reach any path the serve process can.
+With `local.sandbox` on, shell commands run without network access, writes and
+deletes outside the session workspace are refused, and a tool call that needs
+approval, such as an external MCP call, fails closed. What the agent can read
+depends on its `tools`:
+
+- **With shell** (or with `tools` omitted, which includes it), the agent runs on
+  the host disk. Shell commands and the file tools (`read`, `grep`, `glob`,
+  `ls`) can read any file the serve process can, including credentials on the
+  host.
+- **With file tools and no shell**, such as `tools: ["read", "grep"]`, the agent
+  runs on its session workspace as a tree, mounted at `/workspace`. Set
+  [`workspace`](https://cursor.com/docs/agent-sdk/reference/agent-config.md#custom-filesystem) to mount it elsewhere. Every file tool sees
+  only the workspace and refuses a path outside it, including through a
+  symlink. Running on a tree also turns off what only the host disk provides:
+  Cursor hooks don't run, so a Slack follow-up waits for the turn to end
+  instead of reaching the running turn; `.cursor/mcp.json` from the workspace
+  or an enclosing checkout isn't loaded (connections in `bot/` still are); host
+  git status doesn't reach the model; and skills are at `/agent/skills`
+  instead of `.cursor/skills`. `AGENTS.md` and `.cursor/rules/` in the
+  workspace still load. Tools a tree can't run, such as `readLints`, are left
+  out with a warning.
+
+To keep an agent's reads inside a tree you choose, give it
+[`fs`](https://cursor.com/docs/agent-sdk/reference/agent-config.md#custom-filesystem) instead.
+
+A [direct tool call](https://cursor.com/docs/agent-sdk/reference/tools.md#call-a-tool-without-a-model-turn) on a
+host-disk agent refuses a path outside the session workspace, after symlinks,
+with `Path is outside the workspace`, whether or not `local.sandbox` is on.
 
 ### Local cwd
 
@@ -86,7 +110,48 @@ at a checkout only when the agent should inherit that tree.
 
 ## Custom filesystem
 
+Set `fs` and the agent's file tools (Read, Write, StrReplace, LS, Grep, Glob,
+Delete) and its subagents work on your tree instead of the host disk. Build it
+with `tempFs`, `unionFs`, `overlayFs`, `readOnlyFs`, or your own `FileSystem`.
+
+```ts
+import { defineAgent, readOnlyFs, tempFs, unionFs } from "@grok/agent-sdk";
+
+export default defineAgent({
+  fs: unionFs({
+    "/repo": readOnlyFs(repoFs),
+    "/notes": tempFs({ "/todo.md": "- check the rollout" }),
+  }),
+  workspace: "/repo",
+});
+```
+
 `fs` is mounted at `/`, and Agent SDK mounts `/tmp` and `/agent/skills` over it. Set `fs` or the deprecated `root`, not both. A tree that already has `/agent/skills` fails session start unless `skills` is `false`.
+
+Each turn gets an empty `/tmp`, and large web results land there. Write anything
+the next turn needs elsewhere in the tree. Subagents work on the same tree, so
+their writes are visible to the agent right away, as subagents share the host
+workspace without `fs`.
+
+`workspace` is the folder the model works in. Relative paths resolve against
+it, and LS, Grep, and Glob search it when a call names no path. It must be an
+absolute path outside `/tmp`, and defaults to `/`.
+
+As on the host, the workspace's `AGENTS.md` and `.cursor/rules/` load as
+project rules. Don't make a checkout you don't trust, such as a pull request
+under review, the workspace. Mount it beside the workspace instead, for example
+at `/repo` with `workspace` left at `/`, where its rules don't load.
+
+An `fs` agent has no shell, and listing `"shell"` in `tools` fails validation.
+Tools a tree can't run, such as `readLints` or `computerUse`, are left out: an
+omitted `tools` never includes them, and a `tools` list that names them gets a
+warning. A `tools` list gets only the file tools it names. Omit `tools` to get
+all of them. `fs` works on local turns only.
+
+With `fs`, `local.sandbox` only affects approvals: a tool call that needs
+approval, such as an external MCP call, fails closed, as it does without `fs`.
+It changes nothing about file access, because the file tools already see only
+the tree.
 
 ## Harness tools
 

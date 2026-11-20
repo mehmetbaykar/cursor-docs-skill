@@ -9,7 +9,7 @@ path: /docs/agent-sdk/hillclimbing
 Hillclimbing improves an agent one measured change at a time. Hold the inputs fixed, change one
 thing, and keep it only when the same run gets better without moving the behavior you froze.
 
-A coding agent in your checkout can run this loop by following the `bdk-hillclimb` skill.
+A coding agent in your checkout can run this loop by following the `agent-sdk-hillclimb` skill.
 
 ## Run one measured round
 

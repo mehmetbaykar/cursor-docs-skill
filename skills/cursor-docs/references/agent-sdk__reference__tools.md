@@ -199,6 +199,18 @@ agent-sdk tool call inspect_pr --dir . \
   --input '{"prUrl":"https://github.com/acme/checkout/pull/42"}'
 ```
 
+The built-in file tools run the same way: `Read`, `Write`, `StrReplace`,
+`LS`, `Grep`, `Glob`, and `Delete`, on the agent's `fs` tree or on the
+session workspace. Your `tools` allowlist applies, and the result is the
+tool's own result, the same one a turn's tool-call event carries. A read
+returns `{ "status": "success", "value": { "content": "…" } }`.
+
+```bash
+curl -X POST http://127.0.0.1:3000/<slug>/v1/tools/Read \
+  -H 'content-type: application/json' \
+  -d '{"input":{"path":"README.md"},"sessionId":"<session>"}'
+```
+
 Programmatically, `callTool(toolName, input, options?)` is available on
 the serve handle, on channel route handlers and `onStart` args, and on
 schedule `run` handlers, so a channel can mix deterministic calls with

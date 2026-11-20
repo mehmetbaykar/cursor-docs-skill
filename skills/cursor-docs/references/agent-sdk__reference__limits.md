@@ -6,12 +6,12 @@ path: /docs/agent-sdk/reference/limits
 
 # Limits
 
-Cursor caps deployments for some teams. If your team has caps, these are the default values.
+Cursor caps deployments for every team. These are the default values.
 
-| Limit                 | Default          | What counts                               |
-| --------------------- | ---------------- | ----------------------------------------- |
-| `owner.deployments`   | 20               | Each slug, running or stopped             |
-| `owner.deploysPerDay` | 100 per 24 hours | Each accepted deploy, including redeploys |
+| Limit                 | Default | What counts                                                                                                                                                     |
+| --------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `owner.deployments`   | 20      | Each installed slug, including a stopped slug. An uninstalled slug counts when a build from the last 2 hours is still in progress or has finished successfully. |
+| `owner.deploysPerDay` | 100     | Each accepted deploy in a rolling 24-hour window, including a redeploy.                                                                                         |
 
 The error looks like this:
 
@@ -22,7 +22,7 @@ The error looks like this:
   "limit": "owner.deployments",
   "max": 20,
   "current": 20,
-  "docsUrl": "https://cursor.com/docs/bdk/reference/limits"
+  "docsUrl": "https://cursor.com/docs/agent-sdk/reference/limits"
 }
 ```
 

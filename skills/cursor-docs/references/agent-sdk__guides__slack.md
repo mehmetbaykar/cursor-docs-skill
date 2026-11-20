@@ -254,4 +254,4 @@ The person who runs `slack create` grants Cursor three user scopes on their own 
 create and install the app, and `botScopes` doesn't change them.
 
 If you already own the Slack app, run `agent-sdk slack init --manual --dir . --name "Triage"` and
-follow the `bdk-setup-slack` skill for installation and tokens.
+follow the `agent-sdk-setup-slack` skill for installation and tokens.

@@ -12,13 +12,13 @@ To let a running agent change its own source, see the [self-improvement extensio
 
 ## Create an agent from a goal
 
-Tell the coding agent what the agent is for and where people reach it, and ask it to follow the `bdk-create-agent` skill. It asks for any decisions you haven't made, shows a file plan, and scaffolds a small first version with a smoke eval.
+Tell the coding agent what the agent is for and where people reach it, and ask it to follow the `agent-sdk-create-agent` skill. It asks for any decisions you haven't made, shows a file plan, and scaffolds a small first version with a smoke eval.
 
 ## Add one capability
 
-For an existing project, name the outcome and point the coding agent at the matching skill, such as `bdk-setup-slack`, `bdk-mcp-auth`, or `bdk-github`. For example:
+For an existing project, name the outcome and point the coding agent at the matching skill, such as `agent-sdk-setup-slack`, `agent-sdk-mcp-auth`, or `agent-sdk-github`. For example:
 
-> Add Slack mentions and DMs to this agent. Follow the bdk-setup-slack
+> Add Slack mentions and DMs to this agent. Follow the agent-sdk-setup-slack
 > skill, keep replies in the source thread, and verify one local mention.
 
 > Connect the private inventory MCP server with host OAuth. Keep its

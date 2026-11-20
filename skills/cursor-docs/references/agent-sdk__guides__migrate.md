@@ -49,7 +49,7 @@ agent-sdk migrate --dir .
 To migrate a pushed source outside your checkout, pass `--repo`, `--ref`, and
 `--path`. The [CLI reference](https://cursor.com/docs/agent-sdk/reference/cli.md#migrate-an-early-alpha-project) lists every flag.
 
-You can also ask a coding agent in your checkout to follow the bundled `bdk-migrate-v2` skill. If the project
+You can also ask a coding agent in your checkout to follow the bundled `agent-sdk-migrate-v2` skill. If the project
 relies on a v1 capability that has no v2 path, the agent stops and names the
 blocker.
 

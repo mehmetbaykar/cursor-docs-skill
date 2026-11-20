@@ -84,6 +84,10 @@ handler, tool, or callback that needs it. Give an MCP connection a
 [`${NAME}` template](https://cursor.com/docs/agent-sdk/reference/connections.md#credentials-in-headers-and-env)
 instead.
 
+To authenticate with cloud providers or external services without static
+keys, declare `hosting.oidc.audiences` and mint short-lived JWTs with
+`getOidcToken`. See [Workload identity (OIDC)](https://cursor.com/docs/agent-sdk/guides/workload-identity.md).
+
 SCM channels take each credential as a named secret, such as
 `{ secretName: "GITHUB_WEBHOOK_SECRET" }`. The channel reads the environment
 variable with that name locally and the deployment secret on Cursor hosting.
@@ -92,22 +96,28 @@ fails on a literal or a getter.
 
 Write each egress host as a lowercase hostname with no scheme or path, such as `api.example.com`, and add a port such as `clickhouse.example.com:9440` only for raw TCP. `agent-sdk deploy` rejects any other form, and the error quotes that host.
 
-Your team's egress policy limits which hosts you can list in
-`hosting.egressDomains`. If you list a host that the policy blocks,
-`agent-sdk deploy` fails and the error names that host. A deployment that
-is already running keeps the policy from its last successful deploy. Ask a
-team admin to add the host, or remove it and deploy again.
+### How egress works
 
-| Team egress mode          | What `agent-sdk deploy` allows                                             |
-| ------------------------- | -------------------------------------------------------------------------- |
-| No mode set               | Every host in `hosting.egressDomains`.                                     |
-| Allow all network access  | Every host in `hosting.egressDomains`. The bot stays limited to that list. |
-| Defaults + team allowlist | The platform default list, plus the team list.                             |
-| Team allowlist only       | The team list.                                                             |
+A deployed agent can only reach hosts on its egress list. A call to any other
+host fails, usually as a connection reset or a 403 from the proxy. Here's how
+the egress allowlist gets built:
 
-No team list can remove the platform base, which includes Cursor's API and
-the npm registry. `agent-sdk deploy --json` lists every allowed host under
-`egress.effective`.
+1. **Agent SDK Platform Egress:** Some hosts are required for the Agent SDK to
+   work, including the Cursor API.
+2. **Your Agent's Egress:** The hosts defined in `hosting.egressDomains`, plus
+   any hosts that your mounted extensions add. If your Cursor team enables the
+   team-wide egress policy, then each of these hosts must also be on the
+   team's egress allowlist. If one isn't, `agent-sdk deploy` fails and names
+   the host, and the agent that's already running doesn't change.
+3. **Channel Egress:** Each channel adds the hosts it needs by itself, and the
+   team allowlist doesn't apply to them. A Slack app adds `slack.com` and
+   `files.slack.com`. A GitHub or GitLab binding on a self-hosted instance
+   adds that host. MCP connections don't add anything, so be sure to declare
+   their hosts yourself in `hosting.egressDomains`.
+
+Cursor saves your agent's list when you deploy, so an egress change only takes
+effect after you deploy again. To check your declared and extension hosts
+first, run `agent-sdk info --dir .`.
 
 A team entry `*.example.com` allows `example.com`, every subdomain, and
 narrower wildcards such as `*.api.example.com`. An agent entry
@@ -168,6 +178,16 @@ the deployment watches only its GitHub source repository. Run
 
 Sessions, `ctx.host.kv`, and `ctx.host.files` survive restarts and
 redeploys. Anything else the agent writes to disk can disappear.
+
+## Startup runs before secrets are available
+
+A hosted deploy starts your agent once to take a snapshot, before its
+secrets, including `CURSOR_API_KEY`, are available. They arrive when a
+session starts.
+Do not call the Cursor API, hosted storage, or reminders at startup. Call
+them from a handler. Startup log lines such as `requires CURSOR_API_KEY
+(deployment pod credential on Cursor hosting)` come from this step and are
+expected.
 
 ## Self-host securely
 

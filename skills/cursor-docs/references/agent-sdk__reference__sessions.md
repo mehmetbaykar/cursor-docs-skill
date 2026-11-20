@@ -96,23 +96,36 @@ const events: ChannelEventHandlers = {
 In a local Slack session, a `nudge.delivered` event with no `deliveryId`
 came from a new Slack message, not from a `send()` call.
 
+### Steer the agent's own running turn
+
+A tool or a channel `events` handler can add a message to the turn it runs in
+with `ctx.steer(message, { deliveryId })`. The message lands through the
+Cursor SDK's `Run.steer` and is recorded like a steered `send()`, with
+`message.received` and `nudge.delivered`. It never starts a turn, opens a
+session, or queues the message. It
+resolves to `{ status: "steered", turnId, deliveryId }`, to `{ status: "no_turn" }`
+when the context's turn is no longer running, or to
+`{ status: "not_delivered", reason }` when the running turn didn't take the
+message.
+
 ## Stream events
 
 Each NDJSON line is a `{ type, index, sessionId, turnId?, at, data }`
 envelope. The `index` increases within one session, and `at` is an
 ISO-8601 timestamp.
 
-| Phase     | Events                                                                         | What they tell you                                                                                                                                                          |
-| --------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Session   | `session.started`, `session.waiting`, `session.completed`, `session.failed`    | Creation, readiness, and task completion                                                                                                                                    |
-| Input     | `message.received`, `nudge.delivered`                                          | A prompt was accepted or reached a running turn. Both carry [delivery IDs](https://cursor.com/docs/agent-sdk/reference/sessions.md#track-which-follow-up-reached-the-agent) |
-| Turn      | `turn.queued`, `turn.started`, `turn.completed`, `turn.failed`                 | Queueing under [`maxRunningTurns`](https://cursor.com/docs/agent-sdk/reference/agent-config.md#concurrency), then status, result, and token usage                           |
-| Steps     | `step.started`, `step.completed`                                               | Model step boundaries and duration                                                                                                                                          |
-| Reasoning | `reasoning.appended`, `reasoning.completed`                                    | Streamed reasoning blocks                                                                                                                                                   |
-| Reply     | `message.appended`, `message.completed`                                        | Text deltas and finished assistant messages                                                                                                                                 |
-| Tools     | `actions.requested`, `actions.completed`, `action.result`, `action.tool_retry` | Tool names, arguments, outputs, and errors. `action.tool_retry` marks a read retried after a transient failure                                                              |
-| Subagents | `subagent.called`, `subagent.completed`                                        | Delegated work                                                                                                                                                              |
-| Artifacts | `artifact.tagged`                                                              | An [artifact](https://cursor.com/docs/agent-sdk/reference/artifacts.md) was tagged                                                                                          |
+| Phase       | Events                                                                         | What they tell you                                                                                                                                                          |
+| ----------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Session     | `session.started`, `session.waiting`, `session.completed`, `session.failed`    | Creation, readiness, and task completion                                                                                                                                    |
+| Input       | `message.received`, `nudge.delivered`                                          | A prompt was accepted or reached a running turn. Both carry [delivery IDs](https://cursor.com/docs/agent-sdk/reference/sessions.md#track-which-follow-up-reached-the-agent) |
+| Turn        | `turn.queued`, `turn.started`, `turn.completed`, `turn.failed`                 | Queueing under [`maxRunningTurns`](https://cursor.com/docs/agent-sdk/reference/agent-config.md#concurrency), then status, result, and token usage                           |
+| Steps       | `step.started`, `step.completed`                                               | Model step boundaries and duration                                                                                                                                          |
+| Model calls | `model_call.completed`                                                         | One model call's token usage, as soon as the call finishes. Needs a Cursor SDK that reports per-call usage                                                                  |
+| Reasoning   | `reasoning.appended`, `reasoning.completed`                                    | Streamed reasoning blocks                                                                                                                                                   |
+| Reply       | `message.appended`, `message.completed`                                        | Text deltas and finished assistant messages                                                                                                                                 |
+| Tools       | `actions.requested`, `actions.completed`, `action.result`, `action.tool_retry` | Tool names, arguments, outputs, and errors. `action.tool_retry` marks a read retried after a transient failure                                                              |
+| Subagents   | `subagent.called`, `subagent.completed`                                        | Delegated work                                                                                                                                                              |
+| Artifacts   | `artifact.tagged`                                                              | An [artifact](https://cursor.com/docs/agent-sdk/reference/artifacts.md) was tagged                                                                                          |
 
 `actions.requested` and `actions.completed` bracket each model step's
 tool batch, and `action.result` carries each call live. Read

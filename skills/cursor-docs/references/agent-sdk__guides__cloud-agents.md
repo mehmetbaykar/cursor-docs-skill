@@ -40,6 +40,53 @@ caller uses the same bearer token, the extension treats them all as one person.
 Use [authored auth](https://cursor.com/docs/agent-sdk/reference/channels.md#auth-policies) to keep callers
 apart.
 
+When a cloud agent the conversation launched stops, the extension wakes that
+conversation once. The wake message gives the agent id and its status, and
+tells the model to call `cloud__get`. That tool returns the agent's `result`,
+the final answer of its latest run.
+
+On Cursor hosting, the wake comes when the agent's run stops. This includes a
+run that someone else cancels. If the wake does not reach the conversation,
+the extension tries again every minute, up to 10 times. You configure nothing
+for this.
+
+Nothing polls the agent. If no wake comes, ask the bot to check the agent with
+`cloud__get`. A stop in the middle of a turn does not wake the conversation
+yet. The extension stops waiting for a wake after 24 hours.
+
+Some launches get no wake: launches off Cursor hosting, launches from a mount
+that sets its own `apiKey`, and launches with `envVars`. A launch that Cursor
+hosting cannot watch also gets no wake. For these launches, the launch result
+says `watching: false`. Ask the bot to check the agent when you need its
+result.
+
+## Read a result from your code
+
+Your own code, such as a tool or a reminder, can launch a cloud agent with
+`launchCloudAgent` and read it back with `getCloudAgent`. When the agent has
+stopped and its latest run finished, `result` holds the final answer of that
+run. An errored or expired run has no `result`. Ask the agent to end with its
+report or its JSON, and parse `result`.
+
+```ts
+import { getCloudAgent } from "@grok/agent-sdk/extensions/cursor-cloud-agents";
+
+const agent = await getCloudAgent(agentId);
+if (agent.status === "finished" && agent.result !== undefined) {
+  const report = JSON.parse(agent.result);
+}
+```
+
+`getCloudAgent` does not check who launched the agent. Pass only ids that your
+code launched, never an id that a model chose.
+
+`launchCloudAgent` takes an optional `agentId`, a `bc-<uuid>`. When you omit
+it, the extension makes one. To retry a launch that timed out or failed, pass
+the same `agentId` again. If the first launch created the agent, you get that
+agent back and no second agent starts. The extension returns an existing agent
+only when this principal launched it through the extension. A launch with
+`cloud.envVars` cannot take an `agentId`.
+
 ## Configure it
 
 | Option                 | What it controls                                                                                                                                                                                              |

@@ -148,14 +148,15 @@ On a channel without its own `auth`, `--bearer-token` swaps the default for
 
 Import each one from `@grok/agent-sdk/channels/<name>`.
 
-| Function               | Details                                                            |
-| ---------------------- | ------------------------------------------------------------------ |
-| `slackChannel()`       | [Slack](https://cursor.com/docs/agent-sdk/guides/slack.md)         |
-| `githubChannel()`      | [GitHub](https://cursor.com/docs/agent-sdk/guides/github.md)       |
-| `gitlabChannel()`      | [GitLab](https://cursor.com/docs/agent-sdk/guides/gitlab.md)       |
-| `bitbucketChannel()`   | [Bitbucket](https://cursor.com/docs/agent-sdk/guides/bitbucket.md) |
-| `pagerdutyChannel()`   | [PagerDuty](https://cursor.com/docs/agent-sdk/guides/pagerduty.md) |
-| `deploymentsChannel()` | Deployment events filtered by source, environment, or event name   |
+| Function               | Details                                                              |
+| ---------------------- | -------------------------------------------------------------------- |
+| `slackChannel()`       | [Slack](https://cursor.com/docs/agent-sdk/guides/slack.md)           |
+| `teamsChannel()`       | [Microsoft Teams](https://cursor.com/docs/agent-sdk/guides/teams.md) |
+| `githubChannel()`      | [GitHub](https://cursor.com/docs/agent-sdk/guides/github.md)         |
+| `gitlabChannel()`      | [GitLab](https://cursor.com/docs/agent-sdk/guides/gitlab.md)         |
+| `bitbucketChannel()`   | [Bitbucket](https://cursor.com/docs/agent-sdk/guides/bitbucket.md)   |
+| `pagerdutyChannel()`   | [PagerDuty](https://cursor.com/docs/agent-sdk/guides/pagerduty.md)   |
+| `deploymentsChannel()` | Deployment events filtered by source, environment, or event name     |
 
 Use `defineChannel` for other platforms, such as Discord.
 

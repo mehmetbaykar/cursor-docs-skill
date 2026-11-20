@@ -294,4 +294,4 @@ Pass each credential as `{ secretName: "NAME" }`. When you run locally, the chan
 ## Related
 
 - [Build a PR reviewer](https://cursor.com/docs/agent-sdk/quickstart.md) covers the full loop.
-- Ask a coding agent to follow the `bdk-github` skill for the GitHub setup steps.
+- Ask a coding agent to follow the `agent-sdk-github` skill for the GitHub setup steps.

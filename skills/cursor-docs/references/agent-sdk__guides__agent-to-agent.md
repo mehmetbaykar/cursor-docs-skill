@@ -64,8 +64,10 @@ await ctx.host.mcp.callTool("weather", "ask", {
 });
 ```
 
-If the specialist is still working, `ask` returns `status: "running"`, and
-`check` waits for the answer.
+If the specialist is still working, `ask` returns `status: "running"` and a
+`sessionId`. Do not end your turn. Call `check` with that `sessionId` until
+the status is `completed`. Ending your turn drops the reply, because nothing
+else delivers it when the specialist finishes.
 
 ```ts
 await ctx.host.mcp.callTool("weather", "check", {

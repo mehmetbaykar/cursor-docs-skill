@@ -71,6 +71,7 @@ command remains available.
 | [`mcp serve`, `mcp install`](https://cursor.com/docs/agent-sdk/reference/cli.md#connect-an-mcp-client)                                | Connect an MCP client to an agent                           |
 | [`mcp oauth`](https://cursor.com/docs/agent-sdk/reference/cli.md#authorize-mcp-oauth)                                                 | Authorize an MCP connection                                 |
 | [`slack`](https://cursor.com/docs/agent-sdk/reference/cli.md#configure-slack)                                                         | Provision and check Slack channel apps                      |
+| [`teams`](https://cursor.com/docs/agent-sdk/reference/cli.md#configure-microsoft-teams)                                               | Connect, check, and package a Microsoft Teams bot           |
 | [`github`](https://cursor.com/docs/agent-sdk/reference/cli.md#test-github-webhooks)                                                   | Forward, replay, and inspect GitHub webhooks                |
 | [`gitlab`, `bitbucket`, `pagerduty`](https://cursor.com/docs/agent-sdk/reference/cli.md#test-gitlab-bitbucket-and-pagerduty-webhooks) | Replay and inspect GitLab, Bitbucket, or PagerDuty webhooks |
 
@@ -135,6 +136,12 @@ agent-sdk dev ./agent-sdk-pr-reviewer --port 3000
 
 It accepts every `serve` option. Don't combine the path with a different
 `--dir`.
+
+When an agent has a Microsoft Teams channel, `dev` also opens a cloudflared
+quick tunnel and prints that channel's messaging endpoint. Pass
+`--tunnel devtunnel` for an endpoint that stays the same across restarts, and
+`--tunnel-id <id>` to pick the dev tunnel. See
+[Configure Microsoft Teams](https://cursor.com/docs/agent-sdk/reference/cli.md#configure-microsoft-teams).
 
 ### Serve the docs
 
@@ -317,7 +324,7 @@ agent-sdk migrate [--dir <path>] [--repo <https-url>] [--ref <git-ref>]
 
 `migrate` applies only to projects that deployed with `architecture: "v1"`
 during the early alpha. It starts a Cursor cloud agent on a pushed Git ref
-with the bundled `bdk-migrate-v2` skill, and the agent opens a pull request
+with the bundled `agent-sdk-migrate-v2` skill, and the agent opens a pull request
 with the source changes. The command never deploys or changes secrets.
 
 With nothing to change, it prints `Nothing to migrate.` and exits `0`, and it exits `1` if the run ends without a pull request. `deploy` refuses a project that sets `architecture: "v1"` and points to `migrate`. See [Migrate an early-alpha project](https://cursor.com/docs/agent-sdk/guides/migrate.md).
@@ -329,7 +336,7 @@ agent-sdk skills install [--dry-run] [--json]
 agent-sdk skills list [--json [--fields <a,b.c>]] [--limit <n>] [--page-token <token>]
 ```
 
-Package installation copies the bundled skills, `skills install` replaces the installed copies and removes stale ones, and `skills list` prints each skill's bundled and installed versions. The `bdk-cli` skill teaches agents to run `agent-sdk` safely.
+Package installation copies the bundled skills, `skills install` replaces the installed copies and removes stale ones, and `skills list` prints each skill's bundled and installed versions. The `agent-sdk-cli` skill teaches agents to run `agent-sdk` safely.
 
 ### Inspect a project
 
@@ -539,6 +546,115 @@ Socket Mode. It makes the development app unless you pass `--env prod`. The
 token prefix defaults to the project directory name in upper snake case.
 `--channel-posts` adds the message events that `engagement.channelPosts`
 needs. See [Slack](https://cursor.com/docs/agent-sdk/guides/slack.md) for manual setup.
+
+### Configure Microsoft Teams
+
+```text
+agent-sdk channels teams setup
+agent-sdk channels teams init --app-id <guid> --tenant-id <guid> [--dir <path>]
+  [--prefix <prefix>] [--dry-run] [--json]
+agent-sdk channels teams doctor [--dir <path>] [--slug <slug>] [--channel <id>]
+  [--endpoint <url>] [--json]
+agent-sdk channels teams package [--dir <path>] [--slug <slug>] [--channel <id>]
+  [--name <name>] [--icon <png>] [--app-version <x.y.z>] [--endpoint <url>]
+  [--out <file>] [--dry-run] [--json]
+agent-sdk channels teams forward [--dir <path>] [--slug <slug>] [--channel <id>]
+  [--host <host>] [--port <n>] [--tunnel cloudflared|devtunnel]
+  [--tunnel-id <id>] [--json]
+```
+
+| Subcommand | Contract                                                                                                                                                                                                                                                                                                                                     |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `setup`    | Print the Azure Bot setup steps without changing files.                                                                                                                                                                                                                                                                                      |
+| `init`     | Read the bot's client secret from a hidden prompt or stdin, never from an argument. Write `bot/channels/teams.ts` when it's missing, and write the app id, secret, and tenant id to `.env.local`. A second `init` keeps the channel file and replaces the secret.                                                                            |
+| `doctor`   | Run the checks below and exit `1` when one fails. A check it can't run is skipped and says why.                                                                                                                                                                                                                                              |
+| `package`  | Write the Teams app package: `manifest.json`, a 192 by 192 color icon, and a 32 by 32 outline icon. By default it writes `<slug>-teams-app.zip` in the agent folder and adds `*-teams-app.zip` to `.gitignore`. `--out <file>` writes it to that path instead. Upload it in Teams under **Apps** > **Manage your apps** > **Upload an app**. |
+| `forward`  | Open a tunnel to a running `agent-sdk serve` and print the messaging endpoint of each Teams channel. It runs until you stop it.                                                                                                                                                                                                              |
+
+`agent-sdk dev` opens the same tunnel by itself. The endpoint is the tunnel
+origin plus `/<slug>/v1/channels/<channel>`, such as
+`https://<random>.trycloudflare.com/helm/v1/channels/teams`. Set it as the
+Azure Bot's messaging endpoint. The tunnel forwards only `POST` requests to
+the Teams messaging paths, so the rest of the agent's API stays local. Every
+other request on the tunnel host gets a `404`.
+
+`--tunnel` picks the tunnel for `dev` and `channels teams forward`:
+
+| `--tunnel`              | Needs                                                                 | Endpoint                                                                                  |
+| ----------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `cloudflared` (default) | `cloudflared` on `PATH`. No account.                                  | A new `trycloudflare.com` URL on every start. Set it on the bot again after each restart. |
+| `devtunnel`             | The `devtunnel` CLI on `PATH`, logged in with `devtunnel user login`. | The same `devtunnels.ms` URL on every start. Set it on the bot once.                      |
+
+With `devtunnel`, the first start creates a dev tunnel that allows anonymous
+access, adds port `3978`, and saves the tunnel id as `TEAMS_DEVTUNNEL_ID` in
+`.env.local`. Later starts reuse that tunnel. `--tunnel-id <id>` picks the id.
+Microsoft deletes a dev tunnel after 30 days without use, and the next start
+creates it again under the same id. Port `3978` belongs to the tunnel, so
+`--port 3978` with `--tunnel devtunnel` stops with a usage error. Run the agent
+on another port. `devtunnel host` publishes every port on the tunnel, so the
+tunnel stops when it reports a port other than `3978`. Remove that port with
+`devtunnel port delete <id> -p <port>`, or pass another `--tunnel-id`.
+
+The package manifest uses Teams manifest version 1.25. It names the bot by
+its app id and lists the scopes the channel answers in: mentions add `team`
+and `groupChat`, and personal chats add `personal`. With
+`engagement.channelPosts`, it also asks for `ChannelMessage.Read.Group`
+consent. `--endpoint` adds the messaging endpoint's host to `validDomains`.
+`--app-version` sets the app version. It defaults to `1.<YYYYMMDD>.<second of
+the day>` in UTC, so each new zip is higher than the last, and Teams and the
+Teams admin center accept it as an update. Teams refuses an update whose
+version is not higher than the installed one. After you set
+`--app-version 2.0.0`, a later default `1.x` version is lower, so keep passing
+a higher `--app-version`. The default's middle part has 8 digits, which is fine
+for a bot-only app. An app that adds an Office Add-in limits each part to 5
+digits.
+
+`doctor` runs these checks in order:
+
+| Check           | Passes when                                                                                              |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| `env`           | The app id, password, and tenant id variables are set.                                                   |
+| `token`         | Microsoft Entra issues a Bot Framework token for the app within 10 seconds.                              |
+| `bot-tenant`    | The Azure Bot is **Single Tenant** and its tenant is the one in the channel's tenant id variable.        |
+| `bot-endpoint`  | The Azure Bot's messaging endpoint is `--endpoint`. Without `--endpoint`, it reports the bot's endpoint. |
+| `teams-channel` | The Azure Bot's Microsoft Teams channel is added and on.                                                 |
+| `endpoint`      | The endpoint's path names this channel, and an unsigned `POST` to it gets `401`.                         |
+
+The three Azure checks need the Azure CLI, logged in with `az login`, on any
+operating system. Without it they are skipped. When no Azure Bot in the
+current subscription has the app id, they fail. Each `az` call has a time
+limit. The endpoint's path must end in `/v1/channels/<channel>` plus the
+channel's `path`, after nothing, the agent's slug, or `/engine` on
+Cursor-managed hosting. A URL for another channel or agent fails without a
+probe. The `endpoint` answers mean:
+
+| Answer                            | Meaning                                                                                                                             |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `401` with `invalid_token`        | The Teams channel serves this URL and its credentials resolve. Teams signs its requests, so the channel refuses the unsigned probe. |
+| `401` with `Unauthorized`         | Cursor-managed hosting serves this URL and refuses the unsigned probe before the agent.                                             |
+| `503` with `teams_not_configured` | The server has no app id or password for this channel. Check `envPrefix` and the secrets.                                           |
+| `404`                             | No Teams channel at this path. Check the slug, the channel name, and the route path.                                                |
+| A redirect                        | A dev tunnel that needs sign-in. Run `devtunnel access create <id> --anonymous`.                                                    |
+
+`--endpoint` must be the public `https` URL that `dev` or `channels teams forward`
+prints. `agent-sdk dev` admits unsigned requests from loopback, so a loopback
+probe proves nothing. Without `--endpoint`, `doctor` probes the Azure Bot's
+messaging endpoint.
+
+The channel's `envPrefix` owns the variable names. A new channel file reads
+`TEAMS_APP_ID`, `TEAMS_APP_PASSWORD`, and `TEAMS_TENANT_ID`. `init --prefix
+HELM` writes `envPrefix: "HELM"` into the new file and the names
+`HELM_TEAMS_APP_ID`, `HELM_TEAMS_APP_PASSWORD`, and `HELM_TEAMS_TENANT_ID`. The
+prefix must start with a letter, and each name must be a valid deployment
+secret name. When the agent already has a Teams channel, under any file name,
+`init` keeps it and writes the names it reads; a `--prefix` that disagrees with
+it stops with an error. `doctor` and `package` read the names from the loaded
+channel. Multi-agent servers need one Azure Bot per agent.
+
+A channel that sets `credentials` in code has no env names for the CLI to
+read. `doctor` then skips the `env`, `token`, and Azure checks and says why,
+`package` and `init` stop with an error, and `doctor` still probes
+`--endpoint`.
 
 ### Test GitHub webhooks
 

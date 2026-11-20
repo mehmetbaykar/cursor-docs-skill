@@ -115,5 +115,5 @@ gives each caller its own downstream identity.
 
 ## Related
 
-- Follow the `bdk-mcp-auth` skill, then run `agent-sdk mcp oauth <connection>`.
+- Follow the `agent-sdk-mcp-auth` skill, then run `agent-sdk mcp oauth <connection>`.
 - [MCP connections](https://cursor.com/docs/agent-sdk/reference/connections.md)

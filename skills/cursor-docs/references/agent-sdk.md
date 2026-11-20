@@ -18,27 +18,21 @@ manage it.
 
 ## Get Started with your Coding Agent
 
-Paste this prompt into your coding agent. It installs the CLI, asks what your agent is for, and
-scaffolds a first project from the Markdown version of these docs.
+Paste this prompt into your coding agent. It installs the CLI, asks what your agent is for,
+scaffolds and checks a first project, and tells you how to test and deploy it.
 
 ```text
 Set up my first Agent SDK project.
 
-Read https://cursor.com/docs/agent-sdk.md first. Every page under
-https://cursor.com/docs/agent-sdk/ is also available as Markdown when you
-add .md to its URL.
+Read https://cursor.com/docs/agent-sdk.md. Add .md to any page under
+https://cursor.com/docs/agent-sdk/ to read it as Markdown.
 
 1. Check that Node is 22.13 or newer, then run:
    npm install --global @grok/agent-sdk
-2. Read the docs index that ships with the package:
-   "$(npm root -g)/@grok/agent-sdk/dist/docs/llms.txt"
-3. Run agent-sdk login, and wait while I finish the browser sign-in.
-4. Ask me what the agent should do and where people will reach it. Then
-   follow the bdk-create-agent skill at
-   "$(npm root -g)/@grok/agent-sdk/skills/create-agent/SKILL.md"
-   to scaffold the project with agent-sdk init.
-5. Run agent-sdk validate --dir . and one agent-sdk run turn, then show me
-   the reply.
+2. Follow the agent-sdk-create-agent skill at
+   "$(npm root -g)/@grok/agent-sdk/skills/create-agent/SKILL.md".
+3. Do not deploy or push until I ask. End by telling me what the agent
+   does, how to test it locally, and how to deploy it.
 ```
 
 ## Why Agent SDK
