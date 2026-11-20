@@ -118,7 +118,29 @@ Only public Slack channels are visible to Slack triggers at this time.
 
 Webhook triggers create a private HTTP endpoint for your automation. POST to the endpoint to start a run. You can use webhooks to connect automations to internal systems, CI pipelines, monitoring tools, and more.
 
-To retrieve the webhook URL, you must save the automation first, which will then generate a webhook URL to call and an API key for authentication.
+Save the automation to get its webhook URL, then click **Generate auth header** to create its webhook API key. Send the key in an `Authorization: Bearer` header; **Copy auth header** copies that whole header line, so paste it over `Authorization: Bearer YOUR_WEBHOOK_API_KEY` rather than after `Bearer`. The body can be any JSON. If it's an object with a string `context` field, the agent gets that text with the automation's prompt, and the other fields as the webhook payload.
+
+```bash
+curl --request POST \
+  --url https://api2.cursor.sh/automations/webhook/YOUR_AUTOMATION_ID \
+  --header 'Authorization: Bearer YOUR_WEBHOOK_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{ "context": "Summarize incident INC-4821 for the on-call channel." }'
+```
+
+For an automation that runs as the team's service account, you can send a team API key with **Trigger automations** (`agent:*`) or **Admin** (`admin:*`) instead of the webhook API key. **Run Cloud Agents** alone doesn't reach the webhook.
+
+When a cloud agent starts, the `200` response includes its ID as `backgroundComposerId`. Other responses:
+
+- `400`: the request was malformed, the key can't start this automation, or no cloud agent started. The `error` field says why.
+- `401`: the key is missing, unknown, or lacks the scope for this automation.
+- `403` with `team_ip_allowlist_violation`: the caller's IP address isn't on the team's IP allow list.
+- `503` with `team_ip_allowlist_unavailable`: the IP allow list couldn't be checked. Retry the request.
+- `422`: for an automation a [Project](https://cursor.com/docs/agent/projects.md) set up, the `Idempotency-Key` header was already used with a different body. A retry with the same key and body reuses the first run.
+
+To follow the run, use `backgroundComposerId` as the agent ID in the [Cloud Agents API](https://cursor.com/docs/cloud-agent/api/endpoints.md). Poll [Get An Agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-an-agent) for its `latestRunId`, and [Get A Run](https://cursor.com/docs/cloud-agent/api/endpoints.md#get-a-run) for that run's status and `result`. A service account automation's webhook API key can make these two calls for the agent it started. To [stream the agent](https://cursor.com/docs/cloud-agent/api/endpoints.md#stream-an-agent) or [list its runs](https://cursor.com/docs/cloud-agent/api/endpoints.md#list-runs), use a [service account API key](https://cursor.com/docs/account/enterprise/service-accounts.md) from the automation's team with **Run Cloud Agents**. For an automation that runs as **Me**, make all of these calls with the creator's user API key.
+
+An automation can continue in later runs on the same agent, for example when its [Terraform workflow](https://registry.terraform.io/providers/cursor/cursor/latest/docs) sets `effort_level = "hard"`, so a `FINISHED` run or an `IDLE` agent doesn't mean it's done. Nothing in the API marks the last run, so keep polling `latestRunId`. As a heuristic, keep polling for 10 minutes after the latest run ends, and stop if no newer run has appeared by then; a later run can still start after that.
 
 ### Linear triggers
 
@@ -258,7 +280,7 @@ Team accounts set visibility and identity from **Share** on the automation detai
 
 The menu also includes **Copy link**.
 
-Changing **Run as** to **Service account** changes the identity the automation uses. It stops using your auth and starts using a service account dedicated to that automation. If the automation uses webhook triggers, regenerate its webhook API key after the change. If it uses MCPs or other integrations that rely on personal OAuth credentials, make sure those are configured for the team's service account instead. Only team admins can switch an automation to the service account. They can switch one set to **Members can view** or **Members can edit**. For a **Private** automation, only the creator can change **Share**, so the creator picks **Members can view** or **Members can edit** first. Once it runs as the service account, team admins can edit it.
+Changing **Run as** to **Service account** changes the identity the automation uses. It stops using your auth and starts using a service account dedicated to that automation. If the automation uses webhook triggers, [generate a new webhook API key](https://cursor.com/docs/cloud-agent/automations.md#webhook-triggers) after the change. If it uses MCPs or other integrations that rely on personal OAuth credentials, make sure those are configured for the team's service account instead. Only team admins can switch an automation to the service account. They can switch one set to **Members can view** or **Members can edit**. For a **Private** automation, only the creator can change **Share**, so the creator picks **Members can view** or **Members can edit** first. Once it runs as the service account, team admins can edit it.
 
 ### Service accounts for automations
 

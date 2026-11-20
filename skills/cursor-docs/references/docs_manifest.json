@@ -665,8 +665,8 @@
       "title": "Plan Mode"
     },
     "agent__projects.md": {
-      "hash": "5f0448e1587e399255f8f2c925cf0b1a195127f23b529be1fe745372be1fc359",
-      "last_updated": "2026-11-16T21:19:39+00:00",
+      "hash": "df3bc1bdb8e30f66e637e1153dde926f6f271955dd9e094132ed18ebc5c615b2",
+      "last_updated": "2026-11-20T00:37:30+00:00",
       "original_url": "https://cursor.com/docs/agent/projects",
       "path": "/docs/agent/projects",
       "section": "docs",
@@ -1025,8 +1025,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "3e75b588c0cac50d02c4ec1122cb0af2aaaa57793157b61da41d6a260d12e023",
-      "last_updated": "2026-11-18T00:40:29+00:00",
+      "hash": "9e8214434c994976c584bb5ba1c86d23be967498bd1f2ed48b1b1b8d6d7bc351",
+      "last_updated": "2026-11-20T00:37:40+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1055,8 +1055,8 @@
       "title": "Apps"
     },
     "cloud-agent__automations.md": {
-      "hash": "7a264599360c8a85e46f2e75e6768cedc6e15242ec61a4247465db00b641ce4d",
-      "last_updated": "2026-11-19T00:39:56+00:00",
+      "hash": "25fac104368130008d8b2a540dc3bd48ca81a975fbb0c1be6dc1ad435b9d047a",
+      "last_updated": "2026-11-20T00:37:41+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/automations",
       "path": "/docs/cloud-agent/automations",
       "section": "docs",
@@ -1135,8 +1135,8 @@
       "title": "Private Connectivity"
     },
     "cloud-agent__repo-access.md": {
-      "hash": "977e7b945cf1e6b06011fa8f0d807d41bb3e1c6acf3bcc9414794fe0ad208fb5",
-      "last_updated": "2026-11-16T21:19:52+00:00",
+      "hash": "965768e7f32d9a5cc74fd19d0d1c2b1db314b0369079a4bdc781ef37d0d258f2",
+      "last_updated": "2026-11-20T00:37:43+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/repo-access",
       "path": "/docs/cloud-agent/repo-access",
       "section": "docs",
@@ -1225,8 +1225,8 @@
       "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
-      "hash": "6fe8bf7fa83b7bd362d861973472b1a5d427c3de52bbce05178c8580161b565a",
-      "last_updated": "2026-11-16T21:19:54+00:00",
+      "hash": "653d9ef8f7c01794679c3bac26f7de8b1775db70bda80a6e7e48e6d152e76b63",
+      "last_updated": "2026-11-20T00:37:46+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "section": "docs",
@@ -1335,8 +1335,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "6aa3aabd198eec31cd02441a12dc25bd234d7475e99a5ea3a724cdeb5a371064",
-      "last_updated": "2026-11-19T21:20:16+00:00",
+      "hash": "c9b0c10e2cedfe99b56fe5b2da678456a8db2c91a2df6c4245e944ed0127a6bf",
+      "last_updated": "2026-11-20T00:38:24+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2790,7 +2790,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-19T21:20:31+00:00",
+  "last_updated": "2026-11-20T00:38:40+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
