@@ -1355,8 +1355,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "86b49dc25dc7c1fff7386ca6c96e3dea6ae0e326df656f5c12650babc286ae85",
-      "last_updated": "2026-11-20T21:20:18+00:00",
+      "hash": "ba30b732036609a82e794bf0163f37865babce0701c320f8e156a8887cf6739a",
+      "last_updated": "2026-11-21T18:21:04+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2635,8 +2635,8 @@
       "title": "Subagents"
     },
     "vulnerability-remediation.md": {
-      "hash": "babfe785f1ec3691254ff5aa4b83177909b005504c09e64ef0b6ca28c4bd1600",
-      "last_updated": "2026-11-19T18:23:53+00:00",
+      "hash": "3db6c36a5cdfc700db36ae7f14667960126f60c865e281604376dc01357256eb",
+      "last_updated": "2026-11-21T18:21:04+00:00",
       "original_url": "https://cursor.com/docs/vulnerability-remediation",
       "path": "/docs/vulnerability-remediation",
       "section": "docs",
@@ -2820,7 +2820,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-20T21:20:29+00:00",
+  "last_updated": "2026-11-21T18:21:20+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
