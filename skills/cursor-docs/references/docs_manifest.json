@@ -715,8 +715,8 @@
       "title": "Agent Security"
     },
     "agent__security__run-modes.md": {
-      "hash": "5ee37bd50fd4c825ebecd4a3595a212b94a2fe46adb20fa83fedd0664102a6c4",
-      "last_updated": "2026-10-15T21:20:09+00:00",
+      "hash": "5c5549642eeacbc6602d04f511f923bc5838bd9e3748ca5f54fd4f8c00a45a86",
+      "last_updated": "2026-11-22T03:21:52+00:00",
       "original_url": "https://cursor.com/docs/agent/security/run-modes",
       "path": "/docs/agent/security/run-modes",
       "section": "docs",
@@ -1015,8 +1015,8 @@
       "title": "Terminal setup"
     },
     "cli__shell-mode.md": {
-      "hash": "5e0850a85470e75b97eb29266da16ae8cd4881918f15d5ad2dbfd739cbec43c8",
-      "last_updated": "2026-08-07T17:11:54+00:00",
+      "hash": "3a005db25e658662ca5aa73a2292f7ae11fb5037ec3b9efaab14ddf018abbaa8",
+      "last_updated": "2026-11-22T03:22:01+00:00",
       "original_url": "https://cursor.com/docs/cli/shell-mode",
       "path": "/docs/cli/shell-mode",
       "section": "docs",
@@ -1355,8 +1355,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "ba30b732036609a82e794bf0163f37865babce0701c320f8e156a8887cf6739a",
-      "last_updated": "2026-11-21T18:21:04+00:00",
+      "hash": "ca7988b8a7ea51f22de5541fcfe49629fe88f07bc781acbe323920be77db7609",
+      "last_updated": "2026-11-22T03:22:47+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2435,8 +2435,8 @@
       "title": "Plugins reference"
     },
     "reference__sandbox.md": {
-      "hash": "af90d1ed78b9bf64960de2845bc7184557170fffb57338bd6cb94ea0d9ad869d",
-      "last_updated": "2026-10-06T18:28:41+00:00",
+      "hash": "302efcaa8e975ee15008d92e354c80e2efad98d57484ec9e7c03d77d1ce90320",
+      "last_updated": "2026-11-22T03:22:41+00:00",
       "original_url": "https://cursor.com/docs/reference/sandbox",
       "path": "/docs/reference/sandbox",
       "section": "docs",
@@ -2820,7 +2820,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-21T18:21:20+00:00",
+  "last_updated": "2026-11-22T03:22:57+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
