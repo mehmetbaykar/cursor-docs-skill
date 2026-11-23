@@ -6,6 +6,23 @@ path: /docs/agent-sdk/changelog
 
 # Changelog
 
+## 0.7.2 (2026-11-20)
+
+### Behavior changes
+
+- `cursorAccount` channel configurations now accept up to 50 repositories or projects (up from 20) across GitHub, Origin, GitLab, and Bitbucket, and reject GitHub and Origin repository names longer than 140 characters.
+- `channels` is now a reserved agent slug (alongside `v1`, `playground`, and `docs`) so multi-agent slugs do not collide with hosted channel routes.
+
+### New
+
+- The [Per-user MCP connections](https://cursor.com/docs/agent-sdk/guides/per-user-connections.md) guide explains how to run hosted `cursorAccount` MCP connectors as the signed-in user. It covers `credentials: "individual"` declarations, user sign-in, and turns without a signed-in user.
+
+### Fixes
+
+- `agent-sdk channels teams doctor` now accepts the public hosted Teams endpoint URL (`https://api.cursor.com/v1/agent-sdk/<applicationId>/channels/<channelId>`, and `/<slug>/channels/<channelId>` for multi-agent deployments) alongside the legacy `/engine` path.
+- When a direct tool call on an individual `cursorAccount` MCP connection fails because the user has not connected that server, the runtime shows the Connect prompt in the playground and Slack instead of returning only an authentication error.
+- In the playground, a tooltip opened by hover or focus now closes when the part of the screen it is on is hidden.
+
 ## 0.7.1 (2026-11-20)
 
 ### Fixes

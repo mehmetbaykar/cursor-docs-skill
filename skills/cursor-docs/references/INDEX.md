@@ -38,6 +38,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `agent-sdk__guides__migrate` - [Migrate an early-alpha project to architecture v2](https://cursor.com/docs/agent-sdk/guides/migrate)
 - `agent-sdk__guides__opentelemetry` - [OpenTelemetry](https://cursor.com/docs/agent-sdk/guides/opentelemetry)
 - `agent-sdk__guides__pagerduty` - [PagerDuty agents](https://cursor.com/docs/agent-sdk/guides/pagerduty)
+- `agent-sdk__guides__per-user-connections` - [Run MCP connectors as the signed-in user](https://cursor.com/docs/agent-sdk/guides/per-user-connections)
 - `agent-sdk__guides__slack` - [Slack Agents](https://cursor.com/docs/agent-sdk/guides/slack)
 - `agent-sdk__guides__teams` - [Microsoft Teams agents](https://cursor.com/docs/agent-sdk/guides/teams)
 - `agent-sdk__guides__webhooks` - [Webhook agents](https://cursor.com/docs/agent-sdk/guides/webhooks)

@@ -176,6 +176,8 @@ file `account.ts`, because `cursor.ts` collides with the IDE's `cursor` MCP
 namespace. The host must be [signed in](https://cursor.com/docs/agent-sdk/reference/cli.md#environment-variables), or
 `serve` fails at startup.
 
+To run hosted connectors as each signed-in user instead of one shared account, see [Per-user MCP connections](https://cursor.com/docs/agent-sdk/guides/per-user-connections.md).
+
 > \[!CAUTION]
 > Anyone who can talk to the agent can drive these connectors. `serve` refuses
 > to start with `--allow-anonymous` and account connections unless you also pass

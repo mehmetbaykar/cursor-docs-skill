@@ -470,7 +470,9 @@ Turn learning on or off per organization with the **Automatically Learn Rules** 
 
 Rules are generated automatically from your team's activity on GitHub for that repository or by manually backfilling from the history of the repository.
 
-Bugbot learns from a pull request when it's merged or closed. It posts nothing on the pull request, and each learning run counts toward Bugbot usage like a review. Learning doesn't run on a repository set to manual-only or, on an individual account, when your personal settings run Bugbot **only when mentioned**. Turning off **Automatically Learn Rules** stops it for that organization.
+Bugbot learns from a pull request when it's merged or closed. It posts nothing on the pull request, and each learning run counts toward Bugbot usage like a review. Learning doesn't run on a repository set to manual-only or, on an individual account, when your personal settings run Bugbot **only when mentioned**. A team member's personal **only when mentioned** setting doesn't stop learning on repositories the team owns. Turning off **Automatically Learn Rules** stops it for that organization.
+
+`@cursor remember` and a manual backfill also count toward Bugbot usage. Manual-only settings don't skip them, because you start them yourself.
 
 You can also teach Bugbot new rules inline by commenting `@cursor remember [fact]` on any PR. Bugbot saves the fact as a learned rule and applies it to future reviews.
 
@@ -688,7 +690,7 @@ curl -X POST https://api.cursor.com/bugbot/repo/update \
 
 - `repoUrl` (string, required): The full URL of the repository
 - `enabled` (boolean, required): `true` to enable Bugbot, `false` to disable it
-- `manualTriggerOnly` (boolean, optional): When `true`, Bugbot won't run automatically on PR updates for this repository. Manual triggers, such as commenting `cursor review` or `bugbot run`, still work.
+- `manualTriggerOnly` (boolean, optional): When `true`, Bugbot won't run automatically on PR updates for this repository. Manual triggers, such as commenting `cursor review` or `bugbot run`, still work. Bugbot also stops [learning rules](https://cursor.com/docs/bugbot.md#learned-rules) automatically when a pull request in this repository is merged or closed.
 
 The Automations UI may take a moment to reflect changes made through the API due to caching. The API response shows the current state in the database.
 
@@ -785,7 +787,7 @@ Bugbot pricing changed with the May 2026 pricing update. See the [announcement b
 
 ### Billing
 
-Each review is billed once, to the team or personal account that has Bugbot turned on for the repository. The team the PR author belongs to doesn't change who's billed.
+Each review is billed once, to the team or personal account that has Bugbot turned on for the repository. The team the PR author belongs to doesn't change who's billed. [Rule learning](https://cursor.com/docs/bugbot.md#learned-rules) runs also use Bugbot usage.
 
 ### Individuals
 

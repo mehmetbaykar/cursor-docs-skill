@@ -122,8 +122,8 @@ reminder firing and admits unsigned loopback GitHub deliveries.
 
 `--bearer-token` requires a token on routes that don't declare their own
 authentication. `--allow-anonymous` admits every caller as one principal, so
-use it only behind a trusted network boundary. The slugs `v1`, `playground`,
-and `docs` are reserved.
+use it only behind a trusted network boundary. The slugs `v1`, `channels`,
+`playground`, and `docs` are reserved.
 
 ### Develop locally
 
@@ -624,8 +624,12 @@ The three Azure checks need the Azure CLI, logged in with `az login`, on any
 operating system. Without it they are skipped. When no Azure Bot in the
 current subscription has the app id, they fail. Each `az` call has a time
 limit. The endpoint's path must end in `/v1/channels/<channel>` plus the
-channel's `path`, after nothing, the agent's slug, or `/engine` on
-Cursor-managed hosting. A URL for another channel or agent fails without a
+channel's `path` after nothing, the agent's slug, or the legacy `/engine` alias,
+or `/channels/<channel>` plus the channel's `path` after
+`/v1/agent-sdk/<applicationId>` (optionally followed by `/<slug>`) on
+Cursor-managed hosting. CLI `0.7.1` and older fail this check on
+`/v1/agent-sdk/...` URLs (`deploy` and running bots are unaffected; `0.7.2`
+adds support). A URL for another channel or agent fails without a
 probe. The `endpoint` answers mean:
 
 | Answer                            | Meaning                                                                                                                             |

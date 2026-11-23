@@ -97,11 +97,12 @@ See [Configure Microsoft Teams](https://cursor.com/docs/agent-sdk/reference/cli.
 
 ## MCP authorization fails
 
-| What you see                                               | What to do                                                                                                                                                                                                                 |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `must be defineConnection({ url, oauth: true })`           | Add `oauth: true` to the connection, or fix the filename you passed to `mcp oauth`.                                                                                                                                        |
-| Local auth works but hosted calls return unauthorized      | Your local OAuth tokens don't reach a deployment. Use a `cursorAccount: true` connection, as described in [Host MCP OAuth](https://cursor.com/docs/agent-sdk/guides/mcp-oauth.md#use-an-oauth-server-from-a-hosted-agent). |
-| The model invents `mcp_auth` instead of calling the server | Set `advertiseTools: true` for named local tools, or expose a wrapper through `ctx.host.mcp`.                                                                                                                              |
+| What you see                                                                    | What to do                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `must be defineConnection({ url, oauth: true })`                                | Add `oauth: true` to the connection, or fix the filename you passed to `mcp oauth`.                                                                                                                                        |
+| Local auth works but hosted calls return unauthorized                           | Your local OAuth tokens don't reach a deployment. Use a `cursorAccount: true` connection, as described in [Host MCP OAuth](https://cursor.com/docs/agent-sdk/guides/mcp-oauth.md#use-an-oauth-server-from-a-hosted-agent). |
+| An individual `cursorAccount: true` connection refuses calls or asks to connect | Confirm the turn came from a linked user rather than a schedule, webhook, or service-account API key, and follow [Per-user MCP connections](https://cursor.com/docs/agent-sdk/guides/per-user-connections.md).             |
+| The model invents `mcp_auth` instead of calling the server                      | Set `advertiseTools: true` for named local tools, or expose a wrapper through `ctx.host.mcp`.                                                                                                                              |
 
 ## Schedules or reminders stall
 

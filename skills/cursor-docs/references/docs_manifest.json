@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 279,
+    "pages_fetched_successfully": 280,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 279
+    "total_pages_discovered": 280
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -185,8 +185,8 @@
       "title": "Build with a coding agent"
     },
     "agent-sdk__changelog.md": {
-      "hash": "fb7b6a1238a1e1ce6ccd05bd65795d009db5bd73f5a46112f4dd2cf2ec4573e7",
-      "last_updated": "2026-11-20T21:19:06+00:00",
+      "hash": "4e19b7516b4e007f50794c175a4fed9d3de53e5545d30fff861eaed5673a6e05",
+      "last_updated": "2026-11-23T18:21:26+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/changelog",
       "path": "/docs/agent-sdk/changelog",
       "section": "docs",
@@ -295,8 +295,8 @@
       "title": "Use Jev in review tools"
     },
     "agent-sdk__guides__mcp-oauth.md": {
-      "hash": "9c487baf86fbfbc3efcf58073e6a489112b946393bb818bc7c65689789ac1011",
-      "last_updated": "2026-11-20T21:19:09+00:00",
+      "hash": "332388a4a96cf42c7d2b6d828ecb91762bcbe1ca43c7c1c4256361d147bb5b9b",
+      "last_updated": "2026-11-23T18:21:30+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/mcp-oauth",
       "path": "/docs/agent-sdk/guides/mcp-oauth",
       "section": "docs",
@@ -334,6 +334,16 @@
       "status": "live",
       "title": "PagerDuty agents"
     },
+    "agent-sdk__guides__per-user-connections.md": {
+      "hash": "0996d3b332338a1f8dae71d5edd4c954c188bd1afb9802711ee896a81add8b90",
+      "last_updated": "2026-11-23T18:21:31+00:00",
+      "original_url": "https://cursor.com/docs/agent-sdk/guides/per-user-connections",
+      "path": "/docs/agent-sdk/guides/per-user-connections",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/agent-sdk/guides/per-user-connections",
+      "status": "live",
+      "title": "Run MCP connectors as the signed-in user"
+    },
     "agent-sdk__guides__slack.md": {
       "hash": "777ebb087e26ee3b4adb55cd7900aa0ed6e299b32433695791e63ec4eb9f0fdc",
       "last_updated": "2026-11-20T21:19:10+00:00",
@@ -345,8 +355,8 @@
       "title": "Slack Agents"
     },
     "agent-sdk__guides__teams.md": {
-      "hash": "3bd40883fc41ec332cb36419c60e7f7a920fa7365d02fcd863e5c0a0ef24fefb",
-      "last_updated": "2026-11-20T21:19:11+00:00",
+      "hash": "e43ffd7e2a4e0dbe0c62d861ddab88c6f3431ff803e0160a691acb68353ed0db",
+      "last_updated": "2026-11-23T18:21:32+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/guides/teams",
       "path": "/docs/agent-sdk/guides/teams",
       "section": "docs",
@@ -435,8 +445,8 @@
       "title": "Channels"
     },
     "agent-sdk__reference__cli.md": {
-      "hash": "4e8def378f5de16887770651829eb118e36b87c5e07531b427f70b3d99f766a9",
-      "last_updated": "2026-11-20T21:19:14+00:00",
+      "hash": "32a7655d59d6bbc99e8a75d6b2218ea2d6dbf17dbf323bbfc3632b631df6385f",
+      "last_updated": "2026-11-23T18:21:35+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/cli",
       "path": "/docs/agent-sdk/reference/cli",
       "section": "docs",
@@ -445,8 +455,8 @@
       "title": "Agent SDK CLI"
     },
     "agent-sdk__reference__connections.md": {
-      "hash": "bb5bafa55de5f46ae1f56a0ab47b8fd67843c556e05eca9f7df22917aa3a038d",
-      "last_updated": "2026-10-26T15:37:09+00:00",
+      "hash": "bd03fcc9697da1841d40d8c3f14e9f0ed824a49e4d57714f56c6128440040f8d",
+      "last_updated": "2026-11-23T18:21:35+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/reference/connections",
       "path": "/docs/agent-sdk/reference/connections",
       "section": "docs",
@@ -615,8 +625,8 @@
       "title": "Review and triage templates"
     },
     "agent-sdk__troubleshooting.md": {
-      "hash": "7c50c84e14143a26682834a1d733494824c642c8b714eafded085fc26a2ade15",
-      "last_updated": "2026-11-20T21:19:19+00:00",
+      "hash": "79eaae9f73609ac5131bcee846fe03442493b80a758b4083c8b5059648a21164",
+      "last_updated": "2026-11-23T18:21:41+00:00",
       "original_url": "https://cursor.com/docs/agent-sdk/troubleshooting",
       "path": "/docs/agent-sdk/troubleshooting",
       "section": "docs",
@@ -865,8 +875,8 @@
       "title": "PR Routing & Approval"
     },
     "bugbot.md": {
-      "hash": "6f71b75d8ff2241880fa4afdb848bc10d5b6b627d9112f3ec567800461db6ca2",
-      "last_updated": "2026-11-12T21:19:51+00:00",
+      "hash": "952f2effb2f59491f59abeda48d3b2aab86bb272d06c78c199675ab2136ffe06",
+      "last_updated": "2026-11-23T18:21:50+00:00",
       "original_url": "https://cursor.com/docs/bugbot",
       "path": "/docs/bugbot",
       "section": "docs",
@@ -1355,8 +1365,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "ca7988b8a7ea51f22de5541fcfe49629fe88f07bc781acbe323920be77db7609",
-      "last_updated": "2026-11-22T03:22:47+00:00",
+      "hash": "8f28ee42bdcaf8bc207ba90b4424371aed605f51740e9f73d9b9778f54015715",
+      "last_updated": "2026-11-23T18:22:52+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2820,7 +2830,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-22T03:22:57+00:00",
+  "last_updated": "2026-11-23T18:23:17+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

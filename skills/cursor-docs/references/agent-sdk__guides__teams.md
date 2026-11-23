@@ -352,9 +352,14 @@ agent-sdk secret set helpdesk TEAMS_TENANT_ID
 ```
 
 `agent-sdk deploy` prints the hosted messaging endpoint on a `public:`
-line that ends in `/v1/channels/teams`. Set the Azure Bot's **Messaging
-endpoint** to that URL, not to the slug URL from local testing. With a
-custom `path`, add it after the printed URL.
+line of the form `https://api.cursor.com/v1/agent-sdk/<applicationId>/channels/teams`
+(with `/<slug>` before `/channels/` in a multi-agent deploy). Set the
+Azure Bot's **Messaging endpoint** to that URL, not to the slug URL from
+local testing. With a custom `path`, add it after the printed URL.
+
+On CLI `0.7.1` and older, `agent-sdk channels teams doctor` fails its endpoint
+path check on `/v1/agent-sdk/...` URLs; `deploy` and running bots are
+unaffected, and `0.7.2` accepts the new URL.
 
 On hosting, Cursor checks the Bot Framework token and the tenant before
 the agent starts. Activities that the channel cannot act on, such as a

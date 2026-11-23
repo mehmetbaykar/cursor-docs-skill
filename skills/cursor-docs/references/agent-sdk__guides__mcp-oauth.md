@@ -100,15 +100,17 @@ reach it through a
 [`cursorAccount: true` connection](https://cursor.com/docs/agent-sdk/reference/connections.md#cursor-account-mcp-connection),
 and connect it from [Deployed Agents](https://cursor.com/dashboard/deployed-agents).
 Anyone who can use the agent can use that connection, so narrow its
-`servers` list.
+`servers` list. To run a connector as each signed-in person instead, see
+[Per-user MCP connections](https://cursor.com/docs/agent-sdk/guides/per-user-connections.md).
 
 ## Choose where credentials live
 
-| Connection               | Credentials live in | Use it when                                      |
-| ------------------------ | ------------------- | ------------------------------------------------ |
-| `cursorAccount: true`    | Cursor's backend    | You connected the server in the Cursor dashboard |
-| `url` with `oauth: true` | The serve host      | The serve host should own access                 |
-| `url` with `headers`     | Your secrets        | The server takes an API key or bearer token      |
+| Connection                                             | Credentials live in         | Use it when                                                                                                                                         |
+| ------------------------------------------------------ | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cursorAccount: true`                                  | Cursor's backend            | You connected the server in the Cursor dashboard                                                                                                    |
+| `cursorAccount: true` with `credentials: "individual"` | Cursor's backend (per user) | Each person should run tools under their own account ([Per-user MCP connections](https://cursor.com/docs/agent-sdk/guides/per-user-connections.md)) |
+| `url` with `oauth: true`                               | The serve host              | The serve host should own access                                                                                                                    |
+| `url` with `headers`                                   | Your secrets                | The server takes an API key or bearer token                                                                                                         |
 
 Host OAuth can't share a connection with per-session `auth`, which
 gives each caller its own downstream identity.
