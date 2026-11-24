@@ -365,9 +365,11 @@ Slack's [team](https://cursor.com/docs/integrations/slack.md#team-default-pool) 
 
 ## Hooks
 
-Self-Hosted Machines workers run command-based [hooks](https://cursor.com/docs/hooks.md) during Cloud Agent sessions. They load configuration from the workspace the worker serves.
+Self-Hosted Machines workers run command-based [hooks](https://cursor.com/docs/hooks.md) during Cloud Agent sessions. They load configuration from the workspace the worker serves and from the worker machine itself.
 
 - **Project hooks.** Commit `.cursor/hooks.json` and the scripts it references in the repository or workspace directory the worker uses. That is the git checkout, a `--worker-dir` root, or the directory you pass for an [any-repo pool](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#any-repo-pools).
+- **User hooks on the worker machine.** `~/.cursor/hooks.json` in the home folder of the account the worker runs as.
+- **Machine-wide hooks.** `/etc/cursor/hooks.json` on Linux, `/Library/Application Support/Cursor/hooks.json` on macOS, or `C:\ProgramData\Cursor\hooks.json` on Windows.
 - **Team and enterprise-managed hooks.** On Enterprise, workers also run hooks configured in the [web dashboard](https://cursor.com/dashboard/team-content?section=hooks).
 - **Worker flags.** Pool workers also take `--on-session-start <command>` and `--on-session-end <command>`. Each adds one `sessionStart` or `sessionEnd` command without editing `.cursor/hooks.json`.
 
@@ -381,6 +383,8 @@ The Cloud Agent limits that also apply on these tool-execution workers:
 `sessionStart` and `sessionEnd` run on Self-Hosted Machines workers. They fire when a Cloud Agent session claims the worker and when that claim is released. Cursor-managed Cloud Agents skip those hooks.
 
 On a claim, the `sessionStart` input also lists the run's repositories. `repo_urls` is an array of URLs. `repos` has one entry per repository with `repo_url`, `primary` (`true` for the repository the run routed on), and `ref` when the request pinned a branch or commit. Use them to check out a ref or a repository the worker doesn't clone itself. See [Environments on Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md#environments-on-self-hosted-machines) for the other environment settings hooks replace.
+
+With agent CLI `2026.11.19` or later, tool, shell, and MCP hooks on workers receive `conversation_id`, `session_id`, `generation_id`, `model`, and `user_email`, and `stop` receives the turn's token counts. For which hooks fire on an MCP call, see [MCP servers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers).
 
 Workers on [Kubernetes](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#deploy-on-kubernetes) and other orchestrated platforms use this same hooks model.
 
@@ -452,7 +456,32 @@ MCP servers on self-hosted workers are routed by transport type:
 
 If your MCP server needs to access private-network endpoints, use the command (stdio) transport. The process runs directly on the worker and shares its network. For HTTP-based MCP servers, Cursor manages the connection from its backend, handling OAuth and session caching.
 
+Configure MCP servers for workers at [cursor.com/agents](https://cursor.com/agents), the same as for hosted Cloud Agents. Command (stdio) servers bundled in [local plugins](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#home-folder-config) on the worker also run on the worker. URL servers in local plugins don't load.
+
+A worker also starts the servers in its own `~/.cursor/mcp.json`: command servers, and URL servers on `localhost`, a `127.x.x.x` address, or `[::1]`. It reads the file when the worker starts, so restart the worker after you edit it. The worker doesn't start other URL servers in that file. Configure those at cursor.com/agents instead.
+
+Which [hooks](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks) fire for an MCP call depends on where the server runs. For servers the worker runs, `preToolUse`, `beforeMCPExecution`, `afterMCPExecution`, and `postToolUse` fire. For URL servers that run on Cursor's backend, only `preToolUse` and `postToolUse` fire, and `postToolUse` gets a redacted result, the same as on hosted Cloud Agents. See [Cloud agent support](https://cursor.com/docs/hooks.md#cloud-agent-support).
+
 Cursor doesn't connect to an HTTP server whose URL still contains an unfilled variable, so agents don't get its tools. Fill in the variable, or configure the server as a command server if it should run on the worker. Adding a server to the [MCP Allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) approves it but doesn't distribute it to agents.
+
+## Home folder config
+
+A worker reads Cursor config from the home folder of the account it runs as on the worker machine:
+
+- **Skills** in `~/.cursor/skills/` reach the agent and appear in the `/` menu. Skills in `~/.agents/skills/` reach the agent but aren't listed in the menu.
+- **Commands** in `~/.cursor/commands/` appear in the `/` menu.
+- **Subagents** in `~/.cursor/agents/`. When two subagents share a name, the repository's wins, then the home folder's, then a plugin's.
+- **Rules** in `~/.cursor/rules/` (`.mdc` files), with the same `alwaysApply`, `globs`, and `description` behavior as project rules. A glob rule attaches when the agent reads a matching file. Relative globs match paths from the home folder, so `**/*.ts` reaches a worker directory under home. For a worker directory outside home, use an absolute glob such as `/srv/repos/**/*.ts`.
+- **Hooks** in `~/.cursor/hooks.json`. See [Hooks](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks).
+- **Local plugins** in `~/.cursor/plugins/local/`, with their skills, rules, subagents, and command (stdio) MCP servers. URL MCP servers and hooks in local plugins don't load. Workers load local plugins only if your team allows [local plugin imports](https://cursor.com/docs/plugins.md#test-plugins-locally), which are off by default on Enterprise. When a local plugin has the same name as a plugin installed for your account or team, the local plugin wins.
+
+Home rules, subagents, local plugins, and the `/` menu entries for home skills and commands need agent CLI `2026.11.19` or later on the worker. A running worker doesn't update itself, so run `agent update` and restart the worker.
+
+For MCP servers, see [MCP servers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers). See also [What each surface reads from your home folder](https://cursor.com/docs/customize-cursor.md#what-each-surface-reads-from-your-home-folder).
+
+The worker decides whether to load home rules, subagents, and local plugins once, when a claim starts, and it reads local plugins then. A change to a local plugin, or to the local plugin imports setting, applies from the next claim. The worker loads none of the three when it can't write its config folder (`CURSOR_CONFIG_DIR`, else `$XDG_CONFIG_HOME/cursor`, else `~/.cursor`), or when it hasn't saved fresh settings from Cursor in the last few minutes.
+
+A worker's home folder persists across claims, and its contents are trusted the same way as the rest of your team's worker setup. Anything an agent in one claim writes to `~/.cursor` on that machine, such as skills, commands, subagents, rules, hooks, or local plugins, applies to later claims the same machine serves. Local plugins can bundle command (stdio) MCP servers, so a plugin written in one claim can run commands in later claims. To keep claims apart, start a fresh worker for each claim with the [worker controller](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#worker-controller).
 
 ## Artifacts
 
@@ -958,25 +987,30 @@ runner or devbox for the repo it serves.
 Each worker needs enough CPU, memory, disk, and network access to clone the
 repo and run the builds, tests, and tools your agents need.
 
-### Can I bake skills into the worker image?
+### How do I get skills onto self-hosted workers?
 
-Yes. Project-level skills in `.cursor/skills/` or `.agents/skills/` are
-automatically available on self-hosted workers.
+Project-level skills in `.cursor/skills/` or `.agents/skills/` are
+automatically available on self-hosted workers, and they appear in the `/`
+menu. To share skills across a team, check them into the repo.
 
-To share skills across a team, check them into the repo or bake them into
-your custom worker image. [Personal skill
-sync](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) applies to
-managed Cloud Agents, not self-hosted workers.
+[Synced personal
+skills](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) also load in
+Cloud Agents you start on self-hosted workers. Skills in the worker
+machine's own `~/.cursor/skills/` reach the agent and appear in the `/`
+menu. See [Home folder config](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#home-folder-config).
 
 ### Do MCP servers work on self-hosted workers?
 
-Yes. Configure MCP servers through the Cloud Agents dashboard. See the
+Yes. Configure MCP servers through the Cloud Agents dashboard. Command
+(stdio) servers bundled in local plugins on the worker also run, and so do
+command and loopback URL servers in the worker's `~/.cursor/mcp.json`. See the
 [MCP servers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers) section for how routing works by transport type.
 
 ### Do hooks run on self-hosted workers?
 
 Yes. Self-Hosted Machines workers run project hooks from
-`.cursor/hooks.json`. On Enterprise, they also run team and
+`.cursor/hooks.json` and user hooks from the worker machine's
+`~/.cursor/hooks.json`. On Enterprise, they also run team and
 enterprise-managed hooks. See [Hooks](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks).
 
 ### Can multiple agents use one pool worker?

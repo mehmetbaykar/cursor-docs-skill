@@ -38,6 +38,26 @@ Cursor extensions are built from composable pieces. Plugins often bundle several
 
 For MCP servers that connect Cursor to external tools and data sources, see [Model Context Protocol (MCP)](https://cursor.com/docs/mcp.md).
 
+## What each surface reads from your home folder
+
+Config in your home folder applies only on the machine where it lives. The editor and CLI read your own machine's home folder. A [self-hosted worker](https://cursor.com/docs/cloud-agent/self-hosted.md) reads the home folder of the account it runs as on the worker machine. A hosted Cloud Agent runs on a Cursor VM whose home folder doesn't hold your files, so it uses synced skills, dashboard MCP servers, and plugins installed for your account and team instead.
+
+| Home path                       | Editor                              | CLI                                 | Hosted Cloud Agent                                                                                  | Self-hosted worker                                            |
+| :------------------------------ | :---------------------------------- | :---------------------------------- | :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------------ |
+| `~/.cursor/skills/`             | Yes                                 | Yes                                 | No. [Sync skills](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) instead. | Yes, and listed in the `/` menu                               |
+| `~/.agents/skills/`             | Yes                                 | Yes                                 | No                                                                                                  | Yes, to the agent. Not listed in the `/` menu.                |
+| `~/.cursor/agents/` (subagents) | Yes                                 | No                                  | No                                                                                                  | Yes                                                           |
+| `~/.cursor/commands/`           | Yes                                 | Yes                                 | No                                                                                                  | Yes                                                           |
+| `~/.cursor/mcp.json`            | Yes                                 | Yes                                 | No                                                                                                  | Command and loopback URL servers, read when the worker starts |
+| `~/.cursor/hooks.json`          | Yes                                 | Yes                                 | No                                                                                                  | Yes                                                           |
+| `~/.cursor/plugins/local/`      | If local plugin imports are allowed | If local plugin imports are allowed | No                                                                                                  | If local plugin imports are allowed                           |
+
+[Synced personal skills](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) load in Cloud Agents you start on both hosted VMs and self-hosted workers.
+
+A self-hosted worker also loads the `.mdc` rule files in its own `~/.cursor/rules/`. To set rules for every project in the editor, use [User Rules](https://cursor.com/docs/rules.md#user-rules).
+
+MCP servers for self-hosted workers are configured at [cursor.com/agents](https://cursor.com/agents), the same as for hosted Cloud Agents. A worker also runs command (stdio) servers bundled in its local plugins, and command and loopback URL servers in its own `~/.cursor/mcp.json`. See [MCP servers on self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers).
+
 ## Marketplace leaderboard
 
 Cursor shows a leaderboard of the most popular plugins, skills, and MCPs across your team.

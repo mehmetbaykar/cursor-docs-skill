@@ -89,13 +89,13 @@ HTTP MCP servers run on Cursor's backend instead of the agent's VM. For their to
 
 Some hooks don't apply to cloud agents due to differences in the execution environment:
 
-| Hook                                       | Reason                                                                                                                                                                                                   |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sessionStart`                             | Deferred while cloud agents can still start in a read-only environment. Hooks don't load there, so a cloud `sessionStart` would fire too late (after the first write) rather than at true session start. |
-| `sessionEnd`                               | Cloud agents have no editor-lifetime session boundary. `sessionEnd` is tied to the IDE session, not a cloud agent chat.                                                                                  |
-| `beforeMCPExecution` / `afterMCPExecution` | Deferred while cloud agents can still start in a read-only environment, where hooks don't load and MCP hook timing is unclear.                                                                           |
-| `beforeTabFileRead` / `afterTabFileEdit`   | Tab completions are an IDE feature and don't run in cloud agents.                                                                                                                                        |
-| `workspaceOpen`                            | This is an IDE lifecycle hook and doesn't apply to cloud agents.                                                                                                                                         |
+| Hook                                       | Reason                                                                                                                                                                                                                                                                            |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sessionStart`                             | Deferred while cloud agents can still start in a read-only environment. Hooks don't load there, so a cloud `sessionStart` would fire too late (after the first write) rather than at true session start.                                                                          |
+| `sessionEnd`                               | Cloud agents have no editor-lifetime session boundary. `sessionEnd` is tied to the IDE session, not a cloud agent chat.                                                                                                                                                           |
+| `beforeMCPExecution` / `afterMCPExecution` | Deferred while cloud agents can still start in a read-only environment, where hooks don't load and MCP hook timing is unclear. On [Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers) workers, they fire for MCP servers the worker runs. |
+| `beforeTabFileRead` / `afterTabFileEdit`   | Tab completions are an IDE feature and don't run in cloud agents.                                                                                                                                                                                                                 |
+| `workspaceOpen`                            | This is an IDE lifecycle hook and doesn't apply to cloud agents.                                                                                                                                                                                                                  |
 
 ### Configuration sources
 
@@ -107,7 +107,7 @@ Cloud agents load hooks from these sources:
 
 User-level hooks (`~/.cursor/hooks.json`) are not available in cloud agents. Cloud agent VMs don't have access to your local home directory configuration.
 
-[Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) workers (Pools and My Machines) run the same command-based project hooks, and on Enterprise also run team and enterprise-managed hooks. On those workers, `sessionStart` and `sessionEnd` fire when a session claims the worker and when that claim is released. See [Hooks on Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks).
+[Self-Hosted Machines](https://cursor.com/docs/cloud-agent/self-hosted.md) workers (Pools and My Machines) run the same command-based project hooks, and on Enterprise also run team and enterprise-managed hooks. They also run user hooks from `~/.cursor/hooks.json` in the worker machine's own home folder. On those workers, `sessionStart` and `sessionEnd` fire when a session claims the worker and when that claim is released. See [Hooks on Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks).
 
 ### Execution type limits
 

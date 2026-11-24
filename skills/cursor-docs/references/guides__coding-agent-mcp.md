@@ -83,7 +83,7 @@ Two ways to add an MCP server in Cursor: one click from the marketplace, or a co
 
 **One click.** On a [marketplace](https://cursor.com/marketplace) listing, click Add to Cursor to install the server and authenticate with OAuth. This is the fastest way to connect the named servers above.
 
-**Config file.** For a custom or self-hosted server, add it to `mcp.json`. Use `.cursor/mcp.json` in a project for project-specific tools, or `~/.cursor/mcp.json` in your home directory for tools available everywhere. A local (command-based) server looks like this:
+**Config file.** For a custom or self-hosted server, add it to `mcp.json`. Use `.cursor/mcp.json` in a project for project-specific tools, or `~/.cursor/mcp.json` in your home directory for tools in every project you open in the editor or CLI. A local (command-based) server looks like this:
 
 ```
 {

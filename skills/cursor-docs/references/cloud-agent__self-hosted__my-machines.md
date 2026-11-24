@@ -196,7 +196,7 @@ If no machine matches the linked user and target repo, the request fails instead
 
 ## Hooks
 
-A My Machines worker runs the same hooks as other Self-Hosted Machines workers: command-based hooks from `.cursor/hooks.json` in the workspace you start the worker from. On Enterprise, it also runs team hooks and enterprise-managed hooks.
+A My Machines worker runs the same hooks as other Self-Hosted Machines workers: command-based hooks from `.cursor/hooks.json` in the workspace you start the worker from, and from `~/.cursor/hooks.json` on your machine. On Enterprise, it also runs team hooks and enterprise-managed hooks.
 
 [Hooks on Pools](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#hooks) covers what applies on workers, including `sessionStart` and `sessionEnd` when a session claims and releases the machine. The [Hooks reference](https://cursor.com/docs/hooks.md) covers the schema, events, and examples.
 
@@ -251,6 +251,8 @@ MCP servers are routed by transport type:
 | HTTP / SSE (url) | Cursor backend | Cursor handles OAuth, session caching, and auth for HTTP-based MCP servers.                               |
 
 If your MCP server needs to reach endpoints on your private network, use the command (stdio) transport. The process runs directly on your machine and shares its network. For HTTP-based MCP servers, Cursor manages the connection from its backend.
+
+Configure MCP servers for the worker at cursor.com/agents, the same as for hosted Cloud Agents. Command servers bundled in your local plugins in `~/.cursor/plugins/local/` run on your machine, and URL servers in those plugins don't load. The worker also starts command and loopback URL servers from your `~/.cursor/mcp.json` when it starts. A My Machines worker reads the same home folder config as a pool worker. See [Home folder config](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#home-folder-config).
 
 **Authenticate** (browser sign-in) works only for HTTP servers. Give a command server its credentials as environment variables in the server's [`env`](https://cursor.com/docs/mcp.md#stdio-server-configuration) config. Edit personal servers from the MCP dropdown in cursor.com/agents, and team servers under **Dashboard > Plugins & MCPs**. See [MCP tools](https://cursor.com/docs/cloud-agent/capabilities.md#mcp-tools).
 

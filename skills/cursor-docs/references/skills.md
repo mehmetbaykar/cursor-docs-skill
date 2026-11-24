@@ -76,10 +76,11 @@ Skills are automatically loaded from these locations:
 User-level skills in `~/.cursor/skills/` stay on your machine until you [sync
 them for Cloud Agents](https://cursor.com/docs/skills.md#use-personal-skills-with-cloud-agents) or [publish
 them to your team](https://cursor.com/docs/plugins.md#publish-a-skill-to-your-team). Cursor does
-not copy `~/.agents/skills/` or unsynced local skills to Cloud Agents, Agents
-Window remote SSH sessions, or [self-hosted
-workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md). On self-hosted workers, use
-project skills from the repo or bake skills into the worker image.
+not copy `~/.agents/skills/` or unsynced local skills to Cloud Agents or
+Agents Window remote SSH sessions. Synced skills also reach Cloud Agents that
+run on [self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md).
+
+A self-hosted worker also reads the skill folders in its own home folder, such as `~/.cursor/skills/` on the worker machine. The agent can use those skills, and skills in the worker's `~/.cursor/skills/` appear in the `/` menu. Skills in the worker's `~/.agents/skills/` don't appear in the menu. See [What each surface reads from your home folder](https://cursor.com/docs/customize-cursor.md#what-each-surface-reads-from-your-home-folder).
 
 For compatibility, Cursor also loads skills from Claude and Codex directories: `.claude/skills/`, `.codex/skills/`, `~/.claude/skills/`, and `~/.codex/skills/`.
 
@@ -287,7 +288,7 @@ Personal skills in `~/.cursor/skills/` run on your local machine. Turn on **Sync
 
 Synced skills stay private to you. They are not shared with your team.
 
-Synced skills load in Cloud Agents you start yourself. [Automation](https://cursor.com/docs/cloud-agent/automations.md) runs don't load them, including automations set to [Run as **Me**](https://cursor.com/docs/cloud-agent/automations.md#run-as). To give an automation a skill, add it to the repository's `.cursor/skills/` folder.
+Synced skills load in Cloud Agents you start yourself, on Cursor's VMs and on [self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted.md). [Automation](https://cursor.com/docs/cloud-agent/automations.md) runs don't load them, including automations set to [Run as **Me**](https://cursor.com/docs/cloud-agent/automations.md#run-as). To give an automation a skill, add it to the repository's `.cursor/skills/` folder.
 
 ### Sync your skills
 

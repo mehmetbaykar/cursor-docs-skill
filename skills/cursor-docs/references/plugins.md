@@ -335,9 +335,11 @@ On Enterprise, admins control this with **Allow Local Plugin Imports** under
 **Dashboard -> Settings -> Security & Identity -> Marketplace and Plugins**.
 The setting is off by default on Enterprise, and it also controls **Import
 from Disk** in **Customize**. The first-party plugin allowlist lives in the
-same Enterprise-only section. If a
-marketplace plugin with the same name is already installed, that install
-takes precedence over the local copy.
+same Enterprise-only section.
+
+In the editor and CLI, if a marketplace plugin with the same name is also installed, Cursor loads both. Neither copy replaces the other, so remove or rename one while you test.
+
+Plugins in `~/.cursor/plugins/local` load in the editor, the CLI, and on [self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#home-folder-config), wherever local plugin imports are allowed. On workers, a local plugin wins over an installed plugin with the same name, and only its command (stdio) MCP servers run. Hosted Cloud Agents load only the plugins installed for your account and team.
 
 Symlinks in `~/.cursor/plugins/local` load only when the target resolves to a directory inside that folder. Cursor skips a symlink that points to a plugin repository elsewhere on disk.
 

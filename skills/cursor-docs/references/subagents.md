@@ -8,7 +8,7 @@ path: /docs/subagents
 
 Subagents are specialized AI assistants that Cursor's agent can delegate tasks to. Each subagent operates in its own context window, handles specific types of work, and returns its result to the parent agent. Use subagents to break down complex tasks, do work in parallel, and preserve context in the main conversation.
 
-You can use subagents in the editor, CLI, and [Cloud Agents](https://cursor.com/docs/cloud-agent.md).
+Built-in subagents and project subagents in `.cursor/agents/` work in the editor, CLI, and [Cloud Agents](https://cursor.com/docs/cloud-agent.md). User subagents in `~/.cursor/agents/` load in the editor and on self-hosted workers, from the worker machine's home folder. See [File locations](https://cursor.com/docs/subagents.md#file-locations).
 
 ### Context isolation
 
@@ -86,16 +86,18 @@ Define custom subagents to encode specialized knowledge, enforce team standards,
 
 ### File locations
 
-| Type                  | Location            | Scope                                                |
-| :-------------------- | :------------------ | :--------------------------------------------------- |
-| **Project subagents** | `.cursor/agents/`   | Current project only                                 |
-|                       | `.claude/agents/`   | Current project only (Claude compatibility)          |
-|                       | `.codex/agents/`    | Current project only (Codex compatibility)           |
-| **User subagents**    | `~/.cursor/agents/` | All projects for current user                        |
-|                       | `~/.claude/agents/` | All projects for current user (Claude compatibility) |
-|                       | `~/.codex/agents/`  | All projects for current user (Codex compatibility)  |
+| Type                  | Location            | Where it loads                                              |
+| :-------------------- | :------------------ | :---------------------------------------------------------- |
+| **Project subagents** | `.cursor/agents/`   | Editor, CLI, and Cloud Agents, for the current project      |
+|                       | `.claude/agents/`   | Current project only (Claude compatibility)                 |
+|                       | `.grok/agents/`     | Same as `.cursor/agents/` (Grok compatibility)              |
+| **User subagents**    | `~/.cursor/agents/` | Editor, for every project you open, and self-hosted workers |
+|                       | `~/.claude/agents/` | All projects for current user (Claude compatibility)        |
+|                       | `~/.grok/agents/`   | Editor only (Grok compatibility)                            |
 
-Project subagents take precedence when names conflict. When multiple locations contain subagents with the same name, `.cursor/` takes precedence over `.claude/` or `.codex/`.
+The `.grok/` folders load when **Include Third-Party Plugins, Skills, and Other Configs** is on in **Cursor Settings → Agents → Third-Party Imports**. The CLI and hosted Cloud Agents don't read subagents from your home folder. Commit subagents to the repository's `.cursor/agents/` to use them there. A [self-hosted worker](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#home-folder-config) reads `~/.cursor/agents/` in its own home folder.
+
+Project subagents take precedence when names conflict. When multiple locations contain subagents with the same name, `.cursor/` takes precedence over `.claude/` or `.grok/`.
 
 ### File format
 
@@ -430,7 +432,7 @@ The easiest way to create a subagent is to ask Agent to create one for you:
 
 Create a subagent file at .cursor/agents/security-reviewer.md with YAML frontmatter containing name and description. The security-reviewer subagent should check code for common vulnerabilities like injection, XSS, and hardcoded secrets.
 
-You can also create subagents manually by adding markdown files to `.cursor/agents/` (project) or `~/.cursor/agents/` (user).
+You can also create subagents manually by adding markdown files to `.cursor/agents/` (project) or `~/.cursor/agents/` (user, editor and self-hosted workers).
 
 ### Viewing subagents
 

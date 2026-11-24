@@ -201,7 +201,9 @@ Create `.cursor/mcp.json` in your project for project-specific tools.
 
 ### Global Configuration
 
-Create `~/.cursor/mcp.json` in your home directory for tools available everywhere.
+Create `~/.cursor/mcp.json` in your home directory for tools in every project you open in the editor or CLI.
+
+Hosted Cloud Agents don't read `~/.cursor/mcp.json`. They use the servers configured at [cursor.com/agents](https://cursor.com/agents) and your team's servers. [Self-hosted workers](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#mcp-servers) use those too, and also run command (stdio) servers bundled in the worker's local plugins, plus command and loopback URL servers in the worker machine's own `~/.cursor/mcp.json`. See [What each surface reads from your home folder](https://cursor.com/docs/customize-cursor.md#what-each-surface-reads-from-your-home-folder).
 
 ### Config interpolation
 

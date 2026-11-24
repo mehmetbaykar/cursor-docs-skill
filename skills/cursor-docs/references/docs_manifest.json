@@ -1235,8 +1235,8 @@
       "title": "Integrations"
     },
     "cloud-agent__self-hosted__my-machines.md": {
-      "hash": "3f9dfc02a4beb56820c7e7b39b67716b9a1b1e230c42426f76dfcc2066808b12",
-      "last_updated": "2026-11-10T18:20:55+00:00",
+      "hash": "1172968bf5654691cab72611cef22db30abef65f976be0a09d2d5cb163895bba",
+      "last_updated": "2026-11-24T00:36:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/my-machines",
       "path": "/docs/cloud-agent/self-hosted/my-machines",
       "section": "docs",
@@ -1245,8 +1245,8 @@
       "title": "My Machines"
     },
     "cloud-agent__self-hosted__pool.md": {
-      "hash": "9b9a08344a06258c136f346922d7e3ee0a87852540eb17eaef75622c56b5f901",
-      "last_updated": "2026-11-18T00:40:37+00:00",
+      "hash": "fd89557982b8d71dc04704841f08314f7b05ce326413b4847844bba46c47c3ca",
+      "last_updated": "2026-11-24T00:36:42+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/self-hosted/pool",
       "path": "/docs/cloud-agent/self-hosted/pool",
       "section": "docs",
@@ -1315,8 +1315,8 @@
       "title": "Cursor Documentation"
     },
     "customize-cursor.md": {
-      "hash": "5485668bf585c6534a1de2d71ab6949d8bd6b5254c428c7d1db0f421b9ef1a38",
-      "last_updated": "2026-08-07T17:12:03+00:00",
+      "hash": "734ec6eb70a91b2ec7c4a8bdb44a7293103c3606d92f92e94fff38cadaf589e8",
+      "last_updated": "2026-11-24T00:36:44+00:00",
       "original_url": "https://cursor.com/docs/customize-cursor",
       "path": "/docs/customize-cursor",
       "section": "docs",
@@ -1365,8 +1365,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "8f28ee42bdcaf8bc207ba90b4424371aed605f51740e9f73d9b9778f54015715",
-      "last_updated": "2026-11-23T18:22:52+00:00",
+      "hash": "142e0ef2fc8ce7129ad806af41fd74fa4a9170564eeef9f2c96ce87b9502cf04",
+      "last_updated": "2026-11-24T00:37:28+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -1385,8 +1385,8 @@
       "title": "AI code review: more context, fewer bugs"
     },
     "guides__coding-agent-mcp.md": {
-      "hash": "7d063b2d0936c563e6180d79bbf70cbf9b6505833620da87ab383ccf07b98a6f",
-      "last_updated": "2026-11-03T18:08:43+00:00",
+      "hash": "0bbb736db3d8118920a906deab43f615eb18be9a395181970a64ffa0e82d2e8c",
+      "last_updated": "2026-11-24T00:37:29+00:00",
       "original_url": "https://cursor.com/guides/coding-agent-mcp",
       "path": "/guides/coding-agent-mcp",
       "section": "guides",
@@ -1415,8 +1415,8 @@
       "title": "Maximizing return on intelligence"
     },
     "hooks.md": {
-      "hash": "e524d7561cf580d234ebb45443efb784b4104b6436b34160cd41daaa006966d8",
-      "last_updated": "2026-11-16T21:19:57+00:00",
+      "hash": "4bd85f290b86b2452c955874c45cc9ea9bf1ba22f8d8a7598e4e23bc007f5e3b",
+      "last_updated": "2026-11-24T00:36:46+00:00",
       "original_url": "https://cursor.com/docs/hooks",
       "path": "/docs/hooks",
       "section": "docs",
@@ -1555,8 +1555,8 @@
       "title": "Xcode"
     },
     "mcp.md": {
-      "hash": "f0bf84f009ed53e889d4ef68914d49e8ad263d4587451a221875bac46361f2e8",
-      "last_updated": "2026-11-19T00:40:09+00:00",
+      "hash": "2196ebc9e1603eef53b4c35be5a8787a236d2c8ea942f779af827d212ffa2210",
+      "last_updated": "2026-11-24T00:36:51+00:00",
       "original_url": "https://cursor.com/docs/mcp",
       "path": "/docs/mcp",
       "section": "docs",
@@ -2385,8 +2385,8 @@
       "title": "Settings"
     },
     "plugins.md": {
-      "hash": "0abed2299d8df6eb9c84b61baeb651752d2f8d588dc91f740833d24cd298a23f",
-      "last_updated": "2026-10-22T15:23:49+00:00",
+      "hash": "18b1dc61b2d11cbd31f255eb9152f823a9f5239c4d9dcbb383634bcccc6ca229",
+      "last_updated": "2026-11-24T00:37:18+00:00",
       "original_url": "https://cursor.com/docs/plugins",
       "path": "/docs/plugins",
       "section": "docs",
@@ -2625,8 +2625,8 @@
       "title": "Security Review"
     },
     "skills.md": {
-      "hash": "a2dc7400e0a902a0404589a8da272105d5be654808d8f55ee0ef4688476e86fb",
-      "last_updated": "2026-10-27T18:20:06+00:00",
+      "hash": "46d72d2b03574683c4db794932f4f3f51e9ab50fce97b41185590b0cf3544120",
+      "last_updated": "2026-11-24T00:37:26+00:00",
       "original_url": "https://cursor.com/docs/skills",
       "path": "/docs/skills",
       "section": "docs",
@@ -2635,8 +2635,8 @@
       "title": "Agent Skills"
     },
     "subagents.md": {
-      "hash": "884fa4e60bd2747bd0bfbaf70be790045de50d58cf1fb6105dfba8f9a41eeebd",
-      "last_updated": "2026-11-04T03:21:17+00:00",
+      "hash": "08f54a4416f4a0cba71b7aa6b53b2dec02f562d2d08c1f5780a5d8d1e327026d",
+      "last_updated": "2026-11-24T00:37:27+00:00",
       "original_url": "https://cursor.com/docs/subagents",
       "path": "/docs/subagents",
       "section": "docs",
@@ -2830,7 +2830,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-23T18:23:17+00:00",
+  "last_updated": "2026-11-24T00:37:44+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
