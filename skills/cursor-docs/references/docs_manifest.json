@@ -815,8 +815,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "2afbc9335a1d0df6f2ef1ced51a3a230cf6ae705593a313afbc29d663a0c73cf",
-      "last_updated": "2026-11-18T21:19:21+00:00",
+      "hash": "207fc7d5caadf3ae1f14174ef7290380595002578520189dad3055fd249c99c3",
+      "last_updated": "2026-11-24T18:22:16+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "section": "docs",
@@ -1365,8 +1365,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "b59949b5a575d30ae904a319b748f50d47d279c160ee2515d628a8c7c7cd7ff6",
-      "last_updated": "2026-11-24T15:21:11+00:00",
+      "hash": "043448e81fcad289c3ddc9d4187945a8149aa34f43eeb6068dc5b9b0f449eaa3",
+      "last_updated": "2026-11-24T18:23:20+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2830,7 +2830,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-24T15:21:22+00:00",
+  "last_updated": "2026-11-24T18:23:38+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
