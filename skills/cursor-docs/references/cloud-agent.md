@@ -12,7 +12,7 @@ Effective development environments give agents full context on your codebase and
 
 ## Why use Cloud Agents?
 
-You can run as many agents as you want in parallel, and they do not require your local machine to be connected to the internet.
+You can run as many agents as you want in parallel, and they do not require your local machine to be connected to the internet. Cloud Agents are built to be multiplayer, so teammates can collaboratively steer the same agent from shared surfaces like Slack, Microsoft Teams, Jira, Linear, and GitHub.
 
 Because they have access to their own virtual machine, cloud agents can build, test, and interact with the changed software. They can also use computers to control the desktop and browser. Cloud agents support [MCP servers](https://cursor.com/docs/mcp.md), giving them access to external tools and data sources like databases, APIs, and third-party services.
 
@@ -99,11 +99,13 @@ See [Cloud agent capabilities](https://cursor.com/docs/cloud-agent/capabilities.
 
 ## Share agents with your team
 
-Send an agent's URL to a teammate and they can open the run to see the conversation, the code changes, and the artifacts the agent produced.
+Teammates can collaborate on Cloud Agents directly in multiplayer surfaces like [Slack](https://cursor.com/docs/integrations/slack.md), [Microsoft Teams](https://cursor.com/docs/integrations/microsoft-teams.md), and [Jira](https://cursor.com/docs/integrations/jira.md), or open a shared agent URL to view its conversation, code changes, and artifacts.
 
-Agents are visible to members of the Cursor team they were started under. Cursor also verifies each viewer's repository access: to open a teammate's agent, connect your own source control account under [Integrations](https://cursor.com/dashboard/integrations) and make sure you have access to the repository the agent worked in. Team membership alone doesn't grant access.
+Agents started from multiplayer surfaces run under a team-owned service account by default, so personal secrets stay off the machine while teammates steer the same thread together. Every message uses the sender's own MCP connections, approvals, PR and commit credit, and billing.
 
-Viewing is read-only. To let teammates send follow-up messages and continue the work, a team admin can enable [team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups).
+Agents are visible to members of the Cursor team they were started under. Cursor also verifies each person's repository access: to view or follow up on a teammate's agent, connect your own source control account under [Integrations](https://cursor.com/dashboard/integrations) and make sure you have access to the repository the agent worked in. Team membership alone doesn't grant access.
+
+Who can send follow-up messages to an agent is controlled by [team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups).
 
 ## Related pages
 

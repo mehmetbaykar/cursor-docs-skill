@@ -6,7 +6,7 @@ path: /docs/integrations/jira
 
 # Jira
 
-With Cursor's integration for Jira, you can use [Cloud Agents](https://cursor.com/docs/cloud-agent.md) to work on Jira work items by assigning them to Cursor or mentioning `@Cursor` in Jira.
+With Cursor's integration for Jira, you and your teammates can collaboratively work on tasks and steer multiplayer [Cloud Agents](https://cursor.com/docs/cloud-agent.md) from Jira work items by assigning them to Cursor or mentioning `@Cursor`.
 
 ## Get started
 
@@ -82,6 +82,8 @@ Open a Jira work item and then assign it to Cursor or mention `@Cursor` in a com
 
 You can ask Cursor to fix bugs, add features, update tests, or investigate a task described in the work item.
 
+Agents started in Jira run under a team-owned service account by default so teammates can steer the same work item together, while each turn uses the sender's own MCP connections, approvals, PR and commit credit, and billing when individual accounts are connected.
+
 ### Delegating work items
 
 Assign a Jira work item to Cursor when the ticket already describes the task clearly.
@@ -103,7 +105,20 @@ Examples:
 
 ### Follow-up instructions
 
-Open Rovo chat from the Jira work item to continue the conversation with Cursor.
+Open Rovo chat from the Jira work item to send follow-up instructions and continue collaborating with Cursor.
+
+By default, agents started in Jira run under a team-owned service account rather than a personal account. Because the agent runs as a service account, no person's personal secrets, personal files, or personal tokens enter the machine. That lets teammates safely collaborate on the same agent when [Team Followups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups) allows service account agents.
+
+When teammates have connected their Cursor accounts, every follow-up counts as the work of the person who sent it, not the person who started the agent. For your turn:
+
+- The agent uses your own MCP connections.
+- Pull requests the agent opens are opened as you.
+- Commits the agent makes give you credit.
+- Approval prompts route to you, and usage is billed to you.
+
+The person who started an agent can always follow up on it.
+
+An agent falls back to running as the person who started it when it launches on a personal self-hosted machine, uses a personal environment, runs in a team that restricts Cloud Agent access, or targets a repository whose GitHub App isn't linked to the team.
 
 ### Status updates and handoff
 

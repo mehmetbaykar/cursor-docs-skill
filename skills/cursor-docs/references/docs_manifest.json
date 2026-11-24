@@ -1045,8 +1045,8 @@
       "title": "Using Agent in CLI"
     },
     "cloud-agent.md": {
-      "hash": "cae88c6b1e18e6dcbeb0d46a8151c57511177bdadcd1736606b6d38fbc355dc6",
-      "last_updated": "2026-11-04T03:20:33+00:00",
+      "hash": "84e69ac3fc3a1b8ab8aa4734657180d7c900aeec390c9800fab63f5f998ee0ef",
+      "last_updated": "2026-11-24T21:19:48+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent",
       "path": "/docs/cloud-agent",
       "section": "docs",
@@ -1255,8 +1255,8 @@
       "title": "Team Pools"
     },
     "cloud-agent__settings.md": {
-      "hash": "653d9ef8f7c01794679c3bac26f7de8b1775db70bda80a6e7e48e6d152e76b63",
-      "last_updated": "2026-11-20T00:37:46+00:00",
+      "hash": "d30ad5856074dce170fa98c45bdd059a63f3afe5fe97a563ee5dc85d961734a1",
+      "last_updated": "2026-11-24T21:19:54+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/settings",
       "path": "/docs/cloud-agent/settings",
       "section": "docs",
@@ -1485,8 +1485,8 @@
       "title": "JetBrains"
     },
     "integrations__jira.md": {
-      "hash": "2d553d885f4f4389093aa333a3250250509d4f1343476f5403f8a65b711d1694",
-      "last_updated": "2026-11-19T00:40:07+00:00",
+      "hash": "36e90bd44b7e539501d897e40ca24e3b87c65d295edc785268fb35496d71615a",
+      "last_updated": "2026-11-24T21:19:59+00:00",
       "original_url": "https://cursor.com/docs/integrations/jira",
       "path": "/docs/integrations/jira",
       "section": "docs",
@@ -1505,8 +1505,8 @@
       "title": "Linear"
     },
     "integrations__microsoft-teams.md": {
-      "hash": "749b0fb17978ea9fe5747e4d68138dca88cdb4dc332372386245492895241a1d",
-      "last_updated": "2026-11-12T18:22:36+00:00",
+      "hash": "97f6935980f5f8e228b9d1389afeb4d5424b63a86b146af37751063e2f4e09f2",
+      "last_updated": "2026-11-24T21:20:00+00:00",
       "original_url": "https://cursor.com/docs/integrations/microsoft-teams",
       "path": "/docs/integrations/microsoft-teams",
       "section": "docs",
@@ -1525,8 +1525,8 @@
       "title": "Notion"
     },
     "integrations__slack.md": {
-      "hash": "e9bf6192972add9399526e48a6da8930f537a3f860591db9b7d54544f5f0fb04",
-      "last_updated": "2026-11-17T21:19:09+00:00",
+      "hash": "f865706d26790bf6bc78096fdaee01aebb043655f22799c2031e542952381d7d",
+      "last_updated": "2026-11-24T21:20:00+00:00",
       "original_url": "https://cursor.com/docs/integrations/slack",
       "path": "/docs/integrations/slack",
       "section": "docs",
@@ -2830,7 +2830,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-24T18:23:38+00:00",
+  "last_updated": "2026-11-24T21:20:47+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

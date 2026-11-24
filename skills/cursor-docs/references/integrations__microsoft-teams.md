@@ -6,7 +6,7 @@ path: /docs/integrations/microsoft-teams
 
 # Microsoft Teams
 
-With Cursor's integration for Microsoft Teams, you can use [Cloud Agents](https://cursor.com/docs/cloud-agent.md) to work on tasks directly from Microsoft Teams by mentioning `@Cursor` with a prompt.
+With Cursor's integration for Microsoft Teams, you and your teammates can collaboratively work on tasks and steer multiplayer [Cloud Agents](https://cursor.com/docs/cloud-agent.md) directly from Microsoft Teams by mentioning `@Cursor` with a prompt.
 
 ## Get started
 
@@ -42,6 +42,8 @@ To check or remove your link with a Team Bot, send it `account`. To unlink from 
 
 Mention `@Cursor` and give your prompt. Cursor automatically picks the right repository, model, base branch, or named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md) based on your message, the thread context, and your recent agent activity.
 
+Agents started in Microsoft Teams run under a team-owned service account by default so teammates can steer the same thread together, while every message still uses the sender's own MCP connections, approvals, PR and commit credit, and billing.
+
 To use a specific repository, include its name in your message:
 
 - `@Cursor in cursor-app, fix the login bug`
@@ -62,13 +64,13 @@ To use a named environment, mention it in your message or add `env=<name>`:
 
 Run `@Cursor help` for an up-to-date command list.
 
-| Command                      | Description                                                                               |
-| :--------------------------- | :---------------------------------------------------------------------------------------- |
-| `@Cursor [prompt]`           | Start a Cloud Agent. In channel threads with existing agents, adds follow-up instructions |
-| `@Cursor help`               | Show setup and usage help                                                                 |
-| `@Cursor unlink`             | Disconnect your Cursor account from Microsoft Teams                                       |
-| `@Cursor disconnect`         | Disconnect your Cursor account from Microsoft Teams                                       |
-| `@Cursor [options] [prompt]` | Set the repository, environment, branch, or model for a run                               |
+| Command                      | Description                                                                                                                                                                                                                            |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@Cursor [prompt]`           | Start a Cloud Agent. In channel threads with existing agents, adds follow-up instructions. Who can follow up is controlled by [Team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups), not ownership alone. |
+| `@Cursor help`               | Show setup and usage help                                                                                                                                                                                                              |
+| `@Cursor unlink`             | Disconnect your Cursor account from Microsoft Teams                                                                                                                                                                                    |
+| `@Cursor disconnect`         | Disconnect your Cursor account from Microsoft Teams                                                                                                                                                                                    |
+| `@Cursor [options] [prompt]` | Set the repository, environment, branch, or model for a run                                                                                                                                                                            |
 
 #### Options
 
@@ -117,7 +119,18 @@ understanding and acting on your team's discussion.
 
 In channel threads, reply in the agent's thread with another `@Cursor` mention to add follow-up instructions.
 
-In personal chats and group chats, continue the conversation from Cursor using *Open in Web* or *Open in Desktop*.
+By default, agents started in Microsoft Teams run under a team-owned service account rather than your personal account. Because the agent runs as a service account, no person's personal secrets, personal files, or personal tokens enter the machine. That lets teammates safely collaborate in the same thread when [Team Followups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups) allows service account agents.
+
+Every message in the thread counts as the work of the person who sent it, not the person who started the thread. For your turn:
+
+- The agent uses your own MCP connections.
+- Pull requests the agent opens are opened as you.
+- Commits the agent makes give you credit.
+- Approval prompts route to you, and usage is billed to you.
+
+The person who started an agent can always follow up on it. In personal chats and group chats, continue the conversation from Cursor using *Open in Web* or *Open in Desktop*.
+
+An agent falls back to running as the person who started it when it launches on a personal self-hosted machine, uses a personal environment, runs in a team that restricts Cloud Agent access, or targets a repository whose GitHub App isn't linked to the team.
 
 ### Status updates & handoff
 

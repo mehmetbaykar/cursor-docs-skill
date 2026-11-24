@@ -6,7 +6,7 @@ path: /docs/integrations/slack
 
 # Slack
 
-With Cursor's integration for Slack, you can use [Cloud Agents](https://cursor.com/docs/cloud-agent.md) to work on your tasks directly from Slack by mentioning `@cursor` with a prompt.
+With Cursor's integration for Slack, you and your teammates can collaboratively work on tasks and steer multiplayer [Cloud Agents](https://cursor.com/docs/cloud-agent.md) directly from Slack by mentioning `@cursor` with a prompt.
 
 ## Get started
 
@@ -26,15 +26,13 @@ With Cursor's integration for Slack, you can use [Cloud Agents](https://cursor.c
 
 5. Start using Cloud Agents in Slack by mentioning `@cursor`
 
-To unlink your Slack account, go to [Dashboard → Cloud Agents](https://www.cursor.com/dashboard/cloud-agents) and click **Unlink Slack** next to **Slack integration**. You'll need to link it again before you can start Cloud Agents from Slack.
-
-You can also unlink from [Integrations in the dashboard](https://cursor.com/dashboard/integrations): click **Manage** next to Slack and choose **Unlink**. This unlinks your Slack account from Cursor in every workspace you connected.
-
 ## How to use
 
 Mention `@cursor` and give your prompt. Cursor tries to detect a repository, model, base branch, or named [cloud agent environment](https://cursor.com/docs/cloud-agent/setup.md) from your message. It also uses your recent agent activity when selecting a repository.
 
 For a named environment, include its name in your prompt. For example: `@Cursor use the Platform environment to update the shared API`.
+
+Agents started in Slack run under a team-owned service account by default so teammates can steer the same thread together, while every message still uses the sender's own MCP connections, approvals, PR and commit credit, and billing.
 
 ### Commands
 
@@ -42,7 +40,7 @@ Run `@Cursor help` for an up-to-date command list.
 
 | Command                           | Description                                                                                                                                                                                                                                                 |
 | :-------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@Cursor [prompt]`                | Start a Cloud Agent. In threads with existing agents, adds follow-up instructions. Who can follow up is controlled by Team follow-ups, not ownership alone.                                                                                                 |
+| `@Cursor [prompt]`                | Start a Cloud Agent. In threads with existing agents, adds follow-up instructions. Who can follow up is controlled by [Team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups), not ownership alone.                              |
 | `@Cursor settings`                | Configure defaults and channel's default repository. Also shows the [team default pool](https://cursor.com/docs/integrations/slack.md#team-default-pool) and the [channel default pool](https://cursor.com/docs/integrations/slack.md#channel-default-pool) |
 | `@Cursor [options] [prompt]`      | Set the target, model, branch, PR behavior, worker, or output channel for a run                                                                                                                                                                             |
 | `@Cursor agent [prompt]`          | Force create a new agent in a thread (e.g. `@Cursor start a new agent to fix billing`)                                                                                                                                                                      |
@@ -118,7 +116,7 @@ understanding and implementing solutions based on the team's discussion.
 
 **When do I need `@Cursor agent`?**
 
-In threads with existing agents, `@Cursor [prompt]` adds follow-up instructions. Who can follow up is controlled by [Team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups). If Team follow-ups is Disabled, only the owner can follow up. To launch a separate agent, use `@Cursor agent [prompt]`, or ask in natural language:
+In threads with existing agents, `@Cursor [prompt]` adds follow-up instructions. Who can follow up is controlled by [Team follow-ups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups). If Team follow-ups is Disabled, only the person who started the agent can follow up. To launch a separate agent, use `@Cursor agent [prompt]`, or ask in natural language:
 
 ```bash
 @Cursor start a new agent to refactor billing
@@ -129,6 +127,23 @@ Phrases like "create a new agent", "launch a fresh agent", or "new agent please"
 **When do I need `Add follow-up` (from context menu)?**
 
 Use the context menu (⋯) on an agent's response for followup instructions. Useful when multiple agents exist in a thread and you need to specify which one to follow up on.
+
+#### Following up on a teammate's agent
+
+A follow-up is a new message to an agent that's already running or done, like a reply in its Slack thread.
+
+By default, agents started in Slack run under a team-owned service account rather than your personal account. Because the agent runs as a service account, no person's personal secrets, personal files, or personal tokens enter the machine. That lets teammates safely collaborate in the same thread when [Team Followups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups) allows service account agents.
+
+Every message in the thread counts as the work of the person who sent it, not the person who started the thread. For your turn:
+
+- The agent uses your own MCP connections.
+- Pull requests the agent opens are opened as you.
+- Commits the agent makes give you credit.
+- Approval prompts route to you, and usage is billed to you.
+
+The person who started an agent can always follow up on it. If your team's [Team Followups](https://cursor.com/docs/cloud-agent/settings.md#team-follow-ups) setting doesn't let you follow up, start your own agent in the same thread with `@Cursor agent [prompt]`.
+
+An agent falls back to running as the person who started it when it launches on a personal self-hosted machine, uses a personal environment, runs in a team that restricts Cloud Agent access, or targets a repository whose GitHub App isn't linked to the team.
 
 #### Direct messages
 
@@ -365,6 +380,12 @@ Cursor requests these Slack permissions for Cloud Agents to work within your wor
 | `reactions:write`   | Adds emoji reactions to mark status - ⏳ for running, ✅ for completed, ❌ for failed  |
 | `team:read`         | Identifies workspace details to separate installations and apply settings           |
 | `users:read`        | Matches Slack users with Cursor accounts for permissions and secure access          |
+
+## Unlinking Slack
+
+To unlink your Slack account, go to [Dashboard → Cloud Agents](https://www.cursor.com/dashboard/cloud-agents) and click **Unlink Slack** next to **Slack integration**. You'll need to link it again before you can start Cloud Agents from Slack.
+
+You can also unlink from [Integrations in the dashboard](https://cursor.com/dashboard/integrations): click **Manage** next to Slack and choose **Unlink**. This unlinks your Slack account from Cursor in every workspace you connected.
 
 ## Disclaimer
 

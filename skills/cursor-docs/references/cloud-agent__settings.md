@@ -64,20 +64,31 @@ For long-running work, use [`/goal`](https://cursor.com/docs/agent/overview.md#g
 
 ### Team follow-ups
 
-Team members can send follow-up messages to cloud agents created by other users on the same team. This is useful when a teammate starts an agent and you need to course-correct, add context, or continue the work while they're unavailable.
+Team members can send follow-up messages to cloud agents started on the same team. This helps when a teammate kicks off work and you want to course-correct, add context, or pick up where they left off.
 
-Follow-ups build on agent visibility. A teammate must be able to view the agent before they can send follow-ups: they must belong to the same Cursor team, and they need their own access to the agent's repository. See [Share agents with your team](https://cursor.com/docs/cloud-agent.md#share-agents-with-your-team).
+Follow-ups build on agent visibility. A teammate must be able to view the agent before they can follow up: they must belong to the same Cursor team, and they need their own access to the agent's repository. See [Share agents with your team](https://cursor.com/docs/cloud-agent.md#share-agents-with-your-team).
 
-Team admins control this behavior from the [Cloud Agents security settings](https://cursor.com/dashboard/cloud-agents) with three options:
+Agents started from multiplayer surfaces run under a team-owned service account by default so no personal secrets enter the machine, while each message still uses the sender's own MCP connections, approvals, PR and commit credit, and billing.
 
-| Setting                   | Behavior                                                                                                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Disabled**              | Only the original creator can send follow-ups to their agent. No team follow-ups are allowed.                                                                                              |
-| **Service accounts only** | Team members can send follow-ups to agents created by a [service account](https://cursor.com/docs/account/enterprise/service-accounts.md), but not to agents created by other human users. |
-| **All**                   | Any team member can send follow-ups to any agent on the team, regardless of who created it.                                                                                                |
+Team admins control this behavior with **Team Followups** in the [Cloud Agents security settings](https://cursor.com/dashboard/cloud-agents). It has three options:
 
-### Lateral movement and secret exposure
+| Setting                       | Behavior                                                                                                                                                                                                                                                                                                                          |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Disabled**                  | Only the person who started an agent can send it follow-ups.                                                                                                                                                                                                                                                                      |
+| **On Service Account Agents** | Team members can send follow-ups to agents running under a [service account](https://cursor.com/docs/account/enterprise/service-accounts.md), including multiplayer surface agents (such as Slack, Microsoft Teams, or Jira) and automation or API service accounts. Personal agents stay private to the person who started them. |
+| **On All Team Member Agents** | Any team member can send follow-ups to any agent on the team, whether owned by a service account or a teammate.                                                                                                                                                                                                                   |
 
-Enabling team follow-ups means a user can influence the execution of a cloud agent that runs with *another user's* secrets and credentials. A follow-up message can instruct the agent to read environment variables, print secrets to logs, push credentials to an external endpoint, or perform actions using the original creator's access tokens.
+If no admin has picked an option, Enterprise teams default to **On Service Account Agents** and all other teams default to **On All Team Member Agents**. Whatever the setting, the person who started an agent can always follow up on it.
 
-A team member with limited permissions could escalate their access by directing an agent that holds a more privileged user's secrets. Treat this setting with the same care you would give shared SSH keys or service credentials.
+#### How service account agents differ
+
+Two kinds of cloud agents run under a service account, and they handle credentials differently:
+
+- **Multiplayer surface agents:** The agent runs on a team-owned service account machine, so no person's personal secrets, personal agent store, or personal tokens enter the machine. When any teammate sends a message or follows up on the agent, that turn uses the sender's own MCP connections, opens pull requests and credits commits under their name, routes approval prompts to them, and bills usage to them.
+- **Automation and API service accounts:** When the agent runs on its own, it uses the team credentials, MCP connections, and usage pool configured for that service account. When a teammate sends a follow-up message, pull requests, commit credit, and usage follow the person who sent the message.
+
+### Secret exposure on personal agents
+
+The personal-secret exposure risk applies when you select **On All Team Member Agents**. A personal agent runs on a machine that holds its creator's personal secrets, personal agent store, and creator tokens. Letting teammates follow up on personal agents means another user can instruct the agent to read those environment variables, print secrets to logs, send credentials to an external endpoint, or act with the creator's tokens.
+
+With **On Service Account Agents**, no person's personal secrets or personal tokens are on the machine. Teammates only share the repository workspace and any team or environment secrets that admins have approved for the team. Treat **On All Team Member Agents** with the same care you would give shared SSH keys or privileged credentials.
