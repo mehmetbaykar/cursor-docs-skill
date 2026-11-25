@@ -882,7 +882,7 @@ Weekly changes to Cursor on the web, from integrations and admin settings to aut
 
 - &#x20;**Turn Projects on or off for your team.** Admins can use the Enable Projects switch in Team Settings, under Chat, to control whether team members can use Projects in Cursor. When it's off, Projects is hidden for everyone on the team.
 - &#x20;**Data exports for every team.** The Data Exports tab is no longer limited to Enterprise teams. Any team member with permission to read exports can open it and download archives Cursor has prepared and released for the team, including teams whose subscription has ended. Export links open straight to the right team.
-- &#x20;**Team MCP servers on members' machines (since removed from the dashboard).** This week added a Run team MCP servers on members' machines switch to the Team MCP Servers section of the Plugins & MCPs tab. The Plugins & MCPs tab no longer shows that switch. Teams and members can also configure up to 1,000 MCP servers each.
+- &#x20;**Team MCP servers on members' machines.** This week added a Run team MCP servers on members' machines switch to the Team MCP Servers section of the Plugins & MCPs tab. It's now called Run connectors only on members' computers. Teams and members can also configure up to 1,000 MCP servers each.
 - &#x20;**Connect more than one Jira site to a team.** Admins with a connected Jira site now see a Connect another site action on the Jira page in the dashboard. It opens the Atlassian Marketplace to install Cursor on the new site, and the site list refreshes when you come back.
 - **Clearer way back to Agents from settings.** The settings sidebar header now shows a Back to Agents link next to the Cursor mark.
 

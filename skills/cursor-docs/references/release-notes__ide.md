@@ -8,6 +8,48 @@ path: /docs/release-notes/ide
 
 New features, improvements, and fixes in the Cursor IDE. Each entry covers one minor version, including the patch releases that follow it. Changes to the [Agents Window](https://cursor.com/docs/release-notes/agents-window.md) have their own page.
 
+## 3.31
+
+### Agent and chat
+
+- **Fewer failed agent tool calls from malformed arguments.** Agent tool calls that arrive with slightly malformed arguments now run instead of failing. MCP tool calls sent with empty arguments are treated as having no arguments, and lists of objects missing only their final closing bracket are read correctly.
+- **Fixed Save As and Save to Workspace in the plan editor.** File > Save As on a plan now opens the save dialog and writes the plan, including unsaved edits, to the file you pick. Save to Workspace now moves plans you opened but never edited, and if the move fails the plan stays open and an error is shown.
+- **Reopening a workspace with pending agent diffs no longer touches your files.** When Cursor reopens a workspace with unreviewed agent changes, it loads diffs only for files that are already open and holds the rest until you accept or reject them. Restoring diffs no longer edits or saves your files, so timestamps stay unchanged and edits made from another window aren't overwritten.
+
+### Voice
+
+- &#x20;**Turn voice chat off in Settings.** The Voice settings tab has a new [Voice chat](https://cursor.com/docs/agent/voice-chat.md#turn-voice-chat-off) switch. Turning it off hides the Start voice chat button in the agent input and voice call cards in chat, and ends any active call. The switch is locked with a note when your team admin has turned voice chat off.
+
+### MCP
+
+- &#x20;**See where your admin limits each MCP server and tool.** MCP servers and plugins on the Customize page now show per-surface admin limits, such as Local: Read-Only or Cloud: Blocked by your team admin, and blocked servers in the agent's + menu read Blocked by your team admin. The MCP Configure dialog says whether each tool is disabled on Local, Cloud, or both. A [team deny rule](https://cursor.com/docs/mcp.md#mcp-allowlist) for a server URL now also blocks the same endpoint with a query string, extra slashes, or the other of http and https.
+- **See which mcp.json is broken and where.** When an [mcp.json](https://cursor.com/docs/mcp.md#using-mcpjson) can't be read, the MCP list in Customize now shows a row for that file with the error and its line number. Open File opens it in the editor at that line.
+
+### Customization and settings
+
+- **Refreshed Cursor Dark and Cursor Light themes.** Cursor Dark and Cursor Light have refreshed colors for syntax, accents, git status, diffs, and terminal colors, and Cursor Light now uses a white editor background. The Cursor Dark v2 and v3 beta themes are gone. If you used one, Cursor switches you to Cursor Dark automatically. The colorblind themes no longer use red or green for syntax: keywords are orange and tags are blue.
+- **Fixed imported Claude Code hooks and Session Start hooks.** [Imported Claude Code hooks](https://cursor.com/docs/reference/third-party-hooks.md) that pass a command with separate arguments now run with those arguments instead of the bare command. Session Start hooks, including team hooks, now run for a window's first chat even when hooks are still loading.
+
+### Models
+
+- **Early access models are listed separately in Models settings.** If your account is in a model provider's early access program, those models now appear in their own Early Access section in Cursor Settings > Models, apart from generally available models. The section collapses behind Show more, and search covers it.
+
+### Enterprise
+
+- &#x20;**Private Inference gateways can use each member's own API key.** When your admin's Private Inference config sets a gateway to use a personal token, Cursor prompts you for that gateway's API key, and Settings shows the gateway URL and whether a key is saved. A missing or rejected key shows an error card in the agent, and saving a key retries right away.
+
+### Security
+
+- **Sign-in tokens are encrypted on disk.** Cursor now stores your sign-in tokens encrypted with your operating system's secrets manager (Keychain on macOS, DPAPI on Windows, libsecret or KWallet on Linux) instead of as plain text in local storage. On systems without a secrets manager, tokens stay in local storage as plain text.
+
+### Fixes
+
+- **Fixes to the editor, terminal, and source control.** Search and replace no longer hangs on case operators like \U or \L, files ignored by .gitignore no longer show up as untracked, rejecting an agent's new file no longer recreates it on disk, and the References view picks the reference closest to the current file. In the integrated terminal, clicks in Neovim and other pixel mouse mode apps land on the right row, and text renders in the right font with GPU acceleration on.
+- **Fixes to accounts, teams, and repositories.** Team repository rules now apply to repositories whose origin remote is an `ssh://` URL, and a team list that briefly fails to load no longer switches you off your active team. With several windows open on an xAI sign-in, windows no longer sign each other out when the session refreshes, and the editor shows the correct account email after signing in through the Agents Window. The cloud agent slash menu shows a Connect GitHub note for repositories whose skills it can't list without a GitHub connection.
+- **Fixes to MCP servers.** MCP servers no longer show no tools after a failed tool listing, stay stuck on a block message in settings after the block lifts, or keep running after they become blocked. MCP sign-in now works when the default local callback port is in use, and a ServiceNow server in your own mcp.json can sign in without a client secret.
+- **Fixes to window state and full screen.** On macOS, editor windows that were in full screen reopen in full screen on the same display, and Cursor remembers each window's size and position from before it entered full screen. Force-quitting Cursor now closes every window before it exits.
+- **Fixes to remote hosts and isolated deployments.** The agent and remote extension hosts start again on older remote servers whose Node lacks built-in SQLite or newer APIs. On isolated deployments, agent runs fall back to HTTP/1.1 instead of failing, and the Extensions view works with a configured marketplace URL.
+
 ## 3.30
 
 ### Agent and chat

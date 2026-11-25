@@ -8,6 +8,155 @@ path: /docs/release-notes
 
 Every Cursor product in one timeline, newest first, with up to 10 recent releases each. Filter by product, open a product's page for its full history, or follow along with the [RSS feed](https://cursor.com/docs/release-notes/rss.xml).
 
+## 3.31
+
+### Projects
+
+- **Share Projects with your team.** [Projects](https://cursor.com/docs/agent/projects.md) can now be shared with teammates, available to everyone on a team account starting in Cursor 3.26.13. Click Invite at the top of a Project to invite people. Each person who accepts gets their own chat in the Project, and everyone's agents share the Project's context and can message each other's coordinators.
+- **Every Project keeps its tasks in a tracked task list.** New [Projects](https://cursor.com/docs/agent/projects.md) now always start on a tracked task list. The older List and Board views are gone, so an older Project that never moved to a tracked list shows an empty state. If a Project's tasks fail to load, the list retries and recovers within seconds. In the task Filter menu, each field's values have a search box and show "No matches" when nothing fits.
+- **Project coordinators sort tasks by what each status means.** Each status in a [Project](https://cursor.com/docs/agent/projects.md)'s task tracker now has a description of when a task belongs there, and the coordinator uses those descriptions to decide where tasks go. When you ask for a new status, or a status has no description yet, the coordinator writes one itself and tells you what it wrote.
+- **A Project's Library opens in its own tab.** In a [Project](https://cursor.com/docs/agent/projects.md), Library now opens as a separate Library tab in the right panel instead of a view inside the Project tab, so you can keep files and tasks open side by side. The Project tab is now labeled Tasks, Library and Context share a new books icon, and an empty Library says "No files yet".
+- **Add any chat to a Project, side chats included.** You can now add a local chat that has side chats to a cloud [Project](https://cursor.com/docs/agent/projects.md) with Add to Project or drag and drop, and its side chats move in beside it. If some can't move, the original chat stays on your computer and a notice says how many stayed behind. Add to Project in the sidebar's chat menu also has a New Project row that creates a Project and moves the chat into it. A cloud chat's new Project starts on that chat's model.
+- **Project coordinators stay in Agent mode and link the files workers create.** A [Project](https://cursor.com/docs/agent/projects.md)'s coordinator chat no longer offers Plan or other built-in modes in the Modes row, slash commands, or Shift+Tab cycling, and a mode picked earlier is cleared so messages send as Agent. When a cloud worker reports files it created, the coordinator now links them in the chat.
+- **Choose the model a Project's workers start on.** A cloud [Project](https://cursor.com/docs/agent/projects.md) coordinator's model picker has a Worker Model row, now available to everyone. Keep Match so new workers use the coordinator's model, or pick Custom to start them on a different model and parameters. The choice is saved for that Project right away, and Settings > Models > Projects sets the effort new coordinators start on.
+- **The New Project form starts from the repo you're working in.** When you create a new Project, its repository now defaults to the agent you were viewing, and you can pick several repositories at once. If GitHub isn't connected, the form starts from scratch and offers to connect GitHub. While the Project's repository is being set up, Send shows "Creating agent..." and ignores repeat clicks, and the sidebar's Projects section now shows up to 20 Projects before More.
+- **Projects now run in your repository's default environment.** [Projects](https://cursor.com/docs/agent/projects.md) no longer run their own environment setup, so a new Project and its workers start right away in the repository's default cloud environment. To customize that environment, use the [Environments](https://cursor.com/dashboard/cloud-agents/environments) page on the Cursor Dashboard. If you ask a Project agent to set one up, it points you there.
+- **See exactly what the agent saved to your preferences.** When the agent edits a Project's preferences or your own, the transcript now shows a Saved project preference or Saved user preference row instead of a raw file edit. Expand it to see each entry that was added or removed, and click one to open the file at that line. Now available to everyone.
+
+### Pull requests
+
+- **The PR tab gets Diff Options and Pull Request Options menus.** The PR tab now opens on Description, and in the Changes view a new Diff Options menu puts Find, Collapse All or Expand All, and diff layout, whitespace, and wrap settings in one place. The header menu is now Pull Request Options, with Edit Title, Copy Link, Open on Web, Refresh, and Close PR. Long titles wrap up to three lines, you can click a branch name to copy it, and Commits are grouped under collapsible date headers with counts.
+- **See all of an agent's pull requests in one tab.** Starting in 3.31, any agent can open a Pull Requests tab that lists its pull requests with diff stats, state, and stacks grouped together, not just Projects. Open it from the new-tab menu, or from the apps rail when an agent has more than one pull request.
+- **Edit Origin pull request descriptions in the PR tab.** On Origin pull requests, the PR tab's Description view now has an Edit Description button, also in the Pull Request Options menu, and Add description when the description is empty. Edit the Markdown in place, then save with Save or Cmd+Enter (Ctrl+Enter on Windows and Linux).
+- **Merge past rules you can bypass, and clearer pull request toasts.** When an [Origin](https://cursor.com/docs/origin/pull-requests.md) pull request is blocked by a rule you're allowed to bypass, the PR header now shows a Bypass failing requirements checkbox that enables Merge. Merge is also available right away for Origin pull requests that aren't stacked on another. Pull request toasts now name the failed action with the reason underneath, merge queue toasts read Added to merge queue, and merging a pull request that already merged shows Pull request already merged instead of an error.
+- **Pull requests open in a temporary tab instead of piling up.** Opening a pull request from a link in a chat, the pull request tray, or a search result now uses a temporary tab that the next pull request you open replaces, the same way file tabs work. Double-click the tab, drag it, or choose Keep Open to keep it.
+
+### Agent
+
+- **Local agents interrupted by quitting now resume when you reopen.** Fixed an issue where a local agent that was still working when you quit the Agents Window showed as aborted on relaunch instead of picking back up, even with Resume agent automatically ticked in the quit dialog. Agents stopped at a tool approval now resume and show the approval again, while agents waiting on a plan stay paused for you.
+- **Expand and export charts in chat.** Charts and diagrams the agent draws in an agent chat can now open in a full-size view that redraws them at the larger size. You can also copy a chart as an image, download it as a PNG, or add it to the chat from its menu. When a visualization has several charts, these buttons sit at the corner of the chart nearest your pointer.
+- **Skip keeps the answers you already picked.** When the agent asks several questions and you answer some, pressing Skip now sends those answers and skips only the unanswered ones. An empty Other counts as unanswered. The agent also explains what it found before asking, and phrases each question to stand on its own.
+- **Canvas preview above the prompt is now a compact banner.** When the agent builds a canvas, the preview above the prompt now shows a small live thumbnail next to the canvas's name and file name, with an Open Canvas button right beside them, matching the browser preview banner.
+- **Built-in slash commands in every cloud agent chat.** The / menu in a cloud agent chat now lists built-in commands like `/code-review`, `/debug`, and `/repro` even when the repository isn't cloned on your computer. Commands that only work locally are left out. Picking a slash command right after typing now chooses the top match for what you typed.
+
+### Cloud agents
+
+- **Plugin consent notifications and pasted files for cloud agents.** When a cloud agent is waiting on your plugin consent and Cursor is in the background, you now get a desktop notification that opens the agent. Files pasted into a cloud agent prompt are attached as cloud files, the same as dropping them. The Changes header now counts lines in new untracked files so totals match git.
+- **Mention past chats in cloud agent prompts, now available to everyone.** In a cloud agent's prompt, the @ menu now lists your past chats, so you can give the agent another conversation as context. Cloud subagents show their parent chat's name. In a Project coordinator's prompt, the @ menu lists Projects too.
+- **See the apps Computer Use is driving, live.** On macOS, while an agent uses Computer Use, a live preview of the app windows it is controlling appears over the chat, or docks in the apps rail when the rail is open. Click a window to bring it to the front, or close the preview.
+
+### Browser
+
+- **Annotate elements inside iframes and shadow roots, and hold Space to use the page.** In the browser's Annotate mode ([Design Mode](https://cursor.com/docs/agent/design-mode.md)), you can now pick, pin, inspect CSS of, and edit text on elements inside same-origin iframes and shadow roots, such as Storybook previews. Hold Space to click and scroll the page normally, then release to keep annotating. The element name follows your pointer while you hover, picks and previewed edits stay through page reloads, and the CSS inspector stays open as you pick another element.
+- **Cleaner address bar and console toggle in the built-in browser.** The browser's address bar now shows sites without the `https://` prefix or a leading `www`, keeps that view when you hover, and closes its suggestions as soon as you click away. You can also hide the console or turn off design mode while a page is still loading or showing an error.
+
+### Environments
+
+- **Environment setup explains failed builds and keeps your unsaved edits.** When an environment build fails, the [Environment](https://cursor.com/docs/cloud-agent/setup.md) tab header reads Build failed and a banner names the failed step and error, with a Fix and rebuild button. If the run stops mid-setup, the steps show as stopped instead of still running. Unsaved install and start script edits now survive a relaunch with an option to discard them, Cancel restores the agent's proposed scripts instead of clearing them, and save errors show the server's explanation.
+
+### Voice
+
+- **Fixed sending while dictating.** Pressing Enter while you [dictate](https://cursor.com/docs/agent/prompting.md#voice-input) in the agent input, a message edit, or an Annotate note now stops the recording, waits for the final transcript, and sends the full text. The prompt stays empty after sending instead of refilling with the last few words.
+
+### MCP
+
+- &#x20;**Cloud MCP servers blocked by your team's allowlist now show as blocked.** In the MCP list, cloud MCP servers that your team's [Cloud Agent Allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) excludes now show as blocked, with no toggle, instead of appearing enabled. You can see which servers cloud agents can't use before you start a run.
+
+### Customization and settings
+
+- &#x20;**Marketplace plugin installs show progress and admin refusals.** Adding a [plugin](https://cursor.com/docs/plugins.md#installing-plugins) from the marketplace in Customize now shows "Adding..." until the install finishes. If your team admin doesn't allow the plugin, the Agents Window shows a warning with the reason and marks the plugin Disabled, instead of briefly listing it as added.
+- &#x20;**Saved team plugin secrets stay saved, and Customize is easier to use from the keyboard.** When admins configure a [team marketplace](https://cursor.com/docs/plugins.md#team-marketplaces) plugin in Customize, a secret that is already saved can show "Saved. Leave blank to keep." Leaving that field blank keeps the saved value, and Clear variables deletes saved secrets when you save. Pressing Escape on a plugin's details now goes back to the list you came from. Focus no longer gets lost after you delete an item or open Customize from the command palette, and plugin and MCP logos are sized consistently.
+
+### Automations
+
+- **Run PR routing automations when a pull request joins a stack.** PR routing [automations](https://cursor.com/docs/cloud-agent/automations.md) can now trigger when a GitHub pull request is added to a stack, using the new Pull request stacked trigger. The trigger fires for draft pull requests too.
+
+### Interface
+
+- **Sign in to authenticating proxies from the Agents Window.** When your network proxy requires a login, the Agents Window now asks for your username and password in a Proxy Authentication Required dialog, with an option to remember them, instead of failing to connect. The dialog comes to the front so it no longer hides behind another window.
+- **Apps sit in the same order everywhere.** The + new tab menu, the empty editor panel's app cards, the Apps rail, and the View menu now list apps like Files, Changes, Pull Requests, Terminal, and Browser in one consistent order. The empty panel now offers the same apps as the + menu. App shortcuts, menu bar items, and command palette entries turn off when the + menu doesn't offer that app for the selected agent.
+- **Consistent file icons across the Agents Window.** File rows in embedded editors, the markdown editor, and voice call transcripts now use Cursor's own file icons and colors instead of the older Seti icons, so they match the rest of the window. Your file icon theme in the Cursor IDE is unchanged.
+
+### Updates
+
+- **Update notices and more reliable installs.** The Agents Window now shows the same update states as Cursor: an Installing Update menu item, a notice when a newer Linux package is available through apt or dnf, a notice when updates are off because you're running as Administrator, and a Try Again option when an update fails. Update notifications name the new version, and installs are more reliable on macOS and Linux AppImage.
+
+### Fixes
+
+- **Fixes to voice chat.** Turns started by voice no longer disappear from the chat when they have no visible reply, and voice no longer reads out errors from attempts that are retried and then succeed. Starting a new agent by voice now explains right away when the task can't be sent, such as when GitHub isn't connected, and voice says a command is waiting on your approval instead of claiming it is running.
+- **Fixes to chat rendering.** Videos embedded as images play inline, the video fullscreen button works, and previewing a .tex file with unclosed braces or math no longer stalls. Replying to a selection now quotes the selected text, and right-clicking a link in a sent prompt opens the link menu.
+- **Fixes to queued messages, steering, and Stop.** Messages sent while a tool approval is waiting now queue as follow-ups, follow-ups to a running agent keep your custom mode, and the queued messages tray shows keyboard focus clearly. Stop now fully takes back turns and leaves paused goals paused, and resuming long conversations, dismissing errors, and showing failed-submit error cards no longer go wrong.
+- **Fixes to long chat performance.** Find in Chat shows and jumps to the first matches in a long conversation while it is still counting the rest, and jumping within a long chat renders faster. Streaming responses no longer skip frames on 60 Hz displays, the session list stays responsive with many stored sessions, and on Windows editing a skill no longer rescans every skill and rule.
+- **Fixes to agent tools.** Agents no longer overwrite a file you saved after they last read it, and replace-all edits no longer delete code that didn't match. Failed web searches show as errors instead of empty results, sandboxed shell commands start in the folder they asked for, and conversations with Claude models no longer fail on every message after a whitespace-only reply.
+- **Fixes to deleting agents.** Deleting an agent, alone or in a bulk delete, now also stops and removes its subagents, side chats, and Best-of-N runs instead of leaving them behind. Agents deleted in another window now disappear from the list and no longer come back after a reload.
+- **Fixes to error messages.** Failures discarding changes, running workspace tasks, starting cloud agents, saving spend limits, and taking control of a cloud desktop now explain what went wrong in plain language, including Connection failed for dropped networks and which SSH host ran out of disk. Connecting GitHub no longer leaves the button spinning or shows a false session-expired error, and cloud agent transcripts retry brief server errors instead of loading empty.
+- **Fixes to worktrees.** Automatic worktree cleanup no longer removes a worktree while its agent is running or waiting on you for an approval or answer, including agents in other open windows. Worktree setup on Windows now works for paths that contain a `$`.
+- **Fixes to Agents Window polish.** Pressing Escape in a dialog or notification toast no longer also closes the panel behind it, and keyboard focus returns to the prompt after you answer an approval card. File tab icons are no longer clipped, quick loads no longer flash a loading indicator, and the Ctrl+Tab agent switcher no longer lists agents hidden by your sidebar filters.
+
+## 3.31
+
+### Agent and chat
+
+- **Fewer failed agent tool calls from malformed arguments.** Agent tool calls that arrive with slightly malformed arguments now run instead of failing. MCP tool calls sent with empty arguments are treated as having no arguments, and lists of objects missing only their final closing bracket are read correctly.
+- **Fixed Save As and Save to Workspace in the plan editor.** File > Save As on a plan now opens the save dialog and writes the plan, including unsaved edits, to the file you pick. Save to Workspace now moves plans you opened but never edited, and if the move fails the plan stays open and an error is shown.
+- **Reopening a workspace with pending agent diffs no longer touches your files.** When Cursor reopens a workspace with unreviewed agent changes, it loads diffs only for files that are already open and holds the rest until you accept or reject them. Restoring diffs no longer edits or saves your files, so timestamps stay unchanged and edits made from another window aren't overwritten.
+
+### Voice
+
+- &#x20;**Turn voice chat off in Settings.** The Voice settings tab has a new [Voice chat](https://cursor.com/docs/agent/voice-chat.md#turn-voice-chat-off) switch. Turning it off hides the Start voice chat button in the agent input and voice call cards in chat, and ends any active call. The switch is locked with a note when your team admin has turned voice chat off.
+
+### MCP
+
+- &#x20;**See where your admin limits each MCP server and tool.** MCP servers and plugins on the Customize page now show per-surface admin limits, such as Local: Read-Only or Cloud: Blocked by your team admin, and blocked servers in the agent's + menu read Blocked by your team admin. The MCP Configure dialog says whether each tool is disabled on Local, Cloud, or both. A [team deny rule](https://cursor.com/docs/mcp.md#mcp-allowlist) for a server URL now also blocks the same endpoint with a query string, extra slashes, or the other of http and https.
+- **See which mcp.json is broken and where.** When an [mcp.json](https://cursor.com/docs/mcp.md#using-mcpjson) can't be read, the MCP list in Customize now shows a row for that file with the error and its line number. Open File opens it in the editor at that line.
+
+### Customization and settings
+
+- **Refreshed Cursor Dark and Cursor Light themes.** Cursor Dark and Cursor Light have refreshed colors for syntax, accents, git status, diffs, and terminal colors, and Cursor Light now uses a white editor background. The Cursor Dark v2 and v3 beta themes are gone. If you used one, Cursor switches you to Cursor Dark automatically. The colorblind themes no longer use red or green for syntax: keywords are orange and tags are blue.
+- **Fixed imported Claude Code hooks and Session Start hooks.** [Imported Claude Code hooks](https://cursor.com/docs/reference/third-party-hooks.md) that pass a command with separate arguments now run with those arguments instead of the bare command. Session Start hooks, including team hooks, now run for a window's first chat even when hooks are still loading.
+
+### Models
+
+- **Early access models are listed separately in Models settings.** If your account is in a model provider's early access program, those models now appear in their own Early Access section in Cursor Settings > Models, apart from generally available models. The section collapses behind Show more, and search covers it.
+
+### Enterprise
+
+- &#x20;**Private Inference gateways can use each member's own API key.** When your admin's Private Inference config sets a gateway to use a personal token, Cursor prompts you for that gateway's API key, and Settings shows the gateway URL and whether a key is saved. A missing or rejected key shows an error card in the agent, and saving a key retries right away.
+
+### Security
+
+- **Sign-in tokens are encrypted on disk.** Cursor now stores your sign-in tokens encrypted with your operating system's secrets manager (Keychain on macOS, DPAPI on Windows, libsecret or KWallet on Linux) instead of as plain text in local storage. On systems without a secrets manager, tokens stay in local storage as plain text.
+
+### Fixes
+
+- **Fixes to the editor, terminal, and source control.** Search and replace no longer hangs on case operators like \U or \L, files ignored by .gitignore no longer show up as untracked, rejecting an agent's new file no longer recreates it on disk, and the References view picks the reference closest to the current file. In the integrated terminal, clicks in Neovim and other pixel mouse mode apps land on the right row, and text renders in the right font with GPU acceleration on.
+- **Fixes to accounts, teams, and repositories.** Team repository rules now apply to repositories whose origin remote is an `ssh://` URL, and a team list that briefly fails to load no longer switches you off your active team. With several windows open on an xAI sign-in, windows no longer sign each other out when the session refreshes, and the editor shows the correct account email after signing in through the Agents Window. The cloud agent slash menu shows a Connect GitHub note for repositories whose skills it can't list without a GitHub connection.
+- **Fixes to MCP servers.** MCP servers no longer show no tools after a failed tool listing, stay stuck on a block message in settings after the block lifts, or keep running after they become blocked. MCP sign-in now works when the default local callback port is in use, and a ServiceNow server in your own mcp.json can sign in without a client secret.
+- **Fixes to window state and full screen.** On macOS, editor windows that were in full screen reopen in full screen on the same display, and Cursor remembers each window's size and position from before it entered full screen. Force-quitting Cursor now closes every window before it exits.
+- **Fixes to remote hosts and isolated deployments.** The agent and remote extension hosts start again on older remote servers whose Node lacks built-in SQLite or newer APIs. On isolated deployments, agent runs fall back to HTTP/1.1 instead of failing, and the Extensions view works with a configured marketplace URL.
+
+## v2026.11.19
+
+### Security
+
+- **Your CLI login is stored in the system keyring on Linux.** On Linux, the CLI now saves your [login](https://cursor.com/docs/cli/reference/authentication.md) in the system keyring (GNOME Keyring or KWallet) instead of a plain file, and moves existing saved credentials there automatically. If no keyring is available or it is locked, the CLI keeps using the owner-only file. On Windows, set `CURSOR_CLI_WINDOWS_CREDENTIAL_MANAGER=1` to store your login in Windows Credential Manager instead.
+- **CLI updates are checked before they install.** The installer and `agent update` now download only from Cursor's release hosts and check each package against its published SHA-256 checksum. If the package doesn't match, the update stops with an error and nothing is installed.
+- **Other programs can no longer attach a debugger to the CLI on macOS and Windows.** Other processes running as you, including commands the agent runs, can no longer open the CLI's debugger on macOS and Windows, as was already the case on Linux. This keeps the credentials the CLI holds out of their reach. To attach a debugger, set `CURSOR_AGENT_ALLOW_PROCESS_INSPECTION=1` before starting `agent`.
+- **Saved sign-in and MCP tokens are readable only by you.** The CLI now saves your login credentials and MCP OAuth tokens so that only your user account can read them, and writes them in a single step so an interrupted save can't leave a partial file. Credential files saved by older versions with looser permissions are tightened the next time the CLI reads them.
+
+### Models
+
+- &#x20;**Private Inference models can connect with mTLS client certificates.** With Private Inference, a model in your `private-inference.toml` can set `mtls_cert_dir` to an absolute directory holding a client certificate (`client.crt` and `client.key`, or `tls.crt` and `tls.key`), and the CLI presents it on every request to that model's gateway. The model needs its own HTTPS `base_url`, and the CLI reports a config error when the setup is invalid.
+
+### MCP
+
+- **Fewer failed tool calls with built-in connectors.** When the agent calls a built-in connector such as Google Drive, Sheets, Calendar, Gmail, or GitHub with a misnamed or misshaped argument, the call now corrects common mistakes automatically instead of failing. When a call still can't run, the error names the field to fix.
+
+### Fixes
+
+- **Hooks on self-hosted workers now get the run's details.** [Hooks](https://cursor.com/docs/hooks.md) that `agent worker` runs on your own machine, such as `preToolUse`, `postToolUse`, `beforeShellExecution`, and `beforeMCPExecution`, now receive the agent's `conversation_id`, `session_id`, `generation_id`, `model`, and `user_email`, the same values hooks get on Cursor-hosted cloud agents. Before, those fields were empty, `unknown`, or null.
+- **Fixes to rules with comments in their front matter.** [Rules](https://cursor.com/docs/rules.md) whose front matter includes a YAML comment, such as a trailing comment after `globs` or `alwaysApply`, now apply as written instead of reading the comment as part of the value.
+
 ## v2026.11.17
 
 ### Agent
@@ -1645,26 +1794,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 - **Fixes to GitLab webhooks.** GitLab no longer disables the Bugbot webhook after repeated errors. Bugbot skips merge request events that arrive without a head commit instead of failing on them. When Bugbot rejects a webhook delivery, GitLab's recent events show how to fix it: delete leftover webhooks in the project's Settings > Webhooks, and turn Bugbot off and on for the project if reviews stopped.
 
-## v2026.10.17
-
-### Hooks and subagents
-
-- **Post-tool hooks now fire for subagents.** [`postToolUse`](https://cursor.com/docs/hooks.md#posttooluse) and `postToolUseFailure` hooks that match the `Task` tool now run when a subagent finishes or fails. Before, only `preToolUse` fired for subagents. Any `additional_context` a hook returns now reaches the main agent, and Claude Code `PostToolUse` matchers for `Task` work too.
-- **Hooks in subagents get the right transcript.** Subagent transcripts are now saved inside the parent conversation's folder, under `agent-transcripts/<parent>/subagents/`. Hooks that run inside a subagent now receive that file as [`transcript_path`](https://cursor.com/docs/hooks.md#common-schema) and `CURSOR_TRANSCRIPT_PATH`.
-
-### Self-hosted workers
-
-- **Health checks track self-hosted workers through shutdown.** On a worker started with `--management-addr`, [`/readyz`](https://cursor.com/docs/cloud-agent/self-hosted/pool.md#monitoring) now keeps answering while the worker shuts down, returning 503 with `draining: true` so orchestrators stop sending it work. The worker now fails to start if it can't bind the management address after a few retries, instead of running without health checks. Pool workers also exit after dropping a stale claim, so your host can replace them.
-- **Fixes to self-hosted workers.** Workers running `agent worker` no longer drop their connection when heavy local builds stall the machine for a few seconds, and no longer exit mid-session when briefly offered another agent. Closing the terminal or losing the SSH session now shuts the worker down cleanly, and a worker that is shutting down refuses new runs instead of accepting one it can't finish.
-
-### Agent
-
-- **Fixed unanswered approvals being reported as cancelled.** If you send a new message while a tool call is still waiting for your approval, the agent no longer tells you that you interrupted or cancelled it. Tool calls that already finished before a pause also no longer run a second time when the agent resumes.
-
-### Rules
-
-- **Fixes to rule matching on Windows.** Nested `AGENTS.md` files, [rules](https://cursor.com/docs/rules.md), and skills now apply on Windows even when the workspace path and rule path differ only in drive-letter case.
-
 ## 1.0.38
 
 - **Fixed local agents failing on models that only run in max mode.** Local agents created with a model variant that requires max mode, such as a 500k-context selection, now send max mode automatically instead of failing with invalid parameters, and keep it across later sends and resumes. `Cursor.models.list()` marks those variants with `isMaxMode`, and `ModelSelection` accepts an optional `maxMode`.
@@ -2953,95 +3082,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Bitbucket-only teams can finish Bugbot setup.** Teams connected only through Bitbucket no longer see a prompt to connect GitHub or GitLab during Bugbot setup. The setup steps now show the Bitbucket connection as connected.
 - **Reviews continue past oversized files.** When one changed file is too large for Bugbot to review, Bugbot skips that file and still reviews the others. Before, an oversized file could make Bugbot skip every file after it.
 
-## 3.21
-
-*Enterprise teams get Projects from 3.21.9 unless opted in.*
-
-### Agents
-
-- **Team rules with file patterns now apply only to matching files.** Fixed team rules scoped to a file pattern, such as `*.py`, being added to every agent conversation. They now apply when the agent reads a matching file or you add one to context, so unrelated chats no longer spend tokens on them. Team rules without a file pattern still apply to every conversation.
-- **Fixed getting stuck when a usage limit offers Switch to Auto.** When a usage limit offers a model switch, the limit banner now shows **Switch to Auto** next to the upgrade button, and the prompt stays editable. Choosing Switch to Auto clears the banner and resends your message with Auto so the conversation can continue.
-- **Cloud subagents waiting on you now stand out.** When a cloud subagent stops to ask you a question or needs you to sign in to an MCP server, the Agents pill shows a yellow status dot and the subagent's row in the tray is marked as needing attention, so you can unblock it instead of waiting on a stalled run.
-- **Video review subagents no longer review videos they weren't given.** When the agent asks a subagent to review a video, the video file now has to be attached. A file path that only appears in the prompt no longer counts. If no video is attached, the subagent says so in plain text instead of making up a review.
-
-### Chat and composer
-
-- **A Save check mark while editing a queued message or goal.** When you edit a queued message or a goal, the send button becomes a Save check mark.
-- **Smoother scrolling while an agent streams.** While the chat follows a streaming reply, it now glides to new text and tool cards instead of jumping.
-- **The steering prompt opens Settings.** The Steer New Messages? banner above the queue now opens Settings at New Messages instead of changing the setting for you. The first time a message steers a running agent, a one-time notice says so and links to the setting.
-
-### Projects
-
-- **Create Project picks a smarter default and explains failures.** The Create Project dialog now preselects the cloud repo or environment of the agent you're viewing, or of your New Chat draft, including multi-repo environments. When creating a project fails, the dialog shows the reason instead of a generic retry message, and if your plan blocks it, the notification includes an Upgrade button.
-- **Project workers get renamed when reassigned.** When a Project's coordinator gives a worker a very different task, it can now rename that worker so its name in the sidebar matches the new work.
-
-### Cloud agents
-
-- **See which self-hosted worker runs your agent.** Agents running on a self-hosted pool show the worker's name and its pool in the chat status bar.
-- **Find any cloud environment by name from the project picker.** Typing in the project picker searches all of your cloud environments, including ones beyond the first page, and highlights the matching text. The Run on menu shows Cloud with a loading spinner while access is still being checked instead of hiding it.
-- **Attach PDFs, code, archives, and other files to cloud agents.** Cloud agent prompts now accept any non-image file up to 10 MB, from drag and drop or the + menu, so the agent can read it in its environment. Videos and empty files are not supported yet, and you'll see a message when a file can't be attached.
-
-### Files, changes, and pull requests
-
-- **Pull requests for Origin repositories open in the Agents Window.** Clicking a github.com pull request link for a repository tracked on Origin now opens the PR tab in the Agents Window instead of your browser, when PR Link Destination is set to open inside Cursor. Bugbot and Automations comments on Origin pull requests now show native Fix with Agent and Add to chat actions instead of raw image buttons.
-- **Browser tabs you open stay with your workspace.** Browser tabs you open yourself in the Agents Window now persist with the workspace and stay visible as you switch between agents, like your own terminals. Browsers an agent opens stay tied to that agent. Each workspace also keeps its own cookies, logins, and storage, and signing out of Cursor clears browser data for every workspace.
-- **Syntax highlighting now matches your editor theme.** Code in diffs, PR review cards, and the plan tab is highlighted with the same grammars and theme colors as the editor. It updates when you change or import a theme, and no longer drops colors like numeric literals.
-- **Markdown previews render math and remember where you were.** Display math wrapped in `$$` now renders as formatted equations in the Markdown preview. Previews also keep their scroll position and cursor per file when you switch tabs and come back.
-- **Terminals are easier to reach from more places.** The Terminals pill and platter for an agent's terminals and background shells now also appear in the fullscreen editor's agent overlay. Clicking a headless background shell now opens its output in a tab, Toggle Terminal hides the panel again when a terminal is already open, and the Terminals pill on Project agents opens and closes the terminals tray again.
-- **Fresher pull request status.** Cloud agent pull requests now refresh CI checks, reviewers, and mergeability every few minutes, so a stale Debug CI Failure pill clears once checks go green.
-- **Fixed missing Git remotes when your Git config uses includes.** Remotes defined in files pulled in with `include` or `includeIf` in your Git config are now detected. Remote URLs that contain spaces, and config sections with comments, are also read correctly.
-
-### Navigation and layout
-
-- **Pinned cloud agents sync across devices.** Cloud agents you pin are now saved to your account for everyone, so they stay pinned across windows and devices. The sidebar's Pinned section also shows them right away at startup instead of waiting for the agent list to load.
-- **Better agent search ranking in the Cmd+K palette.** When you search agents with Cmd+K, agents whose conversation contains your search now rank above agents that only loosely match by name or PR link. Typing a pull request number still finds its agent.
-- **Open IDE opens the folder you picked.** After running `cursor .` or choosing a folder with Open Folder in the Agents Window, Open IDE now opens that folder in the editor instead of an empty window, even before you start an agent.
-
-### Customization and settings
-
-- **Fixes to MCP approvals and sign-in.** The MCP tool approval prompt no longer offers "Always Allow" when your team's settings or a permissions file manage the allowlist, where the choice had no lasting effect. MCP servers whose saved sign-in was rejected, such as X, now show as needing authentication with a login option instead of failing to load. MCP sign-in cards in cloud agents are no longer dismissed early, and cards you already answered no longer reappear.
-- **Close the Automations panel with Esc or Cmd+W.** The Automations panel now closes on Esc or Cmd+W (Ctrl+W on Windows and Linux), just like Settings and Customize. Before, Esc did nothing there, and Cmd+W could prompt you to close the whole window. Esc still goes back one step when you're inside an automation, and it won't close the panel while you're typing in a field.
-
-### Fixes
-
-- **Fixes to agent reliability on long runs.** Cloud agents that keep repeating the same tool call now get the same nudge to break the loop that local agents get. Long turns with many tool calls no longer get stuck summarizing context over and over without freeing any space. File edits no longer fail when a model sends its patch in a different format.
-- **Fixes to cloud agent workspaces and slash menus.** Cloud agent workspaces that lose their connection are repaired in place instead of needing a window reload. After you switch accounts or teams, cloud agent slash menus no longer show the previous team's skills.
-- **Fixes to the sidebar.** Clicking + on a repository section starts the new agent on exactly that section's repositories. Project rows show the unread dot even while child agents are still working and no longer show an expand chevron when the Projects section is collapsed, and titlebar icons no longer shift when the sidebar collapses.
-- **Fixes to workspace search and SSH workspaces.** Workspace search no longer hangs on cloud and remote workspaces. It shows a message while the workspace connects or reconnects, and ends with a clear message if the remote host stops responding. Adding an SSH workspace with several remote folders is also faster.
-- **Fixes to the model picker.** Saved MAX-only model variants, like 1M context, now reset only when you turn MAX off, not when you use the picker in a non-MAX chat. When your team lifts a "Restrict to Auto" model policy, the picker no longer keeps showing the restriction notice or hiding the search bar.
-- **Fixes to the browser.** Open in External Browser on a local HTML file opens your system browser, and when an admin blocks browser automation your saved browser mode is no longer reset to Off.
-- **`/subscribe` works with Origin repositories.** Cloud agents in a repository hosted on Cursor Origin now wait for its CI results and pull request activity with the Origin subscription tools instead of polling. The agent picks the tool that matches the pull request link, so an Origin link no longer goes to a GitHub tool and fails.
-- **Fixes to the agent panel.** The agent panel no longer gets replaced by a "Something went wrong" screen when a chat that is still open is unloaded in the background. The chat stays on screen.
-
-## 3.21
-
-### Browser
-
-- **Separate browser sessions per workspace.** The built-in browser now keeps cookies, logins, and storage separate for each workspace, so sessions from one project no longer carry into another. See [session persistence](https://cursor.com/docs/agent/tools/browser.md#session-persistence). Signing out of Cursor clears browser data for every workspace. Element selection and area screenshots respond only to your own clicks, so a web page can't inject fake selections into chat.
-
-### Agent
-
-- **Agent responses start faster.** Cursor prepares the agent in the background when you focus a chat and again when you send a message, so the first response arrives sooner.
-- &#x20;**Team rules with file patterns apply only to matching files.** A team rule scoped to a pattern such as `*.py` used to be added to every agent conversation. Now the agent picks it up only when it reads a matching file or you add one to context. Team rules without a pattern still always apply. See [how Team Rules are applied](https://cursor.com/docs/rules.md#format-and-how-team-rules-are-applied).
-- **The @ menu no longer shows non-working Docs options.** The Docs category and Add New Custom Docs option had already stopped adding documentation to agent context, so they're gone from the @ mentions menu. Docs chips in older conversations still display.
-- **The steering prompt opens Settings.** The Steer New Messages? banner above the queue now opens Settings at New Messages instead of changing the setting for you.
-
-### Editor
-
-- **Math and better code highlighting in the Markdown editor.** The Markdown editor renders `$$` display math blocks as formatted equations. Code blocks in the Markdown and plan editors get the same syntax highlighting and theme colors as the code editor, and update when you switch themes.
-
-### Fixes
-
-- **Removed lines stay removed in agent edit diffs.** In the diff shown for an agent edit, a removed line that starts with "--" stays a removed line.
-- **Fixes to editing previous messages.** Editing and resubmitting an earlier message reliably sends your edited text and refreshes checkpoints. While editing in place, Cmd+/ opens the model picker for that message, Escape closes an open picker without cancelling the edit, Shift+Tab works, and the Cmd+Enter-to-submit setting is respected.
-- **Fixes to Cloud Agents.** [Cloud agent](https://cursor.com/docs/cloud-agent.md) workspaces no longer show the folder trust prompt or a file-watcher warning you can't fix.
-- **Fixes to agent reliability.** Long turns no longer get stuck compacting context on every step, and agent edits no longer fail when the model wraps a patch in JSON. Chats stay attached to their folder after Add Folder to Workspace, and unread badges on agent chats clear when you focus them.
-- **Fixes to the model picker.** Saved model variants that need Max Mode, like 1M context, no longer reset when you use the model picker in a chat without Max Mode; they revert only when you turn Max Mode off. When a team lifts its "Restrict to Auto" model policy, the picker drops the old restriction notice and brings back the search bar.
-- **Fixes to MCP servers.** The [MCP](https://cursor.com/docs/mcp.md) approval prompt no longer offers "Always Allow" when your team or a permissions file controls the MCP allowlist. MCP servers whose saved token was revoked ask you to log in again instead of showing a connection error. MCP sign-in cards in cloud agents are no longer dismissed early, and cards you already answered no longer reappear.
-- **Fixes to git and the editor.** Git remotes defined through `include` or `includeIf` in your git config are detected, and the status bar blame always matches the active editor. The extension host no longer fails to start when an environment variable name begins with a digit, and backups for deleted or unreadable files no longer reopen on every window open. In the Review Changes pane, an older refresh no longer overwrites the newer Issues Found list.
-- **Search in remote workspaces no longer hangs.** When search isn't available yet, it now times out and shows an error instead of waiting forever.
-- **Fixes to agent visualizations.** Visualization cards from `/visualize` now render in the IDE. Shaded areas in charts no longer render solid black, and the visualization loading row lines up with other tool calls.
-
 ## 1.9.0
 
 ### Composer
@@ -3176,7 +3216,7 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 
 - &#x20;**Turn Projects on or off for your team.** Admins can use the Enable Projects switch in Team Settings, under Chat, to control whether team members can use Projects in Cursor. When it's off, Projects is hidden for everyone on the team.
 - &#x20;**Data exports for every team.** The Data Exports tab is no longer limited to Enterprise teams. Any team member with permission to read exports can open it and download archives Cursor has prepared and released for the team, including teams whose subscription has ended. Export links open straight to the right team.
-- &#x20;**Team MCP servers on members' machines (since removed from the dashboard).** This week added a Run team MCP servers on members' machines switch to the Team MCP Servers section of the Plugins & MCPs tab. The Plugins & MCPs tab no longer shows that switch. Teams and members can also configure up to 1,000 MCP servers each.
+- &#x20;**Team MCP servers on members' machines.** This week added a Run team MCP servers on members' machines switch to the Team MCP Servers section of the Plugins & MCPs tab. It's now called Run connectors only on members' computers. Teams and members can also configure up to 1,000 MCP servers each.
 - &#x20;**Connect more than one Jira site to a team.** Admins with a connected Jira site now see a Connect another site action on the Jira page in the dashboard. It opens the Atlassian Marketplace to install Cursor on the new site, and the site list refreshes when you come back.
 - **Clearer way back to Agents from settings.** The settings sidebar header now shows a Back to Agents link next to the Cursor mark.
 

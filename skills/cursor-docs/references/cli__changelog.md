@@ -8,6 +8,28 @@ path: /docs/cli/changelog
 
 The latest features, improvements, and fixes shipping to Cursor CLI. Run `agent --version` to check your installed version, and `agent update` to upgrade in place.
 
+## v2026.11.19
+
+### Security
+
+- **Your CLI login is stored in the system keyring on Linux.** On Linux, the CLI now saves your [login](https://cursor.com/docs/cli/reference/authentication.md) in the system keyring (GNOME Keyring or KWallet) instead of a plain file, and moves existing saved credentials there automatically. If no keyring is available or it is locked, the CLI keeps using the owner-only file. On Windows, set `CURSOR_CLI_WINDOWS_CREDENTIAL_MANAGER=1` to store your login in Windows Credential Manager instead.
+- **CLI updates are checked before they install.** The installer and `agent update` now download only from Cursor's release hosts and check each package against its published SHA-256 checksum. If the package doesn't match, the update stops with an error and nothing is installed.
+- **Other programs can no longer attach a debugger to the CLI on macOS and Windows.** Other processes running as you, including commands the agent runs, can no longer open the CLI's debugger on macOS and Windows, as was already the case on Linux. This keeps the credentials the CLI holds out of their reach. To attach a debugger, set `CURSOR_AGENT_ALLOW_PROCESS_INSPECTION=1` before starting `agent`.
+- **Saved sign-in and MCP tokens are readable only by you.** The CLI now saves your login credentials and MCP OAuth tokens so that only your user account can read them, and writes them in a single step so an interrupted save can't leave a partial file. Credential files saved by older versions with looser permissions are tightened the next time the CLI reads them.
+
+### Models
+
+- &#x20;**Private Inference models can connect with mTLS client certificates.** With Private Inference, a model in your `private-inference.toml` can set `mtls_cert_dir` to an absolute directory holding a client certificate (`client.crt` and `client.key`, or `tls.crt` and `tls.key`), and the CLI presents it on every request to that model's gateway. The model needs its own HTTPS `base_url`, and the CLI reports a config error when the setup is invalid.
+
+### MCP
+
+- **Fewer failed tool calls with built-in connectors.** When the agent calls a built-in connector such as Google Drive, Sheets, Calendar, Gmail, or GitHub with a misnamed or misshaped argument, the call now corrects common mistakes automatically instead of failing. When a call still can't run, the error names the field to fix.
+
+### Fixes
+
+- **Hooks on self-hosted workers now get the run's details.** [Hooks](https://cursor.com/docs/hooks.md) that `agent worker` runs on your own machine, such as `preToolUse`, `postToolUse`, `beforeShellExecution`, and `beforeMCPExecution`, now receive the agent's `conversation_id`, `session_id`, `generation_id`, `model`, and `user_email`, the same values hooks get on Cursor-hosted cloud agents. Before, those fields were empty, `unknown`, or null.
+- **Fixes to rules with comments in their front matter.** [Rules](https://cursor.com/docs/rules.md) whose front matter includes a YAML comment, such as a trailing comment after `globs` or `alwaysApply`, now apply as written instead of reading the comment as part of the value.
+
 ## v2026.11.17
 
 ### Agent
