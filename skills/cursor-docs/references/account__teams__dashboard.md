@@ -78,7 +78,23 @@ Create and manage API keys for programmatic access to Cursor's admin features.
 
 ### Active Sessions
 
-Monitor and manage active user sessions across your team.
+See where members are signed in and end sessions you don't recognize.
+
+**Member sessions** on the team's **Security** page lists each member's
+sessions, with the client, **Created**, **Last active**, **IP / location**,
+and **Expires**. The expiry is shown in its own column or when you hover
+**Created**. Admins can select **Revoke** to end one session, or
+**Sign out everywhere** to end all of a member's sessions. That signs the
+member out of every team, every organization, and personal use.
+
+Removing a member from the team also ends every session on their account,
+unless they still belong to another team in your organization.
+
+Members manage their own sessions under **Active Sessions** or
+**Sessions** in their settings. There, **Sign out everywhere** ends every
+session on the account in one step.
+
+Learn more in [Session management](https://cursor.com/docs/security/sessions.md).
 
 ### Invite Code Management
 
@@ -140,7 +156,7 @@ Access detailed AI-generated code analytics for your team's repositories. Retrie
 
 ### Audit Log
 
-View comprehensive, tamper-proof records of security events and administrative actions. Track authentication, team changes, permission updates, API key actions, settings modifications, and more. Filter by application. CSV export includes the application. Requires an Enterprise subscription. Learn more in [Compliance and Monitoring](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
+View tamper-proof records of security events and administrative actions. Track authentication, team changes, permission updates, API key actions, settings modifications, and more. Filter by application. CSV export includes the application. Requires an Enterprise subscription. Learn more in [Compliance and Monitoring](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs).
 
 **SCIM** (System for Cross-domain Identity Management) provisioning is also
 available for [Enterprise](https://cursor.com/docs/enterprise.md) plans. See our [SCIM
@@ -154,7 +170,7 @@ Manage your team members, invite new users, and control access permissions. Set 
 
 ## Audit Log
 
-Track security events, administrative actions, and team changes with comprehensive audit logs. View detailed records of who did what, when, and from where. Audit logs capture authentication events, membership changes, permission updates, API key actions, settings modifications, and more. Filter by application. CSV export includes the application.
+Track security events, administrative actions, and team changes with audit logs. View detailed records of who did what, when, and from where. Audit logs capture authentication events, membership changes, permission updates, API key actions, settings modifications, and more. Filter by application. CSV export includes the application.
 
 ![Audit Log](https://cursor.com/docs-static/images/account/team/audit-log.png)
 

@@ -33,7 +33,7 @@ Every Organization API key carries exactly one scope. A route runs only when the
 | Scope            | Access                                                                                                                                                                                           | Example routes                                                                                                                                                                    |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `members:read`   | Read-only access to organization membership.                                                                                                                                                     | `GET /organizations/members`                                                                                                                                                      |
-| `members:*`      | Read and write access to membership and groups. Includes everything `members:read` allows.                                                                                                       | `GET /organizations/members`, `POST /organizations/team-memberships/sync`, all `/organizations/groups` routes                                                                     |
+| `members:*`      | Read and write access to membership, groups, and member sessions. Includes everything `members:read` allows.                                                                                     | `GET /organizations/members`, `POST /organizations/team-memberships/sync`, all `/organizations/groups` routes, all `/organizations/members/:userId/sessions` routes               |
 | `usage:*`        | Read access to pooled usage and reporting.                                                                                                                                                       | `POST /organizations/pooled-usage`, `POST /organizations/filtered-usage-events`, `POST /organizations/daily-usage-data`, `POST /organizations/spend`                              |
 | `models:read`    | Read-only access to model-access configuration and provider inventories.                                                                                                                         | `GET /organizations/teams/model-access/configuration`, `GET /organizations/teams/{teamId}/model-access/configuration`, `GET /organizations/teams/{teamId}/model-access/providers` |
 | `models:*`       | Read and write access to model access. Includes everything `models:read` allows.                                                                                                                 | All model-access routes, including bulk provider/model toggles and bulk configuration                                                                                             |
@@ -60,10 +60,10 @@ curl -X POST https://api.cursor.com/organizations/team-memberships/sync \
 
 ## Members
 
-Read organization membership and move members between the teams linked to your organization.
+Read organization membership, move members between the teams linked to your organization, and manage members' sign-in sessions.
 
 - **Availability**: Enterprise only
-- **Authentication**: Organization API key (Basic auth). Reading members accepts the read-only **`members:read`** scope; moving members requires **`members:*`**. Keys with **`admin:*`** work for both.
+- **Authentication**: Organization API key (Basic auth). Reading members accepts the read-only **`members:read`** scope; moving members requires **`members:*`**. Keys with **`admin:*`** work for both. For member session routes, see [Member sessions](https://cursor.com/docs/account/organizations/organization-admin-api.md#member-sessions).
 - **Scope**: `GET /organizations/members` is organization-scoped and paginated, returning each member's organization role plus every linked-team assignment in one response.
 - **Pagination**: `GET /organizations/members` accepts `page` and `pageSize`. `pageSize` is capped at 200; larger values are clamped to 200.
 
@@ -410,6 +410,184 @@ Most thrown API errors use HTTP **401**, **403**, or **400** and a JSON body sha
   ],
   "successCount": 0,
   "errorCount": 1
+}
+```
+
+### Member sessions
+
+List an organization member's active sign-in sessions and sign them out. These routes match the team [member sessions](https://cursor.com/docs/account/teams/admin-api.md#member-sessions) API, scoped to your organization.
+
+- **Authentication**: Organization API key (Basic auth). Listing needs the **View member sign-ins** permission. Revoking needs **Sign members out**. A legacy key needs the **`members:*`** scope for both routes, and **`admin:*`** also works. A key without the permission or scope, such as a `members:read` key, returns `401`. See [API key permissions](https://cursor.com/docs/security/api-keys.md#permissions).
+- **Member IDs**: `:userId` takes the numeric user ID that [`GET /organizations/members`](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-members) returns, such as `12345`. The encoded `user_…` ID from the team [`GET /teams/members`](https://cursor.com/docs/account/teams/admin-api.md#get-team-members) endpoint also works. The user must be a current member of the organization attached to your API key.
+- **Pagination**: The list route is cursor-based. Pass the `nextCursor` value from one response as `cursor` on the next request. The last page returns `nextCursor: null`.
+- **Rate limit**: Each route allows 20 requests per minute per organization. See [rate limits and best practices](https://cursor.com/docs/api.md#rate-limits).
+- **Audit log**: Every revoke is recorded in your organization's [audit log](https://cursor.com/docs/account/organizations/organization-admin-api.md#audit-logs), with your API key's name as the actor.
+
+Member session routes share these error responses. Error bodies use the shape `{ "code": "error", "message": "…" }`.
+
+| Status | When                                                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `400`  | Malformed `userId`, `limit`, `cursor`, or request body                                                                                                                    |
+| `401`  | Invalid API key, or the key is missing the permission or scope the route needs                                                                                            |
+| `404`  | The user isn't a current member of your organization (`Organization member not found`), or the session to revoke doesn't exist or has already ended (`Session not found`) |
+| `429`  | Rate limit exceeded. The response includes a `Retry-After: 60` header                                                                                                     |
+
+### List Member Sessions
+
+GET
+
+`/organizations/members/:userId/sessions`
+
+Retrieve an organization member's active sign-in sessions, newest first. A member who has never signed in returns an empty list.
+
+#### Parameters
+
+`userId` number | string Required
+
+Numeric user ID of the member (for example `12345`), or their encoded `user_…` ID.
+
+#### Query parameters
+
+`limit` number
+
+Number of sessions per page, from 1 to 100. Defaults to `50`. Values outside that range return `400`.
+
+`cursor` string
+
+The `nextCursor` value from the previous page. Omit it to start from the newest session. An invalid cursor returns `400`.
+
+#### Response Fields
+
+`sessions` array
+
+Array of session objects, each containing:
+
+- `sessionId` string - Session identifier. Pass it with `type` to [revoke this session](https://cursor.com/docs/account/organizations/organization-admin-api.md#revoke-member-sessions).
+- `type` string - Where the session signs in: `client`, `web`, `mobile`, or `grok_bot_mobile`. `unknown` means Cursor couldn't classify the session.
+- `createdAt` string - When the session started, in ISO 8601 format
+- `expiresAt` string - When the session expires, in ISO 8601 format
+- `lastActiveAt` string - When the session was last used, in ISO 8601 format. Omitted, along with `lastIp`, `lastLocation`, and `clientType`, when Cursor has no recorded activity for the session.
+- `lastIp` string - IP address the session was last used from. Omitted when unknown.
+- `lastLocation` string - Country the session was last used from. Omitted when unknown.
+- `clientType` string - The client that last used the session, such as `Web`, `Desktop IDE`, `Desktop app`, `CLI`, `Mobile app`, or `Grok Bot`.
+
+`nextCursor` string | null
+
+Pass this value as `cursor` to fetch the next page. `null` when there are no more sessions.
+
+```bash
+curl -X GET "https://api.cursor.com/organizations/members/12345/sessions?limit=50" \
+  -u YOUR_ORGANIZATION_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "sessions": [
+    {
+      "sessionId": "sess_web_8f2c41",
+      "type": "web",
+      "createdAt": "2026-11-02T16:45:00.000Z",
+      "expiresAt": "2026-12-02T16:45:00.000Z",
+      "lastActiveAt": "2026-11-20T08:30:00.000Z",
+      "lastIp": "203.0.113.10",
+      "clientType": "Web"
+    },
+    {
+      "sessionId": "sess_client_3a9d07",
+      "type": "client",
+      "createdAt": "2026-10-28T09:12:00.000Z",
+      "expiresAt": "2026-11-27T09:12:00.000Z"
+    }
+  ],
+  "nextCursor": null
+}
+```
+
+### Revoke Member Sessions
+
+POST
+
+`/organizations/members/:userId/sessions/revoke`
+
+Sign an organization member out of one session, or out of every session at once.
+
+#### Parameters
+
+`userId` number | string Required
+
+Numeric user ID of the member (for example `12345`), or their encoded `user_…` ID.
+
+#### Request body
+
+Send one of two forms: `sessionId` with `type` to revoke one session, or `allSessions: true` to revoke every session. Mixing the two forms, adding other fields, or sending `allSessions: false` returns `400`.
+
+`sessionId` string
+
+The session to revoke, from [List Member Sessions](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-member-sessions). Required with `type`.
+
+`type` string
+
+The session's `type` from the list: `client`, `web`, `mobile`, or `grok_bot_mobile`. Required with `sessionId`. A session ID that doesn't match an active session of this type for this member returns `404`.
+
+`allSessions` boolean
+
+Set to `true` to revoke every session the member has. Send it on its own.
+
+Revoking all sessions signs the member out everywhere. It applies to their whole Cursor account, not only your organization: it ends their sessions for every team and organization they belong to and for personal use. The member keeps their organization membership and can sign in again.
+
+#### Response Fields
+
+`revokedCount` number
+
+Number of sessions revoked. A single-session revoke returns `1`, or `0` if the session ended before the revoke completed. Revoking all sessions returns how many sessions the member had, or `0` if they had none.
+
+**Revoke one session:**
+
+```bash
+curl -X POST https://api.cursor.com/organizations/members/12345/sessions/revoke \
+  -u YOUR_ORGANIZATION_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sessionId": "sess_web_8f2c41",
+    "type": "web"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "revokedCount": 1
+}
+```
+
+**Revoke all sessions (signs the member out everywhere):**
+
+```bash
+curl -X POST https://api.cursor.com/organizations/members/12345/sessions/revoke \
+  -u YOUR_ORGANIZATION_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "allSessions": true
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "revokedCount": 4
+}
+```
+
+**Error responses:**
+
+```json
+{
+  "code": "error",
+  "message": "Organization member not found"
 }
 ```
 

@@ -8,7 +8,7 @@ path: /docs/cloud-agent/security-network
 
 Cloud Agents are available in Privacy Mode. We never train on your code and only retain code for running the agent. [Learn more about Privacy mode](https://www.cursor.com/privacy-overview).
 
-For a walkthrough of how Cloud Agents are architected and secured, including the run lifecycle, access model, isolation, encryption, and data handling, see the [Security overview](https://cursor.com/docs/cloud-agent/security.md). This page is the configuration reference for the controls it describes.
+To learn how Cloud Agents are architected and secured, including the run lifecycle, access model, isolation, encryption, and data handling, see the [Security overview](https://cursor.com/docs/cloud-agent/security.md).
 
 **Privacy Mode (Legacy)** is not supported. Legacy privacy mode blocks cloud
 data storage, and Cloud Agents need to store code and environment data in the
@@ -88,14 +88,14 @@ You can use the [Delete Agent API](https://cursor.com/docs/cloud-agent/api/endpo
 
 ### Cloud agent retention policies
 
-Custom retention windows are in early access for select Enterprise teams. [Contact sales](https://cursor.com/contact-sales?source=docs-cloud-agent-retention) to request access.
+For custom retention windows, [contact sales](https://cursor.com/contact-sales?source=docs-cloud-agent-retention).
 
 Enterprise team admins can cap how long the team's Cloud Agent data is kept from **Team Settings** on the [Cloud Agents dashboard](https://cursor.com/dashboard/cloud-agents). The available windows are **Indefinite** and **90 days**.
 
 When you set the policy to **90 days**:
 
 - A background job deletes conversations older than the retention policy window.
-- Environment snapshots continue to follow the rolling 30-day inactivity window described above.
+- Environment snapshots continue to follow the rolling 30-day inactivity window.
 - The policy applies to every agent run the team owns, including runs from saved environments and the [API](https://cursor.com/docs/cloud-agent/api/v0.md).
 
 Switching back to **Indefinite** stops further conversation deletions but doesn't restore data that's already been removed.

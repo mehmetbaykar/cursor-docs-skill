@@ -1320,6 +1320,198 @@ curl -X DELETE https://api.cursor.com/settings/repo-blocklists/repos/repo_123 \
 204 No Content
 ```
 
+## Member sessions
+
+List a team member's active sign-in sessions and sign them out. Revoke one session to end access on a lost or shared device, or revoke all of them to sign the member out everywhere without removing them from the team.
+
+- **Authentication**: Team API key (Basic auth). Listing needs the **View member sign-ins** permission. Revoking needs **Sign members out**. A legacy key needs the **`admin:*`** scope for both routes. A key without the permission or scope, such as a `read:*` key, returns `401`. See [API key permissions](https://cursor.com/docs/security/api-keys.md#permissions).
+- **Member IDs**: `:userId` takes the encoded `user_…` ID that [Get Team Members](https://cursor.com/docs/account/teams/admin-api.md#get-team-members) returns. The numeric user ID from the Organization API's [`GET /organizations/members`](https://cursor.com/docs/account/organizations/organization-admin-api.md#list-organization-members) also works. The user must be a current member of the team attached to your API key. Members with the free-owner role return `404`.
+- **Pagination**: The list route is cursor-based. Pass the `nextCursor` value from one response as `cursor` on the next request. The last page returns `nextCursor: null`.
+- **Rate limit**: Each route allows 20 requests per minute per team. See [rate limits and best practices](https://cursor.com/docs/api.md#rate-limits).
+- **Audit log**: Every revoke is recorded in your team's [audit log](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs), with your API key's name as the actor.
+
+Member session routes share these error responses. Error bodies use the shape `{ "code": "error", "message": "…" }`.
+
+| Status | When                                                                                                                                                      |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `400`  | Malformed `userId`, `limit`, `cursor`, or request body                                                                                                    |
+| `401`  | Invalid API key, or the key is missing the permission or scope the route needs                                                                            |
+| `404`  | The user isn't a current member of your team (`Team member not found`), or the session to revoke doesn't exist or has already ended (`Session not found`) |
+| `429`  | Rate limit exceeded. The response includes a `Retry-After: 60` header                                                                                     |
+
+### List Member Sessions
+
+GET
+
+`/teams/members/:userId/sessions`
+
+Retrieve a team member's active sign-in sessions, newest first. A member who has never signed in returns an empty list.
+
+#### Parameters
+
+`userId` string Required
+
+Encoded user ID of the team member (e.g., `user_PDSPmvukpYgZEDXsoNirw3CFhy`), or their numeric user ID.
+
+#### Query parameters
+
+`limit` number
+
+Number of sessions per page, from 1 to 100. Defaults to `50`. Values outside that range return `400`.
+
+`cursor` string
+
+The `nextCursor` value from the previous page. Omit it to start from the newest session. An invalid cursor returns `400`.
+
+#### Response Fields
+
+`sessions` array
+
+Array of session objects, each containing:
+
+- `sessionId` string - Session identifier. Pass it with `type` to [revoke this session](https://cursor.com/docs/account/teams/admin-api.md#revoke-member-sessions).
+- `type` string - Where the session signs in: `client`, `web`, `mobile`, or `grok_bot_mobile`. `unknown` means Cursor couldn't classify the session.
+- `createdAt` string - When the session started, in ISO 8601 format
+- `expiresAt` string - When the session expires, in ISO 8601 format
+- `lastActiveAt` string - When the session was last used, in ISO 8601 format. Omitted, along with `lastIp`, `lastLocation`, and `clientType`, when Cursor has no recorded activity for the session.
+- `lastIp` string - IP address the session was last used from. Omitted when unknown.
+- `lastLocation` string - Country the session was last used from. Omitted when unknown.
+- `clientType` string - The client that last used the session, such as `Web`, `Desktop IDE`, `Desktop app`, `CLI`, `Mobile app`, or `Grok Bot`.
+
+`nextCursor` string | null
+
+Pass this value as `cursor` to fetch the next page. `null` when there are no more sessions.
+
+```bash
+curl -X GET "https://api.cursor.com/teams/members/user_PDSPmvukpYgZEDXsoNirw3CFhy/sessions?limit=50" \
+  -u YOUR_API_KEY:
+```
+
+**Response:**
+
+```json
+{
+  "sessions": [
+    {
+      "sessionId": "sess_web_8f2c41",
+      "type": "web",
+      "createdAt": "2026-11-02T16:45:00.000Z",
+      "expiresAt": "2026-12-02T16:45:00.000Z",
+      "lastActiveAt": "2026-11-20T08:30:00.000Z",
+      "lastIp": "203.0.113.10",
+      "clientType": "Web"
+    },
+    {
+      "sessionId": "sess_client_3a9d07",
+      "type": "client",
+      "createdAt": "2026-10-28T09:12:00.000Z",
+      "expiresAt": "2026-11-27T09:12:00.000Z"
+    }
+  ],
+  "nextCursor": "eyJjcmVhdGVkQXQiOiIyMDI2LTEwLTI4VDA5OjEyOjAwLjAwMFoiLCJzZXNzaW9uSWQiOiJzZXNzX2NsaWVudF8zYTlkMDcifQ"
+}
+```
+
+**Next page:**
+
+```bash
+curl -X GET "https://api.cursor.com/teams/members/user_PDSPmvukpYgZEDXsoNirw3CFhy/sessions?limit=50&cursor=eyJjcmVhdGVkQXQiOiIyMDI2LTEwLTI4VDA5OjEyOjAwLjAwMFoiLCJzZXNzaW9uSWQiOiJzZXNzX2NsaWVudF8zYTlkMDcifQ" \
+  -u YOUR_API_KEY:
+```
+
+### Revoke Member Sessions
+
+POST
+
+`/teams/members/:userId/sessions/revoke`
+
+Sign a team member out of one session, or out of every session at once.
+
+#### Parameters
+
+`userId` string Required
+
+Encoded user ID of the team member (e.g., `user_PDSPmvukpYgZEDXsoNirw3CFhy`), or their numeric user ID.
+
+#### Request body
+
+Send one of two forms: `sessionId` with `type` to revoke one session, or `allSessions: true` to revoke every session. Mixing the two forms, adding other fields, or sending `allSessions: false` returns `400`.
+
+`sessionId` string
+
+The session to revoke, from [List Member Sessions](https://cursor.com/docs/account/teams/admin-api.md#list-member-sessions). Required with `type`.
+
+`type` string
+
+The session's `type` from the list: `client`, `web`, `mobile`, or `grok_bot_mobile`. Required with `sessionId`. A session ID that doesn't match an active session of this type for this member returns `404`.
+
+`allSessions` boolean
+
+Set to `true` to revoke every session the member has. Send it on its own.
+
+Revoking all sessions signs the member out everywhere. It applies to their whole Cursor account, not only your team: it ends their sessions for every team and organization they belong to and for personal use. The member stays on your team and can sign in again.
+
+#### Response Fields
+
+`revokedCount` number
+
+Number of sessions revoked. A single-session revoke returns `1`, or `0` if the session ended before the revoke completed. Revoking all sessions returns how many sessions the member had, or `0` if they had none.
+
+**Revoke one session:**
+
+```bash
+curl -X POST https://api.cursor.com/teams/members/user_PDSPmvukpYgZEDXsoNirw3CFhy/sessions/revoke \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sessionId": "sess_web_8f2c41",
+    "type": "web"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "revokedCount": 1
+}
+```
+
+**Revoke all sessions (signs the member out everywhere):**
+
+```bash
+curl -X POST https://api.cursor.com/teams/members/user_PDSPmvukpYgZEDXsoNirw3CFhy/sessions/revoke \
+  -u YOUR_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "allSessions": true
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "revokedCount": 4
+}
+```
+
+**Error responses:**
+
+```json
+{
+  "code": "error",
+  "message": "Session not found"
+}
+```
+
+```json
+{
+  "code": "error",
+  "message": "Team member not found"
+}
+```
+
 ## Team directory groups
 
 Team Admin API routes at `/teams/directory-groups` manage Team directory groups. Those groups set spend and policy within one team. See [Organization Groups](https://cursor.com/docs/enterprise/organization-groups.md) for how they differ from org-level cohorts and [Billing Groups](https://cursor.com/docs/account/enterprise/billing-groups.md).

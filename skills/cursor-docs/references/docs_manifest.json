@@ -6,17 +6,17 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 280,
+    "pages_fetched_successfully": 285,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 280
+    "total_pages_discovered": 285
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
-      "hash": "16834028667501b889b1d113bb1ab6433113eb259aa5a0be822e28a164c51c4b",
-      "last_updated": "2026-11-12T18:21:55+00:00",
+      "hash": "07b7dc8852a13ea57ccc2077df02558f798679306e28a6a566a2fcae1f9e4159",
+      "last_updated": "2026-11-25T18:20:58+00:00",
       "original_url": "https://cursor.com/docs/account/organizations/organization-admin-api",
       "path": "/docs/account/organizations/organization-admin-api",
       "section": "docs",
@@ -55,8 +55,8 @@
       "title": "Regions"
     },
     "account__teams__admin-api.md": {
-      "hash": "5339c9a95aa5fd0828f2d8b52f2d103642a319d467c04bcaa849fc752662cf82",
-      "last_updated": "2026-11-19T18:22:39+00:00",
+      "hash": "cd7ea92049262901ebec5595b125f83e1f67da057bf15a0c7b8df1083c683fe8",
+      "last_updated": "2026-11-25T18:20:59+00:00",
       "original_url": "https://cursor.com/docs/account/teams/admin-api",
       "path": "/docs/account/teams/admin-api",
       "section": "docs",
@@ -95,8 +95,8 @@
       "title": "Usage Analytics"
     },
     "account__teams__dashboard.md": {
-      "hash": "ee61fa51e498d8625fe5b5af578ef362ed43c785d77d2331b8ecb54cffcd29f2",
-      "last_updated": "2026-11-14T03:19:57+00:00",
+      "hash": "14d7c8e2dfdb0484f62a64ce6ad57e5c92f2f041de6987e6ff52686bec9a42cc",
+      "last_updated": "2026-11-25T18:21:00+00:00",
       "original_url": "https://cursor.com/docs/account/teams/dashboard",
       "path": "/docs/account/teams/dashboard",
       "section": "docs",
@@ -105,8 +105,8 @@
       "title": "Dashboard"
     },
     "account__teams__members.md": {
-      "hash": "cae5aa11b79b364f738448b29bc3afc5b23e5465389c18802b30b3f34f8b063c",
-      "last_updated": "2026-11-16T21:19:24+00:00",
+      "hash": "db7d9fd3435e1c1a67e9d65c6c3b4a4c418e12d5dd2e2aca2847bc7e448649e6",
+      "last_updated": "2026-11-25T18:21:01+00:00",
       "original_url": "https://cursor.com/docs/account/teams/members",
       "path": "/docs/account/teams/members",
       "section": "docs",
@@ -715,8 +715,8 @@
       "title": "Prompting agents"
     },
     "agent__security.md": {
-      "hash": "ff4168f63c0efff508f98c7362b6d72e0b98d3f9edca16b81c3ab69674b066db",
-      "last_updated": "2026-08-07T17:11:47+00:00",
+      "hash": "3cb64afc3a1b26063c59fef893c1e4dee3ac8f6227c911a8ca9fe315be55fe56",
+      "last_updated": "2026-11-25T18:21:20+00:00",
       "original_url": "https://cursor.com/docs/agent/security",
       "path": "/docs/agent/security",
       "section": "docs",
@@ -815,8 +815,8 @@
       "title": "Acting on behalf of users"
     },
     "api__origin__changelog.md": {
-      "hash": "207fc7d5caadf3ae1f14174ef7290380595002578520189dad3055fd249c99c3",
-      "last_updated": "2026-11-24T18:22:16+00:00",
+      "hash": "d95ef5a07802d8de08aefd8ac0bdce061311e6b1bb5cd1e52cdfbd532d0c5c0c",
+      "last_updated": "2026-11-25T18:21:24+00:00",
       "original_url": "https://cursor.com/docs/api/origin/changelog",
       "path": "/docs/api/origin/changelog",
       "section": "docs",
@@ -1145,8 +1145,8 @@
       "title": "Agent metadata"
     },
     "cloud-agent__mobile.md": {
-      "hash": "7fd245e9b428a001440738db0ceac57c362ed1dc9fc6b328632200481add0274",
-      "last_updated": "2026-11-16T21:19:51+00:00",
+      "hash": "55add502612f6bcc1729a38df3f748bbc02796f099c5a244b86b4dfb24e8452b",
+      "last_updated": "2026-11-25T18:21:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/mobile",
       "path": "/docs/cloud-agent/mobile",
       "section": "docs",
@@ -1155,8 +1155,8 @@
       "title": "Cursor for iOS"
     },
     "cloud-agent__private-connectivity.md": {
-      "hash": "9749bbff83213e2412322aca5538605cacb13778ef8f67a9a62898d27b3c6ec5",
-      "last_updated": "2026-11-16T21:19:52+00:00",
+      "hash": "e4a74570d988433a4928351cca921931fdaa8a826eda288e73914c319a057a70",
+      "last_updated": "2026-11-25T18:21:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/private-connectivity",
       "path": "/docs/cloud-agent/private-connectivity",
       "section": "docs",
@@ -1175,8 +1175,8 @@
       "title": "Access Other Repositories"
     },
     "cloud-agent__security-network.md": {
-      "hash": "a3561cb2c61260593bc408a539c80d46d3ce1990c70480801dd31b587d8a7d47",
-      "last_updated": "2026-10-22T15:23:17+00:00",
+      "hash": "52330633ce8725848c505f36c5f7938d9dc436cedd95e50dd4dc86aaa5d4fac5",
+      "last_updated": "2026-11-25T18:21:35+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security-network",
       "path": "/docs/cloud-agent/security-network",
       "section": "docs",
@@ -1185,8 +1185,8 @@
       "title": "Secrets & Network"
     },
     "cloud-agent__security.md": {
-      "hash": "40e79ece5b7479f2c1fe0f42545eee644694145bfd49fd909e6dfae2f83709b9",
-      "last_updated": "2026-11-12T21:20:00+00:00",
+      "hash": "e5c6c6496c7f5582b510c4e250546ba92b2b3a44948e070f1a43eb1de094da5f",
+      "last_updated": "2026-11-25T18:21:34+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/security",
       "path": "/docs/cloud-agent/security",
       "section": "docs",
@@ -1365,8 +1365,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "222eb09c26daeb90b7041103db130bde9d7b9aeff7845736c896a5fe24da9222",
-      "last_updated": "2026-11-25T09:22:43+00:00",
+      "hash": "e2438dc3bc8b9b64d53ed05af9a316ac125b681acc857165d1dec71e6179184b",
+      "last_updated": "2026-11-25T18:22:20+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2624,6 +2624,56 @@
       "status": "live",
       "title": "Security Review"
     },
+    "security.md": {
+      "hash": "8d868e2bf271360fef2fd7dd1c4a030635a5c2b2c6233c540c6235e7bec0146b",
+      "last_updated": "2026-11-25T18:22:17+00:00",
+      "original_url": "https://cursor.com/docs/security",
+      "path": "/docs/security",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/security",
+      "status": "live",
+      "title": "Security overview"
+    },
+    "security__api-keys.md": {
+      "hash": "f8643a83754e450497a378465e4658cbffa5a77e8dd4023316d067605c31a471",
+      "last_updated": "2026-11-25T18:22:17+00:00",
+      "original_url": "https://cursor.com/docs/security/api-keys",
+      "path": "/docs/security/api-keys",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/security/api-keys",
+      "status": "live",
+      "title": "API keys and service tokens"
+    },
+    "security__network-controls.md": {
+      "hash": "59341df4bb08a967cf6e2e158450baa8f1f5a0e370dc21ccd54f45413d469555",
+      "last_updated": "2026-11-25T18:22:18+00:00",
+      "original_url": "https://cursor.com/docs/security/network-controls",
+      "path": "/docs/security/network-controls",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/security/network-controls",
+      "status": "live",
+      "title": "Network controls"
+    },
+    "security__oauth-applications.md": {
+      "hash": "53cade19c112b3a8926297597d536310d73223719d68bd6f933c527dbf0aa43c",
+      "last_updated": "2026-11-25T18:22:18+00:00",
+      "original_url": "https://cursor.com/docs/security/oauth-applications",
+      "path": "/docs/security/oauth-applications",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/security/oauth-applications",
+      "status": "live",
+      "title": "OAuth Applications"
+    },
+    "security__sessions.md": {
+      "hash": "9db168f9106c267941aea11f28eef422d7d64809ec651e04901e21c4df9743e5",
+      "last_updated": "2026-11-25T18:22:18+00:00",
+      "original_url": "https://cursor.com/docs/security/sessions",
+      "path": "/docs/security/sessions",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/security/sessions",
+      "status": "live",
+      "title": "Session management"
+    },
     "skills.md": {
       "hash": "46d72d2b03574683c4db794932f4f3f51e9ab50fce97b41185590b0cf3544120",
       "last_updated": "2026-11-24T00:37:26+00:00",
@@ -2830,7 +2880,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-25T09:22:53+00:00",
+  "last_updated": "2026-11-25T18:22:34+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

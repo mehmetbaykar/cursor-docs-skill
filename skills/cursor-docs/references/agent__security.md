@@ -6,7 +6,7 @@ path: /docs/agent/security
 
 # Agent Security
 
-AI can behave unexpectedly due to prompt injection, hallucinations, and other issues. We protect users with guardrails that limit what agents can do. By default, sensitive actions require your manual approval. This document explains our guardrails and what they mean for you.
+AI can behave unexpectedly due to prompt injection, hallucinations, and other issues. We protect users with guardrails that limit what agents can do. By default, sensitive actions require your manual approval.
 
 These controls and behaviors are our defaults. We recommend keeping them enabled.
 

@@ -30,7 +30,7 @@ AWS PrivateLink can cover two traffic directions:
 
 Use Cloudflare Tunnel when you cannot publish an AWS endpoint service or when you need a deployment model that only requires an outbound tunnel from your network.
 
-If your team requires Google Private Service Connect (PSC), contact Cursor. Cursor does not currently offer a customer-facing PSC service.
+If your team requires Google Private Service Connect (PSC), contact Cursor. Cursor doesn't offer a customer-facing PSC service.
 
 ## Prerequisites
 
@@ -261,9 +261,9 @@ The `curl` request should return HTTP `200` with a body that starts with `Welcom
 
 ## Google Private Service Connect
 
-Cursor does not currently offer customer-facing Google Private Service Connect.
+Cursor doesn't offer customer-facing Google Private Service Connect.
 
-If you need private connectivity from a GCP VPC to Cursor services, or from Cursor to a private service in your GCP project, contact Cursor so we can scope the requirement. Today, use AWS PrivateLink or Cloudflare Tunnel when those deployment models fit.
+If you need private connectivity from a GCP VPC to Cursor services, or from Cursor to a private service in your GCP project, contact Cursor so we can scope the requirement. Use AWS PrivateLink or Cloudflare Tunnel when those deployment models fit.
 
 ## What to send Cursor
 

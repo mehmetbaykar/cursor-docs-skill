@@ -6,11 +6,11 @@ path: /docs/cloud-agent/security
 
 # Security overview
 
-This page explains how Cloud Agents are built and secured. It walks through what happens when an agent runs, how access is granted, where the code and data live, how they're isolated and encrypted, and what controls you have over each stage. It answers the questions that come up when a team evaluates Cloud Agents against its security requirements.
+Cloud Agents run in isolated virtual machines in Cursor's cloud. To evaluate them against your security requirements, start with what happens when an agent runs, how access is granted, where the code and data live, how they're isolated and encrypted, and which controls you have at each stage.
 
-For the configuration reference, including secret types, network access modes, and egress IP ranges, see [Secrets & Network](https://cursor.com/docs/cloud-agent/security-network.md). For federating a VM into AWS, GCP, Azure, or a custom verifier without long-lived keys, see [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md). This page explains the model behind those controls; those pages tell you how to set them.
+For the configuration reference, including secret types, network access modes, and egress IP ranges, see [Secrets & Network](https://cursor.com/docs/cloud-agent/security-network.md). For federating a VM into AWS, GCP, Azure, or a custom verifier without long-lived keys, see [OIDC tokens](https://cursor.com/docs/cloud-agent/identity.md).
 
-This is a companion to Cursor's broader security material. See the [Trust Center](https://trust.cursor.com/) for certifications, subprocessors, and architecture, and the [Security and Privacy Hardening](https://cursor.com/docs/enterprise/security-hardening.md) reference for the controls you own across all of Cursor. Cursor is SOC 2 Type 2 compliant and commits to at-least-annual penetration testing by reputable third parties.
+See the [Trust Center](https://trust.cursor.com/) for certifications, subprocessors, and architecture, and [Security and Privacy Hardening](https://cursor.com/docs/enterprise/security-hardening.md) for the controls you own across all of Cursor. Cursor is SOC 2 Type 2 compliant and commits to at-least-annual penetration testing by reputable third parties.
 
 ## How Cloud Agents work
 
@@ -153,4 +153,4 @@ Archive an agent from the dashboard, or use the [Delete Agent API](https://curso
 - [Security and Privacy Hardening](https://cursor.com/docs/enterprise/security-hardening.md) for the controls you configure across Cursor.
 - [Trust Center](https://trust.cursor.com/) for certifications, subprocessors, and architecture.
 
-This summary aids understanding and does not override the [MSA](https://cursor.com/terms/msa), [DPA](https://cursor.com/terms/dpa), or other binding contractual terms.
+Nothing here overrides the [MSA](https://cursor.com/terms/msa), [DPA](https://cursor.com/terms/dpa), or other binding contractual terms.
