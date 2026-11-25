@@ -8,6 +8,42 @@ path: /docs/release-notes/mobile
 
 New features, improvements, and fixes in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md). Each entry covers one app version.
 
+## 1.19.0
+
+### Projects
+
+- **See a Project's tasks from its chat.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), a Project's chat shows a Tasks pill with the number of open tasks. Tap it to open a sheet of the Project's tracked tasks grouped by status, with each task's details and links to its agents, pull requests, documents, and web pages.
+- **See at a glance when Project workers are running.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), the Working pill in a Project's chat on iPhone and iPad shows working dots while worker agents run and none is waiting on your input. When a worker needs you, the pill shows Input Needed instead.
+
+### Voice calls
+
+- **Voice calls follow you to Project workers and explain tasks that can't start.** When a [voice call](https://cursor.com/docs/agent/voice-chat.md) switches to a Project worker, the call shows on that worker's chat and agent list row and keeps working after you leave the agent it started on. The call confirms a task only after it's sent, and says why when a new agent can't start, such as Draft mode or a usage limit. Spoken replies also stay in the call's language.
+- &#x20;**Voice calls respect a voice chat setting that's turned off, from the moment the app opens.** When you or your team admin has [turned voice chat off](https://cursor.com/docs/agent/voice-chat.md#turn-voice-chat-off), the app, Siri, and CarPlay no longer offer a voice call or load earlier call records in the moments after launch, sign-in, or a team switch. They wait until Cursor confirms the setting, and CarPlay shows Checking voice chat until it does, then explains whether you or your admin turned it off.
+
+### Composer
+
+- **Send while you're still dictating.** While you [dictate](https://cursor.com/docs/cloud-agent/mobile.md) in the composer, a Send button now sits next to the microphone. Tap it to stop recording and send what you said in one tap, or save it as a draft when you're drafting.
+- **Unsent messages survive an app relaunch.** Text you've typed but not sent in the composer, including new agent prompts, follow-ups, subagent replies, and Remote Control messages, is restored when you reopen the app after it closes or is killed. The saved text is cleared when you send it or sign out.
+
+### Pull requests
+
+- **Choose how a pull request merges.** The pull request Review screen's menu in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md) has a Merge Method picker, so you can merge with a squash, a merge commit, or a rebase instead of always squashing. Merging, adding to the merge queue, and turning on auto-merge all use your choice. GitHub pull requests offer all three; Cursor-hosted pull requests offer squash, plus merge commit unless the repository defaults to squash.
+
+### Agents
+
+- **Pool and machine agents show the right icon and name right away.** Agents running on a team pool or one of your own machines show the correct icon in the agent list and the agent's header as soon as they appear, instead of briefly showing a machine icon while workers load. When no display name is available, the agent shows the pool or machine name instead of an ID.
+
+### Live Activities
+
+- **See how many workers each Project has running on the Live Activity.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), a working Project's row on the Lock Screen and Dynamic Island shows the Project's own icon in its color and a count such as "3 working" instead of an elapsed timer. A Project waiting on you still shows its Input Needed dot and elapsed time, and a finished Project shows the done checkmark and how long it ran.
+
+### Fixes
+
+- **Projects.** Tapping a Project worker in the coordinator's conversation opens its chat right away instead of waiting for its details to load. The Projects section shows on launch instead of sliding in and pushing the agent list down, and a Project's reply no longer appears twice.
+- **Live Activities.** The app no longer freezes at launch while checking for an existing Live Activity, and agents you send right after launch stay on the Lock Screen card. The Dynamic Island's expanded view keeps the multi-agent summary on one line instead of wrapping.
+- **Connection reliability.** Requests now retry once automatically when the server is briefly unavailable, so fewer transient errors reach you. A chat whose live updates keep failing to reconnect now stops retrying and shows as disconnected until you send a follow-up or reopen it, and rate-limited reconnects back off instead of retrying immediately.
+- **Create repo sheet.** The Private option in the create repo sheet now says who can actually see a new Private repo: you, your codebase admins, and codebase grants that include Private repos.
+
 ## 1.18.0
 
 ### Voice calls

@@ -8,6 +8,35 @@ path: /docs/release-notes/sdk
 
 The latest features, improvements, and fixes shipping to the Cursor SDK, covering `@cursor/sdk` on npm and `cursor-sdk` on PyPI.
 
+## 1.5.0
+
+### Streaming and usage
+
+- **See shell output while a command runs.** Run streams now emit a `shell-tool-call-delta` [interaction update](https://cursor.com/docs/sdk/typescript.md#interaction-updates) with each chunk of a shell tool call's stdout or stderr, so you can show live output instead of waiting for the command to finish. It works for local and cloud runs, in TypeScript (`ShellToolCallDeltaUpdate`) and Python (`ShellToolCallDeltaUpdate` from `cursor_sdk`). If you `switch` exhaustively over interaction updates, handle the new type when you upgrade.
+- **Count model steps from `onDelta` on local runs.** On local runs, `onDelta` now sends exactly one `step-started` and one `step-completed` update for each model call, with step ids counting up from 0. Each step covers one model call and the tool calls it made, and `step-completed` carries the step's duration, so you can count steps or time them.
+- **Usage no longer goes missing when a run stops mid-turn.** When a run is cancelled or fails before its turn ends, `RunResult.usage`, `run.usage`, and the stored run's [usage](https://cursor.com/docs/sdk/typescript.md#token-usage) now count the model calls that already completed, instead of coming back empty. This applies in TypeScript and Python. For a cut-off turn the count is a lower bound, since a few internal calls don't report per-call usage.
+
+### Local agents
+
+- **Know when a local agent is reconnecting.** Local agents accept a `local.onConnectionStateChange` callback that reports `reconnecting` (with the attempt number) and `connected` while the SDK retries a dropped connection, so you can pause your own idle timeouts instead of abandoning a run that is recovering. You can also set it per send; cloud agents reject the option.
+- **Point local sandboxing at a specific sandbox helper.** With [sandbox options](https://cursor.com/docs/sdk/typescript.md#sandbox-options), local agents can use a trusted `cursorsandbox` helper you choose, set with `local.sandboxOptions.binaryPath` or the `CURSOR_SDK_SANDBOX_BINARY` environment variable, instead of relying on automatic discovery. If no helper is found, or a later agent passes a different path than the first, the run fails with an error.
+- &#x20;**Local agents now respect your attribution settings.** When `local.settingSources` includes `"user"`, local runs read the `attribution` settings in your CLI config file, so turning off `attributeCommitsToAgent` or `attributePRsToAgent` also stops the "Made with Cursor" commit trailer or PR footer on SDK agents. Local runs also follow a team admin's choice to turn attribution off, as the CLI does.
+- &#x20;**Inline MCP servers blocked by team policy now raise an error.** When your team's MCP policy blocks a server you pass in [`mcpServers`](https://cursor.com/docs/sdk/typescript.md#mcp-servers), a local agent now fails with `InlineMcpServersBlockedError`, which names each blocked server and the policy's reason, instead of quietly running without it, while blocked project and user MCP servers are still skipped. OAuth sign-ins for servers passed in `mcpServers` are now tied to the server's URL, so a project or user server with the same name can't reuse them. Existing sign-ins for these servers are cleared, so they ask you to sign in again.
+- **More control over local agent stores.** A [custom `LocalAgentStore`](https://cursor.com/docs/sdk/typescript.md#custom-stores) can set `persistRunEvents: false` so the SDK never writes run events, and streams of those runs still end when the run finishes. Stores can also implement an optional `retainAgent` to learn when an agent is in use, and the new `Agent.disposeLocalStores()` closes the local stores the process opened. Local agents with long histories also start sends faster and use less memory, since checkpoint data is read only when needed. TypeScript only.
+- **Local agents handle model list problems more reliably.** `Agent.create` and resume for local agents no longer fail when the model list request is rate limited, and no longer hang when it is slow: after 10 seconds the agent is created with your model, which is checked on the first send. A model missing from the cached list triggers a refresh, so you can use newly released models without restarting. The cached list now expires after five minutes, and SDK errors include `retryAfterMs` when the server sends a retry hint.
+- **`sessionStart` hook context now reaches a local agent's first turn.** Fixed a bug where `additional_context` returned by a `sessionStart` [hook](https://cursor.com/docs/hooks.md) never reached the model in local SDK agents. The first turn now includes it, and later turns in the same session keep it. This also covers Claude Code `SessionStart` hooks that return `hookSpecificOutput.additionalContext`.
+
+### Python
+
+- **Local agent streams can use HTTP/1.1 from Python.** Call `Cursor.configure(local={"use_http1_for_agent": True})` (or `AsyncCursor.configure`) before launching local agents, or set `CURSOR_SDK_USE_HTTP1_FOR_AGENT=true`, to stream over HTTP/1.1 instead of HTTP/2. This helps behind proxies that break HTTP/2 streams, matching the TypeScript SDK's `local.useHttp1ForAgent` option.
+
+### Fixes
+
+- **Cursor-hosted MCP servers work in API-key local runs.** Plugin and inline MCP servers hosted by Cursor no longer fail as unauthorized in local runs started with an API key.
+- **Fixes to local agent stores and checkpoints.** Local agents no longer lose a checkpoint that is still being written when an agent is closed or its stores are disposed. Reading a checkpoint for a deleted local agent returns nothing instead of recreating its store on disk, and custom local stores that return checkpoint blobs as `ArrayBuffer` are read correctly. A local store also refuses checkpoint access for agents outside its workspace instead of returning an empty store.
+- **Fixes to local agent tools.** Shell commands run by local agents now start in the agent's working directory instead of the directory your process was launched from. Grep tool-call results now list each matched line with its own before and after context, and report correct totals for content matches, file lists, and counts.
+- **Fixes to saved login credentials.** The SDK now saves login credentials to a file only your user account can read, and replaces it in one step, so an interrupted save no longer leaves a partial file. A credentials file left readable by other users by an older version is locked down before it is read.
+
 ## 1.4.1
 
 - &#x20;**Local runs say which team MCP allowlist applies to Cursor-hosted MCP servers.** When a local agent connects to a Cursor-hosted MCP server, the run prints a `[cursor-sdk]` line to stderr naming the [MCP allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) in effect, why it applies, and which servers it allows. Each server's line prints once per process, and MCP servers you host yourself never trigger it. Works in TypeScript and Python.

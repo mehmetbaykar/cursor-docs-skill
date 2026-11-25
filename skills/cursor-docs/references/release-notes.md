@@ -8,6 +8,35 @@ path: /docs/release-notes
 
 Every Cursor product in one timeline, newest first, with up to 10 recent releases each. Filter by product, open a product's page for its full history, or follow along with the [RSS feed](https://cursor.com/docs/release-notes/rss.xml).
 
+## 1.5.0
+
+### Streaming and usage
+
+- **See shell output while a command runs.** Run streams now emit a `shell-tool-call-delta` [interaction update](https://cursor.com/docs/sdk/typescript.md#interaction-updates) with each chunk of a shell tool call's stdout or stderr, so you can show live output instead of waiting for the command to finish. It works for local and cloud runs, in TypeScript (`ShellToolCallDeltaUpdate`) and Python (`ShellToolCallDeltaUpdate` from `cursor_sdk`). If you `switch` exhaustively over interaction updates, handle the new type when you upgrade.
+- **Count model steps from `onDelta` on local runs.** On local runs, `onDelta` now sends exactly one `step-started` and one `step-completed` update for each model call, with step ids counting up from 0. Each step covers one model call and the tool calls it made, and `step-completed` carries the step's duration, so you can count steps or time them.
+- **Usage no longer goes missing when a run stops mid-turn.** When a run is cancelled or fails before its turn ends, `RunResult.usage`, `run.usage`, and the stored run's [usage](https://cursor.com/docs/sdk/typescript.md#token-usage) now count the model calls that already completed, instead of coming back empty. This applies in TypeScript and Python. For a cut-off turn the count is a lower bound, since a few internal calls don't report per-call usage.
+
+### Local agents
+
+- **Know when a local agent is reconnecting.** Local agents accept a `local.onConnectionStateChange` callback that reports `reconnecting` (with the attempt number) and `connected` while the SDK retries a dropped connection, so you can pause your own idle timeouts instead of abandoning a run that is recovering. You can also set it per send; cloud agents reject the option.
+- **Point local sandboxing at a specific sandbox helper.** With [sandbox options](https://cursor.com/docs/sdk/typescript.md#sandbox-options), local agents can use a trusted `cursorsandbox` helper you choose, set with `local.sandboxOptions.binaryPath` or the `CURSOR_SDK_SANDBOX_BINARY` environment variable, instead of relying on automatic discovery. If no helper is found, or a later agent passes a different path than the first, the run fails with an error.
+- &#x20;**Local agents now respect your attribution settings.** When `local.settingSources` includes `"user"`, local runs read the `attribution` settings in your CLI config file, so turning off `attributeCommitsToAgent` or `attributePRsToAgent` also stops the "Made with Cursor" commit trailer or PR footer on SDK agents. Local runs also follow a team admin's choice to turn attribution off, as the CLI does.
+- &#x20;**Inline MCP servers blocked by team policy now raise an error.** When your team's MCP policy blocks a server you pass in [`mcpServers`](https://cursor.com/docs/sdk/typescript.md#mcp-servers), a local agent now fails with `InlineMcpServersBlockedError`, which names each blocked server and the policy's reason, instead of quietly running without it, while blocked project and user MCP servers are still skipped. OAuth sign-ins for servers passed in `mcpServers` are now tied to the server's URL, so a project or user server with the same name can't reuse them. Existing sign-ins for these servers are cleared, so they ask you to sign in again.
+- **More control over local agent stores.** A [custom `LocalAgentStore`](https://cursor.com/docs/sdk/typescript.md#custom-stores) can set `persistRunEvents: false` so the SDK never writes run events, and streams of those runs still end when the run finishes. Stores can also implement an optional `retainAgent` to learn when an agent is in use, and the new `Agent.disposeLocalStores()` closes the local stores the process opened. Local agents with long histories also start sends faster and use less memory, since checkpoint data is read only when needed. TypeScript only.
+- **Local agents handle model list problems more reliably.** `Agent.create` and resume for local agents no longer fail when the model list request is rate limited, and no longer hang when it is slow: after 10 seconds the agent is created with your model, which is checked on the first send. A model missing from the cached list triggers a refresh, so you can use newly released models without restarting. The cached list now expires after five minutes, and SDK errors include `retryAfterMs` when the server sends a retry hint.
+- **`sessionStart` hook context now reaches a local agent's first turn.** Fixed a bug where `additional_context` returned by a `sessionStart` [hook](https://cursor.com/docs/hooks.md) never reached the model in local SDK agents. The first turn now includes it, and later turns in the same session keep it. This also covers Claude Code `SessionStart` hooks that return `hookSpecificOutput.additionalContext`.
+
+### Python
+
+- **Local agent streams can use HTTP/1.1 from Python.** Call `Cursor.configure(local={"use_http1_for_agent": True})` (or `AsyncCursor.configure`) before launching local agents, or set `CURSOR_SDK_USE_HTTP1_FOR_AGENT=true`, to stream over HTTP/1.1 instead of HTTP/2. This helps behind proxies that break HTTP/2 streams, matching the TypeScript SDK's `local.useHttp1ForAgent` option.
+
+### Fixes
+
+- **Cursor-hosted MCP servers work in API-key local runs.** Plugin and inline MCP servers hosted by Cursor no longer fail as unauthorized in local runs started with an API key.
+- **Fixes to local agent stores and checkpoints.** Local agents no longer lose a checkpoint that is still being written when an agent is closed or its stores are disposed. Reading a checkpoint for a deleted local agent returns nothing instead of recreating its store on disk, and custom local stores that return checkpoint blobs as `ArrayBuffer` are read correctly. A local store also refuses checkpoint access for agents outside its workspace instead of returning an empty store.
+- **Fixes to local agent tools.** Shell commands run by local agents now start in the agent's working directory instead of the directory your process was launched from. Grep tool-call results now list each matched line with its own before and after context, and report correct totals for content matches, file lists, and counts.
+- **Fixes to saved login credentials.** The SDK now saves login credentials to a file only your user account can read, and replaces it in one step, so an interrupted save no longer leaves a partial file. A credentials file left readable by other users by an older version is locked down before it is read.
+
 ## 3.31
 
 ### Projects
@@ -188,6 +217,42 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - &#x20;**Local runs say which team MCP allowlist applies to Cursor-hosted MCP servers.** When a local agent connects to a Cursor-hosted MCP server, the run prints a `[cursor-sdk]` line to stderr naming the [MCP allowlist](https://cursor.com/docs/mcp.md#mcp-allowlist) in effect, why it applies, and which servers it allows. Each server's line prints once per process, and MCP servers you host yourself never trigger it. Works in TypeScript and Python.
 - **Python SDK callers now see SDK notices.** The Python SDK prints the SDK's `[cursor-sdk]` notices, such as which MCP allowlist applies, to your process's stderr, each distinct message once, as the TypeScript SDK does. Other diagnostic output goes to the `cursor_sdk.bridge` logger at debug level, which you can see with `CURSOR_SDK_LOG=debug` (see [troubleshooting](https://cursor.com/docs/sdk/python.md#troubleshooting)). Python agents also no longer stall when the SDK's background process writes a lot of diagnostic output.
 - **Fixes to nested subagents with inherited tools.** TypeScript local agents that set `local.subagentInherit` no longer launch subagents endlessly when no inherited tool can finish the task. A subagent can still start one more of its own, but that child has to answer with the tools it has instead of delegating again.
+
+## 1.19.0
+
+### Projects
+
+- **See a Project's tasks from its chat.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), a Project's chat shows a Tasks pill with the number of open tasks. Tap it to open a sheet of the Project's tracked tasks grouped by status, with each task's details and links to its agents, pull requests, documents, and web pages.
+- **See at a glance when Project workers are running.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), the Working pill in a Project's chat on iPhone and iPad shows working dots while worker agents run and none is waiting on your input. When a worker needs you, the pill shows Input Needed instead.
+
+### Voice calls
+
+- **Voice calls follow you to Project workers and explain tasks that can't start.** When a [voice call](https://cursor.com/docs/agent/voice-chat.md) switches to a Project worker, the call shows on that worker's chat and agent list row and keeps working after you leave the agent it started on. The call confirms a task only after it's sent, and says why when a new agent can't start, such as Draft mode or a usage limit. Spoken replies also stay in the call's language.
+- &#x20;**Voice calls respect a voice chat setting that's turned off, from the moment the app opens.** When you or your team admin has [turned voice chat off](https://cursor.com/docs/agent/voice-chat.md#turn-voice-chat-off), the app, Siri, and CarPlay no longer offer a voice call or load earlier call records in the moments after launch, sign-in, or a team switch. They wait until Cursor confirms the setting, and CarPlay shows Checking voice chat until it does, then explains whether you or your admin turned it off.
+
+### Composer
+
+- **Send while you're still dictating.** While you [dictate](https://cursor.com/docs/cloud-agent/mobile.md) in the composer, a Send button now sits next to the microphone. Tap it to stop recording and send what you said in one tap, or save it as a draft when you're drafting.
+- **Unsent messages survive an app relaunch.** Text you've typed but not sent in the composer, including new agent prompts, follow-ups, subagent replies, and Remote Control messages, is restored when you reopen the app after it closes or is killed. The saved text is cleared when you send it or sign out.
+
+### Pull requests
+
+- **Choose how a pull request merges.** The pull request Review screen's menu in [Cursor for iOS](https://cursor.com/docs/cloud-agent/mobile.md) has a Merge Method picker, so you can merge with a squash, a merge commit, or a rebase instead of always squashing. Merging, adding to the merge queue, and turning on auto-merge all use your choice. GitHub pull requests offer all three; Cursor-hosted pull requests offer squash, plus merge commit unless the repository defaults to squash.
+
+### Agents
+
+- **Pool and machine agents show the right icon and name right away.** Agents running on a team pool or one of your own machines show the correct icon in the agent list and the agent's header as soon as they appear, instead of briefly showing a machine icon while workers load. When no display name is available, the agent shows the pool or machine name instead of an ID.
+
+### Live Activities
+
+- **See how many workers each Project has running on the Live Activity.** If a team admin has turned on [Projects](https://cursor.com/docs/agent/projects.md), a working Project's row on the Lock Screen and Dynamic Island shows the Project's own icon in its color and a count such as "3 working" instead of an elapsed timer. A Project waiting on you still shows its Input Needed dot and elapsed time, and a finished Project shows the done checkmark and how long it ran.
+
+### Fixes
+
+- **Projects.** Tapping a Project worker in the coordinator's conversation opens its chat right away instead of waiting for its details to load. The Projects section shows on launch instead of sliding in and pushing the agent list down, and a Project's reply no longer appears twice.
+- **Live Activities.** The app no longer freezes at launch while checking for an existing Live Activity, and agents you send right after launch stay on the Lock Screen card. The Dynamic Island's expanded view keeps the multi-agent summary on one line instead of wrapping.
+- **Connection reliability.** Requests now retry once automatically when the server is briefly unavailable, so fewer transient errors reach you. A chat whose live updates keep failing to reconnect now stops retrying and shows as disconnected until you send a follow-up or reopen it, and rate-limited reconnects back off instead of retrying immediately.
+- **Create repo sheet.** The Private option in the create repo sheet now says who can actually see a new Private repo: you, your codebase admins, and codebase grants that include Private repos.
 
 ## v2026.11.14
 
@@ -2939,13 +3004,6 @@ Every Cursor product in one timeline, newest first, with up to 10 recent release
 - **Fixes to cloud agents.** Slash menus no longer show the previous team's managed skills after you switch accounts or teams, and cloud agents outside the current workspace no longer send false "Done" notifications.
 - **Fixes to the editor and workbench.** Cmd/Ctrl+Shift+B runs Run Build Task again, and unsaved backups of deleted files no longer reopen every time a window opens. Worktree fetches work on git versions older than 2.29. If the local extension host that connects Cursor to its servers hangs, Cursor restarts it so the window reconnects, unless a debugger may be attached, and it keeps restarting that host if it crashes repeatedly. Cancelled symbol and call hierarchy requests no longer leak memory.
 - **Fixes to usage banners, the model picker, and chat visualizations.** Models you enabled in the model picker no longer disappear when the model list refreshes. The usage-limit banner no longer stacks under a usage-limit error in the composer or shows a Request Credit button when your organization hides credit requests. Visualization cards in chat show an error instead of loading forever when their content never arrives, and chart tooltips no longer shift the surrounding chat.
-
-## 1.0.32
-
-- **Steer an agent while it waits on background subagents.** `run.steer(text)` used to resolve `revert_to_followup` when the agent had ended its turn to wait on background subagents, so your message waited until that work finished. Now the steer runs right away as the next turn, and background results still arrive afterward. TypeScript local runs only.
-- **Know when a step has finished requesting tools.** `onDelta` now receives a `tool-requests-listed` update with a `callCount` once the model finishes listing its tool calls for a step, while those tools may still be running. Use it to tell when every tool call in a step has started, for example to group or batch a step's tool calls in your UI.
-- **Fixes to cloud agent creation.** For cloud agents, the first `send()`, which creates the agent on the server, no longer fails with an id conflict when the SDK generated the agent id: it retries with a fresh id, or continues with the agent if its own earlier create already succeeded. SDK-generated agent and run ids also no longer repeat when a process is restored from the same snapshot more than once. Ids you pin yourself still report the conflict.
-- **The bridge ignores your project's `.env` and `bunfig.toml`.** The standalone `cursor-sdk-bridge` executables no longer load `.env` or `bunfig.toml` from the working directory, which is usually your project when the SDK starts the bridge. Files in a checkout can no longer change the bridge's endpoints, tokens, or preloaded code.
 
 ## 1.10.0
 

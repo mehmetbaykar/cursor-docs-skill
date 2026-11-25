@@ -4472,7 +4472,7 @@ GitHub Enterprise Server repositories aren't listed either. Service account API 
 
 **This endpoint has very strict rate limits.**
 
-Limit requests to **1 / user / minute**, and **30 / user / hour.**
+Limit requests to **5 per minute** and **30 per hour** for each caller. Requests with a service account API key count against the service account, and requests with a user API key count against the user.
 
 This request can take tens of seconds to respond for users with access to many repositories.
 

@@ -87,22 +87,118 @@ All APIs implement rate limiting to ensure fair usage and system stability. Limi
 
 ### Rate Limits by API
 
-| API                      | Endpoint Type                                                             | Rate Limit                                            |
-| ------------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------- |
-| **Admin API**            | Most endpoints                                                            | 20 requests/minute                                    |
-| **Admin API**            | `/teams/filtered-usage-events` and `/organizations/filtered-usage-events` | 60 requests/minute                                    |
-| **Admin API**            | `/v2/teams/billing-items`                                                 | 60 requests/minute                                    |
-| **Admin API**            | `/teams/user-spend-limit`                                                 | 250 requests/minute                                   |
-| **Admin API**            | `/teams/user-spend-limits`                                                | 20 requests/minute                                    |
-| **Organization API**     | Most endpoints                                                            | 20 requests/minute per endpoint                       |
-| **Organization API**     | `GET /organizations/teams/{teamId}/grok-bot/operations/*`                 | 120 requests/minute per endpoint                      |
-| **Analytics API**        | Most team-level endpoints                                                 | 100 requests/minute                                   |
-| **Analytics API**        | `/analytics/team/conversation-insights`                                   | 20 requests/minute                                    |
-| **Analytics API**        | By-user endpoints                                                         | 50 requests/minute                                    |
-| **AI Code Tracking API** | All endpoints                                                             | 20 requests/minute per endpoint                       |
-| **Bugbot API**           | `/bugbot/review`                                                          | 30 requests/minute                                    |
-| **Bugbot API**           | `/bugbot/review` with `dryRun: true`                                      | 10 requests/minute (in addition to the trigger limit) |
-| **Cloud Agents API**     | All endpoints                                                             | Standard rate limiting                                |
+| API                      | Endpoint Type                                                             | Rate Limit                                                                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Admin API**            | Most endpoints                                                            | 20 requests/minute                                                                                                                         |
+| **Admin API**            | `/teams/filtered-usage-events` and `/organizations/filtered-usage-events` | 60 requests/minute                                                                                                                         |
+| **Admin API**            | `/v2/teams/billing-items`                                                 | 60 requests/minute                                                                                                                         |
+| **Admin API**            | `/teams/user-spend-limit`                                                 | 250 requests/minute                                                                                                                        |
+| **Admin API**            | `/teams/user-spend-limits`                                                | 20 requests/minute                                                                                                                         |
+| **Organization API**     | Most endpoints                                                            | 20 requests/minute per endpoint                                                                                                            |
+| **Organization API**     | `GET /organizations/teams/{teamId}/grok-bot/operations/*`                 | 120 requests/minute per endpoint                                                                                                           |
+| **Analytics API**        | Most team-level endpoints                                                 | 100 requests/minute                                                                                                                        |
+| **Analytics API**        | `/analytics/team/conversation-insights`                                   | 20 requests/minute                                                                                                                         |
+| **Analytics API**        | By-user endpoints                                                         | 50 requests/minute                                                                                                                         |
+| **AI Code Tracking API** | All endpoints                                                             | 20 requests/minute per endpoint                                                                                                            |
+| **Bugbot API**           | `/bugbot/review`                                                          | 30 requests/minute                                                                                                                         |
+| **Bugbot API**           | `/bugbot/review` with `dryRun: true`                                      | 10 requests/minute (in addition to the trigger limit)                                                                                      |
+| **Cloud Agents API**     | Every endpoint                                                            | A per-minute and a per-hour limit for each endpoint. See [Cloud Agents API limits](https://cursor.com/docs/api.md#cloud-agents-api-limits) |
+
+### Cloud Agents API limits
+
+Each Cloud Agents API endpoint has its own budget, and a request must fit under both its per-minute and its per-hour limit.
+
+- **Budgets belong to the caller, not the key.** Requests with a service account API key count against the service account, so every key on one service account shares one budget. Requests with a user API key count against the user, across all of that user's keys.
+- **Windows start with the first request.** Each window opens on the first request it counts and resets a minute or an hour later, not on the clock minute or hour.
+- **The numbers are defaults.** Cursor can adjust them for a team, raising or lowering any limit. On a `429`, the `X-RateLimit-Limit` header shows the limit that applied.
+
+| Endpoint                                                   | Per minute | Per hour |
+| ---------------------------------------------------------- | ---------: | -------: |
+| `POST /v1/agents`                                          |        100 |    1,000 |
+| `GET /v1/agents`                                           |        200 |    4,000 |
+| `GET /v1/agents/{id}`                                      |        300 |    6,000 |
+| `GET /v1/agents/{id}/stream`                               |         60 |      600 |
+| `POST /v1/agents/{id}/runs`                                |         30 |      300 |
+| `GET /v1/agents/{id}/runs`                                 |        300 |    6,000 |
+| `GET /v1/agents/{id}/runs/{runId}`                         |        300 |    6,000 |
+| `GET /v1/agents/{id}/runs/{runId}/stream`                  |         20 |      600 |
+| `POST /v1/agents/{id}/runs/{runId}/cancel`                 |        100 |    1,000 |
+| `GET /v1/agents/{id}/usage`                                |        300 |    6,000 |
+| `GET /v1/agents/{id}/artifacts`                            |        300 |    6,000 |
+| `GET /v1/agents/{id}/artifacts/download`                   |        300 |    6,000 |
+| `POST /v1/agents/{id}/archive`                             |        100 |    1,000 |
+| `POST /v1/agents/{id}/unarchive`                           |        100 |    1,000 |
+| `DELETE /v1/agents/{id}`                                   |        100 |    1,000 |
+| `POST /v1/environments`                                    |         20 |      200 |
+| `GET /v1/environments`                                     |         60 |    1,200 |
+| `GET /v1/environments/{id}`                                |        300 |    1,200 |
+| `PATCH /v1/environments/{id}`                              |         20 |      200 |
+| `DELETE /v1/environments/{id}`                             |         20 |      200 |
+| `GET /v1/environments/{id}/history`                        |         20 |      600 |
+| `GET /v1/environments/{id}/builds`                         |        300 |    1,200 |
+| `POST /v1/environments/{id}/builds`                        |         20 |      200 |
+| `GET /v1/environments/{id}/builds/{buildId}`               |        300 |    1,200 |
+| `GET /v1/environments/{id}/builds/active`                  |        300 |    1,200 |
+| `GET /v1/secrets`                                          |         60 |    1,200 |
+| `GET /v1/environments/{id}/secrets`                        |        300 |    1,200 |
+| `PUT` or `DELETE /v1/environments/{id}/secrets/{name}`     |   300 each | 600 each |
+| `GET /v1/team/secrets`                                     |         60 |    1,200 |
+| `PUT` or `DELETE /v1/team/secrets/{name}`                  |   300 each | 600 each |
+| `PUT` or `DELETE /v1/me/secrets/{name}`                    |   300 each | 600 each |
+| `GET /v1/automations`                                      |         60 |    1,200 |
+| `GET /v1/automations/{id}`                                 |         60 |    1,200 |
+| `PATCH /v1/automations/{id}`                               |         20 |      200 |
+| `POST /v1/sub-tokens`                                      |         30 |      600 |
+| `GET /v1/me`                                               |         60 |    1,200 |
+| `GET /v1/models`                                           |         30 |    1,800 |
+| `POST /v1/models/estimate-cost`                            |        600 |   12,000 |
+| `GET /v1/repositories`                                     |          5 |       30 |
+| `GET /v0/private-workers`                                  |         30 |      600 |
+| `GET /v0/private-workers?workerIds=`                       |        120 |    7,200 |
+| `GET /v0/private-workers/summary`                          |         60 |    1,200 |
+| `GET /v0/private-workers/{id}`                             |         60 |    3,600 |
+| `GET /v0/private-workers/{id}` with a team service account |        600 |   24,000 |
+| `GET /v0/private-workers/pools`                            |        300 |    6,000 |
+| `POST /v0/private-workers/pools`                           |        300 |    6,000 |
+| `DELETE /v0/private-workers/pools`                         |         30 |      600 |
+| `GET /v0/private-workers/pending-requests`                 |        300 |    6,000 |
+| `GET /v0/private-workers/pending-requests/stream`          |        200 |    6,000 |
+| `POST /v0/private-workers/claim`                           |        600 |   12,000 |
+| `POST /v0/private-workers/tokens`                          |        600 |   12,000 |
+| `POST /v0/private-workers/worker-session`                  |        600 |   12,000 |
+| `POST /v0/private-workers/claims/{id}/release`             |         60 |    1,200 |
+| `POST /v0/private-workers/claims/{id}/fail`                |        600 |   12,000 |
+
+A `PUT` and a `DELETE` on the same secrets path each have their own budget.
+
+Two private-worker reads pick their budget from the request. `GET /v0/private-workers` with a `workerIds` query looks up several workers in one call and draws from its own budget, not the list budget. `GET /v0/private-workers/{id}` called with a team service account's credentials, which is how a pool controller calls it, gets the larger budget, because a controller reads every live worker on each pass. Other callers, user API keys included, stay on 60 per minute and 3,600 per hour.
+
+The [legacy v0 routes](https://cursor.com/docs/cloud-agent/api/v0.md) share the budget of the matching v1 route, so v0 and v1 calls add up:
+
+| v0 route                                               | Shares the budget of                      |
+| ------------------------------------------------------ | ----------------------------------------- |
+| `POST /v0/agents`                                      | `POST /v1/agents`                         |
+| `GET /v0/agents`                                       | `GET /v1/agents`                          |
+| `GET /v0/agents/{id}`                                  | `GET /v1/agents/{id}`                     |
+| `POST /v0/agents/{id}/followup`                        | `POST /v1/agents/{id}/runs`               |
+| `DELETE /v0/agents/{id}`                               | `POST /v1/agents/{id}/archive`            |
+| `GET /v0/agents/{id}/artifacts`                        | `GET /v1/agents/{id}/artifacts`           |
+| `GET /v0/agents/{id}/artifacts/download`               | `GET /v1/agents/{id}/artifacts/download`  |
+| `GET /v0/agents/{id}/conversation/stream-state`        | `GET /v1/agents/{id}/runs/{runId}/stream` |
+| `GET /v0/automations`                                  | `GET /v1/automations`                     |
+| `GET /v0/automations/{id}`                             | `GET /v1/automations/{id}`                |
+| `GET /v0/me`, `GET /v0/models`, `GET /v0/repositories` | The matching `/v1` route                  |
+
+`DELETE /v0/agents/{id}` archives the agent, so it draws from the archive budget, not the budget of `DELETE /v1/agents/{id}`.
+
+These v0 routes have budgets of their own:
+
+| v0 route                                  | Per minute | Per hour |
+| ----------------------------------------- | ---------: | -------: |
+| `GET /v0/agents/{id}/conversation`        |        300 |    6,000 |
+| `GET /v0/agents/{id}/conversation/stream` |         20 |      600 |
+| `GET /v0/agents/{id}/logs/stream`         |         10 |      600 |
+| `POST /v0/agents/{id}/stop`               |        100 |    1,000 |
 
 ### Rate Limit Response
 
@@ -114,6 +210,37 @@ When you exceed the rate limit, you'll receive a `429 Too Many Requests` respons
   "message": "Rate limit exceeded"
 }
 ```
+
+Cloud Agents API responses include these headers:
+
+| Header                  | Value                                          |
+| ----------------------- | ---------------------------------------------- |
+| `X-RateLimit-Limit`     | The limit you exceeded, per minute or per hour |
+| `X-RateLimit-Remaining` | `0`                                            |
+| `X-RateLimit-Reset`     | Unix time, in seconds, when that window resets |
+| `Retry-After`           | Seconds until that window resets               |
+
+The message names the limit, the window, and the endpoint. `/v1` routes return:
+
+```json
+{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "You have exceeded the rate limit of 300 requests per hour for the add_followup endpoint (request ID: 9b2c4e1a-5f3d-4a8e-b7c6-2d1e0f9a8b7c)."
+  }
+}
+```
+
+`/v0` routes, including `/v0/private-workers`, return:
+
+```json
+{
+  "error": "Rate limit exceeded",
+  "message": "You have exceeded the rate limit of 30 requests per minute for the add_followup endpoint (request ID: 9b2c4e1a-5f3d-4a8e-b7c6-2d1e0f9a8b7c). Contact hi@cursor.com if you need a higher limit."
+}
+```
+
+Wait for `Retry-After` seconds before you retry the same endpoint.
 
 ## Caching
 

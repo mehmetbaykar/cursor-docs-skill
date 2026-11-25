@@ -120,11 +120,11 @@ For Cloud Agents, keep these limits in mind:
 
 #### File format and limits
 
-The file is plain UTF-8 text with up to 50,000 domains, one per line. It can be up to 8 MB. The list applies to Grok Bot computers and Cursor-hosted Cloud Agents in every team linked to the organization.
+The file is plain UTF-8 text with up to 50,000 domains, one per line. It can be up to 8 MB.
 
 - **Subdomains.** Each domain also blocks all of its subdomains. A leading `*.` is optional and means the same thing.
-- **Plain domain names only.** Write `example.com`, not `https://example.com`. Schemes, URL paths, underscores, and private IP addresses are rejected.
-- **Comments.** A line that starts with `#` is a comment. To add a note after a domain, put a space before the `#`.
+- **Plain domain names only.** Write `example.com`, not `https://example.com`. Schemes, URL paths, and underscores are rejected.
+- **Comments.** A line that starts with `#` is a comment. To add a note after a domain, put a space before the `#`. A comment can be up to 200 characters.
 
 ```text
 # Phishing domains

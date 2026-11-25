@@ -785,8 +785,8 @@
       "title": "Voice chat"
     },
     "api.md": {
-      "hash": "9532d9dc66605fbf6c89b36c0c3a0edc5154385de4d984400edf082d55f802f5",
-      "last_updated": "2026-11-12T18:22:17+00:00",
+      "hash": "3cdc394dad9a1a9f67165b429fc30f4ceae62b561264488365ccf750cf9f35fa",
+      "last_updated": "2026-11-25T21:19:33+00:00",
       "original_url": "https://cursor.com/docs/api",
       "path": "/docs/api",
       "section": "docs",
@@ -1055,8 +1055,8 @@
       "title": "Cloud Agents"
     },
     "cloud-agent__api__endpoints.md": {
-      "hash": "9e8214434c994976c584bb5ba1c86d23be967498bd1f2ed48b1b1b8d6d7bc351",
-      "last_updated": "2026-11-20T00:37:40+00:00",
+      "hash": "b7f727833f3073b1e6fe7c2358f2076d78f6ae18702a5bf3e5d5cca7db7d6587",
+      "last_updated": "2026-11-25T21:19:41+00:00",
       "original_url": "https://cursor.com/docs/cloud-agent/api/endpoints",
       "path": "/docs/cloud-agent/api/endpoints",
       "section": "docs",
@@ -1365,8 +1365,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "e2438dc3bc8b9b64d53ed05af9a316ac125b681acc857165d1dec71e6179184b",
-      "last_updated": "2026-11-25T18:22:20+00:00",
+      "hash": "edc39e575d7673c303ac0f0bee4b2faa8abad3cdac75f2ebc6cae10855875859",
+      "last_updated": "2026-11-25T21:20:25+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2465,8 +2465,8 @@
       "title": "Third Party Hooks"
     },
     "release-notes.md": {
-      "hash": "b04329fe0698d59203bfdf58cc3cf1cadc898ca9daf6944dd3ebfb5300bc2b4e",
-      "last_updated": "2026-11-25T00:41:18+00:00",
+      "hash": "7f2562040f032e8bccb2b13de35c83e75e97cfb853bbf1371b54391f4ca9a899",
+      "last_updated": "2026-11-25T21:20:19+00:00",
       "original_url": "https://cursor.com/docs/release-notes",
       "path": "/docs/release-notes",
       "section": "docs",
@@ -2515,8 +2515,8 @@
       "title": "Cursor IDE release notes"
     },
     "release-notes__mobile.md": {
-      "hash": "2206e183d3f51da8cd14b909e74e8231410696f420ca91082f184487c17a094e",
-      "last_updated": "2026-11-18T15:20:26+00:00",
+      "hash": "1f070357b35e901dfdf8082ab869cffa08dd8783e20a1ceb51ed0a14a8b1d0b3",
+      "last_updated": "2026-11-25T21:20:20+00:00",
       "original_url": "https://cursor.com/docs/release-notes/mobile",
       "path": "/docs/release-notes/mobile",
       "section": "docs",
@@ -2545,8 +2545,8 @@
       "title": "Origin release notes"
     },
     "release-notes__sdk.md": {
-      "hash": "eb415c9252294e6f0efc7b54a9ad66e11cbf74525f34b9b5bcf4213be47bf211",
-      "last_updated": "2026-11-18T15:20:27+00:00",
+      "hash": "3c29c804face6357cc06995fddc2120ee35f642c9e4f704f3da66ad32ba59165",
+      "last_updated": "2026-11-25T21:20:21+00:00",
       "original_url": "https://cursor.com/docs/release-notes/sdk",
       "path": "/docs/release-notes/sdk",
       "section": "docs",
@@ -2645,8 +2645,8 @@
       "title": "API keys and service tokens"
     },
     "security__network-controls.md": {
-      "hash": "59341df4bb08a967cf6e2e158450baa8f1f5a0e370dc21ccd54f45413d469555",
-      "last_updated": "2026-11-25T18:22:18+00:00",
+      "hash": "de7e12093516128211d44315d220f71b19d86a75aacbe6a241aa58974339ff9f",
+      "last_updated": "2026-11-25T21:20:23+00:00",
       "original_url": "https://cursor.com/docs/security/network-controls",
       "path": "/docs/security/network-controls",
       "section": "docs",
@@ -2880,7 +2880,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-25T18:22:34+00:00",
+  "last_updated": "2026-11-25T21:20:37+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",
