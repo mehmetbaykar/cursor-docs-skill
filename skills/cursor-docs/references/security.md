@@ -12,14 +12,14 @@ Most of these controls live on the **Security** and **API Keys** pages of the or
 
 ## How the controls fit together
 
-| Layer                  | What it controls                                                           | Where to read more                                                                                                                                                                                                 |
-| :--------------------- | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Identity**           | Who can sign in, and how accounts are created and removed.                 | [SSO](https://cursor.com/docs/account/teams/sso.md), [SCIM](https://cursor.com/docs/account/teams/scim.md), [Identity and access management](https://cursor.com/docs/enterprise/identity-and-access-management.md) |
-| **Credentials**        | What a script, service, or integration can do without a person present.    | [API keys and service tokens](https://cursor.com/docs/security/api-keys.md), [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)                                                    |
-| **Sessions**           | Where each person is signed in, and how to end that access.                | [Session management](https://cursor.com/docs/security/sessions.md)                                                                                                                                                 |
-| **Network**            | Which addresses can reach Cursor, and which destinations agents can reach. | [Network controls](https://cursor.com/docs/security/network-controls.md)                                                                                                                                           |
-| **OAuth Applications** | Which third-party apps can act for your users.                             | [OAuth Applications](https://cursor.com/docs/security/oauth-applications.md)                                                                                                                                       |
-| **Audit**              | A record of security events and admin changes.                             | [Audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs)                                                                                                                           |
+| Layer                  | What it controls                                                                                       | Where to read more                                                                                                                                                                                                 |
+| :--------------------- | :----------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Identity**           | Who can sign in, and how accounts are created and removed.                                             | [SSO](https://cursor.com/docs/account/teams/sso.md), [SCIM](https://cursor.com/docs/account/teams/scim.md), [Identity and access management](https://cursor.com/docs/enterprise/identity-and-access-management.md) |
+| **Credentials**        | What a script, service, or integration can do without a person present.                                | [API keys and service tokens](https://cursor.com/docs/security/api-keys.md), [Service accounts](https://cursor.com/docs/account/enterprise/service-accounts.md)                                                    |
+| **Sessions**           | Where each person is signed in, and how to end that access.                                            | [Session management](https://cursor.com/docs/security/sessions.md)                                                                                                                                                 |
+| **Network**            | Which addresses can reach Cursor, and which destinations agents can reach.                             | [Network controls](https://cursor.com/docs/security/network-controls.md)                                                                                                                                           |
+| **OAuth Applications** | Which third-party apps can act for your users, and which of your own servers can act for your members. | [OAuth Applications](https://cursor.com/docs/security/oauth-applications.md), [Trusted issuers](https://cursor.com/docs/security/trusted-issuers.md)                                                               |
+| **Audit**              | A record of security events and admin changes.                                                         | [Audit logs](https://cursor.com/docs/enterprise/compliance-and-monitoring.md#audit-logs)                                                                                                                           |
 
 ## Identity
 
@@ -46,11 +46,12 @@ Two kinds of controls apply to network traffic, and they point in opposite direc
 
 See [Network controls](https://cursor.com/docs/security/network-controls.md).
 
-## OAuth Applications
+## OAuth Applications and trusted issuers
 
-Software outside Cursor can act for a user, with that user's consent and within the scopes you allow. A partner or internal app sends the user to a Cursor consent page and receives tokens for the access they approve.
+Software outside Cursor can act for a user within the scopes you allow.
 
-See [OAuth Applications](https://cursor.com/docs/security/oauth-applications.md).
+- **OAuth Applications.** A partner or internal app sends the user to a Cursor consent page and receives tokens for the access they approve. Use one when the app serves users outside your team or organization. See [OAuth Applications](https://cursor.com/docs/security/oauth-applications.md).
+- **Trusted issuers.** A server you run signs a short assertion, and Cursor exchanges it for a short-lived access token for a member of your own team or organization. An admin chooses the scopes and token lifetime, and members don't approve anything. See [Trusted issuers](https://cursor.com/docs/security/trusted-issuers.md).
 
 ## Audit
 

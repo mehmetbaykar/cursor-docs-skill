@@ -12,7 +12,7 @@ OAuth applications are currently available to select partners. For early access,
 
 Cursor uses the OAuth 2.0 authorization code flow with PKCE. Team admins register applications on the **OAuth Applications** page of the [dashboard](https://cursor.com/dashboard).
 
-Use an OAuth application when the user is at your application and you store a client secret.
+Use an OAuth application when the user is at your application and you store a client secret. If your backend acts only for members of your own team or organization, use a [trusted issuer](https://cursor.com/docs/security/trusted-issuers.md) instead. An admin approves it once, and members don't see a consent page. See [When to use a trusted issuer](https://cursor.com/docs/security/trusted-issuers.md#when-to-use-a-trusted-issuer).
 
 ## Register an application
 
@@ -231,5 +231,6 @@ Admins who need to cut off an application for everyone can disable or delete it.
 
 ## Related
 
+- [Trusted issuers](https://cursor.com/docs/security/trusted-issuers.md)
 - [API keys and service tokens](https://cursor.com/docs/security/api-keys.md)
 - [Security overview](https://cursor.com/docs/security.md)

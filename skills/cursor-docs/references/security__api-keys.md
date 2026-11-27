@@ -105,6 +105,8 @@ An expired key fails authentication. It stays in the list so you can see what it
 
 Choose **Never expires** only for a key that you rotate on your own schedule.
 
+For credentials that last minutes or hours, use a [trusted issuer](https://cursor.com/docs/security/trusted-issuers.md) instead of an API key. Your service exchanges its own token for a Cursor access token, and an admin sets how long each token lasts. See [Token lifetime and scopes](https://cursor.com/docs/security/trusted-issuers.md#token-lifetime-and-scopes).
+
 ## Rotate a key
 
 Rotating a key replaces its secret and keeps its name and permissions.
@@ -159,23 +161,25 @@ For the events keys produce, see [API keys and service accounts](https://cursor.
 
 A service token is the same kind of credential as an API key. It has an owner and a set of permissions, and it can do only what those permissions allow, never more than its owner can. You don't create a service token yourself. Cursor issues it automatically in exchange for another credential, and it expires much sooner than a key.
 
-Cursor issues service tokens in two ways:
+Cursor issues service tokens in three ways:
 
-| Issued through                                                               | Acts as                                                                                                                                                                                                          | Lifetime                                                            |
-| :--------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
-| [OAuth Applications](https://cursor.com/docs/security/oauth-applications.md) | The user who approved the application, with the scopes they approved                                                                                                                                             | 1 hour. The application gets the next token with its refresh token. |
-| Delegated tokens                                                             | One active team member, when a service account key calls `POST /v1/sub-tokens`. See [Create a user-scoped worker token](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-a-user-scoped-worker-token). | 1 hour                                                              |
+| Issued through                                                               | Acts as                                                                                                                                                                                                          | Lifetime                                                                  |
+| :--------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
+| [OAuth Applications](https://cursor.com/docs/security/oauth-applications.md) | The user who approved the application, with the scopes they approved                                                                                                                                             | 1 hour. The application gets the next token with its refresh token.       |
+| [Trusted issuers](https://cursor.com/docs/security/trusted-issuers.md)       | A member of the team or organization that owns the issuer, after a server you run exchanges a signed assertion                                                                                                   | Set by an admin on the issuer. The issuer can ask for a shorter lifetime. |
+| Delegated tokens                                                             | One active team member, when a service account key calls `POST /v1/sub-tokens`. See [Create a user-scoped worker token](https://cursor.com/docs/cloud-agent/api/endpoints.md#create-a-user-scoped-worker-token). | 1 hour                                                                    |
 
 Service tokens follow the same rules as API keys:
 
-- **Permissions.** Tokens use the same permissions as keys. A token from an OAuth application holds only the scopes the user approved. A delegated token holds only what its service account key allows.
-- **Team policy.** An enforced [IP allowlist](https://cursor.com/docs/security/network-controls.md#ip-allowlist) covers API requests made with a token, as it covers requests made with a key. While a team has **Allow personal API key creation** turned off, OAuth applications can't get tokens for that team.
+- **Permissions.** Tokens use the same permissions as keys. A token from an OAuth application holds only the scopes the user approved. A token from a trusted issuer holds only scopes an admin chose for the issuer. A delegated token holds only what its service account key allows.
+- **Team policy.** An enforced [IP allowlist](https://cursor.com/docs/security/network-controls.md#ip-allowlist) covers API requests made with a token, as it covers requests made with a key. While a team has **Allow personal API key creation** turned off, OAuth applications and trusted issuers can't get tokens for that team.
 
 Two things work differently, because Cursor issues the token and you don't:
 
 - **Tokens aren't listed.** The API Keys page lists keys, not service tokens. A token has no row there, so it has no **Last used** date and no **View audit logs** action.
 - **You revoke a token where it was issued.** You can't delete a single token from the dashboard. Revoke what issued it instead:
   - **OAuth Applications.** The application revokes its own tokens. To end every token an application holds, select **Disable application** or **Delete application**. See [Manage an application](https://cursor.com/docs/security/oauth-applications.md#manage-an-application).
+  - **Trusted issuers.** Select **Disable issuer**, **Revoke key**, or **Revoke issuer**. See [Disable or delete an issuer](https://cursor.com/docs/security/trusted-issuers.md#disable-or-delete-an-issuer).
   - **Delegated tokens.** A delegated token stops working when its service account key is deleted or expires, when the service account is archived, or when the member leaves the team.
 
 Revoking your personal keys when you [sign out everywhere](https://cursor.com/docs/security/sessions.md#sign-out-everywhere) doesn't revoke service tokens.

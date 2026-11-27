@@ -6,12 +6,12 @@
     "fetch_tool_version": "3.0",
     "pages_excluded": 0,
     "pages_failed": 0,
-    "pages_fetched_successfully": 285,
+    "pages_fetched_successfully": 286,
     "pages_skipped": 0,
     "pages_stale": 0,
     "raw_fallback_pages": 0,
     "stale_pages": [],
-    "total_pages_discovered": 285
+    "total_pages_discovered": 286
   },
   "files": {
     "account__organizations__organization-admin-api.md": {
@@ -1365,8 +1365,8 @@
       "title": "Quickstart"
     },
     "guides.md": {
-      "hash": "b4480291e10a8cd4deb831a423a926f75cd46e6bcfa747c3d6321efe09121a90",
-      "last_updated": "2026-11-26T18:23:31+00:00",
+      "hash": "ee4e379213289a0066599ccc290b9ed4e21370fcd21fb13a63b4ffc3c4d8baf6",
+      "last_updated": "2026-11-27T21:20:36+00:00",
       "original_url": "https://cursor.com/guides",
       "path": "/guides",
       "section": "guides",
@@ -2625,8 +2625,8 @@
       "title": "Security Review"
     },
     "security.md": {
-      "hash": "8d868e2bf271360fef2fd7dd1c4a030635a5c2b2c6233c540c6235e7bec0146b",
-      "last_updated": "2026-11-25T18:22:17+00:00",
+      "hash": "8d911df64b10a12fd2ef0278cd1f0d4bb65ee4ba4720b14adf6fcf7bceb6d483",
+      "last_updated": "2026-11-27T21:20:33+00:00",
       "original_url": "https://cursor.com/docs/security",
       "path": "/docs/security",
       "section": "docs",
@@ -2635,8 +2635,8 @@
       "title": "Security overview"
     },
     "security__api-keys.md": {
-      "hash": "f8643a83754e450497a378465e4658cbffa5a77e8dd4023316d067605c31a471",
-      "last_updated": "2026-11-25T18:22:17+00:00",
+      "hash": "d41a354950b245fd4ed5221adf634b27f00101d1b2f3b31a74b5a75ab95a5096",
+      "last_updated": "2026-11-27T21:20:34+00:00",
       "original_url": "https://cursor.com/docs/security/api-keys",
       "path": "/docs/security/api-keys",
       "section": "docs",
@@ -2645,8 +2645,8 @@
       "title": "API keys and service tokens"
     },
     "security__network-controls.md": {
-      "hash": "de7e12093516128211d44315d220f71b19d86a75aacbe6a241aa58974339ff9f",
-      "last_updated": "2026-11-25T21:20:23+00:00",
+      "hash": "f8e367cae743e87ff08bfa6ae30fbcb1d58f0262a5d064e639bdfefe1d560608",
+      "last_updated": "2026-11-27T21:20:34+00:00",
       "original_url": "https://cursor.com/docs/security/network-controls",
       "path": "/docs/security/network-controls",
       "section": "docs",
@@ -2655,8 +2655,8 @@
       "title": "Network controls"
     },
     "security__oauth-applications.md": {
-      "hash": "53cade19c112b3a8926297597d536310d73223719d68bd6f933c527dbf0aa43c",
-      "last_updated": "2026-11-25T18:22:18+00:00",
+      "hash": "ca6ceb03fb6bc3fc0c7fb500210b81b94a89f080cbae373b0f7965df73dc8110",
+      "last_updated": "2026-11-27T21:20:34+00:00",
       "original_url": "https://cursor.com/docs/security/oauth-applications",
       "path": "/docs/security/oauth-applications",
       "section": "docs",
@@ -2665,14 +2665,24 @@
       "title": "OAuth Applications"
     },
     "security__sessions.md": {
-      "hash": "9db168f9106c267941aea11f28eef422d7d64809ec651e04901e21c4df9743e5",
-      "last_updated": "2026-11-25T18:22:18+00:00",
+      "hash": "678522f1e0103e6efef936382bba1fbd4130cb470bd46b4a9671d9220c3b8071",
+      "last_updated": "2026-11-27T21:20:34+00:00",
       "original_url": "https://cursor.com/docs/security/sessions",
       "path": "/docs/security/sessions",
       "section": "docs",
       "source_url": "https://cursor.com/docs/security/sessions",
       "status": "live",
       "title": "Session management"
+    },
+    "security__trusted-issuers.md": {
+      "hash": "5d41a32695be4fc2dfe6f5760fe8cf51e1f1cbbc26c589ebfb0f393a8cf03279",
+      "last_updated": "2026-11-27T21:20:35+00:00",
+      "original_url": "https://cursor.com/docs/security/trusted-issuers",
+      "path": "/docs/security/trusted-issuers",
+      "section": "docs",
+      "source_url": "https://cursor.com/docs/security/trusted-issuers",
+      "status": "live",
+      "title": "Trusted issuers"
     },
     "skills.md": {
       "hash": "46d72d2b03574683c4db794932f4f3f51e9ab50fce97b41185590b0cf3544120",
@@ -2880,7 +2890,7 @@
       "/guides/*"
     ]
   },
-  "last_updated": "2026-11-26T18:23:43+00:00",
+  "last_updated": "2026-11-27T21:20:48+00:00",
   "skipped": [],
   "source": {
     "base_url": "https://cursor.com",

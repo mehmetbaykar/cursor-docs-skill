@@ -267,6 +267,7 @@ Invoke this skill with a topic: `/cursor-docs hooks` in Claude Code or Cursor, `
 - `security__network-controls` - [Network controls](https://cursor.com/docs/security/network-controls)
 - `security__oauth-applications` - [OAuth Applications](https://cursor.com/docs/security/oauth-applications)
 - `security__sessions` - [Session management](https://cursor.com/docs/security/sessions)
+- `security__trusted-issuers` - [Trusted issuers](https://cursor.com/docs/security/trusted-issuers)
 - `skills` - [Agent Skills](https://cursor.com/docs/skills)
 - `subagents` - [Subagents](https://cursor.com/docs/subagents)
 - `vulnerability-remediation` - [Vulnerability Remediation](https://cursor.com/docs/vulnerability-remediation)

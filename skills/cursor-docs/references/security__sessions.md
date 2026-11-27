@@ -91,7 +91,7 @@ Grant them only to keys that run offboarding or incident response. See [API keys
 ## What revoking a session doesn't do
 
 - **It doesn't revoke API keys.** Keys keep working until they expire or someone revokes them. A member can revoke their own keys when they sign out everywhere. Admins can [revoke a member's keys](https://cursor.com/docs/security/api-keys.md#revoke-a-key) separately.
-- **It doesn't end an application's access.** OAuth applications the member approved keep their access. See [Revoke an application's access](https://cursor.com/docs/security/oauth-applications.md#revoke-access).
+- **It doesn't end an application's access.** OAuth applications the member approved keep their access, and trusted issuers can still get tokens for the member. See [Revoke an application's access](https://cursor.com/docs/security/oauth-applications.md#revoke-access) and [Disable or delete an issuer](https://cursor.com/docs/security/trusted-issuers.md#disable-or-delete-an-issuer).
 - **It doesn't block the next sign-in.** Use your identity provider or team membership for that.
 
 ## Audit

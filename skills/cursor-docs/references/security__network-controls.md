@@ -28,6 +28,7 @@ An enforced allowlist refuses these requests from addresses outside the list:
 - **Sign-in.** Signing in from the desktop app, the web, the CLI, and mobile, and refreshing an existing session.
 - **The dashboard.** Viewing and changing team settings.
 - **API requests.** Calls to Cursor's APIs with a key or token that belongs to the team.
+- **Trusted issuer exchanges.** Each [trusted issuer](https://cursor.com/docs/security/trusted-issuers.md) token exchange, checked against the lists of the teams and organization of the member the token is for.
 - **Cloud Agents.** Starting and managing Cloud Agents, and calling an automation's own webhook URL.
 
 A person who belongs to more than one team is checked against each team's list.
@@ -63,6 +64,7 @@ That check covers only the admin who saves. Before you turn the list on, account
 
 - **Remote and traveling members.** Include your VPN or secure web gateway egress addresses, and require members to connect through them.
 - **Automation.** Include the addresses of CI runners, scripts, and servers that call Cursor with a team API key or service account.
+- **Trusted issuers.** Include the servers of any [trusted issuer](https://cursor.com/docs/security/trusted-issuers.md) that exchanges tokens for your members.
 - **A second admin on a second network.** Keep one who can change the list if your primary egress address changes.
 
 If members are blocked after you turn the list on, an admin on an allowed address can edit the list or turn off **Limit access by IP address**.
